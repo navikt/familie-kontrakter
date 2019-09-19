@@ -1,0 +1,42 @@
+version: 2.1
+orbs:
+  barkendeploy: navikt/barkendeploy@dev:master
+jobs:
+  publish:
+    docker:
+      - image: "circleci/openjdk:8-jdk"
+    steps:
+      - checkout
+      - barkendeploy/gradle-cache-restore
+      - run:
+          name: Build artifact
+          command: ./gradlew build -x test
+      - run:
+          name: Run tests
+          command: ./gradlew test
+      - barkendeploy/gradle-cache-persist
+      - run:
+          name: Import gpg key
+          command: echo $GPG_KEY_BASE64 | base64 --decode | gpg --yes --batch --import
+      - run:
+          name: Publish artifacts
+          command: ./gradlew publish closeAndReleaseRepository -Psigning.gnupg.keyName=${GPG_KEY_NAME} --stacktrace -Psigning.gnupg.passphrase=${GPG_PASSPHRASE} -Psigning.gnupg.executable=gpg
+  build:
+    docker:
+      - image: "circleci/openjdk:8-jdk"
+    steps:
+      - checkout
+      - barkendeploy/gradle-cache-restore
+      - run:
+          name: Run tests
+          command: ./gradlew test
+
+workflows:
+  version: 2
+  build_and_publish:
+    jobs:
+      - publish:
+          context: Maven Central Release
+          filters:
+            branches:
+              only: master

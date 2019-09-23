@@ -1,6 +1,6 @@
 package no.nav.familie.ks.søknadkontrakt
 
 data class OppgittUtlandsTilknytning(
-        val utland: ArbeidYtelseUtland,
-        val tilknytningTilUtland: TilknytningTilUtland
+        val aktørerArbeidYtelseIUtlandet: Set<AktørArbeidYtelseUtland>,
+        val aktørerTilknytningTilUtlandet: Set<AktørTilknytningUtland>
 )

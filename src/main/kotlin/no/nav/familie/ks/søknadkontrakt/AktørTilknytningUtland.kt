@@ -1,7 +1,10 @@
 package no.nav.familie.ks.søknadkontrakt
 
+import javax.validation.constraints.Pattern
+
 data class AktørTilknytningUtland(
-    val aktørId: String,
-    val tilknytningTilUtland: TilknytningTilUtlandVerdier,
-    val tilknytningTilUtlandForklaring: String
+        @Pattern(regexp = "[0-9]{13}")
+        val aktørId: String,
+        val boddEllerJobbetINorgeMinstFemAar: TilknytningTilUtlandVerdier,
+        val boddEllerJobbetINorgeMinstFemAarForklaring: String
 )

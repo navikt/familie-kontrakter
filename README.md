@@ -1,7 +1,11 @@
 familie-ks-kontrakter
 ================
 
-Interne kontrakter for kontantstøtte-applikasjonene
+Interne kontrakter for kontantstøtte-applikasjonene.
+
+Kontrakten er uttrykt som et sett med klasser og deres avhengigheter til hverandre. Denne strukturen skal gjenbrukes i andre prosjekter, så man ikke spesifiserer den samme strukturen i flere prosjekter. Enkel felt-validering spesifiseres også i denne kontrakten.
+
+Foreløpig har vi en kontrakt for datastrukturen som skal ligge til grunn for saksbehandlingen. En del av dataene kommer fra brukeren selv i søknadsdialogen, resten kommer fra oppslag mot TPS o.l.
 
 # Komme i gang
 

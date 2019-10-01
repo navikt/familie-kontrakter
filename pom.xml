@@ -7,7 +7,7 @@
     <groupId>no.nav.familie.ks</groupId>
     <artifactId>familie-ks-kontrakt</artifactId>
     <version>${revision}${sha1}${changelist}</version>
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
     <description>Kontantstøtte DTO'er</description>
     <url>https://github.com/navikt/familie-ks-kontrakt</url>
 

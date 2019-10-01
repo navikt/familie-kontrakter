@@ -11,7 +11,7 @@ data class Oppgave(
     val eksisterendeOppgaveId: String?,
     val behandlendeEnhetId: String,
     val beskrivelse: String,
-    val behandlingsfristDager: Int
+    val behandlingsfristDager: Int = 0
 ) : Kontrakt() {
     fun Oppgave.toJson(): String = objectMapper.writeValueAsString(this)
     fun String.toOppgave(): Oppgave = objectMapper.readValue(this)

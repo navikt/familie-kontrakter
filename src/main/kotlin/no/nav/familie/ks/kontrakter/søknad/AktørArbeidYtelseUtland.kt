@@ -1,4 +1,4 @@
-package no.nav.familie.ks.søknadkontrakt
+package no.nav.familie.ks.kontrakter.søknad
 
 import javax.validation.constraints.Pattern
 

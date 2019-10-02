@@ -6,5 +6,6 @@ data class Barn(
     val barnehageStatus: BarnehageplassStatus,
     val barnehageAntallTimer: Double,
     val barnehageDato: LocalDate,
-    val barnehageKommune: String
+    val barnehageKommune: String,
+    val fødselsnummer: String
 )

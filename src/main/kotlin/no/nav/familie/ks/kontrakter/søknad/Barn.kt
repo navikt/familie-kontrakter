@@ -7,7 +7,7 @@ data class Barn(
     val barnehageAntallTimer: Double?,
     val barnehageDato: LocalDate?,
     val barnehageKommune: String?,
-    val barnehageVedlegg: Array<String>?,
+    val barnehageVedlegg: List<String>?,
     val fødselsnummer: String,
     val navn: String?
 )

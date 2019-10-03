@@ -4,7 +4,7 @@ import javax.validation.constraints.Pattern
 
 data class AktørArbeidYtelseUtland(
     @Pattern(regexp = "[0-9]{13}")
-    val aktørId: String,
+    val aktørId: String?,
     val fødselsnummer: String,
     val arbeidIUtlandet: Standpunkt,
     val arbeidIUtlandetForklaring: String,

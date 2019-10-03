@@ -2,6 +2,7 @@ package no.nav.familie.ks.kontrakter.søknad
 
 import com.fasterxml.jackson.module.kotlin.readValue
 import no.nav.familie.ks.kontrakter.Kontrakt
+import no.nav.familie.ks.kontrakter.objectMapper
 import java.time.LocalDateTime
 import javax.validation.constraints.Pattern
 
@@ -14,7 +15,8 @@ data class Søknad(
     val oppgittFamilieforhold: OppgittFamilieforhold,
     val oppgittUtlandsTilknytning: OppgittUtlandsTilknytning,
     val oppgittErklæring: OppgittErklæring
-) : Kontrakt() {
-    fun Søknad.toJson(): String = objectMapper.writeValueAsString(this)
-    fun String.toSøknad(): Søknad = objectMapper.readValue(this)
-}
+) : Kontrakt
+
+fun String.toSøknad(): Søknad = objectMapper.readValue<Søknad>(this)
+
+fun Søknad.toJson(): String = objectMapper.writeValueAsString(this)

@@ -7,6 +7,7 @@ import javax.validation.constraints.Pattern
 
 data class Søknad(
     @Pattern(regexp = "[0-9]{11}")
+    val Språk: String?,
     val søkerFødselsnummer: String,
     val oppgittAnnenPartFødselsnummer: String?,
     val innsendtTidspunkt: LocalDateTime?,

@@ -6,10 +6,11 @@ import java.io.File
 import java.io.IOError
 import java.io.IOException
 
-class DataBuilder {
+class SøknadTestdata {
     companion object {
         val mapper: ObjectMapper = ObjectMapper()
 
+        @JvmStatic
         fun norskFamilieUtenAnnenPartOgUtenBarnehageplass(): Søknad {
             try {
                 return mapper.readValue(File(getFile("SoknadUtenBarnehageplassUtenAnnenPart.json")), Søknad::class.java)
@@ -19,6 +20,7 @@ class DataBuilder {
 
         }
 
+        @JvmStatic
         fun norskFamilieUtenBarnehageplass(): Søknad {
             try {
                 return mapper.readValue(File(getFile("SoknadNorskFamilieUtenBarnehageplass.json")), Søknad::class.java)
@@ -27,6 +29,7 @@ class DataBuilder {
             }
         }
 
+        @JvmStatic
         fun norskFamilieGradertBarnehageplass(): Søknad {
             try {
                 return mapper.readValue(File(getFile("SoknadNorskFamilieGradertBarnehageplass.json")), Søknad::class.java)
@@ -35,6 +38,7 @@ class DataBuilder {
             }
         }
 
+        @JvmStatic
         fun norskFamilieMedBarnehageplass(): Søknad {
             try {
                 return mapper.readValue(File(getFile("SoknadNorskFamilieMedBarnehageplass.json")), Søknad::class.java)
@@ -43,6 +47,7 @@ class DataBuilder {
             }
         }
 
+        @JvmStatic
         private fun tilknytningUtlandUtenBarnehageplass(): Søknad {
             try {
                 return mapper.readValue(File(getFile("soknadTilknytningUtlandUtenBarnehageplass.json")), Søknad::class.java)

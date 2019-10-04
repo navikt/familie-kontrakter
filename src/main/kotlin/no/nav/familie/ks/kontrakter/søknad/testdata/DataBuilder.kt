@@ -10,37 +10,20 @@ class SøknadTestdata {
     companion object {
         val mapper: ObjectMapper = ObjectMapper()
 
-        @JvmStatic
-        val morAktørId = "1300000000001"
+        const val morAktørId = "1300000000001"
+        const val morPersonident = "00000000001"
 
-        @JvmStatic
-        val morPersonident = "00000000001"
+        const val farAktørId = "1300000000002"
+        const val farPersonident = "00000000002"
 
-        @JvmStatic
-        val farAktørId = "1300000000002"
+        const val barnAktørId = "1300000000003"
+        const val barnPersonident = "00000000003"
 
-        @JvmStatic
-        val farPersonident = "00000000002"
+        const val utenlandskMorAktørId = "1300000000005"
+        const val utenlandskMorPersonident = "00000000005"
 
-        @JvmStatic
-        val barnAktørId = "1300000000003"
-
-        @JvmStatic
-        val barnPersonident = "00000000003"
-
-        @JvmStatic
-        val utenlandskFarAktørId = "1300000000004"
-
-        @JvmStatic
-        val utenlandskFarPersonident = "00000000004"
-
-        @JvmStatic
-        val utenlandskMorAktørId = "1300000000005"
-
-        @JvmStatic
-        val utenlandskMorPersonident = "00000000005"
-
-
+        const val utenlandskFarAktørId = "1300000000004"
+        const val utenlandskFarPersonident = "00000000004"
 
         @JvmStatic
         fun norskFamilieUtenAnnenPartOgUtenBarnehageplass(): Søknad {

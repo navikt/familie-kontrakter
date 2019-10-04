@@ -5,7 +5,14 @@ import com.fasterxml.jackson.annotation.PropertyAccessor
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.ObjectMapper
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer
 import com.fasterxml.jackson.module.kotlin.registerKotlinModule
+import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+
 
 interface Kontrakt
 
@@ -16,5 +23,6 @@ val objectMapper: ObjectMapper
         .setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY)
         .setVisibility(PropertyAccessor.CREATOR, JsonAutoDetect.Visibility.ANY)
         .registerKotlinModule()
-        .registerModule(JavaTimeModule())
+        .registerModule(JavaTimeModule().addDeserializer(LocalDate::class.java, LocalDateDeserializer(
+            DateTimeFormatter.ofPattern("dd.MM.yyyy"))))
         .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)

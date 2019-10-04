@@ -37,6 +37,11 @@ class SøknadTestdata {
         }
 
         @JvmStatic
+        fun norskFamilieUtenBarnehageplassFlerlinger(): Søknad {
+            return hentSøknadFraFil("SøknadNorskFamilieUtenBarnehageplassFlerlinger.json")
+        }
+
+        @JvmStatic
         fun norskFamilieGradertBarnehageplass(): Søknad {
             return hentSøknadFraFil("SøknadNorskFamilieGradertBarnehageplass.json")
         }

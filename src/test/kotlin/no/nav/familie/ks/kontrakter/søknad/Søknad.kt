@@ -24,4 +24,12 @@ class SøknadKontrakt {
         assertNotNull(søknad)
         assertEquals(søknad.søkerFødselsnummer, SøknadTestdata.morPersonident)
     }
+
+    @Test
+    fun test_uthenting_av_testdata_flerlinger() {
+        val søknad = SøknadTestdata.norskFamilieUtenBarnehageplassFlerlinger()
+
+        assertNotNull(søknad)
+        assertEquals(søknad.oppgittFamilieforhold.barna.size, 2);
+    }
 }

@@ -28,7 +28,7 @@ class SøknadTestdata {
 
         @JvmStatic
         fun norskFamilieUtenAnnenPartOgUtenBarnehageplass(): Søknad {
-            return hentSøknadFraFil("SøknadUtenBarnehageplassUtenAnnenPart.json")
+            return hentSøknadFraFil("SøknadNorskFamilieUtenAnnenPartOgUtenBarnehageplass.json")
         }
 
         @JvmStatic
@@ -63,7 +63,7 @@ class SøknadTestdata {
 
         @JvmStatic
         fun tilknytningUtlandUtenBarnehageplass(): Søknad {
-            return hentSøknadFraFil("soknadTilknytningUtlandUtenBarnehageplass.json")
+            return hentSøknadFraFil("SøknadTilknytningUtlandUtenBarnehageplass.json")
         }
 
         private fun hentSøknadFraFil(filnavn: String): Søknad {

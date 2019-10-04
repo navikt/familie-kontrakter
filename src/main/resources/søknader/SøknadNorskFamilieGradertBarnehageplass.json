@@ -11,7 +11,7 @@
     "barna": [
       {
         "barnehageAntallTimer": 15,
-        "barnehageDato": "2019.01.01",
+        "barnehageDato": "2019-01-01",
         "barnehageKommune": "Oslo",
         "barnehageStatus": "skalBegynneIBarnehage",
         "fødselsnummer": "00000000003",

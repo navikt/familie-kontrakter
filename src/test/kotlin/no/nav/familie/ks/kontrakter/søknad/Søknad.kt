@@ -16,4 +16,12 @@ class SøknadKontrakt {
         assertNotNull(søknad)
         assertEquals(søknad.søkerFødselsnummer, SøknadTestdata.morPersonident)
     }
+
+    @Test
+    fun test_uthenting_av_testdata_uten_annen_part() {
+        val søknad = SøknadTestdata.norskFamilieUtenAnnenPartOgUtenBarnehageplass()
+
+        assertNotNull(søknad)
+        assertEquals(søknad.søkerFødselsnummer, SøknadTestdata.morPersonident)
+    }
 }

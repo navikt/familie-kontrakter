@@ -1,7 +1,9 @@
 package no.nav.familie.ks.kontrakter.søknad.testdata
 
 import com.fasterxml.jackson.databind.ObjectMapper
+import no.nav.familie.ks.kontrakter.Kontrakt
 import no.nav.familie.ks.kontrakter.søknad.Søknad
+import no.nav.familie.ks.kontrakter.søknad.toSøknad
 import java.io.File
 import java.io.IOError
 import java.io.IOException
@@ -19,60 +21,57 @@ class SøknadTestdata {
         const val barnAktørId = "1300000000003"
         const val barnPersonident = "00000000003"
 
+        const val utenlandskBarnAktørId = "1300000000004"
+        const val utenlandskBarnPersonident = "00000000004"
+
         const val utenlandskMorAktørId = "1300000000005"
         const val utenlandskMorPersonident = "00000000005"
 
-        const val utenlandskFarAktørId = "1300000000004"
-        const val utenlandskFarPersonident = "00000000004"
+        const val utenlandskFarAktørId = "1300000000006"
+        const val utenlandskFarPersonident = "00000000006"
 
         @JvmStatic
         fun norskFamilieUtenAnnenPartOgUtenBarnehageplass(): Søknad {
-            try {
-                return mapper.readValue(File(getFile("SoknadUtenBarnehageplassUtenAnnenPart.json")), Søknad::class.java)
-            } catch (e: IOException) {
-                throw IOError(e)
-            }
-
+            return getFile("SøknadUtenBarnehageplassUtenAnnenPart.json").toSøknad()
         }
 
         @JvmStatic
         fun norskFamilieUtenBarnehageplass(): Søknad {
-            try {
-                return mapper.readValue(File(getFile("SoknadNorskFamilieUtenBarnehageplass.json")), Søknad::class.java)
-            } catch (e: IOException) {
-                throw IOError(e)
-            }
+            return getFile("SøknadNorskFamilieUtenBarnehageplass.json").toSøknad()
         }
 
         @JvmStatic
         fun norskFamilieGradertBarnehageplass(): Søknad {
-            try {
-                return mapper.readValue(File(getFile("SoknadNorskFamilieGradertBarnehageplass.json")), Søknad::class.java)
-            } catch (e: IOException) {
-                throw IOError(e)
-            }
+            return getFile("SøknadNorskFamilieGradertBarnehageplass.json").toSøknad()
         }
 
         @JvmStatic
         fun norskFamilieMedBarnehageplass(): Søknad {
-            try {
-                return mapper.readValue(File(getFile("SoknadNorskFamilieMedBarnehageplass.json")), Søknad::class.java)
-            } catch (e: IOException) {
-                throw IOError(e)
-            }
+            return getFile("SøknadNorskFamilieMedBarnehageplass.json").toSøknad()
+        }
+
+        @JvmStatic
+        fun enForelderIUtlandUtenBarnehageplass(): Søknad {
+            return getFile("SøknadEnForelderIUtlandUtenBarnehageplass.json").toSøknad()
+        }
+
+        @JvmStatic
+        fun utenlandskFamilieUtenBarnehageplass(): Søknad {
+            return getFile("SøknadUtenlandskFamilieUtenBarnehageplass.json").toSøknad()
+        }
+
+        @JvmStatic
+        fun utenlandskFamilieMedBarnehageplass(): Søknad {
+            return getFile("SøknadUtenlandskFamilieMedBarnehageplass.json").toSøknad()
         }
 
         @JvmStatic
         fun tilknytningUtlandUtenBarnehageplass(): Søknad {
-            try {
-                return mapper.readValue(File(getFile("soknadTilknytningUtlandUtenBarnehageplass.json")), Søknad::class.java)
-            } catch (e: IOException) {
-                throw IOError(e)
-            }
+            return getFile("soknadTilknytningUtlandUtenBarnehageplass.json").toSøknad()
         }
 
         fun getFile(filnavn: String): String {
-            return this::class.java.getResource(String.format("json/%s", filnavn)).file
+            return File(String.format("src/main/resources/søknader/%s", filnavn)).readText()
         }
     }
 

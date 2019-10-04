@@ -17,6 +17,6 @@ data class Søknad(
     val oppgittErklæring: OppgittErklæring
 ) : Kontrakt
 
-fun String.toSøknad(): Søknad = objectMapper.readValue<Søknad>(this)
+fun String.toSøknad(): Søknad = objectMapper.readValue(this)
 
 fun Søknad.toJson(): String = objectMapper.writeValueAsString(this)

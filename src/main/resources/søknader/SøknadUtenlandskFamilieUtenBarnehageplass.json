@@ -1,0 +1,58 @@
+{
+  "innsendtTidspunkt": "2019-10-02T10:17:41.797Z",
+  "oppgittAnnenPartFødselsnummer": "00000000006",
+  "oppgittErklæring": {
+    "isBarnINorgeNeste12Måneder": true,
+    "isBarnetHjemmeværendeOgIkkeAdoptert": true,
+    "isBorSammenMedBarnet": true,
+    "isIkkeAvtaltDeltBosted": true
+  },
+  "oppgittFamilieforhold": {
+    "barna": [
+      {
+        "barnehageAntallTimer": 0,
+        "barnehageDato": "",
+        "barnehageKommune": "",
+        "barnehageStatus": "garIkkeIBarnehage",
+        "fødselsnummer": "00000000004",
+        "vedlegg": []
+      }
+    ],
+    "borBeggeForeldreSammen": false
+  },
+  "oppgittUtlandsTilknytning": {
+    "aktørerArbeidYtelseIUtlandet": [
+      {
+        "arbeidIUtlandet": "NEI",
+        "arbeidIUtlandetForklaring": "",
+        "fødselsnummer": "00000000001",
+        "kontantstøtteIUtlandet": "NEI",
+        "kontantstøtteIUtlandetForklaring": "",
+        "ytelseIUtlandet": "NEI",
+        "ytelseIUtlandetForklaring": ""
+      },
+      {
+        "arbeidIUtlandet": "NEI",
+        "arbeidIUtlandetForklaring": "",
+        "fødselsnummer": "00000000002",
+        "kontantstøtteIUtlandet": "NEI",
+        "kontantstøtteIUtlandetForklaring": "",
+        "ytelseIUtlandet": "NEI",
+        "ytelseIUtlandetForklaring": ""
+      }
+    ],
+    "aktørerTilknytningTilUtlandet": [
+      {
+        "boddEllerJobbetINorgeMinstFemAar": "jaINorge",
+        "boddEllerJobbetINorgeMinstFemAarForklaring": "",
+        "fødselsnummer": "00000000001"
+      },
+      {
+        "boddEllerJobbetINorgeMinstFemAar": "jaINorge",
+        "boddEllerJobbetINorgeMinstFemAarForklaring": "",
+        "fødselsnummer": "00000000002"
+      }
+    ]
+  },
+  "søkerFødselsnummer": "00000000005"
+}

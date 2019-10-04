@@ -2,6 +2,7 @@ package no.nav.familie.ks.kontrakter.oppgave
 
 import com.fasterxml.jackson.module.kotlin.readValue
 import no.nav.familie.ks.kontrakter.Kontrakt
+import no.nav.familie.ks.kontrakter.objectMapper
 import javax.validation.constraints.Pattern
 
 data class Oppgave(
@@ -12,7 +13,7 @@ data class Oppgave(
     val behandlendeEnhetId: String,
     val beskrivelse: String,
     val behandlingsfristDager: Int = 0
-) : Kontrakt() {
-    fun Oppgave.toJson(): String = objectMapper.writeValueAsString(this)
-    fun String.toOppgave(): Oppgave = objectMapper.readValue(this)
-}
+) : Kontrakt
+
+fun Oppgave.toJson(): String = objectMapper.writeValueAsString(this)
+fun String.toOppgave(): Oppgave = objectMapper.readValue(this)

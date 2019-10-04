@@ -1,12 +1,8 @@
 package no.nav.familie.ks.kontrakter.søknad.testdata
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import no.nav.familie.ks.kontrakter.Kontrakt
 import no.nav.familie.ks.kontrakter.søknad.Søknad
 import no.nav.familie.ks.kontrakter.søknad.toSøknad
-import java.io.File
-import java.io.IOError
-import java.io.IOException
 
 class SøknadTestdata {
     companion object {
@@ -32,47 +28,46 @@ class SøknadTestdata {
 
         @JvmStatic
         fun norskFamilieUtenAnnenPartOgUtenBarnehageplass(): Søknad {
-            return getFile("SøknadUtenBarnehageplassUtenAnnenPart.json").toSøknad()
+            return hentSøknadFraFil("SøknadUtenBarnehageplassUtenAnnenPart.json")
         }
 
         @JvmStatic
         fun norskFamilieUtenBarnehageplass(): Søknad {
-            return getFile("SøknadNorskFamilieUtenBarnehageplass.json").toSøknad()
+            return hentSøknadFraFil("SøknadNorskFamilieUtenBarnehageplass.json")
         }
 
         @JvmStatic
         fun norskFamilieGradertBarnehageplass(): Søknad {
-            return getFile("SøknadNorskFamilieGradertBarnehageplass.json").toSøknad()
+            return hentSøknadFraFil("SøknadNorskFamilieGradertBarnehageplass.json")
         }
 
         @JvmStatic
         fun norskFamilieMedBarnehageplass(): Søknad {
-            return getFile("SøknadNorskFamilieMedBarnehageplass.json").toSøknad()
+            return hentSøknadFraFil("SøknadNorskFamilieMedBarnehageplass.json")
         }
 
         @JvmStatic
         fun enForelderIUtlandUtenBarnehageplass(): Søknad {
-            return getFile("SøknadEnForelderIUtlandUtenBarnehageplass.json").toSøknad()
+            return hentSøknadFraFil("SøknadEnForelderIUtlandUtenBarnehageplass.json")
         }
 
         @JvmStatic
         fun utenlandskFamilieUtenBarnehageplass(): Søknad {
-            return getFile("SøknadUtenlandskFamilieUtenBarnehageplass.json").toSøknad()
+            return hentSøknadFraFil("SøknadUtenlandskFamilieUtenBarnehageplass.json")
         }
 
         @JvmStatic
         fun utenlandskFamilieMedBarnehageplass(): Søknad {
-            return getFile("SøknadUtenlandskFamilieMedBarnehageplass.json").toSøknad()
+            return hentSøknadFraFil("SøknadUtenlandskFamilieMedBarnehageplass.json")
         }
 
         @JvmStatic
         fun tilknytningUtlandUtenBarnehageplass(): Søknad {
-            return getFile("soknadTilknytningUtlandUtenBarnehageplass.json").toSøknad()
+            return hentSøknadFraFil("soknadTilknytningUtlandUtenBarnehageplass.json")
         }
 
-        fun getFile(filnavn: String): String {
-            return File(String.format("src/main/resources/søknader/%s", filnavn)).readText()
+        private fun hentSøknadFraFil(filnavn: String): Søknad {
+            return this::class.java.getResource("/søknader/$filnavn").readText().toSøknad()
         }
     }
-
 }

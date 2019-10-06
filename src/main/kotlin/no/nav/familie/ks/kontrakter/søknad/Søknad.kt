@@ -7,7 +7,7 @@ import java.time.LocalDateTime
 import javax.validation.constraints.Pattern
 
 data class Søknad(
-    @Pattern(regexp = "[0-9]{11}")
+    @field:Pattern(regexp = "[0-9]{11}")
     val søkerFødselsnummer: String,
     val språk: String?,
     val oppgittAnnenPartFødselsnummer: String?,

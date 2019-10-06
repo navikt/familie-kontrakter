@@ -6,7 +6,7 @@ import no.nav.familie.ks.kontrakter.objectMapper
 import javax.validation.constraints.Pattern
 
 data class Oppgave(
-    @Pattern(regexp = "[0-9]{11}")
+    @field:Pattern(regexp = "[0-9]{11}")
     val fnr: String,
     val gosysSakId: String,
     val eksisterendeOppgaveId: String?,

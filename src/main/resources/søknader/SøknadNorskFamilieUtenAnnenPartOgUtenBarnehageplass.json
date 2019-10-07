@@ -15,6 +15,7 @@
         "barnehageKommune": "",
         "barnehageStatus": "garIkkeIBarnehage",
         "fødselsnummer": "00000000003",
+        "navn": "Jakob Jakobsen",
         "vedlegg": []
       }
     ],
@@ -40,5 +41,6 @@
       }
     ]
   },
+  "språk": "nb",
   "søkerFødselsnummer": "00000000001"
 }

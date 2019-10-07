@@ -15,18 +15,21 @@
         "barnehageKommune": "",
         "barnehageStatus": "garIkkeIBarnehage",
         "fødselsnummer": "00000000003",
+        "navn": "Jakob Jakobsen",
         "vedlegg": []
       },
       {
-        "barnehageAntallTimer": 1,
+        "barnehageAntallTimer": 0,
         "barnehageDato": "",
         "barnehageKommune": "",
         "barnehageStatus": "garIkkeIBarnehage",
         "fødselsnummer": "00000000007",
+        "navn": "Jakob Jakobsen",
         "vedlegg": []
       }
     ],
-    "borBeggeForeldreSammen": false
+    "borBeggeForeldreSammen": true,
+    "oppgittAnnenPartNavn": "Navn2 Navnesen"
   },
   "oppgittUtlandsTilknytning": {
     "aktørerArbeidYtelseIUtlandet": [
@@ -62,5 +65,6 @@
       }
     ]
   },
+  "språk": "nb",
   "søkerFødselsnummer": "00000000001"
 }

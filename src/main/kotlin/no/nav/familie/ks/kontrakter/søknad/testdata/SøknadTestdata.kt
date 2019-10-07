@@ -71,6 +71,11 @@ class SøknadTestdata {
             return hentSøknadFraFil("SøknadTilknytningUtlandUtenBarnehageplass.json")
         }
 
+        @JvmStatic
+        fun utenlandskFamilieMedGradertBarnehageplass(): Søknad {
+            return hentSøknadFraFil("SøknadUtenlandskFamilieMedGradertBarnehage.json")
+        }
+
         private fun hentSøknadFraFil(filnavn: String): Søknad {
             return this::class.java.getResource("/søknader/$filnavn").readText().toSøknad()
         }

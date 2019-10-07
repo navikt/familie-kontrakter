@@ -13,10 +13,10 @@
         "barnehageAntallTimer": 15,
         "barnehageDato": "2019-01-01",
         "barnehageKommune": "Oslo",
-        "barnehageStatus": "skalBegynneIBarnehage",
+        "barnehageStatus": "skalSlutteIBarnehage",
         "fødselsnummer": "00000000003",
         "navn": "Jakob Jakobsen",
-        "vedlegg": []
+        "barnehageVedlegg": ["fil1"]
       }
     ],
     "borBeggeForeldreSammen": true,

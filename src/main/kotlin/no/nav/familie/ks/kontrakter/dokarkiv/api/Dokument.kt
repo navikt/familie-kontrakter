@@ -1,4 +1,4 @@
-package no.nav.familie.ks.oppslag.dokarkiv.api
+package no.nav.familie.ks.kontrakter.dokarkiv.api
 
 import javax.validation.constraints.NotEmpty
 

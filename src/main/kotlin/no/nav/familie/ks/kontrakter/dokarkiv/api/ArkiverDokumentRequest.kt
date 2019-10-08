@@ -1,4 +1,4 @@
-package no.nav.familie.ks.oppslag.dokarkiv.api
+package no.nav.familie.ks.kontrakter.dokarkiv.api
 
 import com.fasterxml.jackson.module.kotlin.readValue
 import no.nav.familie.ks.kontrakter.Kontrakt

@@ -1,4 +1,4 @@
-package no.nav.familie.ks.oppslag.dokarkiv.api
+package no.nav.familie.ks.kontrakter.dokarkiv.api
 
 enum class DokumentType {
     KONTANTSTØTTE_SØKNAD,

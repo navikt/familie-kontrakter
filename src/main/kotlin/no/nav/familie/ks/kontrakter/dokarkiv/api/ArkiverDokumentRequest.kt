@@ -10,9 +10,6 @@ data class ArkiverDokumentRequest(
     @field:NotBlank
     val fnr: String,
 
-    @field:NotBlank
-    val navn: String,
-
     val forsøkFerdigstill: Boolean,
 
     @field:NotEmpty

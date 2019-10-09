@@ -47,7 +47,7 @@ jobs:
             mvn versions:commit
       - run:
           name: Deploy to Maven Central
-          command: "export GPG_TTY=$(tty) && mvn --settings .circleci/maven-settings.xml deploy -Prelease -DskipTests=true"
+          command: "export GPG_TTY=$(tty) && mvn --settings .circleci/maven-settings.xml deploy -Prelease -DskipTests=true -e"
 
 workflows:
   version: 2

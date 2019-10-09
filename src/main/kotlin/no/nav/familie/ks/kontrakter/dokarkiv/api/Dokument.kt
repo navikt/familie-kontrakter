@@ -11,7 +11,7 @@ class Dokument(
     @field:NotEmpty
     val filType: FilType,
 
-    val filnavn: String,
+    val filnavn: String?,
 
     @param:NotEmpty
     @field:NotEmpty

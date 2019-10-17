@@ -10,9 +10,9 @@ data class Oppgave(
     val fnr: String,
     val gosysSakId: String,
     val eksisterendeOppgaveId: String?,
-    val behandlendeEnhetId: String,
+    val behandlendeEnhetId: String?,
     val beskrivelse: String,
-    val behandlingsfristDager: Int = 0
+    val behandlingsfristDager: Int?
 ) : Kontrakt
 
 fun Oppgave.toJson(): String = objectMapper.writeValueAsString(this)

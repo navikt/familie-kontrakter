@@ -9,13 +9,13 @@ class SøknadTestdata {
         val mapper: ObjectMapper = ObjectMapper()
 
         const val morAktørId = "1300000000001"
-        const val morPersonident = "00000000001"
+        const val morPersonident = "12345678901"
 
         const val farAktørId = "1300000000002"
-        const val farPersonident = "00000000002"
+        const val farPersonident = "12345678911"
 
         const val barnAktørId = "1300000000003"
-        const val barnPersonident = "00000000003"
+        const val barnPersonident = "00000000033"
 
         const val utenlandskBarnAktørId = "1300000000004"
         const val utenlandskBarnPersonident = "00000000004"

@@ -14,7 +14,7 @@
         "barnehageDato": "",
         "barnehageKommune": "",
         "barnehageStatus": "garIkkeIBarnehage",
-        "fødselsnummer": "00000000003",
+        "fødselsnummer": "00000000033",
         "navn": "Jakob Jakobsen",
         "vedlegg": []
       }
@@ -26,7 +26,7 @@
       {
         "arbeidIUtlandet": "NEI",
         "arbeidIUtlandetForklaring": "",
-        "fødselsnummer": "00000000001",
+        "fødselsnummer": "12345678901",
         "kontantstøtteIUtlandet": "NEI",
         "kontantstøtteIUtlandetForklaring": "",
         "ytelseIUtlandet": "NEI",
@@ -37,10 +37,10 @@
       {
         "boddEllerJobbetINorgeMinstFemAar": "jaINorge",
         "boddEllerJobbetINorgeMinstFemAarForklaring": "",
-        "fødselsnummer": "00000000001"
+        "fødselsnummer": "12345678901"
       }
     ]
   },
   "språk": "nb",
-  "søkerFødselsnummer": "00000000001"
+  "søkerFødselsnummer": "12345678901"
 }

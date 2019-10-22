@@ -1,6 +1,6 @@
 {
   "innsendtTidspunkt": "2019-10-02T10:17:41.797Z",
-  "oppgittAnnenPartFødselsnummer": "00000000002",
+  "oppgittAnnenPartFødselsnummer": "12345678911",
   "oppgittErklæring": {
     "isBarnINorgeNeste12Måneder": true,
     "isBarnetHjemmeværendeOgIkkeAdoptert": true,
@@ -14,7 +14,7 @@
         "barnehageDato": "",
         "barnehageKommune": "",
         "barnehageStatus": "garIkkeIBarnehage",
-        "fødselsnummer": "00000000003",
+        "fødselsnummer": "00000000033",
         "navn": "Jakob Jakobsen",
         "vedlegg": []
       },
@@ -23,7 +23,7 @@
         "barnehageDato": "",
         "barnehageKommune": "",
         "barnehageStatus": "garIkkeIBarnehage",
-        "fødselsnummer": "00000000007",
+        "fødselsnummer": "00000000077",
         "navn": "Jakob Jakobsen",
         "vedlegg": []
       }
@@ -36,7 +36,7 @@
       {
         "arbeidIUtlandet": "NEI",
         "arbeidIUtlandetForklaring": "",
-        "fødselsnummer": "00000000001",
+        "fødselsnummer": "12345678901",
         "kontantstøtteIUtlandet": "NEI",
         "kontantstøtteIUtlandetForklaring": "",
         "ytelseIUtlandet": "NEI",
@@ -45,7 +45,7 @@
       {
         "arbeidIUtlandet": "NEI",
         "arbeidIUtlandetForklaring": "",
-        "fødselsnummer": "00000000002",
+        "fødselsnummer": "12345678911",
         "kontantstøtteIUtlandet": "NEI",
         "kontantstøtteIUtlandetForklaring": "",
         "ytelseIUtlandet": "NEI",
@@ -56,15 +56,15 @@
       {
         "boddEllerJobbetINorgeMinstFemAar": "jaINorge",
         "boddEllerJobbetINorgeMinstFemAarForklaring": "",
-        "fødselsnummer": "00000000001"
+        "fødselsnummer": "12345678901"
       },
       {
         "boddEllerJobbetINorgeMinstFemAar": "jaINorge",
         "boddEllerJobbetINorgeMinstFemAarForklaring": "",
-        "fødselsnummer": "00000000002"
+        "fødselsnummer": "12345678911"
       }
     ]
   },
   "språk": "nb",
-  "søkerFødselsnummer": "00000000001"
+  "søkerFødselsnummer": "12345678901"
 }

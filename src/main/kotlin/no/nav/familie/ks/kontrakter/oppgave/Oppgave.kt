@@ -6,13 +6,11 @@ import no.nav.familie.ks.kontrakter.objectMapper
 import javax.validation.constraints.Pattern
 
 data class Oppgave(
-    @field:Pattern(regexp = "[0-9]{11}")
-    val fnr: String,
-    val gosysSakId: String,
+    @field:Pattern(regexp = "[0-9]{13}")
+    val aktorId: String,
+    val journalpostId: String,
     val eksisterendeOppgaveId: String?,
-    val behandlendeEnhetId: String,
-    val beskrivelse: String,
-    val behandlingsfristDager: Int = 0
+    val beskrivelse: String
 ) : Kontrakt
 
 fun Oppgave.toJson(): String = objectMapper.writeValueAsString(this)

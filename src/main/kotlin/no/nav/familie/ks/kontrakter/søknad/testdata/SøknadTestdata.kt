@@ -15,10 +15,10 @@ class SøknadTestdata {
         const val farPersonident = "12345678911"
 
         const val barnAktørId = "1300000000003"
-        const val barnPersonident = "00000000033"
+        const val barnPersonident = "01101800033"
 
         const val utenlandskBarnAktørId = "1300000000004"
-        const val utenlandskBarnPersonident = "00000000004"
+        const val utenlandskBarnPersonident = "01101800044"
 
         const val utenlandskMorAktørId = "1300000000005"
         const val utenlandskMorPersonident = "00000000005"

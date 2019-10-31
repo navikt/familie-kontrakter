@@ -21,7 +21,7 @@ jobs:
         run: mvn package dependency:resolve-plugins dependency:go-offline
 
       - name: Cache Maven dependencies
-      - uses: actions/cache@preview
+        uses: actions/cache@preview
         id: cache
         with:
           path: ~/.m2/repository

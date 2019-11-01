@@ -44,5 +44,6 @@ jobs:
 
       - name: Deploy to Github Package
         env:
+          GITHUB_USERNAME: tnarland
           GITHUB_TOKEN: ${{ secrets.GITHUB_PACKAGE_ACCESS_TOKEN }}
-        run: mvn deploy -Prelease -Dregistry=https://maven.pkg.github.com/navikt -Dtoken=$GITHUB_TOKEN -DskipTests=true -e -X
+        run: mvn --settings .github/maven-settings.xml deploy -DskipTests=true -e

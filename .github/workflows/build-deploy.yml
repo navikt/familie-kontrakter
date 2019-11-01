@@ -44,5 +44,5 @@ jobs:
 
       - name: Deploy to Github Package
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
-        run: mvn deploy -Prelease -Dtoken="$GITHUB_TOKEN" -DskipTests=true -e
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: mvn deploy -Prelease -Dtoken=$GITHUB_TOKEN -DskipTests=true -e

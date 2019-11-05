@@ -4,6 +4,9 @@ on:
     branches:
       - '*'
       - '*/*'
+  pull_request:
+    types: [closed]
+
 jobs:
   build-and-deploy-artifact:
     name: Build and deploy to github package

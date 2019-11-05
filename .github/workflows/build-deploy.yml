@@ -2,8 +2,7 @@ name: Build-Deploy
 on:
   push:
     branches:
-      - '*'
-      - '*/*'
+      - master
 jobs:
   deploy-artifact:
     name: Build and deploy to github package
@@ -48,4 +47,4 @@ jobs:
         env:
           GITHUB_USERNAME: x-access-token
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: mvn --settings .github/maven-settings.xml deploy -DskipTests=true -e
+        run: mvn --settings .github/maven-settings.xml deploy -DskipTests=true

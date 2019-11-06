@@ -9,11 +9,64 @@ Foreløpig har vi en kontrakt for datastrukturen som skal ligge til grunn for sa
 
 # Komme i gang
 
-Prosjektet tas inn som en dependency for de som skal produsere eller konsumere disse objektene
+Prosjekter som har avhengigheter til familie-ks-kontrakt må legge til følgende elemeter i pom.xml:
 
-[CircleCI](https://circleci.com/gh/navikt/familie-ks-kontrakt) benyttes for å bygge prosjektet og laste det opp til Maven Central.
+```xml
+<project>
+  ...
+  <dependencies>
+    ...
+    <dependency>
+      <groupId>no.nav.familie.ks</groupId>
+      <artifactId>kontrakt</artifactId>
+      <version>KONTRAKT_VERSION</version>
+    </dependency>
+    ...
+  </dependencies>
+  ...
+  <repositories>
+    ...
+    <repository>
+      <id>github</id>
+      <url>https://maven.pkg.github.com/navikt/familie-ks-kontrakt</url>
+    </repository>
+    ...
+  </repositories>
+  ...
+</project>
+```
 
-Lokalt bygg utføres med `mvn clean install`.
+Deretter må følgende legges inn i ~/.m2/settings.xml for at det fortsatt skal bygge lokalt:
+
+```xml
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                      http://maven.apache.org/xsd/settings-1.0.0.xsd">  
+  ...
+  <servers>
+    ...
+    <server>
+      <id>github</id>
+      <username>navikt</username>
+      <password>PERSONAL_ACCESS_TOKEN</password>
+    </server>
+    ...
+  </servers>
+  ...
+</settings>
+```
+Personal access token kan opprettes Fra Develeoper settings siden, via kontoinnstillingene på Github.
+Den må minimum ha read:packages tilgang, og må autoriseres ved å trykke på 'Enable SSO' knappen etter at den er opprettet. 
+
+For å slippe å kjøre Maven med ekstra parametre, gå til
+- Preferences > Build Tools > Maven
+
+i IntelliJ og huk av for 'Override' ved siden av 'User settings files'
+ 
+Github Actions benyttes for å bygge prosjektet og laste det opp til Github Package.
+
+Lokalt bygg av prosjektet utføres med `mvn clean install`.
 
 # Henvendelser
 

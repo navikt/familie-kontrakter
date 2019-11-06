@@ -62,7 +62,7 @@ Den må minimum ha read:packages tilgang, og må autoriseres ved å trykke på '
 For å slippe å kjøre Maven med ekstra parametre, gå til
 - Preferences > Build Tools > Maven
 
-i IntelliJ og huk av for 'Override' ved siden av 'User settings files'
+i IntelliJ og huk av for 'Override' ved siden av 'User settings file'
  
 Github Actions benyttes for å bygge prosjektet og laste det opp til Github Package.
 

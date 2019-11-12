@@ -27,11 +27,18 @@ data class Ressurs(
             )
         }
 
+        fun <T> success(data: T, melding: String?): Ressurs = Ressurs(
+            data = objectMapper.valueToTree(data),
+            status = Status.SUKSESS,
+            melding = melding ?: "Innhenting av data var vellykket",
+            errorMelding = null
+        )
+
         fun failure(errorMessage: String? = null, error: Throwable? = null): Ressurs = Ressurs(
             data = null,
             status = Status.FEILET,
             melding = errorMessage ?: "Kunne ikke hente data: ${error?.message}",
-            errorMelding = error?.message
+            errorMelding = error?.message ?: errorMessage
         )
 
         fun ikkeTilgang(melding: String): Ressurs = Ressurs(

@@ -1,22 +1,27 @@
 package no.nav.familie.ks.kontrakter.sak
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect
+import com.fasterxml.jackson.annotation.PropertyAccessor
+import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
+import com.fasterxml.jackson.module.kotlin.registerKotlinModule
+import no.nav.familie.ks.kontrakter.Kontrakt
+import no.nav.familie.ks.kontrakter.dokarkiv.api.ArkiverDokumentRequest
+import no.nav.familie.ks.kontrakter.objectMapper
 
 data class Ressurs(
     val data: JsonNode?,
     val status: Status,
     val melding: String,
     val errorMelding: String?
-) {
+
+) : Kontrakt {
     enum class Status { SUKSESS, FEILET, IKKE_HENTET, IKKE_TILGANG }
 
     companion object {
-        val objectMapper: ObjectMapper = ObjectMapper()
-            .registerModule(JavaTimeModule())
-            .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
 
         inline fun <reified T> success(data: T): Ressurs {
             return Ressurs(
@@ -48,4 +53,8 @@ data class Ressurs(
             errorMelding = ""
         )
     }
+
+    fun <T> convert(responseType: Class<T>): T? = objectMapper.convertValue(data, responseType)
+    fun toJson(): String = objectMapper.writeValueAsString(this)
 }
+

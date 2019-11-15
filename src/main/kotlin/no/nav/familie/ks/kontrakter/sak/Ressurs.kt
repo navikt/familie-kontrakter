@@ -56,5 +56,10 @@ data class Ressurs(
 
     fun <T> convert(responseType: Class<T>): T? = objectMapper.convertValue(data, responseType)
     fun toJson(): String = objectMapper.writeValueAsString(this)
+    override fun toString(): String {
+        return "Ressurs(data=$data, status=$status, melding='$melding')"
+    }
+
+
 }
 

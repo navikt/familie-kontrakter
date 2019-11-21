@@ -1,7 +1,7 @@
 package no.nav.familie.ks.kontrakter.sak
 
 import com.fasterxml.jackson.databind.JsonNode
-import com.fasterxml.jackson.databind.exc.MismatchedInputException
+import com.fasterxml.jackson.module.kotlin.readValue
 import no.nav.familie.ks.kontrakter.Kontrakt
 import no.nav.familie.ks.kontrakter.objectMapper
 import java.io.PrintWriter
@@ -63,6 +63,7 @@ data class Ressurs(
         }
     }
 
+    fun String.toRessurs(): Ressurs = objectMapper.readValue(this)
     fun toJson(): String = objectMapper.writeValueAsString(this)
     override fun toString(): String {
         return "Ressurs(data=$data, status=$status, melding='$melding')"

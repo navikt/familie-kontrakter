@@ -1,6 +1,7 @@
 package no.nav.familie.ks.kontrakter.sak
 
 import com.fasterxml.jackson.databind.JsonNode
+import com.fasterxml.jackson.module.kotlin.readValue
 import no.nav.familie.ks.kontrakter.Kontrakt
 import no.nav.familie.ks.kontrakter.objectMapper
 import java.io.PrintWriter
@@ -37,7 +38,7 @@ data class Ressurs(
             data = null,
             status = Status.FEILET,
             melding = errorMessage ?: "Kunne ikke hente data: ${error?.message}",
-            stacktrace = error?.textValue() ?: null
+            stacktrace = error?.textValue()
         )
 
         fun ikkeTilgang(melding: String): Ressurs = Ressurs(
@@ -54,12 +55,20 @@ data class Ressurs(
         }
     }
 
-    fun <T> convert(responseType: Class<T>): T? = objectMapper.convertValue(data, responseType)
+    fun <T> convert(responseType: Class<T>): T? {
+        try {
+            return objectMapper.convertValue(data, responseType)
+        } catch (e: IllegalArgumentException) {
+            throw IllegalArgumentException("Kan ikke koverterer $data til $responseType", e.cause)
+        }
+    }
+
+    fun String.toRessurs(): Ressurs = objectMapper.readValue(this)
     fun toJson(): String = objectMapper.writeValueAsString(this)
     override fun toString(): String {
         return "Ressurs(data=$data, status=$status, melding='$melding')"
     }
-
-
 }
+
+
 

@@ -35,6 +35,18 @@ public class RessursTest {
                 "\tat no.nav.familie.ks.kontrakter.sak.RessursTest.skal_konvertere_stacktrace_to_data"));
     }
 
+    @Test
+    public void feil_hvis_ikke_klarer_å_konvertere() {
+        Ressurs ressurs = Ressurs.Companion.success(new TestObject("tekst", 42L, date), "OK");
+
+        IllegalArgumentException exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            ressurs.convert(String.class);
+        });
+
+        Assertions.assertEquals(exception.getMessage(), "Kan ikke koverterer {\"tekst\":\"tekst\",\"nummer\":42,\"date\":\"2019-11-30\"} til class java.lang.String");
+
+    }
+
     static class TestObject {
         private String tekst;
         private long nummer;

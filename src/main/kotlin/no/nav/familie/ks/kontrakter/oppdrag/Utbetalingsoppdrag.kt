@@ -23,7 +23,7 @@ data class Utbetalingsperiode (
     val statusPeriode: StatusPeriode?,
     val statusDatoFom: LocalDate,
     val vedtakId: String,
-    val klassifisering: Klassifisering,
+    val klassifisering: String,
     val vedtakdatoFom: LocalDate,
     val vedtakdatoTom: LocalDate,
     val sats: BigDecimal,
@@ -33,7 +33,6 @@ data class Utbetalingsperiode (
 )  {
     enum class KodeEndringPeriode { NY, ENDR }
     enum class StatusPeriode { OPPH }
-    enum class Klassifisering { BAOROSMS }
     enum class SatsType { DAG, MND, ENG }
 }
 

@@ -1,0 +1,84 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "familie-oppdrag",
+  "description": "Kontrakt for integrasjon med familie-oppdrag",
+  "type": "object",
+  "properties": {
+    "kodeEndring": {
+      "description": "NY / ENDR / UENDR",
+      "type": "string"
+    },
+    "fagSystem": {
+      "description": "Fagsystemet utbetalingen kommer fra.",
+      "type": "string"
+    },
+    "saksnummer": {
+      "description": "Saksnummeret til vedtaket.",
+      "type": "number"
+    },
+    "aktoer": {
+      "description": "Fødselsnummeret til søker eller barnet.",
+      "type": "string"
+    },
+    "saksbehandlerId": {
+      "description": "Identen til saksbehandler eller servicebruker hvis fullautomatisert",
+      "type": "string"
+    },
+    "avstemmingTidspunkt": {
+      "description": "Tidspunktet for avstemming",
+      "type": "string"
+    },
+    "utbetalingsperiode": {
+      "description": "Egenskaper for en utbetalingsperiode",
+      "type": "object",
+      "properties": {
+        "kodeEndringPeriode": {
+          "description": "NY / ENDR",
+          "type": "string"
+        },
+        "statusPeriode": {
+          "description": "OPPH - eller så er ikke feltet satt",
+          "type": "string"
+        },
+        "statusDatoFom": {
+          "description": "Satt hvis statusPeriode er satt",
+          "type": "string"
+        },
+        "vedtakId": {
+          "description": "Datoen vedtaket er gjort på.",
+          "type": "string"
+        },
+        "klassifisering": {
+          "description": "Kodeverk: Kombinasjon av ytelse og inntekt",
+          "type": "string"
+        },
+        "vedtakdatoFom": {
+          "description": "Fom til utbetalingsperioden",
+          "type": "string"
+        },
+        "vedtakdatoTom": {
+          "description": "Tom til utbetalingsperioden",
+          "type": "string"
+        },
+        "sats": {
+          "description": "Hvor mye penger skal få denne perioden",
+          "type": "number"
+        },
+        "satsType": {
+          "description": "DAG / MND / ENG",
+          "type": "string"
+        },
+        "utbetalesTil": {
+          "description": "FNR eller ORGNR til søker",
+          "type": "string"
+        },
+        "henvisning": {
+          "description": "BehandlingsId",
+          "type": "number"
+        }
+      },
+      "required": ["kodeEndringPeriode", "vedtakId", "klassifisering", "vedtakdatoFom", "vedtakdatoTom", "sats", "satsType", "henvisning"]
+    }
+  },
+  "required": ["kodeEndring", "fagSystem", "saksnummer", "aktoer", "saksbehandlerId", "avstemmingTidspunkt", "utbetalingsperiode"]
+}

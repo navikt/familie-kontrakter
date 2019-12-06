@@ -19,20 +19,20 @@ data class Utbetalingsoppdrag (
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class Utbetalingsperiode (
-    val kodeEndringPeriode: KodeEndringPeriode,
-    val statusPeriode: StatusPeriode?,
-    val statusDatoFom: LocalDate,
-    val vedtakId: String,
+    val erEndringPåEksisterendePeriode: Boolean,
+    val opphør: Opphør?,
+    val datoForVedtak: LocalDate,
     val klassifisering: String,
     val vedtakdatoFom: LocalDate,
     val vedtakdatoTom: LocalDate,
     val sats: BigDecimal,
     val satsType: SatsType,
     val utbetalesTil: String,
-    val henvisning: Long
+    val behandlingId: Long
 )  {
-    enum class KodeEndringPeriode { NY, ENDR }
-    enum class StatusPeriode { OPPH }
     enum class SatsType { DAG, MND, ENG }
 }
 
+data class Opphør (
+    val opphørDatoFom: LocalDate
+)

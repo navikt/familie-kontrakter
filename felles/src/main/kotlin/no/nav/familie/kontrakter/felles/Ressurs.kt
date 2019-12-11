@@ -11,7 +11,7 @@ data class Ressurs(
     val melding: String,
     val stacktrace: String?
 
-) : Kontrakt {
+) {
     enum class Status { SUKSESS, FEILET, IKKE_HENTET, IKKE_TILGANG }
 
     companion object {

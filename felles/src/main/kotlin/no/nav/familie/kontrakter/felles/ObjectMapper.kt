@@ -8,8 +8,6 @@ import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 
-interface Kontrakt
-
 val objectMapper: ObjectMapper
     get() = ObjectMapper()
         .setVisibility(PropertyAccessor.GETTER, JsonAutoDetect.Visibility.NONE)

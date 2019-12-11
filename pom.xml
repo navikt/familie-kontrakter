@@ -4,8 +4,8 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>no.nav.familie</groupId>
-    <artifactId>kontrakter</artifactId>
+    <groupId>no.nav.familie.kontrakter</groupId>
+    <artifactId>kontrakter-bom</artifactId>
     <version>${revision}${sha1}${changelist}</version>
     <packaging>pom</packaging>
     <description>Kontrakter for familieytelsene</description>

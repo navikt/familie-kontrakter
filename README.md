@@ -1,15 +1,13 @@
-familie-ks-kontrakter
+familie-kontrakter
 ================
 
-Interne kontrakter for kontantstøtte-applikasjonene.
+Interne kontrakter for familie-applikasjonene.
 
 Kontrakten er uttrykt som et sett med klasser og deres avhengigheter til hverandre. Denne strukturen skal gjenbrukes i andre prosjekter, så man ikke spesifiserer den samme strukturen i flere prosjekter. Enkel felt-validering spesifiseres også i denne kontrakten.
 
-Foreløpig har vi en kontrakt for datastrukturen som skal ligge til grunn for saksbehandlingen. En del av dataene kommer fra brukeren selv i søknadsdialogen, resten kommer fra oppslag mot TPS o.l.
-
 # Komme i gang
 
-Prosjekter som har avhengigheter til familie-ks-kontrakt må legge til følgende elemeter i pom.xml:
+Prosjekter som har avhengigheter til en gitt modul i familie-kontrakter må legge til følgende elementer i pom.xml:
 
 ```xml
 <project>
@@ -17,8 +15,8 @@ Prosjekter som har avhengigheter til familie-ks-kontrakt må legge til følgende
   <dependencies>
     ...
     <dependency>
-      <groupId>no.nav.familie.ks</groupId>
-      <artifactId>kontrakt</artifactId>
+      <groupId>no.nav.familie.kontrakter</groupId>
+      <artifactId>kontantstotte</artifactId>
       <version>KONTRAKT_VERSION</version>
     </dependency>
     ...
@@ -28,7 +26,7 @@ Prosjekter som har avhengigheter til familie-ks-kontrakt må legge til følgende
     ...
     <repository>
       <id>github</id>
-      <url>https://maven.pkg.github.com/navikt/familie-ks-kontrakt</url>
+      <url>https://maven.pkg.github.com/navikt/familie-kontrakter</url>
     </repository>
     ...
   </repositories>

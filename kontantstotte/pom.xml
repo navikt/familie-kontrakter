@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>no.nav.familie</groupId>
-        <artifactId>kontrakter</artifactId>
+        <groupId>no.nav.familie.kontrakter</groupId>
+        <artifactId>kontrakter-bom</artifactId>
         <version>${revision}${sha1}${changelist}</version>
     </parent>
 
@@ -18,7 +18,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>no.nav.familie</groupId>
+            <groupId>no.nav.familie.kontrakter</groupId>
             <artifactId>felles</artifactId>
             <version>${revision}${sha1}${changelist}</version>
         </dependency>

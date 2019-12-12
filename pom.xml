@@ -99,7 +99,7 @@
         <repository>
             <id>github</id>
             <name>GitHub navikt Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/navikt/familie-ks-kontrakt</url>
+            <url>https://maven.pkg.github.com/navikt/familie-kontrakter</url>
         </repository>
     </distributionManagement>
 
@@ -304,9 +304,9 @@
     </developers>
 
     <scm>
-        <developerConnection>scm:git:https://github.com/navikt/familie-ks-kontrakt.git</developerConnection>
-        <connection>scm:git:https://github.com/navikt/familie-ks-kontrakt.git</connection>
-        <url>https://github.com/navikt/familie-ks-kontrakt</url>
+        <developerConnection>scm:git:https://github.com/navikt/familie-kontrakter.git</developerConnection>
+        <connection>scm:git:https://github.com/navikt/familie-kontrakter.git</connection>
+        <url>https://github.com/navikt/familie-kontrakter</url>
         <tag>HEAD</tag>
     </scm>
 </project>

@@ -1,7 +1,5 @@
 package no.nav.familie.kontrakter.felles
 
-import com.fasterxml.jackson.databind.JsonNode
-import com.fasterxml.jackson.module.kotlin.readValue
 import java.io.PrintWriter
 import java.io.StringWriter
 
@@ -10,7 +8,6 @@ data class Ressurs<T>(
     val status: Status,
     val melding: String,
     val stacktrace: String?
-
 ) {
     enum class Status { SUKSESS, FEILET, IKKE_HENTET, IKKE_TILGANG }
 
@@ -21,7 +18,6 @@ data class Ressurs<T>(
             melding = "Innhenting av data var vellykket",
             stacktrace = null
         )
-
 
         fun <T> success(data: T, melding: String?): Ressurs<T> = Ressurs(
             data = data,

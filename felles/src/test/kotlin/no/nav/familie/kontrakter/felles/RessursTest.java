@@ -13,9 +13,9 @@ public class RessursTest {
     @Test
     public void skal_lagre_object_på_ressurs_og_hente_opp_igjen() {
 
-        Ressurs ressurs = Ressurs.Companion.success(new TestObject("tekst", 42L, date), "OK");
+        Ressurs<TestObject> ressurs = Ressurs.Companion.success(new TestObject("tekst", 42L, date), "OK");
 
-        TestObject result = ressurs.convert(TestObject.class);
+        TestObject result = ressurs.getData();
         assertEquals(result.nummer, 42);
         assertEquals(result.tekst, "tekst");
         assertEquals(result.date, date);
@@ -33,16 +33,6 @@ public class RessursTest {
 
         Assertions.assertTrue(ressurs.getStacktrace().contains("java.lang.RuntimeException: Dette er feilkoden\n" +
                 "\tat no.nav.familie.kontrakter.felles.RessursTest.skal_konvertere_stacktrace_to_data"));
-    }
-
-    @Test
-    public void feil_hvis_ikke_klarer_å_konvertere() {
-        Ressurs ressurs = Ressurs.Companion.success(new TestObject("tekst", 42L, date), "OK");
-
-        IllegalArgumentException exception = Assertions.assertThrows(IllegalArgumentException.class, () -> ressurs.convert(String.class));
-
-        Assertions.assertEquals(exception.getMessage(), "Kan ikke koverterer {\"tekst\":\"tekst\",\"nummer\":42,\"date\":\"2019-11-30\"} til class java.lang.String");
-
     }
 
     static class TestObject {

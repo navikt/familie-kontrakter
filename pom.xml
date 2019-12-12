@@ -11,7 +11,7 @@
     <description>Kontrakter for familieytelsene</description>
     <url>https://github.com/navikt/familie-kontrakter</url>
 
-    <name>KS Kontrakt</name>
+    <name>Kontrakter for familieytelsene</name>
 
     <properties>
         <revision>2.0</revision>

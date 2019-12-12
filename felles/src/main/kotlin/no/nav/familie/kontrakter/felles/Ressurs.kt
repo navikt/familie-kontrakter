@@ -5,8 +5,8 @@ import com.fasterxml.jackson.module.kotlin.readValue
 import java.io.PrintWriter
 import java.io.StringWriter
 
-data class Ressurs(
-    val data: JsonNode?,
+data class Ressurs<T>(
+    val data: T?,
     val status: Status,
     val melding: String,
     val stacktrace: String?
@@ -15,31 +15,29 @@ data class Ressurs(
     enum class Status { SUKSESS, FEILET, IKKE_HENTET, IKKE_TILGANG }
 
     companion object {
+        fun <T> success(data: T): Ressurs<T> = Ressurs(
+            data = data,
+            status = Status.SUKSESS,
+            melding = "Innhenting av data var vellykket",
+            stacktrace = null
+        )
 
-        inline fun <reified T> success(data: T): Ressurs {
-            return Ressurs(
-                data = objectMapper.valueToTree(data),
-                status = Status.SUKSESS,
-                melding = "Innhenting av data var vellykket",
-                stacktrace = null
-            )
-        }
 
-        fun <T> success(data: T, melding: String?): Ressurs = Ressurs(
-            data = objectMapper.valueToTree(data),
+        fun <T> success(data: T, melding: String?): Ressurs<T> = Ressurs(
+            data = data,
             status = Status.SUKSESS,
             melding = melding ?: "Innhenting av data var vellykket",
             stacktrace = null
         )
 
-        fun failure(errorMessage: String? = null, error: Throwable? = null): Ressurs = Ressurs(
+        fun <T> failure(errorMessage: String? = null, error: Throwable? = null): Ressurs<T> = Ressurs(
             data = null,
             status = Status.FEILET,
             melding = errorMessage ?: "Kunne ikke hente data: ${error?.message}",
             stacktrace = error?.textValue()
         )
 
-        fun ikkeTilgang(melding: String): Ressurs = Ressurs(
+        fun <T> ikkeTilgang(melding: String): Ressurs<T> = Ressurs(
             data = null,
             status = Status.IKKE_TILGANG,
             melding = melding,
@@ -53,18 +51,10 @@ data class Ressurs(
         }
     }
 
-    fun <T> convert(responseType: Class<T>): T? {
-        try {
-            return objectMapper.convertValue(data, responseType)
-        } catch (e: IllegalArgumentException) {
-            throw IllegalArgumentException("Kan ikke koverterer $data til $responseType", e.cause)
-        }
-    }
-
-    fun String.toRessurs(): Ressurs = objectMapper.readValue(this)
     fun toJson(): String = objectMapper.writeValueAsString(this)
+
     override fun toString(): String {
-        return "Ressurs(data=$data, status=$status, melding='$melding')"
+        return "Ressurs(status=$status, melding='$melding')"
     }
 }
 

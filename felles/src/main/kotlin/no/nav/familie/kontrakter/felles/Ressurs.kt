@@ -46,7 +46,7 @@ data class Ressurs<T>(
 
         private fun Throwable.textValue(): String {
             val sw = StringWriter()
-            this.printStackTrace(PrintWriter(sw))
+            this.printStackTrace(PrintWriter(sw!!))
             return sw.toString()
         }
     }

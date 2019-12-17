@@ -1,4 +1,4 @@
-package no.nav.familie.kontrakter.ks.oppdrag
+package no.nav.familie.kontrakter.felles.oppdrag
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import java.math.BigDecimal

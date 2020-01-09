@@ -36,3 +36,8 @@ data class Utbetalingsperiode (
 data class Opphør (
     val opphørDatoFom: LocalDate
 )
+
+fun Utbetalingsoppdrag.behandlingsIdForFørsteUtbetalingsperiode(): String {
+
+    return utbetalingsperiode[0].behandlingId.toString()
+}

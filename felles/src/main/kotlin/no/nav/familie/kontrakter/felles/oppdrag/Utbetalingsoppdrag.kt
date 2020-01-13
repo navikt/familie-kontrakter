@@ -20,7 +20,7 @@ data class Utbetalingsoppdrag (
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class Utbetalingsperiode (
     val erEndringPåEksisterendePeriode: Boolean,
-    val opphør: Opphør?,
+    val opphør: Opphør? = null,
     val datoForVedtak: LocalDate,
     val klassifisering: String,
     val vedtakdatoFom: LocalDate,

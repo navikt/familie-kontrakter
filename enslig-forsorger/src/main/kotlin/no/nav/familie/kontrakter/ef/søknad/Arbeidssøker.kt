@@ -1,5 +1,8 @@
 package no.nav.familie.kontrakter.ef.søknad
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class Arbeidssøker(val registrertSomArbeidssøkerNav: Spørsmål<Boolean>,
                         val villigTilÅTaImotTilbudOmArbeid: Spørsmål<Boolean>,
                         val kanDuBegynneInnenEnUke: Spørsmål<Boolean>,

@@ -1,6 +1,9 @@
 package no.nav.familie.kontrakter.ef.søknad
 
+import kotlinx.serialization.ContextualSerialization
+import kotlinx.serialization.Serializable
 import java.time.LocalDate
 
-data class Utenlandsopphold(val fradato: LocalDate,
-                            val tildato: LocalDate)
+@Serializable
+data class Utenlandsopphold(val fradato: @ContextualSerialization LocalDate,
+                            val tildato: @ContextualSerialization LocalDate)

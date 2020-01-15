@@ -1,7 +1,10 @@
 package no.nav.familie.kontrakter.ef.søknad
 
+import kotlinx.serialization.ContextualSerialization
+import kotlinx.serialization.Serializable
 import java.time.LocalDate
 
+@Serializable
 data class Samvær(val spørsmålAvtaleOmDeltBosted: Spørsmål<Boolean>,
                   val avtaleOmDeltBosted: Dokument?,
                   val skalAnnenForelderHaSamvær: Spørsmål<String>?,
@@ -10,7 +13,7 @@ data class Samvær(val spørsmålAvtaleOmDeltBosted: Spørsmål<Boolean>,
                   val hvordanPraktiseresSamværet: Spørsmål<String>?,
                   val borAnnenForelderISammeHus: Spørsmål<Boolean>?,
                   val hardereTidligereBoddSammen: Spørsmål<Boolean>?,
-                  val nårFlyttetDereFraHverandre: Spørsmål<LocalDate>?,
+                  val nårFlyttetDereFraHverandre: Spørsmål<@ContextualSerialization LocalDate>?,
                   val erklæringOmSamlivsbrudd: Dokument?,
                   val hvorMyeErDuSammenMedAnnenForelder: Spørsmål<String>?,
                   val beskrivSamværUtenBarn: Spørsmål<String>?)

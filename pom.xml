@@ -26,7 +26,7 @@
     <modules>
         <module>felles</module>
         <module>kontantstotte</module>
-        <module>enslig-forsørger</module>
+        <module>enslig-forsorger</module>
         <!--module>ba</module-->
         <!--module>ef</module-->
     </modules>

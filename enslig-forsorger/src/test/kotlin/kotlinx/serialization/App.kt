@@ -31,11 +31,12 @@ fun main(args: Array<String>) {
     val scope = serializersModuleOf(LocalDate::class, LocalDateSerializer)
     val bPolymorphicModule = SerializersModule { polymorphic(Any::class) { LocalDate::class with LocalDateSerializer } }
     val json = Json(
-            JsonConfiguration.Stable.copy(unquoted = true, useArrayPolymorphism = true, prettyPrint = true),
+            JsonConfiguration.Stable.copy(useArrayPolymorphism = true, prettyPrint = true),
             context = scope + bPolymorphicModule
     )
 
 
+//    JsonObjectSerializer.
 
     println(json.stringify(JsonObjectSerializer, JsonSchema(Søknad.serializer().descriptor)))
 }

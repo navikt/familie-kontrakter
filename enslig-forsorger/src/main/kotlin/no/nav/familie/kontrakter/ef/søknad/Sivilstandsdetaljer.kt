@@ -4,8 +4,8 @@ import java.time.LocalDate
 
 data class Sivilstandsdetaljer(val giftIUtlandet: Spørsmål<Boolean>?,
                                val giftIUtlandetDokumentasjon: Dokument?,
-                               val separertElleSkiltIUtlandet: Spørsmål<Boolean>?,
-                               val separertElleSkiltIUtlandetDokumentasjon: Dokument?,
+                               val separertEllerSkiltIUtlandet: Spørsmål<Boolean>?,
+                               val separertEllerSkiltIUtlandetDokumentasjon: Dokument?,
                                val søktOmSkilsmisseSeparasjon: Spørsmål<Boolean>?,
                                val søknadsdato: Spørsmål<LocalDate>?,
                                val separasjonsbekreftelse: Dokument?,

@@ -4,4 +4,4 @@ import java.time.LocalDate
 
 data class Sivilstandsplaner(val harPlaner: Spørsmål<Boolean>,
                              val fraDato: Spørsmål<LocalDate>?,
-                             val vordendeSamboerEktefelle: PersonMinimumDto?)
+                             val vordendeSamboerEktefelle: PersonMinimum?)

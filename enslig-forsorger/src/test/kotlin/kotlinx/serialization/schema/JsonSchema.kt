@@ -19,10 +19,7 @@
 package kotlinx.serialization.schema
 
 import kotlinx.serialization.*
-import kotlinx.serialization.internal.HexConverter
-import kotlinx.serialization.internal.StringDescriptor
 import kotlinx.serialization.json.*
-import java.time.LocalDate
 
 internal val SerialDescriptor.jsonType
     get() = when (this.kind) {
@@ -48,18 +45,20 @@ internal val SerialDescriptor.jsonType
  * (as per [https://json-schema.org/latest/json-schema-validation.html])
  * if they want.
  */
-fun JsonSchema(descriptor: SerialDescriptor): JsonObject {
+fun jsonSchema(descriptor: SerialDescriptor): JsonObject {
     val properties: MutableMap<String, JsonObject> = mutableMapOf()
     val requiredProperties: MutableSet<String> = mutableSetOf()
     val isEnum = descriptor.kind == UnionKind.ENUM_KIND
 
     if (!isEnum) descriptor.elementDescriptors().forEachIndexed { index, child ->
         val elementName = descriptor.getElementName(index)
-        properties[elementName] = child.accept(::JsonSchema)
+        properties[elementName] = child.accept(::jsonSchema)
         if (!descriptor.isElementOptional(index)) requiredProperties.add(elementName)
     }
 
-    val jsonType = descriptor.jsonType
+    val jsonType =
+            if (descriptor.name == "CONTEXT") "string" else descriptor.jsonType
+
     val objectData: MutableMap<String, JsonElement> = mutableMapOf(
         "description" to JsonLiteral(descriptor.name),
         "type" to JsonLiteral(jsonType)

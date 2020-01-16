@@ -1,3 +1,4 @@
+@file:ContextualSerialization(LocalDate::class)
 package no.nav.familie.kontrakter.ef.søknad
 
 import kotlinx.serialization.ContextualSerialization
@@ -10,6 +11,6 @@ data class KommendeBarn(val navn: String,
                         val annenForelder: Forelder?,
                         val samvær: Samvær?,
                         val erBarnetFødt: Spørsmål<Boolean>,
-                        val fødselTermindato: @ContextualSerialization LocalDate,
+                        val fødselTermindato: LocalDate,
                         val skalBarnetBoHosSøker: Spørsmål<Boolean>,
                         val terminbekreftelse: Dokument?)

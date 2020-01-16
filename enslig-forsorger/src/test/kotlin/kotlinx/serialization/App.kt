@@ -1,4 +1,4 @@
-/*
+package kotlinx.serialization/*
  * Copyright 2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,26 +17,15 @@
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonConfiguration
 import kotlinx.serialization.json.JsonObjectSerializer
-import kotlinx.serialization.modules.SerializersModule
-import kotlinx.serialization.modules.plus
-import kotlinx.serialization.modules.serializersModuleOf
-import kotlinx.serialization.schema.JsonSchema
-import no.nav.familie.kontrakter.ef.søknad.LocalDateSerializer
+import kotlinx.serialization.modules.serializersModule
+import kotlinx.serialization.schema.jsonSchema
 import no.nav.familie.kontrakter.ef.søknad.Søknad
-import java.time.LocalDate
 
-fun main(args: Array<String>) {
-    println(">> Sample of Json schema: ")
-
-    val scope = serializersModuleOf(LocalDate::class, LocalDateSerializer)
-    val bPolymorphicModule = SerializersModule { polymorphic(Any::class) { LocalDate::class with LocalDateSerializer } }
-    val json = Json(
-            JsonConfiguration.Stable.copy(useArrayPolymorphism = true, prettyPrint = true),
-            context = scope + bPolymorphicModule
-    )
-
-
-//    JsonObjectSerializer.
-
-    println(json.stringify(JsonObjectSerializer, JsonSchema(Søknad.serializer().descriptor)))
+/**
+ * Lager Json schema for Søknad
+ */
+fun main() {
+    val json = Json(JsonConfiguration.Stable.copy(useArrayPolymorphism = true, prettyPrint = true),
+                    context = serializersModule(LocalDateSerializer))
+    println(json.stringify(JsonObjectSerializer, jsonSchema(Søknad.serializer().descriptor)))
 }

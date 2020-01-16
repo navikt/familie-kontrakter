@@ -1,3 +1,4 @@
+@file:ContextualSerialization(LocalDate::class)
 package no.nav.familie.kontrakter.ef.søknad
 
 import kotlinx.serialization.ContextualSerialization
@@ -11,10 +12,10 @@ data class Situasjon(val gjelderDetteDeg: Spørsmål<List<String>>,
                      val manglendeBarnepass: Dokument?,
                      val barnMedSærligeBehov: Dokument?,
                      val arbeidskontrakt: Dokument?,
-                     val oppstartNyJobb: Spørsmål<@ContextualSerialization LocalDate>?,
+                     val oppstartNyJobb: Spørsmål<LocalDate>?,
                      val utdanningstilbud: Dokument?,
-                     val oppstartUtdanning: Spørsmål<@ContextualSerialization LocalDate>?,
+                     val oppstartUtdanning: Spørsmål<LocalDate>?,
                      val sagtOppEllerRedusertStilling: Spørsmål<String>?,
                      val oppsigelseReduksjonÅrsak: Spørsmål<String>?,
-                     val oppsigelseReduksjonTidspunkt: Spørsmål<@ContextualSerialization LocalDate>?,
+                     val oppsigelseReduksjonTidspunkt: Spørsmål<LocalDate>?,
                      val oppsigelseReduksjonDokumentasjon: Dokument?)

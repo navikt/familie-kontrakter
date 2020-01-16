@@ -1,3 +1,4 @@
+@file:ContextualSerialization(LocalDate::class)
 package no.nav.familie.kontrakter.ef.søknad
 
 import kotlinx.serialization.ContextualSerialization
@@ -7,4 +8,4 @@ import java.time.LocalDate
 @Serializable
 data class Bosituasjon(val delerDuBolig: Spørsmål<String>,
                        val samboerdetaljer: PersonMinimum?,
-                       val sammenflyttingsdato: Spørsmål<@ContextualSerialization LocalDate>?)
+                       val sammenflyttingsdato: Spørsmål<LocalDate>?)

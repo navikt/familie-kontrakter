@@ -9,6 +9,7 @@ import java.time.LocalDate
 data class Fødselsnummer(val verdi: String) {
 
     val erDNummer = verdi.substring(0, 1).toInt() > 3
+
     val fødselsdato: LocalDate
 
     init {

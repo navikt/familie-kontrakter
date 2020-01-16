@@ -1,3 +1,4 @@
+@file:ContextualSerialization(LocalDate::class)
 package no.nav.familie.kontrakter.ef.søknad
 
 import kotlinx.serialization.ContextualSerialization
@@ -13,7 +14,7 @@ data class Samvær(val spørsmålAvtaleOmDeltBosted: Spørsmål<Boolean>,
                   val hvordanPraktiseresSamværet: Spørsmål<String>?,
                   val borAnnenForelderISammeHus: Spørsmål<Boolean>?,
                   val hardereTidligereBoddSammen: Spørsmål<Boolean>?,
-                  val nårFlyttetDereFraHverandre: Spørsmål<@ContextualSerialization LocalDate>?,
+                  val nårFlyttetDereFraHverandre: Spørsmål<LocalDate>?,
                   val erklæringOmSamlivsbrudd: Dokument?,
                   val hvorMyeErDuSammenMedAnnenForelder: Spørsmål<String>?,
                   val beskrivSamværUtenBarn: Spørsmål<String>?)

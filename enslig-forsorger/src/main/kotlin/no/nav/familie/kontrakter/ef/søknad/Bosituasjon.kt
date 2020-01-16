@@ -6,5 +6,5 @@ import java.time.LocalDate
 
 @Serializable
 data class Bosituasjon(val delerDuBolig: Spørsmål<String>,
-                       val samboerdetaljer: PersonMinimumDto?,
+                       val samboerdetaljer: PersonMinimum?,
                        val sammenflyttingsdato: Spørsmål<@ContextualSerialization LocalDate>?)

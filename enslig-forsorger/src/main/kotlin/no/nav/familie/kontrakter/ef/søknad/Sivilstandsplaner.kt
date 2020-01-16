@@ -7,4 +7,4 @@ import java.time.LocalDate
 @Serializable
 data class Sivilstandsplaner(val harPlaner: Spørsmål<Boolean>,
                              val fraDato: Spørsmål<@ContextualSerialization LocalDate>?,
-                             val vordendeSamboerEktefelle: PersonMinimumDto?)
+                             val vordendeSamboerEktefelle: PersonMinimum?)

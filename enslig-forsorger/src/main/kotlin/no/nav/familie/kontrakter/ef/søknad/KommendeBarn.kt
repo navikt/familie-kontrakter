@@ -7,7 +7,7 @@ import java.time.LocalDate
 @Serializable
 data class KommendeBarn(val navn: String,
                         val fnr: String?,
-                        val annenForelder: ForelderDto?,
+                        val annenForelder: Forelder?,
                         val samvær: Samvær?,
                         val erBarnetFødt: Spørsmål<Boolean>,
                         val fødselTermindato: @ContextualSerialization LocalDate,

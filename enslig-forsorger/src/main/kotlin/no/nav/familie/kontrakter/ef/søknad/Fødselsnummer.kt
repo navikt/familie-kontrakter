@@ -1,4 +1,5 @@
 @file:ContextualSerialization(LocalDate::class)
+
 package no.nav.familie.kontrakter.ef.søknad
 
 import kotlinx.serialization.ContextualSerialization

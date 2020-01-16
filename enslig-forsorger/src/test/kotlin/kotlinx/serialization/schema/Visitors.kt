@@ -24,7 +24,8 @@ import kotlinx.serialization.*
  *
  * Tree is formed from descriptors using [SerialDescriptor.getElementDescriptor] method.
  */
-public interface DescriptorVisitor<R> {
+interface DescriptorVisitor<R> {
+
     fun visitDescriptor(descriptor: SerialDescriptor): R
 }
 
@@ -32,8 +33,9 @@ public interface DescriptorVisitor<R> {
  * Skeleton implementation of [DescriptorVisitor]
  * which can be used to differentiate descriptors on a per-kind basis.
  */
-public abstract class BaseDescriptorVisitor<R>: DescriptorVisitor<R> {
-    final override fun visitDescriptor(descriptor: SerialDescriptor): R = when(descriptor.kind) {
+abstract class BaseDescriptorVisitor<R> : DescriptorVisitor<R> {
+
+    final override fun visitDescriptor(descriptor: SerialDescriptor): R = when (descriptor.kind) {
         is PrimitiveKind.STRING -> visitString(descriptor)
         is PrimitiveKind -> visitPrimitive(descriptor)
         is StructureKind.CLASS -> visitClass(descriptor)
@@ -56,7 +58,7 @@ public abstract class BaseDescriptorVisitor<R>: DescriptorVisitor<R> {
  * @see DescriptorVisitor
  * @see SerialDescriptor.getElementDescriptor
  */
-public fun <R> SerialDescriptor.accept(visitor: DescriptorVisitor<R>): R = visitor.visitDescriptor(this)
+fun <R> SerialDescriptor.accept(visitor: DescriptorVisitor<R>): R = visitor.visitDescriptor(this)
 
 /**
  * Visits [this], making a [DescriptorVisitor] out of [visitor].
@@ -64,7 +66,7 @@ public fun <R> SerialDescriptor.accept(visitor: DescriptorVisitor<R>): R = visit
  * @see DescriptorVisitor
  * @see SerialDescriptor.getElementDescriptor
  */
-public fun <R> SerialDescriptor.accept(visitor: (SerialDescriptor) -> R): R {
+fun <R> SerialDescriptor.accept(visitor: (SerialDescriptor) -> R): R {
     val visitorImpl = object : DescriptorVisitor<R> {
         override fun visitDescriptor(descriptor: SerialDescriptor): R = visitor(descriptor)
     }

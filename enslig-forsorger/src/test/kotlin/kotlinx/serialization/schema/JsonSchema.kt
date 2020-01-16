@@ -19,7 +19,10 @@
 package kotlinx.serialization.schema
 
 import kotlinx.serialization.*
-import kotlinx.serialization.json.*
+import kotlinx.serialization.json.JsonArray
+import kotlinx.serialization.json.JsonElement
+import kotlinx.serialization.json.JsonLiteral
+import kotlinx.serialization.json.JsonObject
 
 internal val SerialDescriptor.jsonType
     get() = when (this.kind) {
@@ -60,8 +63,8 @@ fun jsonSchema(descriptor: SerialDescriptor): JsonObject {
             if (descriptor.name == "CONTEXT") "string" else descriptor.jsonType
 
     val objectData: MutableMap<String, JsonElement> = mutableMapOf(
-        "description" to JsonLiteral(descriptor.name),
-        "type" to JsonLiteral(jsonType)
+            "description" to JsonLiteral(descriptor.name),
+            "type" to JsonLiteral(jsonType)
     )
     if (isEnum) {
         val allElementNames = (0 until descriptor.elementsCount).map(descriptor::getElementName)
@@ -72,11 +75,14 @@ fun jsonSchema(descriptor: SerialDescriptor): JsonObject {
             objectData["properties"] = JsonObject(properties)
             objectData["required"] = JsonArray(requiredProperties.map { JsonLiteral(it) })
         }
+
         "array" -> objectData["items"] = properties.values.let {
             check(it.size == 1) { "Array descriptor has returned inconsistent number of elements: expected 1, found ${it.size}" }
             it.first()
         }
-        else -> { /* no-op */ }
+
+        else -> { /* no-op */
+        }
     }
     return JsonObject(objectData)
 }

@@ -18,4 +18,5 @@ data class Sivilstandsdetaljer(val giftIUtlandet: Spørsmål<Boolean>? = null,
                                val samlivsbruddsdokumentasjon: Dokument? = null,
                                val samlivsbruddsdato: LocalDate? = null,
                                val fraflytningsdato: LocalDate? = null,
-                               val spesifikasjonAnnet: String? = null)
+                               val spesifikasjonAnnet: String? = null,
+                               val endringSamværsordningDato: Spørsmål<LocalDate>? = null)

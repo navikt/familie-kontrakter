@@ -8,14 +8,14 @@ import java.time.LocalDate
 
 @Serializable
 data class Samvær(val spørsmålAvtaleOmDeltBosted: Spørsmål<Boolean>,
-                  val avtaleOmDeltBosted: Dokument?,
-                  val skalAnnenForelderHaSamvær: Spørsmål<String>?,
-                  val harDereSkriftligAvtaleOmSamvær: Spørsmål<String>?,
-                  val samværsavtale: Dokument?,
-                  val hvordanPraktiseresSamværet: Spørsmål<String>?,
-                  val borAnnenForelderISammeHus: Spørsmål<Boolean>?,
-                  val hardereTidligereBoddSammen: Spørsmål<Boolean>?,
-                  val nårFlyttetDereFraHverandre: Spørsmål<LocalDate>?,
-                  val erklæringOmSamlivsbrudd: Dokument?,
-                  val hvorMyeErDuSammenMedAnnenForelder: Spørsmål<String>?,
-                  val beskrivSamværUtenBarn: Spørsmål<String>?)
+                  val avtaleOmDeltBosted: Dokument? = null,
+                  val skalAnnenForelderHaSamvær: Spørsmål<String>? = null,
+                  val harDereSkriftligAvtaleOmSamvær: Spørsmål<String>? = null,
+                  val samværsavtale: Dokument? = null,
+                  val hvordanPraktiseresSamværet: Spørsmål<String>? = null,
+                  val borAnnenForelderISammeHus: Spørsmål<Boolean>? = null,
+                  val hardereTidligereBoddSammen: Spørsmål<Boolean>? = null,
+                  val nårFlyttetDereFraHverandre: Spørsmål<LocalDate>? = null,
+                  val erklæringOmSamlivsbrudd: Dokument? = null,
+                  val hvorMyeErDuSammenMedAnnenForelder: Spørsmål<String>? = null,
+                  val beskrivSamværUtenBarn: Spørsmål<String>? = null)

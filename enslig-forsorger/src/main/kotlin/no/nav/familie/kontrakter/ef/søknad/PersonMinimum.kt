@@ -8,7 +8,7 @@ import java.time.LocalDate
 
 @Serializable
 data class PersonMinimum(val navn: String,
-                         val fødselsnummer: Fødselsnummer?,
-                         val fødselsdato: LocalDate?,
-                         val adresse: Adresse?,
-                         val land: String?)
+                         val fødselsnummer: Fødselsnummer? = null,
+                         val fødselsdato: LocalDate? = null,
+                         val adresse: Adresse? = null,
+                         val land: String? = null)

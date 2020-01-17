@@ -12,4 +12,4 @@ data class Selvstendig(val firmanavn: String,
                        val etableringsdato: LocalDate,
                        val arbeidsmengde: Int,
                        val hvordanSerArbeidsukenUt: Spørsmål<String>,
-                       val arbeidsgivere: List<Arbeidsgiver>?)
+                       val arbeidsgivere: List<Arbeidsgiver>? = null)

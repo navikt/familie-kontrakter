@@ -8,5 +8,5 @@ import java.time.LocalDate
 
 @Serializable
 data class Sivilstandsplaner(val harPlaner: Spørsmål<Boolean>,
-                             val fraDato: Spørsmål<LocalDate>?,
-                             val vordendeSamboerEktefelle: PersonMinimum?)
+                             val fraDato: Spørsmål<LocalDate>? = null,
+                             val vordendeSamboerEktefelle: PersonMinimum? = null)

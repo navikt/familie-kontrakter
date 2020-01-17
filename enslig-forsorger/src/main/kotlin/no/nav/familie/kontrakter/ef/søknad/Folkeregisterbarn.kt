@@ -5,6 +5,6 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Folkeregisterbarn(val navn: String,
                              val fødselsnummer: Fødselsnummer,
-                             val annenForelder: Forelder?,
-                             val samvær: Samvær?,
+                             val annenForelder: Forelder? = null,
+                             val samvær: Samvær? = null,
                              val harSammeAdresse: Boolean)

@@ -8,4 +8,5 @@ import java.time.LocalDate
 
 @Serializable
 data class Utenlandsopphold(val fradato: LocalDate,
-                            val tildato: LocalDate)
+                            val tildato: LocalDate,
+                            val årsakUtenlandsopphold: Spørsmål<String>)

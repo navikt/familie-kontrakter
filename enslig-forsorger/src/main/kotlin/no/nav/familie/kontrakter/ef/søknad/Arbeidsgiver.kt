@@ -8,7 +8,7 @@ import java.time.LocalDate
 
 
 @Serializable
-data class Arbeidsgiver(val arbeidsgivernavn: String,
-                        val stillingsprosent: String,
-                        val fastEllerMidlertidig: Spørsmål<String>,
-                        val sluttdato: LocalDate?)
+data class Arbeidsgiver(val arbeidsgivernavn: Felt<String>,
+                        val stillingsprosent: Felt<String>,
+                        val fastEllerMidlertidig: Felt<String>,
+                        val sluttdato: Felt<LocalDate>?)

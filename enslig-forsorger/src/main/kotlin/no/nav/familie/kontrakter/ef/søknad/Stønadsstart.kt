@@ -4,5 +4,5 @@ import kotlinx.serialization.Serializable
 import java.time.Month
 
 @Serializable
-data class Stønadsstart(val fraMåned: Month,
-                        val fraÅr: Int)
+data class Stønadsstart(val fraMåned: Felt<Month>,
+                        val fraÅr: Felt<Int>)

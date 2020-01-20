@@ -3,13 +3,13 @@ package no.nav.familie.kontrakter.ef.søknad
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Søknad(val personalia: Personalia,
-                  val sivilstandsdetaljer: Sivilstandsdetaljer,
-                  val medlemskapsdetaljer: Medlemskapsdetaljer,
-                  val bosituasjon: Bosituasjon,
-                  val sivilstandsplaner: Sivilstandsplaner?,
-                  val folkeregisterbarn: List<Folkeregisterbarn>?,
-                  val kommendeBarn: List<KommendeBarn>?,
-                  val aktivitet: Aktivitet,
-                  val situasjon: Situasjon,
-                  val stønadsstart: Stønadsstart)
+data class Søknad(val personalia: Felt<Personalia>,
+                  val sivilstandsdetaljer: Felt<Sivilstandsdetaljer>,
+                  val medlemskapsdetaljer: Felt<Medlemskapsdetaljer>,
+                  val bosituasjon: Felt<Bosituasjon>,
+                  val sivilstandsplaner: Felt<Sivilstandsplaner>?,
+                  val folkeregisterbarn: Felt<List<Folkeregisterbarn>>?,
+                  val kommendeBarn: Felt<List<KommendeBarn>>?,
+                  val aktivitet: Felt<Aktivitet>,
+                  val situasjon: Felt<Situasjon>,
+                  val stønadsstart: Felt<Stønadsstart>)

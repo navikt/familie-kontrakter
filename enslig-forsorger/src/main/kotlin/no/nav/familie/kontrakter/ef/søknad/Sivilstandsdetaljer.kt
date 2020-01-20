@@ -7,15 +7,15 @@ import kotlinx.serialization.Serializable
 import java.time.LocalDate
 
 @Serializable
-data class Sivilstandsdetaljer(val giftIUtlandet: Spørsmål<Boolean>?,
-                               val giftIUtlandetDokumentasjon: Dokument?,
-                               val separertEllerSkiltIUtlandet: Spørsmål<Boolean>?,
-                               val separertEllerSkiltIUtlandetDokumentasjon: Dokument?,
-                               val søktOmSkilsmisseSeparasjon: Spørsmål<Boolean>?,
-                               val søknadsdato: Spørsmål<LocalDate>?,
-                               val separasjonsbekreftelse: Dokument?,
-                               val årsakEnslig: Spørsmål<String>,
-                               val samlivsbruddsdokumentasjon: Dokument?,
-                               val samlivsbruddsdato: LocalDate?,
-                               val fraflytningsdato: LocalDate?,
-                               val spesifikasjonAnnet: String?)
+data class Sivilstandsdetaljer(val giftIUtlandet: Felt<Boolean>?,
+                               val giftIUtlandetDokumentasjon: Felt<Dokument>?,
+                               val separertEllerSkiltIUtlandet: Felt<Boolean>?,
+                               val separertEllerSkiltIUtlandetDokumentasjon: Felt<Dokument>?,
+                               val søktOmSkilsmisseSeparasjon: Felt<Boolean>?,
+                               val søknadsdato: Felt<LocalDate>?,
+                               val separasjonsbekreftelse: Felt<Dokument>?,
+                               val årsakEnslig: Felt<String>,
+                               val samlivsbruddsdokumentasjon: Felt<Dokument>?,
+                               val samlivsbruddsdato: Felt<LocalDate>?,
+                               val fraflytningsdato: Felt<LocalDate>?,
+                               val spesifikasjonAnnet: Felt<String>?)

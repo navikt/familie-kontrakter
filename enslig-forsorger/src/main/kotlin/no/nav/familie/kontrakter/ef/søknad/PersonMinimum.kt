@@ -7,8 +7,8 @@ import kotlinx.serialization.Serializable
 import java.time.LocalDate
 
 @Serializable
-data class PersonMinimum(val navn: String,
-                         val fødselsnummer: Fødselsnummer?,
-                         val fødselsdato: LocalDate?,
-                         val adresse: Adresse?,
-                         val land: String?)
+data class PersonMinimum(val navn: Felt<String>,
+                         val fødselsnummer: Felt<Fødselsnummer>?,
+                         val fødselsdato: Felt<LocalDate>?,
+                         val adresse: Felt<Adresse>?,
+                         val land: Felt<String>?)

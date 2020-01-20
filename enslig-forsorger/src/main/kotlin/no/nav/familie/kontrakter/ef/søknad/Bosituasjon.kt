@@ -8,5 +8,5 @@ import java.time.LocalDate
 
 @Serializable
 data class Bosituasjon(val delerDuBolig: Felt<String>,
-                       val samboerdetaljer: Felt<PersonMinimum>?,
-                       val sammenflyttingsdato: Felt<LocalDate>?)
+                       val samboerdetaljer: Felt<PersonMinimum>? = null,
+                       val sammenflyttingsdato: Felt<LocalDate>? = null)

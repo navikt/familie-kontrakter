@@ -8,15 +8,15 @@ import java.time.LocalDate
 
 @Serializable
 data class Situasjon(val gjelderDetteDeg: Felt<List<String>>,
-                     val sykdom: Felt<Dokument>?,
-                     val barnsSykdom: Felt<Dokument>?,
-                     val manglendeBarnepass: Felt<Dokument>?,
-                     val barnMedSærligeBehov: Felt<Dokument>?,
-                     val arbeidskontrakt: Felt<Dokument>?,
-                     val oppstartNyJobb: Felt<LocalDate>?,
-                     val utdanningstilbud: Felt<Dokument>?,
-                     val oppstartUtdanning: Felt<LocalDate>?,
-                     val sagtOppEllerRedusertStilling: Felt<String>?,
-                     val oppsigelseReduksjonÅrsak: Felt<String>?,
-                     val oppsigelseReduksjonTidspunkt: Felt<LocalDate>?,
-                     val oppsigelseReduksjonDokumentasjon: Felt<Dokument>?)
+                     val sykdom: Felt<Dokument>? = null,
+                     val barnsSykdom: Felt<Dokument>? = null,
+                     val manglendeBarnepass: Felt<Dokument>? = null,
+                     val barnMedSærligeBehov: Felt<Dokument>? = null,
+                     val arbeidskontrakt: Felt<Dokument>? = null,
+                     val oppstartNyJobb: Felt<LocalDate>? = null,
+                     val utdanningstilbud: Felt<Dokument>? = null,
+                     val oppstartUtdanning: Felt<LocalDate>? = null,
+                     val sagtOppEllerRedusertStilling: Felt<String>? = null,
+                     val oppsigelseReduksjonÅrsak: Felt<String>? = null,
+                     val oppsigelseReduksjonTidspunkt: Felt<LocalDate>? = null,
+                     val oppsigelseReduksjonDokumentasjon: Felt<Dokument>? = null)

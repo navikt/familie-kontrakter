@@ -12,4 +12,4 @@ data class Selvstendig(val firmanavn: Felt<String>,
                        val etableringsdato: Felt<LocalDate>,
                        val arbeidsmengde: Felt<Int>,
                        val hvordanSerArbeidsukenUt: Felt<String>,
-                       val arbeidsgivere: Felt<List<Arbeidsgiver>>?)
+                       val arbeidsgivere: Felt<List<Arbeidsgiver>>? = null)

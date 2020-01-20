@@ -10,4 +10,4 @@ data class Arbeidssøker(val registrertSomArbeidssøkerNav: Felt<Boolean>,
                         val hvorØnskerDuArbeid: Felt<String>,
                         val ønskerDuMinst50ProsentStilling: Felt<Boolean>,
                         val utdanningEtterGrunnskolen: Felt<Boolean>,
-                        val tidligereUtdanninger: Felt<List<Utdanning>>?)
+                        val tidligereUtdanninger: Felt<List<Utdanning>>? = null)

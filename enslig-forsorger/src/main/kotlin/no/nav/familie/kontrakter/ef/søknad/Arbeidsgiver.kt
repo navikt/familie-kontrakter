@@ -11,4 +11,4 @@ import java.time.LocalDate
 data class Arbeidsgiver(val arbeidsgivernavn: Felt<String>,
                         val stillingsprosent: Felt<String>,
                         val fastEllerMidlertidig: Felt<String>,
-                        val sluttdato: Felt<LocalDate>?)
+                        val sluttdato: Felt<LocalDate>? = null)

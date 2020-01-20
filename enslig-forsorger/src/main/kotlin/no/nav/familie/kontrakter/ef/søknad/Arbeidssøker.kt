@@ -3,11 +3,11 @@ package no.nav.familie.kontrakter.ef.søknad
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Arbeidssøker(val registrertSomArbeidssøkerNav: Spørsmål<Boolean>,
-                        val villigTilÅTaImotTilbudOmArbeid: Spørsmål<Boolean>,
-                        val kanDuBegynneInnenEnUke: Spørsmål<Boolean>,
-                        val kanDuSkaffeBarnepassInnenEnUke: Spørsmål<Boolean>,
-                        val hvorØnskerDuArbeid: Spørsmål<String>,
-                        val ønskerDuMinst50ProsentStilling: Spørsmål<Boolean>,
-                        val utdanningEtterGrunnskolen: Spørsmål<Boolean>,
-                        val tidligereUtdanninger: List<Utdanning>? = null)
+data class Arbeidssøker(val registrertSomArbeidssøkerNav: Felt<Boolean>,
+                        val villigTilÅTaImotTilbudOmArbeid: Felt<Boolean>,
+                        val kanDuBegynneInnenEnUke: Felt<Boolean>,
+                        val kanDuSkaffeBarnepassInnenEnUke: Felt<Boolean>,
+                        val hvorØnskerDuArbeid: Felt<String>,
+                        val ønskerDuMinst50ProsentStilling: Felt<Boolean>,
+                        val utdanningEtterGrunnskolen: Felt<Boolean>,
+                        val tidligereUtdanninger: Felt<List<Utdanning>>? = null)

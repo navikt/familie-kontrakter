@@ -3,8 +3,8 @@ package no.nav.familie.kontrakter.ef.søknad
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Forelder(val kanIkkeOppgiAnnenForelderFar: Spørsmål<Boolean>,
-                    val ikkeOppgittAnnenForelderBegrunnelse: Spørsmål<String>? = null,
-                    val bosattNorge: Spørsmål<Boolean>? = null,
-                    val personalia: PersonMinimum? = null)
+data class Forelder(val kanIkkeOppgiAnnenForelderFar: Felt<Boolean>,
+                    val ikkeOppgittAnnenForelderBegrunnelse: Felt<String>? = null,
+                    val bosattNorge: Felt<Boolean>? = null,
+                    val personalia: Felt<PersonMinimum>? = null)
 

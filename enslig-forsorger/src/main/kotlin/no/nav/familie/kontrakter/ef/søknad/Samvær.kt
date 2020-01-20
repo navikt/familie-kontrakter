@@ -7,15 +7,15 @@ import kotlinx.serialization.Serializable
 import java.time.LocalDate
 
 @Serializable
-data class Samvær(val spørsmålAvtaleOmDeltBosted: Spørsmål<Boolean>,
-                  val avtaleOmDeltBosted: Dokument? = null,
-                  val skalAnnenForelderHaSamvær: Spørsmål<String>? = null,
-                  val harDereSkriftligAvtaleOmSamvær: Spørsmål<String>? = null,
-                  val samværsavtale: Dokument? = null,
-                  val hvordanPraktiseresSamværet: Spørsmål<String>? = null,
-                  val borAnnenForelderISammeHus: Spørsmål<Boolean>? = null,
-                  val harDereTidligereBoddSammen: Spørsmål<Boolean>? = null,
-                  val nårFlyttetDereFraHverandre: Spørsmål<LocalDate>? = null,
-                  val erklæringOmSamlivsbrudd: Dokument? = null,
-                  val hvorMyeErDuSammenMedAnnenForelder: Spørsmål<String>? = null,
-                  val beskrivSamværUtenBarn: Spørsmål<String>? = null)
+data class Samvær(val spørsmålAvtaleOmDeltBosted: Felt<Boolean>,
+                  val avtaleOmDeltBosted: Felt<Dokument>? = null,
+                  val skalAnnenForelderHaSamvær: Felt<String>? = null,
+                  val harDereSkriftligAvtaleOmSamvær: Felt<String>? = null,
+                  val samværsavtale: Felt<Dokument>? = null,
+                  val hvordanPraktiseresSamværet: Felt<String>? = null,
+                  val borAnnenForelderISammeHus: Felt<Boolean>? = null,
+                  val harDereTidligereBoddSammen: Felt<Boolean>? = null,
+                  val nårFlyttetDereFraHverandre: Felt<LocalDate>? = null,
+                  val erklæringOmSamlivsbrudd: Felt<Dokument>? = null,
+                  val hvorMyeErDuSammenMedAnnenForelder: Felt<String>? = null,
+                  val beskrivSamværUtenBarn: Felt<String>? = null)

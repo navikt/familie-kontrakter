@@ -7,6 +7,6 @@ import kotlinx.serialization.Serializable
 import java.time.LocalDate
 
 @Serializable
-data class Sivilstandsplaner(val harPlaner: Spørsmål<Boolean>,
-                             val fraDato: Spørsmål<LocalDate>? = null,
-                             val vordendeSamboerEktefelle: PersonMinimum? = null)
+data class Sivilstandsplaner(val harPlaner: Felt<Boolean>,
+                             val fraDato: Felt<LocalDate>? = null,
+                             val vordendeSamboerEktefelle: Felt<PersonMinimum>? = null)

@@ -7,16 +7,16 @@ import kotlinx.serialization.Serializable
 import java.time.LocalDate
 
 @Serializable
-data class Sivilstandsdetaljer(val giftIUtlandet: Spørsmål<Boolean>? = null,
-                               val giftIUtlandetDokumentasjon: Dokument? = null,
-                               val separertEllerSkiltIUtlandet: Spørsmål<Boolean>? = null,
-                               val separertEllerSkiltIUtlandetDokumentasjon: Dokument? = null,
-                               val søktOmSkilsmisseSeparasjon: Spørsmål<Boolean>? = null,
-                               val søknadsdato: Spørsmål<LocalDate>? = null,
-                               val separasjonsbekreftelse: Dokument? = null,
-                               val årsakEnslig: Spørsmål<String>,
-                               val samlivsbruddsdokumentasjon: Dokument? = null,
-                               val samlivsbruddsdato: LocalDate? = null,
-                               val fraflytningsdato: LocalDate? = null,
-                               val spesifikasjonAnnet: String? = null,
-                               val endringSamværsordningDato: Spørsmål<LocalDate>? = null)
+data class Sivilstandsdetaljer(val giftIUtlandet: Felt<Boolean>? = null,
+                               val giftIUtlandetDokumentasjon: Felt<Dokument>? = null,
+                               val separertEllerSkiltIUtlandet: Felt<Boolean>? = null,
+                               val separertEllerSkiltIUtlandetDokumentasjon: Felt<Dokument>? = null,
+                               val søktOmSkilsmisseSeparasjon: Felt<Boolean>? = null,
+                               val søknadsdato: Felt<LocalDate>? = null,
+                               val separasjonsbekreftelse: Felt<Dokument>? = null,
+                               val årsakEnslig: Felt<String>,
+                               val samlivsbruddsdokumentasjon: Felt<Dokument>? = null,
+                               val samlivsbruddsdato: Felt<LocalDate>? = null,
+                               val fraflytningsdato: Felt<LocalDate>? = null,
+                               val spesifikasjonAnnet: Felt<String>? = null,
+                               val endringSamværsordningDato: Felt<LocalDate>? = null)

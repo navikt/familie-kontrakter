@@ -6,5 +6,6 @@ import kotlinx.serialization.Serializable
 data class Forelder(val kanIkkeOppgiAnnenForelderFar: Søknadsfelt<Boolean>,
                     val ikkeOppgittAnnenForelderBegrunnelse: Søknadsfelt<String>? = null,
                     val bosattNorge: Søknadsfelt<Boolean>? = null,
-                    val personalia: Søknadsfelt<PersonMinimum>? = null)
+                    val person: Søknadsfelt<PersonMinimum>? = null,
+                    val adresse: Søknadsfelt<Adresse>? = null)
 

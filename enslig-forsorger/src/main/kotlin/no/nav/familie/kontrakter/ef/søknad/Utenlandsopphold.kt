@@ -7,6 +7,6 @@ import kotlinx.serialization.Serializable
 import java.time.LocalDate
 
 @Serializable
-data class Utenlandsopphold(val fradato: Felt<LocalDate>,
-                            val tildato: Felt<LocalDate>,
-                            val årsakUtenlandsopphold: Felt<String>)
+data class Utenlandsopphold(val fradato: Søknadsfelt<LocalDate>,
+                            val tildato: Søknadsfelt<LocalDate>,
+                            val årsakUtenlandsopphold: Søknadsfelt<String>)

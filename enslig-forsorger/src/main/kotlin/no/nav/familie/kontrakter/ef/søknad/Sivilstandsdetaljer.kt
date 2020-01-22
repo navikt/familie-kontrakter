@@ -7,16 +7,16 @@ import kotlinx.serialization.Serializable
 import java.time.LocalDate
 
 @Serializable
-data class Sivilstandsdetaljer(val giftIUtlandet: Felt<Boolean>? = null,
-                               val giftIUtlandetDokumentasjon: Felt<Dokument>? = null,
-                               val separertEllerSkiltIUtlandet: Felt<Boolean>? = null,
-                               val separertEllerSkiltIUtlandetDokumentasjon: Felt<Dokument>? = null,
-                               val søktOmSkilsmisseSeparasjon: Felt<Boolean>? = null,
-                               val søknadsdato: Felt<LocalDate>? = null,
-                               val separasjonsbekreftelse: Felt<Dokument>? = null,
-                               val årsakEnslig: Felt<String>,
-                               val samlivsbruddsdokumentasjon: Felt<Dokument>? = null,
-                               val samlivsbruddsdato: Felt<LocalDate>? = null,
-                               val fraflytningsdato: Felt<LocalDate>? = null,
-                               val spesifikasjonAnnet: Felt<String>? = null,
-                               val endringSamværsordningDato: Felt<LocalDate>? = null)
+data class Sivilstandsdetaljer(val giftIUtlandet: Søknadsfelt<Boolean>? = null,
+                               val giftIUtlandetDokumentasjon: Søknadsfelt<Dokument>? = null,
+                               val separertEllerSkiltIUtlandet: Søknadsfelt<Boolean>? = null,
+                               val separertEllerSkiltIUtlandetDokumentasjon: Søknadsfelt<Dokument>? = null,
+                               val søktOmSkilsmisseSeparasjon: Søknadsfelt<Boolean>? = null,
+                               val søknadsdato: Søknadsfelt<LocalDate>? = null,
+                               val separasjonsbekreftelse: Søknadsfelt<Dokument>? = null,
+                               val årsakEnslig: Søknadsfelt<String>,
+                               val samlivsbruddsdokumentasjon: Søknadsfelt<Dokument>? = null,
+                               val samlivsbruddsdato: Søknadsfelt<LocalDate>? = null,
+                               val fraflytningsdato: Søknadsfelt<LocalDate>? = null,
+                               val spesifikasjonAnnet: Søknadsfelt<String>? = null,
+                               val endringSamværsordningDato: Søknadsfelt<LocalDate>? = null)

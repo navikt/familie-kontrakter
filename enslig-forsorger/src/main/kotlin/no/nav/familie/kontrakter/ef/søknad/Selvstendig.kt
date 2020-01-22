@@ -7,9 +7,9 @@ import kotlinx.serialization.Serializable
 import java.time.LocalDate
 
 @Serializable
-data class Selvstendig(val firmanavn: Felt<String>,
-                       val organisasjonsnummer: Felt<String>,
-                       val etableringsdato: Felt<LocalDate>,
-                       val arbeidsmengde: Felt<Int>,
-                       val hvordanSerArbeidsukenUt: Felt<String>,
-                       val arbeidsgivere: Felt<List<Arbeidsgiver>>? = null)
+data class Selvstendig(val firmanavn: Søknadsfelt<String>,
+                       val organisasjonsnummer: Søknadsfelt<String>,
+                       val etableringsdato: Søknadsfelt<LocalDate>,
+                       val arbeidsmengde: Søknadsfelt<Int>,
+                       val hvordanSerArbeidsukenUt: Søknadsfelt<String>,
+                       val arbeidsgivere: Søknadsfelt<List<Arbeidsgiver>>? = null)

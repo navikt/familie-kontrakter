@@ -7,6 +7,6 @@ import kotlinx.serialization.Serializable
 import java.time.LocalDate
 
 @Serializable
-data class Bosituasjon(val delerDuBolig: Felt<String>,
-                       val samboerdetaljer: Felt<PersonMinimum>? = null,
-                       val sammenflyttingsdato: Felt<LocalDate>? = null)
+data class Bosituasjon(val delerDuBolig: Søknadsfelt<String>,
+                       val samboerdetaljer: Søknadsfelt<PersonMinimum>? = null,
+                       val sammenflyttingsdato: Søknadsfelt<LocalDate>? = null)

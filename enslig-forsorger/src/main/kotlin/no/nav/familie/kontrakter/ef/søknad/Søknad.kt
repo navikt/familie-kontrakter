@@ -1,9 +1,6 @@
 package no.nav.familie.kontrakter.ef.søknad
 
-import kotlinx.serialization.Serializable
-
-@Serializable
-data class Søknad(val personalia: Søknadsfelt<Personalia>,
+data class Søknad(val søker: Søknadsfelt<Personalia>,
                   val sivilstandsdetaljer: Søknadsfelt<Sivilstandsdetaljer>,
                   val medlemskapsdetaljer: Søknadsfelt<Medlemskapsdetaljer>,
                   val bosituasjon: Søknadsfelt<Bosituasjon>,

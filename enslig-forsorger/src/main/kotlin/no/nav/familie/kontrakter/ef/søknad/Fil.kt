@@ -1,8 +1,6 @@
 package no.nav.familie.kontrakter.ef.søknad
 
-import kotlinx.serialization.Serializable
 
-@Serializable
 data class Fil(val bytes: ByteArray) {
 
     override fun equals(other: Any?): Boolean {

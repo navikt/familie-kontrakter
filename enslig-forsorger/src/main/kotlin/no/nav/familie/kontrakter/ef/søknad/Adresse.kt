@@ -3,10 +3,10 @@ package no.nav.familie.kontrakter.ef.søknad
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Adresse(val gatenavn: Felt<String>? = null,
-                   val husnummer: Felt<Int>? = null,
-                   val husbokstav: Felt<String>? = null,
-                   val bolignummer: Felt<String>? = null,
-                   val postnummer: Felt<String>,
-                   val poststedsnavn: Felt<String>? = null,
-                   val kommune: Felt<String>? = null)
+data class Adresse(val gatenavn: Søknadsfelt<String>? = null,
+                   val husnummer: Søknadsfelt<Int>? = null,
+                   val husbokstav: Søknadsfelt<String>? = null,
+                   val bolignummer: Søknadsfelt<String>? = null,
+                   val postnummer: Søknadsfelt<String>,
+                   val poststedsnavn: Søknadsfelt<String>? = null,
+                   val kommune: Søknadsfelt<String>? = null)

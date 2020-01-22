@@ -7,16 +7,16 @@ import kotlinx.serialization.Serializable
 import java.time.LocalDate
 
 @Serializable
-data class Situasjon(val gjelderDetteDeg: Felt<List<String>>,
-                     val sykdom: Felt<Dokument>? = null,
-                     val barnsSykdom: Felt<Dokument>? = null,
-                     val manglendeBarnepass: Felt<Dokument>? = null,
-                     val barnMedSærligeBehov: Felt<Dokument>? = null,
-                     val arbeidskontrakt: Felt<Dokument>? = null,
-                     val oppstartNyJobb: Felt<LocalDate>? = null,
-                     val utdanningstilbud: Felt<Dokument>? = null,
-                     val oppstartUtdanning: Felt<LocalDate>? = null,
-                     val sagtOppEllerRedusertStilling: Felt<String>? = null,
-                     val oppsigelseReduksjonÅrsak: Felt<String>? = null,
-                     val oppsigelseReduksjonTidspunkt: Felt<LocalDate>? = null,
-                     val oppsigelseReduksjonDokumentasjon: Felt<Dokument>? = null)
+data class Situasjon(val gjelderDetteDeg: Søknadsfelt<List<String>>,
+                     val sykdom: Søknadsfelt<Dokument>? = null,
+                     val barnsSykdom: Søknadsfelt<Dokument>? = null,
+                     val manglendeBarnepass: Søknadsfelt<Dokument>? = null,
+                     val barnMedSærligeBehov: Søknadsfelt<Dokument>? = null,
+                     val arbeidskontrakt: Søknadsfelt<Dokument>? = null,
+                     val oppstartNyJobb: Søknadsfelt<LocalDate>? = null,
+                     val utdanningstilbud: Søknadsfelt<Dokument>? = null,
+                     val oppstartUtdanning: Søknadsfelt<LocalDate>? = null,
+                     val sagtOppEllerRedusertStilling: Søknadsfelt<String>? = null,
+                     val oppsigelseReduksjonÅrsak: Søknadsfelt<String>? = null,
+                     val oppsigelseReduksjonTidspunkt: Søknadsfelt<LocalDate>? = null,
+                     val oppsigelseReduksjonDokumentasjon: Søknadsfelt<Dokument>? = null)

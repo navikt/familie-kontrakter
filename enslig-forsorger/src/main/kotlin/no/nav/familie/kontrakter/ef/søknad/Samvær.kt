@@ -7,15 +7,15 @@ import kotlinx.serialization.Serializable
 import java.time.LocalDate
 
 @Serializable
-data class Samvær(val spørsmålAvtaleOmDeltBosted: Felt<Boolean>,
-                  val avtaleOmDeltBosted: Felt<Dokument>? = null,
-                  val skalAnnenForelderHaSamvær: Felt<String>? = null,
-                  val harDereSkriftligAvtaleOmSamvær: Felt<String>? = null,
-                  val samværsavtale: Felt<Dokument>? = null,
-                  val hvordanPraktiseresSamværet: Felt<String>? = null,
-                  val borAnnenForelderISammeHus: Felt<Boolean>? = null,
-                  val harDereTidligereBoddSammen: Felt<Boolean>? = null,
-                  val nårFlyttetDereFraHverandre: Felt<LocalDate>? = null,
-                  val erklæringOmSamlivsbrudd: Felt<Dokument>? = null,
-                  val hvorMyeErDuSammenMedAnnenForelder: Felt<String>? = null,
-                  val beskrivSamværUtenBarn: Felt<String>? = null)
+data class Samvær(val spørsmålAvtaleOmDeltBosted: Søknadsfelt<Boolean>,
+                  val avtaleOmDeltBosted: Søknadsfelt<Dokument>? = null,
+                  val skalAnnenForelderHaSamvær: Søknadsfelt<String>? = null,
+                  val harDereSkriftligAvtaleOmSamvær: Søknadsfelt<String>? = null,
+                  val samværsavtale: Søknadsfelt<Dokument>? = null,
+                  val hvordanPraktiseresSamværet: Søknadsfelt<String>? = null,
+                  val borAnnenForelderISammeHus: Søknadsfelt<Boolean>? = null,
+                  val harDereTidligereBoddSammen: Søknadsfelt<Boolean>? = null,
+                  val nårFlyttetDereFraHverandre: Søknadsfelt<LocalDate>? = null,
+                  val erklæringOmSamlivsbrudd: Søknadsfelt<Dokument>? = null,
+                  val hvorMyeErDuSammenMedAnnenForelder: Søknadsfelt<String>? = null,
+                  val beskrivSamværUtenBarn: Søknadsfelt<String>? = null)

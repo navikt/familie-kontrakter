@@ -7,7 +7,7 @@ import kotlinx.serialization.Serializable
 import java.time.LocalDate
 
 @Serializable
-data class Fødselsnummer(val verdi: String) {
+class Fødselsnummer(val verdi: String) {
 
     val erDNummer = verdi.substring(0, 1).toInt() > 3
 

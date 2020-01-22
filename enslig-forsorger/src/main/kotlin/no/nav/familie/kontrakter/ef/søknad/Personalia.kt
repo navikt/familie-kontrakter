@@ -3,10 +3,10 @@ package no.nav.familie.kontrakter.ef.søknad
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Personalia(val fødselsnummer: Felt<Fødselsnummer>,
-                      val navn: Felt<String>,
-                      val statsborgerskap: Felt<String>,
-                      val adresse: Felt<Adresse>,
-                      val telefonnummer: Felt<String>? = null,
-                      val sivilstatus: Felt<String>)
+data class Personalia(val fødselsnummer: Søknadsfelt<Fødselsnummer>,
+                      val navn: Søknadsfelt<String>,
+                      val statsborgerskap: Søknadsfelt<String>,
+                      val adresse: Søknadsfelt<Adresse>,
+                      val telefonnummer: Søknadsfelt<String>? = null,
+                      val sivilstatus: Søknadsfelt<String>)
 

@@ -3,8 +3,8 @@ package no.nav.familie.kontrakter.ef.søknad
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Folkeregisterbarn(val navn: Felt<String>,
-                             val fødselsnummer: Felt<Fødselsnummer>,
-                             val annenForelder: Felt<Forelder>? = null,
-                             val samvær: Felt<Samvær>? = null,
-                             val harSammeAdresse: Felt<Boolean>)
+data class Folkeregisterbarn(val navn: Søknadsfelt<String>,
+                             val fødselsnummer: Søknadsfelt<Fødselsnummer>,
+                             val annenForelder: Søknadsfelt<Forelder>? = null,
+                             val samvær: Søknadsfelt<Samvær>? = null,
+                             val harSammeAdresse: Søknadsfelt<Boolean>)

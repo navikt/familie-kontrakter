@@ -7,11 +7,11 @@ import kotlinx.serialization.Serializable
 import java.time.LocalDate
 
 @Serializable
-data class KommendeBarn(val navn: Felt<String>,
-                        val fnr: Felt<String>? = null,
-                        val annenForelder: Felt<Forelder>? = null,
-                        val samvær: Felt<Samvær>? = null,
-                        val erBarnetFødt: Felt<Boolean>,
-                        val fødselTermindato: Felt<LocalDate>,
-                        val skalBarnetBoHosSøker: Felt<Boolean>,
-                        val terminbekreftelse: Felt<Dokument>? = null)
+data class KommendeBarn(val navn: Søknadsfelt<String>,
+                        val fnr: Søknadsfelt<String>? = null,
+                        val annenForelder: Søknadsfelt<Forelder>? = null,
+                        val samvær: Søknadsfelt<Samvær>? = null,
+                        val erBarnetFødt: Søknadsfelt<Boolean>,
+                        val fødselTermindato: Søknadsfelt<LocalDate>,
+                        val skalBarnetBoHosSøker: Søknadsfelt<Boolean>,
+                        val terminbekreftelse: Søknadsfelt<Dokument>? = null)

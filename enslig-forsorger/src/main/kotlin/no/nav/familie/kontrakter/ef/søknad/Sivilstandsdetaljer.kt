@@ -1,12 +1,7 @@
-@file:ContextualSerialization(LocalDate::class)
-
 package no.nav.familie.kontrakter.ef.søknad
 
-import kotlinx.serialization.ContextualSerialization
-import kotlinx.serialization.Serializable
 import java.time.LocalDate
 
-@Serializable
 data class Sivilstandsdetaljer(val giftIUtlandet: Søknadsfelt<Boolean>? = null,
                                val giftIUtlandetDokumentasjon: Søknadsfelt<Dokument>? = null,
                                val separertEllerSkiltIUtlandet: Søknadsfelt<Boolean>? = null,

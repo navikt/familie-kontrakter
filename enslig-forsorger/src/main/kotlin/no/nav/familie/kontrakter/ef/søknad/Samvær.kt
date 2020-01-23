@@ -1,12 +1,7 @@
-@file:ContextualSerialization(LocalDate::class)
-
 package no.nav.familie.kontrakter.ef.søknad
 
-import kotlinx.serialization.ContextualSerialization
-import kotlinx.serialization.Serializable
 import java.time.LocalDate
 
-@Serializable
 data class Samvær(val spørsmålAvtaleOmDeltBosted: Søknadsfelt<Boolean>,
                   val avtaleOmDeltBosted: Søknadsfelt<Dokument>? = null,
                   val skalAnnenForelderHaSamvær: Søknadsfelt<String>? = null,

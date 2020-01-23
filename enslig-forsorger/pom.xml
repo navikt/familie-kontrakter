@@ -15,12 +15,6 @@
 
     <name>Kontrakter - enslig forsørger</name>
 
-
-    <properties>
-        <serialization.version>0.14.0</serialization.version>
-    </properties>
-
-
     <build>
         <sourceDirectory>src/main/kotlin</sourceDirectory>
         <testSourceDirectory>src/test/kotlin</testSourceDirectory>

@@ -1,8 +1,5 @@
 package no.nav.familie.kontrakter.ef.søknad
 
-import kotlinx.serialization.Serializable
-
-@Serializable
 data class Aktivitet(val hvordanErArbeidssituasjonen: Søknadsfelt<List<String>>,
                      val arbeidsforhold: Søknadsfelt<List<Arbeidsgiver>>? = null,
                      val selvstendig: Søknadsfelt<Selvstendig>? = null,

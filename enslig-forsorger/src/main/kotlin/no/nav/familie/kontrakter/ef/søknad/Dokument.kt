@@ -1,4 +1,13 @@
 package no.nav.familie.kontrakter.ef.søknad
 
-data class Dokument(val fil: Fil,
-                    val tittel: String)
+class Dokument(
+    val bytes: ByteArray,
+    val tittel: String
+) {
+
+    override fun toString(): String {
+        return tittel
+    }
+
+}
+

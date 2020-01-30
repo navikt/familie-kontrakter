@@ -234,10 +234,7 @@ internal object Testsøknad {
 
     private fun adresseSøknadsfelt(): Søknadsfelt<Adresse> {
         return Søknadsfelt("Adresse",
-                           Adresse("Jerpefaret",
-                                   5,
-                                   "C",
-                                   "H0508",
+                           Adresse("Jerpefaret 5C",
                                    "1440",
                                    "Drøbak",
                                    "Norge"))

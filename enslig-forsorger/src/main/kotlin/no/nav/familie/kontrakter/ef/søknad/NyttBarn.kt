@@ -8,5 +8,5 @@ data class NyttBarn(val navn: Søknadsfelt<String>? = null,
                     val fødselTermindato: Søknadsfelt<LocalDate>,
                     val terminbekreftelse: Søknadsfelt<Dokument>? = null,
                     val skalBarnetBoHosSøker: Søknadsfelt<Boolean>,
-                    val annenAnnenForelder: Søknadsfelt<AnnenForelder>? = null,
+                    val annenForelder: Søknadsfelt<AnnenForelder>? = null,
                     val samvær: Søknadsfelt<Samvær>? = null)

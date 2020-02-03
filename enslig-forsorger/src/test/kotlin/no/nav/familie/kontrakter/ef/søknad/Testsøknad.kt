@@ -112,7 +112,7 @@ internal object Testsøknad {
                             fødselTermindato = Søknadsfelt("Termindato", LocalDate.of(2020, 5, 16)),
                             skalBarnetBoHosSøker = Søknadsfelt("Skal barnet bo hos deg?", true),
                             terminbekreftelse = dokumentfelt("Bekreftelse på ventet fødselsdato"),
-                            annenAnnenForelder = Søknadsfelt("Barnets andre forelder",
+                            annenForelder = Søknadsfelt("Barnets andre forelder",
                                                         AnnenForelder(Søknadsfelt("Jeg kan ikke oppgi den andre forelderen",
                                                                              true),
                                                                  Søknadsfelt("Hvorfor kan du ikke oppgi den andre forelderen?",

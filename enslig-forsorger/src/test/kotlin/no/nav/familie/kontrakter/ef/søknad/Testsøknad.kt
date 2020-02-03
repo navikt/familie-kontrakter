@@ -106,14 +106,14 @@ internal object Testsøknad {
     }
 
     @Suppress("LongLine")
-    private fun kommendeBarn(): KommendeBarn {
-        return KommendeBarn(navn = Søknadsfelt("Barnets fulle navn, hvis dette er bestemt", "Sorgløs"),
+    private fun kommendeBarn(): NyttBarn {
+        return NyttBarn(navn = Søknadsfelt("Barnets fulle navn, hvis dette er bestemt", "Sorgløs"),
                             erBarnetFødt = Søknadsfelt("Er barnet født?", false),
                             fødselTermindato = Søknadsfelt("Termindato", LocalDate.of(2020, 5, 16)),
                             skalBarnetBoHosSøker = Søknadsfelt("Skal barnet bo hos deg?", true),
                             terminbekreftelse = dokumentfelt("Bekreftelse på ventet fødselsdato"),
-                            annenForelder = Søknadsfelt("Barnets andre forelder",
-                                                        Forelder(Søknadsfelt("Jeg kan ikke oppgi den andre forelderen",
+                            annenAnnenForelder = Søknadsfelt("Barnets andre forelder",
+                                                        AnnenForelder(Søknadsfelt("Jeg kan ikke oppgi den andre forelderen",
                                                                              true),
                                                                  Søknadsfelt("Hvorfor kan du ikke oppgi den andre forelderen?",
                                                                              "Fordi jeg ikke liker hen."))),
@@ -142,12 +142,12 @@ internal object Testsøknad {
     }
 
     @Suppress("LongLine")
-    private fun folkeregisterbarn(): Folkeregisterbarn {
-        return Folkeregisterbarn(Søknadsfelt("Navn", "Lykkeliten"),
+    private fun folkeregisterbarn(): RegistrertBarn {
+        return RegistrertBarn(Søknadsfelt("Navn", "Lykkeliten"),
                                  Søknadsfelt("Fødselsnummer", Fødselsnummer("31081953069")),
                                  Søknadsfelt("Har samme adresse som søker", true),
                                  Søknadsfelt("Barnets andre forelder",
-                                             Forelder(person = Søknadsfelt("personalia", personMinimum()),
+                                             AnnenForelder(person = Søknadsfelt("personalia", personMinimum()),
                                                       adresse = adresseSøknadsfelt())),
                                  Søknadsfelt("samvær",
                                              Samvær(Søknadsfelt("Har du og den andre forelderen skriftlig avtale om delt bosted for barnet?",

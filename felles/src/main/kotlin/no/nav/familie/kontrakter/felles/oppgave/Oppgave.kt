@@ -8,5 +8,5 @@ data class Oppgave(
     val journalpostId: String,
     val eksisterendeOppgaveId: String?,
     val beskrivelse: String,
-    val tema: Tema
+    val tema: Tema?
 )

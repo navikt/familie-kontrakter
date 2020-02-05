@@ -7,5 +7,6 @@ data class Oppgave(
     val aktorId: String,
     val journalpostId: String,
     val eksisterendeOppgaveId: String?,
-    val beskrivelse: String
+    val beskrivelse: String,
+    val tema: Tema
 )

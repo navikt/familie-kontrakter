@@ -9,7 +9,8 @@ data class OpprettOppgave(
     val tema: Tema,
     val behandlingstema: String?,
     val fristFerdigstillelse: LocalDate,
-    val aktivFra: LocalDate = LocalDate.now()
+    val aktivFra: LocalDate = LocalDate.now(),
+    val beskrivelse: String
 )
 
 data class OppgaveIdent(val ident: String, val type: IdentType)

@@ -21,6 +21,8 @@ data class Utbetalingsoppdrag (
 data class Utbetalingsperiode (
     val erEndringPåEksisterendePeriode: Boolean,
     val opphør: Opphør? = null,
+    val periodeId: Long,
+    val forrigePeriodeId: Long? = null,
     val datoForVedtak: LocalDate,
     val klassifisering: String,
     val vedtakdatoFom: LocalDate,

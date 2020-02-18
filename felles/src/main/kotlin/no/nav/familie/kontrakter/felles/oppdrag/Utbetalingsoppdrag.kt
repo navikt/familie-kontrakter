@@ -14,7 +14,7 @@ data class Utbetalingsoppdrag (
     val avstemmingTidspunkt: LocalDateTime = LocalDateTime.now(),
     val utbetalingsperiode: List<Utbetalingsperiode>
 ) {
-    enum class KodeEndring { NY, ENDR, UENDR }
+    enum class KodeEndring { NY, ENDR, UEND }
 }
 
 @JsonIgnoreProperties(ignoreUnknown = true)

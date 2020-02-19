@@ -55,4 +55,8 @@ class Fødselsnummer(val verdi: String) {
         }
         return false
     }
+
+    override fun toString(): String {
+        return verdi
+    }
 }

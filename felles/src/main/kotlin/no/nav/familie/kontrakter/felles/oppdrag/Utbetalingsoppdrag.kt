@@ -14,13 +14,15 @@ data class Utbetalingsoppdrag (
     val avstemmingTidspunkt: LocalDateTime = LocalDateTime.now(),
     val utbetalingsperiode: List<Utbetalingsperiode>
 ) {
-    enum class KodeEndring { NY, ENDR, UENDR }
+    enum class KodeEndring { NY, ENDR, UEND }
 }
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class Utbetalingsperiode (
     val erEndringPåEksisterendePeriode: Boolean,
     val opphør: Opphør? = null,
+    val periodeId: Long,
+    val forrigePeriodeId: Long? = null,
     val datoForVedtak: LocalDate,
     val klassifisering: String,
     val vedtakdatoFom: LocalDate,

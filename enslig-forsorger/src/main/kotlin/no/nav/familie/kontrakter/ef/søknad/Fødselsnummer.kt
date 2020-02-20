@@ -1,4 +1,3 @@
-
 package no.nav.familie.kontrakter.ef.søknad
 
 import java.time.LocalDate
@@ -56,7 +55,15 @@ class Fødselsnummer(val verdi: String) {
         return false
     }
 
-    override fun toString(): String {
-        return verdi
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+        other as Fødselsnummer
+        if (verdi != other.verdi) return false
+        return true
+    }
+
+    override fun hashCode(): Int {
+        return verdi.hashCode()
     }
 }

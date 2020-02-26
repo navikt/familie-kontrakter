@@ -7,6 +7,7 @@ data class OpprettOppgave(
     val enhetsnummer: String?,
     val saksId: String,
     val tema: Tema,
+    val oppgavetype: Oppgavetype,
     val behandlingstema: String?,
     val fristFerdigstillelse: LocalDate,
     val aktivFra: LocalDate = LocalDate.now(),
@@ -17,4 +18,9 @@ data class OppgaveIdent(val ident: String, val type: IdentType)
 
 enum class IdentType {
     Aktør, Organisasjon
+}
+
+enum class Oppgavetype(val value: String) {
+    BehandleSak("BEH_SAK"),
+    Journalføring("JFR")
 }

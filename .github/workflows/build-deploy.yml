@@ -38,11 +38,9 @@ jobs:
       - name: Setting version
         if: github.base_ref == 'master'
         run: |
-          sudo apt-get install libxml2-utils
           export GIT_COMMIT_HASH=$(git log -n 1 --pretty=format:'%h')
           export GIT_COMMIT_DATE=$(git log -1 --pretty='%ad' --date=format:'%Y%m%d%H%M%S')
-          export REVISION=$(xmllint --xpath '/*[local-name()="project"]//*[local-name()="revision"]/text()' pom.xml)
-          export VERSION=${REVISION}_${GIT_COMMIT_DATE}_${GIT_COMMIT_HASH}
+          export VERSION=${GIT_COMMIT_DATE}_${GIT_COMMIT_HASH}
           echo "Setting version $VERSION"
           mvn versions:set -DnewVersion="$VERSION"
           mvn versions:commit

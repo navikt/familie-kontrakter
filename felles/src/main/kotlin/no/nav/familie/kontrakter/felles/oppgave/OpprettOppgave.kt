@@ -2,13 +2,11 @@ package no.nav.familie.kontrakter.felles.oppgave
 
 import java.time.LocalDate
 
-/**
- * @param referanseId Saksreferanse, eller journalpostId hvis oppgavetypen er Journalføring.
- */
 data class OpprettOppgave(
     val ident: OppgaveIdent,
     val enhetsnummer: String?,
-    val referanseId: String,
+    val saksId: String?,
+    val journalpostId: String?,
     val tema: Tema,
     val oppgavetype: Oppgavetype,
     val behandlingstema: String?,

@@ -5,7 +5,8 @@ import java.time.LocalDate
 data class OpprettOppgave(
     val ident: OppgaveIdent,
     val enhetsnummer: String?,
-    val saksId: String,
+    val saksId: String?,
+    val journalpostId: String?,
     val tema: Tema,
     val oppgavetype: Oppgavetype,
     val behandlingstema: String?,

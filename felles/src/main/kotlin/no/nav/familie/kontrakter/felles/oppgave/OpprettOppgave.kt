@@ -6,7 +6,7 @@ data class OpprettOppgave(
     val ident: OppgaveIdent,
     val enhetsnummer: String?,
     val saksId: String?,
-    val journalpostId: String?,
+    val journalpostId: String? = null,
     val tema: Tema,
     val oppgavetype: Oppgavetype,
     val behandlingstema: String?,

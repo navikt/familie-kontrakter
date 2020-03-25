@@ -195,9 +195,7 @@ internal object Testsøknad {
                                                                        Søknadsfelt("Til",
                                                                                    LocalDate.of(2012, 12, 18)),
                                                                        Søknadsfelt("Hvorfor bodde du i utlandet?",
-                                                                                   "Granca, Granca, Granca")))),
-                                   Søknadsfelt("Har du flyktningsatus hos Utlendingsdirektoratet?", true),
-                                   dokumentfelt("flyktningdokumentasjon"))
+                                                                                   "Granca, Granca, Granca")))))
     }
 
     @Suppress("LongLine")

@@ -90,6 +90,7 @@ internal object Testsøknad {
                                                                           )),
                                                     Søknadsfelt("Er utdanningen offentlig eller privat?",
                                                                 "Offentlig"),
+                                                    Søknadsfelt("Heltid, eller deltid", "Deltid"),
                                                     Søknadsfelt("Hvor mye skal du studere?", 300),
                                                     Søknadsfelt("Hva er målet med utdanningen?",
                                                                 "Økonomisk selvstendighet"),

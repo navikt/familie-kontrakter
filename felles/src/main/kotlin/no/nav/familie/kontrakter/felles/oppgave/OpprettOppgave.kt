@@ -12,7 +12,8 @@ data class OpprettOppgave(
     val behandlingstema: String?,
     val fristFerdigstillelse: LocalDate,
     val aktivFra: LocalDate = LocalDate.now(),
-    val beskrivelse: String
+    val beskrivelse: String,
+    val prioritet: OppgavePrioritet = OppgavePrioritet.NORM
 )
 
 data class OppgaveIdent(val ident: String, val type: IdentType)
@@ -24,4 +25,10 @@ enum class IdentType {
 enum class Oppgavetype(val value: String) {
     BehandleSak("BEH_SAK"),
     Journalføring("JFR")
+}
+
+enum class OppgavePrioritet() {
+    HOY,
+    NORM,
+    LAV;
 }

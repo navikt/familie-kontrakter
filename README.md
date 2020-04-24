@@ -72,6 +72,7 @@ Spørsmål knyttet til koden eller prosjektet kan rettes mot:
 
 * Tor Narland, tor.narland@nav.no
 * Geirmund Simonsen, geirmund.simonsen@nav.no
+* Enslig forsørger: mattis.janitz@nav.no
 
 ## For NAV-ansatte
 

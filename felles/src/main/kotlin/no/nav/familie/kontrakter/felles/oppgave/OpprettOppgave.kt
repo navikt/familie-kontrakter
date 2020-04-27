@@ -24,7 +24,9 @@ enum class IdentType {
 
 enum class Oppgavetype(val value: String) {
     BehandleSak("BEH_SAK"),
-    Journalføring("JFR")
+    Journalføring("JFR"),
+    GodkjenneVedtak("GOD_VED"),
+    BehandleUnderkjentVedtak("BEH_UND_VED")
 }
 
 enum class OppgavePrioritet() {

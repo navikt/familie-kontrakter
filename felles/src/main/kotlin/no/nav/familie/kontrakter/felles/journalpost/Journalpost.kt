@@ -14,6 +14,7 @@ data class Journalpost(val journalpostId: String,
 data class Sak(val arkivsaksnummer: String?,
                var arkivsaksystem: String?,
                val fagsakId: String?,
+               val sakstype: String?,
                val fagsaksystem: String?)
 
 data class Bruker(val id: String,

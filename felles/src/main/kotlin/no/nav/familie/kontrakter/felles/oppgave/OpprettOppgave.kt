@@ -26,7 +26,12 @@ enum class Oppgavetype(val value: String) {
     BehandleSak("BEH_SAK"),
     Journalføring("JFR"),
     GodkjenneVedtak("GOD_VED"),
-    BehandleUnderkjentVedtak("BEH_UND_VED")
+    BehandleUnderkjentVedtak("BEH_UND_VED"),
+    Fordeling("FDR")
+}
+
+enum class Behandlingstema(val value: String) {
+    BarnetrygdEØS("ab0058")
 }
 
 enum class OppgavePrioritet() {

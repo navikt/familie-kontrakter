@@ -22,7 +22,7 @@ data class Oppgave(
     val tilordnetRessurs: String? = null,
     val beskrivelse: String,
     val temagruppe: String? = null,
-    val tema: String? = null,
+    val tema: Tema? = null,
     val oppgavetype: String? = null,
     val behandlingstype: String? = null,
     val versjon: Int? = null,

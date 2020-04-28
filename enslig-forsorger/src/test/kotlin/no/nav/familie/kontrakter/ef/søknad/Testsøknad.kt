@@ -227,8 +227,9 @@ internal object Testsøknad {
                                                LocalDate.of(2013, 4, 17)))
     }
 
+    // Syntetisk fødselsnummer fra dolly
     private fun personalia(): Personalia {
-        return Personalia(Søknadsfelt("Fødselsnummer", Fødselsnummer("24117938529")),
+        return Personalia(Søknadsfelt("Fødselsnummer", Fødselsnummer("18068124693")),
                           Søknadsfelt("Navn", "Kari Nordmann"),
                           Søknadsfelt("Statsborgerskap", "Norsk"),
                           adresseSøknadsfelt(),

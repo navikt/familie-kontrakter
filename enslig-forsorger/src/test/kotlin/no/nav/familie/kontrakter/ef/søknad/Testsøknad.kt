@@ -65,18 +65,7 @@ internal object Testsøknad {
                          Søknadsfelt("Om virksomheten du etablerer",
                                      Virksomhet(Søknadsfelt("Beskriv virksomheten",
                                                             "Den kommer til å revolusjonere verden"))),
-                         Søknadsfelt("Når du er arbeidssøker",
-                                     Arbeidssøker(Søknadsfelt("Er du registrert som arbeidssøker hos NAV?", true),
-                                                  Søknadsfelt("Er du villig til å ta imot tilbud om arbeid eller arbeidsmarkedstiltak?",
-                                                              true),
-                                                  Søknadsfelt("Kan du begynne i arbeid senest én uke etter at du har fått tilbud om jobb?",
-                                                              true),
-                                                  Søknadsfelt("Har du eller kan du skaffe barnepass senest innen en uke etter at du har fått tilbud om jobb eller arbeidsmarkedstiltak?",
-                                                              false),
-                                                  Søknadsfelt("Hvor ønsker du å søke arbeid?",
-                                                              "Kun i bodistriktet mitt, ikke mer enn 1 times reisevei"),
-                                                  Søknadsfelt("Ønsker du å stå som arbeidssøker til minst 50% stilling?",
-                                                              true))),
+                         lagSøknadsfeltArbeidssøker(),
                          Søknadsfelt("Utdanningen du skal ta",
                                      UnderUtdanning(Søknadsfelt("Skole/utdanningssted", "UiO"),
                                                     Søknadsfelt("Utdanning",
@@ -104,6 +93,22 @@ internal object Testsøknad {
                                                                                                      Month.OCTOBER,
                                                                                                      2004))
                                                                                  ))))))
+    }
+
+    @Suppress("LongLine")
+    fun lagSøknadsfeltArbeidssøker(): Søknadsfelt<Arbeidssøker> {
+        return Søknadsfelt("Når du er arbeidssøker",
+                           Arbeidssøker(Søknadsfelt("Er du registrert som arbeidssøker hos NAV?", true),
+                                        Søknadsfelt("Er du villig til å ta imot tilbud om arbeid eller arbeidsmarkedstiltak?",
+                                                    true),
+                                        Søknadsfelt("Kan du begynne i arbeid senest én uke etter at du har fått tilbud om jobb?",
+                                                    true),
+                                        Søknadsfelt("Har du eller kan du skaffe barnepass senest innen en uke etter at du har fått tilbud om jobb eller arbeidsmarkedstiltak?",
+                                                    false),
+                                        Søknadsfelt("Hvor ønsker du å søke arbeid?",
+                                                    "Kun i bodistriktet mitt, ikke mer enn 1 times reisevei"),
+                                        Søknadsfelt("Ønsker du å stå som arbeidssøker til minst 50% stilling?",
+                                                    true)))
     }
 
     @Suppress("LongLine")
@@ -222,8 +227,9 @@ internal object Testsøknad {
                                                LocalDate.of(2013, 4, 17)))
     }
 
+    // Syntetisk fødselsnummer fra dolly
     private fun personalia(): Personalia {
-        return Personalia(Søknadsfelt("Fødselsnummer", Fødselsnummer("24117938529")),
+        return Personalia(Søknadsfelt("Fødselsnummer", Fødselsnummer("18068124693")),
                           Søknadsfelt("Navn", "Kari Nordmann"),
                           Søknadsfelt("Statsborgerskap", "Norsk"),
                           adresseSøknadsfelt(),

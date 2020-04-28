@@ -23,7 +23,6 @@ data class Oppgave(
     val beskrivelse: String,
     val temagruppe: String? = null,
     val tema: String? = null,
-    val behandlingstema: String? = null,
     val oppgavetype: String? = null,
     val behandlingstype: String? = null,
     val versjon: Int? = null,

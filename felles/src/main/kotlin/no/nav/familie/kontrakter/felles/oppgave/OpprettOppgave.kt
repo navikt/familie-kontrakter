@@ -10,6 +10,7 @@ data class OpprettOppgave(
     val tema: Tema,
     val oppgavetype: Oppgavetype,
     val behandlingstema: String?,
+    val tilordnetRessurs: String? = null,
     val fristFerdigstillelse: LocalDate,
     val aktivFra: LocalDate = LocalDate.now(),
     val beskrivelse: String,

@@ -35,16 +35,10 @@ data class Oppgave(
     val endretAv: String? = null,
     val ferdigstiltTidspunkt: String? = null,
     val endretTidspunkt: String? = null,
-    val prioritet: PrioritetEnum? = null,
+    val prioritet: OppgavePrioritet? = null,
     val status: StatusEnum? = null,
     private var metadata: MutableMap<String, String>? = null
 )
-
-enum class PrioritetEnum(private val value: String) {
-    HOY("HOY"),
-    NORM("NORM"),
-    LAV("LAV");
-}
 
 enum class StatusEnum {
     OPPRETTET,

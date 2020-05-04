@@ -1,8 +1,8 @@
 package no.nav.familie.kontrakter.ef.søknad
 
 
-data class SkjemaForArbeidssøker(val personalia : Søknadsfelt<SkjemaPersonalia>,
+data class SkjemaForArbeidssøker(val personaliaArbeidssøker : Søknadsfelt<PersonaliaArbeidssøker>,
                                  val arbeidssøker: Søknadsfelt<Arbeidssøker>)
 
-data class SkjemaPersonalia ( val fødselsnummer: Søknadsfelt<Fødselsnummer>,
-                              val navn: Søknadsfelt<String>)
+data class PersonaliaArbeidssøker (val fødselsnummer: Søknadsfelt<Fødselsnummer>,
+                                   val navn: Søknadsfelt<String>)

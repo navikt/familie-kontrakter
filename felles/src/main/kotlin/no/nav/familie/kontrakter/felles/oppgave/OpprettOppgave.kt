@@ -32,6 +32,7 @@ enum class Oppgavetype(val value: String) {
 }
 
 enum class Behandlingstema(val value: String) {
+    Barnetrygd("ab0270"),
     BarnetrygdEØS("ab0058"),
     OrdinærBarnetrygd("ab0180"),
     UtvidetBarnetrygd("ab0096")

@@ -11,8 +11,12 @@ data class Journalpost(val journalpostId: String,
                        val bruker: Bruker?,
                        val journalforendeEnhet: String?,
                        val kanal: String?,
-                       val datoMottatt: LocalDateTime?,
-                       val dokumenter: List<DokumentInfo>?)
+                       val dokumenter: List<DokumentInfo>?,
+                       val relevanteDatoer: List<RelevantDato>?) {
+    val datoMottatt = relevanteDatoer?.firstOrNull { it.datotype == "DATO_REGISTRERT" }?.dato
+}
+
+
 
 data class Sak(val arkivsaksnummer: String?,
                var arkivsaksystem: String?,
@@ -33,7 +37,7 @@ data class DokumentInfo(val dokumentInfoId: String,
 
 data class Dokumentvariant(val variantformat: String)
 data class LogiskVedlegg(val logiskVedleggId: String, val tittel: String)
-
+data class RelevantDato(val dato: LocalDateTime, val datotype: String)
 enum class Journalposttype {
     I,
     U,

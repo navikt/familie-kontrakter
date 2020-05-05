@@ -1,5 +1,7 @@
 package no.nav.familie.kontrakter.felles.journalpost
 
+import java.time.LocalDateTime
+
 data class Journalpost(val journalpostId: String,
                        val journalposttype: Journalposttype,
                        val journalstatus: Journalstatus,
@@ -9,6 +11,7 @@ data class Journalpost(val journalpostId: String,
                        val bruker: Bruker?,
                        val journalforendeEnhet: String?,
                        val kanal: String?,
+                       val datoMottatt: LocalDateTime?,
                        val dokumenter: List<DokumentInfo>?)
 
 data class Sak(val arkivsaksnummer: String?,

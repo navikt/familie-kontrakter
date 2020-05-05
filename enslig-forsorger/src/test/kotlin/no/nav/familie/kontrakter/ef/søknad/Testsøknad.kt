@@ -1,12 +1,15 @@
 package no.nav.familie.kontrakter.ef.søknad
 
 import java.time.LocalDate
+import java.time.LocalDateTime
 import java.time.Month
 
 @Suppress("unused")
 internal object Testsøknad {
 
+
     val søknad = Søknad(Søknadsfelt("Søker", personalia()),
+                        Søknadsfelt("innsendingsdetaljer", innsendingsdetaljer()),
                         Søknadsfelt("Detaljer om sivilstand", sivilstandsdetaljer()),
                         Søknadsfelt("Opphold i Norge", medlemskapsdetaljer()),
                         Søknadsfelt("Bosituasjonen din", bosituasjon()),
@@ -16,6 +19,8 @@ internal object Testsøknad {
                         Søknadsfelt("Arbeid, utdanning og andre aktiviteter", aktivitet()),
                         Søknadsfelt("Mer om situasjonen din", situasjon()),
                         Søknadsfelt("Når søker du stønad fra?", stønadsstart()))
+
+    fun innsendingsdetaljer(): Innsendingsdetaljer = Innsendingsdetaljer(Søknadsfelt("Dato mottatt", LocalDateTime.of(2020, 5, 5, 11, 32)))
 
     private fun stønadsstart() = Stønadsstart(Søknadsfelt("Fra måned", Month.AUGUST), Søknadsfelt("Fra år", 2018))
 

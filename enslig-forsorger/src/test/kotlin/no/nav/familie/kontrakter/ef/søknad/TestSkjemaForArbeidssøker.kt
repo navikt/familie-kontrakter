@@ -6,7 +6,8 @@ internal object TestSkjemaForArbeidssøker {
     // Syntetisk fødselsnummer fra dolly
     @SuppressWarnings
     val skjema = SkjemaForArbeidssøker(Søknadsfelt("Søker", lagPersonaliaForArbeidssøker()),
-                                       Testsøknad.lagSøknadsfeltArbeidssøker())
+                                       Testsøknad.lagSøknadsfeltArbeidssøker(),
+                                        Søknadsfelt("Innsendingsdetaljer", Testsøknad.innsendingsdetaljer()))
 
     private fun lagPersonaliaForArbeidssøker(): PersonaliaArbeidssøker {
         return  PersonaliaArbeidssøker(Søknadsfelt("fnr", Fødselsnummer("18068124693")),

@@ -14,7 +14,8 @@ data class OpprettOppgave(
     val fristFerdigstillelse: LocalDate,
     val aktivFra: LocalDate = LocalDate.now(),
     val beskrivelse: String,
-    val prioritet: OppgavePrioritet = OppgavePrioritet.NORM
+    val prioritet: OppgavePrioritet = OppgavePrioritet.NORM,
+    val behandlingstype: String? = null
 )
 
 data class OppgaveIdent(val ident: String, val type: IdentType)
@@ -36,6 +37,10 @@ enum class Behandlingstema(val value: String) {
     BarnetrygdEØS("ab0058"),
     OrdinærBarnetrygd("ab0180"),
     UtvidetBarnetrygd("ab0096")
+}
+
+enum class Behandlingstype(val value: String) {
+    Utland("ae0106")
 }
 
 enum class OppgavePrioritet() {

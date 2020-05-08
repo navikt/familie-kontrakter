@@ -47,6 +47,13 @@ data class Ressurs<T>(
         }
     }
 
+    fun getDataOrThrow(): T {
+        return when (this.status) {
+            Status.SUKSESS -> data ?: error("Data er null i Ressurs")
+            else -> error(melding)
+        }
+    }
+
     fun toJson(): String = objectMapper.writeValueAsString(this)
 
     override fun toString(): String {

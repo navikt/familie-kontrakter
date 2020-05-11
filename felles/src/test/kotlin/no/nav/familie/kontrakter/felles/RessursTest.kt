@@ -23,14 +23,14 @@ class RessursTest {
         Assert.assertEquals(
             ressurs.toJson(),
             "{\"data\":{\"tekst\":\"tekst\",\"nummer\":42,\"date\":\"2019-11-30\"}," +
-                    "\"status\":\"SUKSESS\",\"melding\":\"OK\",\"stacktrace\":null}"
+                    "\"status\":\"SUKSESS\",\"melding\":\"OK\",\"funksjonellFeilmelding\":null,\"stacktrace\":null}"
         )
     }
 
     @Test
     fun `skal konvertere stacktrace to data`() {
-        val (_, _, _, stacktrace) =
-            failure<Any>("Dette er errormeldingen", RuntimeException("Dette er feilkoden"))
+        val (_, _, _, _, stacktrace) =
+            failure<Any>(errorMessage = "Dette er errormeldingen", error = RuntimeException("Dette er feilkoden"))
         Assertions.assertTrue(
             stacktrace!!.contains(
                 "java.lang.RuntimeException: Dette er feilkoden" +

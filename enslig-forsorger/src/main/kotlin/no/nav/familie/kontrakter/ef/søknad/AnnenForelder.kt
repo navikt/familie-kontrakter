@@ -4,6 +4,5 @@ data class AnnenForelder(val kanIkkeOppgiAnnenForelderFar: Søknadsfelt<Boolean>
                          val ikkeOppgittAnnenForelderBegrunnelse: Søknadsfelt<String>? = null,
                          val bosattNorge: Søknadsfelt<Boolean>? = null,
                          val land: Søknadsfelt<String>? = null,
-                         val person: Søknadsfelt<PersonMinimum>? = null,
-                         val adresse: Søknadsfelt<Adresse>? = null)
+                         val person: Søknadsfelt<PersonMinimum>? = null)
 

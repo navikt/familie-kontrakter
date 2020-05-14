@@ -10,14 +10,14 @@ import java.io.StringWriter
  * @param T typen til data i objektet.
  * @param status status på requesten. Kan være 200 OK med feilet ressurs
  * @param melding teknisk melding som ikke skal inneholde sensitive data
- * @param funksjonellFeilmelding feilmelding forbehold frontend og kan inneholde sensitive data
+ * @param frontendFeilmelding feilmelding forbehold frontend og kan inneholde sensitive data
  * @param stacktrace stacktrace fra feil som kan være nyttig til debugging i familie-prosessering
  */
 data class Ressurs<T>(
     val data: T?,
     val status: Status,
     val melding: String,
-    val funksjonellFeilmelding: String? = null,
+    val frontendFeilmelding: String? = null,
     val stacktrace: String?
 ) {
     enum class Status { SUKSESS, FEILET, IKKE_HENTET, IKKE_TILGANG }
@@ -39,13 +39,13 @@ data class Ressurs<T>(
 
         fun <T> failure(
             errorMessage: String? = null,
-            funksjonellFeilmelding: String? = null,
+            frontendFeilmelding: String? = null,
             error: Throwable? = null
         ): Ressurs<T> = Ressurs(
             data = null,
             status = Status.FEILET,
-            melding = errorMessage ?: "Kunne ikke hente data: ${error?.message}",
-            funksjonellFeilmelding = funksjonellFeilmelding,
+            melding = errorMessage ?: "En feil har oppstått: ${error?.message}",
+            frontendFeilmelding = frontendFeilmelding,
             stacktrace = error?.textValue()
         )
 
@@ -77,6 +77,6 @@ data class Ressurs<T>(
     }
 
     fun toSecureString(): String {
-        return "Ressurs(status=$status, melding='$melding', funksjonellFeilmelding='$funksjonellFeilmelding')"
+        return "Ressurs(status=$status, melding='$melding', frontendFeilmelding='$frontendFeilmelding')"
     }
 }

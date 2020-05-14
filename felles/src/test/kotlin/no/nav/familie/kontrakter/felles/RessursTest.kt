@@ -23,7 +23,7 @@ class RessursTest {
         Assert.assertEquals(
             ressurs.toJson(),
             "{\"data\":{\"tekst\":\"tekst\",\"nummer\":42,\"date\":\"2019-11-30\"}," +
-                    "\"status\":\"SUKSESS\",\"melding\":\"OK\",\"funksjonellFeilmelding\":null,\"stacktrace\":null}"
+                    "\"status\":\"SUKSESS\",\"melding\":\"OK\",\"frontendFeilmelding\":null,\"stacktrace\":null}"
         )
     }
 

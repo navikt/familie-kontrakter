@@ -20,7 +20,8 @@ internal object Testsøknad {
                         Søknadsfelt("Mer om situasjonen din", situasjon()),
                         Søknadsfelt("Når søker du stønad fra?", stønadsstart()))
 
-    fun innsendingsdetaljer(): Innsendingsdetaljer = Innsendingsdetaljer(Søknadsfelt("Dato mottatt", LocalDateTime.of(2020, 5, 5, 11, 32)))
+    fun innsendingsdetaljer(): Innsendingsdetaljer = Innsendingsdetaljer(Søknadsfelt("Dato mottatt",
+                                                                                     LocalDateTime.of(2020, 5, 5, 11, 32)))
 
     private fun stønadsstart() = Stønadsstart(Søknadsfelt("Fra måned", Month.AUGUST), Søknadsfelt("Fra år", 2018))
 
@@ -81,7 +82,7 @@ internal object Testsøknad {
                                                                                               1999,
                                                                                               Month.OCTOBER,
                                                                                               2004))
-                                                                          )),
+                                                                )),
                                                     Søknadsfelt("Er utdanningen offentlig eller privat?",
                                                                 "Offentlig"),
                                                     Søknadsfelt("Heltid, eller deltid", "Deltid"),
@@ -97,7 +98,7 @@ internal object Testsøknad {
                                                                                                      1999,
                                                                                                      Month.OCTOBER,
                                                                                                      2004))
-                                                                                 ))))))
+                                                                ))))))
     }
 
     @Suppress("LongLine")
@@ -119,51 +120,20 @@ internal object Testsøknad {
     @Suppress("LongLine")
     private fun kommendeBarn(): NyttBarn {
         return NyttBarn(navn = Søknadsfelt("Barnets fulle navn, hvis dette er bestemt", "Sorgløs"),
-                            erBarnetFødt = Søknadsfelt("Er barnet født?", false),
-                            fødselTermindato = Søknadsfelt("Termindato", LocalDate.of(2020, 5, 16)),
-                            skalBarnetBoHosSøker = Søknadsfelt("Skal barnet bo hos deg?", true),
-                            terminbekreftelse = dokumentfelt("Bekreftelse på ventet fødselsdato"),
-                            annenForelder = Søknadsfelt("Barnets andre forelder",
-                                                        AnnenForelder(Søknadsfelt("Jeg kan ikke oppgi den andre forelderen",
-                                                                             true),
-                                                                 Søknadsfelt("Hvorfor kan du ikke oppgi den andre forelderen?",
-                                                                             "Fordi jeg ikke liker hen."))),
-                            samvær = Søknadsfelt("samvær",
-                                                 Samvær(Søknadsfelt("Har du og den andre forelderen skriftlig avtale om delt bosted for barnet?",
-                                                                    true),
-                                                        dokumentfelt("Avtale om samvær"),
-                                                        Søknadsfelt("Har den andre forelderen samvær med barnet",
-                                                                    "Ja, men ikke mer enn vanlig samværsrett"),
-                                                        Søknadsfelt("Har dere skriftlig samværsavtale for barnet?",
-                                                                    "Ja, men den beskriver ikke når barnet er sammen med hver av foreldrene"),
-                                                        dokumentfelt("Avtale om samvær"),
-                                                        Søknadsfelt("Hvordan praktiserer dere samværet?",
-                                                                    "Litt hver for oss"),
-                                                        Søknadsfelt("Bor du og den andre forelderen til [barnets navn] i samme hus/blokk, gårdstun, kvartal eller vei?",
-                                                                    true),
-                                                        Søknadsfelt("Har du bodd sammen med den andre forelderen til [barnets fornavn] før?",
-                                                                    true),
-                                                        Søknadsfelt("Når flyttet dere fra hverandre?",
-                                                                    LocalDate.of(2018, 7, 21)),
-                                                        dokumentfelt("Erklæring om samlivsbrudd"),
-                                                        Søknadsfelt("Hvor mye er du sammen med den andre forelderen til barnet?",
-                                                                    "Vi møtes også uten at barnet er til stede"),
-                                                        Søknadsfelt("Beskriv  hvor mye er du sammen med den andre forelderen til barnet?",
-                                                                    "Vi sees stadig vekk"))))
-    }
-
-    @Suppress("LongLine")
-    private fun folkeregisterbarn(): RegistrertBarn {
-        return RegistrertBarn(Søknadsfelt("Navn", "Lykkeliten"),
-                                 Søknadsfelt("Fødselsnummer", Fødselsnummer("31081953069")),
-                                 Søknadsfelt("Har samme adresse som søker", true),
-                                 Søknadsfelt("Barnets andre forelder",
-                                             AnnenForelder(person = Søknadsfelt("personalia", personMinimum()),
-                                                      adresse = adresseSøknadsfelt())),
-                                 Søknadsfelt("samvær",
+                        erBarnetFødt = Søknadsfelt("Er barnet født?", false),
+                        fødselTermindato = Søknadsfelt("Termindato", LocalDate.of(2020, 5, 16)),
+                        skalBarnetBoHosSøker = Søknadsfelt("Skal barnet bo hos deg?", true),
+                        terminbekreftelse = dokumentfelt("Bekreftelse på ventet fødselsdato"),
+                        annenForelder = Søknadsfelt("Barnets andre forelder",
+                                                    AnnenForelder(kanIkkeOppgiAnnenForelderFar = Søknadsfelt("Jeg kan ikke oppgi den andre forelderen",
+                                                                                                             true),
+                                                                  ikkeOppgittAnnenForelderBegrunnelse = Søknadsfelt("Hvorfor kan du ikke oppgi den andre forelderen?",
+                                                                                                                    "Fordi jeg ikke liker hen."),
+                                                                  land = Søknadsfelt("Land", "Fordi jeg ikke liker hen."))),
+                        samvær = Søknadsfelt("samvær",
                                              Samvær(Søknadsfelt("Har du og den andre forelderen skriftlig avtale om delt bosted for barnet?",
                                                                 true),
-                                                    dokumentfelt("Avtale om delt bosted for barna"),
+                                                    dokumentfelt("Avtale om samvær"),
                                                     Søknadsfelt("Har den andre forelderen samvær med barnet",
                                                                 "Ja, men ikke mer enn vanlig samværsrett"),
                                                     Søknadsfelt("Har dere skriftlig samværsavtale for barnet?",
@@ -172,7 +142,7 @@ internal object Testsøknad {
                                                     Søknadsfelt("Hvordan praktiserer dere samværet?",
                                                                 "Litt hver for oss"),
                                                     Søknadsfelt("Bor du og den andre forelderen til [barnets navn] i samme hus/blokk, gårdstun, kvartal eller vei?",
-                                                                true),
+                                                                    "ja"),
                                                     Søknadsfelt("Har du bodd sammen med den andre forelderen til [barnets fornavn] før?",
                                                                 true),
                                                     Søknadsfelt("Når flyttet dere fra hverandre?",
@@ -182,6 +152,39 @@ internal object Testsøknad {
                                                                 "Vi møtes også uten at barnet er til stede"),
                                                     Søknadsfelt("Beskriv  hvor mye er du sammen med den andre forelderen til barnet?",
                                                                 "Vi sees stadig vekk"))))
+    }
+
+    @Suppress("LongLine")
+    private fun folkeregisterbarn(): RegistrertBarn {
+        return RegistrertBarn(Søknadsfelt("Navn", "Lykkeliten"),
+                              Søknadsfelt("Fødselsnummer", Fødselsnummer("31081953069")),
+                              Søknadsfelt("Har samme adresse som søker", true),
+                              Søknadsfelt("Barnets andre forelder",
+                                          AnnenForelder(kanIkkeOppgiAnnenForelderFar = Søknadsfelt("", true),
+                                                        person = Søknadsfelt("personalia", personMinimum())
+                                          )),
+                              Søknadsfelt("samvær",
+                                          Samvær(Søknadsfelt("Har du og den andre forelderen skriftlig avtale om delt bosted for barnet?",
+                                                             true),
+                                                 dokumentfelt("Avtale om delt bosted for barna"),
+                                                 Søknadsfelt("Har den andre forelderen samvær med barnet",
+                                                             "Ja, men ikke mer enn vanlig samværsrett"),
+                                                 Søknadsfelt("Har dere skriftlig samværsavtale for barnet?",
+                                                             "Ja, men den beskriver ikke når barnet er sammen med hver av foreldrene"),
+                                                 dokumentfelt("Avtale om samvær"),
+                                                 Søknadsfelt("Hvordan praktiserer dere samværet?",
+                                                             "Litt hver for oss"),
+                                                 Søknadsfelt("Bor du og den andre forelderen til [barnets navn] i samme hus/blokk, gårdstun, kvartal eller vei?",
+                                                                "ja"),
+                                                 Søknadsfelt("Har du bodd sammen med den andre forelderen til [barnets fornavn] før?",
+                                                             true),
+                                                 Søknadsfelt("Når flyttet dere fra hverandre?",
+                                                             LocalDate.of(2018, 7, 21)),
+                                                 dokumentfelt("Erklæring om samlivsbrudd"),
+                                                 Søknadsfelt("Hvor mye er du sammen med den andre forelderen til barnet?",
+                                                             "Vi møtes også uten at barnet er til stede"),
+                                                 Søknadsfelt("Beskriv  hvor mye er du sammen med den andre forelderen til barnet?",
+                                                             "Vi sees stadig vekk"))))
     }
 
     private fun sivilstandsplaner(): Sivilstandsplaner {

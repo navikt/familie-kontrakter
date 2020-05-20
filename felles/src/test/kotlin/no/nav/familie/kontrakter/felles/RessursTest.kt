@@ -1,5 +1,9 @@
 package no.nav.familie.kontrakter.felles
 
+import com.fasterxml.jackson.databind.ObjectMapper
+import com.fasterxml.jackson.databind.SerializationFeature
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
+import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 import no.nav.familie.kontrakter.felles.Ressurs.Companion.failure
 import no.nav.familie.kontrakter.felles.Ressurs.Companion.success
 import org.junit.Assert
@@ -24,6 +28,18 @@ class RessursTest {
             ressurs.toJson(),
             "{\"data\":{\"tekst\":\"tekst\",\"nummer\":42,\"date\":\"2019-11-30\"}," +
                     "\"status\":\"SUKSESS\",\"melding\":\"OK\",\"frontendFeilmelding\":null,\"stacktrace\":null}"
+        )
+    }
+
+    @Test
+    fun `skal konvertere success til json string med vanlig objektmapper`() {
+        val ressurs: Ressurs<*> = success("a", "OK")
+        Assertions.assertEquals(
+                "{\"data\":\"a\",\"status\":\"SUKSESS\",\"melding\":\"OK\",\"frontendFeilmelding\":null,\"stacktrace\":null}",
+                ObjectMapper()
+                        .registerModule(JavaTimeModule())
+                        .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false)
+                        .writeValueAsString(ressurs)
         )
     }
 

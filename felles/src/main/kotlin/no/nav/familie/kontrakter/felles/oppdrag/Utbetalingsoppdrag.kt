@@ -14,8 +14,6 @@ data class Utbetalingsoppdrag (
     val avstemmingTidspunkt: LocalDateTime = LocalDateTime.now(),
     val utbetalingsperiode: List<Utbetalingsperiode>
 ) {
-    val id: OppdragId by lazy { OppdragId(fagSystem, aktoer, behandlingsIdForFørsteUtbetalingsperiode()) }
-
     enum class KodeEndring { NY, ENDR, UEND }
 }
 
@@ -45,3 +43,6 @@ fun Utbetalingsoppdrag.behandlingsIdForFørsteUtbetalingsperiode(): String {
 
     return utbetalingsperiode[0].behandlingId.toString()
 }
+
+val Utbetalingsoppdrag.oppdragId
+    get() = OppdragId(fagSystem, aktoer, behandlingsIdForFørsteUtbetalingsperiode())

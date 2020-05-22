@@ -4,5 +4,6 @@ data class AnnenForelder(val kanIkkeOppgiAnnenForelderFar: Søknadsfelt<Boolean>
                          val ikkeOppgittAnnenForelderBegrunnelse: Søknadsfelt<String>? = null,
                          val bosattNorge: Søknadsfelt<Boolean>? = null,
                          val land: Søknadsfelt<String>? = null,
-                         val person: Søknadsfelt<PersonMinimum>? = null)
+                         val person: Søknadsfelt<PersonMinimum>? = null,
+                         @Deprecated("Skal ikke brukes lenger") val adresse: Søknadsfelt<Adresse>? = null)
 

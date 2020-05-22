@@ -63,13 +63,6 @@ data class Ressurs<T>(
         }
     }
 
-    fun getDataOrThrow(): T {
-        return when (this.status) {
-            Status.SUKSESS -> data ?: error("Data er null i Ressurs")
-            else -> error(melding)
-        }
-    }
-
     fun toJson(): String = objectMapper.writeValueAsString(this)
 
     override fun toString(): String {
@@ -78,5 +71,12 @@ data class Ressurs<T>(
 
     fun toSecureString(): String {
         return "Ressurs(status=$status, melding='$melding', frontendFeilmelding='$frontendFeilmelding')"
+    }
+}
+
+fun <T> Ressurs<T>.getDataOrThrow(): T {
+    return when (this.status) {
+        Ressurs.Status.SUKSESS -> data ?: error("Data er null i Ressurs")
+        else -> error(melding)
     }
 }

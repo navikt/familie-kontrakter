@@ -14,6 +14,8 @@ data class Utbetalingsoppdrag (
     val avstemmingTidspunkt: LocalDateTime = LocalDateTime.now(),
     val utbetalingsperiode: List<Utbetalingsperiode>
 ) {
+    val id: OppdragId by lazy { OppdragId(fagSystem, aktoer, behandlingsIdForFørsteUtbetalingsperiode()) }
+
     enum class KodeEndring { NY, ENDR, UEND }
 }
 

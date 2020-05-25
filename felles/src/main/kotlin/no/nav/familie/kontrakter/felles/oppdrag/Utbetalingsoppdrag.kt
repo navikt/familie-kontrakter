@@ -43,3 +43,6 @@ fun Utbetalingsoppdrag.behandlingsIdForFørsteUtbetalingsperiode(): String {
 
     return utbetalingsperiode[0].behandlingId.toString()
 }
+
+val Utbetalingsoppdrag.oppdragId
+    get() = OppdragId(fagSystem, aktoer, behandlingsIdForFørsteUtbetalingsperiode())

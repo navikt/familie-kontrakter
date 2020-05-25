@@ -3,7 +3,7 @@ package no.nav.familie.kontrakter.felles.oppgave
 import java.time.LocalDate
 
 data class OpprettOppgave(
-    val ident: OppgaveIdent,
+    val ident: OppgaveIdent?,
     val enhetsnummer: String?,
     val saksId: String?,
     val journalpostId: String? = null,

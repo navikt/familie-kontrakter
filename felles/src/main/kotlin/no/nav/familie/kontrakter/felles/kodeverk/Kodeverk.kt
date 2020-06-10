@@ -11,7 +11,7 @@ data class BetydningDto(val gyldigFra: LocalDate,
 data class BeskrivelseDto(val term: String,
                           val tekst: String)
 
-enum class KodeerkSpråk(val kode: String) {
+enum class KodeverkSpråk(val kode: String) {
     BOKMÅL("nb")
 }
 
@@ -20,7 +20,7 @@ private fun LocalDate.mellom(fra: LocalDate, til: LocalDate) =
 
 fun KodeverkDto.hentGjelende(kode: String,
                              gjeldendeDato: LocalDate = LocalDate.now(),
-                             språk: KodeerkSpråk = KodeerkSpråk.BOKMÅL) =
+                             språk: KodeverkSpråk = KodeverkSpråk.BOKMÅL) =
         betydninger[kode]
                 ?.firstOrNull { gjeldendeDato.mellom(it.gyldigFra, it.gyldigTil) }
                 ?.beskrivelser?.get(språk.kode)?.term

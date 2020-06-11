@@ -1,7 +1,5 @@
 package no.nav.familie.kontrakter.felles.personinfo
 
-import no.nav.familie.ba.sak.behandling.grunnlag.personopplysninger.Kjønn
-
 data class Bostedsadresse(
         val vegadresse: Vegadresse? = null,
         val matrikkeladresse: Matrikkeladresse? = null,

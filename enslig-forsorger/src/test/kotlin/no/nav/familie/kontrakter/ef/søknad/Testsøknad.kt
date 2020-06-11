@@ -60,45 +60,64 @@ internal object Testsøknad {
                                                          Søknadsfelt("Har du en sluttdato?", true),
                                                          Søknadsfelt("Når skal du slutte?",
                                                                      LocalDate.of(2020, 11, 18))))),
-                         Søknadsfelt("Om firmaet du driver",
-                                     Selvstendig(Søknadsfelt("Navn på firma", "Bobs burgers"),
-                                                 Søknadsfelt("Organisasjonsnummer", "987654321"),
-                                                 Søknadsfelt("Når etablerte du firmaet?",
-                                                             LocalDate.of(2018, 4, 5)),
-                                                 Søknadsfelt("Hvor mye jobber du?", 150),
-                                                 Søknadsfelt("Hvordan ser arbeidsuken din ut?",
-                                                             "Veldig tung"))),
+                         lagFirmaSøknadsfelt(),
                          Søknadsfelt("Om virksomheten du etablerer",
                                      Virksomhet(Søknadsfelt("Beskriv virksomheten",
                                                             "Den kommer til å revolusjonere verden"))),
                          lagSøknadsfeltArbeidssøker(),
-                         Søknadsfelt("Utdanningen du skal ta",
-                                     UnderUtdanning(Søknadsfelt("Skole/utdanningssted", "UiO"),
-                                                    Søknadsfelt("Utdanning",
-                                                                Utdanning(Søknadsfelt("Linje/kurs/grad",
-                                                                                      "Profesjonsstudium Informatikk"),
-                                                                          Søknadsfelt("Når skal du være elev/student?",
-                                                                                      Periode(Month.JANUARY,
-                                                                                              1999,
-                                                                                              Month.OCTOBER,
-                                                                                              2004))
-                                                                )),
-                                                    Søknadsfelt("Er utdanningen offentlig eller privat?",
-                                                                "Offentlig"),
-                                                    Søknadsfelt("Heltid, eller deltid", "Deltid"),
-                                                    Søknadsfelt("Hvor mye skal du studere?", 300),
-                                                    Søknadsfelt("Hva er målet med utdanningen?",
-                                                                "Økonomisk selvstendighet"),
-                                                    Søknadsfelt("Har du tatt utdanning etter grunnskolen?", true),
-                                                    Søknadsfelt("Tidligere Utdanning",
-                                                                listOf(Utdanning(Søknadsfelt("Linje/kurs/grad",
-                                                                                             "Master Fysikk"),
-                                                                                 Søknadsfelt("Når var du elev/student?",
-                                                                                             Periode(Month.JANUARY,
-                                                                                                     1999,
-                                                                                                     Month.OCTOBER,
-                                                                                                     2004))
-                                                                ))))))
+                         lagUtdanningsSøknadsfelt(),
+                         Søknadsfelt("Tidligere Utdanning",
+                                     listOf(Aksjeselskap(
+                                             Søknadsfelt("Navn", "Fima abc"),
+                                             Søknadsfelt("arbeidsmengde", 50)
+                                     )))
+
+        )
+    }
+
+    private fun lagFirmaSøknadsfelt(): Søknadsfelt<Selvstendig> {
+        return Søknadsfelt("Om firmaet du driver",
+                           Selvstendig(Søknadsfelt("Navn på firma", "Bobs burgers"),
+                                       Søknadsfelt("Organisasjonsnummer", "987654321"),
+                                       Søknadsfelt("Når etablerte du firmaet?",
+                                                   LocalDate.of(2018, 4, 5)),
+                                       Søknadsfelt("Hvor mye jobber du?", 150),
+                                       Søknadsfelt("Hvordan ser arbeidsuken din ut?",
+                                                   "Veldig tung")))
+    }
+
+    private fun lagUtdanningsSøknadsfelt(): Søknadsfelt<UnderUtdanning> {
+        return Søknadsfelt("Utdanningen du skal ta",
+                           UnderUtdanning(Søknadsfelt("Skole/utdanningssted", "UiO"),
+                                          Søknadsfelt("Utdanning",
+                                                      Utdanning(Søknadsfelt("Linje/kurs/grad",
+                                                                            "Profesjonsstudium Informatikk"),
+                                                                Søknadsfelt("Når skal du være elev/student?",
+                                                                            Periode(Month.JANUARY,
+                                                                                    1999,
+                                                                                    Month.OCTOBER,
+                                                                                    2004))
+                                                      )),
+                                          Søknadsfelt("Er utdanningen offentlig eller privat?",
+                                                      "Offentlig"),
+                                          Søknadsfelt("Heltid, eller deltid", "Deltid"),
+                                          Søknadsfelt("Hvor mye skal du studere?", 300),
+                                          Søknadsfelt("Hva er målet med utdanningen?",
+                                                      "Økonomisk selvstendighet"),
+                                          Søknadsfelt("Har du tatt utdanning etter grunnskolen?", true),
+                                          Søknadsfelt("Tidligere Utdanning",
+                                                      listOf(Utdanning(Søknadsfelt("Linje/kurs/grad",
+                                                                                   "Master Fysikk"),
+                                                                       Søknadsfelt("Når var du elev/student?",
+                                                                                   Periode(Month.JANUARY,
+                                                                                           1999,
+                                                                                           Month.OCTOBER,
+                                                                                           2004))
+                                                      )))
+
+                           )
+
+        )
     }
 
     @Suppress("LongLine")

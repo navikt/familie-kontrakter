@@ -1,4 +1,4 @@
 package no.nav.familie.kontrakter.ef.søknad
 
-class Aksjeselskap(navn: Søknadsfelt<String>,
-                   arbeidsmengde: Søknadsfelt<Int>)
+class Aksjeselskap(val navn: Søknadsfelt<String>,
+                   val arbeidsmengde: Søknadsfelt<Int>)

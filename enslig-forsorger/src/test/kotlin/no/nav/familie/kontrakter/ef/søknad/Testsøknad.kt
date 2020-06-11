@@ -66,7 +66,7 @@ internal object Testsøknad {
                                                             "Den kommer til å revolusjonere verden"))),
                          lagSøknadsfeltArbeidssøker(),
                          lagUtdanningsSøknadsfelt(),
-                         Søknadsfelt("Tidligere Utdanning",
+                         Søknadsfelt("Eget AS",
                                      listOf(Aksjeselskap(
                                              Søknadsfelt("Navn", "Fima abc"),
                                              Søknadsfelt("arbeidsmengde", 50)

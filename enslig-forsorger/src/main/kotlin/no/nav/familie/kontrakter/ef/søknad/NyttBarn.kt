@@ -6,7 +6,7 @@ data class NyttBarn(val navn: Søknadsfelt<String>? = null,
                     val fødselsnummer: Søknadsfelt<String>? = null,
                     val erBarnetFødt: Søknadsfelt<Boolean>,
                     val fødselTermindato: Søknadsfelt<LocalDate>,
-                    val terminbekreftelse: Søknadsfelt<Dokument>? = null,
+                    val terminbekreftelse: Søknadsfelt<List<Dokument>>? = null,
                     val skalBarnetBoHosSøker: Søknadsfelt<Boolean>,
                     val annenForelder: Søknadsfelt<AnnenForelder>? = null,
                     val samvær: Søknadsfelt<Samvær>? = null)

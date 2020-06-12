@@ -7,7 +7,6 @@ data class Bostedsadresse(
 )
 
 data class Vegadresse(
-        val matrikkelId: String?,
         val husnummer: String?,
         val husbokstav: String?,
         val bruksenhetsnummer: String?,
@@ -22,7 +21,6 @@ data class UkjentBosted(
 )
 
 data class Matrikkeladresse(
-        val matrikkelId: String?,
         val bruksenhetsnummer: String?,
         val tilleggsnavn: String?,
         val postnummer: String?,

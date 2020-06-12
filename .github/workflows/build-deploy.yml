@@ -34,7 +34,6 @@ jobs:
         run: mvn clean install
 
       - name: Setting version
-        if: github.base_ref == 'master'
         run: |
           export GIT_COMMIT_HASH=$(git log -n 1 --pretty=format:'%h')
           export GIT_COMMIT_DATE=$(git log -1 --pretty='%ad' --date=format:'%Y%m%d%H%M%S')
@@ -44,7 +43,6 @@ jobs:
           mvn versions:commit
 
       - name: Deploy to Github Package
-        if: github.base_ref == 'master'
         env:
           GITHUB_USERNAME: x-access-token
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

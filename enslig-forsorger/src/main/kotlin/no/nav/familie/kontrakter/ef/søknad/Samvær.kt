@@ -7,6 +7,7 @@ data class Samvær(val spørsmålAvtaleOmDeltBosted: Søknadsfelt<Boolean>?= nul
                   val skalAnnenForelderHaSamvær: Søknadsfelt<String>? = null,
                   val harDereSkriftligAvtaleOmSamvær: Søknadsfelt<String>? = null,
                   val samværsavtale: Søknadsfelt<List<Dokument>>? = null,
+                  val skalBarnetBoHosSøkerMenAnnenForelderSamarbeiderIkke: Søknadsfelt<List<Dokument>>? = null,
                   val hvordanPraktiseresSamværet: Søknadsfelt<String>? = null,
                   val borAnnenForelderISammeHus: Søknadsfelt<String>? = null,
                   val borAnnenForelderISammeHusBeskrivelse: Søknadsfelt<String>? = null,

@@ -4,4 +4,5 @@ import java.time.LocalDate
 
 data class Bosituasjon(val delerDuBolig: Søknadsfelt<String>,
                        val samboerdetaljer: Søknadsfelt<PersonMinimum>? = null,
-                       val sammenflyttingsdato: Søknadsfelt<LocalDate>? = null)
+                       val sammenflyttingsdato: Søknadsfelt<LocalDate>? = null,
+                       val tidligereSamboerFortsattRegistrertPåAdresse: Søknadsfelt<List<Dokument>>? = null)

@@ -8,7 +8,6 @@ data class Barn(val navn: Søknadsfelt<String>? = null,
                 val ikkeRegistrertPåSøkersAdresseBeskrivelse: Søknadsfelt<String>?,
                 val erBarnetFødt: Søknadsfelt<Boolean>,
                 val fødselTermindato: Søknadsfelt<LocalDate>? = null,
-                val terminbekreftelse: Søknadsfelt<Dokument>? = null,
+                val terminbekreftelse: Søknadsfelt<List<Dokument>>? = null,
                 val annenForelder: Søknadsfelt<AnnenForelder>? = null,
-                val samvær: Søknadsfelt<Samvær>? = null
-)
+                val samvær: Søknadsfelt<Samvær>? = null)

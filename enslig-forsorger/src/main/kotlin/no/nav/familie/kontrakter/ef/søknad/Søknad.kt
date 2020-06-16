@@ -1,5 +1,7 @@
 package no.nav.familie.kontrakter.ef.søknad
 
+data class SøknadMedVedlegg(val søknad: Søknad, val vedlegg: List<Vedlegg>)
+
 data class Søknad(val personalia: Søknadsfelt<Personalia>,
                   val innsendingsdetaljer: Søknadsfelt<Innsendingsdetaljer>,
                   val sivilstandsdetaljer: Søknadsfelt<Sivilstandsdetaljer>,

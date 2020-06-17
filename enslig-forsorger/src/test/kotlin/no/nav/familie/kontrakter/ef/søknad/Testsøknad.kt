@@ -22,7 +22,7 @@ internal object Testsøknad {
     fun innsendingsdetaljer(): Innsendingsdetaljer = Innsendingsdetaljer(Søknadsfelt("Dato mottatt",
                                                                                      LocalDateTime.of(2020, 5, 5, 11, 32)))
 
-    private fun stønadsstart() = Stønadsstart(Søknadsfelt("Fra måned", Month.AUGUST), Søknadsfelt("Fra år", 2018))
+    private fun stønadsstart() = Stønadsstart(Søknadsfelt("Fra måned", Month.AUGUST), Søknadsfelt("Fra år", 2018), Søknadsfelt("Søker du stønad fra et bestemt tidspunkt", "JA"))
 
     @Suppress("LongLine")
     private fun situasjon(): Situasjon {

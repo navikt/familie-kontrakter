@@ -4,4 +4,4 @@ import java.time.Month
 
 data class Stønadsstart(val fraMåned: Søknadsfelt<Month>?,
                         val fraÅr: Søknadsfelt<Int>?,
-                        val søkerFraBestemtMåned: Søknadsfelt<String>)
+                        val søkerFraBestemtMåned: Søknadsfelt<Boolean>)

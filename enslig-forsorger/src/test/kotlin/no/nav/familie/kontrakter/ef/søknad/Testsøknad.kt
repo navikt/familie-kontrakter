@@ -186,7 +186,8 @@ internal object Testsøknad {
         return Bosituasjon(Søknadsfelt("Deler du bolig med andre voksne?",
                                        "Ja, jeg har samboer og lever i et ekteskapslignende forhold"),
                            Søknadsfelt("Om samboeren din", personMinimum()),
-                           Søknadsfelt("Når flyttet dere sammen?", LocalDate.of(2018, 8, 12)))
+                           Søknadsfelt("Når flyttet dere sammen?", LocalDate.of(2018, 8, 12)),
+                           Søknadsfelt("Når flyttet dere fra hverandre?", LocalDate.of(2019, 8, 12)))
     }
 
     private fun medlemskapsdetaljer(): Medlemskapsdetaljer {

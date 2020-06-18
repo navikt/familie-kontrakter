@@ -11,5 +11,4 @@ data class Søknad(val personalia: Søknadsfelt<Personalia>,
                   val barn: Søknadsfelt<List<Barn>>,
                   val aktivitet: Søknadsfelt<Aktivitet>,
                   val situasjon: Søknadsfelt<Situasjon>,
-                  val stønadsstart: Søknadsfelt<Stønadsstart>,
-                  val dokumentasjon: Søknadsfelt<Dokumentasjon>)
+                  val stønadsstart: Søknadsfelt<Stønadsstart>)

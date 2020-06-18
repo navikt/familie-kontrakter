@@ -17,8 +17,7 @@ internal object Testsøknad {
                         Søknadsfelt("Barn fra folkeregisteret", listOf(barn())),
                         Søknadsfelt("Arbeid, utdanning og andre aktiviteter", aktivitet()),
                         Søknadsfelt("Mer om situasjonen din", situasjon()),
-                        Søknadsfelt("Når søker du stønad fra?", stønadsstart()),
-                        Søknadsfelt("Har allerede sendt inn dokumentasjon", Dokumentasjon(true)))
+                        Søknadsfelt("Når søker du stønad fra?", stønadsstart()))
 
     fun innsendingsdetaljer(): Innsendingsdetaljer = Innsendingsdetaljer(Søknadsfelt("Dato mottatt",
                                                                                      LocalDateTime.of(2020, 5, 5, 11, 32)))
@@ -242,7 +241,7 @@ internal object Testsøknad {
                                    "Norge"))
     }
 
-    private fun dokumentfelt(navn: String) = Søknadsfelt("Dokument", listOf(Dokument("vedlegg1", navn)))
+    private fun dokumentfelt(navn: String) = Søknadsfelt("Dokument", Dokumentasjon(false, listOf(Dokument("vedlegg1", navn))))
 
     private fun personMinimum(): PersonMinimum {
         return PersonMinimum(Søknadsfelt("Navn", "Bob Burger"),

@@ -17,7 +17,8 @@ internal object Testsøknad {
                         Søknadsfelt("Barn fra folkeregisteret", listOf(barn())),
                         Søknadsfelt("Arbeid, utdanning og andre aktiviteter", aktivitet()),
                         Søknadsfelt("Mer om situasjonen din", situasjon()),
-                        Søknadsfelt("Når søker du stønad fra?", stønadsstart()))
+                        Søknadsfelt("Når søker du stønad fra?", stønadsstart()),
+                        Søknadsfelt("Har allerede sendt inn dokumentasjon", Dokumentasjon(true)))
 
     fun innsendingsdetaljer(): Innsendingsdetaljer = Innsendingsdetaljer(Søknadsfelt("Dato mottatt",
                                                                                      LocalDateTime.of(2020, 5, 5, 11, 32)))

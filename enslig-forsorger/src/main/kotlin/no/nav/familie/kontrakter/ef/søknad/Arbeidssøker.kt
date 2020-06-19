@@ -5,4 +5,5 @@ data class Arbeidssøker(val registrertSomArbeidssøkerNav: Søknadsfelt<Boolean
                         val kanDuBegynneInnenEnUke: Søknadsfelt<Boolean>,
                         val kanDuSkaffeBarnepassInnenEnUke: Søknadsfelt<Boolean>,
                         val hvorØnskerDuArbeid: Søknadsfelt<String>,
-                        val ønskerDuMinst50ProsentStilling: Søknadsfelt<Boolean>)
+                        val ønskerDuMinst50ProsentStilling: Søknadsfelt<Boolean>,
+                        val ikkeVilligTilÅTaImotTilbudOmArbeidDokumentasjon: Søknadsfelt<List<Dokument>>? = null)

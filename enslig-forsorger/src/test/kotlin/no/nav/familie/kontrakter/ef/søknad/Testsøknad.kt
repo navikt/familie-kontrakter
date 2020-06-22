@@ -222,7 +222,8 @@ internal object Testsøknad {
                                    Søknadsfelt("Dato for samlivsbrudd", LocalDate.of(2014, 10, 3)),
                                    Søknadsfelt("Når flyttet dere fra hverandre?", LocalDate.of(2014, 10, 4)),
                                    Søknadsfelt("Når skjedde endringen / når skal endringen skje?",
-                                               LocalDate.of(2013, 4, 17)))
+                                               LocalDate.of(2013, 4, 17)),
+                                   Søknadsfelt("Om den tidligere samboern din", personMinimum()))
     }
 
     // Syntetisk fødselsnummer fra dolly
@@ -244,7 +245,8 @@ internal object Testsøknad {
     }
 
     private fun dokumentfelt(navn: String) =
-            Søknadsfelt("Dokument", Dokumentasjon(Søknadsfelt("Har sendt inn tidligere", false), listOf(Dokument("vedlegg1", navn))))
+            Søknadsfelt("Dokument",
+                        Dokumentasjon(Søknadsfelt("Har sendt inn tidligere", false), listOf(Dokument("vedlegg1", navn))))
 
     private fun personMinimum(): PersonMinimum {
         return PersonMinimum(Søknadsfelt("Navn", "Bob Burger"),

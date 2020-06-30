@@ -148,9 +148,7 @@ internal object Testsøknad {
                     Søknadsfelt("Termindato", LocalDate.of(2020, 5, 16)),
                     dokumentfelt("Bekreftelse på ventet fødselsdato"),
                     Søknadsfelt("Barnets andre forelder",
-                                AnnenForelder(kanIkkeOppgiAnnenForelderFar = Søknadsfelt("", true),
-                                              person = Søknadsfelt("personalia", personMinimum())
-                                )),
+                                AnnenForelder(person = Søknadsfelt("personalia", personMinimum()))),
                     Søknadsfelt("samvær",
                                 Samvær(Søknadsfelt("Har du og den andre forelderen skriftlig avtale om delt bosted for barnet?",
                                                    true),

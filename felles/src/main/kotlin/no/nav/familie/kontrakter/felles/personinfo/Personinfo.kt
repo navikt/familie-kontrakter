@@ -1,5 +1,7 @@
 package no.nav.familie.kontrakter.felles.personinfo
 
+import java.time.LocalDate
+
 data class Bostedsadresse(
         val vegadresse: Vegadresse? = null,
         val matrikkeladresse: Matrikkeladresse? = null,
@@ -28,6 +30,11 @@ data class Matrikkeladresse(
         val postnummer: String?,
         val kommunenummer: String?
 )
+
+data class Statsborgerskap(val land: String,
+                           val gyldigFraOgMed: LocalDate?,
+                           val gyldigTilOgMed: LocalDate?)
+
 
 enum class SIVILSTAND {
     UOPPGITT,

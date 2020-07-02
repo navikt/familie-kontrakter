@@ -1,6 +1,6 @@
 package no.nav.familie.kontrakter.ef.søknad
 
-data class Vedlegg(val id: String, val navn: String, val tittel: String, val bytes: ByteArray) {
+data class Vedlegg(val id: String, val navn: String, val tittel: String, val bytes: ByteArray?) {
 
     override fun toString(): String {
         return "Vedlegg(id='$id', navn='$navn', tittel='$tittel')"
@@ -15,7 +15,10 @@ data class Vedlegg(val id: String, val navn: String, val tittel: String, val byt
         if (id != other.id) return false
         if (navn != other.navn) return false
         if (tittel != other.tittel) return false
-        if (!bytes.contentEquals(other.bytes)) return false
+        if (bytes != null) {
+            if (other.bytes == null) return false
+            if (!bytes.contentEquals(other.bytes)) return false
+        } else if (other.bytes != null) return false
 
         return true
     }
@@ -24,8 +27,9 @@ data class Vedlegg(val id: String, val navn: String, val tittel: String, val byt
         var result = id.hashCode()
         result = 31 * result + navn.hashCode()
         result = 31 * result + tittel.hashCode()
-        result = 31 * result + bytes.contentHashCode()
+        result = 31 * result + (bytes?.contentHashCode() ?: 0)
         return result
     }
+
 
 }

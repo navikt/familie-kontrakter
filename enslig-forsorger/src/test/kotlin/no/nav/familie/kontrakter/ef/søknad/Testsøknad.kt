@@ -1,5 +1,6 @@
 package no.nav.familie.kontrakter.ef.søknad
 
+import no.nav.familie.util.FnrGenerator
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.Month
@@ -142,7 +143,7 @@ internal object Testsøknad {
     @Suppress("LongLine")
     private fun barn(): Barn {
         return Barn(Søknadsfelt("Navn", "Lykkeliten"),
-                    Søknadsfelt("Fødselsnummer", Fødselsnummer("31081953069")),
+                    Søknadsfelt("Fødselsnummer", Fødselsnummer(FnrGenerator.generer())),
                     Søknadsfelt("Har samme adresse som søker", true),
                     Søknadsfelt("ikkeRegistrertPåSøkersAdresseBeskrivelse", "Fordi"),
                     Søknadsfelt("Er barnet født?", false),
@@ -227,7 +228,7 @@ internal object Testsøknad {
 
     // Syntetisk fødselsnummer fra dolly
     private fun personalia(): Personalia {
-        return Personalia(Søknadsfelt("Fødselsnummer", Fødselsnummer("18068124693")),
+        return Personalia(Søknadsfelt("Fødselsnummer", Fødselsnummer(FnrGenerator.generer())),
                           Søknadsfelt("Navn", "Kari Nordmann"),
                           Søknadsfelt("Statsborgerskap", "Norsk"),
                           adresseSøknadsfelt(),

@@ -35,6 +35,15 @@ data class Statsborgerskap(val land: String,
                            val gyldigFraOgMed: LocalDate?,
                            val gyldigTilOgMed: LocalDate?)
 
+data class Opphold(val type: OPPHOLDSTILLATELSE,
+                   val oppholdFra: LocalDate?,
+                   val oppholdTil: LocalDate?)
+
+enum class OPPHOLDSTILLATELSE {
+    MIDLERTIDIG,
+    PERMANENT,
+    OPPLYSNING_MANGLER
+}
 
 enum class SIVILSTAND {
     UOPPGITT,

@@ -28,6 +28,7 @@
         <module>felles</module>
         <module>kontantstotte</module>
         <module>enslig-forsorger</module>
+        <module>barnetrygd</module>
         <!--module>ba</module-->
         <!--module>ef</module-->
     </modules>

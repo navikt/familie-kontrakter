@@ -19,9 +19,8 @@ data class Søknadsfelt<T>(
 
 data class Barn(
         val navn: Søknadsfelt<String>,
-        val alder: Søknadsfelt<Int>,
-        val fødselsdato: Søknadsfelt<String>,
+        val alder: Søknadsfelt<String>,
         val ident: Søknadsfelt<String>,
-        val borMedSøker: Søknadsfelt<Boolean>,
+        val borMedSøker: Søknadsfelt<String>,
         val medISøknad: Søknadsfelt<Boolean>
 )

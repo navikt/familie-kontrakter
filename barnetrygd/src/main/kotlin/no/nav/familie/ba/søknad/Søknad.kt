@@ -4,7 +4,7 @@ import main.kotlin.no.nav.familie.ba.Søknadstype
 
 data class Søker(
         val navn: Søknadsfelt<String>,
-        val fødselsnummer: Søknadsfelt<String>
+        var fødselsnummer: Søknadsfelt<String>? = null
 )
 
 data class Søknad(

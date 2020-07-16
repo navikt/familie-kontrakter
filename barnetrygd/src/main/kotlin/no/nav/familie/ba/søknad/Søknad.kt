@@ -3,7 +3,8 @@ package main.kotlin.no.nav.familie.ba.søknad
 import main.kotlin.no.nav.familie.ba.Søknadstype
 
 data class Søker(
-        val navn: Søknadsfelt<String>
+        val navn: Søknadsfelt<String>,
+        val fødselsnummer: Søknadsfelt<String>
 )
 
 data class Søknad(

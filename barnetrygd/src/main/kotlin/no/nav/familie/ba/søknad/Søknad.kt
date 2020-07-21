@@ -9,8 +9,8 @@ data class Søker(
 
 data class Søknad(
         val søknadstype: Søknadsfelt<Søknadstype>,
-        val søker: Søker,
-        val barn: List<Barn>
+        val søker: Søknadsfelt<Søker>,
+        val barn: Søknadsfelt<List<Barn>>
 )
 
 data class Søknadsfelt<T>(

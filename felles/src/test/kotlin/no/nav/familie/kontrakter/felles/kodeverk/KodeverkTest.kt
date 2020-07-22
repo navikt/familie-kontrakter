@@ -13,8 +13,8 @@ internal class KodeverkTest {
                 BetydningDto(gyldigFra = LocalDate.of(2020, 1, 15),
                              gyldigTil = LocalDate.of(2020, 1, 16),
                              beskrivelser = mapOf("nb" to BeskrivelseDto("Norge", "NorgeTekst"))))))
-        assertEquals("Norge", kodeverk.hentGjelende("NOR", LocalDate.of(2020, 1, 16)))
-        assertNull(kodeverk.hentGjelende("NOR"))
+        assertEquals("Norge", kodeverk.hentGjeldende("NOR", LocalDate.of(2020, 1, 16)))
+        assertNull(kodeverk.hentGjeldende("NOR"))
     }
 
     @Test
@@ -26,12 +26,12 @@ internal class KodeverkTest {
                 BetydningDto(gyldigFra = LocalDate.of(2020, 1, 17),
                              gyldigTil = LocalDate.of(2099, 1, 16),
                              beskrivelser = mapOf("nb" to BeskrivelseDto("Norge", "NorgeTekst"))))))
-        assertEquals("Sverige", kodeverk.hentGjelende("NOR", LocalDate.of(2020, 1, 16)))
-        assertEquals("Norge", kodeverk.hentGjelende("NOR"))
+        assertEquals("Sverige", kodeverk.hentGjeldende("NOR", LocalDate.of(2020, 1, 16)))
+        assertEquals("Norge", kodeverk.hentGjeldende("NOR"))
     }
 
     @Test
     internal fun `finner ingen gjeldende term når det ikke finnes en betydning`() {
-        assertNull(KodeverkDto(betydninger = mapOf("NOR" to emptyList())).hentGjelende("NOR"))
+        assertNull(KodeverkDto(betydninger = mapOf("NOR" to emptyList())).hentGjeldende("NOR"))
     }
 }

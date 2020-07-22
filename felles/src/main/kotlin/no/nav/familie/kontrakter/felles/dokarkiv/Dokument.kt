@@ -1,4 +1,4 @@
-package no.nav.familie.kontrakter.felles.arkivering
+package no.nav.familie.kontrakter.felles.dokarkiv
 
 import javax.validation.constraints.NotEmpty
 

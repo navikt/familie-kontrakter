@@ -1,5 +1,6 @@
 package no.nav.familie.kontrakter.felles.journalpost
 
+import com.fasterxml.jackson.annotation.JsonProperty
 import java.time.LocalDateTime
 
 data class Journalpost(val journalpostId: String,
@@ -10,13 +11,14 @@ data class Journalpost(val journalpostId: String,
                        val tittel: String?,
                        val sak: Sak?,
                        val bruker: Bruker?,
-                       val journalforendeEnhet: String?,
+                       @JsonProperty("journalforendeEnhet")
+                       val journalførendeEnhet: String?,
                        val kanal: String?,
                        val dokumenter: List<DokumentInfo>?,
                        val relevanteDatoer: List<RelevantDato>?) {
+
     val datoMottatt = relevanteDatoer?.firstOrNull { it.datotype == "DATO_REGISTRERT" }?.dato
 }
-
 
 
 data class Sak(val arkivsaksnummer: String?,

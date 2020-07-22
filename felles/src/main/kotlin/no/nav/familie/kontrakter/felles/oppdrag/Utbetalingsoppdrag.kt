@@ -8,7 +8,7 @@ import java.time.LocalDateTime
 data class Utbetalingsoppdrag(val kodeEndring: KodeEndring,
                               val fagSystem: String,
                               val saksnummer: String,
-                              val aktør: String,
+    val aktoer: String,
                               val saksbehandlerId: String,
                               val avstemmingTidspunkt: LocalDateTime = LocalDateTime.now(),
                               val utbetalingsperiode: List<Utbetalingsperiode>) {
@@ -27,8 +27,8 @@ data class Utbetalingsperiode(val erEndringPåEksisterendePeriode: Boolean,
                               val forrigePeriodeId: Long? = null,
                               val datoForVedtak: LocalDate,
                               val klassifisering: String,
-                              val vedtaksdatoFom: LocalDate,
-                              val vedtaksdatoTom: LocalDate,
+    val vedtakdatoFom: LocalDate,
+    val vedtakdatoTom: LocalDate,
                               val sats: BigDecimal,
                               val satsType: SatsType,
                               val utbetalesTil: String,
@@ -43,10 +43,10 @@ data class Utbetalingsperiode(val erEndringPåEksisterendePeriode: Boolean,
 
 data class Opphør(val opphørDatoFom: LocalDate)
 
-fun Utbetalingsoppdrag.behandlingIdForFørsteUtbetalingsperiode(): String {
+fun Utbetalingsoppdrag.behandlingsIdForFørsteUtbetalingsperiode(): String {
 
     return utbetalingsperiode[0].behandlingId.toString()
 }
 
 val Utbetalingsoppdrag.oppdragId
-    get() = OppdragId(fagSystem, aktør, behandlingIdForFørsteUtbetalingsperiode())
+    get() = OppdragId(fagSystem, aktoer, behandlingsIdForFørsteUtbetalingsperiode())

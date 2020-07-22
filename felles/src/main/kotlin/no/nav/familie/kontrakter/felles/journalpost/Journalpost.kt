@@ -1,6 +1,5 @@
 package no.nav.familie.kontrakter.felles.journalpost
 
-import com.fasterxml.jackson.annotation.JsonProperty
 import java.time.LocalDateTime
 
 data class Journalpost(val journalpostId: String,
@@ -11,8 +10,7 @@ data class Journalpost(val journalpostId: String,
                        val tittel: String?,
                        val sak: Sak?,
                        val bruker: Bruker?,
-                       @JsonProperty("journalforendeEnhet")
-                       val journalførendeEnhet: String?,
+                       val journalforendeEnhet: String?,
                        val kanal: String?,
                        val dokumenter: List<DokumentInfo>?,
                        val relevanteDatoer: List<RelevantDato>?) {

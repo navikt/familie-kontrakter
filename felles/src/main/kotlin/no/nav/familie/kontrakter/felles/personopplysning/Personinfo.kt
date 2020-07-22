@@ -1,4 +1,4 @@
-package no.nav.familie.kontrakter.felles.personinfo
+package no.nav.familie.kontrakter.felles.personopplysning
 
 import java.time.LocalDate
 

@@ -18,9 +18,9 @@ enum class KodeverkSpråk(val kode: String) {
 private fun LocalDate.mellom(fra: LocalDate, til: LocalDate) =
         this.isEqual(fra) || this.isEqual(til) || (this.isAfter(fra) && this.isBefore(til))
 
-fun KodeverkDto.hentGjelende(kode: String,
-                             gjeldendeDato: LocalDate = LocalDate.now(),
-                             språk: KodeverkSpråk = KodeverkSpråk.BOKMÅL) =
+fun KodeverkDto.hentGjeldende(kode: String,
+                              gjeldendeDato: LocalDate = LocalDate.now(),
+                              språk: KodeverkSpråk = KodeverkSpråk.BOKMÅL) =
         betydninger[kode]
                 ?.firstOrNull { gjeldendeDato.mellom(it.gyldigFra, it.gyldigTil) }
                 ?.beskrivelser?.get(språk.kode)?.term

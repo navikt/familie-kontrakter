@@ -1,5 +1,4 @@
-
-package no.nav.familie.kontrakter.felles.distribusjon
+package no.nav.familie.kontrakter.felles.dokdist
 
 import javax.validation.constraints.NotBlank
 

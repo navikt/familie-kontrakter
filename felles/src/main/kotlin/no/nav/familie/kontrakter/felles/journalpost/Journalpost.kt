@@ -14,9 +14,9 @@ data class Journalpost(val journalpostId: String,
                        val kanal: String?,
                        val dokumenter: List<DokumentInfo>?,
                        val relevanteDatoer: List<RelevantDato>?) {
+
     val datoMottatt = relevanteDatoer?.firstOrNull { it.datotype == "DATO_REGISTRERT" }?.dato
 }
-
 
 
 data class Sak(val arkivsaksnummer: String?,

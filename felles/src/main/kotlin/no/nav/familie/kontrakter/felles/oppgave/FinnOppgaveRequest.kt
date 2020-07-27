@@ -1,18 +1,21 @@
 package no.nav.familie.kontrakter.felles.oppgave
 
-class FinnOppgaveRequest(val tema: String? = null,
-                         val behandlingstema: String? = null,
-                         val oppgavetype: String? = null,
-                         val enhet: String? = null,
-                         val saksbehandler: String? = null,
-                         val journalpostId: String? = null,
-                         val tilordnetRessurs: String? = null,
-                         val tildeltRessurs: Boolean? = null,
-                         val opprettetFomTidspunkt: String? = null,
-                         val opprettetTomTidspunkt: String? = null,
-                         val fristFomDato: String? = null,
-                         val fristTomDato: String? = null,
-                         val aktivFomDato: String? = null,
-                         val aktivTomDato: String? = null,
-                         val limit: Long? = null,
-                         val offset: Long? = null)
+import java.time.LocalDate
+import java.time.LocalDateTime
+
+data class FinnOppgaveRequest(val tema: Tema,
+                              val behandlingstema: Behandlingstema? = null,
+                              val oppgavetype: Oppgavetype? = null,
+                              val enhet: String? = null,
+                              val saksbehandler: String? = null,
+                              val journalpostId: String? = null,
+                              val tilordnetRessurs: String? = null,
+                              val tildeltRessurs: Boolean? = null,
+                              val opprettetFomTidspunkt: LocalDateTime? = null,
+                              val opprettetTomTidspunkt: LocalDateTime? = null,
+                              val fristFomDato: LocalDate? = null,
+                              val fristTomDato: LocalDate? = null,
+                              val aktivFomDato: LocalDate? = null,
+                              val aktivTomDato: LocalDate? = null,
+                              val limit: Long? = null,
+                              val offset: Long? = null)

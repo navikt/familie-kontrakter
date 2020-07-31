@@ -12,8 +12,6 @@ object OvergangsstønadValidering {
             requireNotNull(it.arbeidsmengde, "aktivitet->arbeidsforhold->arbeidsmengde")
         }
         requireNotNull(søknad.aktivitet.verdi.selvstendig?.verdi?.arbeidsmengde, "aktivitet->selvstendig->arbeidsmengde")
-        requireNotNull(søknad.aktivitet.verdi.underUtdanning?.verdi?.hvorMyeSkalDuStudere,
-                       "aktivitet->underUtdanning->hvorMyeSkalDuStudere")
     }
 
     private fun requireNotNull(any: Any?, melding: String) {

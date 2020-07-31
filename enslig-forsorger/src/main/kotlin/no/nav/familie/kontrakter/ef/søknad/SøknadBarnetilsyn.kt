@@ -1,6 +1,6 @@
 package no.nav.familie.kontrakter.ef.søknad
 
-data class BarnetilsynSøknad(val personalia: Søknadsfelt<Personalia>,
+data class SøknadBarnetilsyn(val personalia: Søknadsfelt<Personalia>,
                              val innsendingsdetaljer: Søknadsfelt<Innsendingsdetaljer>,
                              val sivilstandsdetaljer: Søknadsfelt<Sivilstandsdetaljer>,
                              val medlemskapsdetaljer: Søknadsfelt<Medlemskapsdetaljer>,

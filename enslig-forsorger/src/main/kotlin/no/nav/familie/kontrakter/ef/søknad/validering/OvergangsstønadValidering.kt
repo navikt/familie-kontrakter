@@ -1,10 +1,10 @@
 package no.nav.familie.kontrakter.ef.søknad.validering
 
-import no.nav.familie.kontrakter.ef.søknad.OvergangsstønadSøknad
+import no.nav.familie.kontrakter.ef.søknad.SøknadOvergangsstønad
 
 object OvergangsstønadValidering {
 
-    fun validate(søknad: OvergangsstønadSøknad) {
+    fun validate(søknad: SøknadOvergangsstønad) {
         søknad.aktivitet.verdi.aksjeselskap?.verdi?.forEach {
             requireNotNull(it.arbeidsmengde, "aktivitet->aksjeselskap->arbeidsmengdea")
         }

@@ -9,7 +9,7 @@ import java.time.Month
 internal object Testsøknad {
 
 
-    val søknad = OvergangsstønadSøknad(Søknadsfelt("Søker", personalia()),
+    val søknad = SøknadOvergangsstønad(Søknadsfelt("Søker", personalia()),
                                        Søknadsfelt("innsendingsdetaljer", innsendingsdetaljer()),
                                        Søknadsfelt("Detaljer om sivilstand", sivilstandsdetaljer()),
                                        Søknadsfelt("Opphold i Norge", medlemskapsdetaljer()),

@@ -6,5 +6,9 @@ data class UnderUtdanning(val skoleUtdanningssted: Søknadsfelt<String>,
                           val heltidEllerDeltid: Søknadsfelt<String>,
                           val hvorMyeSkalDuStudere: Søknadsfelt<Int>?,
                           val hvaErMåletMedUtdanningen: Søknadsfelt<String>?,
-                          val utdanningEtterGrunnskolen: Søknadsfelt<Boolean>,
+                          val utdanningEtterGrunnskolen: Søknadsfelt<Boolean>?, //arbeidsmengde
                           val tidligereUtdanninger: Søknadsfelt<List<Utdanning>>? = null)
+
+/**
+ * Arbeidsmengde skal ikke fylles ut av Barnetilsyn
+ */

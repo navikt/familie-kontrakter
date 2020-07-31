@@ -9,16 +9,16 @@ import java.time.Month
 internal object Testsøknad {
 
 
-    val søknad = Søknad(Søknadsfelt("Søker", personalia()),
-                        Søknadsfelt("innsendingsdetaljer", innsendingsdetaljer()),
-                        Søknadsfelt("Detaljer om sivilstand", sivilstandsdetaljer()),
-                        Søknadsfelt("Opphold i Norge", medlemskapsdetaljer()),
-                        Søknadsfelt("Bosituasjonen din", bosituasjon()),
-                        Søknadsfelt("Sivilstandsplaner", sivilstandsplaner()),
-                        Søknadsfelt("Barn fra folkeregisteret", listOf(barn())),
-                        Søknadsfelt("Arbeid, utdanning og andre aktiviteter", aktivitet()),
-                        Søknadsfelt("Mer om situasjonen din", situasjon()),
-                        Søknadsfelt("Når søker du stønad fra?", stønadsstart()))
+    val søknad = OvergangsstønadSøknad(Søknadsfelt("Søker", personalia()),
+                                       Søknadsfelt("innsendingsdetaljer", innsendingsdetaljer()),
+                                       Søknadsfelt("Detaljer om sivilstand", sivilstandsdetaljer()),
+                                       Søknadsfelt("Opphold i Norge", medlemskapsdetaljer()),
+                                       Søknadsfelt("Bosituasjonen din", bosituasjon()),
+                                       Søknadsfelt("Sivilstandsplaner", sivilstandsplaner()),
+                                       Søknadsfelt("Barn fra folkeregisteret", listOf(barn())),
+                                       Søknadsfelt("Arbeid, utdanning og andre aktiviteter", aktivitet()),
+                                       Søknadsfelt("Mer om situasjonen din", situasjon()),
+                                       Søknadsfelt("Når søker du stønad fra?", stønadsstart()))
 
     fun innsendingsdetaljer(): Innsendingsdetaljer = Innsendingsdetaljer(Søknadsfelt("Dato mottatt",
                                                                                      LocalDateTime.of(2020, 5, 5, 11, 32)))

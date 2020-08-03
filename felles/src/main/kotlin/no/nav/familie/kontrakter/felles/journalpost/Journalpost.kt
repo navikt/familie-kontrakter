@@ -5,36 +5,35 @@ import java.time.LocalDateTime
 data class Journalpost(val journalpostId: String,
                        val journalposttype: Journalposttype,
                        val journalstatus: Journalstatus,
-                       val tema: String?,
-                       val behandlingstema: String?,
-                       val tittel: String?,
-                       val sak: Sak?,
-                       val bruker: Bruker?,
-                       val journalforendeEnhet: String?,
-                       val kanal: String?,
-                       val dokumenter: List<DokumentInfo>?,
-                       val relevanteDatoer: List<RelevantDato>?) {
+                       val tema: String? = null,
+                       val behandlingstema: String? = null,
+                       val tittel: String? = null,
+                       val sak: Sak? = null,
+                       val bruker: Bruker? = null,
+                       val journalforendeEnhet: String? = null,
+                       val kanal: String? = null,
+                       val dokumenter: List<DokumentInfo>? = null,
+                       val relevanteDatoer: List<RelevantDato>? = null) {
 
     val datoMottatt = relevanteDatoer?.firstOrNull { it.datotype == "DATO_REGISTRERT" }?.dato
 }
 
 
-data class Sak(val arkivsaksnummer: String?,
-               var arkivsaksystem: String?,
-               val fagsakId: String?,
-               val sakstype: String?,
-               val fagsaksystem: String?)
+data class Sak(val arkivsaksnummer: String? = null,
+               var arkivsaksystem: String? = null,
+               val fagsakId: String? = null,
+               val sakstype: String? = null,
+               val fagsaksystem: String? = null)
 
 data class Bruker(val id: String,
                   val type: BrukerIdType)
 
 data class DokumentInfo(val dokumentInfoId: String,
-                        val tittel: String?,
-                        val brevkode: String?,
-                        val dokumentstatus: Dokumentstatus?,
-                        val dokumentvarianter: List<Dokumentvariant>?,
-                        val logiskeVedlegg: List<LogiskVedlegg>?
-)
+                        val tittel: String?= null,
+                        val brevkode: String?= null,
+                        val dokumentstatus: Dokumentstatus?= null,
+                        val dokumentvarianter: List<Dokumentvariant>?= null,
+                        val logiskeVedlegg: List<LogiskVedlegg>?= null)
 
 data class Dokumentvariant(val variantformat: String)
 data class LogiskVedlegg(val logiskVedleggId: String, val tittel: String)

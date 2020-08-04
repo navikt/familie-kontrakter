@@ -8,7 +8,10 @@ object BarnetilsynValidering {
         requireNotNull(søknad.aktivitet.verdi.erIArbeid, "aktivitet->erIArbeid")
         søknad.barn.verdi.forEach {
             requireNotNull(it.skalHaBarnepass, "barn->skalHaBarnepass")
-            requireNotNull(it.barnepass, "barn->barnepass")
+            if (it.skalHaBarnepass!!.verdi) {
+                requireNotNull(it.barnepass, "barn->barnepass")
+                requireNotNull(it.annenForelder, "barn->annenForelder")
+            }
         }
     }
 

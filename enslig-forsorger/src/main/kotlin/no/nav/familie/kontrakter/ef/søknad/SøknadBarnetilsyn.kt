@@ -9,6 +9,10 @@ data class SøknadBarnetilsyn(val personalia: Søknadsfelt<Personalia>,
                              val barn: Søknadsfelt<List<Barn>>,
                              val aktivitet: Søknadsfelt<Aktivitet>,
                              val stønadsstart: Søknadsfelt<Stønadsstart>,
-                             val tidligereFakturaer: Søknadsfelt<Dokumentasjon>? = null,
-                             val barnepassordningFaktura: Søknadsfelt<Dokumentasjon>? = null,
-                             val avtaleBarnepasser: Søknadsfelt<Dokumentasjon>? = null)
+                             val dokumentasjon: BarnetilsynDokumentasjon)
+
+data class BarnetilsynDokumentasjon(val tidligereFakturaer: Søknadsfelt<Dokumentasjon>? = null,
+                                    val barnepassordningFaktura: Søknadsfelt<Dokumentasjon>? = null,
+                                    val avtaleBarnepasser: Søknadsfelt<Dokumentasjon>? = null,
+                                    val arbeidstid: Søknadsfelt<Dokumentasjon>? = null,
+                                    val spesielleBehov: Søknadsfelt<Dokumentasjon>? = null)

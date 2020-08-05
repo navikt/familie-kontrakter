@@ -7,8 +7,9 @@ data class Aktivitet(val hvordanErArbeidssituasjonen: Søknadsfelt<List<String>>
                      val arbeidssøker: Søknadsfelt<Arbeidssøker>? = null,
                      val underUtdanning: Søknadsfelt<UnderUtdanning>? = null,
                      val aksjeselskap: Søknadsfelt<List<Aksjeselskap>>? = null,
-                     val erIArbeid: Søknadsfelt<String>? = null)
+                     val erIArbeid: Søknadsfelt<String>? = null,
+                     val erIArbeidDokumentasjon: Søknadsfelt<Dokumentasjon>? = null)
 
 /**
- * erIArbeid gjelder Barnetilsyn
+ * erIArbeid, erIArbeidDokumentasjon: gjelder Barnetilsyn
  */

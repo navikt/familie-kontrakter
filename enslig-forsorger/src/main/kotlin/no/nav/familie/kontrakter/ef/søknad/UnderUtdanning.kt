@@ -7,4 +7,11 @@ data class UnderUtdanning(val skoleUtdanningssted: Søknadsfelt<String>,
                           val hvorMyeSkalDuStudere: Søknadsfelt<Int>?,
                           val hvaErMåletMedUtdanningen: Søknadsfelt<String>?,
                           val utdanningEtterGrunnskolen: Søknadsfelt<Boolean>,
-                          val tidligereUtdanninger: Søknadsfelt<List<Utdanning>>? = null)
+                          val tidligereUtdanninger: Søknadsfelt<List<Utdanning>>? = null,
+                          val semesteravgift: Søknadsfelt<Double>? = null,
+                          val studieavgift: Søknadsfelt<Double>? = null,
+                          val eksamensgebyr: Søknadsfelt<Double>? = null)
+
+/**
+ *  semesteravgift, studieavgift, eksamensgebyr gjelder kun Skolepenger
+ */

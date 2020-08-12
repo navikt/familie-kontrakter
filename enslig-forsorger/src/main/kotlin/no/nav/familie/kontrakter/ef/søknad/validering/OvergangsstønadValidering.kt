@@ -14,6 +14,9 @@ object OvergangsstønadValidering {
         søknad.aktivitet.verdi.selvstendig?.verdi?.let {
             requireNotNull(it.arbeidsmengde, "aktivitet->selvstendig->arbeidsmengde")
         }
+        søknad.aktivitet.verdi.firmaer?.verdi?.forEach {
+            requireNotNull(it.arbeidsmengde, "aktivitet->firma->arbeidsmengde")
+        }
     }
 
     private fun requireNotNull(any: Any?, melding: String) {

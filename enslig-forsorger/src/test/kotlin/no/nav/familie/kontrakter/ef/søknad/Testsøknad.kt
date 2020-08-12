@@ -64,6 +64,7 @@ internal object Testsøknad {
                                                          Søknadsfelt("Når skal du slutte?",
                                                                      LocalDate.of(2020, 11, 18))))),
                          lagFirmaSøknadsfelt(),
+                         Søknadsfelt("Selvstendig næringsdrivende", listOf(lagSelvstendig())),
                          Søknadsfelt("Om virksomheten du etablerer",
                                      Virksomhet(Søknadsfelt("Beskriv virksomheten",
                                                             "Den kommer til å revolusjonere verden"),
@@ -81,13 +82,17 @@ internal object Testsøknad {
 
     private fun lagFirmaSøknadsfelt(): Søknadsfelt<Selvstendig> {
         return Søknadsfelt("Om firmaet du driver",
-                           Selvstendig(Søknadsfelt("Navn på firma", "Bobs burgers"),
-                                       Søknadsfelt("Organisasjonsnummer", "987654321"),
-                                       Søknadsfelt("Når etablerte du firmaet?",
-                                                   LocalDate.of(2018, 4, 5)),
-                                       Søknadsfelt("Hvor mye jobber du?", 150),
-                                       Søknadsfelt("Hvordan ser arbeidsuken din ut?",
-                                                   "Veldig tung")))
+                           lagSelvstendig())
+    }
+
+    private fun lagSelvstendig(): Selvstendig {
+        return Selvstendig(Søknadsfelt("Navn på firma", "Bobs burgers"),
+                           Søknadsfelt("Organisasjonsnummer", "987654321"),
+                           Søknadsfelt("Når etablerte du firmaet?",
+                                       LocalDate.of(2018, 4, 5)),
+                           Søknadsfelt("Hvor mye jobber du?", 150),
+                           Søknadsfelt("Hvordan ser arbeidsuken din ut?",
+                                       "Veldig tung"))
     }
 
     private fun lagUtdanningsSøknadsfelt(): Søknadsfelt<UnderUtdanning> {

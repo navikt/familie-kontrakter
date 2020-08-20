@@ -9,6 +9,4 @@ data class SøknadSkolepenger(val personalia: Søknadsfelt<Personalia>,
                              val utdanning: Søknadsfelt<UnderUtdanning>,
                              val dokumentasjon: SkolepengerDokumentasjon)
 
-data class SkolepengerDokumentasjon(val semesteravgift: Søknadsfelt<Dokumentasjon>? = null,
-                                    val studieavgift: Søknadsfelt<Dokumentasjon>? = null,
-                                    val eksamensgebyr: Søknadsfelt<Dokumentasjon>? = null)
+data class SkolepengerDokumentasjon(val utdanningsutgifter: Søknadsfelt<Dokumentasjon>? = null)

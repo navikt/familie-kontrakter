@@ -116,10 +116,10 @@ internal object Testsøknad {
                                                       listOf(Utdanning(Søknadsfelt("Linje/kurs/grad",
                                                                                    "Master Fysikk"),
                                                                        Søknadsfelt("Når var du elev/student?",
-                                                                                   Periode(Month.JANUARY,
-                                                                                           1999,
-                                                                                           Month.OCTOBER,
-                                                                                           2004))
+                                                                                   MånedÅrPeriode(Month.JANUARY,
+                                                                                                  1999,
+                                                                                                  Month.OCTOBER,
+                                                                                                  2004))
                                                       )))
 
                            )

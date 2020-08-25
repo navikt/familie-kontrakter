@@ -102,7 +102,7 @@ internal object Testsøknad {
                                                       Utdanning(Søknadsfelt("Linje/kurs/grad",
                                                                             "Profesjonsstudium Informatikk"),
                                                                 Søknadsfelt("Når skal du være elev/student?",
-                                                                            DatoPeriode(LocalDate.of(1999, 1, 1),
+                                                                            Datoperiode(LocalDate.of(1999, 1, 1),
                                                                                         LocalDate.of(2004, 10, 12))
                                                       ))),
                                           Søknadsfelt("Er utdanningen offentlig eller privat?",

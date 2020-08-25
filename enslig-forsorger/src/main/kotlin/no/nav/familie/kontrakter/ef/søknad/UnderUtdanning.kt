@@ -1,8 +1,8 @@
 package no.nav.familie.kontrakter.ef.søknad
 
 data class UnderUtdanning(val skoleUtdanningssted: Søknadsfelt<String>,
-                          @Deprecated("Bruk gjeldende utdanning") val utdanning: Søknadsfelt<TidligereUtdanning>,
-                          val gjeldendeUtdanning: Søknadsfelt<GjeldendeUtdanning>,
+                          @Deprecated("Bruk gjeldende utdanning") val utdanning: Søknadsfelt<TidligereUtdanning>?,
+                          val gjeldendeUtdanning: Søknadsfelt<GjeldendeUtdanning>?,
                           val offentligEllerPrivat: Søknadsfelt<String>,
                           val heltidEllerDeltid: Søknadsfelt<String>,
                           val hvorMyeSkalDuStudere: Søknadsfelt<Int>?,

@@ -1,4 +1,4 @@
 package no.nav.familie.kontrakter.ef.søknad
 
-data class Utdanning(val linjeKursGrad: Søknadsfelt<String>,
-                     val nårVarSkalDuVæreElevStudent: Søknadsfelt<Periode>)
+data class Utdanning<T>(val linjeKursGrad: Søknadsfelt<String>,
+                     val nårVarSkalDuVæreElevStudent: Søknadsfelt<T>)

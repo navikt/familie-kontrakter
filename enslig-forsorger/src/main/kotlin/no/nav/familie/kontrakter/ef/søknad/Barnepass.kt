@@ -5,6 +5,6 @@ data class Barnepass(val årsakBarnepass: Søknadsfelt<String>? = null,
 
 data class BarnepassOrdning(val hvaSlagsBarnepassOrdning: Søknadsfelt<String>,
                             val navn: Søknadsfelt<String>,
-                            @Deprecated("Bruk datoperiode") val periode: Søknadsfelt<MånedÅrPeriode>,
-                            val datoPeriode: DatoPeriode,
+                            @Deprecated("Bruk datoperiode") val periode: Søknadsfelt<MånedÅrPeriode>? = null,
+                            val datoPeriode: Søknadsfelt<DatoPeriode>? = null,
                             val belop: Søknadsfelt<Double>)

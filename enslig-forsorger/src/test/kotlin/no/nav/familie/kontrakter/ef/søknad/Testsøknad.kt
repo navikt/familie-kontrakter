@@ -98,15 +98,19 @@ internal object Testsøknad {
     private fun lagUtdanningsSøknadsfelt(): Søknadsfelt<UnderUtdanning> {
         return Søknadsfelt("Utdanningen du skal ta",
                            UnderUtdanning(Søknadsfelt("Skole/utdanningssted", "UiO"),
+                                          Søknadsfelt("Bakoverkompatibel Utdanning",
+                                                      TidligereUtdanning(Søknadsfelt("Linje/kurs/grad",
+                                                                                          "Profesjonsstudium Informatikk"),
+                                                                              Søknadsfelt("Når skal du være elev/student?",
+                                                                                     MånedÅrPeriode(Month.APRIL, 2020, Month.JANUARY, 2021)
+                                                                                     ))),
                                           Søknadsfelt("Utdanning",
-                                                      Utdanning(Søknadsfelt("Linje/kurs/grad",
-                                                                            "Profesjonsstudium Informatikk"),
-                                                                Søknadsfelt("Når skal du være elev/student?",
-                                                                            Periode(Month.JANUARY,
-                                                                                    1999,
-                                                                                    Month.OCTOBER,
-                                                                                    2004))
-                                                      )),
+                                                      GjeldendeUtdanning(Søknadsfelt("Linje/kurs/grad",
+                                                                                     "Profesjonsstudium Informatikk"),
+                                                                         Søknadsfelt("Når skal du være elev/student?",
+                                                                            Datoperiode(LocalDate.of(1999, 1, 1),
+                                                                                        LocalDate.of(2004, 10, 12))
+                                                      ))),
                                           Søknadsfelt("Er utdanningen offentlig eller privat?",
                                                       "Offentlig"),
                                           Søknadsfelt("Heltid, eller deltid", "Deltid"),
@@ -115,13 +119,13 @@ internal object Testsøknad {
                                                       "Økonomisk selvstendighet"),
                                           Søknadsfelt("Har du tatt utdanning etter grunnskolen?", true),
                                           Søknadsfelt("Tidligere Utdanning",
-                                                      listOf(Utdanning(Søknadsfelt("Linje/kurs/grad",
-                                                                                   "Master Fysikk"),
-                                                                       Søknadsfelt("Når var du elev/student?",
-                                                                                   Periode(Month.JANUARY,
-                                                                                           1999,
-                                                                                           Month.OCTOBER,
-                                                                                           2004))
+                                                      listOf(TidligereUtdanning(Søknadsfelt("Linje/kurs/grad",
+                                                                                            "Master Fysikk"),
+                                                                                Søknadsfelt("Når var du elev/student?",
+                                                                                   MånedÅrPeriode(Month.JANUARY,
+                                                                                                  1999,
+                                                                                                  Month.OCTOBER,
+                                                                                                  2004))
                                                       )))
 
                            )

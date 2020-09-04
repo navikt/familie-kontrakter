@@ -14,4 +14,5 @@ data class SøknadBarnetilsyn(val personalia: Søknadsfelt<Personalia>,
 data class BarnetilsynDokumentasjon(val barnepassordningFaktura: Søknadsfelt<Dokumentasjon>? = null,
                                     val avtaleBarnepasser: Søknadsfelt<Dokumentasjon>? = null,
                                     val arbeidstid: Søknadsfelt<Dokumentasjon>? = null,
+                                    val roterendeArbeidstid: Søknadsfelt<Dokumentasjon>? = null,
                                     val spesielleBehov: Søknadsfelt<Dokumentasjon>? = null)

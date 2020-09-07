@@ -9,10 +9,3 @@ enum class IdentGruppe {
     ORGNR,
     SAMHANDLERNR
 }
-
-data class OppgaveIdent(val ident: String, val type: IdentType) // Deprecated
-
-enum class IdentType { // Deprecated
-    Aktør,
-    Organisasjon
-}

@@ -16,13 +16,6 @@ data class OpprettOppgave(val ident: OppgaveIdent?,
                           val prioritet: OppgavePrioritet = OppgavePrioritet.NORM,
                           val behandlingstype: String? = null)
 
-data class OppgaveIdent(val ident: String, val type: IdentType)
-
-enum class IdentType {
-    Aktør,
-    Organisasjon
-}
-
 enum class Oppgavetype(val value: String) {
     BehandleSak("BEH_SAK"),
     Journalføring("JFR"),

@@ -2,8 +2,7 @@ package no.nav.familie.kontrakter.felles.oppgave
 
 import java.time.LocalDate
 
-@Deprecated("Bruk OpprettOppgaveRequest")
-data class OpprettOppgave(val ident: OppgaveIdent?,
+data class OpprettOppgaveRequest(val ident: OppgaveIdentV2?,
                           val enhetsnummer: String?,
                           val saksId: String?,
                           val journalpostId: String? = null,
@@ -17,11 +16,27 @@ data class OpprettOppgave(val ident: OppgaveIdent?,
                           val prioritet: OppgavePrioritet = OppgavePrioritet.NORM,
                           val behandlingstype: String? = null)
 
-@Deprecated("Bruk OppgaveIdentV2 og IdentGruppe")
-data class OppgaveIdent(val ident: String, val type: IdentType)
+enum class Oppgavetype(val value: String) {
+    BehandleSak("BEH_SAK"),
+    Journalføring("JFR"),
+    GodkjenneVedtak("GOD_VED"),
+    BehandleUnderkjentVedtak("BEH_UND_VED"),
+    Fordeling("FDR")
+}
 
-@Deprecated("Bruk OppgaveIdentV2 og IdentGruppe")
-enum class IdentType {
-    Aktør,
-    Organisasjon
+enum class Behandlingstema(val value: String) {
+    Barnetrygd("ab0270"),
+    BarnetrygdEØS("ab0058"),
+    OrdinærBarnetrygd("ab0180"),
+    UtvidetBarnetrygd("ab0096")
+}
+
+enum class Behandlingstype(val value: String) {
+    Utland("ae0106")
+}
+
+enum class OppgavePrioritet {
+    HOY,
+    NORM,
+    LAV;
 }

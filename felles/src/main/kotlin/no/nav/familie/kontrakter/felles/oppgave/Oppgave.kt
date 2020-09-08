@@ -5,7 +5,7 @@ import javax.validation.constraints.Pattern
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 data class Oppgave(val id: Long? = null,
-                   val fnr: String? = null,
+                   val identer: List<OppgaveIdentV2>? = null,
                    val tildeltEnhetsnr: String? = null,
                    val endretAvEnhetsnr: String? = null,
                    val eksisterendeOppgaveId: String? = null,
@@ -46,4 +46,3 @@ enum class StatusEnum {
     FERDIGSTILT,
     FEILREGISTRERT;
 }
-

@@ -1,9 +1,11 @@
 package no.nav.familie.kontrakter.felles.oppgave
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
+import com.fasterxml.jackson.annotation.JsonInclude
 import javax.validation.constraints.Pattern
 
 @JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 data class Oppgave(val id: Long? = null,
                    val identer: List<OppgaveIdentV2>? = null,
                    val tildeltEnhetsnr: String? = null,

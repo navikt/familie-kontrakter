@@ -21,7 +21,22 @@ enum class Oppgavetype(val value: String) {
     Journalføring("JFR"),
     GodkjenneVedtak("GOD_VED"),
     BehandleUnderkjentVedtak("BEH_UND_VED"),
-    Fordeling("FDR")
+    Fordeling("FDR"),
+    BehandleReturpost("RETUR"),
+    BehandleSED("BEH_SED"),
+    BehandleUderkjentVedtak("BEH_UND_VED"),
+    FordelingSED("FDR_SED"),
+    Fremlegg("FREM"),
+    Generell("GEN"),
+    InnhentDokumentasjon("INNH_DOK"),
+    JournalføringUtgående("JFR_UT"),
+    KontaktBruker("KONT_BRUK"),
+    KontrollerUtgåendeSkannetDokument("KON_UTG_SCA_DOK"),
+    SvarIkkeMottatt("SVAR_IK_MOT"),
+    VurderDokument("VUR"),
+    VurderHenvendelse("VURD_HENV"),
+    VurderKonsekvensForYtelse("VUR_KONS_YTE"),
+    VurderSvar("VUR_SVAR")
 }
 
 enum class Behandlingstema(val value: String) {

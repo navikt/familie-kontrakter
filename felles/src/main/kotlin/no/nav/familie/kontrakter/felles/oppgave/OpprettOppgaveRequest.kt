@@ -3,18 +3,18 @@ package no.nav.familie.kontrakter.felles.oppgave
 import java.time.LocalDate
 
 data class OpprettOppgaveRequest(val ident: OppgaveIdentV2?,
-                          val enhetsnummer: String?,
-                          val saksId: String?,
-                          val journalpostId: String? = null,
-                          val tema: Tema,
-                          val oppgavetype: Oppgavetype,
-                          val behandlingstema: String?,
-                          val tilordnetRessurs: String? = null,
-                          val fristFerdigstillelse: LocalDate,
-                          val aktivFra: LocalDate = LocalDate.now(),
-                          val beskrivelse: String,
-                          val prioritet: OppgavePrioritet = OppgavePrioritet.NORM,
-                          val behandlingstype: String? = null)
+                                 val enhetsnummer: String?,
+                                 val saksId: String?,
+                                 val journalpostId: String? = null,
+                                 val tema: Tema,
+                                 val oppgavetype: Oppgavetype,
+                                 val behandlingstema: String?,
+                                 val tilordnetRessurs: String? = null,
+                                 val fristFerdigstillelse: LocalDate,
+                                 val aktivFra: LocalDate = LocalDate.now(),
+                                 val beskrivelse: String,
+                                 val prioritet: OppgavePrioritet = OppgavePrioritet.NORM,
+                                 val behandlingstype: String? = null)
 
 enum class Oppgavetype(val value: String) {
     BehandleSak("BEH_SAK"),
@@ -36,7 +36,7 @@ enum class Oppgavetype(val value: String) {
     VurderDokument("VUR"),
     VurderHenvendelse("VURD_HENV"),
     VurderKonsekvensForYtelse("VUR_KONS_YTE"),
-    VurderSvar("VUR_SVAR")
+    VurderSvar("VUR_SVAR"),
 }
 
 enum class Behandlingstema(val value: String) {

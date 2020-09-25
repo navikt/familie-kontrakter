@@ -58,3 +58,16 @@ enum class OppgavePrioritet {
     NORM,
     LAV;
 }
+
+enum class Enhetsmappe(val value: Long){
+    SøknaderKlarTilBehandling(100000035),
+    AvventerDokumentasjon(100000036),
+    KlagerKlarTilBehandling(100000037),
+    RevurderingKlarTilBehandling(100000038),
+    Revurdering(100000039),
+    OppfølgingAvSkolesaker(100024196),
+    TilbakekrevingKlarTilBehandling(100000266),
+    Flyttesaker(100024195),
+    EØSMedlemskap(100025358),
+    Corona(100025133);
+}

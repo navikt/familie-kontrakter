@@ -10,7 +10,7 @@ class OpprettInfotrygdSakRequest(var fnr: String,
                                  var opprettetAv: String? = null,
                                  var opprettetAvOrganisasjonsEnhetsId: String? = null,
                                  var mottakerOrganisasjonsEnhetsId: String? = null,
-                                 var motattdato: LocalDate? = null,
+                                 var mottattdato: LocalDate? = null,
                                  var sendBekreftelsesbrev: Boolean? = null,
                                  var oppgaveId: String? = null,
                                  var oppgaveOrganisasjonsenhetId: String? = null)

@@ -1,6 +1,7 @@
 package no.nav.familie.kontrakter.ef.søknad
 
 data class SøknadSkolepenger(val personalia: Søknadsfelt<Personalia>,
+                             val barn: Søknadsfelt<List<Barn>>,
                              val innsendingsdetaljer: Søknadsfelt<Innsendingsdetaljer>,
                              val sivilstandsdetaljer: Søknadsfelt<Sivilstandsdetaljer>,
                              val medlemskapsdetaljer: Søknadsfelt<Medlemskapsdetaljer>,

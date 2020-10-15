@@ -68,7 +68,7 @@ data class Ressurs<T>(
             frontendFeilmelding: String? = null
         ): Ressurs<T> = Ressurs(
             data = null,
-            status = Status.IKKE_TILGANG,
+            status = Status.FUNKSJONELL_FEIL,
             melding = melding,
             frontendFeilmelding = frontendFeilmelding,
             stacktrace = null

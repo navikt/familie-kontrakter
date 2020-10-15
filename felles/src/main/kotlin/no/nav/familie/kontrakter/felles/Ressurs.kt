@@ -14,52 +14,64 @@ import java.io.StringWriter
  * @param stacktrace stacktrace fra feil som kan være nyttig til debugging i familie-prosessering
  */
 data class Ressurs<T>(
-        val data: T?,
-        val status: Status,
-        val melding: String,
-        val frontendFeilmelding: String? = null,
-        val stacktrace: String?
+    val data: T?,
+    val status: Status,
+    val melding: String,
+    val frontendFeilmelding: String? = null,
+    val stacktrace: String?
 ) {
 
     enum class Status {
         SUKSESS,
         FEILET,
         IKKE_HENTET,
-        IKKE_TILGANG
+        IKKE_TILGANG,
+        FUNKSJONELL_FEIL
     }
 
     companion object {
         fun <T> success(data: T): Ressurs<T> = Ressurs(
-                data = data,
-                status = Status.SUKSESS,
-                melding = "Innhenting av data var vellykket",
-                stacktrace = null
+            data = data,
+            status = Status.SUKSESS,
+            melding = "Innhenting av data var vellykket",
+            stacktrace = null
         )
 
         fun <T> success(data: T, melding: String?): Ressurs<T> = Ressurs(
-                data = data,
-                status = Status.SUKSESS,
-                melding = melding ?: "Innhenting av data var vellykket",
-                stacktrace = null
+            data = data,
+            status = Status.SUKSESS,
+            melding = melding ?: "Innhenting av data var vellykket",
+            stacktrace = null
         )
 
         fun <T> failure(
-                errorMessage: String? = null,
-                frontendFeilmelding: String? = null,
-                error: Throwable? = null
+            errorMessage: String? = null,
+            frontendFeilmelding: String? = null,
+            error: Throwable? = null
         ): Ressurs<T> = Ressurs(
-                data = null,
-                status = Status.FEILET,
-                melding = errorMessage ?: "En feil har oppstått: ${error?.message}",
-                frontendFeilmelding = frontendFeilmelding,
-                stacktrace = error?.textValue()
+            data = null,
+            status = Status.FEILET,
+            melding = errorMessage ?: "En feil har oppstått: ${error?.message}",
+            frontendFeilmelding = frontendFeilmelding,
+            stacktrace = error?.textValue()
         )
 
         fun <T> ikkeTilgang(melding: String): Ressurs<T> = Ressurs(
-                data = null,
-                status = Status.IKKE_TILGANG,
-                melding = melding,
-                stacktrace = null
+            data = null,
+            status = Status.IKKE_TILGANG,
+            melding = melding,
+            stacktrace = null
+        )
+
+        fun <T> funksjonellFeil(
+            melding: String,
+            frontendFeilmelding: String? = null
+        ): Ressurs<T> = Ressurs(
+            data = null,
+            status = Status.IKKE_TILGANG,
+            melding = melding,
+            frontendFeilmelding = frontendFeilmelding,
+            stacktrace = null
         )
 
         private fun Throwable.textValue(): String {

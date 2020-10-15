@@ -5,8 +5,7 @@ import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.Month
 
-@Suppress("unused")
-internal object Testsøknad {
+object Testsøknad {
 
 
     val søknadOvergangsstønad = SøknadOvergangsstønad(Søknadsfelt("Søker", personalia()),

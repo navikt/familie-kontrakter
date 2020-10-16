@@ -32,7 +32,8 @@ internal object Testsøknad {
         return Situasjon(Søknadsfelt("Gjelder noe av dette deg?",
                                      listOf("Barnet mitt er sykt",
                                             "Jeg har søkt om barnepass, men ikke fått plass enda",
-                                            "Jeg har barn som har behov for særlig tilsyn på grunn av fysiske, psykiske eller store sosiale problemer")),
+                                            "Jeg har barn som har behov for særlig tilsyn på grunn av fysiske, psykiske eller store sosiale problemer"),
+                                     listOf("Alternativ 1", "Alternativ 2", "Alternativ 3")),
                          dokumentfelt("Legeerklæring"),
                          dokumentfelt("Legeattest for egen sykdom eller sykt barn"),
                          dokumentfelt("Avslag på søknad om barnehageplass, skolefritidsordning e.l."),
@@ -100,17 +101,20 @@ internal object Testsøknad {
                            UnderUtdanning(Søknadsfelt("Skole/utdanningssted", "UiO"),
                                           Søknadsfelt("Bakoverkompatibel Utdanning",
                                                       TidligereUtdanning(Søknadsfelt("Linje/kurs/grad",
-                                                                                          "Profesjonsstudium Informatikk"),
-                                                                              Søknadsfelt("Når skal du være elev/student?",
-                                                                                     MånedÅrPeriode(Month.APRIL, 2020, Month.JANUARY, 2021)
-                                                                                     ))),
+                                                                                     "Profesjonsstudium Informatikk"),
+                                                                         Søknadsfelt("Når skal du være elev/student?",
+                                                                                     MånedÅrPeriode(Month.APRIL,
+                                                                                                    2020,
+                                                                                                    Month.JANUARY,
+                                                                                                    2021)
+                                                                         ))),
                                           Søknadsfelt("Utdanning",
                                                       GjeldendeUtdanning(Søknadsfelt("Linje/kurs/grad",
                                                                                      "Profesjonsstudium Informatikk"),
                                                                          Søknadsfelt("Når skal du være elev/student?",
-                                                                            Datoperiode(LocalDate.of(1999, 1, 1),
-                                                                                        LocalDate.of(2004, 10, 12))
-                                                      ))),
+                                                                                     Datoperiode(LocalDate.of(1999, 1, 1),
+                                                                                                 LocalDate.of(2004, 10, 12))
+                                                                         ))),
                                           Søknadsfelt("Er utdanningen offentlig eller privat?",
                                                       "Offentlig"),
                                           Søknadsfelt("Heltid, eller deltid", "Deltid"),
@@ -122,10 +126,10 @@ internal object Testsøknad {
                                                       listOf(TidligereUtdanning(Søknadsfelt("Linje/kurs/grad",
                                                                                             "Master Fysikk"),
                                                                                 Søknadsfelt("Når var du elev/student?",
-                                                                                   MånedÅrPeriode(Month.JANUARY,
-                                                                                                  1999,
-                                                                                                  Month.OCTOBER,
-                                                                                                  2004))
+                                                                                            MånedÅrPeriode(Month.JANUARY,
+                                                                                                           1999,
+                                                                                                           Month.OCTOBER,
+                                                                                                           2004))
                                                       )))
 
                            )

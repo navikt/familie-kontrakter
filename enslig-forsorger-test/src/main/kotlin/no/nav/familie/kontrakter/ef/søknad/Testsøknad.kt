@@ -5,20 +5,42 @@ import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.Month
 
-@Suppress("unused")
-internal object Testsøknad {
+object Testsøknad {
 
 
-    val søknad = SøknadOvergangsstønad(Søknadsfelt("Søker", personalia()),
-                                       Søknadsfelt("innsendingsdetaljer", innsendingsdetaljer()),
-                                       Søknadsfelt("Detaljer om sivilstand", sivilstandsdetaljer()),
-                                       Søknadsfelt("Opphold i Norge", medlemskapsdetaljer()),
-                                       Søknadsfelt("Bosituasjonen din", bosituasjon()),
-                                       Søknadsfelt("Sivilstandsplaner", sivilstandsplaner()),
-                                       Søknadsfelt("Barn fra folkeregisteret", listOf(barn())),
-                                       Søknadsfelt("Arbeid, utdanning og andre aktiviteter", aktivitet()),
-                                       Søknadsfelt("Mer om situasjonen din", situasjon()),
-                                       Søknadsfelt("Når søker du stønad fra?", stønadsstart()))
+    val søknadOvergangsstønad = SøknadOvergangsstønad(Søknadsfelt("Søker", personalia()),
+                                                      Søknadsfelt("innsendingsdetaljer", innsendingsdetaljer()),
+                                                      Søknadsfelt("Detaljer om sivilstand", sivilstandsdetaljer()),
+                                                      Søknadsfelt("Opphold i Norge", medlemskapsdetaljer()),
+                                                      Søknadsfelt("Bosituasjonen din", bosituasjon()),
+                                                      Søknadsfelt("Sivilstandsplaner", sivilstandsplaner()),
+                                                      Søknadsfelt("Barn fra folkeregisteret", listOf(barn())),
+                                                      Søknadsfelt("Arbeid, utdanning og andre aktiviteter", aktivitet()),
+                                                      Søknadsfelt("Mer om situasjonen din", situasjon()),
+                                                      Søknadsfelt("Når søker du stønad fra?", stønadsstart()))
+
+
+    val søknadBarnetilsyn = SøknadBarnetilsyn(Søknadsfelt("Søker", personalia()),
+                                              Søknadsfelt("innsendingsdetaljer", innsendingsdetaljer()),
+                                              Søknadsfelt("Detaljer om sivilstand", sivilstandsdetaljer()),
+                                              Søknadsfelt("Opphold i Norge", medlemskapsdetaljer()),
+                                              Søknadsfelt("Bosituasjonen din", bosituasjon()),
+                                              Søknadsfelt("Sivilstandsplaner", sivilstandsplaner()),
+                                              Søknadsfelt("Barn fra folkeregisteret", listOf(barn())),
+                                              Søknadsfelt("Arbeid, utdanning og andre aktiviteter", aktivitet()),
+                                              Søknadsfelt("Når søker du stønad fra?", stønadsstart()),
+                                              barnetilsynDokumentasjon())
+
+    val søknadSkolepenger = SøknadSkolepenger(Søknadsfelt("Søker", personalia()),
+                                              Søknadsfelt("Barn fra folkeregisteret", listOf(barn())),
+                                              Søknadsfelt("innsendingsdetaljer", innsendingsdetaljer()),
+                                              Søknadsfelt("Detaljer om sivilstand", sivilstandsdetaljer()),
+                                              Søknadsfelt("Opphold i Norge", medlemskapsdetaljer()),
+                                              Søknadsfelt("Bosituasjonen din", bosituasjon()),
+                                              Søknadsfelt("Sivilstandsplaner", sivilstandsplaner()),
+                                              lagUtdanningsSøknadsfelt(),
+                                              skolepengerdokumentasjon())
+
 
     fun innsendingsdetaljer(): Innsendingsdetaljer = Innsendingsdetaljer(Søknadsfelt("Dato mottatt",
                                                                                      LocalDateTime.of(2020, 5, 5, 11, 32)))
@@ -100,17 +122,20 @@ internal object Testsøknad {
                            UnderUtdanning(Søknadsfelt("Skole/utdanningssted", "UiO"),
                                           Søknadsfelt("Bakoverkompatibel Utdanning",
                                                       TidligereUtdanning(Søknadsfelt("Linje/kurs/grad",
-                                                                                          "Profesjonsstudium Informatikk"),
-                                                                              Søknadsfelt("Når skal du være elev/student?",
-                                                                                     MånedÅrPeriode(Month.APRIL, 2020, Month.JANUARY, 2021)
-                                                                                     ))),
+                                                                                     "Profesjonsstudium Informatikk"),
+                                                                         Søknadsfelt("Når skal du være elev/student?",
+                                                                                     MånedÅrPeriode(Month.APRIL,
+                                                                                                    2020,
+                                                                                                    Month.JANUARY,
+                                                                                                    2021)
+                                                                         ))),
                                           Søknadsfelt("Utdanning",
                                                       GjeldendeUtdanning(Søknadsfelt("Linje/kurs/grad",
                                                                                      "Profesjonsstudium Informatikk"),
                                                                          Søknadsfelt("Når skal du være elev/student?",
-                                                                            Datoperiode(LocalDate.of(1999, 1, 1),
-                                                                                        LocalDate.of(2004, 10, 12))
-                                                      ))),
+                                                                                     Datoperiode(LocalDate.of(1999, 1, 1),
+                                                                                                 LocalDate.of(2004, 10, 12))
+                                                                         ))),
                                           Søknadsfelt("Er utdanningen offentlig eller privat?",
                                                       "Offentlig"),
                                           Søknadsfelt("Heltid, eller deltid", "Deltid"),
@@ -122,10 +147,10 @@ internal object Testsøknad {
                                                       listOf(TidligereUtdanning(Søknadsfelt("Linje/kurs/grad",
                                                                                             "Master Fysikk"),
                                                                                 Søknadsfelt("Når var du elev/student?",
-                                                                                   MånedÅrPeriode(Month.JANUARY,
-                                                                                                  1999,
-                                                                                                  Month.OCTOBER,
-                                                                                                  2004))
+                                                                                            MånedÅrPeriode(Month.JANUARY,
+                                                                                                           1999,
+                                                                                                           Month.OCTOBER,
+                                                                                                           2004))
                                                       )))
 
                            )
@@ -262,4 +287,13 @@ internal object Testsøknad {
                              null,
                              Søknadsfelt("Fødselsdato", LocalDate.of(1992, 2, 18)))
     }
+
+    private fun barnetilsynDokumentasjon() = BarnetilsynDokumentasjon(dokumentfelt("barnepassordningFaktura"),
+                                                                      dokumentfelt("avtaleBarnepasser"),
+                                                                      dokumentfelt("arbeidstid"),
+                                                                      dokumentfelt("roterendeArbeidstid"),
+                                                                      dokumentfelt("spesielleBehov"))
+
+    private fun skolepengerdokumentasjon() = SkolepengerDokumentasjon(dokumentfelt("utdanningsutgifter"))
+
 }

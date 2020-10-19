@@ -2,10 +2,8 @@ package no.nav.familie.kontrakter.ef.søknad
 
 import no.nav.familie.util.FnrGenerator
 
-@Suppress("unused")
-internal object TestSkjemaForArbeidssøker {
+object TestSkjemaForArbeidssøker {
 
-    // Syntetisk fødselsnummer fra dolly
     @SuppressWarnings
     val skjema = SkjemaForArbeidssøker(Søknadsfelt("Søker", lagPersonaliaForArbeidssøker()),
                                        Testsøknad.lagSøknadsfeltArbeidssøker(),

@@ -14,7 +14,8 @@ data class OpprettOppgaveRequest(val ident: OppgaveIdentV2?,
                                  val aktivFra: LocalDate = LocalDate.now(),
                                  val beskrivelse: String,
                                  val prioritet: OppgavePrioritet = OppgavePrioritet.NORM,
-                                 val behandlingstype: String? = null)
+                                 val behandlingstype: String? = null,
+                                 val behandlesAvApplikasjon: String? = null)
 
 enum class Oppgavetype(val value: String) {
     BehandleSak("BEH_SAK"),

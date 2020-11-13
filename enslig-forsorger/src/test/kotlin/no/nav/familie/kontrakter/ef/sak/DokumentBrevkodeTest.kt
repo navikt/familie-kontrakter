@@ -19,6 +19,7 @@ class DokumentBrevkodeTest {
         Assertions.assertThrows(NoSuchElementException::class.java) { DokumentBrevkode.fraBrevkode(null) }
 
     }
+
     @Test
     internal fun `skal verifisere at brevkode er gyldig`() {
         Assertions.assertTrue(DokumentBrevkode.erGyldigBrevkode("NAV 15-00.01"))

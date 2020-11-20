@@ -42,6 +42,12 @@ object Testsøknad {
                                               skolepengerdokumentasjon())
 
 
+    fun søknadOvergangsstønadMedSøker(søker: NavnOgFnr,
+                                       barneliste: List<NavnOgFnr>): SøknadOvergangsstønad = søknadOvergangsstønad.copy(
+            personalia = Søknadsfelt("Søker", personalia(søker)),
+            barn = Søknadsfelt("Barn fra folkeregisteret", barneliste.map { barn(it) })
+    )
+
     fun innsendingsdetaljer(): Innsendingsdetaljer = Innsendingsdetaljer(Søknadsfelt("Dato mottatt",
                                                                                      LocalDateTime.of(2020, 5, 5, 11, 32)))
 
@@ -176,9 +182,9 @@ object Testsøknad {
     }
 
     @Suppress("LongLine")
-    private fun barn(): Barn {
-        return Barn(Søknadsfelt("Navn", "Lykkeliten"),
-                    Søknadsfelt("Fødselsnummer", Fødselsnummer(FnrGenerator.generer())),
+    private fun barn(navnOgFnr: NavnOgFnr? = null): Barn {
+        return Barn(Søknadsfelt("Navn", navnOgFnr?.navn ?: "Lykkeliten"),
+                    Søknadsfelt("Fødselsnummer", Fødselsnummer(navnOgFnr?.fødselsnummer ?: FnrGenerator.generer())),
                     Søknadsfelt("Har samme adresse som søker", true),
                     Søknadsfelt("ikkeRegistrertPåSøkersAdresseBeskrivelse", "Fordi"),
                     Søknadsfelt("Er barnet født?", false),
@@ -262,9 +268,9 @@ object Testsøknad {
     }
 
     // Syntetisk fødselsnummer fra dolly
-    private fun personalia(): Personalia {
-        return Personalia(Søknadsfelt("Fødselsnummer", Fødselsnummer(FnrGenerator.generer())),
-                          Søknadsfelt("Navn", "Kari Nordmann"),
+    private fun personalia(navnOgFnr: NavnOgFnr? = null): Personalia {
+        return Personalia(Søknadsfelt("Fødselsnummer", Fødselsnummer(navnOgFnr?.fødselsnummer ?: FnrGenerator.generer())),
+                          Søknadsfelt("Navn", navnOgFnr?.navn ?: "Kari Nordmann"),
                           Søknadsfelt("Statsborgerskap", "Norsk"),
                           adresseSøknadsfelt(),
                           Søknadsfelt("Telefonnummer", "12345678"),
@@ -297,4 +303,5 @@ object Testsøknad {
 
     private fun skolepengerdokumentasjon() = SkolepengerDokumentasjon(dokumentfelt("utdanningsutgifter"))
 
+    data class NavnOgFnr(val navn: String, val fødselsnummer: String)
 }

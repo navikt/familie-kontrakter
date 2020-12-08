@@ -480,7 +480,7 @@ class TestSøknadBuilder private constructor(
                 dokumentfelt("roterendeArbeidstid"),
                 dokumentfelt("spesielleBehov"))
 
-        data class NavnOgFnr(val navn: String, val fødselsnummer: String)
     }
-
 }
+
+data class NavnOgFnr(val navn: String, val fødselsnummer: String)

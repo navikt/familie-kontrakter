@@ -1,12 +1,12 @@
 package no.nav.familie.kontrakter.felles.journalpost
 
 enum class AvsenderMottakerIdType{
-    NULL,
     FNR,
-    ORGNR,
     HPRNR,
-    UTL_ORG,
-    UKJENT
+    NULL,
+    ORGNR,
+    UKJENT,
+    UTL_ORG
 }
 
 data class AvsenderMottaker(val id: String?, val type: AvsenderMottakerIdType?,

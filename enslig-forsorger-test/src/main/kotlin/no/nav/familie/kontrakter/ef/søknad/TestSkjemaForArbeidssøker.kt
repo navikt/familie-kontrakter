@@ -6,8 +6,8 @@ object TestSkjemaForArbeidssøker {
 
     @SuppressWarnings
     val skjema = SkjemaForArbeidssøker(Søknadsfelt("Søker", lagPersonaliaForArbeidssøker()),
-                                       Testsøknad.lagSøknadsfeltArbeidssøker(),
-                                        Søknadsfelt("Innsendingsdetaljer", Testsøknad.innsendingsdetaljer()))
+                                       TestSøknad.,
+                                       Søknadsfelt("Innsendingsdetaljer", TestSøknad.innsendingsdetaljer))
 
     private fun lagPersonaliaForArbeidssøker(): PersonaliaArbeidssøker {
         return  PersonaliaArbeidssøker(Søknadsfelt("fnr", Fødselsnummer(FnrGenerator.generer())),

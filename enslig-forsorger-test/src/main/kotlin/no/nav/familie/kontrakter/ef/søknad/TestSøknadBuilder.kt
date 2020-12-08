@@ -7,9 +7,9 @@ import java.time.Month
 
 object Testsøknad {
 
-        val søknadOvergangsstønad: SøknadOvergangsstønad = TestSøknadBuilder.Builder().build().søknadOvergangsstønad
-        val søknadSkolepenger: SøknadSkolepenger = TestSøknadBuilder.Builder().build().søknadSkolepenger
-        val søknadBarnetilsyn: SøknadBarnetilsyn = TestSøknadBuilder.Builder().build().søknadBarnetilsyn
+    val søknadOvergangsstønad: SøknadOvergangsstønad = TestSøknadBuilder.Builder().build().søknadOvergangsstønad
+    val søknadSkolepenger: SøknadSkolepenger = TestSøknadBuilder.Builder().build().søknadSkolepenger
+    val søknadBarnetilsyn: SøknadBarnetilsyn = TestSøknadBuilder.Builder().build().søknadBarnetilsyn
 
 }
 
@@ -30,7 +30,7 @@ class TestSøknadBuilder private constructor(
         val situasjon: Situasjon,
         val stønadsstart: Stønadsstart
 
-    ) {
+) {
 
     /**
      * En builder med defaultverdier for 'Testsøknad', men som kan "overlagres" om man ønsker andre verdier
@@ -61,7 +61,7 @@ class TestSøknadBuilder private constructor(
             setStønadstart()
         }
 
-        fun setPersonalia(navn : String, fødselsnummer: String) : Builder {
+        fun setPersonalia(navn: String, fødselsnummer: String): Builder {
             this.setPersonalia(NavnOgFnr(navn, fødselsnummer))
             return this
         }
@@ -70,7 +70,7 @@ class TestSøknadBuilder private constructor(
 
             this.personalia = Personalia(
                     Søknadsfelt("Fødselsnummer", Fødselsnummer(navnOgFnr?.fødselsnummer
-                    ?: FnrGenerator.generer())),
+                                                               ?: FnrGenerator.generer())),
                     Søknadsfelt("Navn", navnOgFnr?.navn ?: "Kari Nordmann"),
                     Søknadsfelt("Statsborgerskap", "Norsk"),
                     Søknadsfelt("Adresse", adresse),
@@ -103,10 +103,10 @@ class TestSøknadBuilder private constructor(
                     Søknadsfelt("Er du gift uten at dette er formelt registrert eller godkjent i Norge?", erUformeltGift),
                     dokumentfelt(erUformeltGiftDokumentasjon),
                     Søknadsfelt("Er du separert eller skilt uten at dette er formelt registrert eller godkjent i Norge?",
-                            erUformeltSeparertEllerSkilt),
+                                erUformeltSeparertEllerSkilt),
                     dokumentfelt(erUformeltSeparertEllerSkiltDokumentasjon),
                     Søknadsfelt("Har dere søkt om separasjon, søkt om skilsmisse eller reist sak for domstolen?",
-                            søktOmSkilsmisseSeparasjon),
+                                søktOmSkilsmisseSeparasjon),
                     Søknadsfelt("Når søkte dere eller reiste sak?", datoSøktSeparasjon),
                     dokumentfelt(separasjonsbekreftelse),
                     Søknadsfelt("Hva er grunnen til at du er alene med barn?", årsakEnslig),
@@ -158,7 +158,7 @@ class TestSøknadBuilder private constructor(
             return this
         }
 
-        fun setBarn(barn : List<NavnOgFnr>) : Builder {
+        fun setBarn(barn: List<NavnOgFnr>): Builder {
             this.barn = barn.map { defaultBarn(it) }.toList()
             return this
         }
@@ -173,14 +173,15 @@ class TestSøknadBuilder private constructor(
                     samvær: Samvær = defaultSamvær()): Builder {
 
             this.barn = listOf(Barn(Søknadsfelt("Navn", navn),
-                    Søknadsfelt("Fødselsnummer", fødselsnummer),
-                    Søknadsfelt("Har samme adresse som søker", harSkalHaSammeAdresse),
-                    Søknadsfelt("ikkeRegistrertPåSøkersAdresseBeskrivelse", ikkeRegistrertPåSøkersAdresseBeskrivelse),
-                    Søknadsfelt("Er barnet født?", erBarnetFødt),
-                    Søknadsfelt("Termindato", fødselTermindato),
-                    dokumentfelt("Bekreftelse på ventet fødselsdato"),
-                    Søknadsfelt("Barnets andre forelder", annenForelder),
-                    Søknadsfelt("samvær", samvær)))
+                                    Søknadsfelt("Fødselsnummer", fødselsnummer),
+                                    Søknadsfelt("Har samme adresse som søker", harSkalHaSammeAdresse),
+                                    Søknadsfelt("ikkeRegistrertPåSøkersAdresseBeskrivelse",
+                                                ikkeRegistrertPåSøkersAdresseBeskrivelse),
+                                    Søknadsfelt("Er barnet født?", erBarnetFødt),
+                                    Søknadsfelt("Termindato", fødselTermindato),
+                                    dokumentfelt("Bekreftelse på ventet fødselsdato"),
+                                    Søknadsfelt("Barnets andre forelder", annenForelder),
+                                    Søknadsfelt("samvær", samvær)))
 
             return this
         }
@@ -217,10 +218,10 @@ class TestSøknadBuilder private constructor(
 
             this.situasjon = Situasjon(
                     Søknadsfelt("Gjelder noe av dette deg?",
-                            listOf("Barnet mitt er sykt",
-                                    "Jeg har søkt om barnepass, men ikke fått plass enda",
-                                    "Jeg har barn som har behov for særlig tilsyn på grunn av fysiske, psykiske eller store sosiale problemer"),
-                            listOf("Alternativ 1", "Alternativ 2", "Alternativ 3")),
+                                listOf("Barnet mitt er sykt",
+                                       "Jeg har søkt om barnepass, men ikke fått plass enda",
+                                       "Jeg har barn som har behov for særlig tilsyn på grunn av fysiske, psykiske eller store sosiale problemer"),
+                                listOf("Alternativ 1", "Alternativ 2", "Alternativ 3")),
                     dokumentfelt("Legeerklæring"),
                     dokumentfelt("Legeattest for egen sykdom eller sykt barn"),
                     dokumentfelt("Avslag på søknad om barnehageplass, skolefritidsordning e.l."),
@@ -231,7 +232,7 @@ class TestSøknadBuilder private constructor(
                     dokumentfelt("Dokumentasjon av jobbtilbud"),
                     Søknadsfelt("Når skal du starte utdanningen?", oppstartUtdanning),
                     Søknadsfelt("Har du sagt opp jobben eller redusert arbeidstiden de siste 6 månedene?",
-                            "Ja, jeg har sagt opp jobben eller tatt frivillig permisjon (ikke foreldrepermisjon)"),
+                                "Ja, jeg har sagt opp jobben eller tatt frivillig permisjon (ikke foreldrepermisjon)"),
                     Søknadsfelt("Hvorfor sa du opp?", "Sjefen var dum"),
                     Søknadsfelt("Når sa du opp?", oppsigelseReduksjonTidspunkt),
                     dokumentfelt("Dokumentasjon av arbeidsforhold"))
@@ -249,40 +250,40 @@ class TestSøknadBuilder private constructor(
             return this
         }
 
-        fun build() : TestSøknadBuilder {
+        fun build(): TestSøknadBuilder {
 
             val søknadOvergangsstønad =
                     SøknadOvergangsstønad(Søknadsfelt("Søker", personalia),
-                            Søknadsfelt("innsendingsdetaljer", innsendingsdetaljer),
-                            Søknadsfelt("Detaljer om sivilstand", sivilstandsdetaljer),
-                            Søknadsfelt("Opphold i Norge", medlemskapsdetaljer),
-                            Søknadsfelt("Bosituasjonen din", bosituasjon),
-                            Søknadsfelt("Sivilstandsplaner", sivilstandsplaner),
-                            Søknadsfelt("Barn fra folkeregisteret", barn),
-                            Søknadsfelt("Arbeid, utdanning og andre aktiviteter", aktivitet),
-                            Søknadsfelt("Mer om situasjonen din", situasjon),
-                            Søknadsfelt("Når søker du stønad fra?", stønadsstart))
+                                          Søknadsfelt("innsendingsdetaljer", innsendingsdetaljer),
+                                          Søknadsfelt("Detaljer om sivilstand", sivilstandsdetaljer),
+                                          Søknadsfelt("Opphold i Norge", medlemskapsdetaljer),
+                                          Søknadsfelt("Bosituasjonen din", bosituasjon),
+                                          Søknadsfelt("Sivilstandsplaner", sivilstandsplaner),
+                                          Søknadsfelt("Barn fra folkeregisteret", barn),
+                                          Søknadsfelt("Arbeid, utdanning og andre aktiviteter", aktivitet),
+                                          Søknadsfelt("Mer om situasjonen din", situasjon),
+                                          Søknadsfelt("Når søker du stønad fra?", stønadsstart))
 
             val søknadBarnetilsyn = SøknadBarnetilsyn(Søknadsfelt("Søker", personalia),
-                    Søknadsfelt("innsendingsdetaljer", innsendingsdetaljer),
-                    Søknadsfelt("Detaljer om sivilstand", sivilstandsdetaljer),
-                    Søknadsfelt("Opphold i Norge", medlemskapsdetaljer),
-                    Søknadsfelt("Bosituasjonen din", bosituasjon),
-                    Søknadsfelt("Sivilstandsplaner", sivilstandsplaner),
-                    Søknadsfelt("Barn fra folkeregisteret", barn),
-                    Søknadsfelt("Arbeid, utdanning og andre aktiviteter", aktivitet),
-                    Søknadsfelt("Når søker du stønad fra?", stønadsstart),
-                    defaultBarnetilsynDokumentasjon())
+                                                      Søknadsfelt("innsendingsdetaljer", innsendingsdetaljer),
+                                                      Søknadsfelt("Detaljer om sivilstand", sivilstandsdetaljer),
+                                                      Søknadsfelt("Opphold i Norge", medlemskapsdetaljer),
+                                                      Søknadsfelt("Bosituasjonen din", bosituasjon),
+                                                      Søknadsfelt("Sivilstandsplaner", sivilstandsplaner),
+                                                      Søknadsfelt("Barn fra folkeregisteret", barn),
+                                                      Søknadsfelt("Arbeid, utdanning og andre aktiviteter", aktivitet),
+                                                      Søknadsfelt("Når søker du stønad fra?", stønadsstart),
+                                                      defaultBarnetilsynDokumentasjon())
 
             val søknadSkolepenger = SøknadSkolepenger(Søknadsfelt("Søker", personalia),
-                    Søknadsfelt("Barn fra folkeregisteret", barn),
-                    Søknadsfelt("innsendingsdetaljer", innsendingsdetaljer),
-                    Søknadsfelt("Detaljer om sivilstand", sivilstandsdetaljer),
-                    Søknadsfelt("Opphold i Norge", medlemskapsdetaljer),
-                    Søknadsfelt("Bosituasjonen din", bosituasjon),
-                    Søknadsfelt("Sivilstandsplaner", sivilstandsplaner),
-                    Søknadsfelt("Utdanningen du skal ta", defaultUtdanning()),
-                    SkolepengerDokumentasjon(dokumentfelt("utdanningsutgifter")))
+                                                      Søknadsfelt("Barn fra folkeregisteret", barn),
+                                                      Søknadsfelt("innsendingsdetaljer", innsendingsdetaljer),
+                                                      Søknadsfelt("Detaljer om sivilstand", sivilstandsdetaljer),
+                                                      Søknadsfelt("Opphold i Norge", medlemskapsdetaljer),
+                                                      Søknadsfelt("Bosituasjonen din", bosituasjon),
+                                                      Søknadsfelt("Sivilstandsplaner", sivilstandsplaner),
+                                                      Søknadsfelt("Utdanningen du skal ta", defaultUtdanning()),
+                                                      SkolepengerDokumentasjon(dokumentfelt("utdanningsutgifter")))
 
             val testSøknad = TestSøknadBuilder(
                     søknadOvergangsstønad,
@@ -302,7 +303,7 @@ class TestSøknadBuilder private constructor(
             return testSøknad
         }
 
-        private fun personMinimum(fødselsdato: LocalDate = LocalDate.of(1992, 2, 18), ): PersonMinimum {
+        private fun personMinimum(fødselsdato: LocalDate = LocalDate.of(1992, 2, 18)): PersonMinimum {
             return PersonMinimum(
                     Søknadsfelt("Navn", "Bob Burger"),
                     null,
@@ -311,43 +312,43 @@ class TestSøknadBuilder private constructor(
 
         private fun dokumentfelt(navn: String) =
                 Søknadsfelt("Dokument",
-                        Dokumentasjon(Søknadsfelt("Har sendt inn tidligere", false), listOf(Dokument("vedlegg1", navn))))
+                            Dokumentasjon(Søknadsfelt("Har sendt inn tidligere", false), listOf(Dokument("vedlegg1", navn))))
 
         private fun defaultBarn(navnOgFnr: NavnOgFnr? = null): Barn {
             return Barn(Søknadsfelt("Navn", navnOgFnr?.navn ?: "Lykkeliten"),
-                    Søknadsfelt("Fødselsnummer", Fødselsnummer(navnOgFnr?.fødselsnummer ?: FnrGenerator.generer())),
-                    Søknadsfelt("Har samme adresse som søker", true),
-                    Søknadsfelt("ikkeRegistrertPåSøkersAdresseBeskrivelse", "Fordi"),
-                    Søknadsfelt("Er barnet født?", false),
-                    Søknadsfelt("Termindato", LocalDate.of(2020, 5, 16)),
-                    dokumentfelt("Bekreftelse på ventet fødselsdato"),
-                    Søknadsfelt("Barnets andre forelder",
-                            AnnenForelder(person = Søknadsfelt("personalia", personMinimum()))),
-                    Søknadsfelt("samvær",
-                            Samvær(Søknadsfelt("Har du og den andre forelderen skriftlig avtale om delt bosted for barnet?",
-                                    true),
-                                    dokumentfelt("Avtale om delt bosted for barna"),
-                                    Søknadsfelt("Har den andre forelderen samvær med barnet",
-                                            "Ja, men ikke mer enn vanlig samværsrett"),
-                                    Søknadsfelt("Har dere skriftlig samværsavtale for barnet?",
-                                            "Ja, men den beskriver ikke når barnet er sammen med hver av foreldrene"),
-                                    dokumentfelt("Avtale om samvær"),
-                                    dokumentfelt("Annen forelder samarbeider ikke om folkeregistrert adresse"),
-                                    Søknadsfelt("Hvordan praktiserer dere samværet?",
-                                            "Litt hver for oss"),
-                                    Søknadsfelt("Bor du og den andre forelderen til [barnets navn] i samme hus/blokk, gårdstun, kvartal eller vei?",
-                                            "ja"),
-                                    Søknadsfelt("borAnnenForelderISammeHusBeskrivelse",
-                                            "Bor i utleiedel"),
-                                    Søknadsfelt("Har du bodd sammen med den andre forelderen til [barnets fornavn] før?",
-                                            true),
-                                    Søknadsfelt("Når flyttet dere fra hverandre?",
-                                            LocalDate.of(2018, 7, 21)),
-                                    dokumentfelt("Erklæring om samlivsbrudd"),
-                                    Søknadsfelt("Hvor mye er du sammen med den andre forelderen til barnet?",
-                                            "Vi møtes også uten at barnet er til stede"),
-                                    Søknadsfelt("Beskriv  hvor mye er du sammen med den andre forelderen til barnet?",
-                                            "Vi sees stadig vekk"))))
+                        Søknadsfelt("Fødselsnummer", Fødselsnummer(navnOgFnr?.fødselsnummer ?: FnrGenerator.generer())),
+                        Søknadsfelt("Har samme adresse som søker", true),
+                        Søknadsfelt("ikkeRegistrertPåSøkersAdresseBeskrivelse", "Fordi"),
+                        Søknadsfelt("Er barnet født?", false),
+                        Søknadsfelt("Termindato", LocalDate.of(2020, 5, 16)),
+                        dokumentfelt("Bekreftelse på ventet fødselsdato"),
+                        Søknadsfelt("Barnets andre forelder",
+                                    AnnenForelder(person = Søknadsfelt("personalia", personMinimum()))),
+                        Søknadsfelt("samvær",
+                                    Samvær(Søknadsfelt("Har du og den andre forelderen skriftlig avtale om delt bosted for barnet?",
+                                                       true),
+                                           dokumentfelt("Avtale om delt bosted for barna"),
+                                           Søknadsfelt("Har den andre forelderen samvær med barnet",
+                                                       "Ja, men ikke mer enn vanlig samværsrett"),
+                                           Søknadsfelt("Har dere skriftlig samværsavtale for barnet?",
+                                                       "Ja, men den beskriver ikke når barnet er sammen med hver av foreldrene"),
+                                           dokumentfelt("Avtale om samvær"),
+                                           dokumentfelt("Annen forelder samarbeider ikke om folkeregistrert adresse"),
+                                           Søknadsfelt("Hvordan praktiserer dere samværet?",
+                                                       "Litt hver for oss"),
+                                           Søknadsfelt("Bor du og den andre forelderen til [barnets navn] i samme hus/blokk, gårdstun, kvartal eller vei?",
+                                                       "ja"),
+                                           Søknadsfelt("borAnnenForelderISammeHusBeskrivelse",
+                                                       "Bor i utleiedel"),
+                                           Søknadsfelt("Har du bodd sammen med den andre forelderen til [barnets fornavn] før?",
+                                                       true),
+                                           Søknadsfelt("Når flyttet dere fra hverandre?",
+                                                       LocalDate.of(2018, 7, 21)),
+                                           dokumentfelt("Erklæring om samlivsbrudd"),
+                                           Søknadsfelt("Hvor mye er du sammen med den andre forelderen til barnet?",
+                                                       "Vi møtes også uten at barnet er til stede"),
+                                           Søknadsfelt("Beskriv  hvor mye er du sammen med den andre forelderen til barnet?",
+                                                       "Vi sees stadig vekk"))))
         }
 
         private fun defaultInnsendingsdetaljer(
@@ -357,29 +358,29 @@ class TestSøknadBuilder private constructor(
 
         private fun defaultSamvær(): Samvær {
             return Samvær(Søknadsfelt("Har du og den andre forelderen skriftlig avtale om delt bosted for barnet?",
-                    true),
-                    dokumentfelt("Avtale om delt bosted for barna"),
-                    Søknadsfelt("Har den andre forelderen samvær med barnet",
-                            "Ja, men ikke mer enn vanlig samværsrett"),
-                    Søknadsfelt("Har dere skriftlig samværsavtale for barnet?",
-                            "Ja, men den beskriver ikke når barnet er sammen med hver av foreldrene"),
-                    dokumentfelt("Avtale om samvær"),
-                    dokumentfelt("Annen forelder samarbeider ikke om folkeregistrert adresse"),
-                    Søknadsfelt("Hvordan praktiserer dere samværet?",
-                            "Litt hver for oss"),
-                    Søknadsfelt("Bor du og den andre forelderen til [barnets navn] i samme hus/blokk, gårdstun, kvartal eller vei?",
-                            "ja"),
-                    Søknadsfelt("borAnnenForelderISammeHusBeskrivelse",
-                            "Bor i utleiedel"),
-                    Søknadsfelt("Har du bodd sammen med den andre forelderen til [barnets fornavn] før?",
-                            true),
-                    Søknadsfelt("Når flyttet dere fra hverandre?",
-                            LocalDate.of(2018, 7, 21)),
-                    dokumentfelt("Erklæring om samlivsbrudd"),
-                    Søknadsfelt("Hvor mye er du sammen med den andre forelderen til barnet?",
-                            "Vi møtes også uten at barnet er til stede"),
-                    Søknadsfelt("Beskriv  hvor mye er du sammen med den andre forelderen til barnet?",
-                            "Vi sees stadig vekk"))
+                                      true),
+                          dokumentfelt("Avtale om delt bosted for barna"),
+                          Søknadsfelt("Har den andre forelderen samvær med barnet",
+                                      "Ja, men ikke mer enn vanlig samværsrett"),
+                          Søknadsfelt("Har dere skriftlig samværsavtale for barnet?",
+                                      "Ja, men den beskriver ikke når barnet er sammen med hver av foreldrene"),
+                          dokumentfelt("Avtale om samvær"),
+                          dokumentfelt("Annen forelder samarbeider ikke om folkeregistrert adresse"),
+                          Søknadsfelt("Hvordan praktiserer dere samværet?",
+                                      "Litt hver for oss"),
+                          Søknadsfelt("Bor du og den andre forelderen til [barnets navn] i samme hus/blokk, gårdstun, kvartal eller vei?",
+                                      "ja"),
+                          Søknadsfelt("borAnnenForelderISammeHusBeskrivelse",
+                                      "Bor i utleiedel"),
+                          Søknadsfelt("Har du bodd sammen med den andre forelderen til [barnets fornavn] før?",
+                                      true),
+                          Søknadsfelt("Når flyttet dere fra hverandre?",
+                                      LocalDate.of(2018, 7, 21)),
+                          dokumentfelt("Erklæring om samlivsbrudd"),
+                          Søknadsfelt("Hvor mye er du sammen med den andre forelderen til barnet?",
+                                      "Vi møtes også uten at barnet er til stede"),
+                          Søknadsfelt("Beskriv  hvor mye er du sammen med den andre forelderen til barnet?",
+                                      "Vi sees stadig vekk"))
         }
 
         private fun defaultUtenlandsopphold(): List<Utenlandsopphold> {
@@ -391,82 +392,82 @@ class TestSøknadBuilder private constructor(
 
         private fun defaultArbeidsgiver(): List<Arbeidsgiver> {
             return listOf(Arbeidsgiver(Søknadsfelt("Navn på arbeidsgiveren", "Palpatine"),
-                    Søknadsfelt("Hvor mye jobber du?", 15),
-                    Søknadsfelt("Er stillingen fast eller midlertidig?",
-                            "Fast"),
-                    Søknadsfelt("Har du en sluttdato?", true),
-                    Søknadsfelt("Når skal du slutte?",
-                            LocalDate.of(2020, 11, 18))))
+                                       Søknadsfelt("Hvor mye jobber du?", 15),
+                                       Søknadsfelt("Er stillingen fast eller midlertidig?",
+                                                   "Fast"),
+                                       Søknadsfelt("Har du en sluttdato?", true),
+                                       Søknadsfelt("Når skal du slutte?",
+                                                   LocalDate.of(2020, 11, 18))))
         }
 
         private fun defaultSelvstendig(): Selvstendig {
             return Selvstendig(Søknadsfelt("Navn på firma", "Bobs burgers"),
-                    Søknadsfelt("Organisasjonsnummer", "987654321"),
-                    Søknadsfelt("Når etablerte du firmaet?",
-                            LocalDate.of(2018, 4, 5)),
-                    Søknadsfelt("Hvor mye jobber du?", 150),
-                    Søknadsfelt("Hvordan ser arbeidsuken din ut?",
-                            "Veldig tung"))
+                               Søknadsfelt("Organisasjonsnummer", "987654321"),
+                               Søknadsfelt("Når etablerte du firmaet?",
+                                           LocalDate.of(2018, 4, 5)),
+                               Søknadsfelt("Hvor mye jobber du?", 150),
+                               Søknadsfelt("Hvordan ser arbeidsuken din ut?",
+                                           "Veldig tung"))
         }
 
         private fun defaultVirksomhet(): Virksomhet {
             return Virksomhet(Søknadsfelt("Beskriv virksomheten", "Den kommer til å revolusjonere verden"),
-                    dokumentfelt("Etablerer egen virksomhet dokumentasjon"))
+                              dokumentfelt("Etablerer egen virksomhet dokumentasjon"))
         }
 
         private fun defaultArbeidssøker(): Arbeidssøker {
             return Arbeidssøker(Søknadsfelt("Er du registrert som arbeidssøker hos NAV?", true),
-                    Søknadsfelt("Er du villig til å ta imot tilbud om arbeid eller arbeidsmarkedstiltak?",
-                            true),
-                    Søknadsfelt("Kan du begynne i arbeid senest én uke etter at du har fått tilbud om jobb?",
-                            true),
-                    Søknadsfelt("Har du eller kan du skaffe barnepass senest innen en uke etter at du har fått tilbud om jobb eller arbeidsmarkedstiltak?",
-                            false),
-                    Søknadsfelt("Hvor ønsker du å søke arbeid?",
-                            "Kun i bodistriktet mitt, ikke mer enn 1 times reisevei"),
-                    Søknadsfelt("Ønsker du å stå som arbeidssøker til minst 50% stilling?",
-                            true))
+                                Søknadsfelt("Er du villig til å ta imot tilbud om arbeid eller arbeidsmarkedstiltak?",
+                                            true),
+                                Søknadsfelt("Kan du begynne i arbeid senest én uke etter at du har fått tilbud om jobb?",
+                                            true),
+                                Søknadsfelt("Har du eller kan du skaffe barnepass senest innen en uke etter at du har fått tilbud om jobb eller arbeidsmarkedstiltak?",
+                                            false),
+                                Søknadsfelt("Hvor ønsker du å søke arbeid?",
+                                            "Kun i bodistriktet mitt, ikke mer enn 1 times reisevei"),
+                                Søknadsfelt("Ønsker du å stå som arbeidssøker til minst 50% stilling?",
+                                            true))
         }
 
         private fun defaultAksjeselskap(): List<Aksjeselskap> {
             return listOf(Aksjeselskap(Søknadsfelt("Navn", "Fima abc"),
-                    Søknadsfelt("arbeidsmengde", 50)))
+                                       Søknadsfelt("arbeidsmengde", 50)))
         }
 
         private fun defaultUtdanning(): UnderUtdanning {
             return UnderUtdanning(Søknadsfelt("Skole/utdanningssted", "UiO"),
-                    Søknadsfelt("Bakoverkompatibel Utdanning",
-                            TidligereUtdanning(Søknadsfelt("Linje/kurs/grad",
-                                    "Profesjonsstudium Informatikk"),
-                                    Søknadsfelt("Når skal du være elev/student?",
-                                            MånedÅrPeriode(Month.APRIL,
-                                                    2020,
-                                                    Month.JANUARY,
-                                                    2021)
-                                    ))),
-                    Søknadsfelt("Utdanning",
-                            GjeldendeUtdanning(Søknadsfelt("Linje/kurs/grad",
-                                    "Profesjonsstudium Informatikk"),
-                                    Søknadsfelt("Når skal du være elev/student?",
-                                            Datoperiode(LocalDate.of(1999, 1, 1),
-                                                    LocalDate.of(2004, 10, 12))
-                                    ))),
-                    Søknadsfelt("Er utdanningen offentlig eller privat?",
-                            "Offentlig"),
-                    Søknadsfelt("Heltid, eller deltid", "Deltid"),
-                    Søknadsfelt("Hvor mye skal du studere?", 300),
-                    Søknadsfelt("Hva er målet med utdanningen?",
-                            "Økonomisk selvstendighet"),
-                    Søknadsfelt("Har du tatt utdanning etter grunnskolen?", true),
-                    Søknadsfelt("Tidligere Utdanning",
-                            listOf(TidligereUtdanning(Søknadsfelt("Linje/kurs/grad",
-                                    "Master Fysikk"),
-                                    Søknadsfelt("Når var du elev/student?",
-                                            MånedÅrPeriode(Month.JANUARY,
-                                                    1999,
-                                                    Month.OCTOBER,
-                                                    2004))))
-                    )
+                                  Søknadsfelt("Bakoverkompatibel Utdanning",
+                                              TidligereUtdanning(Søknadsfelt("Linje/kurs/grad",
+                                                                             "Profesjonsstudium Informatikk"),
+                                                                 Søknadsfelt("Når skal du være elev/student?",
+                                                                             MånedÅrPeriode(Month.APRIL,
+                                                                                            2020,
+                                                                                            Month.JANUARY,
+                                                                                            2021)
+                                                                 ))),
+                                  Søknadsfelt("Utdanning",
+                                              GjeldendeUtdanning(Søknadsfelt("Linje/kurs/grad",
+                                                                             "Profesjonsstudium Informatikk"),
+                                                                 Søknadsfelt("Når skal du være elev/student?",
+                                                                             Datoperiode(LocalDate.of(1999, 1, 1),
+                                                                                         LocalDate.of(2004, 10, 12))
+                                                                 ))),
+                                  Søknadsfelt("Er utdanningen offentlig eller privat?",
+                                              "Offentlig"),
+                                  Søknadsfelt("Heltid, eller deltid", "Deltid"),
+                                  Søknadsfelt("Hvor mye skal du studere?", 300),
+                                  Søknadsfelt("Hva er målet med utdanningen?",
+                                              "Økonomisk selvstendighet"),
+                                  Søknadsfelt("Har du tatt utdanning etter grunnskolen?", true),
+                                  Søknadsfelt("Tidligere Utdanning",
+                                              listOf(TidligereUtdanning(Søknadsfelt("Linje/kurs/grad",
+                                                                                    "Master Fysikk"),
+                                                                        Søknadsfelt("Når var du elev/student?",
+                                                                                    MånedÅrPeriode(Month.JANUARY,
+                                                                                                   1999,
+                                                                                                   Month.OCTOBER,
+                                                                                                   2004))))
+                                  )
             )
         }
 
@@ -475,10 +476,10 @@ class TestSøknadBuilder private constructor(
         }
 
         private fun defaultBarnetilsynDokumentasjon() = BarnetilsynDokumentasjon(dokumentfelt("barnepassordningFaktura"),
-                dokumentfelt("avtaleBarnepasser"),
-                dokumentfelt("arbeidstid"),
-                dokumentfelt("roterendeArbeidstid"),
-                dokumentfelt("spesielleBehov"))
+                                                                                 dokumentfelt("avtaleBarnepasser"),
+                                                                                 dokumentfelt("arbeidstid"),
+                                                                                 dokumentfelt("roterendeArbeidstid"),
+                                                                                 dokumentfelt("spesielleBehov"))
 
     }
 }

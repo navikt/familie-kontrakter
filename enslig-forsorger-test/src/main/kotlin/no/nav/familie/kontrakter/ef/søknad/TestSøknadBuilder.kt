@@ -17,7 +17,18 @@ class TestSøknadBuilder private constructor(
 
         val søknadOvergangsstønad: SøknadOvergangsstønad,
         val søknadSkolepenger: SøknadSkolepenger,
-        val søknadBarnetilsyn: SøknadBarnetilsyn
+        val søknadBarnetilsyn: SøknadBarnetilsyn,
+
+        val personalia: Personalia,
+        val innsendingsdetaljer: Innsendingsdetaljer,
+        val sivilstandsdetaljer: Sivilstandsdetaljer,
+        val medlemskapsdetaljer: Medlemskapsdetaljer,
+        val bosituasjon: Bosituasjon,
+        val sivilstandsplaner: Sivilstandsplaner,
+        val barn: List<Barn>,
+        val aktivitet: Aktivitet,
+        val situasjon: Situasjon,
+        val stønadsstart: Stønadsstart
 
     ) {
 
@@ -298,7 +309,17 @@ class TestSøknadBuilder private constructor(
             val testSøknad = TestSøknadBuilder(
                     søknadOvergangsstønad,
                     søknadSkolepenger,
-                    søknadBarnetilsyn)
+                    søknadBarnetilsyn,
+                    personalia,
+                    innsendingsdetaljer,
+                    sivilstandsdetaljer,
+                    medlemskapsdetaljer,
+                    bosituasjon,
+                    sivilstandsplaner,
+                    barn,
+                    aktivitet,
+                    situasjon,
+                    stønadsstart)
 
             return testSøknad
         }

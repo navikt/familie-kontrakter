@@ -7,13 +7,13 @@ import java.time.Month
 
 object Testsøknad {
 
-    val søknadOvergangsstønad: SøknadOvergangsstønad = TestSøknadBuilder.Builder().build().søknadOvergangsstønad
-    val søknadSkolepenger: SøknadSkolepenger = TestSøknadBuilder.Builder().build().søknadSkolepenger
-    val søknadBarnetilsyn: SøknadBarnetilsyn = TestSøknadBuilder.Builder().build().søknadBarnetilsyn
+    val søknadOvergangsstønad: SøknadOvergangsstønad = TestsøknadBuilder.Builder().build().søknadOvergangsstønad
+    val søknadSkolepenger: SøknadSkolepenger = TestsøknadBuilder.Builder().build().søknadSkolepenger
+    val søknadBarnetilsyn: SøknadBarnetilsyn = TestsøknadBuilder.Builder().build().søknadBarnetilsyn
 
 }
 
-class TestSøknadBuilder private constructor(
+class TestsøknadBuilder private constructor(
 
         val søknadOvergangsstønad: SøknadOvergangsstønad,
         val søknadSkolepenger: SøknadSkolepenger,
@@ -250,7 +250,7 @@ class TestSøknadBuilder private constructor(
             return this
         }
 
-        fun build(): TestSøknadBuilder {
+        fun build(): TestsøknadBuilder {
 
             val søknadOvergangsstønad =
                     SøknadOvergangsstønad(Søknadsfelt("Søker", personalia),
@@ -285,7 +285,7 @@ class TestSøknadBuilder private constructor(
                                                       Søknadsfelt("Utdanningen du skal ta", defaultUtdanning()),
                                                       SkolepengerDokumentasjon(dokumentfelt("utdanningsutgifter")))
 
-            val testSøknad = TestSøknadBuilder(
+            val testSøknad = TestsøknadBuilder(
                     søknadOvergangsstønad,
                     søknadSkolepenger,
                     søknadBarnetilsyn,

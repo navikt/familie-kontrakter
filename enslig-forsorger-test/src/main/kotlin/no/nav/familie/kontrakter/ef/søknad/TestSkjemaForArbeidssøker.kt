@@ -3,7 +3,7 @@ import no.nav.familie.util.FnrGenerator
 
 object TestSkjemaForArbeidssøker {
 
-    val testSøknad = TestSøknadBuilder.Builder().build()
+    val testsøknad = TestsøknadBuilder.Builder().build()
 
     @SuppressWarnings
     val skjema = SkjemaForArbeidssøker(Søknadsfelt("Søker", lagPersonaliaForArbeidssøker()),

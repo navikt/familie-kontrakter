@@ -48,6 +48,19 @@ class TestSøknadBuilder private constructor(
         private lateinit var situasjon: Situasjon
         private lateinit var stønadsstart: Stønadsstart
 
+        init {
+            setPersonalia()
+            setInnsendingsdetaljer()
+            setSivilstandsdetaljer()
+            setMedlemskapsdetaljer()
+            setBosituasjon()
+            setSivilstandsplaner()
+            setBarn()
+            setAktivitet()
+            setSituasjon()
+            setStønadstart()
+        }
+
         fun setPersonalia(navn : String, fødselsnummer: String) : Builder {
             this.setPersonalia(NavnOgFnr(navn, fødselsnummer))
             return this
@@ -237,41 +250,6 @@ class TestSøknadBuilder private constructor(
         }
 
         fun build() : TestSøknadBuilder {
-
-            /**
-             * Set default verdier for alle felt som ikke har blitt initialisert / bygget
-             */
-
-            if (!this::personalia.isInitialized) {
-                this.setPersonalia()
-            }
-            if (!this::innsendingsdetaljer.isInitialized) {
-                this.setInnsendingsdetaljer()
-            }
-            if (!this::sivilstandsdetaljer.isInitialized) {
-                this.setSivilstandsdetaljer()
-            }
-            if (!this::medlemskapsdetaljer.isInitialized) {
-                this.setMedlemskapsdetaljer()
-            }
-            if (!this::bosituasjon.isInitialized) {
-                this.setBosituasjon()
-            }
-            if (!this::sivilstandsplaner.isInitialized) {
-                this.setSivilstandsplaner()
-            }
-            if (!this::barn.isInitialized) {
-                this.setBarn()
-            }
-            if (!this::aktivitet.isInitialized) {
-                this.setAktivitet()
-            }
-            if (!this::situasjon.isInitialized) {
-                this.setSituasjon()
-            }
-            if (!this::stønadsstart.isInitialized) {
-                this.setStønadstart()
-            }
 
             val søknadOvergangsstønad =
                     SøknadOvergangsstønad(Søknadsfelt("Søker", personalia),

@@ -4,6 +4,8 @@ enum class AvsenderMottakerIdType{
     NULL,
     FNR,
     ORGNR,
+    HPRNR,
+    UTL_ORG,
     UKJENT
 }
 

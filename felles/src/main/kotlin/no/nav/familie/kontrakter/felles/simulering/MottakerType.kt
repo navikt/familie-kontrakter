@@ -1,4 +1,4 @@
-package no.nav.familie.oppdrag.simulering.repository
+package no.nav.familie.kontrakter.felles.simulering
 
 enum class MottakerType(val kode: String) {
     BRUKER("BRUKER"),

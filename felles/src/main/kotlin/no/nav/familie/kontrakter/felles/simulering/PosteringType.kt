@@ -1,4 +1,4 @@
-package no.nav.familie.oppdrag.simulering.repository
+package no.nav.familie.kontrakter.felles.simulering
 
 enum class PosteringType(val kode: String) {
     YTELSE("YTEL"),

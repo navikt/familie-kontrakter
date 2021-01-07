@@ -1,4 +1,4 @@
-package no.nav.familie.oppdrag.simulering.repository
+package no.nav.familie.kontrakter.felles.simulering
 
 data class SimuleringMottaker(val simulertPostering: List<SimulertPostering>, //perioder
                               val mottakerNummer: String? = null,

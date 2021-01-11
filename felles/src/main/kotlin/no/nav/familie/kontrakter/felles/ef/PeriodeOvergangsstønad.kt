@@ -15,7 +15,6 @@ data class PerioderOvergangsstønadResponse(val perioder: List<PeriodeOvergangss
 data class PeriodeOvergangsstønad(val ident: String,
                                   val fomDato: LocalDate,
                                   val tomDato: LocalDate,
-                                  val fullOvergangsstønad: Boolean,
                                   val datakilde: Datakilde) {
 
     enum class Datakilde {

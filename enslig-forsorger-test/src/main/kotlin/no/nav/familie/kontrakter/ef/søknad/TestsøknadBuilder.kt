@@ -130,13 +130,16 @@ class TestsøknadBuilder private constructor(
             return this
         }
 
-        fun setBosituasjon(delerDuBolig: String = "Ja, jeg har samboer og lever i et ekteskapslignende forhold",
+        fun setBosituasjon(delerDuBolig: EnumTekstverdiMedSvarid = EnumTekstverdiMedSvarid("Ja, jeg har samboer og lever i et ekteskapslignende forhold",
+                                                                                           "harEkteskapsliknendeForhold"),
                            samboerdetaljer: PersonMinimum = defaultPersonMinimum(),
                            sammenflyttingsdato: LocalDate = LocalDate.of(2018, 8, 12),
                            datoFlyttetFraHverandre: LocalDate = LocalDate.of(2019, 8, 12)): Builder {
 
             this.bosituasjon = Bosituasjon(
-                    Søknadsfelt("Deler du bolig med andre voksne?", delerDuBolig),
+                    Søknadsfelt(label = "Deler du bolig med andre voksne?",
+                                verdi = delerDuBolig.verdi,
+                                svarid = delerDuBolig.svarid),
                     Søknadsfelt("Om samboeren din", samboerdetaljer),
                     Søknadsfelt("Når flyttet dere sammen?", sammenflyttingsdato),
                     Søknadsfelt("Når flyttet dere fra hverandre?", datoFlyttetFraHverandre))
@@ -302,7 +305,7 @@ class TestsøknadBuilder private constructor(
             return testSøknad
         }
 
-        fun defaultPersonMinimum(navn : String = "Bob Burger",
+        fun defaultPersonMinimum(navn: String = "Bob Burger",
                                  fødselsdato: LocalDate = LocalDate.of(1992, 2, 18)): PersonMinimum {
 
             return PersonMinimum(

@@ -91,7 +91,8 @@ class TestsøknadBuilder private constructor(
                                    søktOmSkilsmisseSeparasjon: Boolean = true,
                                    datoSøktSeparasjon: LocalDate = LocalDate.of(2015, 12, 23),
                                    separasjonsbekreftelse: String = "Skilsmisse- eller separasjonsbevilling",
-                                   årsakEnslig: String = "Trives best alene",
+                                   årsakEnslig: EnumTekstverdiMedSvarId = EnumTekstverdiMedSvarId("Trives best alene",
+                                                                                                  "aleneFraFødsel"),
                                    samlivsbruddsdokumentasjon: String = "Erklæring om samlivsbrudd",
                                    samlivsbruddsdato: LocalDate = LocalDate.of(2014, 10, 3),
                                    fraflytningsdato: LocalDate = LocalDate.of(2014, 10, 4),
@@ -108,7 +109,9 @@ class TestsøknadBuilder private constructor(
                                 søktOmSkilsmisseSeparasjon),
                     Søknadsfelt("Når søkte dere eller reiste sak?", datoSøktSeparasjon),
                     defaultDokumentfelt(separasjonsbekreftelse),
-                    Søknadsfelt("Hva er grunnen til at du er alene med barn?", årsakEnslig),
+                    Søknadsfelt(label = "Hva er grunnen til at du er alene med barn?",
+                                verdi = årsakEnslig.verdi,
+                                svarId = årsakEnslig.svarId),
                     defaultDokumentfelt(samlivsbruddsdokumentasjon),
                     Søknadsfelt("Dato for samlivsbrudd", samlivsbruddsdato),
                     Søknadsfelt("Når flyttet dere fra hverandre?", fraflytningsdato),
@@ -130,7 +133,7 @@ class TestsøknadBuilder private constructor(
             return this
         }
 
-        fun setBosituasjon(delerDuBolig: EnumTekstverdiMedSvarid = EnumTekstverdiMedSvarid("Ja, jeg har samboer og lever i et ekteskapslignende forhold",
+        fun setBosituasjon(delerDuBolig: EnumTekstverdiMedSvarId = EnumTekstverdiMedSvarId("Ja, jeg har samboer og lever i et ekteskapslignende forhold",
                                                                                            "harEkteskapsliknendeForhold"),
                            samboerdetaljer: PersonMinimum = defaultPersonMinimum(),
                            sammenflyttingsdato: LocalDate = LocalDate.of(2018, 8, 12),
@@ -139,7 +142,7 @@ class TestsøknadBuilder private constructor(
             this.bosituasjon = Bosituasjon(
                     Søknadsfelt(label = "Deler du bolig med andre voksne?",
                                 verdi = delerDuBolig.verdi,
-                                svarid = delerDuBolig.svarid),
+                                svarId = delerDuBolig.svarId),
                     Søknadsfelt("Om samboeren din", samboerdetaljer),
                     Søknadsfelt("Når flyttet dere sammen?", sammenflyttingsdato),
                     Søknadsfelt("Når flyttet dere fra hverandre?", datoFlyttetFraHverandre))
@@ -188,11 +191,14 @@ class TestsøknadBuilder private constructor(
             return this
         }
 
-        fun setAktivitet(hvordanErArbeidssituasjonen: List<String> =
+        fun setAktivitet(hvordanErArbeidssituasjonen: List<EnumTekstverdiMedSvarId> =
                                  listOf(
-                                         "Jeg er hjemme med barn under 1 år (vises kun hvis har barn under 1 år)",
-                                         "Jeg er i arbeid",
-                                         "Jeg er selvstendig næringsdrivende eller frilanser"),
+                                         EnumTekstverdiMedSvarId("Jeg er hjemme med barn under 1 år (vises kun hvis har barn under 1 år)",
+                                                                 "erHjemmeMedBarnUnderEttÅr"),
+                                         EnumTekstverdiMedSvarId("Jeg er i arbeid", "erArbeidstaker"),
+                                         EnumTekstverdiMedSvarId("Jeg er selvstendig næringsdrivende eller frilanser",
+                                                                 "erSelvstendigNæringsdriveneEllerFrilanser"),
+                                 ),
                          arbeidsforhold: List<Arbeidsgiver> = defaultArbeidsgiver(),
                          selvstendig: Søknadsfelt<Selvstendig>? = null, // deprecated
                          firmaer: List<Selvstendig> = listOf(defaultSelvstendig()),
@@ -202,7 +208,9 @@ class TestsøknadBuilder private constructor(
                          aksjeselskap: List<Aksjeselskap> = defaultAksjeselskap()): Builder {
 
             this.aktivitet = Aktivitet(
-                    Søknadsfelt("Hvordan er arbeidssituasjonen din?", hvordanErArbeidssituasjonen),
+                    Søknadsfelt("Hvordan er arbeidssituasjonen din?",
+                                verdi = hvordanErArbeidssituasjonen.map { it.verdi },
+                                svarId = hvordanErArbeidssituasjonen.map { it.svarId }),
                     Søknadsfelt("Om arbeidsforholdet ditt", arbeidsforhold),
                     selvstendig,
                     Søknadsfelt("Selvstendig næringsdrivende", firmaer),
@@ -223,7 +231,8 @@ class TestsøknadBuilder private constructor(
                                 listOf("Barnet mitt er sykt",
                                        "Jeg har søkt om barnepass, men ikke fått plass enda",
                                        "Jeg har barn som har behov for særlig tilsyn på grunn av fysiske, psykiske eller store sosiale problemer"),
-                                listOf("Alternativ 1", "Alternativ 2", "Alternativ 3")),
+                                listOf("Alternativ 1", "Alternativ 2", "Alternativ 3"),
+                                listOf("harSyktBarn", "harSøktBarnepassOgVenterEnnå", "harBarnMedSærligeBehov")),
                     defaultDokumentfelt("Legeerklæring"),
                     defaultDokumentfelt("Legeattest for egen sykdom eller sykt barn"),
                     defaultDokumentfelt("Avslag på søknad om barnehageplass, skolefritidsordning e.l."),
@@ -233,8 +242,9 @@ class TestsøknadBuilder private constructor(
                     Søknadsfelt("Når skal du starte i ny jobb?", oppstartNyJobb),
                     defaultDokumentfelt("Dokumentasjon av jobbtilbud"),
                     Søknadsfelt("Når skal du starte utdanningen?", oppstartUtdanning),
-                    Søknadsfelt("Har du sagt opp jobben eller redusert arbeidstiden de siste 6 månedene?",
-                                "Ja, jeg har sagt opp jobben eller tatt frivillig permisjon (ikke foreldrepermisjon)"),
+                    Søknadsfelt(label = "Har du sagt opp jobben eller redusert arbeidstiden de siste 6 månedene?",
+                                verdi = "Ja, jeg har sagt opp jobben eller tatt frivillig permisjon (ikke foreldrepermisjon)",
+                                svarId = "sagtOpp"),
                     Søknadsfelt("Hvorfor sa du opp?", "Sjefen var dum"),
                     Søknadsfelt("Når sa du opp?", oppsigelseReduksjonTidspunkt),
                     defaultDokumentfelt("Dokumentasjon av arbeidsforhold"))

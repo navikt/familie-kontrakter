@@ -140,12 +140,13 @@ class TestsøknadBuilder private constructor(
                            datoFlyttetFraHverandre: LocalDate = LocalDate.of(2019, 8, 12)): Builder {
 
             this.bosituasjon = Bosituasjon(
-                    Søknadsfelt(label = "Deler du bolig med andre voksne?",
-                                verdi = delerDuBolig.verdi,
-                                svarId = delerDuBolig.svarId),
-                    Søknadsfelt("Om samboeren din", samboerdetaljer),
-                    Søknadsfelt("Når flyttet dere sammen?", sammenflyttingsdato),
-                    Søknadsfelt("Når flyttet dere fra hverandre?", datoFlyttetFraHverandre))
+                    delerDuBolig = Søknadsfelt(label = "Deler du bolig med andre voksne?",
+                                               verdi = delerDuBolig.verdi,
+                                               svarId = delerDuBolig.svarId),
+                    samboerdetaljer = Søknadsfelt("Om samboeren din", samboerdetaljer),
+                    sammenflyttingsdato = Søknadsfelt("Når flyttet dere sammen?", sammenflyttingsdato),
+                    datoFlyttetFraHverandre = Søknadsfelt("Når flyttet dere fra hverandre?", datoFlyttetFraHverandre),
+                    skalGifteSegEllerBliSamboer = Søknadsfelt("Har du konkrete planer om å gifte deg eller bli samboer?", false))
 
             return this
         }

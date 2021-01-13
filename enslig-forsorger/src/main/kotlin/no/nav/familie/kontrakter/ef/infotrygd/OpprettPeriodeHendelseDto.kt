@@ -1,5 +1,6 @@
 package no.nav.familie.kontrakter.ef.infotrygd
 
+import no.nav.familie.kontrakter.ef.felles.StønadType
 import java.time.LocalDate
 
 data class OpprettPeriodeHendelseDto(val fnr: String,

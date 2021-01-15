@@ -3,7 +3,10 @@ package no.nav.familie.kontrakter.ef.infotrygd
 import no.nav.familie.kontrakter.ef.felles.StønadType
 import java.time.LocalDate
 
-data class OpprettPeriodeHendelseDto(val fnr: String,
+/**
+ * @param personIdenter alle identer til personen
+ */
+data class OpprettPeriodeHendelseDto(val personIdenter: Set<String>,
                                      val type: StønadType,
                                      val perioder: List<Periode>)
 

@@ -2,6 +2,9 @@ package no.nav.familie.kontrakter.ef.infotrygd
 
 import java.time.LocalDate
 
+/**
+ * @param personIdenter alle identer til personen
+ */
 data class InfotrygdPerioderOvergangsstønadRequest(val personIdenter: Set<String>,
                                                    val fomDato: LocalDate? = null,
                                                    val tomDato: LocalDate? = null)

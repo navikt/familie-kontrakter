@@ -5,7 +5,8 @@ enum class PosteringType(val kode: String) {
     FEILUTBETALING("FEIL"),
     FORSKUDSSKATT("SKAT"),
     JUSTERING("JUST"),
-    UDEFINERT("-"); // Økonomi kan svare med noen ukjente PosteringType, f.eks MOTP
+    TREKK("TREK"),
+    MOTP("MOTP");
 
     companion object {
 
@@ -15,7 +16,7 @@ enum class PosteringType(val kode: String) {
                     return posteringType
                 }
             }
-            return UDEFINERT
+            throw IllegalArgumentException("PosteringType finnes ikke for kode $kode")
         }
     }
 }

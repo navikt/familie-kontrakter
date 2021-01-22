@@ -1,6 +1,7 @@
 package no.nav.familie.kontrakter.ef.søknad
 
 data class SøknadSkolepenger(val personalia: Søknadsfelt<Personalia>,
+                             val barn: Søknadsfelt<List<Barn>>,
                              val innsendingsdetaljer: Søknadsfelt<Innsendingsdetaljer>,
                              val sivilstandsdetaljer: Søknadsfelt<Sivilstandsdetaljer>,
                              val medlemskapsdetaljer: Søknadsfelt<Medlemskapsdetaljer>,
@@ -9,6 +10,4 @@ data class SøknadSkolepenger(val personalia: Søknadsfelt<Personalia>,
                              val utdanning: Søknadsfelt<UnderUtdanning>,
                              val dokumentasjon: SkolepengerDokumentasjon)
 
-data class SkolepengerDokumentasjon(val semesteravgift: Søknadsfelt<Dokumentasjon>? = null,
-                                    val studieavgift: Søknadsfelt<Dokumentasjon>? = null,
-                                    val eksamensgebyr: Søknadsfelt<Dokumentasjon>? = null)
+data class SkolepengerDokumentasjon(val utdanningsutgifter: Søknadsfelt<Dokumentasjon>? = null)

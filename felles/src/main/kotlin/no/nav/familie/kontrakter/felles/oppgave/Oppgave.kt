@@ -1,14 +1,15 @@
 package no.nav.familie.kontrakter.felles.oppgave
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
 import javax.validation.constraints.Pattern
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 data class Oppgave(val id: Long? = null,
-                   val fnr: String? = null,
+                   val identer: List<OppgaveIdentV2>? = null,
                    val tildeltEnhetsnr: String? = null,
                    val endretAvEnhetsnr: String? = null,
-                   val eksisterendeOppgaveId: String? = null,
                    val opprettetAvEnhetsnr: String? = null,
                    val journalpostId: String? = null,
                    val journalpostkilde: String? = null,
@@ -46,4 +47,3 @@ enum class StatusEnum {
     FERDIGSTILT,
     FEILREGISTRERT;
 }
-

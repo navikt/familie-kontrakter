@@ -12,10 +12,10 @@ data class Verge(val vergeType: VergeType,
 
 enum class VergeType(val navn: String) {
     BARN("Verge for barn under 18 år"),
-    FBARN("Verge for foreldreløst barn under 18 år"),
+    FORELDRELØST_BARN("Verge for foreldreløst barn under 18 år"),
     VOKSEN("Verge for voksen"),
     ADVOKAT("Advokat/advokatfullmektig"),
-    ANNEN_F("Annen fullmektig"),
+    ANNEN_FULLMEKTIG("Annen fullmektig"),
     UDEFINERT("UDefinert")
 }
 

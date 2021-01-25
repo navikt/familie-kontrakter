@@ -6,7 +6,7 @@ import java.time.LocalDate
 data class OpprettTilbakekrevingRequest(val fagsystem: String,
                                         val eksternFagsakId: String,
                                         val personIdent: PersonIdent,
-                                        val eksternId: String, // fagsystemsreferanse til alt eksterne integrasjon
+                                        val eksternId: String, // Fagsystemreferanse til behandlingen, må være samme id som brukes mot datavarehus og økonomi
                                         val behandlingType: BehandlingType? = BehandlingType.TILBAKEKREVING,
                                         val manueltOpprettet: Boolean,
                                         val språkkode: String? = "NB",

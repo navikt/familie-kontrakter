@@ -5,7 +5,7 @@ import javax.validation.constraints.Min
 import javax.validation.constraints.NotBlank
 import javax.validation.constraints.Size
 
-data class Varsel(@field:NotBlank(message = "Mangler varselTeskt")
+data class Varsel(@field:NotBlank(message = "Mangler varselTekst")
                   val varselTekst: String,
                   @field:Min(value = 1, message = "sumFeilutbetaling må være større enn zero")
                   val sumFeilutbetaling: BigDecimal,

@@ -5,5 +5,5 @@ enum class Ytelsestype {
     OVERGANGSSTØNAD,
     BARNETILSYN,
     SKOLEPENGER,
-    KONSTANTSSTØTTE
+    KONTANTSTØTTE
 }

@@ -14,6 +14,6 @@ data class OpprettTilbakekrevingRequest(val ytelsestype: Ytelsestype,
                                         val språkkode: String? = "NB",
                                         val enhetId: String,
                                         val enhetsnavn: String,
-                                        val feilutbetaltePerioder: FeilutbetaltePerioder?,
+                                        val varsel: Varsel?,
                                         val revurderingVedtakDato: LocalDate,
                                         val verge: Verge? = null)

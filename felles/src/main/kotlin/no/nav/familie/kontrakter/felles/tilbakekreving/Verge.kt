@@ -5,7 +5,7 @@ import java.time.LocalDate
 import javax.validation.Valid
 import javax.validation.constraints.Pattern
 
-data class Verge(val vergeType: VergeType,
+data class Verge(val vergetype: Vergetype,
                  val gyldigFom: LocalDate,
                  val gyldigTom: LocalDate,
                  val navn: String,
@@ -14,10 +14,10 @@ data class Verge(val vergeType: VergeType,
                  @field:Valid
                  val personIdent: PersonIdent? = null)
 
-enum class VergeType(val navn: String) {
-    BARN("Verge for barn under 18 år"),
-    FORELDRELØST_BARN("Verge for foreldreløst barn under 18 år"),
-    VOKSEN("Verge for voksen"),
+enum class Vergetype(val navn: String) {
+    VERGE_FOR_BARN("Verge for barn under 18 år"),
+    VERGE_FOR_FORELDRELØST_BARN("Verge for foreldreløst barn under 18 år"),
+    VERGE_FOR_VOKSEN("Verge for voksen"),
     ADVOKAT("Advokat/advokatfullmektig"),
     ANNEN_FULLMEKTIG("Annen fullmektig"),
     UDEFINERT("UDefinert")

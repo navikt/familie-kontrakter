@@ -20,7 +20,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <kotlin.version>1.4.21-2</kotlin.version>
         <jackson.version>2.12.1</jackson.version>
-        <felles.version>1.20201104091530_e00f4c4</felles.version>
+        <felles.version>1.20210121113106_ca34836</felles.version>
         <junit.version>4.13.1</junit.version>
     </properties>
 

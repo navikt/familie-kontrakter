@@ -7,6 +7,7 @@ import javax.validation.constraints.NotBlank
 
 data class OpprettTilbakekrevingRequest(val ytelsestype: Ytelsestype,
                                         val eksternFagsakId: String,
+                                        @field:Valid
                                         val personIdent: PersonIdent,
         // Fagsystemreferanse til behandlingen, må være samme id som brukes mot datavarehus og økonomi
                                         val eksternId: String,

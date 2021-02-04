@@ -15,4 +15,4 @@ data class InfotrygdPeriodeOvergangsstønad(val personIdent: String,
                                            val fomDato: LocalDate,
                                            val tomDato: LocalDate,
                                            val beløp: Float,
-                                           val opphørDato: LocalDate? = null)
+                                           val opphørsdato: LocalDate? = null)

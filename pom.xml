@@ -18,7 +18,7 @@
         <sha1/>
         <changelist>-SNAPSHOT</changelist>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <kotlin.version>1.4.21-2</kotlin.version>
+        <kotlin.version>1.4.30</kotlin.version>
         <jackson.version>2.12.1</jackson.version>
         <felles.version>1.20201104091530_e00f4c4</felles.version>
         <junit.version>4.13.1</junit.version>

@@ -5,6 +5,8 @@ import java.time.LocalDate
 class Fødselsnummer(val verdi: String) {
 
     val erDNummer = verdi.substring(0, 1).toInt() > 3
+    val erNAVSyntetisk = verdi.substring(2, 3).toInt() >= 4 && verdi.substring(2, 3).toInt() < 8
+    val erSkattSyntetisk = verdi.substring(2, 3).toInt() >= 8
 
     val fødselsdato: LocalDate
 
@@ -15,7 +17,7 @@ class Fødselsnummer(val verdi: String) {
 
     private fun beregnFødselsdato(): LocalDate {
         val dag = verdi.substring(0, 2).toInt() - (if (erDNummer) 40 else 0)
-        val måned = verdi.substring(2, 4).toInt()
+        val måned = verdi.substring(2, 4).toInt() - (if(erNAVSyntetisk) 40 else if(erSkattSyntetisk) 80 else 0)
         val år = verdi.substring(4, 6).toInt()
         val datoUtenÅrhundre = LocalDate.of(år, måned, dag)
         val individnummer = verdi.substring(6, 9).toInt()

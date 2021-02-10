@@ -163,31 +163,42 @@ class TestsøknadBuilder private constructor(
             return this
         }
 
-        fun setBarn(barn: List<NavnOgFnr>): Builder {
-            this.barn = barn.map { defaultBarn(it) }.toList()
-            return this
+        fun defaultBarn(navn: String = "Lykkeliten",
+                        fødselsnummer: String? = null,
+                        harSkalHaSammeAdresse: Boolean = true,
+                        ikkeRegistrertPåSøkersAdresseBeskrivelse: String = "Fordi",
+                        erBarnetFødt: Boolean = false,
+                        fødselTermindato: LocalDate = LocalDate.of(2020, 5, 16),
+                        annenForelder: AnnenForelder = defaultAnnenForelder(),
+                        samvær: Samvær = defaultSamvær(),
+                        skalHaBarnepass: Boolean = false,
+                        særligeTilsynsbehov: String = "Barnet mitt trenger ekstra oppfølging",
+                        barnepass: Barnepass? = null,
+                        skalBoHosSøker: String? = "jaMenSamarbeiderIkke"
+
+        ): Barn {
+            return Barn(Søknadsfelt("Navn", navn),
+                        Søknadsfelt("Fødselsnummer",
+                                    fødselsnummer?.let { Fødselsnummer(it) } ?: Fødselsnummer(FnrGenerator.generer())),
+                        Søknadsfelt("Har samme adresse som søker", harSkalHaSammeAdresse),
+                        Søknadsfelt("ikkeRegistrertPåSøkersAdresseBeskrivelse",
+                                    ikkeRegistrertPåSøkersAdresseBeskrivelse),
+                        Søknadsfelt("Er barnet født?", erBarnetFødt),
+                        Søknadsfelt("Termindato", fødselTermindato),
+                        defaultDokumentfelt("Bekreftelse på ventet fødselsdato"),
+                        Søknadsfelt("Barnets andre forelder", annenForelder),
+                        Søknadsfelt("samvær", samvær),
+                        Søknadsfelt("Skal ha barnepass", skalHaBarnepass),
+                        Søknadsfelt("Særlige tilsynsbehov", særligeTilsynsbehov),
+                        barnepass?.let { Søknadsfelt("Barnepass", it) },
+                        Søknadsfelt("Skal barnet bo hos søker",
+                                    "Ja, men den andre forelderen samarbeider ikke",
+                                    null,
+                                    skalBoHosSøker))
         }
 
-        fun setBarn(navn: String = "Lykkeliten",
-                    fødselsnummer: Fødselsnummer = Fødselsnummer(FnrGenerator.generer()),
-                    harSkalHaSammeAdresse: Boolean = true,
-                    ikkeRegistrertPåSøkersAdresseBeskrivelse: String = "Fordi",
-                    erBarnetFødt: Boolean = false,
-                    fødselTermindato: LocalDate = LocalDate.of(2020, 5, 16),
-                    annenForelder: AnnenForelder = AnnenForelder(person = Søknadsfelt("personalia", defaultPersonMinimum())),
-                    samvær: Samvær = defaultSamvær()): Builder {
-
-            this.barn = listOf(Barn(Søknadsfelt("Navn", navn),
-                                    Søknadsfelt("Fødselsnummer", fødselsnummer),
-                                    Søknadsfelt("Har samme adresse som søker", harSkalHaSammeAdresse),
-                                    Søknadsfelt("ikkeRegistrertPåSøkersAdresseBeskrivelse",
-                                                ikkeRegistrertPåSøkersAdresseBeskrivelse),
-                                    Søknadsfelt("Er barnet født?", erBarnetFødt),
-                                    Søknadsfelt("Termindato", fødselTermindato),
-                                    defaultDokumentfelt("Bekreftelse på ventet fødselsdato"),
-                                    Søknadsfelt("Barnets andre forelder", annenForelder),
-                                    Søknadsfelt("samvær", samvær)))
-
+        fun setBarn(barn: List<Barn> = listOf(defaultBarn())): Builder {
+            this.barn = barn
             return this
         }
 
@@ -316,85 +327,74 @@ class TestsøknadBuilder private constructor(
         }
 
         fun defaultPersonMinimum(navn: String = "Bob Burger",
-                                 fødselsdato: LocalDate = LocalDate.of(1992, 2, 18)): PersonMinimum {
+                                 fødselsdato: LocalDate = LocalDate.of(1992, 2, 18),
+                                 fødselsnummer: String? = null,
+                                 land: String? = null): PersonMinimum {
 
             return PersonMinimum(
                     Søknadsfelt("Navn", navn),
-                    null,
-                    Søknadsfelt("Fødselsdato", fødselsdato))
+                    fødselsnummer?.let { Søknadsfelt("fødselsnummer", Fødselsnummer(fødselsnummer)) },
+                    Søknadsfelt("Fødselsdato", fødselsdato),
+                    land?.let { Søknadsfelt("land", it) }
+            )
         }
 
         fun defaultDokumentfelt(navn: String) =
                 Søknadsfelt("Dokument",
                             Dokumentasjon(Søknadsfelt("Har sendt inn tidligere", false), listOf(Dokument("vedlegg1", navn))))
 
-        fun defaultBarn(navnOgFnr: NavnOgFnr? = null): Barn {
-            return Barn(Søknadsfelt("Navn", navnOgFnr?.navn ?: "Lykkeliten"),
-                        Søknadsfelt("Fødselsnummer", Fødselsnummer(navnOgFnr?.fødselsnummer ?: FnrGenerator.generer())),
-                        Søknadsfelt("Har samme adresse som søker", true),
-                        Søknadsfelt("ikkeRegistrertPåSøkersAdresseBeskrivelse", "Fordi"),
-                        Søknadsfelt("Er barnet født?", false),
-                        Søknadsfelt("Termindato", LocalDate.of(2020, 5, 16)),
-                        defaultDokumentfelt("Bekreftelse på ventet fødselsdato"),
-                        Søknadsfelt("Barnets andre forelder",
-                                    AnnenForelder(person = Søknadsfelt("personalia", defaultPersonMinimum()))),
-                        Søknadsfelt("samvær",
-                                    Samvær(Søknadsfelt("Har du og den andre forelderen skriftlig avtale om delt bosted for barnet?",
-                                                       true),
-                                           defaultDokumentfelt("Avtale om delt bosted for barna"),
-                                           Søknadsfelt("Har den andre forelderen samvær med barnet",
-                                                       "Ja, men ikke mer enn vanlig samværsrett"),
-                                           Søknadsfelt("Har dere skriftlig samværsavtale for barnet?",
-                                                       "Ja, men den beskriver ikke når barnet er sammen med hver av foreldrene"),
-                                           defaultDokumentfelt("Avtale om samvær"),
-                                           defaultDokumentfelt("Annen forelder samarbeider ikke om folkeregistrert adresse"),
-                                           Søknadsfelt("Hvordan praktiserer dere samværet?",
-                                                       "Litt hver for oss"),
-                                           Søknadsfelt("Bor du og den andre forelderen til [barnets navn] i samme hus/blokk, gårdstun, kvartal eller vei?",
-                                                       "ja"),
-                                           Søknadsfelt("borAnnenForelderISammeHusBeskrivelse",
-                                                       "Bor i utleiedel"),
-                                           Søknadsfelt("Har du bodd sammen med den andre forelderen til [barnets fornavn] før?",
-                                                       true),
-                                           Søknadsfelt("Når flyttet dere fra hverandre?",
-                                                       LocalDate.of(2018, 7, 21)),
-                                           defaultDokumentfelt("Erklæring om samlivsbrudd"),
-                                           Søknadsfelt("Hvor mye er du sammen med den andre forelderen til barnet?",
-                                                       "Vi møtes også uten at barnet er til stede"),
-                                           Søknadsfelt("Beskriv  hvor mye er du sammen med den andre forelderen til barnet?",
-                                                       "Vi sees stadig vekk"))))
-        }
+        private fun defaultAnnenForelder() = AnnenForelder(person = Søknadsfelt("personalia", defaultPersonMinimum()))
 
         fun defaultInnsendingsdetaljer(
                 datoMottatt: LocalDateTime): Innsendingsdetaljer {
             return Innsendingsdetaljer(Søknadsfelt("Dato mottatt", datoMottatt))
         }
 
-        private fun defaultSamvær(): Samvær {
+        fun defaultSamvær(
+                spørsmålAvtaleOmDeltBosted: Boolean = true,
+                skalAnnenForelderHaSamvær: String = "jaMerEnnVanlig",
+                harDereSkriftligAvtaleOmSamvær: String = "jaIkkeKonkreteTidspunkter",
+                hvordanPraktiseresSamværet: String = "Litt hver for oss",
+                borAnnenForelderISammeHus: String = "ja",
+                borAnnenForelderISammeHusBeskrivelse: String = "Har du bodd sammen med den andre forelderen til [barnets fornavn] før?",
+                harDereTidligereBoddSammen: Boolean = true,
+                nårFlyttetDereFraHverandre: LocalDate? = LocalDate.of(2018, 7, 21),
+                hvorMyeErDuSammenMedAnnenForelder: String = "kunNårLeveres",
+                beskrivSamværUtenBarn: String = "Vi sees stadig vekk"
+        ): Samvær {
             return Samvær(Søknadsfelt("Har du og den andre forelderen skriftlig avtale om delt bosted for barnet?",
-                                      true),
+                                      spørsmålAvtaleOmDeltBosted),
                           defaultDokumentfelt("Avtale om delt bosted for barna"),
                           Søknadsfelt("Har den andre forelderen samvær med barnet",
-                                      "Ja, men ikke mer enn vanlig samværsrett"),
+                                      "Ja, men ikke mer enn vanlig samværsrett",
+                                      null,
+                                      skalAnnenForelderHaSamvær),
                           Søknadsfelt("Har dere skriftlig samværsavtale for barnet?",
-                                      "Ja, men den beskriver ikke når barnet er sammen med hver av foreldrene"),
+                                      "Ja, men den beskriver ikke når barnet er sammen med hver av foreldrene",
+                                      null,
+                                      harDereSkriftligAvtaleOmSamvær),
                           defaultDokumentfelt("Avtale om samvær"),
                           defaultDokumentfelt("Annen forelder samarbeider ikke om folkeregistrert adresse"),
                           Søknadsfelt("Hvordan praktiserer dere samværet?",
-                                      "Litt hver for oss"),
+                                      hvordanPraktiseresSamværet),
                           Søknadsfelt("Bor du og den andre forelderen til [barnets navn] i samme hus/blokk, gårdstun, kvartal eller vei?",
-                                      "ja"),
-                          Søknadsfelt("borAnnenForelderISammeHusBeskrivelse",
-                                      "Bor i utleiedel"),
+                                      "Litt hver for oss",
+                                      null,
+                                      borAnnenForelderISammeHus),
+                          Søknadsfelt("borAnnenForelderISammeHusBeskrivelse", "Bor i utleiedel", null,
+                                      borAnnenForelderISammeHusBeskrivelse),
                           Søknadsfelt("Har du bodd sammen med den andre forelderen til [barnets fornavn] før?",
-                                      true),
-                          Søknadsfelt("Når flyttet dere fra hverandre?",
-                                      LocalDate.of(2018, 7, 21)),
+                                      harDereTidligereBoddSammen),
+                          nårFlyttetDereFraHverandre?.let { Søknadsfelt("Når flyttet dere fra hverandre?", it) },
                           defaultDokumentfelt("Erklæring om samlivsbrudd"),
                           Søknadsfelt("Hvor mye er du sammen med den andre forelderen til barnet?",
-                                      "Vi møtes også uten at barnet er til stede"),
+                                      "Vi møtes også uten at barnet er til stede",
+                                      null,
+                                      hvorMyeErDuSammenMedAnnenForelder),
                           Søknadsfelt("Beskriv  hvor mye er du sammen med den andre forelderen til barnet?",
-                                      "Vi sees stadig vekk"))
+                                      "Vi sees stadig vekk",
+                                      null,
+                                      beskrivSamværUtenBarn))
         }
 
         private fun defaultUtenlandsopphold(): List<Utenlandsopphold> {
@@ -429,18 +429,26 @@ class TestsøknadBuilder private constructor(
                               defaultDokumentfelt("Etablerer egen virksomhet dokumentasjon"))
         }
 
-        private fun defaultArbeidssøker(): Arbeidssøker {
-            return Arbeidssøker(Søknadsfelt("Er du registrert som arbeidssøker hos NAV?", true),
+        private fun defaultArbeidssøker(
+                registrertArbeidssøker: Boolean = true,
+                villigTilArbeid: Boolean = true,
+                kanStarteNårSomHelst: Boolean = true,
+                harBarnepassInnenEnUke: Boolean = true,
+                hvorØnskerDuArbeid: String = "nærme",
+                ønskerÅStåSomArbeidssøker: Boolean = true,
+        ): Arbeidssøker {
+            return Arbeidssøker(Søknadsfelt("Er du registrert som arbeidssøker hos NAV?", registrertArbeidssøker),
                                 Søknadsfelt("Er du villig til å ta imot tilbud om arbeid eller arbeidsmarkedstiltak?",
-                                            true),
+                                            villigTilArbeid),
                                 Søknadsfelt("Kan du begynne i arbeid senest én uke etter at du har fått tilbud om jobb?",
-                                            true),
+                                            kanStarteNårSomHelst),
                                 Søknadsfelt("Har du eller kan du skaffe barnepass senest innen en uke etter at du har fått tilbud om jobb eller arbeidsmarkedstiltak?",
-                                            false),
+                                            harBarnepassInnenEnUke),
                                 Søknadsfelt("Hvor ønsker du å søke arbeid?",
-                                            "Kun i bodistriktet mitt, ikke mer enn 1 times reisevei"),
+                                            "Kun i bodistriktet mitt, ikke mer enn 1 times reisevei",
+                                            null, hvorØnskerDuArbeid),
                                 Søknadsfelt("Ønsker du å stå som arbeidssøker til minst 50% stilling?",
-                                            true))
+                                            ønskerÅStåSomArbeidssøker))
         }
 
         private fun defaultAksjeselskap(): List<Aksjeselskap> {

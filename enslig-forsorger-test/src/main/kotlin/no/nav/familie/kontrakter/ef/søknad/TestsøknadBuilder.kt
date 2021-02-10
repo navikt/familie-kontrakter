@@ -343,7 +343,7 @@ class TestsøknadBuilder private constructor(
                 Søknadsfelt("Dokument",
                             Dokumentasjon(Søknadsfelt("Har sendt inn tidligere", false), listOf(Dokument("vedlegg1", navn))))
 
-        fun defaultAnnenForelder(personMinimum: PersonMinimum? = defaultPersonMinimum()) = AnnenForelder(person = Søknadsfelt("personalia", personMinimum))
+        fun defaultAnnenForelder(personMinimum: PersonMinimum = defaultPersonMinimum()) = AnnenForelder(person = Søknadsfelt("personalia", personMinimum))
 
         fun defaultInnsendingsdetaljer(
                 datoMottatt: LocalDateTime): Innsendingsdetaljer {

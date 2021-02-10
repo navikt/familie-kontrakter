@@ -343,7 +343,19 @@ class TestsøknadBuilder private constructor(
                 Søknadsfelt("Dokument",
                             Dokumentasjon(Søknadsfelt("Har sendt inn tidligere", false), listOf(Dokument("vedlegg1", navn))))
 
-        fun defaultAnnenForelder(personMinimum: PersonMinimum = defaultPersonMinimum()) = AnnenForelder(person = Søknadsfelt("personalia", personMinimum))
+        fun defaultAnnenForelder(
+                personMinimum: PersonMinimum? = defaultPersonMinimum(),
+                ikkeOppgittAnnenForelderBegrunnelse: String? = null,
+                bosattINorge: Boolean? = null,
+                land: String? = null
+        ) = AnnenForelder(
+                person = personMinimum?.let { Søknadsfelt("personalia", it) },
+                ikkeOppgittAnnenForelderBegrunnelse = ikkeOppgittAnnenForelderBegrunnelse?.let {
+                    Søknadsfelt("Ikke oppgitt annen forelder begrunnelse", ikkeOppgittAnnenForelderBegrunnelse)
+                },
+                bosattNorge = bosattINorge?.let { Søknadsfelt("Bosatt i norge", it) },
+                land = land?.let { Søknadsfelt("Land", it) }
+        )
 
         fun defaultInnsendingsdetaljer(
                 datoMottatt: LocalDateTime): Innsendingsdetaljer {

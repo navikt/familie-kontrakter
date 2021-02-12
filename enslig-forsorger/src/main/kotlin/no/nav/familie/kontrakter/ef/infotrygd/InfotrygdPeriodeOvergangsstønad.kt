@@ -14,4 +14,5 @@ data class InfotrygdPerioderOvergangsstønadResponse(val perioder: List<Infotryg
 data class InfotrygdPeriodeOvergangsstønad(val personIdent: String,
                                            val fomDato: LocalDate,
                                            val tomDato: LocalDate,
-                                           val beløp: Float)
+                                           val beløp: Float,
+                                           val opphørsdato: LocalDate? = null)

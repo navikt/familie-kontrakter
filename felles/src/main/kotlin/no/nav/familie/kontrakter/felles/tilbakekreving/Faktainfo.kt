@@ -1,10 +1,10 @@
 package no.nav.familie.kontrakter.felles.tilbakekreving
 
-data class FaktaInfo(
+data class Faktainfo(
         val revurderingsårsaker: Set<String>,
         val revurderingsresultat: String,
         val tilbakekrevingsvalg: Tilbakekrevingsvalg,
-        val konsekvensForYtelser: Set<String>? = emptySet()
+        val konsekvensForYtelser: Set<String> = emptySet()
 )
 
 

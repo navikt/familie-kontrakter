@@ -13,8 +13,7 @@ data class OpprettTilbakekrevingRequest(val fagsystem: Fagsystem,
                                         val eksternId: String, // Fagsystemreferanse til behandlingen, må være samme id som brukes mot datavarehus og økonomi
                                         val behandlingstype: Behandlingstype? = Behandlingstype.TILBAKEKREVING,
                                         val manueltOpprettet: Boolean,
-                                        @field:NotBlank(message = "Mangler språkkode")
-                                        val språkkode: String? = "NB",
+                                        val språkkode: Språkkode = Språkkode.NB,
                                         val enhetId: String,
                                         val enhetsnavn: String,
                                         @field:Valid
@@ -23,4 +22,5 @@ data class OpprettTilbakekrevingRequest(val fagsystem: Fagsystem,
                                         @field:Valid
                                         val verge: Verge? = null,
                                         @field:Valid
-                                        val faktaInfo: FaktaInfo)
+                                        val faktainfo: Faktainfo)
+

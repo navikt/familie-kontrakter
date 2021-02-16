@@ -5,12 +5,12 @@ import java.time.LocalDate
 import javax.validation.Valid
 import javax.validation.constraints.NotBlank
 
-data class OpprettTilbakekrevingRequest(val ytelsestype: Ytelsestype,
+data class OpprettTilbakekrevingRequest(val fagsystem: Fagsystem,
+                                        val ytelsestype: Ytelsestype,
                                         val eksternFagsakId: String,
                                         @field:Valid
                                         val personIdent: PersonIdent,
-        // Fagsystemreferanse til behandlingen, må være samme id som brukes mot datavarehus og økonomi
-                                        val eksternId: String,
+                                        val eksternId: String, // Fagsystemreferanse til behandlingen, må være samme id som brukes mot datavarehus og økonomi
                                         val behandlingstype: Behandlingstype? = Behandlingstype.TILBAKEKREVING,
                                         val manueltOpprettet: Boolean,
                                         @field:NotBlank(message = "Mangler språkkode")
@@ -21,4 +21,6 @@ data class OpprettTilbakekrevingRequest(val ytelsestype: Ytelsestype,
                                         val varsel: Varsel?,
                                         val revurderingsvedtaksdato: LocalDate,
                                         @field:Valid
-                                        val verge: Verge? = null)
+                                        val verge: Verge? = null,
+                                        @field:Valid
+                                        val faktaInfo: FaktaInfo)

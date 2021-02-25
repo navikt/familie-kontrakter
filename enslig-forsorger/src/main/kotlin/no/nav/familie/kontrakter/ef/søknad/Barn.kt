@@ -14,7 +14,7 @@ data class Barn(val navn: Søknadsfelt<String>? = null,
                 val skalHaBarnepass: Søknadsfelt<Boolean>? = null,
                 val særligeTilsynsbehov: Søknadsfelt<String>? = null,
                 val barnepass: Søknadsfelt<Barnepass>? = null,
-                val lagtTil: Boolean? = false,
+                val lagtTilManuellt: Boolean? = false,
                 val skalBarnetBoHosSøker: Søknadsfelt<String>? = null)
 
 /**

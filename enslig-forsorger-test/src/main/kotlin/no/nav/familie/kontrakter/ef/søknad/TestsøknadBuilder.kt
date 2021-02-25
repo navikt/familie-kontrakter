@@ -174,7 +174,7 @@ class TestsøknadBuilder private constructor(
                         skalHaBarnepass: Boolean = false,
                         særligeTilsynsbehov: String = "Barnet mitt trenger ekstra oppfølging",
                         barnepass: Barnepass? = null,
-                        lagtTilManuellt: Boolean = true,
+                        lagtTilManuelt: Boolean = true,
                         skalBoHosSøker: String? = "jaMenSamarbeiderIkke"
 
         ): Barn {
@@ -192,7 +192,7 @@ class TestsøknadBuilder private constructor(
                         Søknadsfelt("Skal ha barnepass", skalHaBarnepass),
                         Søknadsfelt("Særlige tilsynsbehov", særligeTilsynsbehov),
                         barnepass?.let { Søknadsfelt("Barnepass", it) },
-                        lagtTilManuellt = lagtTilManuellt,
+                        lagtTilManuelt = lagtTilManuelt,
                         Søknadsfelt("Skal barnet bo hos søker",
                                     "Ja, men den andre forelderen samarbeider ikke",
                                     null,

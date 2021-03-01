@@ -3,7 +3,7 @@ package no.nav.familie.kontrakter.felles.tilbakekreving
 data class Faktainfo(
         val revurderingsårsak: String,
         val revurderingsresultat: String,
-        val tilbakekrevingsvalg: Tilbakekrevingsvalg,
+        val tilbakekrevingsvalg: Tilbakekrevingsvalg? = null,
         val konsekvensForYtelser: Set<String> = emptySet()
 )
 

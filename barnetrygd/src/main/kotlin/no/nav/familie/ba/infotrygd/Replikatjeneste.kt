@@ -19,7 +19,6 @@ data class Barn(
 data class Stønad(
         val stønadId: Long,
         val sakNr: String? = null,
-        val saksblokk: String? = null,
         val status: String? = null,
         val tekstkode: String? = null,
         val iverksattFom: String? = null,

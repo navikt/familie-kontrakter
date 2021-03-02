@@ -11,9 +11,20 @@ data class InfotrygdSøkResponse<T>(
         val barn: List<T>,
 )
 
+data class Barn(
+        val barnFnr: String? = null,
+        val barnetrygdTom: String? = null,
+)
+
 data class Stønad(
         val stønadId: Long,
         val sakNr: String? = null,
+        val status: String? = null,
+        val tekstkode: String? = null,
+        val iverksattFom: String? = null,
+        val virkningFom: String? = null,
+        val barn: List<Barn> = emptyList(),
+        val opphørtIver: String? = null,
         val opphørtFom: String? = null,
         val opphørsgrunn: String? = null,
 )

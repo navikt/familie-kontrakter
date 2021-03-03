@@ -1,4 +1,4 @@
-package no.nav.familie.ba.sak.infotrygd
+package no.nav.familie.kontrakter.ba.infotrygd
 
 import java.time.LocalDate
 

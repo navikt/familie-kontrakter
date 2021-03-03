@@ -1,6 +1,6 @@
-package main.kotlin.no.nav.familie.ba.søknad
+package no.nav.familie.kontrakter.ba.søknad
 
-import main.kotlin.no.nav.familie.ba.Søknadstype
+import no.nav.familie.kontrakter.ba.Søknadstype
 
 data class Søker(
         val navn: Søknadsfelt<String>,

@@ -1,4 +1,4 @@
-package main.kotlin.no.nav.familie.ba
+package no.nav.familie.kontrakter.ba
 
 enum class Søknadstype(val tittel: String, val søknadskode: String) {
     IKKE_SATT("SØKNADSTYPE MANGLER", "SØKNADSTYPE MANGLER"),

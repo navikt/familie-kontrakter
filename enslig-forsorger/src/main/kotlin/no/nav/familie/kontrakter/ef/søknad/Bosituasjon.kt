@@ -6,4 +6,6 @@ data class Bosituasjon(val delerDuBolig: Søknadsfelt<String>,
                        val samboerdetaljer: Søknadsfelt<PersonMinimum>? = null,
                        val sammenflyttingsdato: Søknadsfelt<LocalDate>? = null,
                        val datoFlyttetFraHverandre: Søknadsfelt<LocalDate>? = null,
-                       val tidligereSamboerFortsattRegistrertPåAdresse: Søknadsfelt<Dokumentasjon>? = null)
+                       val tidligereSamboerFortsattRegistrertPåAdresse: Søknadsfelt<Dokumentasjon>? = null,
+                       val vordendeSamboerEktefelle: Søknadsfelt<PersonMinimum>? = null)
+

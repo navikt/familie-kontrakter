@@ -18,9 +18,9 @@
         <sha1/>
         <changelist>-SNAPSHOT</changelist>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <kotlin.version>1.4.30</kotlin.version>
+        <kotlin.version>1.4.31</kotlin.version>
         <jackson.version>2.12.1</jackson.version>
-        <felles.version>1.20210208115050_88991d1</felles.version>
+        <felles.version>1.20210223111349_05be6ea</felles.version>
         <junit.version>4.13.1</junit.version>
     </properties>
 
@@ -99,7 +99,7 @@
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-test-junit5</artifactId>
-            <version>1.4.30</version>
+            <version>1.4.31</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -191,7 +191,7 @@
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>flatten-maven-plugin</artifactId>
-                    <version>1.2.5</version>
+                    <version>1.2.7</version>
                 </plugin>
             </plugins>
         </pluginManagement>

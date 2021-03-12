@@ -17,8 +17,6 @@ data class Barn(
 )
 
 data class Stønad(
-        val stønadId: Long,
-        val sakNr: String? = null,
         val status: String? = null,
         val tekstkode: String? = null,
         val iverksattFom: String? = null,
@@ -27,6 +25,7 @@ data class Stønad(
         val opphørtIver: String? = null,
         val opphørtFom: String? = null,
         val opphørsgrunn: String? = null,
+        val delytelse: Delytelse? = null,
 )
 
 data class Sak(
@@ -42,9 +41,18 @@ data class Sak(
         val resultat: String? = null,
         val vedtaksdato: LocalDate? = null,
         val iverksattdato: LocalDate? = null,
-        val stønadList: List<Stønad> = emptyList(),
+        val stønad: Stønad? = null,
         val årsakskode: String? = null,
         val behenEnhet: String? = null,
         val regAvEnhet: String? = null,
         val status: String,
+)
+
+data class Delytelse(
+        val fom: LocalDate,
+        val tom: LocalDate? = null,
+        val beløp: Double,
+        val typeDelytelse: String,
+        val oppgjørsordning: String? = null,
+        val typeUtbetaling: String,
 )

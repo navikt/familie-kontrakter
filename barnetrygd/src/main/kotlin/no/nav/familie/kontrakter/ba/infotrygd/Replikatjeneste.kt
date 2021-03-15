@@ -25,7 +25,7 @@ data class Stønad(
         val opphørtIver: String? = null,
         val opphørtFom: String? = null,
         val opphørsgrunn: String? = null,
-        val delytelse: Delytelse? = null,
+        val delytelse: List<Delytelse> = emptyList(),
 )
 
 data class Sak(

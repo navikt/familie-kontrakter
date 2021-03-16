@@ -48,6 +48,10 @@ data class Oppgave(val id: Long? = null,
         metadata!![key] = verdi
     }
 
+    fun getMetadata(): MutableMap<String, String>? {
+        return metadata
+    }
+
     fun hentMetadata(key: String): String? {
         return metadata?.get(key)
     }

@@ -39,25 +39,7 @@ data class Oppgave(val id: Long? = null,
                    val prioritet: OppgavePrioritet? = null,
                    val status: StatusEnum? = null,
                    private var metadata: MutableMap<String, String>? = null
-) {
-
-    fun leggTilMetadata(key: String, verdi: String) {
-        if (metadata == null) {
-            metadata = mutableMapOf()
-        }
-        metadata!![key] = verdi
-    }
-
-    fun getMetadata(): MutableMap<String, String>? {
-        return metadata
-    }
-
-    fun hentMetadata(key: String): String? {
-        return metadata?.get(key)
-    }
-
-
-}
+)
 
 enum class StatusEnum {
     OPPRETTET,

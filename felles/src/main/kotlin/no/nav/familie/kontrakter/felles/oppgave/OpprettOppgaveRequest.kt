@@ -47,11 +47,13 @@ enum class Behandlingstema(val value: String) {
     UtvidetBarnetrygd("ab0096"),
     Skolepenger("ab0177"),
     Barnetilsyn("ab0028"),
-    Overgangsstønad("ab0071")
+    Overgangsstønad("ab0071"),
+    Tilbakebetaling("ab0007") // Tilbakekreving
 }
 
 enum class Behandlingstype(val value: String) {
-    Utland("ae0106")
+    Utland("ae0106"),
+    Tilbakekreving("ae0203")
 }
 
 enum class OppgavePrioritet {

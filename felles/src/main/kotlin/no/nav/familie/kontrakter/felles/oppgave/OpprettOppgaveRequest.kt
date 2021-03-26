@@ -48,6 +48,7 @@ enum class Behandlingstema(val value: String) {
     Skolepenger("ab0177"),
     Barnetilsyn("ab0028"),
     Overgangsstønad("ab0071"),
+    Feilutbetaling("ab0006"),
     Tilbakebetaling("ab0007") // Tilbakekreving
 }
 

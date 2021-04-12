@@ -37,6 +37,7 @@ enum class Oppgavetype(val value: String) {
     VurderDokument("VUR"),
     VurderHenvendelse("VURD_HENV"),
     VurderKonsekvensForYtelse("VUR_KONS_YTE"),
+    VurderLivshendelse("VURD_LIVS"),
     VurderSvar("VUR_SVAR"),
 }
 

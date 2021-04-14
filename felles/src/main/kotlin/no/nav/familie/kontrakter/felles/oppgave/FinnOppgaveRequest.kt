@@ -12,6 +12,7 @@ data class FinnOppgaveRequest(val tema: Tema,
                               val saksbehandler: String? = null,
                               val aktørId: String? = null,
                               val journalpostId: String? = null,
+                              val saksreferanse: String? = null,
                               val tilordnetRessurs: String? = null,
                               val tildeltRessurs: Boolean? = null,
                               @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)

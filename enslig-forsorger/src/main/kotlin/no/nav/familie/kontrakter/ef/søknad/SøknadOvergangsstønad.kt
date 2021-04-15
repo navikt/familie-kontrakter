@@ -9,5 +9,4 @@ data class SøknadOvergangsstønad(val personalia: Søknadsfelt<Personalia>,
                                  val barn: Søknadsfelt<List<Barn>>,
                                  val aktivitet: Søknadsfelt<Aktivitet>,
                                  val situasjon: Søknadsfelt<Situasjon>,
-                                 val stønadsstart: Søknadsfelt<Stønadsstart>,
-                                 val skalAutomatiskJournalføres: Boolean = true)
+                                 val stønadsstart: Søknadsfelt<Stønadsstart>)

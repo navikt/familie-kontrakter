@@ -1,5 +1,6 @@
 package no.nav.familie.kontrakter.felles.oppgave
 
+import no.nav.familie.kontrakter.felles.Tema
 import java.time.LocalDate
 
 @Deprecated("Bruk OpprettOppgaveRequest")

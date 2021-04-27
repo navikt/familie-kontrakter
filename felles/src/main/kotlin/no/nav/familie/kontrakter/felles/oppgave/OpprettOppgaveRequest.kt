@@ -1,5 +1,6 @@
 package no.nav.familie.kontrakter.felles.oppgave
 
+import no.nav.familie.kontrakter.felles.Tema
 import java.time.LocalDate
 
 data class OpprettOppgaveRequest(val ident: OppgaveIdentV2?,
@@ -39,18 +40,6 @@ enum class Oppgavetype(val value: String) {
     VurderKonsekvensForYtelse("VUR_KONS_YTE"),
     VurderLivshendelse("VURD_LIVS"),
     VurderSvar("VUR_SVAR"),
-}
-
-enum class Behandlingstema(val value: String) {
-    Barnetrygd("ab0270"),
-    BarnetrygdEØS("ab0058"),
-    OrdinærBarnetrygd("ab0180"),
-    UtvidetBarnetrygd("ab0096"),
-    Skolepenger("ab0177"),
-    Barnetilsyn("ab0028"),
-    Overgangsstønad("ab0071"),
-    Feilutbetaling("ab0006"),
-    Tilbakebetaling("ab0007") // Tilbakekreving
 }
 
 enum class Behandlingstype(val value: String) {

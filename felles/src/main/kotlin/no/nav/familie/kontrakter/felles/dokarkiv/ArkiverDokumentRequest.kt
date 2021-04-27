@@ -3,6 +3,7 @@ package no.nav.familie.kontrakter.felles.dokarkiv
 import javax.validation.constraints.NotBlank
 import javax.validation.constraints.NotEmpty
 
+@Deprecated("Bruk v2")
 data class ArkiverDokumentRequest(@field:NotBlank val fnr: String,
                                   val forsøkFerdigstill: Boolean,
                                   @field:NotEmpty val hoveddokumentvarianter: List<Dokument>,

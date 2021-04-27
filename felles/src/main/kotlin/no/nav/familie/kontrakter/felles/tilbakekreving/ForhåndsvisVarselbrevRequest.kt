@@ -12,6 +12,7 @@ data class ForhåndsvisVarselbrevRequest(@Size(max = 1500, message = "Varselteks
                                         val ytelsestype: Ytelsestype,
                                         val behandlendeEnhetId: String? = null,
                                         val behandlendeEnhetsNavn: String,
+                                        val saksbehandlersNavn: String? = null,
                                         val språkkode: Språkkode = Språkkode.NB,
                                         val vedtaksdato: LocalDate? = null,
                                         val feilutbetaltePerioderDto: FeilutbetaltePerioderDto,

@@ -18,7 +18,7 @@ data class OpprettTilbakekrevingRequest(val fagsystem: Fagsystem,
                                         val språkkode: Språkkode = Språkkode.NB,
                                         val enhetId: String,
                                         val enhetsnavn: String,
-                                        val saksbehandlerIdent: String? = null,
+                                        val saksbehandlerIdent: String,
                                         @field:Valid
                                         val varsel: Varsel?,
                                         val revurderingsvedtaksdato: LocalDate,

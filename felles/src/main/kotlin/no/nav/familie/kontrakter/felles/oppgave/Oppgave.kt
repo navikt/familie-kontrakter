@@ -2,6 +2,7 @@ package no.nav.familie.kontrakter.felles.oppgave
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
+import no.nav.familie.kontrakter.felles.Tema
 import javax.validation.constraints.Pattern
 
 @JsonIgnoreProperties(ignoreUnknown = true)

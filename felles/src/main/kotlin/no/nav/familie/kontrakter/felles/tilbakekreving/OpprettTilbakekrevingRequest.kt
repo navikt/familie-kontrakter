@@ -1,5 +1,7 @@
 package no.nav.familie.kontrakter.felles.tilbakekreving
 
+import no.nav.familie.kontrakter.felles.Fagsystem
+import no.nav.familie.kontrakter.felles.Språkkode
 import java.time.LocalDate
 import javax.validation.Valid
 import javax.validation.constraints.Pattern
@@ -16,6 +18,7 @@ data class OpprettTilbakekrevingRequest(val fagsystem: Fagsystem,
                                         val språkkode: Språkkode = Språkkode.NB,
                                         val enhetId: String,
                                         val enhetsnavn: String,
+                                        val saksbehandlerIdent: String,
                                         @field:Valid
                                         val varsel: Varsel?,
                                         val revurderingsvedtaksdato: LocalDate,

@@ -1,4 +1,6 @@
 package no.nav.familie.kontrakter.felles.dokarkiv
 
-class DokarkivBruker(val idType: IdType,
+import no.nav.familie.kontrakter.felles.BrukerIdType
+
+class DokarkivBruker(val idType: BrukerIdType,
                      val id: String)

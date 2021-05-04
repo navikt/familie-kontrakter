@@ -1,5 +1,7 @@
 package no.nav.familie.kontrakter.felles.tilbakekreving
 
+import no.nav.familie.kontrakter.felles.Språkkode
+
 enum class Ytelsestype(val kode: String, val navn: Map<Språkkode, String>) {
     BARNETRYGD("BA", mapOf(Språkkode.NB to "Barnetrygd",
                            Språkkode.NN to "Barnetrygd")),

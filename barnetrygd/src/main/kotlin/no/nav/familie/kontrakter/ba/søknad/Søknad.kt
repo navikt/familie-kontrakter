@@ -2,15 +2,12 @@ package no.nav.familie.kontrakter.ba.søknad
 
 import no.nav.familie.kontrakter.ba.Søknadstype
 
-data class Søker(
-        val navn: Søknadsfelt<String>,
-        var fødselsnummer: Søknadsfelt<String>? = null
-)
-
 data class Søknad(
-        val søknadstype: Søknadsfelt<Søknadstype>,
-        val søker: Søknadsfelt<Søker>,
-        val barn: Søknadsfelt<List<Søknadsfelt<Barn>>>
+        val søknadstype: Søknadstype,
+        val søker: Søker,
+        val barn: List<Barn>,
+        val spørsmål: Map<String, Søknadsfelt<Any>>,
+        val vedleggReferanser: Map<String, Søknadsfelt<String>>
 )
 
 data class Søknadsfelt<T>(
@@ -18,10 +15,42 @@ data class Søknadsfelt<T>(
         val verdi: T
 )
 
-data class Barn(
-        val navn: Søknadsfelt<String>,
-        val alder: Søknadsfelt<String>,
+data class SøknadAdresse(
+        val adressenavn: String?,
+        val postnummer: String?,
+        val husbokstav: String?,
+        val bruksenhetsnummer: String?,
+        val husnummer: String?,
+        val poststed: String?,
+)
+
+enum class SIVILSTANDTYPE {
+        GIFT,
+        ENKE_ELLER_ENKEMANN,
+        SKILT,
+        SEPARERT,
+        REGISTRERT_PARTNER,
+        SEPARERT_PARTNER,
+        SKILT_PARTNER,
+        GJENLEVENDE_PARTNER,
+        UGIFT,
+        UOPPGITT
+}
+
+data class Søker(
         val ident: Søknadsfelt<String>,
-        val borMedSøker: Søknadsfelt<String>,
-        val medISøknad: Søknadsfelt<Boolean>
+        val navn: Søknadsfelt<String>,
+        val statsborgerskap: Søknadsfelt<List<String>>,
+        val adresse: Søknadsfelt<SøknadAdresse>,
+        val sivilstand: Søknadsfelt<SIVILSTANDTYPE>,
+        val telefonnummer: Søknadsfelt<String>,
+        val spørsmål: Map<String, Søknadsfelt<Any>>
+)
+
+data class Barn(
+        val ident: Søknadsfelt<String>,
+        val navn: Søknadsfelt<String>,
+        val borMedSøker: Søknadsfelt<Boolean>,
+        val alder: Søknadsfelt<String>,
+        val spørsmål: Map<String, Søknadsfelt<Any>>
 )

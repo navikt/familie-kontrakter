@@ -4,4 +4,4 @@ import javax.validation.constraints.NotBlank
 import javax.validation.constraints.NotNull
 
 data class ArkiverDokumentResponse(@field:NotBlank val journalpostId: String,
-                                   @field:NotNull val ferdigstilt: Boolean)
+                                   val ferdigstilt: Boolean)

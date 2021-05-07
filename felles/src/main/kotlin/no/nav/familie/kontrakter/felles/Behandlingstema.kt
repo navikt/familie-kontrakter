@@ -1,6 +1,9 @@
 package no.nav.familie.kontrakter.felles
 
-enum class Behandlingstema(val value: String) {
+import com.fasterxml.jackson.annotation.JsonCreator
+import com.fasterxml.jackson.annotation.JsonValue
+
+enum class Behandlingstema(@JsonValue val value: String) {
     Barnetrygd("ab0270"),
     BarnetrygdEØS("ab0058"),
     OrdinærBarnetrygd("ab0180"),
@@ -14,9 +17,13 @@ enum class Behandlingstema(val value: String) {
     ;
 
     companion object {
-        private val behandlingstemaMap = values().associateBy(Behandlingstema::value)
+        private val behandlingstemaMap = values().associateBy(Behandlingstema::value) + values().associateBy { it.name }
+
+        @JvmStatic
+        @JsonCreator
         fun fromValue(value: String): Behandlingstema {
             return behandlingstemaMap[value] ?: throw error("Fant ikke Behandlingstema for value=$value")
         }
+
     }
 }

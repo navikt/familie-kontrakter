@@ -11,4 +11,12 @@ enum class Behandlingstema(val value: String) {
     Kontantstøtte("ab0084"),
     Feilutbetaling("ab0006"),
     Tilbakebetaling("ab0007") // Tilbakekreving
+    ;
+
+    companion object {
+        private val behandlingstemaMap = values().associateBy(Behandlingstema::value)
+        fun fromValue(value: String): Behandlingstema {
+            return behandlingstemaMap[value] ?: throw error("Fant ikke Behandlingstema for value=$value")
+        }
+    }
 }

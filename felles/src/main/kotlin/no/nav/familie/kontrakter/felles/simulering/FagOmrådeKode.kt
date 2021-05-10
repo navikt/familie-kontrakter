@@ -3,7 +3,11 @@ package no.nav.familie.kontrakter.felles.simulering
 enum class FagOmrådeKode(val kode: String) {
     BARNETRYGD("BA"),
     BARNETRYGD_INFOTRYGD("IT05"),
+    BARNETRYGD_INFOTRYGD_MANUELT("MIT05"),
     ENSLIG_FORSØRGER("EF"),
+    ENSLIG_FORSØRGER_OVERGANGSSTØNAD("EFOG"),
+    ENSLIG_FORSØRGER_SKOLEPENGER("EFSP"),
+    ENSLIG_FORSØRGER_BARNETILSYN("EFBT"),
     ENSLIG_FORSØRGER_REFUSJON("EFREF"),
     KONTANTSTØTTE("KS");
 

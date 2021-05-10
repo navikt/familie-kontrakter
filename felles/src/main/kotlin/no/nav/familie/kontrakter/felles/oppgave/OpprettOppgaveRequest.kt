@@ -44,7 +44,7 @@ enum class Oppgavetype(val value: String) {
 
 enum class Behandlingstype(val value: String) {
     Utland("ae0106"),
-    Tilbakekreving("ae0203")
+    Tilbakekreving("ae0161")
 }
 
 enum class OppgavePrioritet {

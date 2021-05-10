@@ -4,10 +4,10 @@ import java.util.UUID
 
 data class OpprettHistorikkinnslagRequest(val behandlingId: UUID,
                                           val eksternFagsakId: String,
-                                          val historikkinnslagType: HistorikkinnslagType,
+                                          val type: HistorikkinnslagType,
                                           val tittel: String,
                                           val tekst: String? = null,
-                                          val historikkinnslagFeltType: HistorikkinnslagFeltType? = null,
+                                          val felttype: Historikkinnslagsfelttype? = null,
                                           val lenke: String? = null,
                                           val journalpostId: String? = null,
                                           val dokumentId: String? = null)
@@ -31,7 +31,7 @@ enum class HistorikkinnslagType {
     FJERNET_VERGE
 }
 
-enum class HistorikkinnslagFeltType {
+enum class Historikkinnslagsfelttype {
     HENDELSE,
     SKJERMLENKE,
     RESULTAT,

@@ -1,44 +1,36 @@
 package no.nav.familie.kontrakter.felles.historikkinnslag
 
-import java.util.UUID
+import no.nav.familie.kontrakter.felles.Applikasjon
+import no.nav.familie.kontrakter.felles.Fagsystem
 
-data class OpprettHistorikkinnslagRequest(val behandlingId: UUID,
+data class OpprettHistorikkinnslagRequest(val behandlingId: String,
                                           val eksternFagsakId: String,
+                                          val fagsystem: Fagsystem,
+                                          val applikasjon: Applikasjon,
                                           val aktør: Aktør,
-                                          val type: HistorikkinnslagType,
+                                          val type: Historikkinnslagstype,
+                                          val steg: String? = null,
                                           val tittel: String,
                                           val tekst: String? = null,
-                                          val felttype: Historikkinnslagsfelttype? = null,
                                           val journalpostId: String? = null,
-                                          val dokumentId: String? = null)
+                                          val dokumentId: String? = null) {
 
-enum class HistorikkinnslagType {
-    BEHANDLING_OPPRETTET,
-    REVURDERING_OPPRETTET,
-    BEHANDLING_SETT_PÅ_VENT,
-    BEHANDLING_GJENOPPTATT,
-    BEHANDLING_AVSLUTTET,
-    KRAVGRUNNLAG_MOTTATT,
-    KRAVGRUNNLAG_INNHENTET,
-    FAKTA_VURDERT,
-    FORELDELSE_VURDERT,
-    VILKÅR_VURDERT,
-    FORESLÅ_VEDTAK_VURDERT,
-    SEND_TIL_BESLUTTER,
-    VEDTAK_FATTET,
-    VARSELBREV_SENDT,
-    VEDTAKSBREV_SENDT,
-    HENLEGGELSESBREV_SENDT,
-    INNHENTDOKUMENTASJON_SENDT,
-    REGISTERT_VERGE,
-    FJERNET_VERGE
+    init {
+        when (type) {
+            Historikkinnslagstype.SKJERMLENKE -> requireNotNull(steg) { "Steg kan ikke være null for ${this.type}" }
+            Historikkinnslagstype.BREV -> {
+                requireNotNull(journalpostId) { "journalpostId kan ikke være null for ${this.type}" }
+                requireNotNull(dokumentId) { "dokumentId kan ikke være null for ${this.type}" }
+            }
+            Historikkinnslagstype.HENDELSE -> check(true)
+        }
+    }
 }
 
-enum class Historikkinnslagsfelttype {
+enum class Historikkinnslagstype {
     HENDELSE,
     SKJERMLENKE,
-    RESULTAT,
-    ÅRSAK
+    BREV
 }
 
 enum class Aktør {

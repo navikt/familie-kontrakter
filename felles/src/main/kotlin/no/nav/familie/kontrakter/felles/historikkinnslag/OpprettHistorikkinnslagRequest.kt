@@ -22,6 +22,7 @@ data class OpprettHistorikkinnslagRequest(val behandlingId: String,
             Historikkinnslagstype.BREV -> {
                 requireNotNull(journalpostId) { "journalpostId kan ikke være null for ${this.type}" }
                 requireNotNull(dokumentId) { "dokumentId kan ikke være null for ${this.type}" }
+                requireNotNull(tekst) { "tekst kan ikke være null for ${this.type}" }
             }
             Historikkinnslagstype.HENDELSE -> check(true)
         }

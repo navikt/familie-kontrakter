@@ -1,8 +1,11 @@
 package no.nav.familie.kontrakter.felles.personopplysning
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import java.time.LocalDate
 
-data class Bostedsadresse(val vegadresse: Vegadresse? = null,
+data class Bostedsadresse(val gyldigFraOgMed: LocalDate?,
+                          val gyldigTilOgMed: LocalDate?,
+                          val vegadresse: Vegadresse? = null,
                           val matrikkeladresse: Matrikkeladresse? = null,
                           val ukjentBosted: UkjentBosted? = null)
 
@@ -27,6 +30,11 @@ data class Matrikkeladresse(val matrikkelId: Long?,
 data class Statsborgerskap(val land: String,
                            val gyldigFraOgMed: LocalDate?,
                            val gyldigTilOgMed: LocalDate?)
+
+data class Sivilstand(
+        val type: SIVILSTAND,
+        val gyldigFraOgMed: LocalDate?
+)
 
 data class Opphold(val type: OPPHOLDSTILLATELSE,
                    val oppholdFra: LocalDate?,

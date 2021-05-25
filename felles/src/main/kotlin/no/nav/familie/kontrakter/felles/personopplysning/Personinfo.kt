@@ -1,6 +1,5 @@
 package no.nav.familie.kontrakter.felles.personopplysning
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import java.time.LocalDate
 
 data class Bostedsadresse(val gyldigFraOgMed: LocalDate?,
@@ -40,6 +39,13 @@ data class Opphold(val type: OPPHOLDSTILLATELSE,
                    val oppholdFra: LocalDate?,
                    val oppholdTil: LocalDate?)
 
+data class ForelderBarnRelasjon(val relatertPersonsIdent: String,
+                                val relatertPersonsRolle: FORELDERBARNRELASJONROLLE)
+
+data class Adressebeskyttelse(
+        val gradering: ADRESSEBESKYTTELSEGRADERING
+)
+
 enum class OPPHOLDSTILLATELSE {
     MIDLERTIDIG,
     PERMANENT,
@@ -57,4 +63,24 @@ enum class SIVILSTAND {
     SEPARERT_PARTNER,
     SKILT_PARTNER,
     GJENLEVENDE_PARTNER
+}
+
+enum class FORELDERBARNRELASJONROLLE {
+    BARN,
+    FAR,
+    MEDMOR,
+    MOR
+}
+
+enum class ADRESSEBESKYTTELSEGRADERING {
+    STRENGT_FORTROLIG_UTLAND, // Kode 19
+    FORTROLIG, // Kode 7
+    STRENGT_FORTROLIG, // Kode 6
+    UGRADERT
+}
+
+enum class KJOENN {
+    MANN,
+    KVINNE,
+    UKJENT
 }

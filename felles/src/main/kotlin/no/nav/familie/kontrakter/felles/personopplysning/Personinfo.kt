@@ -2,8 +2,8 @@ package no.nav.familie.kontrakter.felles.personopplysning
 
 import java.time.LocalDate
 
-data class Bostedsadresse(val gyldigFraOgMed: LocalDate?,
-                          val gyldigTilOgMed: LocalDate?,
+data class Bostedsadresse(val gyldigFraOgMed: LocalDate? = null,
+                          val gyldigTilOgMed: LocalDate? = null,
                           val vegadresse: Vegadresse? = null,
                           val matrikkeladresse: Matrikkeladresse? = null,
                           val ukjentBosted: UkjentBosted? = null)
@@ -32,7 +32,7 @@ data class Statsborgerskap(val land: String,
 
 data class Sivilstand(
         val type: SIVILSTAND,
-        val gyldigFraOgMed: LocalDate?
+        val gyldigFraOgMed: LocalDate? = null,
 )
 
 data class Opphold(val type: OPPHOLDSTILLATELSE,

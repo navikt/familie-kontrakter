@@ -1,7 +1,9 @@
 package no.nav.familie.kontrakter.felles.personopplysning
 
+import com.fasterxml.jackson.annotation.JsonInclude
 import java.time.LocalDate
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 data class Bostedsadresse(val gyldigFraOgMed: LocalDate? = null,
                           val gyldigTilOgMed: LocalDate? = null,
                           val vegadresse: Vegadresse? = null,

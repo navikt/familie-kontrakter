@@ -1,4 +1,4 @@
-package no.nav.familie.ef.iverksett.domene
+package no.nav.familie.kontrakter.ef.iverksett
 
 enum class SvarId {
 

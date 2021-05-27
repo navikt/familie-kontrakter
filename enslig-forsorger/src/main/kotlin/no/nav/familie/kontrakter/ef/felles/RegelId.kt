@@ -1,4 +1,4 @@
-package no.nav.familie.kontrakter.ef.iverksett
+package no.nav.familie.kontrakter.ef.felles
 
 enum class RegelId(val beskrivelse: String) {
 

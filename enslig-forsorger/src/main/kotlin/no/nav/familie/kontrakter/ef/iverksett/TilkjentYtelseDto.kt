@@ -1,7 +1,7 @@
 package no.nav.familie.kontrakter.ef.iverksett
 
 data class TilkjentYtelseDto(
-    val andelerTilkjentYtelse: List<AndelTilkjentYtelseDto>
+        val andelerTilkjentYtelse: List<AndelTilkjentYtelseDto>
 )
 
 enum class TilkjentYtelseStatus {

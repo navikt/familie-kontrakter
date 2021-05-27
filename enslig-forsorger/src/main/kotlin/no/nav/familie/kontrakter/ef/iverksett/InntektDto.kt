@@ -1,8 +1,8 @@
 package  no.nav.familie.kontrakter.ef.iverksett
 
 data class InntektDto(
-    val periodebeløp: PeriodebeløpDto,
-    val inntektstype: InntektsType? = null
+        val periodebeløp: PeriodebeløpDto,
+        val inntektstype: InntektsType? = null
 )
 
 data class InntektsreduksjonDto(val periodebeløp: List<PeriodebeløpDto> = emptyList())

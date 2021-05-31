@@ -1,6 +1,6 @@
 package no.nav.familie.kontrakter.ef.felles
 
-enum class Vedtak {
+enum class Vedtaksresultat {
     INNVILGET,
     DELVIS_INNVILGET,
     OPPHØRT,

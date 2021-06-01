@@ -24,9 +24,10 @@ data class IverksettDto(
 data class SøkerDto(
         val aktivitetskrav: AktivitetskravDto,
         val personIdent: String,
-        val barn: List<BarnDto> = ArrayList(),
+        val barn: List<BarnDto> = emptyList(),
         val tilhørendeEnhet: String,
         val kode6eller7: Boolean,
+        val personIdenter: List<String> = emptyList()
 )
 
 data class FagsakdetaljerDto(

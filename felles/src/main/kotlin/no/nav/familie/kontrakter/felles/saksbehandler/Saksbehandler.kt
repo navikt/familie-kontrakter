@@ -1,4 +1,8 @@
 package no.nav.familie.kontrakter.felles.saksbehandler
 
-class Saksbehandler(val fornavn: String,
+import java.util.UUID
+
+class Saksbehandler(val azureId: UUID,
+                    val navIdent: String,
+                    val fornavn: String,
                     val etternavn: String)

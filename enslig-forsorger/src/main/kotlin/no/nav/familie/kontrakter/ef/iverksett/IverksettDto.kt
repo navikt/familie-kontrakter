@@ -27,7 +27,7 @@ data class SøkerDto(
         val barn: List<BarnDto> = emptyList(),
         val tilhørendeEnhet: String,
         val kode6eller7: Boolean,
-        val personIdenter: List<String> = emptyList()
+        val allePersonIdenter: List<String> = emptyList()
 )
 
 data class FagsakdetaljerDto(

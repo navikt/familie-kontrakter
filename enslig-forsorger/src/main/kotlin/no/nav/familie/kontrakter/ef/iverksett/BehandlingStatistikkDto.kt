@@ -5,12 +5,13 @@ import java.util.UUID
 
 data class BehandlingStatistikkDto(
         val behandlingId: UUID,
-        val aktorId: String,
+        val personIdent: String,
         val saksbehandlerId: String,
         val saksnummer: String,
-        val registrertTid: ZonedDateTime,
-        val endretTid: ZonedDateTime,
-        val hendelse: Hendelse
+        val hendelseTidspunkt: ZonedDateTime,
+        val hendelse: Hendelse,
+        val behandlingResultat: String,
+        val resultatBegrunnelse: String
 )
 
 enum class Hendelse {

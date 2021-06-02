@@ -11,7 +11,8 @@ data class BehandlingStatistikkDto(
         val hendelseTidspunkt: ZonedDateTime,
         val hendelse: Hendelse,
         val behandlingResultat: String,
-        val resultatBegrunnelse: String
+        val resultatBegrunnelse: String,
+        val venteAarsak: String
 )
 
 enum class Hendelse {

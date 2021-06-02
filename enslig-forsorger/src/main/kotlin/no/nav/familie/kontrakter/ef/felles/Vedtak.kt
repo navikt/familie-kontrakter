@@ -2,18 +2,16 @@ package no.nav.familie.kontrakter.ef.felles
 
 enum class Vedtaksresultat {
     INNVILGET,
-    DELVIS_INNVILGET,
     OPPHØRT,
     AVSLÅTT
 }
 
 enum class BehandlingType {
-    SAKSBEHANDLINGSBLANKETT,
+    BLANKETT,
     FØRSTEGANGSBEHANDLING,
     REVURDERING,
     KLAGE,
-    MIGRERING_FRA_INFOTRYGD,
-    TILBAKEFØRING_TIL_INFOTRYGD
+    TEKNISK_OPPHØR
 }
 
 enum class BehandlingÅrsak {
@@ -24,13 +22,6 @@ enum class BehandlingÅrsak {
     NYE_OPPLYSNINGER,
     MIGRERING,
     TEKNISK_FEIL
-}
-
-enum class BehandlingResultat {
-    FERDIGSTILT,
-    DUPLIKAT,
-    HENLAGT,
-    ANNULLERT
 }
 
 enum class OpphørÅrsak {
@@ -69,9 +60,4 @@ enum class VilkårType(val beskrivelse: String) {
     SAGT_OPP_ELLER_REDUSERT("Sagt opp eller redusert stilling"),
     AKTIVITET("Aktivitet"),
     TIDLIGERE_VEDTAKSPERIODER("Tidligere vedtaksperioder");
-
-    companion object {
-
-        fun hentVilkår(): List<VilkårType> = values().toList()
-    }
 }

@@ -24,7 +24,6 @@ data class SøkerDto(
         val barn: List<BarnDto> = emptyList(),
         val tilhørendeEnhet: String,
         val adressebeskyttelse: AdressebeskyttelseGradering? = null,
-        val allePersonIdenter: List<String> = emptyList()
 )
 
 data class FagsakdetaljerDto(

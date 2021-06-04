@@ -49,7 +49,6 @@ data class VedtaksdetaljerDto(
         val saksbehandlerId: String,
         val beslutterId: String,
         val tilkjentYtelse: TilkjentYtelseDto,
-        val inntekter: List<InntektDto>
 )
 
 data class VilkårsvurderingDto(

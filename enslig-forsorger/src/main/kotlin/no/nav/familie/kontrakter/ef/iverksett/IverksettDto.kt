@@ -1,7 +1,6 @@
 package  no.nav.familie.kontrakter.ef.iverksett
 
 import no.nav.familie.ef.iverksett.infrastruktur.json.BarnDto
-import no.nav.familie.kontrakter.ef.felles.BehandlingResultat
 import no.nav.familie.kontrakter.ef.felles.BehandlingType
 import no.nav.familie.kontrakter.ef.felles.BehandlingÅrsak
 import no.nav.familie.kontrakter.ef.felles.OpphørÅrsak
@@ -11,7 +10,6 @@ import no.nav.familie.kontrakter.ef.felles.Vedtaksresultat
 import no.nav.familie.kontrakter.ef.felles.VilkårType
 import no.nav.familie.kontrakter.ef.felles.Vilkårsresultat
 import java.time.LocalDate
-import java.util.ArrayList
 import java.util.UUID
 
 data class IverksettDto(
@@ -22,12 +20,10 @@ data class IverksettDto(
 )
 
 data class SøkerDto(
-        val aktivitetskrav: AktivitetskravDto,
         val personIdent: String,
         val barn: List<BarnDto> = emptyList(),
         val tilhørendeEnhet: String,
-        val kode6eller7: Boolean,
-        val allePersonIdenter: List<String> = emptyList()
+        val adressebeskyttelse: AdressebeskyttelseGradering? = null,
 )
 
 data class FagsakdetaljerDto(
@@ -42,8 +38,6 @@ data class BehandlingsdetaljerDto(
         val eksternId: Long,
         val behandlingType: BehandlingType,
         val behandlingÅrsak: BehandlingÅrsak,
-        val behandlingResultat: BehandlingResultat,
-        val relatertBehandlingId: UUID? = null,
         val vilkårsvurderinger: List<VilkårsvurderingDto> = emptyList()
 )
 
@@ -56,11 +50,6 @@ data class VedtaksdetaljerDto(
         val beslutterId: String,
         val tilkjentYtelse: TilkjentYtelseDto,
         val inntekter: List<InntektDto>
-)
-
-data class AktivitetskravDto(
-        val aktivitetspliktInntrefferDato: LocalDate,
-        val harSagtOppArbeidsforhold: Boolean
 )
 
 data class VilkårsvurderingDto(
@@ -79,6 +68,13 @@ data class VurderingDto(
         val svar: SvarId? = null,
         val begrunnelse: String? = null
 )
+
+enum class AdressebeskyttelseGradering {
+    STRENGT_FORTROLIG,
+    STRENGT_FORTROLIG_UTLAND,
+    FORTROLIG,
+    UGRADERT
+}
 
 
 enum class IverksettStatus {

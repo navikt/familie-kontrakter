@@ -1,15 +1,11 @@
 package  no.nav.familie.kontrakter.ef.iverksett
 
+import java.time.LocalDate
+
 data class InntektDto(
-        val periodebeløp: PeriodebeløpDto,
-        val inntektstype: InntektsType? = null
+        val beløp: Int,
+        val samordningsfradrag: Int,
+        var periodetype: Periodetype,
+        val fraOgMed: LocalDate,
+        val tilOgMed: LocalDate,
 )
-
-data class InntektsreduksjonDto(val periodebeløp: List<PeriodebeløpDto> = emptyList())
-
-enum class InntektsType {
-    ARBEIDINNTEKT,
-    KAPITALINNTEKT,
-    TRYGD_ELLER_STØNAD
-}
-

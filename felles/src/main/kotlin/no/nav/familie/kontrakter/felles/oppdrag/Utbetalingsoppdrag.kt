@@ -32,7 +32,8 @@ data class Utbetalingsperiode(val erEndringPåEksisterendePeriode: Boolean,
                               val sats: BigDecimal,
                               val satsType: SatsType,
                               val utbetalesTil: String,
-                              val behandlingId: Long) {
+                              val behandlingId: Long,
+                              val utbetalingsgrad: Int? = null) {
 
     enum class SatsType {
         DAG,

@@ -1,4 +1,4 @@
-package no.nav.familie.ef.iverksett.infrastruktur.json
+package no.nav.familie.kontrakter.ef.iverksett
 
 import java.time.LocalDate
 

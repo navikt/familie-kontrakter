@@ -5,10 +5,15 @@ import java.util.UUID
 
 class AndelTilkjentYtelseDto(
         val beløp: Int,
-        val fraOgMed: LocalDate,
+        var periodetype: Periodetype,
         val inntekt: Int,
         val inntektsreduksjon: Int,
+        val samordningsfradrag: Int,
+        val fraOgMed: LocalDate,
         val tilOgMed: LocalDate,
         val kildeBehandlingId: UUID? = null
 )
 
+enum class Periodetype {
+    MÅNED
+}

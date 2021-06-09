@@ -1,6 +1,5 @@
 package  no.nav.familie.kontrakter.ef.iverksett
 
-import no.nav.familie.ef.iverksett.infrastruktur.json.BarnDto
 import no.nav.familie.kontrakter.ef.felles.BehandlingType
 import no.nav.familie.kontrakter.ef.felles.BehandlingÅrsak
 import no.nav.familie.kontrakter.ef.felles.OpphørÅrsak

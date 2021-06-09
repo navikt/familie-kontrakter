@@ -12,6 +12,9 @@ data class BehandlingStatistikkDto(
         val hendelse: Hendelse,
         val behandlingResultat: String,
         val resultatBegrunnelse: String,
+        val opprettetEnhet: String,
+        val ansvarligEnhet: String,
+        val strengtFortroligAdresse: Boolean
 )
 
 enum class Hendelse {

@@ -2,6 +2,7 @@ package no.nav.familie.kontrakter.felles.historikkinnslag
 
 import no.nav.familie.kontrakter.felles.Applikasjon
 import no.nav.familie.kontrakter.felles.Fagsystem
+import java.time.LocalDateTime
 
 data class OpprettHistorikkinnslagRequest(val behandlingId: String,
                                           val eksternFagsakId: String,
@@ -10,6 +11,7 @@ data class OpprettHistorikkinnslagRequest(val behandlingId: String,
                                           val type: Historikkinnslagstype,
                                           val aktør: Aktør,
                                           val aktørIdent: String,
+                                          val opprettetTidspunkt: LocalDateTime,
                                           val steg: String? = null,
                                           val tittel: String,
                                           val tekst: String? = null,

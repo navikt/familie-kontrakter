@@ -13,5 +13,5 @@ data class KonsistensavstemmingTilkjentYtelseDto(
         val eksternBehandlingId: Long,
         val eksternFagsakId: Long,
         val personIdent: String,
-        val andelerTilkjentYtelse: List<PeriodebeløpDto>
+        val andelerTilkjentYtelse: List<AndelTilkjentYtelseDto>
 )

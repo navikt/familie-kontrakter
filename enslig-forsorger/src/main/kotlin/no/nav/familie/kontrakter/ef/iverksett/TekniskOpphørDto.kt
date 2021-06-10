@@ -2,7 +2,7 @@ package no.nav.familie.kontrakter.ef.iverksett
 
 import no.nav.familie.kontrakter.ef.felles.StønadType
 import java.time.LocalDate
-import java.util.*
+import java.util.UUID
 
 data class TekniskOpphørDto(
         val forrigeBehandlingId: UUID,
@@ -15,6 +15,5 @@ data class TilkjentYtelseMedMetaData(val saksbehandlerId: String,
                                      val eksternFagsakId: Long,
                                      val personIdent: String,
                                      val behandlingId: UUID,
-                                     val vedtaksdato: LocalDate,
-                                     val andelerTilkjentYtelse: List<AndelTilkjentYtelseDto>)
+                                     val vedtaksdato: LocalDate)
 

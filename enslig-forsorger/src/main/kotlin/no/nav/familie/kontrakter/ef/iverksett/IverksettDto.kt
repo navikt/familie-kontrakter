@@ -37,7 +37,8 @@ data class BehandlingsdetaljerDto(
         val eksternId: Long,
         val behandlingType: BehandlingType,
         val behandlingÅrsak: BehandlingÅrsak,
-        val vilkårsvurderinger: List<VilkårsvurderingDto> = emptyList()
+        val vilkårsvurderinger: List<VilkårsvurderingDto> = emptyList(),
+        val aktivitetspliktInntrefferDato: LocalDate? = null
 )
 
 
@@ -48,7 +49,7 @@ data class VedtaksdetaljerDto(
         val saksbehandlerId: String,
         val beslutterId: String,
         val tilkjentYtelse: TilkjentYtelseDto,
-        val inntekter: List<InntektDto>
+        val vedtaksperioder: List<VedtaksperiodeDto> = emptyList()
 )
 
 data class VilkårsvurderingDto(
@@ -66,6 +67,13 @@ data class VurderingDto(
         val regelId: RegelId,
         val svar: SvarId? = null,
         val begrunnelse: String? = null
+)
+
+data class VedtaksperiodeDto(
+        val fraOgMed: LocalDate,
+        val tilOgMed: LocalDate,
+        val aktivitet: String,
+        val periodeType: String
 )
 
 enum class AdressebeskyttelseGradering {

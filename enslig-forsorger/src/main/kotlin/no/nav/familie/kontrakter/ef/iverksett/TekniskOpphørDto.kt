@@ -6,14 +6,11 @@ import java.util.UUID
 
 data class TekniskOpphørDto(
         val forrigeBehandlingId: UUID,
-        val tilkjentYtelseMedMetaData: TilkjentYtelseMedMetaData
+        val saksbehandlerId: String,
+        val eksternBehandlingId: Long,
+        val stønadstype: StønadType,
+        val eksternFagsakId: Long,
+        val personIdent: String,
+        val behandlingId: UUID,
+        val vedtaksdato: LocalDate
 )
-
-data class TilkjentYtelseMedMetaData(val saksbehandlerId: String,
-                                     val eksternBehandlingId: Long,
-                                     val stønadstype: StønadType,
-                                     val eksternFagsakId: Long,
-                                     val personIdent: String,
-                                     val behandlingId: UUID,
-                                     val vedtaksdato: LocalDate)
-

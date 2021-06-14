@@ -1,5 +1,7 @@
 package no.nav.familie.kontrakter.ef.iverksett
 
+import no.nav.familie.kontrakter.ef.felles.BehandlingType
+import no.nav.familie.kontrakter.ef.felles.StønadType
 import java.time.ZonedDateTime
 import java.util.UUID
 
@@ -14,7 +16,9 @@ data class BehandlingStatistikkDto(
         val resultatBegrunnelse: String,
         val opprettetEnhet: String,
         val ansvarligEnhet: String,
-        val strengtFortroligAdresse: Boolean
+        val strengtFortroligAdresse: Boolean,
+        val sakYtelse: StønadType,
+        val behandlingstype: BehandlingType
 )
 
 enum class Hendelse {

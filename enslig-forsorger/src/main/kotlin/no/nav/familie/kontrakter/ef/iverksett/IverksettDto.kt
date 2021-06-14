@@ -37,7 +37,8 @@ data class BehandlingsdetaljerDto(
         val eksternId: Long,
         val behandlingType: BehandlingType,
         val behandlingÅrsak: BehandlingÅrsak,
-        val vilkårsvurderinger: List<VilkårsvurderingDto> = emptyList()
+        val vilkårsvurderinger: List<VilkårsvurderingDto> = emptyList(),
+        val aktivitetspliktInntrefferDato: LocalDate? = null
 )
 
 
@@ -48,7 +49,7 @@ data class VedtaksdetaljerDto(
         val saksbehandlerId: String,
         val beslutterId: String,
         val tilkjentYtelse: TilkjentYtelseDto,
-        val inntekter: List<InntektDto>
+        val vedtaksperioder: List<VedtaksperiodeDto> = emptyList()
 )
 
 data class VilkårsvurderingDto(
@@ -68,6 +69,13 @@ data class VurderingDto(
         val begrunnelse: String? = null
 )
 
+data class VedtaksperiodeDto(
+        val fraOgMed: LocalDate,
+        val tilOgMed: LocalDate,
+        val aktivitet: AktivitetType,
+        val periodeType: VedtaksperiodeType
+)
+
 enum class AdressebeskyttelseGradering {
     STRENGT_FORTROLIG,
     STRENGT_FORTROLIG_UTLAND,
@@ -83,5 +91,23 @@ enum class IverksettStatus {
     JOURNALFØRT,
     OK,
     IKKE_PÅBEGYNT
+}
+
+enum class VedtaksperiodeType {
+    PERIODE_FØR_FØDSEL,
+    HOVEDPERIODE,
+}
+
+enum class AktivitetType {
+    IKKE_AKTIVITETSPLIKT,
+    BARN_UNDER_ETT_ÅR,
+    FORSØRGER_I_ARBEID,
+    FORSØRGER_I_UTDANNING,
+    FORSØRGER_REELL_ARBEIDSSØKER,
+    FORSØRGER_ETABLERER_VIRKSOMHET,
+    BARNET_SÆRLIG_TILSYNSKREVENDE,
+    FORSØRGER_MANGLER_TILSYNSORDNING,
+    FORSØRGER_ER_SYK,
+    BARNET_ER_SYKT,
 }
 

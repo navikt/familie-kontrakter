@@ -6,6 +6,7 @@ import java.time.LocalDate
 @JsonInclude(JsonInclude.Include.NON_NULL)
 data class Bostedsadresse(val gyldigFraOgMed: LocalDate? = null,
                           val gyldigTilOgMed: LocalDate? = null,
+                          val angittFlyttedato: LocalDate? = null,
                           val vegadresse: Vegadresse? = null,
                           val matrikkeladresse: Matrikkeladresse? = null,
                           val ukjentBosted: UkjentBosted? = null)

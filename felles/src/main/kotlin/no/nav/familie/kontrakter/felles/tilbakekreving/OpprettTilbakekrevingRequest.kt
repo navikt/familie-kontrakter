@@ -25,5 +25,12 @@ data class OpprettTilbakekrevingRequest(val fagsystem: Fagsystem,
                                         @field:Valid
                                         val verge: Verge? = null,
                                         @field:Valid
-                                        val faktainfo: Faktainfo)
+                                        val faktainfo: Faktainfo) {
+
+    init {
+        if (manueltOpprettet) {
+            require(varsel == null) { "Kan ikke opprette manuelt behandling med varsel" }
+        }
+    }
+}
 

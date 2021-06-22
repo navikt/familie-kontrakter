@@ -5,7 +5,7 @@ import no.nav.familie.kontrakter.ef.felles.StønadType
 import java.time.ZonedDateTime
 import java.util.UUID
 
-data class BehandlingstatistikkDto(
+data class BehandlingsstatistikkDto(
         val behandlingId: UUID,
         val personIdent: String,
         val gjeldendeSaksbehandlerId: String,

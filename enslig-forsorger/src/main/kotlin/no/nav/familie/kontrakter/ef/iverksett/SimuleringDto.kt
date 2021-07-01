@@ -10,7 +10,7 @@ data class SimuleringDto(
 )
 
 data class TilkjentYtelseMedMetadata(
-        val tilkjentYtelse: SimuleringTilkjentYtelseDto,
+        val tilkjentYtelse: TilkjentYtelseDto,
         val saksbehandlerId: String,
         val eksternBehandlingId: Long,
         val stønadstype: StønadType,
@@ -20,8 +20,3 @@ data class TilkjentYtelseMedMetadata(
         val vedtaksdato: LocalDate
 )
 
-data class SimuleringTilkjentYtelseDto(
-        val id: UUID = UUID.randomUUID(),
-        val vedtaksdato: LocalDate? = null,
-        val andelerTilkjentYtelse: List<AndelTilkjentYtelseDto>
-)

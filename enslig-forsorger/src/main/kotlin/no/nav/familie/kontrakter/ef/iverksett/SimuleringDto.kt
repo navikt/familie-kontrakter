@@ -17,10 +17,11 @@ data class TilkjentYtelseMedMetadata(
         val eksternFagsakId: Long,
         val personIdent: String,
         val behandlingId: UUID,
-        val vedtaksdato: LocalDate)
+        val vedtaksdato: LocalDate
+)
 
 data class SimuleringTilkjentYtelseDto(
         val id: UUID = UUID.randomUUID(),
         val vedtaksdato: LocalDate? = null,
-        val andelerTilkjentYtelse: List<AndelTilkjentYtelseDto>)
-
+        val andelerTilkjentYtelse: List<AndelTilkjentYtelseDto>
+)

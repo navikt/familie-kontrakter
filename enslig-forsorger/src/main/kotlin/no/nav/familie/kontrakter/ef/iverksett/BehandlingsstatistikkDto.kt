@@ -5,19 +5,20 @@ import no.nav.familie.kontrakter.ef.felles.StønadType
 import java.time.ZonedDateTime
 import java.util.UUID
 
-data class BehandlingStatistikkDto(
+data class BehandlingsstatistikkDto(
         val behandlingId: UUID,
         val personIdent: String,
         val gjeldendeSaksbehandlerId: String,
-        val saksnummer: String,
+        val eksternFagsakId: String,
         val hendelseTidspunkt: ZonedDateTime,
+        val søknadstidspunkt: ZonedDateTime? = null,
         val hendelse: Hendelse,
-        val behandlingResultat: String,
-        val resultatBegrunnelse: String,
+        val behandlingResultat: String? = null,
+        val resultatBegrunnelse: String? = null,
         val opprettetEnhet: String,
         val ansvarligEnhet: String,
         val strengtFortroligAdresse: Boolean,
-        val sakYtelse: StønadType,
+        val stønadstype: StønadType,
         val behandlingstype: BehandlingType
 )
 

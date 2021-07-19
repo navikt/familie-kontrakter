@@ -5,5 +5,5 @@ import no.nav.familie.kontrakter.ef.søknad.Vedlegg
 
 data class EttersendingMedVedlegg<T>(val ettersending: Ettersending,
                                      val vedlegg: List<Vedlegg> = emptyList(),
-                                     val dokumentasjonsbehov: List<Dokumentasjonsbehov> = emptyList(),
-                                     val behandleINySaksbehandling: Boolean = false)
+                                     val dokumentasjonsbehov: List<Dokumentasjonsbehov> = emptyList())
+

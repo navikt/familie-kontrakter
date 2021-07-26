@@ -1,3 +1,6 @@
 package no.nav.familie.kontrakter.ef.ettersending
 
-data class EttersendingUtenSøknad()
+import no.nav.familie.kontrakter.ef.felles.StønadType
+
+data class EttersendingUtenSøknad(val stønadstype: StønadType, val innsending: List<Innsending>)
+

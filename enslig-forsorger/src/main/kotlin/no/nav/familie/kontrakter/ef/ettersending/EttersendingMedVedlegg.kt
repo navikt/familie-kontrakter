@@ -9,4 +9,3 @@ data class EttersendingMedVedlegg(val innsendingsdetaljer: Søknadsfelt<Innsendi
                                   val vedlegg: List<Vedlegg> = emptyList(),
                                   val dokumentasjonsbehov: List<Dokumentasjonsbehov> = emptyList(),
                                   val ettersending: EttersendingDto)
-

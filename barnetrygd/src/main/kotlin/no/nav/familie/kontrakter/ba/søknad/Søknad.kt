@@ -2,6 +2,13 @@ package no.nav.familie.kontrakter.ba.søknad
 
 import no.nav.familie.kontrakter.ba.Søknadstype
 
+@Deprecated(
+    "Bruk v2",
+    ReplaceWith(
+        "Søknad",
+        "no.nav.familie.kontrakter.ba.søknad.v2.Søknad"
+    )
+)
 data class Søknad(
     val søknadstype: Søknadstype,
     val søker: Søker,
@@ -58,6 +65,13 @@ enum class SIVILSTANDTYPE {
     UOPPGITT
 }
 
+@Deprecated(
+    "Bruk v2",
+    ReplaceWith(
+        "Søker",
+        "no.nav.familie.kontrakter.ba.søknad.v2.Søker"
+    )
+)
 data class Søker(
     val ident: Søknadsfelt<String>,
     val navn: Søknadsfelt<String>,

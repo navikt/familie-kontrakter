@@ -9,24 +9,16 @@ internal class SøknadTypeTest {
 
     @Test
     fun `harDokumentasjonsbehov returnerer true for alle søknadstyper`() {
-        assertTrue(SøknadType.harDokumentasjonsbehov(SøknadType.OVERGANGSSTØNAD.toString()))
-        assertTrue(SøknadType.harDokumentasjonsbehov(SøknadType.SKOLEPENGER.toString()))
-        assertTrue(SøknadType.harDokumentasjonsbehov(SøknadType.BARNETILSYN.toString()))
+        assertTrue(SøknadType.harDokumentasjonsbehov(SøknadType.OVERGANGSSTØNAD))
+        assertTrue(SøknadType.harDokumentasjonsbehov(SøknadType.SKOLEPENGER))
+        assertTrue(SøknadType.harDokumentasjonsbehov(SøknadType.BARNETILSYN))
     }
 
     @Test
     fun `harDokumentasjonsbehov returnerer false for arbeidssøkerskjema`() {
-        assertFalse(SøknadType.harDokumentasjonsbehov(SøknadType.OVERGANGSSTØNAD_ARBEIDSSØKER.toString()))
+        assertFalse(SøknadType.harDokumentasjonsbehov(SøknadType.OVERGANGSSTØNAD_ARBEIDSSØKER))
     }
 
-    @Test
-    fun `harDokumentasjonsbehov kaster feil ved ukjent søknadstype`() {
-        try {
-            SøknadType.harDokumentasjonsbehov("finnesIkke")
-        } catch(exception: Exception) {
-            return
-        }
-        fail("Skal ikke komme hit")
-    }
+
 
 }

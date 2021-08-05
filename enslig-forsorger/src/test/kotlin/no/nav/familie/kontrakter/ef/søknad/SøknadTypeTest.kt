@@ -1,9 +1,8 @@
 package no.nav.familie.kontrakter.ef.søknad
 
+import org.junit.jupiter.api.Assertions.assertFalse
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.Assertions.*
-import org.junit.jupiter.api.fail
-import java.lang.Exception
 
 internal class SøknadTypeTest {
 
@@ -18,7 +17,4 @@ internal class SøknadTypeTest {
     fun `harDokumentasjonsbehov returnerer false for arbeidssøkerskjema`() {
         assertFalse(SøknadType.harDokumentasjonsbehov(SøknadType.OVERGANGSSTØNAD_ARBEIDSSØKER))
     }
-
-
-
 }

@@ -11,5 +11,14 @@ enum class SøknadType(val dokumentType: String, val dokumentTypeVedlegg: String
         fun hentSøknadTypeForDokumenttype(dokumentType: String): SøknadType {
             return dokumenttypeMap[dokumentType] ?: throw error("Fant ikke søknadtype for dokumenttype $dokumentType")
         }
+
+        private val søknadstyperMedDokumentasjonsbehov = listOf(BARNETILSYN,
+                                                                OVERGANGSSTØNAD,
+                                                                SKOLEPENGER)
+
+        fun harDokumentasjonsbehov(dokumentType: String): Boolean {
+            return søknadstyperMedDokumentasjonsbehov.contains(dokumenttypeMap[dokumentType]
+                                                               ?: throw error("Fant ikke søknadtype for dokumenttype $dokumentType"))
+        }
     }
 }

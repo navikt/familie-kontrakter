@@ -31,7 +31,8 @@ data class Matrikkeladresse(val matrikkelId: Long?,
 
 data class Statsborgerskap(val land: String,
                            val gyldigFraOgMed: LocalDate?,
-                           val gyldigTilOgMed: LocalDate?)
+                           val gyldigTilOgMed: LocalDate?,
+                           val bekreftelsesdato: LocalDate?)
 
 data class Sivilstand(
         val type: SIVILSTAND,

@@ -4,9 +4,16 @@ import no.nav.familie.kontrakter.ba.Søknadstype
 import no.nav.familie.kontrakter.ba.søknad.Barn
 import no.nav.familie.kontrakter.ba.søknad.SIVILSTANDTYPE
 import no.nav.familie.kontrakter.ba.søknad.SøknadAdresse
-import no.nav.familie.kontrakter.ba.søknad.Søknaddokumentasjon
 import no.nav.familie.kontrakter.ba.søknad.Søknadsfelt
 import java.time.LocalDate
+
+data class Søknad(
+    val søknadstype: Søknadstype,
+    val søker: Søker,
+    val barn: List<Barn>,
+    val spørsmål: Map<String, Søknadsfelt<Any>>,
+    val dokumentasjon: List<Søknaddokumentasjon>
+)
 
 enum class Dokumentasjonsbehov {
     AVTALE_DELT_BOSTED,
@@ -19,12 +26,16 @@ enum class Dokumentasjonsbehov {
     MEKLINGSATTEST
 }
 
-data class Søknad(
-    val søknadstype: Søknadstype,
-    val søker: Søker,
-    val barn: List<Barn>,
-    val spørsmål: Map<String, Søknadsfelt<Any>>,
-    val dokumentasjon: List<Søknaddokumentasjon>
+data class Søknaddokumentasjon(
+    val dokumentasjonsbehov: Dokumentasjonsbehov,
+    val harSendtInn: Boolean,
+    val opplastedeVedlegg: List<Søknadsvedlegg>
+);
+
+data class Søknadsvedlegg(
+    val dokumentId: String,
+    val navn: String,
+    val tittel: Dokumentasjonsbehov
 )
 
 data class NåværendeSamboer(

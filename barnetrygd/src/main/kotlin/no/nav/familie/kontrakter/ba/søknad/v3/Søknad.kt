@@ -1,7 +1,6 @@
 package no.nav.familie.kontrakter.ba.søknad.v3
 
 import no.nav.familie.kontrakter.ba.Søknadstype
-import no.nav.familie.kontrakter.ba.søknad.Barn
 import no.nav.familie.kontrakter.ba.søknad.SIVILSTANDTYPE
 import no.nav.familie.kontrakter.ba.søknad.SøknadAdresse
 import no.nav.familie.kontrakter.ba.søknad.Søknadsfelt
@@ -48,11 +47,12 @@ data class NåværendeSamboer(
 data class TidligereSamboer(
     val navn: Søknadsfelt<String>,
     val ident: Søknadsfelt<String>,
+    val fødselsdato: Søknadsfelt<String>,
     val samboerFraDato: Søknadsfelt<LocalDate>,
     val samboerTilDato: Søknadsfelt<LocalDate>,
 )
 
-data class Utvidet(
+data class UtvidetSøkerInfo(
     val spørsmål: Map<String, Søknadsfelt<Any>>,
     val nåværendeSamboer: Søknadsfelt<NåværendeSamboer>,
     val tidligereSamboere: List<Søknadsfelt<TidligereSamboer>>
@@ -65,5 +65,14 @@ data class Søker(
     val adresse: Søknadsfelt<SøknadAdresse>,
     val sivilstand: Søknadsfelt<SIVILSTANDTYPE>,
     val spørsmål: Map<String, Søknadsfelt<Any>>,
-    val utvidet: Søknadsfelt<Utvidet>?
+    val utvidet: Søknadsfelt<UtvidetSøkerInfo>?
+)
+
+data class Barn(
+    val ident: Søknadsfelt<String>,
+    val navn: Søknadsfelt<String>,
+    val borMedSøker: Søknadsfelt<Boolean>,
+    val alder: Søknadsfelt<String>,
+    val spørsmål: Map<String, Søknadsfelt<Any>>,
+    val utvidet: Map<String, Søknadsfelt<Any>>
 )

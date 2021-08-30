@@ -54,7 +54,7 @@ data class TidligereSamboer(
 
 data class UtvidetSøkerInfo(
     val spørsmål: Map<String, Søknadsfelt<Any>>,
-    val nåværendeSamboer: Søknadsfelt<NåværendeSamboer>,
+    val nåværendeSamboer: Søknadsfelt<NåværendeSamboer>?,
     val tidligereSamboere: List<Søknadsfelt<TidligereSamboer>>
 )
 

@@ -4,8 +4,6 @@ import java.time.LocalDate
 import javax.validation.constraints.Pattern
 
 data class Verge(val vergetype: Vergetype,
-                 val gyldigFom: LocalDate,
-                 val gyldigTom: LocalDate,
                  val navn: String,
                  @field:Pattern(regexp = "(^$|.{9})", message = "Organisasjonsnummer er ikke riktig")
                  val organisasjonsnummer: String? = null,

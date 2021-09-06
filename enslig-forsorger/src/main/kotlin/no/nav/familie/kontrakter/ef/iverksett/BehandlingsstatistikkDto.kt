@@ -11,7 +11,7 @@ data class BehandlingsstatistikkDto(
         val gjeldendeSaksbehandlerId: String,
         val eksternFagsakId: String,
         val hendelseTidspunkt: ZonedDateTime,
-        val søknadstidspunkt: ZonedDateTime? = null,
+        @Deprecated("bruk henvendelseTidspunkt") val søknadstidspunkt: ZonedDateTime? = null,
         val hendelse: Hendelse,
         val behandlingResultat: String? = null,
         val resultatBegrunnelse: String? = null,
@@ -19,7 +19,9 @@ data class BehandlingsstatistikkDto(
         val ansvarligEnhet: String,
         val strengtFortroligAdresse: Boolean,
         val stønadstype: StønadType,
-        val behandlingstype: BehandlingType
+        val behandlingstype: BehandlingType,
+        val henvendelseTidspunkt: ZonedDateTime? = null, // erstatter søknadstidspunkt
+        val relatertBehandlingId: UUID?
 )
 
 enum class Hendelse {

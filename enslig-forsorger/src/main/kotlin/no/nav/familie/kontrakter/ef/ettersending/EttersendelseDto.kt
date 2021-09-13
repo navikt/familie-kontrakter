@@ -6,7 +6,7 @@ import java.time.LocalDate
 import java.time.LocalDateTime
 
 data class EttersendelseDto(val dokumentasjonsbehov: List<Dokumentasjonsbehov>,
-                            val fnr: String
+                            val personIdent: String
 )
 
 data class Dokumentasjonsbehov(val id: String,

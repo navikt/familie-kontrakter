@@ -11,7 +11,6 @@ data class BehandlingsstatistikkDto(
         val gjeldendeSaksbehandlerId: String,
         val eksternFagsakId: String,
         val hendelseTidspunkt: ZonedDateTime,
-        @Deprecated("bruk henvendelseTidspunkt") val søknadstidspunkt: ZonedDateTime? = null,
         val hendelse: Hendelse,
         val behandlingResultat: String? = null,
         val resultatBegrunnelse: String? = null,
@@ -20,7 +19,7 @@ data class BehandlingsstatistikkDto(
         val strengtFortroligAdresse: Boolean,
         val stønadstype: StønadType,
         val behandlingstype: BehandlingType,
-        val henvendelseTidspunkt: ZonedDateTime? = null, // erstatter søknadstidspunkt
+        val henvendelseTidspunkt: ZonedDateTime? = null,
         val relatertBehandlingId: UUID?
 )
 

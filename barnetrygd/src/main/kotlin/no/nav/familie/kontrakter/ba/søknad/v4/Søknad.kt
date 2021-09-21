@@ -1,6 +1,5 @@
 package no.nav.familie.kontrakter.ba.søknad.v4
 
-import no.nav.familie.kontrakter.ba.Søknadstype
 import no.nav.familie.kontrakter.ba.søknad.SIVILSTANDTYPE
 import no.nav.familie.kontrakter.ba.søknad.SøknadAdresse
 import java.time.LocalDate
@@ -12,6 +11,12 @@ data class Søknadsfelt<T>(
     val label: Map<Locale, String>,
     val verdi: Map<Locale, T>
 )
+
+enum class Søknadstype(val tittel: String, val søknadskode: String) {
+    IKKE_SATT("SØKNADSTYPE MANGLER", "SØKNADSTYPE MANGLER"),
+    ORDINÆR("Søknad om barnetrygd ordinær", "NAV 33-00.07"),
+    UTVIDET("Søknad om utvidet barnetrygd", "NAV 33-00.09"),
+}
 
 data class Søknad(
     val søknadstype: Søknadstype,

@@ -5,14 +5,14 @@ import java.time.LocalDate
 /**
  * @param personIdenter alle identer til personen
  */
-data class InfotrygdPerioderOvergangsstønadRequest(val personIdenter: Set<String>,
-                                                   val fomDato: LocalDate? = null,
-                                                   val tomDato: LocalDate? = null)
+data class InfotrygdPerioderArenaRequest(val personIdenter: Set<String>,
+                                         val fomDato: LocalDate? = null,
+                                         val tomDato: LocalDate? = null)
 
-data class InfotrygdPerioderOvergangsstønadResponse(val perioder: List<InfotrygdPeriodeOvergangsstønad>)
+data class InfotrygdPerioderResponse(val perioder: List<InfotrygdPeriode>)
 
-data class InfotrygdPeriodeOvergangsstønad(val personIdent: String,
-                                           val fomDato: LocalDate,
-                                           val tomDato: LocalDate,
-                                           val beløp: Float,
-                                           val opphørsdato: LocalDate? = null)
+data class InfotrygdPeriode(val personIdent: String,
+                            val fomDato: LocalDate,
+                            val tomDato: LocalDate,
+                            val beløp: Float,
+                            val opphørsdato: LocalDate? = null)

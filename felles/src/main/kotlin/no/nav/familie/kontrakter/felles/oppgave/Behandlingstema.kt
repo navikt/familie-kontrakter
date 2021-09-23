@@ -1,4 +1,4 @@
-package no.nav.familie.kontrakter.felles
+package no.nav.familie.kontrakter.felles.oppgave
 
 import com.fasterxml.jackson.annotation.JsonCreator
 import com.fasterxml.jackson.annotation.JsonValue

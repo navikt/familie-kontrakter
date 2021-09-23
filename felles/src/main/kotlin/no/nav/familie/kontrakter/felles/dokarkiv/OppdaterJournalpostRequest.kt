@@ -1,7 +1,7 @@
 package no.nav.familie.kontrakter.felles.dokarkiv
 
 import com.fasterxml.jackson.annotation.JsonInclude
-import no.nav.familie.kontrakter.felles.oppgave.Behandlingstema
+import no.nav.familie.kontrakter.felles.Behandlingstema
 import no.nav.familie.kontrakter.felles.Tema
 
 @JsonInclude(JsonInclude.Include.NON_NULL)

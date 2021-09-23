@@ -1,7 +1,6 @@
 package no.nav.familie.kontrakter.felles
 
 import com.fasterxml.jackson.module.kotlin.readValue
-import no.nav.familie.kontrakter.felles.oppgave.Behandlingstema
 import org.junit.Test
 import kotlin.test.assertEquals
 

@@ -48,7 +48,7 @@ data class VedtaksdetaljerDto(
         val opphørÅrsak: OpphørÅrsak?,
         val saksbehandlerId: String,
         val beslutterId: String,
-        val tilkjentYtelse: TilkjentYtelseDto,
+        val tilkjentYtelse: TilkjentYtelseDto?,
         val vedtaksperioder: List<VedtaksperiodeDto> = emptyList()
 )
 

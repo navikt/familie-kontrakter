@@ -18,13 +18,6 @@ data class IverksettDto(
         val vedtak: VedtaksdetaljerDto,
 )
 
-data class IverksettUtenPerioderDto(
-        val fagsak: FagsakdetaljerDto,
-        val behandling: BehandlingsdetaljerDto,
-        val søker: SøkerDto,
-        val vedtak: VedtaksdetaljerUtenPerioderDto,
-)
-
 data class SøkerDto(
         val personIdent: String,
         val barn: List<BarnDto> = emptyList(),
@@ -55,15 +48,8 @@ data class VedtaksdetaljerDto(
         val opphørÅrsak: OpphørÅrsak?,
         val saksbehandlerId: String,
         val beslutterId: String,
-        val tilkjentYtelse: TilkjentYtelseDto,
+        val tilkjentYtelse: TilkjentYtelseDto?,
         val vedtaksperioder: List<VedtaksperiodeDto> = emptyList()
-)
-
-data class VedtaksdetaljerUtenPerioderDto(
-        val resultat: Vedtaksresultat,
-        val vedtaksdato: LocalDate,
-        val saksbehandlerId: String,
-        val beslutterId: String,
 )
 
 data class VilkårsvurderingDto(

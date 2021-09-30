@@ -24,7 +24,7 @@ data class InfotrygdPeriodeRequest(val personIdenter: Set<String>,
 data class InfotrygdPeriodeResponse(val perioder: List<InfotrygdPeriode>)
 
 data class InfotrygdPeriode(val personIdent: String,
-                            val kode: String,
+                            val kode: InfotrygdEndringKode,
                             val brukerId: String,
                             val stønadId: Long,
                             val vedtakId: Long,
@@ -36,3 +36,16 @@ data class InfotrygdPeriode(val personIdent: String,
                             val stønadFom: LocalDate,
                             val stønadTom: LocalDate,
                             val opphørsdato: LocalDate?)
+
+enum class InfotrygdEndringKode(val kode: String, val beskrivelse: String) {
+
+    ANNULERT("AN", "Annullert"),
+    ENDRING_BEREGNINGSGRUNNLAG("E", "Endring i beregningsgrunnlag"),
+    FØRSTEGANGSVEDTAK("F", "Førstegangsvedtak"),
+    G_REGULERING("G", "G-regulering"),
+    NY("NY", "Ny"),
+    OPPHØRT("O", "Opphørt"),
+    SATSENDRING("S", "Satsendring"),
+    UAKTUELL("UA", "Uaktuell"),
+    OVERTFØRT_NY_LØSNING("OO", "Overf ny løsning")
+}

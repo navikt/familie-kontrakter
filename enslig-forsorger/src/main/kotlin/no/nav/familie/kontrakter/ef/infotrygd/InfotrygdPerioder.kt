@@ -22,7 +22,7 @@ data class InfotrygdPeriodeRequest(val personIdenter: Set<String>,
                                    val stønadstyper: Set<StønadType>)
 
 data class InfotrygdPeriodeResponse(val overgangsstønad: List<InfotrygdPeriode>,
-                                    val barnetilstyn: List<InfotrygdPeriode>,
+                                    val barnetilsyn: List<InfotrygdPeriode>,
                                     val skolepenger: List<InfotrygdPeriode>)
 
 data class InfotrygdPeriode(val personIdent: String,

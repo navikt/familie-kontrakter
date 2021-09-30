@@ -21,7 +21,9 @@ data class InfotrygdArenaPeriode(val personIdent: String,
 data class InfotrygdPeriodeRequest(val personIdenter: Set<String>,
                                    val stønadstyper: Set<StønadType>)
 
-data class InfotrygdPeriodeResponse(val perioder: List<InfotrygdPeriode>)
+data class InfotrygdPeriodeResponse(val overgangsstønad: List<InfotrygdPeriode>,
+                                    val barnetilstyn: List<InfotrygdPeriode>,
+                                    val skolepenger: List<InfotrygdPeriode>)
 
 data class InfotrygdPeriode(val personIdent: String,
                             val kode: InfotrygdEndringKode,
@@ -37,6 +39,7 @@ data class InfotrygdPeriode(val personIdent: String,
                             val stønadTom: LocalDate,
                             val opphørsdato: LocalDate?)
 
+@Suppress("unused")
 enum class InfotrygdEndringKode(val kode: String, val beskrivelse: String) {
 
     ANNULERT("AN", "Annullert"),

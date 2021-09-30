@@ -2,14 +2,14 @@ package no.nav.familie.kontrakter.ef.felles
 
 import java.util.UUID
 
-data class FrittståendeBrevDto(val personIdent: UUID,
+data class FrittståendeBrevDto(val personIdent: String,
                                val fagsakId: UUID,
                                val stønadType: StønadType,
-                               val dokumentTittel: DokumentTypeFrittståendeBrev,
+                               val brevtype: FrittståendeBrevType,
                                val fil: ByteArray,
                                val journalførendeEnhet: String)
 
-enum class DokumentTypeFrittståendeBrev(val tittel: String) {
+enum class FrittståendeBrevType(val tittel: String) {
     MANGELBREV_OVERGANGSSTØNAD("Mangelbrev overgangsstønad"),
     MANGELBREV_BARNETILSYN("Mangelbrev barnetilsyn"),
     MANGELBREV_SKOLEPENGER("Mangelbrev skolepenger"),

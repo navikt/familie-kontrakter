@@ -1,9 +1,7 @@
 package no.nav.familie.kontrakter.ef.felles
 
-import java.util.UUID
-
 data class FrittståendeBrevDto(val personIdent: String,
-                               val fagsakId: UUID,
+                               val eksternFagsakId: Long,
                                val stønadType: StønadType,
                                val brevtype: FrittståendeBrevType,
                                val fil: ByteArray,

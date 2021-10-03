@@ -8,6 +8,9 @@ import no.nav.familie.kontrakter.ef.felles.StønadType
 import no.nav.familie.kontrakter.ef.felles.Vedtaksresultat
 import no.nav.familie.kontrakter.ef.felles.VilkårType
 import no.nav.familie.kontrakter.ef.felles.Vilkårsresultat
+import no.nav.familie.kontrakter.felles.tilbakekreving.Periode
+import no.nav.familie.kontrakter.felles.tilbakekreving.Tilbakekrevingsvalg
+import java.math.BigDecimal
 import java.time.LocalDate
 import java.util.UUID
 
@@ -49,7 +52,8 @@ data class VedtaksdetaljerDto(
         val saksbehandlerId: String,
         val beslutterId: String,
         val tilkjentYtelse: TilkjentYtelseDto?,
-        val vedtaksperioder: List<VedtaksperiodeDto> = emptyList()
+        val vedtaksperioder: List<VedtaksperiodeDto> = emptyList(),
+        val feilutbetaling: FeilutbetalingDto? = null
 )
 
 data class VilkårsvurderingDto(
@@ -74,6 +78,18 @@ data class VedtaksperiodeDto(
         val tilOgMed: LocalDate,
         val aktivitet: AktivitetType,
         val periodeType: VedtaksperiodeType
+)
+
+data class FeilutbetalingDto(
+        val tilbakekrevingsvalg: Tilbakekrevingsvalg,
+        // Kreves bare hvis tilbakekrevingsvalg = OPPRETT_TILBAKEKREVING_MED_VARSEL
+        val varseltekst: String?,
+        // Kreves bare hvis tilbakekrevingsvalg = OPPRETT_TILBAKEKREVING_MED_VARSEL.
+        // Hvis det er påkrevd og mangler, så vil det hentes fra simulering
+        val sumFeilutbetaling: BigDecimal?,
+        // Kreves bare hvis tilbakekrevingsvalg = OPPRETT_TILBAKEKREVING_MED_VARSEL.
+        // Hvis det er påkrevd og mangler, så vil det hentes fra simulering
+        val perioder: List<Periode>?
 )
 
 enum class AdressebeskyttelseGradering {

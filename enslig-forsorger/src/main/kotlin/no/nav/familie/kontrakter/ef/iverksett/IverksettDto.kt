@@ -53,7 +53,7 @@ data class VedtaksdetaljerDto(
         val beslutterId: String,
         val tilkjentYtelse: TilkjentYtelseDto?,
         val vedtaksperioder: List<VedtaksperiodeDto> = emptyList(),
-        val feilutbetaling: FeilutbetalingDto? = null
+        val tilbakekreving: TilbakekrevingDto? = null
 )
 
 data class VilkårsvurderingDto(
@@ -80,17 +80,14 @@ data class VedtaksperiodeDto(
         val periodeType: VedtaksperiodeType
 )
 
-data class FeilutbetalingDto(
+data class TilbakekrevingDto(
         val tilbakekrevingsvalg: Tilbakekrevingsvalg,
-        // Kreves bare hvis tilbakekrevingsvalg = OPPRETT_TILBAKEKREVING_MED_VARSEL
-        val varseltekst: String?,
-        // Kreves bare hvis tilbakekrevingsvalg = OPPRETT_TILBAKEKREVING_MED_VARSEL.
-        // Hvis det er påkrevd og mangler, så vil det hentes fra simulering
-        val sumFeilutbetaling: BigDecimal?,
-        // Kreves bare hvis tilbakekrevingsvalg = OPPRETT_TILBAKEKREVING_MED_VARSEL.
-        // Hvis det er påkrevd og mangler, så vil det hentes fra simulering
-        val perioder: List<Periode>?
+        val tilbakekrevingMedVarsel: TilbakekrevingMedVarselDto?
 )
+
+data class TilbakekrevingMedVarselDto(val varseltekst: String,
+                                      val sumFeilutbetaling: BigDecimal? = null, // Hentes fra simulering hvis det mangler
+                                      val perioder: List<Periode> = emptyList()) // Hentes fra simulering hvis det mangler
 
 enum class AdressebeskyttelseGradering {
     STRENGT_FORTROLIG,

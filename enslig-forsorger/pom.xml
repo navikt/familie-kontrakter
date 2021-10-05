@@ -15,6 +15,14 @@
 
     <name>Kontrakter - enslig forsørger</name>
 
+    <dependencies>
+        <dependency>
+            <groupId>no.nav.familie.kontrakter</groupId>
+            <artifactId>felles</artifactId>
+            <version>${revision}${sha1}${changelist}</version>
+        </dependency>
+    </dependencies>
+
     <build>
         <sourceDirectory>src/main/kotlin</sourceDirectory>
         <testSourceDirectory>src/test/kotlin</testSourceDirectory>

@@ -8,6 +8,9 @@ import no.nav.familie.kontrakter.ef.felles.StønadType
 import no.nav.familie.kontrakter.ef.felles.Vedtaksresultat
 import no.nav.familie.kontrakter.ef.felles.VilkårType
 import no.nav.familie.kontrakter.ef.felles.Vilkårsresultat
+import no.nav.familie.kontrakter.felles.tilbakekreving.Periode
+import no.nav.familie.kontrakter.felles.tilbakekreving.Tilbakekrevingsvalg
+import java.math.BigDecimal
 import java.time.LocalDate
 import java.util.UUID
 
@@ -49,7 +52,8 @@ data class VedtaksdetaljerDto(
         val saksbehandlerId: String,
         val beslutterId: String,
         val tilkjentYtelse: TilkjentYtelseDto?,
-        val vedtaksperioder: List<VedtaksperiodeDto> = emptyList()
+        val vedtaksperioder: List<VedtaksperiodeDto> = emptyList(),
+        val tilbakekreving: TilbakekrevingDto? = null
 )
 
 data class VilkårsvurderingDto(
@@ -75,6 +79,15 @@ data class VedtaksperiodeDto(
         val aktivitet: AktivitetType,
         val periodeType: VedtaksperiodeType
 )
+
+data class TilbakekrevingDto(
+        val tilbakekrevingsvalg: Tilbakekrevingsvalg,
+        val tilbakekrevingMedVarsel: TilbakekrevingMedVarselDto?
+)
+
+data class TilbakekrevingMedVarselDto(val varseltekst: String,
+                                      val sumFeilutbetaling: BigDecimal? = null, // Hentes fra simulering hvis det mangler
+                                      val perioder: List<Periode> = emptyList()) // Hentes fra simulering hvis det mangler
 
 enum class AdressebeskyttelseGradering {
     STRENGT_FORTROLIG,

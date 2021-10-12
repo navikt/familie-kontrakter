@@ -1,4 +1,4 @@
-package no.nav.familie.ef.iverksett.økonomi.simulering
+package no.nav.familie.kontrakter.felles.simulering
 
 import java.math.BigDecimal
 import java.time.LocalDate

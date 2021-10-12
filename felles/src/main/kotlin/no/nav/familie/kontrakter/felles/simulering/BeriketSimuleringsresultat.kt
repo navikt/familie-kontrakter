@@ -1,6 +1,4 @@
-package no.nav.familie.ef.iverksett.økonomi.simulering
-
-import no.nav.familie.kontrakter.felles.simulering.DetaljertSimuleringResultat
+package no.nav.familie.kontrakter.felles.simulering
 
 data class BeriketSimuleringsresultat(
         val detaljer: DetaljertSimuleringResultat,

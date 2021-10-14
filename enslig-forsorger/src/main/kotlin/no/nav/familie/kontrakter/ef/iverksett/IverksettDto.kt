@@ -41,7 +41,8 @@ data class BehandlingsdetaljerDto(
         val behandlingType: BehandlingType,
         val behandlingÅrsak: BehandlingÅrsak,
         val vilkårsvurderinger: List<VilkårsvurderingDto> = emptyList(),
-        val aktivitetspliktInntrefferDato: LocalDate? = null
+        val aktivitetspliktInntrefferDato: LocalDate? = null,
+        val kravMottatt: LocalDate? = null,
 )
 
 

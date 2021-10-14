@@ -300,15 +300,15 @@ class TestsøknadBuilder private constructor(
                                                       Søknadsfelt("Når søker du stønad fra?", stønadsstart),
                                                       defaultBarnetilsynDokumentasjon())
 
-            val søknadSkolepenger = SøknadSkolepenger(Søknadsfelt("Søker", personalia),
-                                                      Søknadsfelt("Barn fra folkeregisteret", barn),
-                                                      Søknadsfelt("innsendingsdetaljer", innsendingsdetaljer),
-                                                      Søknadsfelt("Detaljer om sivilstand", sivilstandsdetaljer),
-                                                      Søknadsfelt("Opphold i Norge", medlemskapsdetaljer),
-                                                      Søknadsfelt("Bosituasjonen din", bosituasjon),
-                                                      Søknadsfelt("Sivilstandsplaner", sivilstandsplaner),
-                                                      Søknadsfelt("Utdanningen du skal ta", defaultUtdanning()),
-                                                      SkolepengerDokumentasjon(defaultDokumentfelt("utdanningsutgifter")))
+            val søknadSkolepenger = SøknadSkolepenger(personalia = Søknadsfelt("Søker", personalia),
+                                                      barn=Søknadsfelt("Barn fra folkeregisteret", barn),
+                                                      innsendingsdetaljer =Søknadsfelt("innsendingsdetaljer", innsendingsdetaljer),
+                                                      sivilstandsdetaljer =   Søknadsfelt("Detaljer om sivilstand", sivilstandsdetaljer),
+                                                      medlemskapsdetaljer = Søknadsfelt("Opphold i Norge", medlemskapsdetaljer),
+                                                      bosituasjon = Søknadsfelt("Bosituasjonen din", bosituasjon),
+                                                      sivilstandsplaner =Søknadsfelt("Sivilstandsplaner", sivilstandsplaner),
+                                                      utdanning = Søknadsfelt("Utdanningen du skal ta", defaultUtdanning()),
+                                                      dokumentasjon = SkolepengerDokumentasjon(defaultDokumentfelt("utdanningsutgifter")))
 
             val testSøknad = TestsøknadBuilder(
                     søknadOvergangsstønad,

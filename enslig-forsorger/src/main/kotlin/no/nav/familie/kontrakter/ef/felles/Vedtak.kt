@@ -16,12 +16,8 @@ enum class BehandlingType {
 
 enum class BehandlingÅrsak {
     SØKNAD,
-    PERIODISK_KONTROLL,
-    ENDRET_SATS,
-    DØDSFALL,
     NYE_OPPLYSNINGER,
-    MIGRERING,
-    TEKNISK_FEIL
+    KLAGE,
 }
 
 enum class OpphørÅrsak {

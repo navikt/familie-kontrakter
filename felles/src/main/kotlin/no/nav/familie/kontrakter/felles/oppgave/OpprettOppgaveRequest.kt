@@ -9,14 +9,15 @@ data class OpprettOppgaveRequest(val ident: OppgaveIdentV2?,
                                  val journalpostId: String? = null,
                                  val tema: Tema,
                                  val oppgavetype: Oppgavetype,
-                                 val behandlingstema: String?,
+                                 val ehandlingstema: String?,
                                  val tilordnetRessurs: String? = null,
                                  val fristFerdigstillelse: LocalDate,
                                  val aktivFra: LocalDate = LocalDate.now(),
                                  val beskrivelse: String,
                                  val prioritet: OppgavePrioritet = OppgavePrioritet.NORM,
                                  val behandlingstype: String? = null,
-                                 val behandlesAvApplikasjon: String? = null)
+                                 val behandlesAvApplikasjon: String? = null,
+                                 val mappeId: Long? = null)
 
 enum class Oppgavetype(val value: String) {
     BehandleSak("BEH_SAK"),
@@ -55,7 +56,7 @@ enum class OppgavePrioritet {
     LAV;
 }
 
-enum class Enhetsmappe(val value: Long){
+enum class Enhetsmappe(val value: Long) {
     SøknaderKlarTilBehandling(100000035),
     AvventerDokumentasjon(100000036),
     KlagerKlarTilBehandling(100000037),

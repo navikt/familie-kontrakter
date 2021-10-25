@@ -21,5 +21,5 @@ data class ForhåndsvisVarselbrevRequest(@Size(max = 1500, message = "Varselteks
                                         val ident: String,
                                         val verge: Verge? = null)
 
-class FeilutbetaltePerioderDto(var sumFeilutbetaling: Long,
+data class FeilutbetaltePerioderDto(var sumFeilutbetaling: Long,
                                var perioder: List<Periode>)

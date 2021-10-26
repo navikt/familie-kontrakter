@@ -3,7 +3,7 @@ package no.nav.familie.kontrakter.felles.tilbakekreving
 import java.time.LocalDateTime
 import java.util.UUID
 
-class Behandling(val behandlingId: UUID,
+data class Behandling(val behandlingId: UUID,
                  val opprettetTidspunkt: LocalDateTime,
                  val aktiv: Boolean,
                  val årsak: Behandlingsårsakstype?,

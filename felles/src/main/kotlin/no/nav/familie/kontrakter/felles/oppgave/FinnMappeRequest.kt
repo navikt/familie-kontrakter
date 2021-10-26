@@ -1,6 +1,6 @@
-package no.nav.familie.integrasjoner.client.rest
+package no.nav.familie.kontrakter.felles.oppgave
 
 import no.nav.familie.kontrakter.felles.abstraction.QueryObject
 
-data class FinnMappeRequest(val tema: Array<String>, val enhetsnr: String, val opprettetFom: String?, val limit: Int = 1000) :
+data class FinnMappeRequest(val tema: List<String>, val enhetsnr: String, val opprettetFom: String?, val limit: Int = 1000) :
         QueryObject()

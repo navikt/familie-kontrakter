@@ -1,4 +1,5 @@
-package no.nav.familie.integrasjoner.client.rest
+package no.nav.familie.kontrakter.felles.oppgave
+
 
 data class FinnMappeResponseDto(
         val antallTreffTotalt: Int,

@@ -31,5 +31,6 @@ data class FinnOppgaveRequest(val tema: Tema,
                               @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
                               val aktivTomDato: LocalDate? = null,
                               val enhetsmappe: Enhetsmappe? = null,
+                              val mappeId: Long? = null,
                               val limit: Long? = null,
                               val offset: Long? = null) : QueryObject()

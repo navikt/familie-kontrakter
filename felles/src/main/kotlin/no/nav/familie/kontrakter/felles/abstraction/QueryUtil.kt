@@ -12,10 +12,16 @@ abstract class QueryObject {
 
 }
 
-fun toQueryParams(any : Any): LinkedMultiValueMap<String, String> {
+fun toQueryParams(any: Any): LinkedMultiValueMap<String, String> {
     val writeValueAsString = objectMapper.writeValueAsString(any)
     val readValue: LinkedHashMap<String, Any?> = objectMapper.readValue(writeValueAsString)
     val queryParams = LinkedMultiValueMap<String, String>()
-    readValue.filter { it.value != null }.forEach { queryParams.add(it.key, it.value.toString()) }
+    readValue.filter { it.value != null }.forEach {
+        if (it.value is List<*>) {
+            queryParams.add(it.key, (it.value as List<*>).joinToString(","))
+        } else {
+            queryParams.add(it.key, it.value.toString())
+        }
+    }
     return queryParams
 }

@@ -56,6 +56,7 @@ enum class OppgavePrioritet {
     LAV;
 }
 
+@Deprecated("Misforstått bruk - ulike identer på tvers av miljøer")
 enum class Enhetsmappe(val value: Long) {
     SøknaderKlarTilBehandling(100000035),
     AvventerDokumentasjon(100000036),

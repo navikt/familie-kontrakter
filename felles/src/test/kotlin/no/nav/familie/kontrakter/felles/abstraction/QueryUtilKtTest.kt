@@ -10,7 +10,7 @@ internal class QueryUtilKtTest {
     fun `toQueryParams gjør lister om til én string`() {
         val queryParams: LinkedMultiValueMap<String, String> = toQueryParams(Testdata())
 
-        assertEquals("1,2,3,4,5", queryParams.getFirst("list"))
+        assertEquals(listOf("1","2","3","4","5"), queryParams["list"])
     }
 
     data class Testdata(val int: Int = 5,

@@ -18,7 +18,8 @@ fun toQueryParams(any: Any): LinkedMultiValueMap<String, String> {
     val queryParams = LinkedMultiValueMap<String, String>()
     readValue.filter { it.value != null }.forEach {
         if (it.value is List<*>) {
-            queryParams.add(it.key, (it.value as List<*>).joinToString(","))
+            val liste = (it.value as List<*>).map { elem -> elem.toString() }
+            queryParams.addAll(it.key, liste)
         } else {
             queryParams.add(it.key, it.value.toString())
         }

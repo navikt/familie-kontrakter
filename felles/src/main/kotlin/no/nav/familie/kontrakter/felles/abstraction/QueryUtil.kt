@@ -7,11 +7,15 @@ import org.springframework.util.LinkedMultiValueMap
 abstract class QueryObject {
 
     fun toQueryParams(): LinkedMultiValueMap<String, String> {
-        val writeValueAsString = objectMapper.writeValueAsString(this)
-        val readValue: LinkedHashMap<String, Any?> = objectMapper.readValue(writeValueAsString)
-        val queryParams = LinkedMultiValueMap<String, String>()
-        readValue.filter { it.value != null }.forEach { queryParams.add(it.key, it.value.toString()) }
-        return queryParams
+        return toQueryParams(this)
     }
 
+}
+
+fun toQueryParams(any : Any): LinkedMultiValueMap<String, String> {
+    val writeValueAsString = objectMapper.writeValueAsString(any)
+    val readValue: LinkedHashMap<String, Any?> = objectMapper.readValue(writeValueAsString)
+    val queryParams = LinkedMultiValueMap<String, String>()
+    readValue.filter { it.value != null }.forEach { queryParams.add(it.key, it.value.toString()) }
+    return queryParams
 }

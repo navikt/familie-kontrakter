@@ -7,13 +7,6 @@ data class FinnMappeResponseDto(
 )
 
 data class MappeDto(
-        val endretAv: String,
-        val endretTidspunkt: String,
-        val enhetsnr: String,
         val id: Int,
         val navn: String,
-        val opprettetAv: String,
-        val opprettetTidspunkt: String,
-        val tema: String,
-        val versjon: Int
 )

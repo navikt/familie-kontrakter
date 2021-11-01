@@ -1,0 +1,34 @@
+package no.nav.familie.kontrakter.ba.søknad.v5
+
+import no.nav.familie.kontrakter.ba.søknad.v4.Locale
+import no.nav.familie.kontrakter.ba.søknad.v4.SpørsmålId
+import no.nav.familie.kontrakter.ba.søknad.v4.Søker
+import no.nav.familie.kontrakter.ba.søknad.v4.Søknaddokumentasjon
+import no.nav.familie.kontrakter.ba.søknad.v4.Søknadsfelt
+import no.nav.familie.kontrakter.ba.søknad.v4.Søknadstype
+
+data class Søknad(
+    val søknadstype: Søknadstype,
+    val søker: Søker,
+    val barn: List<Barn>,
+    val spørsmål: Map<SpørsmålId, Søknadsfelt<Any>>,
+    val dokumentasjon: List<Søknaddokumentasjon>,
+    val teksterUtenomSpørsmål: Map<SpørsmålId, Map<Locale, String>>,
+    val originalSpråk: Locale
+)
+
+
+enum class RegistrertBostedType {
+    REGISTRERT_SOKERS_ADRESSE,
+    REGISTRERT_ANNEN_ADRESSE,
+    ADRESSESPERRE,
+    IKKE_FYLT_INN,
+}
+
+data class Barn(
+    val ident: Søknadsfelt<String>,
+    val navn: Søknadsfelt<String>,
+    val registrertBostedType: Søknadsfelt<RegistrertBostedType>,
+    val alder: Søknadsfelt<String>,
+    val spørsmål: Map<String, Søknadsfelt<Any>>
+)

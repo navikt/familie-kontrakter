@@ -8,7 +8,7 @@ import no.nav.familie.kontrakter.ef.felles.StønadType
 import no.nav.familie.kontrakter.ef.felles.Vedtaksresultat
 import no.nav.familie.kontrakter.ef.felles.VilkårType
 import no.nav.familie.kontrakter.ef.felles.Vilkårsresultat
-import no.nav.familie.kontrakter.felles.tilbakekreving.Periode
+import no.nav.familie.kontrakter.felles.Periode
 import no.nav.familie.kontrakter.felles.tilbakekreving.Tilbakekrevingsvalg
 import java.math.BigDecimal
 import java.time.LocalDate

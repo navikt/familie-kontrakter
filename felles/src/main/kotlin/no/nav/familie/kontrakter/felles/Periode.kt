@@ -1,4 +1,4 @@
-package no.nav.familie.kontrakter.felles.tilbakekreving
+package no.nav.familie.kontrakter.felles
 
 import java.time.LocalDate
 

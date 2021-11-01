@@ -4,6 +4,7 @@ import java.math.BigDecimal
 import javax.validation.constraints.Min
 import javax.validation.constraints.NotBlank
 import javax.validation.constraints.Size
+import no.nav.familie.kontrakter.felles.Periode
 
 data class Varsel(@field:NotBlank(message = "Mangler varseltekst")
                   val varseltekst: String,

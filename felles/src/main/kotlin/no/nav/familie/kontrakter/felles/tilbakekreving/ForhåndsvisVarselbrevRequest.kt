@@ -5,6 +5,7 @@ import no.nav.familie.kontrakter.felles.Fagsystem
 import no.nav.familie.kontrakter.felles.Språkkode
 import java.time.LocalDate
 import javax.validation.constraints.Size
+import no.nav.familie.kontrakter.felles.Periode
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class ForhåndsvisVarselbrevRequest(@Size(max = 1500, message = "Varseltekst er for lang")

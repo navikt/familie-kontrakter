@@ -26,6 +26,7 @@ data class BehandlingsstatistikkDto(
 enum class Hendelse {
     MOTTATT,
     PÅBEGYNT,
+    VENTER,
     VEDTATT,
     BESLUTTET,
     FERDIG

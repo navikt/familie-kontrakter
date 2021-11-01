@@ -18,6 +18,7 @@ enum class Søknadstype(val tittel: String, val søknadskode: String) {
     UTVIDET("Søknad om utvidet barnetrygd", "NAV 33-00.09"),
 }
 
+@Deprecated("Bruk v5", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ba.søknad.v5.Søknad"))
 data class Søknad(
     val søknadstype: Søknadstype,
     val søker: Søker,
@@ -79,6 +80,7 @@ data class Søker(
     val tidligereSamboere: List<Søknadsfelt<TidligereSamboer>>
 )
 
+@Deprecated("Bruk v5", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ba.søknad.v5.Barn"))
 data class Barn(
     val ident: Søknadsfelt<String>,
     val navn: Søknadsfelt<String>,

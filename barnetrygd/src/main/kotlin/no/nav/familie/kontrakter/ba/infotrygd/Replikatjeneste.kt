@@ -17,6 +17,7 @@ data class Barn(
 )
 
 data class Stønad(
+        val id: Long? = null,
         val status: String? = null,
         val tekstkode: String? = null,
         val iverksattFom: String? = null,
@@ -29,6 +30,7 @@ data class Stønad(
 )
 
 data class Sak(
+        val id: Long? = null,
         val saksnr: String? = null,
         val saksblokk: String? = null,
         val regDato: LocalDate? = null,
@@ -46,6 +48,8 @@ data class Sak(
         val behenEnhet: String? = null,
         val regAvEnhet: String? = null,
         val status: String,
+        val tkNr: String? = null,
+        val region: String? = null,
 )
 
 data class Delytelse(

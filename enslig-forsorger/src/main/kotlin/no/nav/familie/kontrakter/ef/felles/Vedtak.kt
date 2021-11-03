@@ -14,10 +14,10 @@ enum class BehandlingType {
     TEKNISK_OPPHØR
 }
 
-enum class BehandlingÅrsak {
-    SØKNAD,
-    NYE_OPPLYSNINGER,
-    KLAGE,
+enum class BehandlingÅrsak(visningstekst: String) {
+    SØKNAD("Søknad"),
+    NYE_OPPLYSNINGER("Nye opplysninger"),
+    KLAGE("Klage"),
 }
 
 enum class OpphørÅrsak {

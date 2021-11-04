@@ -29,49 +29,48 @@ data class Ressurs<T>(
         FUNKSJONELL_FEIL
     }
 
-    companion object {
-        fun <T> success(data: T): Ressurs<T> = Ressurs(
-            data = data,
-            status = Status.SUKSESS,
-            melding = "Innhenting av data var vellykket",
-            stacktrace = null
-        )
+    init {
+        if (status == Status.SUKSESS)
+        requireNotNull(data){"Hvis status er suksess kan ikke data være null."}
+    }
 
-        fun <T> success(data: T, melding: String?): Ressurs<T> = Ressurs(
-            data = data,
-            status = Status.SUKSESS,
-            melding = melding ?: "Innhenting av data var vellykket",
-            stacktrace = null
+    companion object {
+
+        fun <T : Any> success(data: T, melding: String? = null): Ressurs<T> = Ressurs(
+                data = data,
+                status = Status.SUKSESS,
+                melding = melding ?: "Innhenting av data var vellykket",
+                stacktrace = null
         )
 
         fun <T> failure(
-            errorMessage: String? = null,
-            frontendFeilmelding: String? = null,
-            error: Throwable? = null
+                errorMessage: String? = null,
+                frontendFeilmelding: String? = null,
+                error: Throwable? = null
         ): Ressurs<T> = Ressurs(
-            data = null,
-            status = Status.FEILET,
-            melding = errorMessage ?: "En feil har oppstått: ${error?.message}",
-            frontendFeilmelding = frontendFeilmelding,
-            stacktrace = error?.textValue()
+                data = null,
+                status = Status.FEILET,
+                melding = errorMessage ?: "En feil har oppstått: ${error?.message}",
+                frontendFeilmelding = frontendFeilmelding,
+                stacktrace = error?.textValue()
         )
 
         fun <T> ikkeTilgang(melding: String): Ressurs<T> = Ressurs(
-            data = null,
-            status = Status.IKKE_TILGANG,
-            melding = melding,
-            stacktrace = null
+                data = null,
+                status = Status.IKKE_TILGANG,
+                melding = melding,
+                stacktrace = null
         )
 
         fun <T> funksjonellFeil(
-            melding: String,
-            frontendFeilmelding: String? = null
+                melding: String,
+                frontendFeilmelding: String? = null
         ): Ressurs<T> = Ressurs(
-            data = null,
-            status = Status.FUNKSJONELL_FEIL,
-            melding = melding,
-            frontendFeilmelding = frontendFeilmelding,
-            stacktrace = null
+                data = null,
+                status = Status.FUNKSJONELL_FEIL,
+                melding = melding,
+                frontendFeilmelding = frontendFeilmelding,
+                stacktrace = null
         )
 
         private fun Throwable.textValue(): String {

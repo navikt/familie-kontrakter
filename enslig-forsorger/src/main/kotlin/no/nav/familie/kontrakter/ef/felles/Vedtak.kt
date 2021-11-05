@@ -1,9 +1,9 @@
 package no.nav.familie.kontrakter.ef.felles
 
-enum class Vedtaksresultat(val displayName: String) {
-    INNVILGET(displayName = "Innvilget"),
-    OPPHØRT(displayName = "Opphørt"),
-    AVSLÅTT(displayName = "Avslått")
+enum class Vedtaksresultat(val visningsNavn: String) {
+    INNVILGET(visningsNavn = "Innvilget"),
+    OPPHØRT(visningsNavn = "Opphørt"),
+    AVSLÅTT(visningsNavn = "Avslått")
 }
 
 enum class BehandlingType {

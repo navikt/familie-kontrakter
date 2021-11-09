@@ -2,7 +2,6 @@ package no.nav.familie.kontrakter.ef.felles
 
 data class FrittståendeBrevDto(val personIdent: String,
                                val eksternFagsakId: Long,
-                               val stønadType: StønadType,
                                val brevtype: FrittståendeBrevType,
                                val fil: ByteArray,
                                val journalførendeEnhet: String,

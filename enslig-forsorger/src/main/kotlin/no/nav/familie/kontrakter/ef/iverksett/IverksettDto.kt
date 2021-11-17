@@ -55,7 +55,8 @@ data class VedtaksdetaljerDto(
         val beslutterId: String,
         val tilkjentYtelse: TilkjentYtelseDto?,
         val vedtaksperioder: List<VedtaksperiodeDto> = emptyList(),
-        val tilbakekreving: TilbakekrevingDto? = null
+        val tilbakekreving: TilbakekrevingDto? = null,
+        val verge: VergeDto? = null
 )
 
 data class VilkårsvurderingDto(

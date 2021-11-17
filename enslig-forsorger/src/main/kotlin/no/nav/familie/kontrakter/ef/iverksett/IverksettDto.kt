@@ -49,7 +49,6 @@ data class BehandlingsdetaljerDto(
 
 data class VedtaksdetaljerDto(
         val resultat: Vedtaksresultat,
-        val vedtaksdato: LocalDate,
         val vedtakstidspunkt: LocalDateTime,
         val opphørÅrsak: OpphørÅrsak?,
         val saksbehandlerId: String,

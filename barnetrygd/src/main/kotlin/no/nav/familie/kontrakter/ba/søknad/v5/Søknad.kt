@@ -6,6 +6,7 @@ import no.nav.familie.kontrakter.ba.søknad.v4.Søker
 import no.nav.familie.kontrakter.ba.søknad.v4.Søknaddokumentasjon
 import no.nav.familie.kontrakter.ba.søknad.v4.Søknadsfelt
 import no.nav.familie.kontrakter.ba.søknad.v4.Søknadstype
+import no.nav.familie.kontrakter.ba.søknad.v4.Utenlandsopphold
 
 data class Søknad(
     val søknadstype: Søknadstype,
@@ -30,5 +31,6 @@ data class Barn(
     val navn: Søknadsfelt<String>,
     val registrertBostedType: Søknadsfelt<RegistrertBostedType>,
     val alder: Søknadsfelt<String>,
-    val spørsmål: Map<String, Søknadsfelt<Any>>
+    val spørsmål: Map<String, Søknadsfelt<Any>>,
+    val utenlandsperioder: List<Søknadsfelt<Utenlandsopphold>> = listOf()
 )

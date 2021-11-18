@@ -12,6 +12,7 @@ import no.nav.familie.kontrakter.felles.tilbakekreving.Periode
 import no.nav.familie.kontrakter.felles.tilbakekreving.Tilbakekrevingsvalg
 import java.math.BigDecimal
 import java.time.LocalDate
+import java.time.LocalDateTime
 import java.util.UUID
 
 data class IverksettDto(
@@ -48,7 +49,7 @@ data class BehandlingsdetaljerDto(
 
 data class VedtaksdetaljerDto(
         val resultat: Vedtaksresultat,
-        val vedtaksdato: LocalDate,
+        val vedtakstidspunkt: LocalDateTime,
         val opphørÅrsak: OpphørÅrsak?,
         val saksbehandlerId: String,
         val beslutterId: String,

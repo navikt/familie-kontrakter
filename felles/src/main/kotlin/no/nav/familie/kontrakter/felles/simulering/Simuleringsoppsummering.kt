@@ -22,4 +22,5 @@ data class Simuleringsperiode(
         val tidligereUtbetalt: BigDecimal,
         val resultat: BigDecimal,
         val feilutbetaling: BigDecimal,
+        val etterbetaling: BigDecimal? = null // Nullable pga bakoverkompatibilitet
 )

@@ -4,7 +4,7 @@ registries:
     type: maven-repository
     url: https://maven.pkg.github.com/navikt/fp-felles/
     username: x-access-token
-    password: "${{secrets.MAVEN_REPOSITORY_MAVEN_PKG_GITHUB_COM_NAVIKT_FP_FELLES_PASSWORD}}"
+    password: "${{secrets.READER_TOKEN}}"
 
 updates:
   - package-ecosystem: github-actions

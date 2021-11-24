@@ -10,6 +10,7 @@ data class BehandlingsstatistikkDto(
         val personIdent: String,
         val gjeldendeSaksbehandlerId: String,
         val eksternFagsakId: String,
+        val behandlingOpprettetTidspunkt: ZonedDateTime? = null,
         val hendelseTidspunkt: ZonedDateTime,
         val hendelse: Hendelse,
         val behandlingResultat: String? = null,
@@ -29,5 +30,6 @@ enum class Hendelse {
     VENTER,
     VEDTATT,
     BESLUTTET,
+    HENLAGT,
     FERDIG
 }

@@ -9,4 +9,5 @@ data class FinnMappeResponseDto(
 data class MappeDto(
         val id: Int,
         val navn: String,
+        val enhetsnr: String,
 )

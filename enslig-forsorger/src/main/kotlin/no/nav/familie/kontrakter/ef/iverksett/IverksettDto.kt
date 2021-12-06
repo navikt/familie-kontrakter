@@ -55,7 +55,8 @@ data class VedtaksdetaljerDto(
         val beslutterId: String,
         val tilkjentYtelse: TilkjentYtelseDto?,
         val vedtaksperioder: List<VedtaksperiodeDto> = emptyList(),
-        val tilbakekreving: TilbakekrevingDto? = null
+        val tilbakekreving: TilbakekrevingDto? = null,
+        val brevmottakere: List<Brevmottaker> = emptyList()
 )
 
 data class VilkårsvurderingDto(
@@ -98,7 +99,6 @@ enum class AdressebeskyttelseGradering {
     UGRADERT
 }
 
-
 enum class IverksettStatus {
     SENDT_TIL_OPPDRAG,
     FEILET_MOT_OPPDRAG,
@@ -135,5 +135,13 @@ enum class AktivitetType {
     FORLENGELSE_STØNAD_PÅVENTE_TILSYNSORDNING,
     FORLENGELSE_STØNAD_PÅVENTE_UTDANNING,
     FORLENGELSE_STØNAD_UT_SKOLEÅRET,
+}
+
+data class Brevmottaker(val personIdent: String, val navn: String, val mottakerRolle: MottakerRolle) {
+    enum class MottakerRolle {
+        BRUKER,
+        VERGE,
+        FULLMEKTIG
+    }
 }
 

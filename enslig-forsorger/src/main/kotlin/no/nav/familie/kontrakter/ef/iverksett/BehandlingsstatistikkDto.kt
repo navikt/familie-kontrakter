@@ -22,7 +22,8 @@ data class BehandlingsstatistikkDto(
         val stønadstype: StønadType,
         val behandlingstype: BehandlingType,
         val henvendelseTidspunkt: ZonedDateTime? = null,
-        val relatertEksternBehandlingId: Long?
+        val relatertEksternBehandlingId: Long?,
+        val relatertBehandlingId: UUID?
 )
 
 enum class Hendelse {

@@ -137,11 +137,16 @@ enum class AktivitetType {
     FORLENGELSE_STØNAD_UT_SKOLEÅRET,
 }
 
-data class Brevmottaker(val personIdent: String, val navn: String, val mottakerRolle: MottakerRolle) {
+data class Brevmottaker(val ident: String, val navn: String, val mottakerRolle: MottakerRolle, val identType: IdentType) {
     enum class MottakerRolle {
         BRUKER,
         VERGE,
         FULLMEKTIG
+    }
+
+    enum class IdentType{
+        PERSONIDENT,
+        ORGANISASJONSNUMMER
     }
 }
 

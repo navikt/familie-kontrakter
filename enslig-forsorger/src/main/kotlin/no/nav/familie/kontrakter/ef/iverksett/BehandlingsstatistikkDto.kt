@@ -7,9 +7,10 @@ import java.util.UUID
 
 data class BehandlingsstatistikkDto(
         val behandlingId: UUID,
+        val eksternBehandlingId: Long,
         val personIdent: String,
         val gjeldendeSaksbehandlerId: String,
-        val eksternFagsakId: String,
+        val eksternFagsakId: Long,
         val behandlingOpprettetTidspunkt: ZonedDateTime? = null,
         val hendelseTidspunkt: ZonedDateTime,
         val hendelse: Hendelse,
@@ -21,6 +22,7 @@ data class BehandlingsstatistikkDto(
         val stønadstype: StønadType,
         val behandlingstype: BehandlingType,
         val henvendelseTidspunkt: ZonedDateTime? = null,
+        val relatertEksternBehandlingId: Long?,
         val relatertBehandlingId: UUID?
 )
 

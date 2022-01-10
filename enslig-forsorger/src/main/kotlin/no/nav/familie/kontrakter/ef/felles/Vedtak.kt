@@ -18,6 +18,7 @@ enum class BehandlingÅrsak {
     SØKNAD,
     NYE_OPPLYSNINGER,
     KLAGE,
+    MIGRERING,
 }
 
 enum class OpphørÅrsak {

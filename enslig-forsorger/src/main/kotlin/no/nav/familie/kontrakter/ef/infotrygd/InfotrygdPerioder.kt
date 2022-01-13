@@ -2,6 +2,7 @@ package no.nav.familie.kontrakter.ef.infotrygd
 
 import no.nav.familie.kontrakter.ef.felles.StønadType
 import java.time.LocalDate
+import java.time.LocalDateTime
 
 /**
  * @param personIdenter alle identer til personen
@@ -26,11 +27,14 @@ data class InfotrygdPeriodeResponse(val overgangsstønad: List<InfotrygdPeriode>
                                     val skolepenger: List<InfotrygdPeriode>)
 
 data class InfotrygdPeriode(val personIdent: String,
+                            val sakstype: InfotrygdSakstype,
                             val kode: InfotrygdEndringKode,
                             val brukerId: String,
                             val stønadId: Long,
                             val vedtakId: Long,
+                            val vedtakstidspunkt: LocalDateTime,
                             val stønadBeløp: Int,
+                            val inntektsgrunnlag: Int,
                             val inntektsreduksjon: Int,
                             val samordningsfradrag: Int,
                             val beløp: Int,
@@ -51,4 +55,16 @@ enum class InfotrygdEndringKode(val kode: String, val beskrivelse: String) {
     SATSENDRING("S", "Satsendring"),
     UAKTUELL("UA", "Uaktuell"),
     OVERTFØRT_NY_LØSNING("OO", "Overf ny løsning")
+}
+
+enum class InfotrygdSakstype(val kode: String, val beskrivelse: String) {
+    KLAGE("K", "Klage"),
+    MASKINELL_G_OMREGNING("MG", "Maskinell G-omregning"),
+    REVURDERING("R", "Revurdering"),
+    GRUNNBELØP_OMREGNING("GO", "Grunnbeløp omregning"),
+    KONVERTERING("KO", "Konvertering"),
+    MASKINELL_SATSOMREGNING("MS", "Maskinell satsomregning"),
+    ANKE("A", "Anke"),
+    SØKNAD("S", "Søknad"),
+    SØKNAD_ØKNING_ENDRING("SØ", "Søknad om økning/endring")
 }

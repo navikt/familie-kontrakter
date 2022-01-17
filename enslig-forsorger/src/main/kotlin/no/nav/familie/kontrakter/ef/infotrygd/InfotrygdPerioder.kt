@@ -32,8 +32,8 @@ data class InfotrygdPeriodeResponse(val overgangsstønad: List<InfotrygdPeriode>
 data class InfotrygdPeriode(val personIdent: String,
                             val sakstype: InfotrygdSakstype,
                             val kode: InfotrygdEndringKode,
-                            val kodeOvergangsstønad: InfotrygdOvergangsstønadKode,
-                            val aktivitetstype: InfotrygdAktivitetstype,
+                            val kodeOvergangsstønad: InfotrygdOvergangsstønadKode?,
+                            val aktivitetstype: InfotrygdAktivitetstype?,
                             val brukerId: String,
                             val stønadId: Long,
                             val vedtakId: Long,
@@ -79,7 +79,6 @@ enum class InfotrygdSakstype(val infotrygdKode: String, val beskrivelse: String)
 @Suppress("unused")
 enum class InfotrygdOvergangsstønadKode(val infotrygdKode: String, val beskrivelse: String) {
 
-    UTEN("", ""),
     BARN_UNDER_1_3_ÅR("1", "Barn under 1 år / 3 år (gamle tilfeller)"),
     YRKESRETTET_AKTIVITET_BARN_FYLT_1_3_ÅR("2", "Er i yrkesrettet aktivitet - barn har fylt 1 år / 3 år (gamle tilfeller)"),
     UNNTAK_FRA_KRAV_TIL_YRKESRETTET_AKTIVITET("3",
@@ -96,7 +95,6 @@ enum class InfotrygdOvergangsstønadKode(val infotrygdKode: String, val beskrive
 @Suppress("unused")
 enum class InfotrygdAktivitetstype(val infotrygdKode: String, val beskrivelse: String) {
 
-    UTEN("", ""),
     I_ARBEID("A", "I arbeid"),
     I_UTDANNING("U", "I utdanning"),
     TILMELDT_SOM_REELL_ARBEIDSSØKER("S", "Tilmeldt som reell arbeidssøker"),

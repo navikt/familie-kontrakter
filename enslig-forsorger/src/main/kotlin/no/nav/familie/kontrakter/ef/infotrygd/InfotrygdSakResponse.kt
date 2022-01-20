@@ -83,19 +83,19 @@ enum class InfotrygdSakResultat(val infotrygdKode: String, val beskrivelse: Stri
     HENLAGT_TRUKKET_TILBAKE("H", "Henlagt / trukket tilbake"),
     HENLAGT_BORTFALT("HB", "Henlagt / bortfalt"),
     INNVILGET("I", "Innvilget"),
-    IB("IB", ""), // TODO
+    IKKE_BEHANDLET("IB", "Ikke behandlet"),
     INNVILGET_NY_SITUASJON("IN", "Innvilget ny situasjon"),
     IKKE_STRAFFBART("IS", "Ikke straffbart"),
     IKKE_TILBAKEBETALE("IT", "Ikke tilbakebetale"),
     IU("IU", ""), // TODO
     KLAGE("K", "Klage"),
     MIDLERTIDIG_OPPHØRT("MO", "Midlertidig opphørt"),
-    NB("NB", ""), // TODO
+    HJEMVIST_FOR_NY_BEHANDLING("NB", "Hjemvist for ny behandling"),
     OPPHØRT("O", "Opphørt"),
     POLITIANMELDELSE("PA", "Politianmeldelse"),
     REDUSERT("R", "Redusert"),
     TILBAKEBETALE("TB", "Tilbakebetale"),
-    TF("TF", ""), // TODO
+    TVANGSGEBYR_FASTHOLDES("TF", "Tvangsgebyr fastholdes"),
     TIPS_OPPFØLGING("TO", "Tips oppfølging"),
     VU("VU", ""), // TODO
     ØKNING("Ø", "Økning")

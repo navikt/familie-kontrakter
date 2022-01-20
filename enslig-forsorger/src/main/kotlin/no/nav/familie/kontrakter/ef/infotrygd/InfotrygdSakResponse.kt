@@ -16,7 +16,7 @@ data class InfotrygdSak(
     val registrertDato: LocalDate? = null,
     val mottattDato: LocalDate? = null,
     val kapittelnr: String? = null,
-    val stønadType: StønadType? = null,
+    val stønadType: StønadType,
     val undervalg: InfotrygdSakUndervalg? = null,
     val type: InfotrygdSakType? = null,
     val nivå: InfotrygdSakNivå? = null,
@@ -68,7 +68,7 @@ enum class InfotrygdSakType(val infotrygdKode: String, val beskrivelse: String) 
 
 @Suppress("unused")
 enum class InfotrygdSakResultat(val infotrygdKode: String, val beskrivelse: String) {
-    ÅPEN_SAK("BLANK", "Åpen sak"), // Denne er alltså blank, den har ikke verdiet blank
+    ÅPEN_SAK("", "Åpen sak"), // Denne er alltså blank, den har ikke verdiet blank
     AVSLAG("A", "Avslag"),
     AVSLAG_GODKJENT("AG", "Avslag godkjent"),
     AVVIST_KLAGE("AK", "Avvist klage"),

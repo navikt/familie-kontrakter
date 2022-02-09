@@ -114,6 +114,7 @@ enum class VedtaksperiodeType {
     HOVEDPERIODE,
     PERIODE_FØR_FØDSEL,
     UTVIDELSE,
+    SANKSJON,
 }
 
 enum class AktivitetType {

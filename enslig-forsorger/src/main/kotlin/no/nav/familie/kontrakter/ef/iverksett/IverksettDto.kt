@@ -109,13 +109,16 @@ enum class IverksettStatus {
 }
 
 enum class VedtaksperiodeType {
+    MIGRERING,
     FORLENGELSE,
     HOVEDPERIODE,
     PERIODE_FØR_FØDSEL,
     UTVIDELSE,
+    SANKSJON,
 }
 
 enum class AktivitetType {
+    MIGRERING,
     IKKE_AKTIVITETSPLIKT,
     BARN_UNDER_ETT_ÅR,
     FORSØRGER_I_ARBEID,

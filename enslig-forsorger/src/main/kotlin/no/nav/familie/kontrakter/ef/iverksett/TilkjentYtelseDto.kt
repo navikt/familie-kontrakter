@@ -4,7 +4,8 @@ import java.time.LocalDate
 
 data class TilkjentYtelseDto(
         val andelerTilkjentYtelse: List<AndelTilkjentYtelseDto>,
-        val opphørsdato: LocalDate? = null
+        val opphørsdato: LocalDate? = null,
+        val startdato: LocalDate? = null
 )
 
 

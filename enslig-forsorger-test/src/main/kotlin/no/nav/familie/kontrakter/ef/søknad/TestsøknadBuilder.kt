@@ -376,10 +376,10 @@ class TestsøknadBuilder private constructor(
         )
 
         fun defaultBarnepass(
-                årsakSvarId: String = "trengerMerPassEnnJevnaldrede",
+                årsakSvarId: String? = "trengerMerPassEnnJevnaldrede",
                 ordninger: List<BarnepassOrdning>
         ) = Barnepass(
-                årsakBarnepass = Søknadsfelt("Årsak barnepass", "Trenger mer pass enn jevnaldrende", null, årsakSvarId),
+                årsakBarnepass = årsakSvarId?.let { Søknadsfelt("Årsak barnepass", "Trenger mer pass enn jevnaldrende", null, it) },
                 barnepassordninger = Søknadsfelt("barnepassOrdninger", ordninger)
         )
 

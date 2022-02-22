@@ -368,7 +368,7 @@ class TestsøknadBuilder private constructor(
                 tilDato: LocalDate = LocalDate.of(2021, 6, 30),
                 beløp: Double = 3200.0
         ): BarnepassOrdning = BarnepassOrdning(
-                hvaSlagsBarnepassOrdning = Søknadsfelt(label = "Hva slags barnepassordning", verdi = type),
+                hvaSlagsBarnepassOrdning = Søknadsfelt(label = "Hva slags barnepassordning", verdi = "Barnehage og lignende", svarId= type),
                 navn = Søknadsfelt(label = "Navn på barnepassordning", verdi = navn),
                 datoperiode = Søknadsfelt("Periode", Datoperiode(fra = fraDato, til = tilDato)),
                 belop = Søknadsfelt(label = "Beløp", verdi = beløp)

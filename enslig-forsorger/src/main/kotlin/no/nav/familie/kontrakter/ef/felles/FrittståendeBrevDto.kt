@@ -14,4 +14,7 @@ enum class FrittståendeBrevType(val tittel: String) {
     INFOBREV_OVERGANGSSTØNAD("Infobrev overgangsstønad"),
     INFOBREV_BARNETILSYN("Infobrev barnetilsyn"),
     INFOBREV_SKOLEPENGER("Infobrev skolepenger"),
+    SANKSJONSBREV_OVERGANGSTØNAD("Varsel om sanksjon"),
+    SANKSJONSBREV_BARNETILSYN("Varsel om sanksjon"),
+    SANKSJONSBREV_SKOLEPENGER("Varsel om sanksjon"),
 }

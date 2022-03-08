@@ -15,9 +15,11 @@ enum class BehandlingType {
 }
 
 enum class BehandlingÅrsak {
-    SØKNAD,
-    NYE_OPPLYSNINGER,
     KLAGE,
+    NYE_OPPLYSNINGER,
+    SANKSJON_1_MND,
+    SØKNAD,
+    MIGRERING,
 }
 
 enum class OpphørÅrsak {

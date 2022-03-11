@@ -1,9 +1,9 @@
 package no.nav.familie.kontrakter.ef.felles
 
-enum class Vedtaksresultat {
-    INNVILGET,
-    OPPHØRT,
-    AVSLÅTT
+enum class Vedtaksresultat(val visningsnavn: String) {
+    INNVILGET(visningsnavn = "Innvilget"),
+    OPPHØRT(visningsnavn = "Opphørt"),
+    AVSLÅTT(visningsnavn = "Avslått")
 }
 
 enum class BehandlingType {
@@ -14,10 +14,12 @@ enum class BehandlingType {
     TEKNISK_OPPHØR
 }
 
-enum class BehandlingÅrsak(visningstekst: String) {
-    SØKNAD("Søknad"),
-    NYE_OPPLYSNINGER("Nye opplysninger"),
-    KLAGE("Klage"),
+enum class BehandlingÅrsak {
+    KLAGE,
+    NYE_OPPLYSNINGER,
+    SANKSJON_1_MND,
+    SØKNAD,
+    MIGRERING,
 }
 
 enum class OpphørÅrsak {

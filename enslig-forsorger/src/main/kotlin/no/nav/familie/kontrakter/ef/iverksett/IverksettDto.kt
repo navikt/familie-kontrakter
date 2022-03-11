@@ -12,6 +12,7 @@ import no.nav.familie.kontrakter.felles.tilbakekreving.Periode
 import no.nav.familie.kontrakter.felles.tilbakekreving.Tilbakekrevingsvalg
 import java.math.BigDecimal
 import java.time.LocalDate
+import java.time.LocalDateTime
 import java.util.UUID
 
 data class IverksettDto(
@@ -48,13 +49,14 @@ data class BehandlingsdetaljerDto(
 
 data class VedtaksdetaljerDto(
         val resultat: Vedtaksresultat,
-        val vedtaksdato: LocalDate,
+        val vedtakstidspunkt: LocalDateTime,
         val opphørÅrsak: OpphørÅrsak?,
         val saksbehandlerId: String,
         val beslutterId: String,
         val tilkjentYtelse: TilkjentYtelseDto?,
         val vedtaksperioder: List<VedtaksperiodeDto> = emptyList(),
-        val tilbakekreving: TilbakekrevingDto? = null
+        val tilbakekreving: TilbakekrevingDto? = null,
+        val brevmottakere: List<Brevmottaker> = emptyList()
 )
 
 data class VilkårsvurderingDto(
@@ -97,7 +99,6 @@ enum class AdressebeskyttelseGradering {
     UGRADERT
 }
 
-
 enum class IverksettStatus {
     SENDT_TIL_OPPDRAG,
     FEILET_MOT_OPPDRAG,
@@ -108,13 +109,16 @@ enum class IverksettStatus {
 }
 
 enum class VedtaksperiodeType {
+    MIGRERING,
     FORLENGELSE,
     HOVEDPERIODE,
     PERIODE_FØR_FØDSEL,
     UTVIDELSE,
+    SANKSJON,
 }
 
 enum class AktivitetType {
+    MIGRERING,
     IKKE_AKTIVITETSPLIKT,
     BARN_UNDER_ETT_ÅR,
     FORSØRGER_I_ARBEID,
@@ -134,5 +138,18 @@ enum class AktivitetType {
     FORLENGELSE_STØNAD_PÅVENTE_TILSYNSORDNING,
     FORLENGELSE_STØNAD_PÅVENTE_UTDANNING,
     FORLENGELSE_STØNAD_UT_SKOLEÅRET,
+}
+
+data class Brevmottaker(val ident: String, val navn: String, val mottakerRolle: MottakerRolle, val identType: IdentType) {
+    enum class MottakerRolle {
+        BRUKER,
+        VERGE,
+        FULLMEKTIG
+    }
+
+    enum class IdentType{
+        PERSONIDENT,
+        ORGANISASJONSNUMMER
+    }
 }
 

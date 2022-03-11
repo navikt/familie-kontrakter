@@ -69,6 +69,13 @@ data class TidligereSamboer(
     val samboerTilDato: Søknadsfelt<LocalDate>,
 )
 
+data class Utenlandsopphold(
+    val utenlandsoppholdÅrsak: Søknadsfelt<String>,
+    val oppholdsland: Søknadsfelt<String>,
+    val oppholdslandTilDato: Søknadsfelt<String?>,
+    val oppholdslandFraDato: Søknadsfelt<String?>
+)
+
 data class Søker(
     val ident: Søknadsfelt<String>,
     val navn: Søknadsfelt<String>,
@@ -77,7 +84,8 @@ data class Søker(
     val sivilstand: Søknadsfelt<SIVILSTANDTYPE>,
     val spørsmål: Map<String, Søknadsfelt<Any>>,
     val nåværendeSamboer: Søknadsfelt<NåværendeSamboer>?,
-    val tidligereSamboere: List<Søknadsfelt<TidligereSamboer>>
+    val tidligereSamboere: List<Søknadsfelt<TidligereSamboer>>,
+    val utenlandsperioder: List<Søknadsfelt<Utenlandsopphold>> = listOf()
 )
 
 @Deprecated("Bruk v5", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ba.søknad.v5.Barn"))

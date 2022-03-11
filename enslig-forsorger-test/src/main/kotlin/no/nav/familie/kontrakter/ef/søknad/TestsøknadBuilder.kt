@@ -37,6 +37,7 @@ class TestsøknadBuilder private constructor(
      */
     class Builder {
 
+        private lateinit var barnetilsynBarn: List<Barn>
         private lateinit var personalia: Personalia
         private lateinit var innsendingsdetaljer: Innsendingsdetaljer
         private lateinit var sivilstandsdetaljer: Sivilstandsdetaljer
@@ -201,6 +202,8 @@ class TestsøknadBuilder private constructor(
 
         fun setBarn(barn: List<Barn> = listOf(defaultBarn())): Builder {
             this.barn = barn
+            this.barnetilsynBarn = listOf(defaultBarn(skalHaBarnepass = true,
+                                                      barnepass = defaultBarnepass(ordninger = listOf(defaultBarnepassordning()))))
             return this
         }
 
@@ -295,7 +298,7 @@ class TestsøknadBuilder private constructor(
                                                       Søknadsfelt("Opphold i Norge", medlemskapsdetaljer),
                                                       Søknadsfelt("Bosituasjonen din", bosituasjon),
                                                       Søknadsfelt("Sivilstandsplaner", sivilstandsplaner),
-                                                      Søknadsfelt("Barn fra folkeregisteret", barn),
+                                                      Søknadsfelt("Barn fra folkeregisteret", barnetilsynBarn),
                                                       Søknadsfelt("Arbeid, utdanning og andre aktiviteter", aktivitet),
                                                       Søknadsfelt("Når søker du stønad fra?", stønadsstart),
                                                       defaultBarnetilsynDokumentasjon())

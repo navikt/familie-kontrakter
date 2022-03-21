@@ -1,6 +1,6 @@
 package no.nav.familie.kontrakter.ef.infotrygd
 
-import no.nav.familie.kontrakter.ef.felles.StønadType
+import no.nav.familie.kontrakter.felles.ef.StønadType
 import java.time.LocalDate
 import java.time.LocalDateTime
 

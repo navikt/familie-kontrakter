@@ -202,8 +202,13 @@ class TestsøknadBuilder private constructor(
 
         fun setBarn(barn: List<Barn> = listOf(defaultBarn())): Builder {
             this.barn = barn
-            this.barnetilsynBarn = listOf(defaultBarn(skalHaBarnepass = true,
-                                                      barnepass = defaultBarnepass(ordninger = listOf(defaultBarnepassordning()))))
+            this.barnetilsynBarn = barn.map {
+                it.copy(
+                        skalHaBarnepass = Søknadsfelt("Skal ha barnepass", true),
+                        barnepass = it.barnepass ?: Søknadsfelt("Barnepass", defaultBarnepass(ordninger = listOf(defaultBarnepassordning())))
+                )
+            }
+
             return this
         }
 
@@ -371,7 +376,9 @@ class TestsøknadBuilder private constructor(
                 tilDato: LocalDate = LocalDate.of(2021, 6, 30),
                 beløp: Double = 3200.0
         ): BarnepassOrdning = BarnepassOrdning(
-                hvaSlagsBarnepassOrdning = Søknadsfelt(label = "Hva slags barnepassordning", verdi = "Barnehage og lignende", svarId= type),
+                hvaSlagsBarnepassOrdning = Søknadsfelt(label = "Hva slags barnepassordning",
+                                                       verdi = "Barnehage og lignende",
+                                                       svarId = type),
                 navn = Søknadsfelt(label = "Navn på barnepassordning", verdi = navn),
                 datoperiode = Søknadsfelt("Periode", Datoperiode(fra = fraDato, til = tilDato)),
                 belop = Søknadsfelt(label = "Beløp", verdi = beløp)
@@ -382,7 +389,12 @@ class TestsøknadBuilder private constructor(
                 årsakSvarId: String? = "trengerMerPassEnnJevnaldrede",
                 ordninger: List<BarnepassOrdning>
         ) = Barnepass(
-                årsakBarnepass = årsakSvarId?.let { Søknadsfelt("Årsak barnepass", "Trenger mer pass enn jevnaldrende", null, it) },
+                årsakBarnepass = årsakSvarId?.let {
+                    Søknadsfelt("Årsak barnepass",
+                                "Trenger mer pass enn jevnaldrende",
+                                null,
+                                it)
+                },
                 barnepassordninger = Søknadsfelt("barnepassOrdninger", ordninger)
         )
 

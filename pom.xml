@@ -19,7 +19,7 @@
         <changelist>-SNAPSHOT</changelist>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <kotlin.version>1.5.0</kotlin.version>
-        <jackson.version>2.12.3</jackson.version>
+        <jackson.version>2.13.2.1</jackson.version>
         <felles.version>1.20210419103325_d044927</felles.version>
         <junit.version>4.13.1</junit.version>
     </properties>

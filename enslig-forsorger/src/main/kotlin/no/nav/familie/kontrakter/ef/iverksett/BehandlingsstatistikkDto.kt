@@ -10,7 +10,7 @@ data class BehandlingsstatistikkDto(
         val eksternBehandlingId: Long,
         val personIdent: String,
         val gjeldendeSaksbehandlerId: String,
-        val beslutter: String?,
+        val beslutterId: String?,
         val eksternFagsakId: Long,
         val behandlingOpprettetTidspunkt: ZonedDateTime? = null,
         val hendelseTidspunkt: ZonedDateTime,

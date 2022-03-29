@@ -1,7 +1,4 @@
 package no.nav.familie.kontrakter.ef.felles
 
-enum class StønadType {
-    OVERGANGSSTØNAD,
-    BARNETILSYN,
-    SKOLEPENGER
-}
+@Deprecated("Bruk felles StønadType", ReplaceWith("StønadType","no.nav.familie.kontrakter.felles.ef.StønadType"))
+typealias StønadType = no.nav.familie.kontrakter.felles.ef.StønadType

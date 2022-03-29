@@ -1,6 +1,6 @@
 package no.nav.familie.kontrakter.ef.iverksett
 
-import no.nav.familie.kontrakter.ef.felles.StønadType
+import no.nav.familie.kontrakter.felles.ef.StønadType
 import java.util.UUID
 
 data class KonsistensavstemmingDto(

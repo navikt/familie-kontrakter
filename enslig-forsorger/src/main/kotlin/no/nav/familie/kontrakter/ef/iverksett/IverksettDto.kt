@@ -15,82 +15,114 @@ import java.time.LocalDate
 import java.time.LocalDateTime
 import java.util.UUID
 
-data class IverksettDto(
-        val fagsak: FagsakdetaljerDto,
-        val behandling: BehandlingsdetaljerDto,
-        val søker: SøkerDto,
-        val vedtak: VedtaksdetaljerDto,
-)
+sealed class IverksettDto {
+    abstract val fagsak: FagsakdetaljerDto
+    abstract val behandling: BehandlingsdetaljerDto
+    abstract val søker: SøkerDto
+    abstract val vedtak: VedtaksdetaljerDto
+}
+
+data class IverksettOvergangsstønadDto(
+    override val fagsak: FagsakdetaljerDto,
+    override val behandling: BehandlingsdetaljerDto,
+    override val søker: SøkerDto,
+    override val vedtak: VedtaksdetaljerDto,
+) : IverksettDto()
 
 data class SøkerDto(
-        val personIdent: String,
-        val barn: List<BarnDto> = emptyList(),
-        val tilhørendeEnhet: String,
-        val adressebeskyttelse: AdressebeskyttelseGradering? = null,
+    val personIdent: String,
+    val barn: List<BarnDto> = emptyList(),
+    val tilhørendeEnhet: String,
+    val adressebeskyttelse: AdressebeskyttelseGradering? = null,
 )
 
 data class FagsakdetaljerDto(
-        val fagsakId: UUID,
-        val eksternId: Long,
-        val stønadstype: StønadType
+    val fagsakId: UUID,
+    val eksternId: Long,
+    val stønadstype: StønadType
 )
 
 data class BehandlingsdetaljerDto(
-        val behandlingId: UUID,
-        val forrigeBehandlingId: UUID? = null,
-        val eksternId: Long,
-        val behandlingType: BehandlingType,
-        val behandlingÅrsak: BehandlingÅrsak,
-        val vilkårsvurderinger: List<VilkårsvurderingDto> = emptyList(),
-        val aktivitetspliktInntrefferDato: LocalDate? = null,
-        val kravMottatt: LocalDate? = null,
+    val behandlingId: UUID,
+    val forrigeBehandlingId: UUID? = null,
+    val eksternId: Long,
+    val behandlingType: BehandlingType,
+    val behandlingÅrsak: BehandlingÅrsak,
+    val vilkårsvurderinger: List<VilkårsvurderingDto> = emptyList(),
+    val aktivitetspliktInntrefferDato: LocalDate? = null,
+    val kravMottatt: LocalDate? = null,
 )
 
 
-data class VedtaksdetaljerDto(
-        val resultat: Vedtaksresultat,
-        val vedtakstidspunkt: LocalDateTime,
-        val opphørÅrsak: OpphørÅrsak?,
-        val saksbehandlerId: String,
-        val beslutterId: String,
-        val tilkjentYtelse: TilkjentYtelseDto?,
-        val vedtaksperioder: List<VedtaksperiodeDto> = emptyList(),
-        val tilbakekreving: TilbakekrevingDto? = null,
-        val brevmottakere: List<Brevmottaker> = emptyList()
-)
+sealed class VedtaksdetaljerDto {
+    abstract val resultat: Vedtaksresultat
+    abstract val vedtakstidspunkt: LocalDateTime
+    abstract val opphørÅrsak: OpphørÅrsak?
+    abstract val saksbehandlerId: String
+    abstract val beslutterId: String
+    abstract val tilkjentYtelse: TilkjentYtelseDto?
+    abstract val vedtaksperioder: List<VedtaksperiodeDto>
+    abstract val tilbakekreving: TilbakekrevingDto?
+    abstract val brevmottakere: List<Brevmottaker>
+}
+
+
+data class VedtaksdetaljerOvergangsstønadDto (
+    override val resultat: Vedtaksresultat,
+    override val vedtakstidspunkt: LocalDateTime,
+    override val opphørÅrsak: OpphørÅrsak?,
+    override val saksbehandlerId: String,
+    override val beslutterId: String,
+    override val tilkjentYtelse: TilkjentYtelseDto?,
+    override val vedtaksperioder: List<VedtaksperiodeDto> = emptyList(),
+    override val tilbakekreving: TilbakekrevingDto? = null,
+    override val brevmottakere: List<Brevmottaker> = emptyList()
+): VedtaksdetaljerDto()
 
 data class VilkårsvurderingDto(
-        val vilkårType: VilkårType,
-        val resultat: Vilkårsresultat,
-        val delvilkårsvurderinger: List<DelvilkårsvurderingDto> = emptyList()
+    val vilkårType: VilkårType,
+    val resultat: Vilkårsresultat,
+    val delvilkårsvurderinger: List<DelvilkårsvurderingDto> = emptyList()
 )
 
 data class DelvilkårsvurderingDto(
-        val resultat: Vilkårsresultat,
-        val vurderinger: List<VurderingDto> = emptyList()
+    val resultat: Vilkårsresultat,
+    val vurderinger: List<VurderingDto> = emptyList()
 )
 
 data class VurderingDto(
-        val regelId: RegelId,
-        val svar: SvarId? = null,
-        val begrunnelse: String? = null
+    val regelId: RegelId,
+    val svar: SvarId? = null,
+    val begrunnelse: String? = null
 )
 
-data class VedtaksperiodeDto(
-        val fraOgMed: LocalDate,
-        val tilOgMed: LocalDate,
-        val aktivitet: AktivitetType,
-        val periodeType: VedtaksperiodeType
-)
+sealed class VedtaksperiodeDto {
+    abstract val fraOgMed: LocalDate
+    abstract val tilOgMed: LocalDate
+}
+
+data class VedtaksperiodeOvergangsstønadDto(
+    override val fraOgMed: LocalDate,
+    override val tilOgMed: LocalDate,
+    val aktivitet: AktivitetType,
+    val periodeType: VedtaksperiodeType
+) : VedtaksperiodeDto()
+
+data class BarnetilsynVedtaksperiodeDto(
+    override val fraOgMed: LocalDate,
+    override val tilOgMed: LocalDate
+) : VedtaksperiodeDto()
 
 data class TilbakekrevingDto(
-        val tilbakekrevingsvalg: Tilbakekrevingsvalg,
-        val tilbakekrevingMedVarsel: TilbakekrevingMedVarselDto?
+    val tilbakekrevingsvalg: Tilbakekrevingsvalg,
+    val tilbakekrevingMedVarsel: TilbakekrevingMedVarselDto?
 )
 
-data class TilbakekrevingMedVarselDto(val varseltekst: String,
-                                      val sumFeilutbetaling: BigDecimal? = null, // Hentes fra simulering hvis det mangler
-                                      val perioder: List<Periode> = emptyList()) // Hentes fra simulering hvis det mangler
+data class TilbakekrevingMedVarselDto(
+    val varseltekst: String,
+    val sumFeilutbetaling: BigDecimal? = null, // Hentes fra simulering hvis det mangler
+    val perioder: List<Periode> = emptyList()
+) // Hentes fra simulering hvis det mangler
 
 enum class AdressebeskyttelseGradering {
     STRENGT_FORTROLIG,
@@ -141,14 +173,19 @@ enum class AktivitetType {
     FORLENGELSE_STØNAD_UT_SKOLEÅRET,
 }
 
-data class Brevmottaker(val ident: String, val navn: String, val mottakerRolle: MottakerRolle, val identType: IdentType) {
+data class Brevmottaker(
+    val ident: String,
+    val navn: String,
+    val mottakerRolle: MottakerRolle,
+    val identType: IdentType
+) {
     enum class MottakerRolle {
         BRUKER,
         VERGE,
         FULLMEKTIG
     }
 
-    enum class IdentType{
+    enum class IdentType {
         PERSONIDENT,
         ORGANISASJONSNUMMER
     }

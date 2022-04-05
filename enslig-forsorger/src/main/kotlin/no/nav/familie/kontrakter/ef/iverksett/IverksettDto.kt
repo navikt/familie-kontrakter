@@ -27,7 +27,7 @@ data class IverksettOvergangsstønadDto(
         override val fagsak: FagsakdetaljerDto,
         override val behandling: BehandlingsdetaljerDto,
         override val søker: SøkerDto,
-        override val vedtak: VedtaksdetaljerDto,
+        override val vedtak: VedtaksdetaljerOvergangsstønadDto,
 ) : IverksettDto()
 
 data class SøkerDto(
@@ -76,7 +76,7 @@ data class VedtaksdetaljerOvergangsstønadDto(
         override val saksbehandlerId: String,
         override val beslutterId: String,
         override val tilkjentYtelse: TilkjentYtelseDto?,
-        override val vedtaksperioder: List<VedtaksperiodeDto> = emptyList(),
+        override val vedtaksperioder: List<VedtaksperiodeOvergangsstønadDto> = emptyList(),
         override val tilbakekreving: TilbakekrevingDto? = null,
         override val brevmottakere: List<Brevmottaker> = emptyList()
 ) : VedtaksdetaljerDto()

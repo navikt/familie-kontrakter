@@ -6,7 +6,7 @@ import java.time.LocalDate
 
 data class HentFeilutbetalingerFraSimuleringRequest(val ytelsestype: Ytelsestype,
                                                     val eksternFagsakId: String,
-                                                    val behandlingId: String)
+                                                    val fagsystemsbehandlingId: String)
 
 data class FeilutbetalingerFraSimulering(val feilutbetaltePerioder: List<FeilutbetaltPeriode>)
 

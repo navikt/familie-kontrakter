@@ -18,8 +18,9 @@ data class ForhåndsvisVarselbrevRequest(@Size(max = 1500, message = "Varselteks
                                         val feilutbetaltePerioderDto: FeilutbetaltePerioderDto,
                                         val fagsystem: Fagsystem,
                                         val eksternFagsakId: String,
+                                        val eksternBehandlingId: String? = null,
                                         val ident: String,
                                         val verge: Verge? = null)
 
 data class FeilutbetaltePerioderDto(var sumFeilutbetaling: Long,
-                               var perioder: List<Periode>)
+                                    var perioder: List<Periode>)

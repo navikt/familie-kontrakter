@@ -3,7 +3,7 @@ package no.nav.familie.kontrakter.felles.simulering
 import java.math.BigDecimal
 import java.time.LocalDate
 
-data class HentFeilutbetalingerFraSimuleringRequest(val fagsystem: String,
+data class HentFeilutbetalingerFraSimuleringRequest(val fagOmrådeKode: FagOmrådeKode,
                                                     val eksternFagsakId: String,
                                                     val behandlingId: String)
 

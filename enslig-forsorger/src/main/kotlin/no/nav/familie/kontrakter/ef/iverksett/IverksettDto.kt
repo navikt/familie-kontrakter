@@ -95,7 +95,7 @@ data class VedtaksdetaljerBarnetilsynDto(
         override val saksbehandlerId: String,
         override val beslutterId: String,
         override val tilkjentYtelse: TilkjentYtelseDto?,
-        override val vedtaksperioder: List<BarnetilsynVedtaksperiodeDto> = emptyList(),
+        override val vedtaksperioder: List<VedtaksperiodeBarnetilsynDto> = emptyList(),
         override val tilbakekreving: TilbakekrevingDto? = null,
         override val brevmottakere: List<Brevmottaker> = emptyList(),
         val kontantstøtte: List<PeriodeMedBeløpDto>,
@@ -132,7 +132,7 @@ data class VedtaksperiodeOvergangsstønadDto(
         val periodeType: VedtaksperiodeType
 ) : VedtaksperiodeDto()
 
-data class BarnetilsynVedtaksperiodeDto(
+data class VedtaksperiodeBarnetilsynDto(
         override val fraOgMed: LocalDate,
         override val tilOgMed: LocalDate,
         val utgifter: BigDecimal,

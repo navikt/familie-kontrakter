@@ -135,7 +135,7 @@ data class VedtaksperiodeOvergangsstønadDto(
 data class BarnetilsynVedtaksperiodeDto(
         override val fraOgMed: LocalDate,
         override val tilOgMed: LocalDate,
-        val barn: List<String>
+        val antallBarn: Int
 ) : VedtaksperiodeDto()
 
 data class TilbakekrevingDto(
@@ -146,7 +146,7 @@ data class TilbakekrevingDto(
 data class PeriodeMedBeløpDto(
         val fraOgMed: LocalDate,
         val tilOgMed: LocalDate,
-        val beløp: BigDecimal
+        val beløp: Int
 )
 
 data class TilbakekrevingMedVarselDto(

@@ -30,6 +30,13 @@ data class IverksettOvergangsstønadDto(
         override val vedtak: VedtaksdetaljerOvergangsstønadDto,
 ) : IverksettDto()
 
+data class IverksettBarnetilsynDto(
+        override val fagsak: FagsakdetaljerDto,
+        override val behandling: BehandlingsdetaljerDto,
+        override val søker: SøkerDto,
+        override val vedtak: VedtaksdetaljerBarnetilsynDto,
+) : IverksettDto()
+
 data class SøkerDto(
         val personIdent: String,
         val barn: List<BarnDto> = emptyList(),
@@ -81,6 +88,20 @@ data class VedtaksdetaljerOvergangsstønadDto(
         override val brevmottakere: List<Brevmottaker> = emptyList()
 ) : VedtaksdetaljerDto()
 
+data class VedtaksdetaljerBarnetilsynDto(
+        override val resultat: Vedtaksresultat,
+        override val vedtakstidspunkt: LocalDateTime,
+        override val opphørÅrsak: OpphørÅrsak?,
+        override val saksbehandlerId: String,
+        override val beslutterId: String,
+        override val tilkjentYtelse: TilkjentYtelseDto?,
+        override val vedtaksperioder: List<VedtaksperiodeBarnetilsynDto> = emptyList(),
+        override val tilbakekreving: TilbakekrevingDto? = null,
+        override val brevmottakere: List<Brevmottaker> = emptyList(),
+        val kontantstøtte: List<PeriodeMedBeløpDto>,
+        val tilleggsstønad: List<PeriodeMedBeløpDto>
+) : VedtaksdetaljerDto()
+
 data class VilkårsvurderingDto(
         val vilkårType: VilkårType,
         val resultat: Vilkårsresultat,
@@ -111,14 +132,22 @@ data class VedtaksperiodeOvergangsstønadDto(
         val periodeType: VedtaksperiodeType
 ) : VedtaksperiodeDto()
 
-data class BarnetilsynVedtaksperiodeDto(
+data class VedtaksperiodeBarnetilsynDto(
         override val fraOgMed: LocalDate,
-        override val tilOgMed: LocalDate
+        override val tilOgMed: LocalDate,
+        val utgifter: BigDecimal,
+        val antallBarn: Int
 ) : VedtaksperiodeDto()
 
 data class TilbakekrevingDto(
         val tilbakekrevingsvalg: Tilbakekrevingsvalg,
         val tilbakekrevingMedVarsel: TilbakekrevingMedVarselDto?
+)
+
+data class PeriodeMedBeløpDto(
+        val fraOgMed: LocalDate,
+        val tilOgMed: LocalDate,
+        val beløp: Int
 )
 
 data class TilbakekrevingMedVarselDto(

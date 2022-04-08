@@ -1,12 +1,12 @@
 package no.nav.familie.kontrakter.felles.simulering
 
-import no.nav.familie.kontrakter.felles.Fagsystem
+import no.nav.familie.kontrakter.felles.tilbakekreving.Ytelsestype
 import java.math.BigDecimal
 import java.time.LocalDate
 
-data class HentFeilutbetalingerFraSimuleringRequest(val fagsystem: Fagsystem,
+data class HentFeilutbetalingerFraSimuleringRequest(val ytelsestype: Ytelsestype,
                                                     val eksternFagsakId: String,
-                                                    val behandlingId: String)
+                                                    val fagsystemsbehandlingId: String)
 
 data class FeilutbetalingerFraSimulering(val feilutbetaltePerioder: List<FeilutbetaltPeriode>)
 

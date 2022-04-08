@@ -14,6 +14,7 @@ data class AndreForelderUtvidet(
     val søkerFlyttetFraAndreForelderDato: Søknadsfelt<String>
 )
 
+@Deprecated("Bruk v7", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ba.søknad.v7.Søknad"))
 data class AndreForelder(
     val navn: Søknadsfelt<String>,
     val fnr: Søknadsfelt<String>,
@@ -26,6 +27,7 @@ data class AndreForelder(
     val utvidet: AndreForelderUtvidet,
 )
 
+@Deprecated("Bruk v7", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ba.søknad.v7.Søknad"))
 data class Søknad(
     val søknadstype: Søknadstype,
     val søker: Søker,
@@ -36,6 +38,7 @@ data class Søknad(
     val originalSpråk: Locale
 )
 
+@Deprecated("Bruk v7", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ba.søknad.v7.Søknad"))
 data class Barn(
     val ident: Søknadsfelt<String>,
     val navn: Søknadsfelt<String>,

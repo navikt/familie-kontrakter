@@ -37,6 +37,7 @@ class TestsøknadBuilder private constructor(
      */
     class Builder {
 
+        private lateinit var barnetilsynBarn: List<Barn>
         private lateinit var personalia: Personalia
         private lateinit var innsendingsdetaljer: Innsendingsdetaljer
         private lateinit var sivilstandsdetaljer: Sivilstandsdetaljer
@@ -201,6 +202,13 @@ class TestsøknadBuilder private constructor(
 
         fun setBarn(barn: List<Barn> = listOf(defaultBarn())): Builder {
             this.barn = barn
+            this.barnetilsynBarn = barn.map {
+                it.copy(
+                        skalHaBarnepass = Søknadsfelt("Skal ha barnepass", true),
+                        barnepass = it.barnepass ?: Søknadsfelt("Barnepass", defaultBarnepass(ordninger = listOf(defaultBarnepassordning())))
+                )
+            }
+
             return this
         }
 
@@ -295,18 +303,20 @@ class TestsøknadBuilder private constructor(
                                                       Søknadsfelt("Opphold i Norge", medlemskapsdetaljer),
                                                       Søknadsfelt("Bosituasjonen din", bosituasjon),
                                                       Søknadsfelt("Sivilstandsplaner", sivilstandsplaner),
-                                                      Søknadsfelt("Barn fra folkeregisteret", barn),
+                                                      Søknadsfelt("Barn fra folkeregisteret", barnetilsynBarn),
                                                       Søknadsfelt("Arbeid, utdanning og andre aktiviteter", aktivitet),
                                                       Søknadsfelt("Når søker du stønad fra?", stønadsstart),
                                                       defaultBarnetilsynDokumentasjon())
 
             val søknadSkolepenger = SøknadSkolepenger(personalia = Søknadsfelt("Søker", personalia),
-                                                      barn=Søknadsfelt("Barn fra folkeregisteret", barn),
-                                                      innsendingsdetaljer =Søknadsfelt("innsendingsdetaljer", innsendingsdetaljer),
-                                                      sivilstandsdetaljer =   Søknadsfelt("Detaljer om sivilstand", sivilstandsdetaljer),
+                                                      barn = Søknadsfelt("Barn fra folkeregisteret", barn),
+                                                      innsendingsdetaljer = Søknadsfelt("innsendingsdetaljer",
+                                                                                        innsendingsdetaljer),
+                                                      sivilstandsdetaljer = Søknadsfelt("Detaljer om sivilstand",
+                                                                                        sivilstandsdetaljer),
                                                       medlemskapsdetaljer = Søknadsfelt("Opphold i Norge", medlemskapsdetaljer),
                                                       bosituasjon = Søknadsfelt("Bosituasjonen din", bosituasjon),
-                                                      sivilstandsplaner =Søknadsfelt("Sivilstandsplaner", sivilstandsplaner),
+                                                      sivilstandsplaner = Søknadsfelt("Sivilstandsplaner", sivilstandsplaner),
                                                       utdanning = Søknadsfelt("Utdanningen du skal ta", defaultUtdanning()),
                                                       dokumentasjon = SkolepengerDokumentasjon(defaultDokumentfelt("utdanningsutgifter")))
 
@@ -357,6 +367,35 @@ class TestsøknadBuilder private constructor(
                 },
                 bosattNorge = bosattINorge?.let { Søknadsfelt("Bosatt i norge", it) },
                 land = land?.let { Søknadsfelt("Land", it) }
+        )
+
+        fun defaultBarnepassordning(
+                type: String = "barnehageOgLiknende",
+                navn: String = "Dyrehagen barnehage",
+                fraDato: LocalDate = LocalDate.of(2021, 1, 1),
+                tilDato: LocalDate = LocalDate.of(2021, 6, 30),
+                beløp: Double = 3200.0
+        ): BarnepassOrdning = BarnepassOrdning(
+                hvaSlagsBarnepassOrdning = Søknadsfelt(label = "Hva slags barnepassordning",
+                                                       verdi = "Barnehage og lignende",
+                                                       svarId = type),
+                navn = Søknadsfelt(label = "Navn på barnepassordning", verdi = navn),
+                datoperiode = Søknadsfelt("Periode", Datoperiode(fra = fraDato, til = tilDato)),
+                belop = Søknadsfelt(label = "Beløp", verdi = beløp)
+
+        )
+
+        fun defaultBarnepass(
+                årsakSvarId: String? = "trengerMerPassEnnJevnaldrede",
+                ordninger: List<BarnepassOrdning>
+        ) = Barnepass(
+                årsakBarnepass = årsakSvarId?.let {
+                    Søknadsfelt("Årsak barnepass",
+                                "Trenger mer pass enn jevnaldrende",
+                                null,
+                                it)
+                },
+                barnepassordninger = Søknadsfelt("barnepassOrdninger", ordninger)
         )
 
         fun defaultInnsendingsdetaljer(

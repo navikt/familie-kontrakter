@@ -1,6 +1,6 @@
 package no.nav.familie.kontrakter.ef.infotrygd
 
-import no.nav.familie.kontrakter.ef.felles.StønadType
+import no.nav.familie.kontrakter.felles.ef.StønadType
 import java.time.LocalDate
 import java.time.LocalDateTime
 
@@ -38,11 +38,16 @@ data class InfotrygdPeriode(val personIdent: String,
                             val stønadId: Long,
                             val vedtakId: Long,
                             val vedtakstidspunkt: LocalDateTime,
+                            @Deprecated("bruk beløpEngangsutbetaling")
                             val stønadBeløp: Int,
+                            val engangsbeløp: Int,
                             val inntektsgrunnlag: Int,
                             val inntektsreduksjon: Int,
                             val samordningsfradrag: Int,
+                            val utgifterBarnetilsyn: Int,
+                            @Deprecated("bruk beløpMånedsutbetaling")
                             val beløp: Int,
+                            val månedsbeløp: Int,
                             val startDato: LocalDate,
                             val stønadFom: LocalDate,
                             val stønadTom: LocalDate,

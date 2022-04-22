@@ -1,6 +1,6 @@
 package no.nav.familie.kontrakter.ef.infotrygd
 
-import no.nav.familie.kontrakter.ef.felles.StønadType
+import no.nav.familie.kontrakter.felles.ef.StønadType
 
 /**
  * @param personIdenter alle identer til personen

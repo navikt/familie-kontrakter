@@ -15,9 +15,10 @@ enum class BehandlingType {
 }
 
 enum class BehandlingÅrsak {
-    SØKNAD,
-    NYE_OPPLYSNINGER,
     KLAGE,
+    NYE_OPPLYSNINGER,
+    SANKSJON_1_MND,
+    SØKNAD,
     MIGRERING,
 }
 
@@ -56,5 +57,9 @@ enum class VilkårType(val beskrivelse: String) {
     NYTT_BARN_SAMME_PARTNER("§15-4 Nytt barn samme partner"),
     SAGT_OPP_ELLER_REDUSERT("Sagt opp eller redusert stilling"),
     AKTIVITET("Aktivitet"),
-    TIDLIGERE_VEDTAKSPERIODER("Tidligere vedtaksperioder");
+    TIDLIGERE_VEDTAKSPERIODER("Tidligere vedtaksperioder"),
+
+    AKTIVITET_ARBEID("Aktivitet"),
+    INNTEKT("§15-10 Inntekt"),
+    ALDER_PÅ_BARN("Alder på barn");
 }

@@ -1,17 +1,18 @@
 package no.nav.familie.kontrakter.ef.felles
 
+import no.nav.familie.kontrakter.felles.ef.StønadType
+
 data class FrittståendeBrevDto(val personIdent: String,
                                val eksternFagsakId: Long,
+                               val stønadType: StønadType,
                                val brevtype: FrittståendeBrevType,
                                val fil: ByteArray,
                                val journalførendeEnhet: String,
                                val saksbehandlerIdent: String)
 
 enum class FrittståendeBrevType(val tittel: String) {
-    MANGELBREV_OVERGANGSSTØNAD("Innhenting av opplysninger"),
-    MANGELBREV_BARNETILSYN("Innhenting av opplysninger"),
-    MANGELBREV_SKOLEPENGER("Innhenting av opplysninger"),
-    INFOBREV_OVERGANGSSTØNAD("Infobrev overgangsstønad"),
-    INFOBREV_BARNETILSYN("Infobrev barnetilsyn"),
-    INFOBREV_SKOLEPENGER("Infobrev skolepenger"),
+    INFORMASJONSBREV("Informasjonsbrev"),
+    INNHENTING_AV_OPPLYSNINGER("Innhenting av opplysninger"),
+    VARSEL_OM_AKTIVITETSPLIKT("Varsel om aktivitetsplikt"),
+    VARSEL_OM_SANKSJON("Varsel om sanksjon"),
 }

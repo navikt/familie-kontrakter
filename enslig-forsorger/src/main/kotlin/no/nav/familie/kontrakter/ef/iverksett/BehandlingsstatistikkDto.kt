@@ -1,7 +1,7 @@
 package no.nav.familie.kontrakter.ef.iverksett
 
 import no.nav.familie.kontrakter.ef.felles.BehandlingType
-import no.nav.familie.kontrakter.ef.felles.StønadType
+import no.nav.familie.kontrakter.felles.ef.StønadType
 import java.time.ZonedDateTime
 import java.util.UUID
 
@@ -10,6 +10,7 @@ data class BehandlingsstatistikkDto(
         val eksternBehandlingId: Long,
         val personIdent: String,
         val gjeldendeSaksbehandlerId: String,
+        val beslutterId: String?,
         val eksternFagsakId: Long,
         val behandlingOpprettetTidspunkt: ZonedDateTime? = null,
         val hendelseTidspunkt: ZonedDateTime,

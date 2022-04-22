@@ -43,7 +43,15 @@ enum class RegelId(val beskrivelse: String) {
 
     //Tidligere Stønadsperioder
     HAR_TIDLIGERE_MOTTATT_OVERGANSSTØNAD("Har søker tidligere mottatt overgangsstønad?"),
-    HAR_TIDLIGERE_ANDRE_STØNADER_SOM_HAR_BETYDNING("Har søker tidligere mottatt andre stønader som har betydning for stønadstiden i §15-8 første og andre ledd?")
-    ;
+    HAR_TIDLIGERE_ANDRE_STØNADER_SOM_HAR_BETYDNING("Har søker tidligere mottatt andre stønader som har betydning for stønadstiden i §15-8 første og andre ledd?"),
 
+    // Inntekt
+    INNTEKT_LAVERE_ENN_INNTEKTSGRENSE("Har brukeren inntekt under 6 ganger grunnbeløpet?"),
+
+    // Aktivitet - arbeid
+    ER_I_ARBEID_ELLER_FORBIGÅENDE_SYKDOM("Er brukeren i arbeid eller har forbigående sykdom?"),
+
+    // Alder på barn
+    HAR_ALDER_LAVERE_ENN_GRENSEVERDI("Har barnet fullført 4. skoleår?"),
+    UNNTAK_ALDER("Oppfylles unntak etter å ha fullført 4. skoleår?");
 }

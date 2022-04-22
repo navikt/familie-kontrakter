@@ -135,7 +135,7 @@ data class VedtaksperiodeOvergangsstønadDto(
 data class VedtaksperiodeBarnetilsynDto(
         override val fraOgMed: LocalDate,
         override val tilOgMed: LocalDate,
-        val utgifter: BigDecimal,
+        val utgifter: Int,
         val antallBarn: Int
 ) : VedtaksperiodeDto()
 

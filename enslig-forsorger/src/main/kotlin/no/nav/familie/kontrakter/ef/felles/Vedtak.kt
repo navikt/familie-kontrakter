@@ -20,6 +20,7 @@ enum class BehandlingÅrsak {
     SANKSJON_1_MND,
     SØKNAD,
     MIGRERING,
+    G_OMREGNING
 }
 
 enum class OpphørÅrsak {

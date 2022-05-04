@@ -74,7 +74,6 @@ class TestsøknadBuilder private constructor(
                     Søknadsfelt("Navn", navnOgFnr?.navn ?: "Kari Nordmann"),
                     Søknadsfelt("Statsborgerskap", "Norsk"),
                     Søknadsfelt("Adresse", adresse),
-                    Søknadsfelt("Telefonnummer", "12345678"),
                     Søknadsfelt("Sivilstand", "Ugift"))
 
             return this

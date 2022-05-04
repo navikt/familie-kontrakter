@@ -12,7 +12,9 @@ data class Journalpost(val journalpostId: String,
                        val journalforendeEnhet: String? = null,
                        val kanal: String? = null,
                        val dokumenter: List<DokumentInfo>? = null,
-                       val relevanteDatoer: List<RelevantDato>? = null) {
+                       val relevanteDatoer: List<RelevantDato>? = null,
+                       val eksternReferanseId: String? = null,
+) {
 
     val datoMottatt = relevanteDatoer?.firstOrNull { it.datotype == "DATO_REGISTRERT" }?.dato
 }

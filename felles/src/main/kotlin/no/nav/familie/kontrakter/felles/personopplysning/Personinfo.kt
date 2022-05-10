@@ -43,7 +43,7 @@ data class Opphold(val type: OPPHOLDSTILLATELSE,
                    val oppholdFra: LocalDate?,
                    val oppholdTil: LocalDate?)
 
-data class ForelderBarnRelasjon(val relatertPersonsIdent: String,
+data class ForelderBarnRelasjon(val relatertPersonsIdent: String?,
                                 val relatertPersonsRolle: FORELDERBARNRELASJONROLLE)
 
 data class Adressebeskyttelse(

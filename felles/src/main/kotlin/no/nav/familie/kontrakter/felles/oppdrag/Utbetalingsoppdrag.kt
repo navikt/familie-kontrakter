@@ -11,7 +11,8 @@ data class Utbetalingsoppdrag(val kodeEndring: KodeEndring,
                               val aktoer: String,
                               val saksbehandlerId: String,
                               val avstemmingTidspunkt: LocalDateTime = LocalDateTime.now(),
-                              val utbetalingsperiode: List<Utbetalingsperiode>) {
+                              val utbetalingsperiode: List<Utbetalingsperiode>,
+                              val gOmregning: Boolean = false) {
 
     enum class KodeEndring {
         NY,

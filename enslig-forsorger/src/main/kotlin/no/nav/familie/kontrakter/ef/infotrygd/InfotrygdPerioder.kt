@@ -51,7 +51,8 @@ data class InfotrygdPeriode(val personIdent: String,
                             val startDato: LocalDate,
                             val stønadFom: LocalDate,
                             val stønadTom: LocalDate,
-                            val opphørsdato: LocalDate?)
+                            val opphørsdato: LocalDate?,
+                            val barnIdenter : List<String> = emptyList())
 
 @Suppress("unused")
 enum class InfotrygdEndringKode(val infotrygdKode: String, val beskrivelse: String) {

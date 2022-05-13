@@ -27,6 +27,7 @@ data class Stønad(
         val opphørtFom: String? = null,
         val opphørsgrunn: String? = null,
         val delytelse: List<Delytelse> = emptyList(),
+        val antallBarn: Int? = null,
 )
 
 data class Sak(

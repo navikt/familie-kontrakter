@@ -53,5 +53,8 @@ enum class RegelId(val beskrivelse: String) {
 
     // Alder på barn
     HAR_ALDER_LAVERE_ENN_GRENSEVERDI("Har barnet fullført 4. skoleår?"),
-    UNNTAK_ALDER("Oppfylles unntak etter å ha fullført 4. skoleår?");
+    UNNTAK_ALDER("Oppfylles unntak etter å ha fullført 4. skoleår?"),
+
+    //Dokumentasjon tilsynsutgifter
+    HAR_DOKUMENTERTE_TILSYNSUTGIFTER("Har brukeren dokumenterte tilsynsutgifter?");
 }

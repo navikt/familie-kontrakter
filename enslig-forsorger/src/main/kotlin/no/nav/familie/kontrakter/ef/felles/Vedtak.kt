@@ -63,5 +63,6 @@ enum class VilkårType(val beskrivelse: String) {
 
     AKTIVITET_ARBEID("Aktivitet"),
     INNTEKT("§15-10 Inntekt"),
-    ALDER_PÅ_BARN("Alder på barn");
+    ALDER_PÅ_BARN("Alder på barn"),
+    DOKUMENTASJON_TILSYNSUTGIFTER("Dokumentasjon av tilsynsutgifter");
 }

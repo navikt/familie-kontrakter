@@ -15,5 +15,6 @@ class AndelTilkjentYtelseDto(
 )
 
 enum class Periodetype {
-    MÅNED
+    MÅNED,
+    ENGANGSUTBETALING,
 }

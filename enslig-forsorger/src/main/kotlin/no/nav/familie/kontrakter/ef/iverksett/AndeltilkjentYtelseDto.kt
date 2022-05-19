@@ -3,7 +3,7 @@ package no.nav.familie.kontrakter.ef.iverksett
 import java.time.LocalDate
 import java.util.UUID
 
-class AndelTilkjentYtelseDto(
+data class AndelTilkjentYtelseDto(
         val beløp: Int,
         var periodetype: Periodetype,
         val inntekt: Int,

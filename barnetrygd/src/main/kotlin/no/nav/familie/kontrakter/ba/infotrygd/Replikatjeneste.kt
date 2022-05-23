@@ -14,6 +14,7 @@ data class InfotrygdSøkResponse<T>(
 data class Barn(
         val barnFnr: String? = null,
         val barnetrygdTom: String? = null,
+        val stønadstype: String? = null,
 )
 
 data class Stønad(

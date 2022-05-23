@@ -47,6 +47,7 @@ enum class RegelId(val beskrivelse: String) {
 
     // Inntekt
     INNTEKT_LAVERE_ENN_INNTEKTSGRENSE("Har brukeren inntekt under 6 ganger grunnbeløpet?"),
+    INNTEKT_SAMSVARER_MED_OS("Er inntekten i samsvar med den inntekten som er lagt til grunn ved beregning av overgangsstønad?"),
 
     // Aktivitet - arbeid
     ER_I_ARBEID_ELLER_FORBIGÅENDE_SYKDOM("Er brukeren i arbeid eller har forbigående sykdom?"),

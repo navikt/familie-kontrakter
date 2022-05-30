@@ -5,7 +5,6 @@ import no.nav.familie.kontrakter.ba.søknad.SøknadAdresse
 import no.nav.familie.kontrakter.ba.søknad.v4.Locale
 import no.nav.familie.kontrakter.ba.søknad.v4.NåværendeSamboer
 import no.nav.familie.kontrakter.ba.søknad.v4.SpørsmålId
-import no.nav.familie.kontrakter.ba.søknad.v4.Søknaddokumentasjon
 import no.nav.familie.kontrakter.ba.søknad.v4.Søknadsfelt
 import no.nav.familie.kontrakter.ba.søknad.v4.Søknadstype
 import no.nav.familie.kontrakter.ba.søknad.v4.TidligereSamboer
@@ -24,7 +23,27 @@ data class Søknad(
     val teksterUtenomSpørsmål: Map<SpørsmålId, Map<Locale, String>>,
     val originalSpråk: Locale
 )
-
+data class Søknaddokumentasjon(
+    val dokumentasjonsbehov: Dokumentasjonsbehov,
+    val harSendtInn: Boolean,
+    val opplastedeVedlegg: List<Søknadsvedlegg>,
+    val dokumentasjonSpråkTittel: Map<Locale, String>
+)
+enum class Dokumentasjonsbehov {
+    AVTALE_DELT_BOSTED,
+    VEDTAK_OPPHOLDSTILLATELSE,
+    ADOPSJON_DATO,
+    BEKREFTELSE_FRA_BARNEVERN,
+    BOR_FAST_MED_SØKER,
+    SEPARERT_SKILT_ENKE,
+    MEKLINGSATTEST,
+    ANNEN_DOKUMENTASJON,
+}
+data class Søknadsvedlegg(
+    val dokumentId: String,
+    val navn: String,
+    val tittel: Dokumentasjonsbehov,
+)
 data class Søker(
     val harEøsSteg: Boolean,
     val ident: Søknadsfelt<String>,

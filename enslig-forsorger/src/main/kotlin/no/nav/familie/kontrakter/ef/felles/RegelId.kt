@@ -57,5 +57,12 @@ enum class RegelId(val beskrivelse: String) {
     UNNTAK_ALDER("Oppfylles unntak etter å ha fullført 4. skoleår?"),
 
     //Dokumentasjon tilsynsutgifter
-    HAR_DOKUMENTERTE_TILSYNSUTGIFTER("Har brukeren dokumenterte tilsynsutgifter?");
+    HAR_DOKUMENTERTE_TILSYNSUTGIFTER("Har brukeren dokumenterte tilsynsutgifter?"),
+
+    // Skolepenger
+    RETT_TIL_OVERGANGSSTØNAD("Er vilkårene for rett til overgangsstønad oppfylt?"),
+    DOKUMENTASJON_AV_UTDANNING("Er det dokumentert at bruker er under utdanning?"),
+    NAVKONTOR_VURDERING("Har NAV kontoret vurdert at utdanning er nødvendig og hensiktsmessig?"),
+    SAKSBEHANDLER_VURDERING("Er utdanningen nødvendig og hensiktsmessig?")
+    ;
 }

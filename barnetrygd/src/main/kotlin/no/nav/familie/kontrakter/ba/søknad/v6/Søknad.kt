@@ -9,6 +9,7 @@ import no.nav.familie.kontrakter.ba.søknad.v4.Søknadstype
 import no.nav.familie.kontrakter.ba.søknad.v4.Utenlandsopphold
 import no.nav.familie.kontrakter.ba.søknad.v5.RegistrertBostedType
 
+@Deprecated("Bruk v8", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ba.søknad.v8.AndreForelderUtvidet"))
 data class AndreForelderUtvidet(
     val søkerHarBoddMedAndreForelder: Søknadsfelt<String>,
     val søkerFlyttetFraAndreForelderDato: Søknadsfelt<String>

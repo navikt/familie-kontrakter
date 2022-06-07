@@ -7,52 +7,62 @@ import java.time.LocalDateTime
 /**
  * @param personIdenter alle identer til personen
  */
-data class InfotrygdPerioderArenaRequest(val personIdenter: Set<String>,
-                                         val fomDato: LocalDate? = null,
-                                         val tomDato: LocalDate? = null)
+data class InfotrygdPerioderArenaRequest(
+    val personIdenter: Set<String>,
+    val fomDato: LocalDate? = null,
+    val tomDato: LocalDate? = null
+)
 
 data class InfotrygdPerioderArenaResponse(val perioder: List<InfotrygdArenaPeriode>)
 
-data class InfotrygdArenaPeriode(val personIdent: String,
-                                 val fomDato: LocalDate,
-                                 val tomDato: LocalDate,
-                                 val beløp: Float,
-                                 val opphørsdato: LocalDate? = null)
+data class InfotrygdArenaPeriode(
+    val personIdent: String,
+    val fomDato: LocalDate,
+    val tomDato: LocalDate,
+    val beløp: Float,
+    val opphørsdato: LocalDate? = null
+)
 
-data class InfotrygdPeriodeRequest(val personIdenter: Set<String>,
-                                   val stønadstyper: Set<StønadType>)
+data class InfotrygdPeriodeRequest(
+    val personIdenter: Set<String>,
+    val stønadstyper: Set<StønadType>
+)
 
-data class InfotrygdPeriodeResponse(val overgangsstønad: List<InfotrygdPeriode>,
-                                    val barnetilsyn: List<InfotrygdPeriode>,
-                                    val skolepenger: List<InfotrygdPeriode>)
+data class InfotrygdPeriodeResponse(
+    val overgangsstønad: List<InfotrygdPeriode>,
+    val barnetilsyn: List<InfotrygdPeriode>,
+    val skolepenger: List<InfotrygdPeriode>
+)
 
 /**
  * @param kodeOvergangsstønad er i prinsipp det vi kaller periodetype i ny løsning
  */
-data class InfotrygdPeriode(val personIdent: String,
-                            val sakstype: InfotrygdSakstype,
-                            val kode: InfotrygdEndringKode,
-                            val kodeOvergangsstønad: InfotrygdOvergangsstønadKode?,
-                            val aktivitetstype: InfotrygdAktivitetstype?,
-                            val brukerId: String,
-                            val stønadId: Long,
-                            val vedtakId: Long,
-                            val vedtakstidspunkt: LocalDateTime,
-                            @Deprecated("bruk beløpEngangsutbetaling")
-                            val stønadBeløp: Int,
-                            val engangsbeløp: Int,
-                            val inntektsgrunnlag: Int,
-                            val inntektsreduksjon: Int,
-                            val samordningsfradrag: Int,
-                            val utgifterBarnetilsyn: Int,
-                            @Deprecated("bruk beløpMånedsutbetaling")
-                            val beløp: Int,
-                            val månedsbeløp: Int,
-                            val startDato: LocalDate,
-                            val stønadFom: LocalDate,
-                            val stønadTom: LocalDate,
-                            val opphørsdato: LocalDate?,
-                            val barnIdenter : List<String> = emptyList())
+data class InfotrygdPeriode(
+    val personIdent: String,
+    val sakstype: InfotrygdSakstype,
+    val kode: InfotrygdEndringKode,
+    val kodeOvergangsstønad: InfotrygdOvergangsstønadKode?,
+    val aktivitetstype: InfotrygdAktivitetstype?,
+    val brukerId: String,
+    val stønadId: Long,
+    val vedtakId: Long,
+    val vedtakstidspunkt: LocalDateTime,
+    @Deprecated("bruk beløpEngangsutbetaling")
+    val stønadBeløp: Int,
+    val engangsbeløp: Int,
+    val inntektsgrunnlag: Int,
+    val inntektsreduksjon: Int,
+    val samordningsfradrag: Int,
+    val utgifterBarnetilsyn: Int,
+    @Deprecated("bruk beløpMånedsutbetaling")
+    val beløp: Int,
+    val månedsbeløp: Int,
+    val startDato: LocalDate,
+    val stønadFom: LocalDate,
+    val stønadTom: LocalDate,
+    val opphørsdato: LocalDate?,
+    val barnIdenter: List<String> = emptyList()
+)
 
 @Suppress("unused")
 enum class InfotrygdEndringKode(val infotrygdKode: String, val beskrivelse: String) {
@@ -87,8 +97,10 @@ enum class InfotrygdOvergangsstønadKode(val infotrygdKode: String, val beskrive
 
     BARN_UNDER_1_3_ÅR("1", "Barn under 1 år / 3 år (gamle tilfeller)"),
     YRKESRETTET_AKTIVITET_BARN_FYLT_1_3_ÅR("2", "Er i yrkesrettet aktivitet - barn har fylt 1 år / 3 år (gamle tilfeller)"),
-    UNNTAK_FRA_KRAV_TIL_YRKESRETTET_AKTIVITET("3",
-                                              "Unntak fra krav til yrkesr. aktivitet når barn har fylt 1 år / år (gamle tilfeller)"),
+    UNNTAK_FRA_KRAV_TIL_YRKESRETTET_AKTIVITET(
+        "3",
+        "Unntak fra krav til yrkesr. aktivitet når barn har fylt 1 år / år (gamle tilfeller)"
+    ),
     UTVIDELSE_NØDVENDIG_UTDANNING("4", "Utvidelse på grunn av nødvendig utdanning jf 15-6. 3. ledd"),
     PÅVENTE_SKOLESTART_ARBEID_TILSYNSPLASS("5", "I påvente av skolestart/arbeid/tilsynsplass 15-6. 4. ledd"),
     YRKESRETTET_AKTIVITET("6", "Er i yrkesrettet aktivitet - i omstillingstid"),

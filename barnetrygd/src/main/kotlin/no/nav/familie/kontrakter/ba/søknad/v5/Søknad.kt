@@ -19,7 +19,6 @@ data class Søknad(
     val originalSpråk: Locale
 )
 
-
 enum class RegistrertBostedType {
     REGISTRERT_SOKERS_ADRESSE,
     REGISTRERT_ANNEN_ADRESSE,

@@ -41,7 +41,7 @@ enum class RegelId(val beskrivelse: String) {
     SAGT_OPP_ELLER_REDUSERT("Har søker sagt opp jobben, tatt frivillig permisjon eller redusert arbeidstiden de siste 6 månedene før søknadstidspunktet?"),
     RIMELIG_GRUNN_SAGT_OPP("Hadde søker rimelig grunn til å si opp jobben eller redusere arbeidstiden?"),
 
-    //Tidligere Stønadsperioder
+    // Tidligere Stønadsperioder
     HAR_TIDLIGERE_MOTTATT_OVERGANSSTØNAD("Har søker tidligere mottatt overgangsstønad?"),
     HAR_TIDLIGERE_ANDRE_STØNADER_SOM_HAR_BETYDNING("Har søker tidligere mottatt andre stønader som har betydning for stønadstiden i §15-8 første og andre ledd?"),
 
@@ -56,7 +56,7 @@ enum class RegelId(val beskrivelse: String) {
     HAR_ALDER_LAVERE_ENN_GRENSEVERDI("Har barnet fullført 4. skoleår?"),
     UNNTAK_ALDER("Oppfylles unntak etter å ha fullført 4. skoleår?"),
 
-    //Dokumentasjon tilsynsutgifter
+    // Dokumentasjon tilsynsutgifter
     HAR_DOKUMENTERTE_TILSYNSUTGIFTER("Har brukeren dokumenterte tilsynsutgifter?"),
 
     // Skolepenger

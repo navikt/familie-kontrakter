@@ -17,12 +17,14 @@ internal class BehandlingstemaTest {
 
     @Test
     internal fun `serialisering av behandlingstema skal gi value`() {
-        assertEquals(asJsonList(Behandlingstema.Barnetilsyn.value),
-                objectMapper.writeValueAsString(listOf(Behandlingstema.Barnetilsyn)))
+        assertEquals(
+            asJsonList(Behandlingstema.Barnetilsyn.value),
+            objectMapper.writeValueAsString(listOf(Behandlingstema.Barnetilsyn))
+        )
     }
 
     private fun readJsonString(s: String) =
-            objectMapper.readValue<List<Behandlingstema>>(asJsonList(s))
+        objectMapper.readValue<List<Behandlingstema>>(asJsonList(s))
 
     private fun asJsonList(s: String) = "[\"$s\"]"
 }

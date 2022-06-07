@@ -6,8 +6,10 @@ import no.nav.familie.kontrakter.felles.ef.StønadType
 /**
  * @param personIdenter alle identer til personen
  */
-data class SøkFlereStønaderRequest(val personIdenter: Set<String>,
-                                   val stønader: Set<StønadType>)
+data class SøkFlereStønaderRequest(
+    val personIdenter: Set<String>,
+    val stønader: Set<StønadType>
+)
 
 /**
  * @param personIdenter alle identer til personen

@@ -17,7 +17,6 @@ class DokumentBrevkodeTest {
         Assertions.assertThrows(NoSuchElementException::class.java) { DokumentBrevkode.fraBrevkode("NAV 15-00.08") }
         Assertions.assertThrows(NoSuchElementException::class.java) { DokumentBrevkode.fraBrevkode("") }
         Assertions.assertThrows(NoSuchElementException::class.java) { DokumentBrevkode.fraBrevkode(null) }
-
     }
 
     @Test

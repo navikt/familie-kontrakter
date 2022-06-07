@@ -11,4 +11,3 @@ data class BarnDto(
     val personIdent: String? = null,
     val termindato: LocalDate? = null
 )
-

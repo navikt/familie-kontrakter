@@ -30,7 +30,7 @@ data class Søknaddokumentasjon(
     val dokumentasjonsbehov: Dokumentasjonsbehov,
     val harSendtInn: Boolean,
     val opplastedeVedlegg: List<Søknadsvedlegg>
-);
+)
 
 data class Søknadsvedlegg(
     val dokumentId: String,

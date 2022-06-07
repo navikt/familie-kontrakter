@@ -1,7 +1,5 @@
 package no.nav.familie.kontrakter.ef.felles
 
-import no.nav.familie.kontrakter.felles.ef.StønadType
-
 enum class Vedtaksresultat(val visningsnavn: String) {
     INNVILGET(visningsnavn = "Innvilget"),
     OPPHØRT(visningsnavn = "Opphørt"),
@@ -69,7 +67,7 @@ enum class VilkårType(val beskrivelse: String) {
     ALDER_PÅ_BARN("Alder på barn"),
     DOKUMENTASJON_TILSYNSUTGIFTER("Dokumentasjon av tilsynsutgifter"),
 
-    //Skolepenger
+    // Skolepenger
     RETT_TIL_OVERGANGSSTØNAD("Er vilkårene for rett til overgangsstønad oppfylt?"),
     DOKUMENTASJON_AV_UTDANNING("Dokumentasjon av utdanning"),
     ER_UTDANNING_HENSIKTSMESSIG("Er utdanning hensiktsmessig?")

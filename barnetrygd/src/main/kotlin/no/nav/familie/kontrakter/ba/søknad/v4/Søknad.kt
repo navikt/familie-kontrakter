@@ -29,6 +29,7 @@ data class Søknad(
     val originalSpråk: Locale
 )
 
+@Deprecated("Bruk v7", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ba.søknad.v7.Dokumentasjonsbehov"))
 enum class Dokumentasjonsbehov {
     AVTALE_DELT_BOSTED,
     VEDTAK_OPPHOLDSTILLATELSE,
@@ -41,12 +42,13 @@ enum class Dokumentasjonsbehov {
     EØS_SKJEMA,
 }
 
+@Deprecated("Bruk v7", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ba.søknad.v7.Søknadsvedlegg"))
 data class Søknadsvedlegg(
     val dokumentId: String,
     val navn: String,
     val tittel: Dokumentasjonsbehov,
 )
-
+@Deprecated("Bruk v7", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ba.søknad.v7.Søknaddokumentasjon"))
 data class Søknaddokumentasjon(
     val dokumentasjonsbehov: Dokumentasjonsbehov,
     val harSendtInn: Boolean,

@@ -5,7 +5,6 @@ import no.nav.familie.kontrakter.ba.søknad.SøknadAdresse
 import no.nav.familie.kontrakter.ba.søknad.v4.Locale
 import no.nav.familie.kontrakter.ba.søknad.v4.NåværendeSamboer
 import no.nav.familie.kontrakter.ba.søknad.v4.SpørsmålId
-import no.nav.familie.kontrakter.ba.søknad.v4.Søknaddokumentasjon
 import no.nav.familie.kontrakter.ba.søknad.v4.Søknadsfelt
 import no.nav.familie.kontrakter.ba.søknad.v4.Søknadstype
 import no.nav.familie.kontrakter.ba.søknad.v4.TidligereSamboer
@@ -13,6 +12,7 @@ import no.nav.familie.kontrakter.ba.søknad.v4.Utenlandsopphold
 import no.nav.familie.kontrakter.ba.søknad.v5.RegistrertBostedType
 import no.nav.familie.kontrakter.ba.søknad.v6.AndreForelderUtvidet
 
+@Deprecated("Bruk v8", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ba.søknad.v8.Søknad"))
 data class Søknad(
     val kontraktVersjon: Int,
     val antallEøsSteg: Int,
@@ -24,7 +24,28 @@ data class Søknad(
     val teksterUtenomSpørsmål: Map<SpørsmålId, Map<Locale, String>>,
     val originalSpråk: Locale
 )
-
+data class Søknaddokumentasjon(
+    val dokumentasjonsbehov: Dokumentasjonsbehov,
+    val harSendtInn: Boolean,
+    val opplastedeVedlegg: List<Søknadsvedlegg>,
+    val dokumentasjonSpråkTittel: Map<Locale, String>
+)
+enum class Dokumentasjonsbehov {
+    AVTALE_DELT_BOSTED,
+    VEDTAK_OPPHOLDSTILLATELSE,
+    ADOPSJON_DATO,
+    BEKREFTELSE_FRA_BARNEVERN,
+    BOR_FAST_MED_SØKER,
+    SEPARERT_SKILT_ENKE,
+    MEKLINGSATTEST,
+    ANNEN_DOKUMENTASJON,
+}
+data class Søknadsvedlegg(
+    val dokumentId: String,
+    val navn: String,
+    val tittel: Dokumentasjonsbehov,
+)
+@Deprecated("Bruk v8", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ba.søknad.v8.Søker"))
 data class Søker(
     val harEøsSteg: Boolean,
     val ident: Søknadsfelt<String>,
@@ -49,6 +70,7 @@ data class IdNummer(
     val land: Søknadsfelt<String>,
 )
 
+@Deprecated("Bruk v8", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ba.søknad.v8.Arbeidsperiode"))
 data class Arbeidsperiode(
     val arbeidsperiodeAvsluttet: Søknadsfelt<String?>,
     val arbeidsperiodeland: Søknadsfelt<String?>,
@@ -57,6 +79,7 @@ data class Arbeidsperiode(
     val tilDatoArbeidsperiode: Søknadsfelt<String?>,
 )
 
+@Deprecated("Bruk v8", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ba.søknad.v8.Pensjonsperiode"))
 data class Pensjonsperiode(
     val mottarPensjonNå: Søknadsfelt<String?>,
     val pensjonsland: Søknadsfelt<String?>,
@@ -64,6 +87,7 @@ data class Pensjonsperiode(
     val pensjonTil: Søknadsfelt<String?>,
 )
 
+@Deprecated("Bruk v8", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ba.søknad.v8.Utbetalingsperiode"))
 data class Utbetalingsperiode(
     val fårUtbetalingNå: Søknadsfelt<String?>,
     val utbetalingLand: Søknadsfelt<String>,
@@ -71,6 +95,7 @@ data class Utbetalingsperiode(
     val utbetalingTilDato: Søknadsfelt<String>,
 )
 
+@Deprecated("Bruk v8", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ba.søknad.v8.Barn"))
 data class Barn(
     val harEøsSteg: Boolean,
     val ident: Søknadsfelt<String>,
@@ -85,6 +110,7 @@ data class Barn(
     val idNummer: List<Søknadsfelt<IdNummer>> = listOf()
 )
 
+@Deprecated("Bruk v8", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ba.søknad.v8.AndreForelder"))
 data class AndreForelder(
     val kanIkkeGiOpplysninger: Boolean,
     val navn: Søknadsfelt<String>,
@@ -108,6 +134,7 @@ data class AndreForelder(
     val adresse: Søknadsfelt<String>,
 )
 
+@Deprecated("Bruk v8", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ba.søknad.v8.Omsorgsperson"))
 data class Omsorgsperson(
     val navn: Søknadsfelt<String>,
     val slektsforhold: Søknadsfelt<String>,
@@ -116,6 +143,7 @@ data class Omsorgsperson(
     val adresse: Søknadsfelt<String>,
 )
 
+@Deprecated("Bruk v8", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ba.søknad.v8.EøsBarnetrygdsperiode"))
 data class EøsBarnetrygdsperiode(
     val mottarEøsBarnetrygdNå: Søknadsfelt<String?>,
     val barnetrygdsland: Søknadsfelt<String?>,

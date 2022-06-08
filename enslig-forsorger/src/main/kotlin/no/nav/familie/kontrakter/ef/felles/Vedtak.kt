@@ -1,5 +1,7 @@
 package no.nav.familie.kontrakter.ef.felles
 
+import no.nav.familie.kontrakter.felles.ef.StønadType
+
 enum class Vedtaksresultat(val visningsnavn: String) {
     INNVILGET(visningsnavn = "Innvilget"),
     OPPHØRT(visningsnavn = "Opphørt"),
@@ -21,7 +23,8 @@ enum class BehandlingÅrsak {
     SØKNAD,
     MIGRERING,
     G_OMREGNING,
-    KORRIGERING_UTEN_BREV
+    KORRIGERING_UTEN_BREV,
+    PAPIRSØKNAD,
 }
 
 enum class OpphørÅrsak {
@@ -63,5 +66,11 @@ enum class VilkårType(val beskrivelse: String) {
 
     AKTIVITET_ARBEID("Aktivitet"),
     INNTEKT("§15-10 Inntekt"),
-    ALDER_PÅ_BARN("Alder på barn");
+    ALDER_PÅ_BARN("Alder på barn"),
+    DOKUMENTASJON_TILSYNSUTGIFTER("Dokumentasjon av tilsynsutgifter"),
+
+    //Skolepenger
+    RETT_TIL_OVERGANGSSTØNAD("Er vilkårene for rett til overgangsstønad oppfylt?"),
+    DOKUMENTASJON_AV_UTDANNING("Dokumentasjon av utdanning"),
+    ER_UTDANNING_HENSIKTSMESSIG("Er utdanning hensiktsmessig?")
 }

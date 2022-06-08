@@ -47,11 +47,22 @@ enum class RegelId(val beskrivelse: String) {
 
     // Inntekt
     INNTEKT_LAVERE_ENN_INNTEKTSGRENSE("Har brukeren inntekt under 6 ganger grunnbeløpet?"),
+    INNTEKT_SAMSVARER_MED_OS("Er inntekten i samsvar med den inntekten som er lagt til grunn ved beregning av overgangsstønad?"),
 
     // Aktivitet - arbeid
     ER_I_ARBEID_ELLER_FORBIGÅENDE_SYKDOM("Er brukeren i arbeid eller har forbigående sykdom?"),
 
     // Alder på barn
     HAR_ALDER_LAVERE_ENN_GRENSEVERDI("Har barnet fullført 4. skoleår?"),
-    UNNTAK_ALDER("Oppfylles unntak etter å ha fullført 4. skoleår?");
+    UNNTAK_ALDER("Oppfylles unntak etter å ha fullført 4. skoleår?"),
+
+    //Dokumentasjon tilsynsutgifter
+    HAR_DOKUMENTERTE_TILSYNSUTGIFTER("Har brukeren dokumenterte tilsynsutgifter?"),
+
+    // Skolepenger
+    RETT_TIL_OVERGANGSSTØNAD("Er vilkårene for rett til overgangsstønad oppfylt?"),
+    DOKUMENTASJON_AV_UTDANNING("Er det dokumentert at bruker er under utdanning?"),
+    NAVKONTOR_VURDERING("Har NAV kontoret vurdert at utdanning er nødvendig og hensiktsmessig?"),
+    SAKSBEHANDLER_VURDERING("Er utdanningen nødvendig og hensiktsmessig?")
+    ;
 }

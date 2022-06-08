@@ -15,4 +15,6 @@ enum class FrittståendeBrevType(val tittel: String) {
     INNHENTING_AV_OPPLYSNINGER("Innhenting av opplysninger"),
     VARSEL_OM_AKTIVITETSPLIKT("Varsel om aktivitetsplikt"),
     VARSEL_OM_SANKSJON("Varsel om sanksjon"),
+    INNHENTING_AV_KARAKTERUTSKRIFT_HOVEDPERIODE("Innhenting av karakterutskrift (hovedperiode)"),
+    INNHENTING_AV_KARAKTERUTSKRIFT_UTVIDET_PERIODE("Innhenting av karakterutskrift (utvidet periode)")
 }

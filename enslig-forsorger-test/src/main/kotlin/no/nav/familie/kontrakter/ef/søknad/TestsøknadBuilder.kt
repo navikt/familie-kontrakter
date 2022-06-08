@@ -531,9 +531,9 @@ class TestsøknadBuilder private constructor(
                                                                                                                            10,
                                                                                                                            12))
                                                                                       ))),
-                                  offentligEllerPrivat = Søknadsfelt("Er utdanningen offentlig eller privat?",
-                                                                     "Offentlig"),
-                                  heltidEllerDeltid = Søknadsfelt(label = "Heltid, eller deltid", verdi = "Heltid"),
+                                  offentligEllerPrivat = Søknadsfelt(label = "Er utdanningen offentlig eller privat?", svarId = "offentlig",
+                                                                     verdi = "Offentlig"),
+                                  heltidEllerDeltid = Søknadsfelt(label = "Heltid, eller deltid", svarId = "heltid", verdi = "Heltid"),
                                   hvorMyeSkalDuStudere = Søknadsfelt("Hvor mye skal du studere?", 100),
                                   hvaErMåletMedUtdanningen = Søknadsfelt("Hva er målet med utdanningen?",
                                                                          "Odio quam nulla at amet eget. Faucibus feugiat orci, nisi a venenatis metus. Tincidunt massa amet sapien velit egestas varius in.\n" +

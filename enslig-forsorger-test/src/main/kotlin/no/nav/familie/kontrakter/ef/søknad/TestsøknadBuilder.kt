@@ -549,7 +549,14 @@ class TestsøknadBuilder private constructor(
                                                                                                            MånedÅrPeriode(Month.JANUARY,
                                                                                                                           1999,
                                                                                                                           Month.OCTOBER,
-                                                                                                                          2004))))
+                                                                                                                          2004))),
+                                                                            TidligereUtdanning(Søknadsfelt("Linje/kurs/grad",
+                                                                                                           "Doktorgrad Fuglekikking"),
+                                                                                               Søknadsfelt("Når var du elev/student?",
+                                                                                                           MånedÅrPeriode(Month.JULY,
+                                                                                                                          2005,
+                                                                                                                          Month.JUNE,
+                                                                                                                          2012))))
                                   )
             )
         }

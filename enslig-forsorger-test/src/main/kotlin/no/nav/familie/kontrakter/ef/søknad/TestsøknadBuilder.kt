@@ -204,7 +204,8 @@ class TestsøknadBuilder private constructor(
             this.barnetilsynBarn = barn.map {
                 it.copy(
                         skalHaBarnepass = Søknadsfelt("Skal ha barnepass", true),
-                        barnepass = it.barnepass ?: Søknadsfelt("Barnepass", defaultBarnepass(ordninger = listOf(defaultBarnepassordning())))
+                        barnepass = it.barnepass ?: Søknadsfelt("Barnepass",
+                                                                defaultBarnepass(ordninger = listOf(defaultBarnepassordning())))
                 )
             }
 
@@ -509,38 +510,46 @@ class TestsøknadBuilder private constructor(
         }
 
         private fun defaultUtdanning(): UnderUtdanning {
-            return UnderUtdanning(Søknadsfelt("Skole/utdanningssted", "UiO"),
-                                  Søknadsfelt("Bakoverkompatibel Utdanning",
-                                              TidligereUtdanning(Søknadsfelt("Linje/kurs/grad",
-                                                                             "Profesjonsstudium Informatikk"),
-                                                                 Søknadsfelt("Når skal du være elev/student?",
-                                                                             MånedÅrPeriode(Month.APRIL,
-                                                                                            2020,
-                                                                                            Month.JANUARY,
-                                                                                            2021)
-                                                                 ))),
-                                  Søknadsfelt("Utdanning",
-                                              GjeldendeUtdanning(Søknadsfelt("Linje/kurs/grad",
-                                                                             "Profesjonsstudium Informatikk"),
-                                                                 Søknadsfelt("Når skal du være elev/student?",
-                                                                             Datoperiode(LocalDate.of(1999, 1, 1),
-                                                                                         LocalDate.of(2004, 10, 12))
-                                                                 ))),
-                                  Søknadsfelt("Er utdanningen offentlig eller privat?",
-                                              "Offentlig"),
-                                  Søknadsfelt("Heltid, eller deltid", "Deltid"),
-                                  Søknadsfelt("Hvor mye skal du studere?", 300),
-                                  Søknadsfelt("Hva er målet med utdanningen?",
-                                              "Økonomisk selvstendighet"),
-                                  Søknadsfelt("Har du tatt utdanning etter grunnskolen?", true),
-                                  Søknadsfelt("Tidligere Utdanning",
-                                              listOf(TidligereUtdanning(Søknadsfelt("Linje/kurs/grad",
-                                                                                    "Master Fysikk"),
-                                                                        Søknadsfelt("Når var du elev/student?",
-                                                                                    MånedÅrPeriode(Month.JANUARY,
-                                                                                                   1999,
-                                                                                                   Month.OCTOBER,
-                                                                                                   2004))))
+            return UnderUtdanning(skoleUtdanningssted = Søknadsfelt("Skole/utdanningssted", "UiO"),
+                                  utdanning = Søknadsfelt("Bakoverkompatibel Utdanning",
+                                                          TidligereUtdanning(Søknadsfelt("Linje/kurs/grad",
+                                                                                         "Profesjonsstudium Informatikk"),
+                                                                             Søknadsfelt("Når skal du være elev/student?",
+                                                                                         MånedÅrPeriode(Month.APRIL,
+                                                                                                        2020,
+                                                                                                        Month.JANUARY,
+                                                                                                        2021)
+                                                                             ))),
+                                  gjeldendeUtdanning = Søknadsfelt("Utdanning",
+                                                                   GjeldendeUtdanning(Søknadsfelt("Linje/kurs/grad",
+                                                                                                  "Profesjonsstudium Informatikk"),
+                                                                                      Søknadsfelt("Når skal du være elev/student?",
+                                                                                                  Datoperiode(LocalDate.of(1999,
+                                                                                                                           1,
+                                                                                                                           1),
+                                                                                                              LocalDate.of(2004,
+                                                                                                                           10,
+                                                                                                                           12))
+                                                                                      ))),
+                                  offentligEllerPrivat = Søknadsfelt("Er utdanningen offentlig eller privat?",
+                                                                     "Offentlig"),
+                                  heltidEllerDeltid = Søknadsfelt(label = "Heltid, eller deltid", verdi = "Heltid"),
+                                  hvorMyeSkalDuStudere = Søknadsfelt("Hvor mye skal du studere?", 100),
+                                  hvaErMåletMedUtdanningen = Søknadsfelt("Hva er målet med utdanningen?",
+                                                                         "Odio quam nulla at amet eget. Faucibus feugiat orci, nisi a venenatis metus. Tincidunt massa amet sapien velit egestas varius in.\n" +
+                                                                         "\n" +
+                                                                         "Leo sed bibendum sapien eros, dui nunc, purus. Morbi vulputate non facilisi neque pulvinar. Vulputate malesuada risus ipsum scelerisque. Id ac consequat, curabitur fermentum mauris blandit dictum rhoncus nibh. Etiam hendrerit amet tempor ultrices eu ultrices. Enim in parturient at ut tincidunt sit.\n" +
+                                                                         "\n" +
+                                                                         "Leo donec diam vestibulum tempus at dictum lacinia rutrum. Molestie sit netus sagittis sit sodales ultrices orci. Placerat vehicula sit quis in. Nulla nunc, egestas id etiam sit facilisis enim vitae sed."),
+                                  utdanningEtterGrunnskolen = Søknadsfelt("Har du tatt utdanning etter grunnskolen?", true),
+                                  tidligereUtdanninger = Søknadsfelt("Tidligere Utdanning",
+                                                                     listOf(TidligereUtdanning(Søknadsfelt("Linje/kurs/grad",
+                                                                                                           "Master Fysikk"),
+                                                                                               Søknadsfelt("Når var du elev/student?",
+                                                                                                           MånedÅrPeriode(Month.JANUARY,
+                                                                                                                          1999,
+                                                                                                                          Month.OCTOBER,
+                                                                                                                          2004))))
                                   )
             )
         }

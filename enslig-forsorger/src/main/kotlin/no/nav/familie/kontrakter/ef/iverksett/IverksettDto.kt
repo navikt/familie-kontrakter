@@ -37,6 +37,13 @@ data class IverksettBarnetilsynDto(
         override val vedtak: VedtaksdetaljerBarnetilsynDto,
 ) : IverksettDto()
 
+data class IverksettSkolepengerDto(
+        override val fagsak: FagsakdetaljerDto,
+        override val behandling: BehandlingsdetaljerDto,
+        override val søker: SøkerDto,
+        override val vedtak: VedtaksdetaljerSkolepengerDto,
+) : IverksettDto()
+
 data class SøkerDto(
         val personIdent: String,
         val barn: List<BarnDto> = emptyList(),
@@ -102,6 +109,18 @@ data class VedtaksdetaljerBarnetilsynDto(
         val tilleggsstønad: List<PeriodeMedBeløpDto>
 ) : VedtaksdetaljerDto()
 
+data class VedtaksdetaljerSkolepengerDto(
+        override val resultat: Vedtaksresultat,
+        override val vedtakstidspunkt: LocalDateTime,
+        override val opphørÅrsak: OpphørÅrsak?,
+        override val saksbehandlerId: String,
+        override val beslutterId: String,
+        override val tilkjentYtelse: TilkjentYtelseDto?,
+        override val vedtaksperioder: List<SkoleårsperiodeSkolepengerDto> = emptyList(),
+        override val tilbakekreving: TilbakekrevingDto? = null,
+        override val brevmottakere: List<Brevmottaker> = emptyList()
+) : VedtaksdetaljerDto()
+
 data class VilkårsvurderingDto(
         val vilkårType: VilkårType,
         val resultat: Vilkårsresultat,
@@ -119,25 +138,51 @@ data class VurderingDto(
         val begrunnelse: String? = null
 )
 
-sealed class VedtaksperiodeDto {
-
-    abstract val fraOgMed: LocalDate
-    abstract val tilOgMed: LocalDate
-}
+sealed class VedtaksperiodeDto
 
 data class VedtaksperiodeOvergangsstønadDto(
-        override val fraOgMed: LocalDate,
-        override val tilOgMed: LocalDate,
+        val fraOgMed: LocalDate,
+        val tilOgMed: LocalDate,
         val aktivitet: AktivitetType,
         val periodeType: VedtaksperiodeType
-) : VedtaksperiodeDto()
+): VedtaksperiodeDto()
 
 data class VedtaksperiodeBarnetilsynDto(
-        override val fraOgMed: LocalDate,
-        override val tilOgMed: LocalDate,
+        val fraOgMed: LocalDate,
+        val tilOgMed: LocalDate,
         val utgifter: Int,
         val antallBarn: Int
-) : VedtaksperiodeDto()
+): VedtaksperiodeDto()
+
+data class SkoleårsperiodeSkolepengerDto(
+        val perioder: List<DelårsperiodeSkoleårSkolepengerDto>,
+        val utgiftsperioder: List<SkolepengerUtgiftDto>
+): VedtaksperiodeDto()
+
+data class DelårsperiodeSkoleårSkolepengerDto(
+        val studietype: SkolepengerStudietype,
+        val fraOgMed: LocalDate, // endret fra datoFra
+        val tilOgMed: LocalDate,
+        val studiebelastning: Int,
+)
+
+data class SkolepengerUtgiftDto(
+        val utgiftstyper: Set<Utgiftstype>,
+        val dato: LocalDate, // val årMånedFra: YearMonth, Burde denne endres fra årMånedFra i ef-sak?
+        val utgifter: Int,
+        val stønad: Int
+)
+
+enum class SkolepengerStudietype {
+    HØGSKOLE_UNIVERSITET,
+    VIDEREGÅENDE,
+}
+
+enum class Utgiftstype {
+    SEMESTERAVGIFT,
+    STUDIEAVGIFT,
+    EKSAMENSAVGIFT
+}
 
 data class TilbakekrevingDto(
         val tilbakekrevingsvalg: Tilbakekrevingsvalg,

@@ -116,7 +116,7 @@ data class VedtaksdetaljerSkolepengerDto(
         override val saksbehandlerId: String,
         override val beslutterId: String,
         override val tilkjentYtelse: TilkjentYtelseDto?,
-        override val vedtaksperioder: List<SkoleårsperiodeSkolepengerDto> = emptyList(),
+        override val vedtaksperioder: List<VedtaksperiodeSkolepengerDto> = emptyList(),
         override val tilbakekreving: TilbakekrevingDto? = null,
         override val brevmottakere: List<Brevmottaker> = emptyList()
 ) : VedtaksdetaljerDto()
@@ -154,7 +154,7 @@ data class VedtaksperiodeBarnetilsynDto(
         val antallBarn: Int
 ): VedtaksperiodeDto()
 
-data class SkoleårsperiodeSkolepengerDto(
+data class VedtaksperiodeSkolepengerDto(
         val perioder: List<DelårsperiodeSkoleårSkolepengerDto>,
         val utgiftsperioder: List<SkolepengerUtgiftDto>
 ): VedtaksperiodeDto()
@@ -168,7 +168,7 @@ data class DelårsperiodeSkoleårSkolepengerDto(
 
 data class SkolepengerUtgiftDto(
         val utgiftstyper: Set<Utgiftstype>,
-        val dato: LocalDate, // val årMånedFra: YearMonth, Burde denne endres fra årMånedFra i ef-sak?
+        val utgiftsdato: LocalDate,
         val utgifter: Int,
         val stønad: Int
 )

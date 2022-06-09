@@ -161,7 +161,7 @@ data class SkoleårsperiodeSkolepengerDto(
 
 data class DelårsperiodeSkoleårSkolepengerDto(
         val studietype: SkolepengerStudietype,
-        val fraOgMed: LocalDate, // endret fra datoFra
+        val fraOgMed: LocalDate,
         val tilOgMed: LocalDate,
         val studiebelastning: Int,
 )

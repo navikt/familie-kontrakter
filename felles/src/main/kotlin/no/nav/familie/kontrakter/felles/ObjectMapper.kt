@@ -10,13 +10,12 @@ import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 
 val objectMapper: ObjectMapper
     get() = ObjectMapper()
-            .setVisibility(PropertyAccessor.GETTER, JsonAutoDetect.Visibility.NONE)
-            .setVisibility(PropertyAccessor.SETTER, JsonAutoDetect.Visibility.NONE)
-            .setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY)
-            .setVisibility(PropertyAccessor.CREATOR, JsonAutoDetect.Visibility.ANY)
-            .registerKotlinModule()
-            .registerModule(JavaTimeModule())
-            .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
-            .disable(SerializationFeature.FAIL_ON_EMPTY_BEANS)
-            .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
-
+        .setVisibility(PropertyAccessor.GETTER, JsonAutoDetect.Visibility.NONE)
+        .setVisibility(PropertyAccessor.SETTER, JsonAutoDetect.Visibility.NONE)
+        .setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY)
+        .setVisibility(PropertyAccessor.CREATOR, JsonAutoDetect.Visibility.ANY)
+        .registerKotlinModule()
+        .registerModule(JavaTimeModule())
+        .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+        .disable(SerializationFeature.FAIL_ON_EMPTY_BEANS)
+        .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)

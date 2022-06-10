@@ -24,6 +24,5 @@ enum class Behandlingstema(@JsonValue val value: String) {
         fun fromValue(value: String): Behandlingstema {
             return behandlingstemaMap[value] ?: throw error("Fant ikke Behandlingstema for value=$value")
         }
-
     }
 }

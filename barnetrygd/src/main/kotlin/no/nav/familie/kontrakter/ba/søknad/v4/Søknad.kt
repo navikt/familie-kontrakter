@@ -54,7 +54,7 @@ data class Søknaddokumentasjon(
     val harSendtInn: Boolean,
     val opplastedeVedlegg: List<Søknadsvedlegg>,
     val dokumentasjonSpråkTittel: Map<Locale, String>
-);
+)
 
 data class NåværendeSamboer(
     val navn: Søknadsfelt<String>,

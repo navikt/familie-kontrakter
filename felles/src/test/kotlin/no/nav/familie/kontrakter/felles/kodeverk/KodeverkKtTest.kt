@@ -9,7 +9,8 @@ import kotlin.test.assertNull
 
 internal class KodeverkKtTest {
 
-    val kodeverk = objectMapper.readValue<KodeverkDto>("""
+    val kodeverk = objectMapper.readValue<KodeverkDto>(
+        """
      {"betydninger": {
        "5036": [
         {"gyldigFra": "2003-10-01",
@@ -26,8 +27,8 @@ internal class KodeverkKtTest {
            "term": "BERGEN2",
            "tekst": "BERGEN2"
           }}}]}}
-    """.trimIndent())
-
+        """.trimIndent()
+    )
 
     @Test
     internal fun `skal hente kodeverk som er gyldig for gitt dato`() {
@@ -42,8 +43,10 @@ internal class KodeverkKtTest {
 
     @Test
     internal fun `skal hente siste gjeldende kodeverk hvis verdi mangler, med sisteGjeldende=true`() {
-        assertEquals("BERGEN2",
-                kodeverk.hentGjeldende("5036", LocalDate.of(1900, 1, 1), sisteGjeldende = true))
+        assertEquals(
+            "BERGEN2",
+            kodeverk.hentGjeldende("5036", LocalDate.of(1900, 1, 1), sisteGjeldende = true)
+        )
         assertNull(kodeverk.hentGjeldende("FINNES_IKKE", LocalDate.of(1900, 1, 1), sisteGjeldende = true))
     }
 }

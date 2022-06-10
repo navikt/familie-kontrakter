@@ -1,14 +1,15 @@
 package no.nav.familie.kontrakter.felles.tilbakekreving
 
-import java.time.LocalDate
 import javax.validation.constraints.Pattern
 
-data class Verge(val vergetype: Vergetype,
-                 val navn: String,
-                 @field:Pattern(regexp = "(^$|.{9})", message = "Organisasjonsnummer er ikke riktig")
-                 val organisasjonsnummer: String? = null,
-                 @field:Pattern(regexp = "(^$|.{11})", message = "PersonIdent er ikke riktig")
-                 val personIdent: String? = null)
+data class Verge(
+    val vergetype: Vergetype,
+    val navn: String,
+    @field:Pattern(regexp = "(^$|.{9})", message = "Organisasjonsnummer er ikke riktig")
+    val organisasjonsnummer: String? = null,
+    @field:Pattern(regexp = "(^$|.{11})", message = "PersonIdent er ikke riktig")
+    val personIdent: String? = null
+)
 
 enum class Vergetype(val navn: String) {
     VERGE_FOR_BARN("Verge for barn under 18 år"),
@@ -18,4 +19,3 @@ enum class Vergetype(val navn: String) {
     ANNEN_FULLMEKTIG("Annen fullmektig"),
     UDEFINERT("Udefinert")
 }
-

@@ -26,5 +26,4 @@ enum class FagOmrådeKode(val kode: String) {
             throw IllegalArgumentException("FagOmrådeKode finnes ikke for kode $kode")
         }
     }
-
 }

@@ -2,13 +2,15 @@ package no.nav.familie.kontrakter.ef.felles
 
 import no.nav.familie.kontrakter.felles.ef.StønadType
 
-data class FrittståendeBrevDto(val personIdent: String,
-                               val eksternFagsakId: Long,
-                               val stønadType: StønadType,
-                               val brevtype: FrittståendeBrevType,
-                               val fil: ByteArray,
-                               val journalførendeEnhet: String,
-                               val saksbehandlerIdent: String)
+data class FrittståendeBrevDto(
+    val personIdent: String,
+    val eksternFagsakId: Long,
+    val stønadType: StønadType,
+    val brevtype: FrittståendeBrevType,
+    val fil: ByteArray,
+    val journalførendeEnhet: String,
+    val saksbehandlerIdent: String
+)
 
 enum class FrittståendeBrevType(val tittel: String) {
     INFORMASJONSBREV("Informasjonsbrev"),

@@ -4,19 +4,21 @@ import no.nav.familie.kontrakter.felles.Applikasjon
 import no.nav.familie.kontrakter.felles.Fagsystem
 import java.time.LocalDateTime
 
-data class OpprettHistorikkinnslagRequest(val behandlingId: String,
-                                          val eksternFagsakId: String,
-                                          val fagsystem: Fagsystem,
-                                          val applikasjon: Applikasjon,
-                                          val type: Historikkinnslagstype,
-                                          val aktør: Aktør,
-                                          val aktørIdent: String,
-                                          val opprettetTidspunkt: LocalDateTime,
-                                          val steg: String? = null,
-                                          val tittel: String,
-                                          val tekst: String? = null,
-                                          val journalpostId: String? = null,
-                                          val dokumentId: String? = null) {
+data class OpprettHistorikkinnslagRequest(
+    val behandlingId: String,
+    val eksternFagsakId: String,
+    val fagsystem: Fagsystem,
+    val applikasjon: Applikasjon,
+    val type: Historikkinnslagstype,
+    val aktør: Aktør,
+    val aktørIdent: String,
+    val opprettetTidspunkt: LocalDateTime,
+    val steg: String? = null,
+    val tittel: String,
+    val tekst: String? = null,
+    val journalpostId: String? = null,
+    val dokumentId: String? = null
+) {
 
     init {
         when (type) {

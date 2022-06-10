@@ -3,14 +3,16 @@ package no.nav.familie.kontrakter.felles.tilbakekreving
 import java.time.LocalDateTime
 import java.util.UUID
 
-data class Behandling(val behandlingId: UUID,
-                 val opprettetTidspunkt: LocalDateTime,
-                 val aktiv: Boolean,
-                 val årsak: Behandlingsårsakstype?,
-                 val type: Behandlingstype,
-                 val status: Behandlingsstatus,
-                 val vedtaksdato: LocalDateTime?,
-                 val resultat: Behandlingsresultatstype?)
+data class Behandling(
+    val behandlingId: UUID,
+    val opprettetTidspunkt: LocalDateTime,
+    val aktiv: Boolean,
+    val årsak: Behandlingsårsakstype?,
+    val type: Behandlingstype,
+    val status: Behandlingsstatus,
+    val vedtaksdato: LocalDateTime?,
+    val resultat: Behandlingsresultatstype?
+)
 
 enum class Behandlingsårsakstype {
     REVURDERING_KLAGE_NFP,

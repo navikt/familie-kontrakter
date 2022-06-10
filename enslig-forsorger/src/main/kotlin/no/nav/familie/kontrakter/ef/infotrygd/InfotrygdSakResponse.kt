@@ -5,7 +5,7 @@ import java.time.LocalDate
 
 @Suppress("unused")
 data class InfotrygdSakResponse(
-        val saker: List<InfotrygdSak>
+    val saker: List<InfotrygdSak>
 )
 
 data class InfotrygdSak(
@@ -63,7 +63,6 @@ enum class InfotrygdSakType(val infotrygdKode: String, val beskrivelse: String) 
     TIPSUTREDNING("TU", "Tipsutredning"),
     UTBETALING_TIL_ANNEN("UA", "Utbetaling til annen"),
     VURDERING_UTESTENGING("VU", "Vurdering utestenging");
-
 }
 
 @Suppress("unused")

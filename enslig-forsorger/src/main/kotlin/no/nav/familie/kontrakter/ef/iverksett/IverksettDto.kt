@@ -116,7 +116,8 @@ data class VedtaksdetaljerSkolepengerDto(
     override val tilkjentYtelse: TilkjentYtelseDto?,
     override val vedtaksperioder: List<VedtaksperiodeSkolepengerDto> = emptyList(),
     override val tilbakekreving: TilbakekrevingDto? = null,
-    override val brevmottakere: List<Brevmottaker> = emptyList()
+    override val brevmottakere: List<Brevmottaker> = emptyList(),
+    val begrunnelse: String? = null
 ) : VedtaksdetaljerDto()
 
 data class VilkårsvurderingDto(

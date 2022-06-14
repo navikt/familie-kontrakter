@@ -162,6 +162,7 @@ data class DelårsperiodeSkoleårSkolepengerDto(
     val fraOgMed: LocalDate,
     val tilOgMed: LocalDate,
     val studiebelastning: Int,
+    val maksSatsForSkoleår: Int
 )
 
 data class SkolepengerUtgiftDto(

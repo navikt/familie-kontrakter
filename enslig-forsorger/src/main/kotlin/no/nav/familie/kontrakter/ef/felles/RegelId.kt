@@ -62,6 +62,7 @@ enum class RegelId(val beskrivelse: String) {
     // Skolepenger
     RETT_TIL_OVERGANGSSTØNAD("Er vilkårene for rett til overgangsstønad oppfylt?"),
     DOKUMENTASJON_AV_UTDANNING("Er det dokumentert at bruker er under utdanning?"),
+    DOKUMENTASJON_AV_UTGIFTER_UTDANNING("Er det dokumentert at brukeren har utgifter til utdanningen?"),
     NAVKONTOR_VURDERING("Har NAV kontoret vurdert at utdanning er nødvendig og hensiktsmessig?"),
     SAKSBEHANDLER_VURDERING("Er utdanningen nødvendig og hensiktsmessig?")
     ;

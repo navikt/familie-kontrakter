@@ -167,7 +167,6 @@ data class DelårsperiodeSkoleårSkolepengerDto(
 )
 
 data class SkolepengerUtgiftDto(
-    val utgiftstyper: Set<Utgiftstype>,
     val utgiftsdato: LocalDate,
     val utgifter: Int,
     val stønad: Int

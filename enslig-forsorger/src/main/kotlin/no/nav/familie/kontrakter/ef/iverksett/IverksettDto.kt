@@ -167,7 +167,6 @@ data class DelårsperiodeSkoleårSkolepengerDto(
 )
 
 data class SkolepengerUtgiftDto(
-    val utgiftstyper: Set<Utgiftstype>,
     val utgiftsdato: LocalDate,
     val utgifter: Int,
     val stønad: Int
@@ -176,12 +175,6 @@ data class SkolepengerUtgiftDto(
 enum class SkolepengerStudietype {
     HØGSKOLE_UNIVERSITET,
     VIDEREGÅENDE,
-}
-
-enum class Utgiftstype {
-    SEMESTERAVGIFT,
-    STUDIEAVGIFT,
-    EKSAMENSAVGIFT
 }
 
 data class TilbakekrevingDto(

@@ -177,12 +177,6 @@ enum class SkolepengerStudietype {
     VIDEREGÅENDE,
 }
 
-enum class Utgiftstype {
-    SEMESTERAVGIFT,
-    STUDIEAVGIFT,
-    EKSAMENSAVGIFT
-}
-
 data class TilbakekrevingDto(
     val tilbakekrevingsvalg: Tilbakekrevingsvalg,
     val tilbakekrevingMedVarsel: TilbakekrevingMedVarselDto?

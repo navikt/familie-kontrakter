@@ -39,8 +39,8 @@ class Fødselsnummer(val verdi: String) {
         val k1Vekting = intArrayOf(3, 7, 6, 1, 8, 9, 4, 5, 2)
         val k2Vekting = intArrayOf(5, 4, 3, 2, 7, 6, 5, 4, 3, 2)
 
-        val kontrollMod1 = 11 - (0..8).sumBy { k1Vekting[it] * siffer[it] } % 11
-        val kontrollMod2 = 11 - (0..9).sumBy { k2Vekting[it] * siffer[it] } % 11
+        val kontrollMod1 = 11 - (0..8).sumOf { k1Vekting[it] * siffer[it] } % 11
+        val kontrollMod2 = 11 - (0..9).sumOf { k2Vekting[it] * siffer[it] } % 11
         val kontrollsiffer1 = siffer[9]
         val kontrollsiffer2 = siffer[10]
 

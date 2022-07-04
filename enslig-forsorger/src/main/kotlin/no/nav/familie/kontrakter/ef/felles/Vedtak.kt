@@ -10,7 +10,6 @@ enum class BehandlingType {
     FØRSTEGANGSBEHANDLING,
     REVURDERING,
     KLAGE,
-    TEKNISK_OPPHØR
 }
 
 enum class BehandlingÅrsak {

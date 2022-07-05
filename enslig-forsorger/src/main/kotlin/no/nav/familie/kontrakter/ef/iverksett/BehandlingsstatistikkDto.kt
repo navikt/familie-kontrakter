@@ -1,7 +1,6 @@
 package no.nav.familie.kontrakter.ef.iverksett
 
 import no.nav.familie.kontrakter.ef.felles.BehandlingType
-import no.nav.familie.kontrakter.felles.ef.BehandlingMetode
 import no.nav.familie.kontrakter.felles.ef.StønadType
 import java.time.ZonedDateTime
 import java.util.UUID
@@ -26,7 +25,7 @@ data class BehandlingsstatistikkDto(
     val henvendelseTidspunkt: ZonedDateTime? = null,
     val relatertEksternBehandlingId: Long?,
     val relatertBehandlingId: UUID?,
-    val behandlingMetode: BehandlingMetode
+    val behandlingMetode: BehandlingMetode?
 )
 
 enum class Hendelse {
@@ -37,4 +36,10 @@ enum class Hendelse {
     BESLUTTET,
     HENLAGT,
     FERDIG
+}
+
+enum class BehandlingMetode {
+    MANUELL,
+    AUTOMATISK,
+    BATCH
 }

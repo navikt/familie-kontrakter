@@ -24,7 +24,8 @@ data class BehandlingsstatistikkDto(
     val behandlingstype: BehandlingType,
     val henvendelseTidspunkt: ZonedDateTime? = null,
     val relatertEksternBehandlingId: Long?,
-    val relatertBehandlingId: UUID?
+    val relatertBehandlingId: UUID?,
+    val behandlingMetode: BehandlingMetode?
 )
 
 enum class Hendelse {
@@ -35,4 +36,10 @@ enum class Hendelse {
     BESLUTTET,
     HENLAGT,
     FERDIG
+}
+
+enum class BehandlingMetode {
+    MANUELL,
+    AUTOMATISK,
+    BATCH
 }

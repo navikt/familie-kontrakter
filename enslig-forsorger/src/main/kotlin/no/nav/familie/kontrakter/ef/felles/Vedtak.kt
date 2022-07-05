@@ -7,7 +7,6 @@ enum class Vedtaksresultat(val visningsnavn: String) {
 }
 
 enum class BehandlingType {
-    BLANKETT,
     FØRSTEGANGSBEHANDLING,
     REVURDERING,
     KLAGE,

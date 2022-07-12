@@ -37,6 +37,7 @@ enum class TilkjentYtelseStatus {
 
 enum class Vilkårsresultat(val beskrivelse: String) {
     OPPFYLT("Vilkåret er oppfylt når alle delvilkår er oppfylte"),
+    AUTOMATISK_OPPFYLT("Delvilkår er oppfylt med automatisk beregning"),
     IKKE_OPPFYLT("Vilkåret er ikke oppfylt hvis alle delvilkår er oppfylt eller ikke oppfylt, men minimum 1 ikke oppfylt"),
     IKKE_AKTUELL("Hvis søknaden/pdl data inneholder noe som gjør att delvilkåret ikke må besvares"),
     IKKE_TATT_STILLING_TIL("Init state, eller att brukeren ikke svaret på hele delvilkåret"),

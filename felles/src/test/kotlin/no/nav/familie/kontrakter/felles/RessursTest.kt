@@ -5,9 +5,8 @@ import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import no.nav.familie.kontrakter.felles.Ressurs.Companion.failure
 import no.nav.familie.kontrakter.felles.Ressurs.Companion.success
-import org.junit.Assert
-import org.junit.Test
 import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Test
 import java.time.LocalDate
 
 class RessursTest {
@@ -15,15 +14,15 @@ class RessursTest {
     @Test
     fun `skal lagre object på ressurs og hente opp igjen`() {
         val (result) = success(TestObject("tekst", 42L, date), "OK")
-        Assert.assertEquals(result?.nummer, 42L)
-        Assert.assertEquals(result?.tekst, "tekst")
-        Assert.assertEquals(result?.date, date)
+        Assertions.assertEquals(result?.nummer, 42L)
+        Assertions.assertEquals(result?.tekst, "tekst")
+        Assertions.assertEquals(result?.date, date)
     }
 
     @Test
     fun `skal konvertere success til json string`() {
         val ressurs: Ressurs<*> = success(TestObject("tekst", 42L, date), "OK")
-        Assert.assertEquals(
+        Assertions.assertEquals(
             ressurs.toJson(),
             "{\"data\":{\"tekst\":\"tekst\",\"nummer\":42,\"date\":\"2019-11-30\"}," +
                 "\"status\":\"SUKSESS\",\"melding\":\"OK\",\"frontendFeilmelding\":null,\"stacktrace\":null}"

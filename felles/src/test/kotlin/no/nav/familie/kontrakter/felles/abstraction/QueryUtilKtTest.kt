@@ -1,6 +1,6 @@
 package no.nav.familie.kontrakter.felles.abstraction
 
-import org.junit.Test
+import org.junit.jupiter.api.Test
 import org.springframework.util.LinkedMultiValueMap
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse

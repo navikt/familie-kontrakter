@@ -1,7 +1,7 @@
 package no.nav.familie.kontrakter.felles
 
 import com.fasterxml.jackson.module.kotlin.readValue
-import org.junit.Test
+import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
 internal class BehandlingstemaTest {

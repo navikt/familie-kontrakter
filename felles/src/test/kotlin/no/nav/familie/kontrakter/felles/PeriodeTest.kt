@@ -2,7 +2,7 @@ package no.nav.familie.kontrakter.felles
 
 import io.kotest.assertions.throwables.shouldThrowMessage
 import io.kotest.matchers.shouldBe
-import org.junit.Test
+import org.junit.jupiter.api.Test
 import java.time.LocalDate
 import java.time.YearMonth
 

@@ -116,7 +116,8 @@ data class VedtaksdetaljerSkolepengerDto(
     override val tilkjentYtelse: TilkjentYtelseDto?,
     override val vedtaksperioder: List<VedtaksperiodeSkolepengerDto> = emptyList(),
     override val tilbakekreving: TilbakekrevingDto? = null,
-    override val brevmottakere: List<Brevmottaker> = emptyList()
+    override val brevmottakere: List<Brevmottaker> = emptyList(),
+    val begrunnelse: String? = null
 ) : VedtaksdetaljerDto()
 
 data class VilkårsvurderingDto(
@@ -162,10 +163,10 @@ data class DelårsperiodeSkoleårSkolepengerDto(
     val fraOgMed: LocalDate,
     val tilOgMed: LocalDate,
     val studiebelastning: Int,
+    val maksSatsForSkoleår: Int
 )
 
 data class SkolepengerUtgiftDto(
-    val utgiftstyper: Set<Utgiftstype>,
     val utgiftsdato: LocalDate,
     val utgifter: Int,
     val stønad: Int
@@ -174,12 +175,6 @@ data class SkolepengerUtgiftDto(
 enum class SkolepengerStudietype {
     HØGSKOLE_UNIVERSITET,
     VIDEREGÅENDE,
-}
-
-enum class Utgiftstype {
-    SEMESTERAVGIFT,
-    STUDIEAVGIFT,
-    EKSAMENSAVGIFT
 }
 
 data class TilbakekrevingDto(

@@ -730,7 +730,9 @@ class TestsøknadBuilder private constructor(
                             )
                         )
                     )
-                )
+                ),
+                semesteravgift = Søknadsfelt("Semesteravgift", 30000.toDouble()),
+                eksamensgebyr = Søknadsfelt("Eksamensgebyr", 0.toDouble()),
             )
         }
 

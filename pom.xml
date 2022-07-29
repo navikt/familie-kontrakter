@@ -23,7 +23,6 @@
         <jackson.version>2.13.2</jackson.version>
         <jackson-databind.version>2.13.2.2</jackson-databind.version>
         <felles.version>1.20210419103325_d044927</felles.version>
-        <junit.version>4.13.1</junit.version>
     </properties>
 
     <modules>
@@ -47,19 +46,6 @@
             <artifactId>kotlin-reflect</artifactId>
             <version>${kotlin.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.jetbrains.kotlin</groupId>
-            <artifactId>kotlin-test-junit</artifactId>
-            <version>${kotlin.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
-        </dependency>
-
         <dependency>
             <groupId>com.migesok</groupId>
             <artifactId>jaxb-java-time-adapters</artifactId>
@@ -101,7 +87,7 @@
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-test-junit5</artifactId>
-            <version>1.5.0</version>
+            <version>${kotlin.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>

@@ -7,8 +7,8 @@ import no.nav.familie.kontrakter.ef.felles.RegelId
 import no.nav.familie.kontrakter.ef.felles.Vedtaksresultat
 import no.nav.familie.kontrakter.ef.felles.VilkårType
 import no.nav.familie.kontrakter.ef.felles.Vilkårsresultat
+import no.nav.familie.kontrakter.felles.Periode
 import no.nav.familie.kontrakter.felles.ef.StønadType
-import no.nav.familie.kontrakter.felles.tilbakekreving.Periode
 import no.nav.familie.kontrakter.felles.tilbakekreving.Tilbakekrevingsvalg
 import java.math.BigDecimal
 import java.time.LocalDate
@@ -140,18 +140,34 @@ data class VurderingDto(
 sealed class VedtaksperiodeDto
 
 data class VedtaksperiodeOvergangsstønadDto(
-    val fraOgMed: LocalDate,
-    val tilOgMed: LocalDate,
+    @Deprecated("Bruk periode!", ReplaceWith("periode.fomDato")) val fraOgMed: LocalDate? = null,
+    @Deprecated("Bruk periode!", ReplaceWith("periode.tomDato")) val tilOgMed: LocalDate? = null,
+    val periode: Periode? = null,
     val aktivitet: AktivitetType,
     val periodeType: VedtaksperiodeType
-) : VedtaksperiodeDto()
+) : VedtaksperiodeDto() {
+
+    init {
+        require(periode != null && (fraOgMed != null && tilOgMed != null)) { "Periode mangler verdi!" }
+    }
+
+    fun periode(): Periode = periode ?: Periode(this.fraOgMed!!, this.tilOgMed!!)
+}
 
 data class VedtaksperiodeBarnetilsynDto(
-    val fraOgMed: LocalDate,
-    val tilOgMed: LocalDate,
+    @Deprecated("Bruk periode!", ReplaceWith("periode.fomDato")) val fraOgMed: LocalDate? = null,
+    @Deprecated("Bruk periode!", ReplaceWith("periode.tomDato")) val tilOgMed: LocalDate? = null,
+    val periode: Periode? = null,
     val utgifter: Int,
     val antallBarn: Int
-) : VedtaksperiodeDto()
+) : VedtaksperiodeDto() {
+
+    init {
+        require(periode != null && (fraOgMed != null && tilOgMed != null)) { "Periode mangler verdi!" }
+    }
+
+    fun periode(): Periode = periode ?: Periode(this.fraOgMed!!, this.tilOgMed!!)
+}
 
 data class VedtaksperiodeSkolepengerDto(
     val perioder: List<DelårsperiodeSkoleårSkolepengerDto>,
@@ -160,11 +176,19 @@ data class VedtaksperiodeSkolepengerDto(
 
 data class DelårsperiodeSkoleårSkolepengerDto(
     val studietype: SkolepengerStudietype,
-    val fraOgMed: LocalDate,
-    val tilOgMed: LocalDate,
+    @Deprecated("Bruk periode!", ReplaceWith("periode.fomDato")) val fraOgMed: LocalDate? = null,
+    @Deprecated("Bruk periode!", ReplaceWith("periode.tomDato")) val tilOgMed: LocalDate? = null,
+    val periode: Periode? = null,
     val studiebelastning: Int,
     val maksSatsForSkoleår: Int
-)
+) {
+
+    init {
+        require(periode != null && (fraOgMed != null && tilOgMed != null)) { "Periode mangler verdi!" }
+    }
+
+    fun periode(): Periode = periode ?: Periode(this.fraOgMed!!, this.tilOgMed!!)
+}
 
 data class SkolepengerUtgiftDto(
     val utgiftsdato: LocalDate,
@@ -183,15 +207,25 @@ data class TilbakekrevingDto(
 )
 
 data class PeriodeMedBeløpDto(
-    val fraOgMed: LocalDate,
-    val tilOgMed: LocalDate,
+    @Deprecated("Bruk periode!", ReplaceWith("periode.fomDato")) val fraOgMed: LocalDate? = null,
+    @Deprecated("Bruk periode!", ReplaceWith("periode.tomDato")) val tilOgMed: LocalDate? = null,
+    val periode: Periode? = null,
     val beløp: Int
-)
+) {
+
+    init {
+        require(periode != null && (fraOgMed != null && tilOgMed != null)) { "Periode mangler verdi!" }
+    }
+
+    fun periode(): Periode = periode ?: Periode(this.fraOgMed!!, this.tilOgMed!!)
+}
 
 data class TilbakekrevingMedVarselDto(
     val varseltekst: String,
     val sumFeilutbetaling: BigDecimal? = null, // Hentes fra simulering hvis det mangler
-    val perioder: List<Periode> = emptyList()
+    @Deprecated("Bruk fellesperioder!", ReplaceWith("fellesperioder"))
+    val perioder: List<no.nav.familie.kontrakter.felles.tilbakekreving.Periode> = emptyList(),
+    val fellesperioder: List<Periode> = emptyList()
 ) // Hentes fra simulering hvis det mangler
 
 enum class AdressebeskyttelseGradering {

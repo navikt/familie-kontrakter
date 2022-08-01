@@ -11,10 +11,9 @@ data class Periode(
     val fomMåned = YearMonth.from(fomDato)
     val tomMåned = YearMonth.from(tomDato)
 
-    constructor(
-        fomMåned: YearMonth,
-        tomMåned: YearMonth
-    ) : this(fomMåned.atDay(1), tomMåned.atEndOfMonth())
+    constructor(fomMåned: YearMonth, tomMåned: YearMonth) : this(fomMåned.atDay(1), tomMåned.atEndOfMonth())
+
+    constructor(måned: YearMonth) : this(måned.atDay(1), måned.atEndOfMonth())
 
     init {
         require(tomDato >= fomDato) { "Til-og-med før fra-og-med: $fomDato > $tomDato" }
@@ -63,6 +62,10 @@ data class Periode(
             fomDato < annen.tomDato &&
             tomDato >= annen.tomDato
 
+    fun påfølgesAv(påfølgende: Periode): Boolean {
+        return this.tomDato.plusDays(1) == påfølgende.fomDato
+    }
+
     fun lengdeIHeleMåneder(): Long {
         require(fomDato == fomMåned.atDay(1) && tomDato == tomMåned.atEndOfMonth()) {
             "Forsøk på å beregne lengde i hele måneder for en periode som ikke er hele måneder: $fomDato - $tomDato"
@@ -78,4 +81,23 @@ data class Periode(
     override fun compareTo(other: Periode): Int {
         return COMPARATOR.compare(this, other)
     }
+}
+
+fun List<Periode>.erSammenhengende(): Boolean = this.foldIndexed(true) { index, acc, periode ->
+    if (index == 0) {
+        acc
+    } else {
+        val forrigePeriode = this[index - 1]
+        when {
+            forrigePeriode.påfølgesAv(periode) -> acc
+            else -> false
+        }
+    }
+}
+
+fun List<Periode>.harOverlappende(): Boolean {
+    return this.sorted()
+        .zipWithNext { a, b ->
+            a.overlapper(b)
+        }.any { it }
 }

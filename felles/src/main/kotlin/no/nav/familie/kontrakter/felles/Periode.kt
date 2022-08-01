@@ -101,4 +101,3 @@ fun List<Periode>.harOverlappende(): Boolean {
             a.overlapper(b)
         }.any { it }
 }
-

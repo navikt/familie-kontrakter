@@ -140,31 +140,33 @@ data class VurderingDto(
 sealed class VedtaksperiodeDto
 
 data class VedtaksperiodeOvergangsstønadDto(
-    @Deprecated("Bruk periode!", ReplaceWith("periode.fomDato")) val fraOgMed: LocalDate,
-    @Deprecated("Bruk periode!", ReplaceWith("periode.tomDato")) val tilOgMed: LocalDate,
-    val periode: Periode?,
+    @Deprecated("Bruk periode!", ReplaceWith("periode.fomDato")) val fraOgMed: LocalDate? = null,
+    @Deprecated("Bruk periode!", ReplaceWith("periode.tomDato")) val tilOgMed: LocalDate? = null,
+    val periode: Periode? = null,
     val aktivitet: AktivitetType,
     val periodeType: VedtaksperiodeType
 ) : VedtaksperiodeDto() {
 
-    fun periode(): Periode = periode ?: Periode(
-        this.fraOgMed,
-        this.tilOgMed
-    )
+    init {
+        require(periode != null && (fraOgMed != null && tilOgMed != null)) { "Periode mangler verdi!" }
+    }
+
+    fun periode(): Periode = periode ?: Periode(this.fraOgMed!!, this.tilOgMed!!)
 }
 
 data class VedtaksperiodeBarnetilsynDto(
-    @Deprecated("Bruk periode!", ReplaceWith("periode.fomDato")) val fraOgMed: LocalDate,
-    @Deprecated("Bruk periode!", ReplaceWith("periode.tomDato")) val tilOgMed: LocalDate,
-    val periode: Periode?,
+    @Deprecated("Bruk periode!", ReplaceWith("periode.fomDato")) val fraOgMed: LocalDate? = null,
+    @Deprecated("Bruk periode!", ReplaceWith("periode.tomDato")) val tilOgMed: LocalDate? = null,
+    val periode: Periode? = null,
     val utgifter: Int,
     val antallBarn: Int
 ) : VedtaksperiodeDto() {
 
-    fun periode(): Periode = periode ?: Periode(
-        this.fraOgMed,
-        this.tilOgMed
-    )
+    init {
+        require(periode != null && (fraOgMed != null && tilOgMed != null)) { "Periode mangler verdi!" }
+    }
+
+    fun periode(): Periode = periode ?: Periode(this.fraOgMed!!, this.tilOgMed!!)
 }
 
 data class VedtaksperiodeSkolepengerDto(
@@ -205,16 +207,17 @@ data class TilbakekrevingDto(
 )
 
 data class PeriodeMedBeløpDto(
-    @Deprecated("Bruk periode!", ReplaceWith("periode.fomDato")) val fraOgMed: LocalDate,
-    @Deprecated("Bruk periode!", ReplaceWith("periode.tomDato")) val tilOgMed: LocalDate,
-    val periode: Periode?,
+    @Deprecated("Bruk periode!", ReplaceWith("periode.fomDato")) val fraOgMed: LocalDate? = null,
+    @Deprecated("Bruk periode!", ReplaceWith("periode.tomDato")) val tilOgMed: LocalDate? = null,
+    val periode: Periode? = null,
     val beløp: Int
 ) {
 
-    fun periode(): Periode = periode ?: Periode(
-        this.fraOgMed,
-        this.tilOgMed
-    )
+    init {
+        require(periode != null && (fraOgMed != null && tilOgMed != null)) { "Periode mangler verdi!" }
+    }
+
+    fun periode(): Periode = periode ?: Periode(this.fraOgMed!!, this.tilOgMed!!)
 }
 
 data class TilbakekrevingMedVarselDto(

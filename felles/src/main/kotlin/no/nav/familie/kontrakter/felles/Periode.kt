@@ -73,11 +73,13 @@ data class Periode(
         return (tomMåned.year * 12 + tomMåned.monthValue) - (fomMåned.year * 12 + fomMåned.monthValue) + 1L
     }
 
-    operator fun plus(påfølgende: Periode): Periode {
-        return if (this.påfølgesAv(påfølgende)) {
-            this.copy(tomDato = påfølgende.tomDato)
+    operator fun plus(other: Periode): Periode {
+        return if (this.påfølgesAv(other)) {
+            this.copy(tomDato = other.tomDato)
+        } else if (other.påfølgesAv(this)) {
+            other.copy(tomDato = this.tomDato)
         } else {
-            error("Kan ikke legge til en periode $påfølgende som ikke direkete følger denne $this")
+            error("Kan ikke legge sammen perioder $this og $other som ikke direkete følger hverandre.")
         }
     }
 

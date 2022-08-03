@@ -19,27 +19,27 @@ data class Periode(
         require(tomDato >= fomDato) { "Til-og-med før fra-og-med: $fomDato > $tomDato" }
     }
 
-    fun inneholder(dato: LocalDate): Boolean {
+    infix fun inneholder(dato: LocalDate): Boolean {
         return dato in fomDato..tomDato
     }
 
-    fun inneholder(måned: YearMonth): Boolean {
+    infix fun inneholder(måned: YearMonth): Boolean {
         return inneholder(Periode(måned.atDay(1), måned.atEndOfMonth()))
     }
 
-    fun inneholder(annen: Periode): Boolean {
+    infix fun inneholder(annen: Periode): Boolean {
         return annen.fomDato >= this.fomDato && annen.tomDato <= this.tomDato
     }
 
-    fun omsluttesAv(annen: Periode): Boolean {
+    infix fun omsluttesAv(annen: Periode): Boolean {
         return annen.fomDato <= fomDato && annen.tomDato >= tomDato
     }
 
-    fun overlapper(other: Periode): Boolean {
+    infix fun overlapper(other: Periode): Boolean {
         return inneholder(other.fomDato) || inneholder(other.tomDato) || other.inneholder(fomDato)
     }
 
-    fun snitt(annen: Periode): Periode? {
+    infix fun snitt(annen: Periode): Periode? {
         return if (!overlapper(annen)) {
             null
         } else if (this == annen) {
@@ -52,17 +52,28 @@ data class Periode(
         }
     }
 
-    fun overlapperIStartenAv(annen: Periode) =
+    infix fun union(annen: Periode): Periode {
+        return if (overlapper(annen) || this.påfølgesAv(annen) || annen.påfølgesAv(this)) {
+            Periode(
+                minOf(fomDato, annen.fomDato),
+                maxOf(tomDato, annen.tomDato)
+            )
+        } else {
+            error("Kan ikke lage union av perioder som $this og $annen som ikke overlapper eller direkte følger hverandre.")
+        }
+    }
+
+    infix fun overlapperIStartenAv(annen: Periode) =
         fomDato <= annen.fomDato &&
             tomDato > annen.fomDato &&
             tomDato < annen.tomDato
 
-    fun overlapperISluttenAv(annen: Periode) =
+    infix fun overlapperISluttenAv(annen: Periode) =
         fomDato > annen.fomDato &&
             fomDato < annen.tomDato &&
             tomDato >= annen.tomDato
 
-    fun påfølgesAv(påfølgende: Periode): Boolean {
+    infix fun påfølgesAv(påfølgende: Periode): Boolean {
         return this.tomDato.plusDays(1) == påfølgende.fomDato
     }
 
@@ -83,7 +94,7 @@ data class Periode(
     }
 }
 
-fun List<Periode>.erSammenhengende(): Boolean = this.foldIndexed(true) { index, acc, periode ->
+fun List<Periode>.erSammenhengende(): Boolean = this.sorted().foldIndexed(true) { index, acc, periode ->
     if (index == 0) {
         acc
     } else {

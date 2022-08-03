@@ -11,13 +11,9 @@ data class AndelTilkjentYtelseDto(
     val samordningsfradrag: Int,
     @Deprecated("Bruk periode!", ReplaceWith("periode.fomDato")) val fraOgMed: LocalDate? = null,
     @Deprecated("Bruk periode!", ReplaceWith("periode.tomDato")) val tilOgMed: LocalDate? = null,
-    val periode: Periode? = null,
+    val periode: Periode = Periode(
+        fraOgMed ?: error("Periode eller fraOgMed må ha verdi!"),
+        tilOgMed ?: error("Periode eller traOgMed må ha verdi!")
+    ),
     val kildeBehandlingId: UUID? = null
-) {
-
-    init {
-        require(periode != null || (fraOgMed != null && tilOgMed != null)) { "Periode mangler verdi!" }
-    }
-
-    fun periode(): Periode = periode ?: Periode(this.fraOgMed!!, this.tilOgMed!!)
-}
+)

@@ -12,7 +12,7 @@ internal class PeriodeTest {
     fun `inneholder returnere true hvis måned er fullt inne i perioden`() {
         val periode = Periode(YearMonth.of(2019, 1), YearMonth.of(2019, 5))
 
-        val inneholder = periode.inneholder(YearMonth.of(2019, 1))
+        val inneholder = periode inneholder YearMonth.of(2019, 1)
 
         inneholder shouldBe true
     }
@@ -21,7 +21,7 @@ internal class PeriodeTest {
     fun `inneholder returnere true hvis måned ikke fullt inne i perioden`() {
         val periode = Periode(LocalDate.of(2019, 1, 2), LocalDate.of(2019, 5, 1))
 
-        val inneholder = periode.inneholder(YearMonth.of(2019, 1))
+        val inneholder = periode inneholder YearMonth.of(2019, 1)
 
         inneholder shouldBe false
     }
@@ -31,17 +31,17 @@ internal class PeriodeTest {
         val periode1 = Periode(YearMonth.of(2019, 1), YearMonth.of(2019, 5))
         val periode2 = Periode(YearMonth.of(2019, 1), YearMonth.of(2019, 5))
 
-        val snitt = periode1.snitt(periode2)
+        val snitt = periode1 snitt periode2
 
         snitt shouldBe periode1
     }
 
     @Test
-    fun `snitt returnerer null for periode uten overlap`() {
+    fun `snitt returnerer null for periode uten overlapp`() {
         val periode1 = Periode(YearMonth.of(2019, 1), YearMonth.of(2019, 5))
         val periode2 = Periode(YearMonth.of(2018, 1), YearMonth.of(2018, 12))
 
-        val snitt = periode1.snitt(periode2)
+        val snitt = periode1 snitt periode2
 
         snitt shouldBe null
     }
@@ -51,11 +51,55 @@ internal class PeriodeTest {
         val periode1 = Periode(YearMonth.of(2019, 1), YearMonth.of(2019, 5))
         val periode2 = Periode(YearMonth.of(2019, 3), YearMonth.of(2019, 12))
 
-        val snitt1til2 = periode1.snitt(periode2)
-        val snitt2til1 = periode2.snitt(periode1)
+        val snitt1til2 = periode1 snitt periode2
+        val snitt2til1 = periode2 snitt periode1
 
         snitt1til2 shouldBe snitt2til1
         snitt1til2 shouldBe Periode(YearMonth.of(2019, 3), YearMonth.of(2019, 5))
+    }
+
+    @Test
+    fun `union returnerer lik periode for like perioder`() {
+        val periode1 = Periode(YearMonth.of(2019, 1), YearMonth.of(2019, 5))
+        val periode2 = Periode(YearMonth.of(2019, 1), YearMonth.of(2019, 5))
+
+        val union = periode1 union periode2
+
+        union shouldBe periode1
+    }
+
+    @Test
+    fun `union returnerer riktig periode for påfølgende perioder`() {
+        val periode1 = Periode(YearMonth.of(2019, 1), YearMonth.of(2019, 5))
+        val periode2 = Periode(YearMonth.of(2018, 1), YearMonth.of(2018, 12))
+
+        val union = periode1 union periode2
+
+        union shouldBe Periode(YearMonth.of(2018, 1), YearMonth.of(2019, 5))
+    }
+
+    @Test
+    fun `union kaster exception for perioder som ikke følger hverandre eller overlapper`() {
+        val periode1 = Periode(YearMonth.of(2019, 1), YearMonth.of(2019, 5))
+        val periode2 = Periode(YearMonth.of(2018, 1), YearMonth.of(2018, 11))
+
+        shouldThrowMessage(
+            "Kan ikke lage union av perioder som $periode1 og $periode2 som ikke overlapper eller direkte følger hverandre."
+        ) {
+            periode1 union periode2
+        }
+    }
+
+    @Test
+    fun `union returnerer lik periode uansett hvilken periode som ligger til grunn`() {
+        val periode1 = Periode(YearMonth.of(2019, 1), YearMonth.of(2019, 5))
+        val periode2 = Periode(YearMonth.of(2019, 3), YearMonth.of(2019, 12))
+
+        val union1til2 = periode1 union periode2
+        val union2til1 = periode2 union periode1
+
+        union1til2 shouldBe union2til1
+        union1til2 shouldBe Periode(YearMonth.of(2019, 1), YearMonth.of(2019, 12))
     }
 
     @Test
@@ -63,7 +107,7 @@ internal class PeriodeTest {
         val periode1 = Periode(YearMonth.of(2019, 1), YearMonth.of(2019, 3))
         val periode2 = Periode(YearMonth.of(2019, 1), YearMonth.of(2019, 1))
 
-        val inneholder = periode1.inneholder(periode2)
+        val inneholder = periode1 inneholder periode2
 
         inneholder shouldBe true
     }
@@ -73,7 +117,7 @@ internal class PeriodeTest {
         val periode1 = Periode(YearMonth.of(2019, 1), YearMonth.of(2019, 3))
         val periode2 = Periode(LocalDate.of(2019, 2, 1), LocalDate.of(2019, 4, 1))
 
-        val inneholder = periode1.inneholder(periode2)
+        val inneholder = periode1 inneholder periode2
 
         inneholder shouldBe false
     }
@@ -83,7 +127,7 @@ internal class PeriodeTest {
         val periode1 = Periode(YearMonth.of(2019, 1), YearMonth.of(2019, 1))
         val periode2 = Periode(YearMonth.of(2019, 1), YearMonth.of(2019, 3))
 
-        val inneholder = periode1.omsluttesAv(periode2)
+        val inneholder = periode1 omsluttesAv periode2
 
         inneholder shouldBe true
     }
@@ -93,7 +137,7 @@ internal class PeriodeTest {
         val periode1 = Periode(LocalDate.of(2019, 2, 1), LocalDate.of(2019, 4, 1))
         val periode2 = Periode(YearMonth.of(2019, 1), YearMonth.of(2019, 3))
 
-        val inneholder = periode1.omsluttesAv(periode2)
+        val inneholder = periode1 omsluttesAv periode2
 
         inneholder shouldBe false
     }
@@ -103,7 +147,7 @@ internal class PeriodeTest {
         val periodeSomOverlapperStarten = Periode(YearMonth.of(2019, 1), YearMonth.of(2019, 1))
         val periode = Periode(YearMonth.of(2019, 1), YearMonth.of(2019, 3))
 
-        val overlapperIStartenAv = periodeSomOverlapperStarten.overlapperIStartenAv(periode)
+        val overlapperIStartenAv = periodeSomOverlapperStarten overlapperIStartenAv periode
 
         overlapperIStartenAv shouldBe true
     }
@@ -113,7 +157,7 @@ internal class PeriodeTest {
         val periodeSomErLik = Periode(YearMonth.of(2019, 1), YearMonth.of(2019, 3))
         val periode = Periode(YearMonth.of(2019, 1), YearMonth.of(2019, 3))
 
-        val overlapperIStartenAv = periodeSomErLik.overlapperIStartenAv(periode)
+        val overlapperIStartenAv = periodeSomErLik overlapperIStartenAv periode
 
         overlapperIStartenAv shouldBe false
     }
@@ -123,7 +167,7 @@ internal class PeriodeTest {
         val periodeSomErFør = Periode(YearMonth.of(2018, 9), YearMonth.of(2018, 12))
         val periode = Periode(YearMonth.of(2019, 1), YearMonth.of(2019, 3))
 
-        val overlapperIStartenAv = periodeSomErFør.overlapperIStartenAv(periode)
+        val overlapperIStartenAv = periodeSomErFør overlapperIStartenAv periode
 
         overlapperIStartenAv shouldBe false
     }
@@ -133,7 +177,7 @@ internal class PeriodeTest {
         val periodeSomErInneI = Periode(LocalDate.of(2018, 9, 2), LocalDate.of(2018, 9, 25))
         val periode = Periode(YearMonth.of(2018, 9), YearMonth.of(2018, 9))
 
-        val overlapperIStartenAv = periodeSomErInneI.overlapperIStartenAv(periode)
+        val overlapperIStartenAv = periodeSomErInneI overlapperIStartenAv periode
 
         overlapperIStartenAv shouldBe false
     }
@@ -143,7 +187,7 @@ internal class PeriodeTest {
         val periodeSomOverlapperSlutten = Periode(YearMonth.of(2019, 3), YearMonth.of(2019, 3))
         val periode = Periode(YearMonth.of(2019, 1), YearMonth.of(2019, 3))
 
-        val overlapperISluttenAv = periodeSomOverlapperSlutten.overlapperISluttenAv(periode)
+        val overlapperISluttenAv = periodeSomOverlapperSlutten overlapperISluttenAv periode
 
         overlapperISluttenAv shouldBe true
     }
@@ -153,7 +197,7 @@ internal class PeriodeTest {
         val periodeSomErLik = Periode(YearMonth.of(2019, 1), YearMonth.of(2019, 3))
         val periode = Periode(YearMonth.of(2019, 1), YearMonth.of(2019, 3))
 
-        val overlapperISluttenAv = periodeSomErLik.overlapperISluttenAv(periode)
+        val overlapperISluttenAv = periodeSomErLik overlapperISluttenAv periode
 
         overlapperISluttenAv shouldBe false
     }
@@ -163,7 +207,7 @@ internal class PeriodeTest {
         val periodeSomErEtter = Periode(YearMonth.of(2019, 4), YearMonth.of(2019, 4))
         val periode = Periode(YearMonth.of(2019, 1), YearMonth.of(2019, 3))
 
-        val overlapperISluttenAv = periodeSomErEtter.overlapperISluttenAv(periode)
+        val overlapperISluttenAv = periodeSomErEtter overlapperISluttenAv periode
 
         overlapperISluttenAv shouldBe false
     }
@@ -173,7 +217,7 @@ internal class PeriodeTest {
         val periodeSomErInneI = Periode(LocalDate.of(2018, 9, 2), LocalDate.of(2018, 9, 29))
         val periode = Periode(YearMonth.of(2018, 9), YearMonth.of(2018, 9))
 
-        val overlapperISluttenAv = periodeSomErInneI.overlapperISluttenAv(periode)
+        val overlapperISluttenAv = periodeSomErInneI overlapperISluttenAv periode
 
         overlapperISluttenAv shouldBe false
     }

@@ -52,6 +52,17 @@ data class Periode(
         }
     }
 
+    fun union(annen: Periode): Periode {
+        return if (overlapper(annen) || this.påfølgesAv(annen) || annen.påfølgesAv(this)) {
+            Periode(
+                minOf(fomDato, annen.fomDato),
+                maxOf(tomDato, annen.tomDato)
+            )
+        } else {
+            error("Kan ikke lage union av perioder som $this og $annen som ikke overlapper eller direkte følger hverandre.")
+        }
+    }
+
     fun overlapperIStartenAv(annen: Periode) =
         fomDato <= annen.fomDato &&
             tomDato > annen.fomDato &&
@@ -73,16 +84,6 @@ data class Periode(
         return (tomMåned.year * 12 + tomMåned.monthValue) - (fomMåned.year * 12 + fomMåned.monthValue) + 1L
     }
 
-    operator fun plus(other: Periode): Periode {
-        return if (this.påfølgesAv(other)) {
-            this.copy(tomDato = other.tomDato)
-        } else if (other.påfølgesAv(this)) {
-            other.copy(tomDato = this.tomDato)
-        } else {
-            error("Kan ikke legge sammen perioder $this og $other som ikke direkete følger hverandre.")
-        }
-    }
-
     companion object {
 
         val COMPARATOR: Comparator<Periode> = Comparator.comparing(Periode::fomDato).thenComparing(Periode::tomDato)
@@ -93,7 +94,7 @@ data class Periode(
     }
 }
 
-fun List<Periode>.erSammenhengende(): Boolean = this.foldIndexed(true) { index, acc, periode ->
+fun List<Periode>.erSammenhengende(): Boolean = this.sorted().foldIndexed(true) { index, acc, periode ->
     if (index == 0) {
         acc
     } else {

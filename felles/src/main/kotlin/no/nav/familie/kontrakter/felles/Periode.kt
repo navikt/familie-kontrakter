@@ -73,6 +73,14 @@ data class Periode(
         return (tomMåned.year * 12 + tomMåned.monthValue) - (fomMåned.year * 12 + fomMåned.monthValue) + 1L
     }
 
+    operator fun plus(påfølgende: Periode): Periode {
+        return if (this.påfølgesAv(påfølgende)) {
+            this.copy(tomDato = påfølgende.tomDato)
+        } else {
+            error("Kan ikke legge til en periode $påfølgende som ikke direkete følger denne $this")
+        }
+    }
+
     companion object {
 
         val COMPARATOR: Comparator<Periode> = Comparator.comparing(Periode::fomDato).thenComparing(Periode::tomDato)

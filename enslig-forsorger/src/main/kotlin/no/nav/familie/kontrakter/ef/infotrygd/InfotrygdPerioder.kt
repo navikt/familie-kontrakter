@@ -54,21 +54,11 @@ data class InfotrygdPeriode(
     val utgifterBarnetilsyn: Int,
     val månedsbeløp: Int,
     val startDato: LocalDate,
-    @Deprecated("Bruk stønadsperiode!", ReplaceWith("stønadsperiode.fomDato")) val stønadFom: LocalDate? = null,
-    @Deprecated("Bruk stønadsperiode!", ReplaceWith("stønadsperiode.tomDato")) val stønadTom: LocalDate? = null,
-    val stønadsperiode: no.nav.familie.kontrakter.felles.Periode? = null,
+    val stønadFom: LocalDate,
+    val stønadTom: LocalDate,
     val opphørsdato: LocalDate?,
     val barnIdenter: List<String> = emptyList()
-) {
-    init {
-        require(stønadsperiode != null || (stønadFom != null && stønadTom != null)) { "Periode mangler verdi!" }
-    }
-
-    fun periode(): no.nav.familie.kontrakter.felles.Periode = stønadsperiode ?: no.nav.familie.kontrakter.felles.Periode(
-        this.stønadFom!!,
-        this.stønadTom!!
-    )
-}
+)
 
 @Suppress("unused")
 enum class InfotrygdEndringKode(val infotrygdKode: String, val beskrivelse: String) {

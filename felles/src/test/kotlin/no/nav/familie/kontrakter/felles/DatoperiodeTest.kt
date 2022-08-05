@@ -4,32 +4,31 @@ import io.kotest.assertions.throwables.shouldThrowMessage
 import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.Test
 import java.time.LocalDate
-import java.time.YearMonth
 
-internal class PeriodeTest {
+internal class DatoperiodeTest {
 
     @Test
-    fun `inneholder returnere true hvis måned er fullt inne i perioden`() {
-        val periode = Periode(YearMonth.of(2019, 1), YearMonth.of(2019, 5))
+    fun `inneholder returnere true hvis dato er i perioden`() {
+        val periode = Datoperiode(LocalDate.of(2019, 1, 1), LocalDate.of(2019, 5, 1))
 
-        val inneholder = periode inneholder YearMonth.of(2019, 1)
+        val inneholder = periode inneholder LocalDate.of(2019, 1, 1)
 
         inneholder shouldBe true
     }
 
     @Test
-    fun `inneholder returnere true hvis måned ikke fullt inne i perioden`() {
-        val periode = Periode(LocalDate.of(2019, 1, 2), LocalDate.of(2019, 5, 1))
+    fun `inneholder returnere true hvis dato ikke er i perioden`() {
+        val periode = Datoperiode(LocalDate.of(2019, 1, 2), LocalDate.of(2019, 5, 1))
 
-        val inneholder = periode inneholder YearMonth.of(2019, 1)
+        val inneholder = periode inneholder LocalDate.of(2019, 1, 1)
 
         inneholder shouldBe false
     }
 
     @Test
     fun `snitt returnerer lik periode for like perioder`() {
-        val periode1 = Periode(YearMonth.of(2019, 1), YearMonth.of(2019, 5))
-        val periode2 = Periode(YearMonth.of(2019, 1), YearMonth.of(2019, 5))
+        val periode1 = Datoperiode(LocalDate.of(2019, 1, 1), LocalDate.of(2019, 5, 1))
+        val periode2 = Datoperiode(LocalDate.of(2019, 1, 1), LocalDate.of(2019, 5, 1))
 
         val snitt = periode1 snitt periode2
 
@@ -38,8 +37,8 @@ internal class PeriodeTest {
 
     @Test
     fun `snitt returnerer null for periode uten overlapp`() {
-        val periode1 = Periode(YearMonth.of(2019, 1), YearMonth.of(2019, 5))
-        val periode2 = Periode(YearMonth.of(2018, 1), YearMonth.of(2018, 12))
+        val periode1 = Datoperiode(LocalDate.of(2019, 1, 1), LocalDate.of(2019, 5, 1))
+        val periode2 = Datoperiode(LocalDate.of(2018, 1, 1), LocalDate.of(2018, 12, 1))
 
         val snitt = periode1 snitt periode2
 
@@ -48,20 +47,20 @@ internal class PeriodeTest {
 
     @Test
     fun `snitt returnerer lik periode uansett hvilken periode som ligger til grunn`() {
-        val periode1 = Periode(YearMonth.of(2019, 1), YearMonth.of(2019, 5))
-        val periode2 = Periode(YearMonth.of(2019, 3), YearMonth.of(2019, 12))
+        val periode1 = Datoperiode(LocalDate.of(2019, 1, 1), LocalDate.of(2019, 5, 1))
+        val periode2 = Datoperiode(LocalDate.of(2019, 3, 1), LocalDate.of(2019, 12, 1))
 
         val snitt1til2 = periode1 snitt periode2
         val snitt2til1 = periode2 snitt periode1
 
         snitt1til2 shouldBe snitt2til1
-        snitt1til2 shouldBe Periode(YearMonth.of(2019, 3), YearMonth.of(2019, 5))
+        snitt1til2 shouldBe Datoperiode(LocalDate.of(2019, 3, 1), LocalDate.of(2019, 5, 1))
     }
 
     @Test
     fun `union returnerer lik periode for like perioder`() {
-        val periode1 = Periode(YearMonth.of(2019, 1), YearMonth.of(2019, 5))
-        val periode2 = Periode(YearMonth.of(2019, 1), YearMonth.of(2019, 5))
+        val periode1 = Datoperiode(LocalDate.of(2019, 1, 1), LocalDate.of(2019, 5, 1))
+        val periode2 = Datoperiode(LocalDate.of(2019, 1, 1), LocalDate.of(2019, 5, 1))
 
         val union = periode1 union periode2
 
@@ -70,18 +69,18 @@ internal class PeriodeTest {
 
     @Test
     fun `union returnerer riktig periode for påfølgende perioder`() {
-        val periode1 = Periode(YearMonth.of(2019, 1), YearMonth.of(2019, 5))
-        val periode2 = Periode(YearMonth.of(2018, 1), YearMonth.of(2018, 12))
+        val periode1 = Datoperiode(LocalDate.of(2019, 1, 1), LocalDate.of(2019, 5, 31))
+        val periode2 = Datoperiode(LocalDate.of(2018, 1, 1), LocalDate.of(2018, 12, 31))
 
         val union = periode1 union periode2
 
-        union shouldBe Periode(YearMonth.of(2018, 1), YearMonth.of(2019, 5))
+        union shouldBe Datoperiode(LocalDate.of(2018, 1, 1), LocalDate.of(2019, 5, 31))
     }
 
     @Test
     fun `union kaster exception for perioder som ikke følger hverandre eller overlapper`() {
-        val periode1 = Periode(YearMonth.of(2019, 1), YearMonth.of(2019, 5))
-        val periode2 = Periode(YearMonth.of(2018, 1), YearMonth.of(2018, 11))
+        val periode1 = Datoperiode(LocalDate.of(2019, 1, 1), LocalDate.of(2019, 5, 1))
+        val periode2 = Datoperiode(LocalDate.of(2018, 1, 1), LocalDate.of(2018, 11, 1))
 
         shouldThrowMessage(
             "Kan ikke lage union av perioder som $periode1 og $periode2 som ikke overlapper eller direkte følger hverandre."
@@ -92,20 +91,20 @@ internal class PeriodeTest {
 
     @Test
     fun `union returnerer lik periode uansett hvilken periode som ligger til grunn`() {
-        val periode1 = Periode(YearMonth.of(2019, 1), YearMonth.of(2019, 5))
-        val periode2 = Periode(YearMonth.of(2019, 3), YearMonth.of(2019, 12))
+        val periode1 = Datoperiode(LocalDate.of(2019, 1, 1), LocalDate.of(2019, 5, 1))
+        val periode2 = Datoperiode(LocalDate.of(2019, 3, 1), LocalDate.of(2019, 12, 1))
 
         val union1til2 = periode1 union periode2
         val union2til1 = periode2 union periode1
 
         union1til2 shouldBe union2til1
-        union1til2 shouldBe Periode(YearMonth.of(2019, 1), YearMonth.of(2019, 12))
+        union1til2 shouldBe Datoperiode(LocalDate.of(2019, 1, 1), LocalDate.of(2019, 12, 1))
     }
 
     @Test
     fun `inneholder returnerer true for periode som helt inneholder innsendt periode`() {
-        val periode1 = Periode(YearMonth.of(2019, 1), YearMonth.of(2019, 3))
-        val periode2 = Periode(YearMonth.of(2019, 1), YearMonth.of(2019, 1))
+        val periode1 = Datoperiode(LocalDate.of(2019, 1, 1), LocalDate.of(2019, 3, 1))
+        val periode2 = Datoperiode(LocalDate.of(2019, 1, 1), LocalDate.of(2019, 1, 1))
 
         val inneholder = periode1 inneholder periode2
 
@@ -114,8 +113,8 @@ internal class PeriodeTest {
 
     @Test
     fun `inneholder returnerer false for periode som stikker utenfor innsendt periode`() {
-        val periode1 = Periode(YearMonth.of(2019, 1), YearMonth.of(2019, 3))
-        val periode2 = Periode(LocalDate.of(2019, 2, 1), LocalDate.of(2019, 4, 1))
+        val periode1 = Datoperiode(LocalDate.of(2019, 1, 1), LocalDate.of(2019, 3, 1))
+        val periode2 = Datoperiode(LocalDate.of(2019, 2, 1), LocalDate.of(2019, 4, 1))
 
         val inneholder = periode1 inneholder periode2
 
@@ -124,8 +123,8 @@ internal class PeriodeTest {
 
     @Test
     fun `omsluttesAv returnerer true for periode som helt omsluttes av innsendt periode`() {
-        val periode1 = Periode(YearMonth.of(2019, 1), YearMonth.of(2019, 1))
-        val periode2 = Periode(YearMonth.of(2019, 1), YearMonth.of(2019, 3))
+        val periode1 = Datoperiode(LocalDate.of(2019, 1, 1), LocalDate.of(2019, 1, 1))
+        val periode2 = Datoperiode(LocalDate.of(2019, 1, 1), LocalDate.of(2019, 3, 1))
 
         val inneholder = periode1 omsluttesAv periode2
 
@@ -134,8 +133,8 @@ internal class PeriodeTest {
 
     @Test
     fun `omsluttesAv returnerer false for periode som nesten omsluttes av innsendt periode`() {
-        val periode1 = Periode(LocalDate.of(2019, 2, 1), LocalDate.of(2019, 4, 1))
-        val periode2 = Periode(YearMonth.of(2019, 1), YearMonth.of(2019, 3))
+        val periode1 = Datoperiode(LocalDate.of(2019, 2, 1), LocalDate.of(2019, 4, 1))
+        val periode2 = Datoperiode(LocalDate.of(2019, 1, 1), LocalDate.of(2019, 3, 1))
 
         val inneholder = periode1 omsluttesAv periode2
 
@@ -144,8 +143,8 @@ internal class PeriodeTest {
 
     @Test
     fun `overlapperIStartenAv returnerer true hvis denne perioden overlapper i starten av perioden som sendes inn`() {
-        val periodeSomOverlapperStarten = Periode(YearMonth.of(2019, 1), YearMonth.of(2019, 1))
-        val periode = Periode(YearMonth.of(2019, 1), YearMonth.of(2019, 3))
+        val periodeSomOverlapperStarten = Datoperiode(LocalDate.of(2019, 1, 1), LocalDate.of(2019, 1, 1))
+        val periode = Datoperiode(LocalDate.of(2019, 1, 1), LocalDate.of(2019, 3, 1))
 
         val overlapperIStartenAv = periodeSomOverlapperStarten overlapperIStartenAv periode
 
@@ -154,8 +153,8 @@ internal class PeriodeTest {
 
     @Test
     fun `overlapperIStartenAv returnerer false hvis denne perioden er lik den som sendes inn`() {
-        val periodeSomErLik = Periode(YearMonth.of(2019, 1), YearMonth.of(2019, 3))
-        val periode = Periode(YearMonth.of(2019, 1), YearMonth.of(2019, 3))
+        val periodeSomErLik = Datoperiode(LocalDate.of(2019, 1, 1), LocalDate.of(2019, 3, 1))
+        val periode = Datoperiode(LocalDate.of(2019, 1, 1), LocalDate.of(2019, 3, 1))
 
         val overlapperIStartenAv = periodeSomErLik overlapperIStartenAv periode
 
@@ -164,8 +163,8 @@ internal class PeriodeTest {
 
     @Test
     fun `overlapperIStartenAv returnerer false hvis denne perioden er før den som sendes inn`() {
-        val periodeSomErFør = Periode(YearMonth.of(2018, 9), YearMonth.of(2018, 12))
-        val periode = Periode(YearMonth.of(2019, 1), YearMonth.of(2019, 3))
+        val periodeSomErFør = Datoperiode(LocalDate.of(2018, 9, 1), LocalDate.of(2018, 12, 1))
+        val periode = Datoperiode(LocalDate.of(2019, 1, 1), LocalDate.of(2019, 3, 1))
 
         val overlapperIStartenAv = periodeSomErFør overlapperIStartenAv periode
 
@@ -174,8 +173,8 @@ internal class PeriodeTest {
 
     @Test
     fun `overlapperIStartenAv returnerer false hvis denne perioden starter etter den som sendes inn`() {
-        val periodeSomErInneI = Periode(LocalDate.of(2018, 9, 2), LocalDate.of(2018, 9, 25))
-        val periode = Periode(YearMonth.of(2018, 9), YearMonth.of(2018, 9))
+        val periodeSomErInneI = Datoperiode(LocalDate.of(2018, 9, 2), LocalDate.of(2018, 9, 25))
+        val periode = Datoperiode(LocalDate.of(2018, 9, 1), LocalDate.of(2018, 9, 1))
 
         val overlapperIStartenAv = periodeSomErInneI overlapperIStartenAv periode
 
@@ -184,8 +183,8 @@ internal class PeriodeTest {
 
     @Test
     fun `overlapperISluttenAv returnerer true hvis denne perioden overlapper i slutten av perioden som sendes inn`() {
-        val periodeSomOverlapperSlutten = Periode(YearMonth.of(2019, 3), YearMonth.of(2019, 3))
-        val periode = Periode(YearMonth.of(2019, 1), YearMonth.of(2019, 3))
+        val periodeSomOverlapperSlutten = Datoperiode(LocalDate.of(2019, 3, 1), LocalDate.of(2019, 3, 1))
+        val periode = Datoperiode(LocalDate.of(2019, 1, 1), LocalDate.of(2019, 3, 1))
 
         val overlapperISluttenAv = periodeSomOverlapperSlutten overlapperISluttenAv periode
 
@@ -194,8 +193,8 @@ internal class PeriodeTest {
 
     @Test
     fun `overlapperISluttenAv returnerer false hvis denne perioden er lik den som sendes inn`() {
-        val periodeSomErLik = Periode(YearMonth.of(2019, 1), YearMonth.of(2019, 3))
-        val periode = Periode(YearMonth.of(2019, 1), YearMonth.of(2019, 3))
+        val periodeSomErLik = Datoperiode(LocalDate.of(2019, 1, 1), LocalDate.of(2019, 3, 1))
+        val periode = Datoperiode(LocalDate.of(2019, 1, 1), LocalDate.of(2019, 3, 1))
 
         val overlapperISluttenAv = periodeSomErLik overlapperISluttenAv periode
 
@@ -204,8 +203,8 @@ internal class PeriodeTest {
 
     @Test
     fun `overlapperISluttenAv returnerer false hvis denne perioden er etter den som sendes inn`() {
-        val periodeSomErEtter = Periode(YearMonth.of(2019, 4), YearMonth.of(2019, 4))
-        val periode = Periode(YearMonth.of(2019, 1), YearMonth.of(2019, 3))
+        val periodeSomErEtter = Datoperiode(LocalDate.of(2019, 4, 1), LocalDate.of(2019, 4, 1))
+        val periode = Datoperiode(LocalDate.of(2019, 1, 1), LocalDate.of(2019, 3, 1))
 
         val overlapperISluttenAv = periodeSomErEtter overlapperISluttenAv periode
 
@@ -214,8 +213,8 @@ internal class PeriodeTest {
 
     @Test
     fun `overlapperISluttenAv returnerer false hvis denne perioden slutter før den som sendes inn`() {
-        val periodeSomErInneI = Periode(LocalDate.of(2018, 9, 2), LocalDate.of(2018, 9, 29))
-        val periode = Periode(YearMonth.of(2018, 9), YearMonth.of(2018, 9))
+        val periodeSomErInneI = Datoperiode(LocalDate.of(2018, 9, 2), LocalDate.of(2018, 9, 29))
+        val periode = Datoperiode(LocalDate.of(2018, 9, 1), LocalDate.of(2018, 9, 1))
 
         val overlapperISluttenAv = periodeSomErInneI overlapperISluttenAv periode
 
@@ -224,7 +223,7 @@ internal class PeriodeTest {
 
     @Test
     fun `lengdeIHeleMåneder feiler for perioder som ikke er hele måneder`() {
-        val periode = Periode(LocalDate.of(2018, 9, 2), LocalDate.of(2020, 5, 31))
+        val periode = Datoperiode(LocalDate.of(2018, 9, 2), LocalDate.of(2020, 5, 31))
 
         shouldThrowMessage(
             "Forsøk på å beregne lengde i hele måneder for en periode som ikke er hele måneder: 2018-09-02 - 2020-05-31"
@@ -235,7 +234,7 @@ internal class PeriodeTest {
 
     @Test
     fun `lengdeIHeleMåneder returnerer korrekt antall måneder`() {
-        val periode = Periode(YearMonth.of(2015, 9), YearMonth.of(2028, 3))
+        val periode = Datoperiode(LocalDate.of(2015, 9, 1), LocalDate.of(2028, 3, 31))
 
         val lengdeIHeleMåneder = periode.lengdeIHeleMåneder()
 

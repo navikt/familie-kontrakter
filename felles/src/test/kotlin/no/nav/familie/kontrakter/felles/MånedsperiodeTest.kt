@@ -101,7 +101,7 @@ internal class MånedsperiodeTest {
         val periodeSomOverlapperStarten = Månedsperiode(YearMonth.of(2019, 1), YearMonth.of(2019, 1))
         val periode = Månedsperiode(YearMonth.of(2019, 1), YearMonth.of(2019, 3))
 
-        val overlapperIStartenAv = periodeSomOverlapperStarten.overlapperIStartenAv(periode)
+        val overlapperIStartenAv = periodeSomOverlapperStarten.overlapperKunIStartenAv(periode)
 
         overlapperIStartenAv shouldBe true
     }
@@ -111,7 +111,7 @@ internal class MånedsperiodeTest {
         val periodeSomErLik = Månedsperiode(YearMonth.of(2019, 1), YearMonth.of(2019, 3))
         val periode = Månedsperiode(YearMonth.of(2019, 1), YearMonth.of(2019, 3))
 
-        val overlapperIStartenAv = periodeSomErLik.overlapperIStartenAv(periode)
+        val overlapperIStartenAv = periodeSomErLik.overlapperKunIStartenAv(periode)
 
         overlapperIStartenAv shouldBe false
     }
@@ -121,7 +121,7 @@ internal class MånedsperiodeTest {
         val periodeSomErFør = Månedsperiode(YearMonth.of(2018, 9), YearMonth.of(2018, 12))
         val periode = Månedsperiode(YearMonth.of(2019, 1), YearMonth.of(2019, 3))
 
-        val overlapperIStartenAv = periodeSomErFør.overlapperIStartenAv(periode)
+        val overlapperIStartenAv = periodeSomErFør.overlapperKunIStartenAv(periode)
 
         overlapperIStartenAv shouldBe false
     }
@@ -131,7 +131,7 @@ internal class MånedsperiodeTest {
         val periodeSomErInneI = Månedsperiode(YearMonth.of(2018, 9), YearMonth.of(2018, 9))
         val periode = Månedsperiode(YearMonth.of(2018, 9), YearMonth.of(2018, 9))
 
-        val overlapperIStartenAv = periodeSomErInneI.overlapperIStartenAv(periode)
+        val overlapperIStartenAv = periodeSomErInneI.overlapperKunIStartenAv(periode)
 
         overlapperIStartenAv shouldBe false
     }
@@ -141,7 +141,7 @@ internal class MånedsperiodeTest {
         val periodeSomOverlapperSlutten = Månedsperiode(YearMonth.of(2019, 3), YearMonth.of(2019, 3))
         val periode = Månedsperiode(YearMonth.of(2019, 1), YearMonth.of(2019, 3))
 
-        val overlapperISluttenAv = periodeSomOverlapperSlutten.overlapperISluttenAv(periode)
+        val overlapperISluttenAv = periodeSomOverlapperSlutten.overlapperKunISluttenAv(periode)
 
         overlapperISluttenAv shouldBe true
     }
@@ -151,7 +151,7 @@ internal class MånedsperiodeTest {
         val periodeSomErLik = Månedsperiode(YearMonth.of(2019, 1), YearMonth.of(2019, 3))
         val periode = Månedsperiode(YearMonth.of(2019, 1), YearMonth.of(2019, 3))
 
-        val overlapperISluttenAv = periodeSomErLik.overlapperISluttenAv(periode)
+        val overlapperISluttenAv = periodeSomErLik.overlapperKunISluttenAv(periode)
 
         overlapperISluttenAv shouldBe false
     }
@@ -161,7 +161,7 @@ internal class MånedsperiodeTest {
         val periodeSomErEtter = Månedsperiode(YearMonth.of(2019, 4), YearMonth.of(2019, 4))
         val periode = Månedsperiode(YearMonth.of(2019, 1), YearMonth.of(2019, 3))
 
-        val overlapperISluttenAv = periodeSomErEtter.overlapperISluttenAv(periode)
+        val overlapperISluttenAv = periodeSomErEtter.overlapperKunISluttenAv(periode)
 
         overlapperISluttenAv shouldBe false
     }
@@ -171,7 +171,7 @@ internal class MånedsperiodeTest {
         val periodeSomErInneI = Månedsperiode(YearMonth.of(2018, 9), YearMonth.of(2018, 9))
         val periode = Månedsperiode(YearMonth.of(2018, 9), YearMonth.of(2018, 9))
 
-        val overlapperISluttenAv = periodeSomErInneI.overlapperISluttenAv(periode)
+        val overlapperISluttenAv = periodeSomErInneI.overlapperKunISluttenAv(periode)
 
         overlapperISluttenAv shouldBe false
     }

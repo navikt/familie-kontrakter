@@ -146,7 +146,7 @@ internal class DatoperiodeTest {
         val periodeSomOverlapperStarten = Datoperiode(LocalDate.of(2019, 1, 1), LocalDate.of(2019, 1, 1))
         val periode = Datoperiode(LocalDate.of(2019, 1, 1), LocalDate.of(2019, 3, 1))
 
-        val overlapperIStartenAv = periodeSomOverlapperStarten overlapperIStartenAv periode
+        val overlapperIStartenAv = periodeSomOverlapperStarten overlapperKunIStartenAv periode
 
         overlapperIStartenAv shouldBe true
     }
@@ -156,7 +156,7 @@ internal class DatoperiodeTest {
         val periodeSomErLik = Datoperiode(LocalDate.of(2019, 1, 1), LocalDate.of(2019, 3, 1))
         val periode = Datoperiode(LocalDate.of(2019, 1, 1), LocalDate.of(2019, 3, 1))
 
-        val overlapperIStartenAv = periodeSomErLik overlapperIStartenAv periode
+        val overlapperIStartenAv = periodeSomErLik overlapperKunIStartenAv periode
 
         overlapperIStartenAv shouldBe false
     }
@@ -166,7 +166,7 @@ internal class DatoperiodeTest {
         val periodeSomErFør = Datoperiode(LocalDate.of(2018, 9, 1), LocalDate.of(2018, 12, 1))
         val periode = Datoperiode(LocalDate.of(2019, 1, 1), LocalDate.of(2019, 3, 1))
 
-        val overlapperIStartenAv = periodeSomErFør overlapperIStartenAv periode
+        val overlapperIStartenAv = periodeSomErFør overlapperKunIStartenAv periode
 
         overlapperIStartenAv shouldBe false
     }
@@ -176,7 +176,7 @@ internal class DatoperiodeTest {
         val periodeSomErInneI = Datoperiode(LocalDate.of(2018, 9, 2), LocalDate.of(2018, 9, 25))
         val periode = Datoperiode(LocalDate.of(2018, 9, 1), LocalDate.of(2018, 9, 1))
 
-        val overlapperIStartenAv = periodeSomErInneI overlapperIStartenAv periode
+        val overlapperIStartenAv = periodeSomErInneI overlapperKunIStartenAv periode
 
         overlapperIStartenAv shouldBe false
     }
@@ -186,7 +186,7 @@ internal class DatoperiodeTest {
         val periodeSomOverlapperSlutten = Datoperiode(LocalDate.of(2019, 3, 1), LocalDate.of(2019, 3, 1))
         val periode = Datoperiode(LocalDate.of(2019, 1, 1), LocalDate.of(2019, 3, 1))
 
-        val overlapperISluttenAv = periodeSomOverlapperSlutten overlapperISluttenAv periode
+        val overlapperISluttenAv = periodeSomOverlapperSlutten overlapperKunISluttenAv periode
 
         overlapperISluttenAv shouldBe true
     }
@@ -196,7 +196,7 @@ internal class DatoperiodeTest {
         val periodeSomErLik = Datoperiode(LocalDate.of(2019, 1, 1), LocalDate.of(2019, 3, 1))
         val periode = Datoperiode(LocalDate.of(2019, 1, 1), LocalDate.of(2019, 3, 1))
 
-        val overlapperISluttenAv = periodeSomErLik overlapperISluttenAv periode
+        val overlapperISluttenAv = periodeSomErLik overlapperKunISluttenAv periode
 
         overlapperISluttenAv shouldBe false
     }
@@ -206,7 +206,7 @@ internal class DatoperiodeTest {
         val periodeSomErEtter = Datoperiode(LocalDate.of(2019, 4, 1), LocalDate.of(2019, 4, 1))
         val periode = Datoperiode(LocalDate.of(2019, 1, 1), LocalDate.of(2019, 3, 1))
 
-        val overlapperISluttenAv = periodeSomErEtter overlapperISluttenAv periode
+        val overlapperISluttenAv = periodeSomErEtter overlapperKunISluttenAv periode
 
         overlapperISluttenAv shouldBe false
     }
@@ -216,7 +216,7 @@ internal class DatoperiodeTest {
         val periodeSomErInneI = Datoperiode(LocalDate.of(2018, 9, 2), LocalDate.of(2018, 9, 29))
         val periode = Datoperiode(LocalDate.of(2018, 9, 1), LocalDate.of(2018, 9, 1))
 
-        val overlapperISluttenAv = periodeSomErInneI overlapperISluttenAv periode
+        val overlapperISluttenAv = periodeSomErInneI overlapperKunISluttenAv periode
 
         overlapperISluttenAv shouldBe false
     }

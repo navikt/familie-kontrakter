@@ -9,9 +9,6 @@ sealed class Periode<T>(
     open val tom: T,
 ) : Comparable<Periode<T>> where T : Comparable<T>, T : Temporal {
 
-    val fomMåned get() = YearMonth.from(fom)
-    val tomMåned get() = YearMonth.from(tom)
-
     protected fun validate() {
         require(tom >= fom) { "Til-og-med før fra-og-med: $fom > $tom" }
     }
@@ -56,10 +53,10 @@ sealed class Periode<T>(
         }
     }
 
-    infix fun overlapperIStartenAv(annen: Periode<T>) =
+    infix fun overlapperKunIStartenAv(annen: Periode<T>) =
         annen.fom in fom..tom && tom < annen.tom
 
-    infix fun overlapperISluttenAv(annen: Periode<T>) =
+    infix fun overlapperKunISluttenAv(annen: Periode<T>) =
         annen.tom in fom..tom && fom > annen.fom
 
     abstract infix fun påfølgesAv(påfølgende: Periode<T>): Boolean
@@ -111,6 +108,9 @@ data class Datoperiode(override val fom: LocalDate, override val tom: LocalDate)
     init {
         validate()
     }
+
+    val fomMåned get() = YearMonth.from(fom)
+    val tomMåned get() = YearMonth.from(tom)
 
     constructor(fom: YearMonth, tom: YearMonth) : this(fom.atDay(1), tom.atEndOfMonth())
 

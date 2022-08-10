@@ -1,5 +1,7 @@
 package no.nav.familie.kontrakter.ef.søknad
 
+import no.nav.familie.Fødselsnummer
+
 data class SkjemaForArbeidssøker(
     val personaliaArbeidssøker: Søknadsfelt<PersonaliaArbeidssøker>,
     val arbeidssøker: Søknadsfelt<Arbeidssøker>,

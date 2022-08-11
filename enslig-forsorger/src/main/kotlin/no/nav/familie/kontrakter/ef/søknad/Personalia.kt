@@ -1,6 +1,6 @@
 package no.nav.familie.kontrakter.ef.søknad
 
-import no.nav.familie.Fødselsnummer
+import no.nav.familie.kontrakter.felles.Fødselsnummer
 
 data class Personalia(
     val fødselsnummer: Søknadsfelt<Fødselsnummer>,

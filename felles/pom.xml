@@ -27,11 +27,6 @@
             <artifactId>spring-context</artifactId>
             <version>5.3.20</version>
         </dependency>
-        <dependency>
-            <groupId>no.nav.familie.felles</groupId>
-            <artifactId>modell</artifactId>
-            <version>${felles.version}</version>
-        </dependency>
     </dependencies>
 
     <build>

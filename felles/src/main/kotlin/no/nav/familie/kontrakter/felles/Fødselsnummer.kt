@@ -2,18 +2,16 @@ package no.nav.familie.kontrakter.felles
 
 import java.time.LocalDate
 
-class Fødselsnummer(val verdi: String) {
-
-    val erDNummer = verdi.substring(0, 1).toInt() > 3
-    val erNAVSyntetisk = verdi.substring(2, 3).toInt() >= 4 && verdi.substring(2, 3).toInt() < 8
-    val erSkattSyntetisk = verdi.substring(2, 3).toInt() >= 8
-
-    val fødselsdato: LocalDate
+data class Fødselsnummer(val verdi: String) {
 
     init {
         check(gyldig(), verdi::toString)
-        fødselsdato = beregnFødselsdato()
     }
+
+    val erDNummer get () = verdi.substring(0, 1).toInt() > 3
+    val erNAVSyntetisk get () = verdi.substring(2, 3).toInt() >= 4 && verdi.substring(2, 3).toInt() < 8
+    val erSkattSyntetisk get () = verdi.substring(2, 3).toInt() >= 8
+    val fødselsdato get() = beregnFødselsdato()
 
     private fun beregnFødselsdato(): LocalDate {
         val dag = verdi.substring(0, 2).toInt() - (if (erDNummer) 40 else 0)
@@ -57,15 +55,7 @@ class Fødselsnummer(val verdi: String) {
         return false
     }
 
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (javaClass != other?.javaClass) return false
-        other as Fødselsnummer
-        if (verdi != other.verdi) return false
-        return true
-    }
-
-    override fun hashCode(): Int {
-        return verdi.hashCode()
+    override fun toString(): String {
+        return "Fødselsnummer skrives ikke ut!"
     }
 }

@@ -1,6 +1,6 @@
 package no.nav.familie.kontrakter.ef.søknad
 
-import no.nav.familie.Fødselsnummer
+import no.nav.familie.kontrakter.felles.Fødselsnummer
 import no.nav.familie.util.FnrGenerator
 import java.time.LocalDate
 import java.time.LocalDateTime

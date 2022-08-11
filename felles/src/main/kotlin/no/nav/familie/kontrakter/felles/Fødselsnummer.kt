@@ -56,6 +56,6 @@ data class Fødselsnummer(val verdi: String) {
     }
 
     override fun toString(): String {
-        return "Fødselsnummer skrives ikke ut!"
+        return "***********"
     }
 }

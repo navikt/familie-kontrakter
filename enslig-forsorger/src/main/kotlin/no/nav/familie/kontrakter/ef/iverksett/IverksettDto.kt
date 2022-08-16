@@ -141,8 +141,8 @@ data class VurderingDto(
 sealed class VedtaksperiodeDto
 
 data class VedtaksperiodeOvergangsstønadDto(
-    @Deprecated("Bruk periode!", ReplaceWith("periode.fom")) val fraOgMed: LocalDate?,
-    @Deprecated("Bruk periode!", ReplaceWith("periode.tom")) val tilOgMed: LocalDate?,
+    @Deprecated("Bruk periode!", ReplaceWith("periode.fom")) val fraOgMed: LocalDate? = null,
+    @Deprecated("Bruk periode!", ReplaceWith("periode.tom")) val tilOgMed: LocalDate? = null,
     val periode: Månedsperiode = Månedsperiode(
         YearMonth.from(fraOgMed) ?: error("Periode eller fraOgMed må ha verdi!"),
         YearMonth.from(tilOgMed) ?: error("Periode eller fraOgMed må ha verdi!")
@@ -152,8 +152,8 @@ data class VedtaksperiodeOvergangsstønadDto(
 ) : VedtaksperiodeDto()
 
 data class VedtaksperiodeBarnetilsynDto(
-    @Deprecated("Bruk periode!", ReplaceWith("periode.fom")) val fraOgMed: LocalDate?,
-    @Deprecated("Bruk periode!", ReplaceWith("periode.tom")) val tilOgMed: LocalDate?,
+    @Deprecated("Bruk periode!", ReplaceWith("periode.fom")) val fraOgMed: LocalDate? = null,
+    @Deprecated("Bruk periode!", ReplaceWith("periode.tom")) val tilOgMed: LocalDate? = null,
     val periode: Månedsperiode = Månedsperiode(
         YearMonth.from(fraOgMed) ?: error("Periode eller fraOgMed må ha verdi!"),
         YearMonth.from(tilOgMed) ?: error("Periode eller fraOgMed må ha verdi!")
@@ -169,8 +169,8 @@ data class VedtaksperiodeSkolepengerDto(
 
 data class DelårsperiodeSkoleårSkolepengerDto(
     val studietype: SkolepengerStudietype,
-    @Deprecated("Bruk periode!", ReplaceWith("periode.fom")) val fraOgMed: LocalDate?,
-    @Deprecated("Bruk periode!", ReplaceWith("periode.tom")) val tilOgMed: LocalDate?,
+    @Deprecated("Bruk periode!", ReplaceWith("periode.fom")) val fraOgMed: LocalDate? = null,
+    @Deprecated("Bruk periode!", ReplaceWith("periode.tom")) val tilOgMed: LocalDate? = null,
     val periode: Månedsperiode = Månedsperiode(
         YearMonth.from(fraOgMed) ?: error("Periode eller fraOgMed må ha verdi!"),
         YearMonth.from(tilOgMed) ?: error("Periode eller fraOgMed må ha verdi!")
@@ -196,8 +196,8 @@ data class TilbakekrevingDto(
 )
 
 data class PeriodeMedBeløpDto(
-    @Deprecated("Bruk periode!", ReplaceWith("periode.fom")) val fraOgMed: LocalDate?,
-    @Deprecated("Bruk periode!", ReplaceWith("periode.tom")) val tilOgMed: LocalDate?,
+    @Deprecated("Bruk periode!", ReplaceWith("periode.fom")) val fraOgMed: LocalDate? = null,
+    @Deprecated("Bruk periode!", ReplaceWith("periode.tom")) val tilOgMed: LocalDate? = null,
     val periode: Månedsperiode = Månedsperiode(
         YearMonth.from(fraOgMed) ?: error("Periode eller fraOgMed må ha verdi!"),
         YearMonth.from(tilOgMed) ?: error("Periode eller fraOgMed må ha verdi!")
@@ -209,7 +209,7 @@ data class TilbakekrevingMedVarselDto(
     val varseltekst: String,
     val sumFeilutbetaling: BigDecimal? = null, // Hentes fra simulering hvis det mangler
     @Deprecated("Bruk fellesperioder!", ReplaceWith("fellesperioder"))
-    val perioder: List<no.nav.familie.kontrakter.felles.tilbakekreving.Periode>?,
+    val perioder: List<no.nav.familie.kontrakter.felles.tilbakekreving.Periode>? = null,
     val fellesperioder: List<Månedsperiode> = perioder?.map { Månedsperiode(it.fom, it.tom) } ?: emptyList()
 ) // Hentes fra simulering hvis det mangler
 

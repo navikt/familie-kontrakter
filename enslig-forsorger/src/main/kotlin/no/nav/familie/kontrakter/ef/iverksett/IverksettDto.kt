@@ -210,7 +210,8 @@ data class TilbakekrevingMedVarselDto(
     val sumFeilutbetaling: BigDecimal? = null, // Hentes fra simulering hvis det mangler
     @Deprecated("Bruk fellesperioder!", ReplaceWith("fellesperioder"))
     val perioder: List<no.nav.familie.kontrakter.felles.tilbakekreving.Periode>? = null,
-    val fellesperioder: List<Månedsperiode> = perioder?.map { Månedsperiode(it.fom, it.tom) } ?: emptyList()
+    val fellesperioder: List<Månedsperiode> = perioder?.map { Månedsperiode(it.fom, it.tom) }
+        ?: error("Perioder eller fellesperioder må ha verdi!")
 ) // Hentes fra simulering hvis det mangler
 
 enum class AdressebeskyttelseGradering {

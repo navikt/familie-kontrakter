@@ -81,6 +81,11 @@ data class Månedsperiode(override val fom: YearMonth, override val tom: YearMon
 
     constructor(fom: LocalDate, tom: LocalDate) : this(YearMonth.from(fom), YearMonth.from(tom))
 
+    constructor(måned: YearMonth) : this(måned, måned)
+    constructor(måned: String) : this(YearMonth.parse(måned))
+    constructor(fom: String, tom: String) : this(YearMonth.parse(fom), YearMonth.parse(tom))
+    constructor(periode: Pair<String, String>) : this(periode.first, periode.second)
+
     override fun lagPeriode(fom: YearMonth, tom: YearMonth): Månedsperiode {
         return Månedsperiode(fom, tom)
     }
@@ -114,6 +119,8 @@ data class Datoperiode(override val fom: LocalDate, override val tom: LocalDate)
     val tomMåned get() = YearMonth.from(tom)
 
     constructor(fom: YearMonth, tom: YearMonth) : this(fom.atDay(1), tom.atEndOfMonth())
+    constructor(fom: String, tom: String) : this(LocalDate.parse(fom), LocalDate.parse(tom))
+    constructor(periode: Pair<String, String>) : this(periode.first, periode.second)
 
     override fun lagPeriode(fom: LocalDate, tom: LocalDate): Datoperiode {
         return Datoperiode(fom, tom)

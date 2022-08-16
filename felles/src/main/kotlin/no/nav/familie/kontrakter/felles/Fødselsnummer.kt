@@ -8,9 +8,9 @@ data class Fødselsnummer(val verdi: String) {
         check(gyldig(), verdi::toString)
     }
 
-    val erDNummer get () = verdi.substring(0, 1).toInt() > 3
-    val erNAVSyntetisk get () = verdi.substring(2, 3).toInt() >= 4 && verdi.substring(2, 3).toInt() < 8
-    val erSkattSyntetisk get () = verdi.substring(2, 3).toInt() >= 8
+    val erDNummer get() = verdi.substring(0, 1).toInt() > 3
+    val erNAVSyntetisk get() = verdi.substring(2, 3).toInt() >= 4 && verdi.substring(2, 3).toInt() < 8
+    val erSkattSyntetisk get() = verdi.substring(2, 3).toInt() >= 8
     val fødselsdato get() = beregnFødselsdato()
 
     private fun beregnFødselsdato(): LocalDate {

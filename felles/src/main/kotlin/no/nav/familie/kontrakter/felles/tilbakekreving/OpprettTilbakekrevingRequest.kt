@@ -26,7 +26,9 @@ data class OpprettTilbakekrevingRequest(
     @field:Valid
     val verge: Verge? = null,
     @field:Valid
-    val faktainfo: Faktainfo
+    val faktainfo: Faktainfo,
+    @field:Valid
+    val institusjon: Institusjon? = null
 ) {
 
     init {

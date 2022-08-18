@@ -13,12 +13,12 @@ data class SøkSamhandlerInfo(
 data class SamhandlerInfo(
     val tssEksternId: String,
     val navn: String,
-    val adressser: List<SamhandlerAddresse> = emptyList()
+    val adressser: List<SamhandlerAdresse> = emptyList()
 )
 
-data class SamhandlerAddresse(
+data class SamhandlerAdresse(
     val adresselinjer: List<String>,
     val postNr: String,
     val postSted: String,
-    val addresseType: String
+    val adresseType: String
 )

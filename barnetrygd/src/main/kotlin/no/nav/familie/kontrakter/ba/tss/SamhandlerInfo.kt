@@ -13,7 +13,7 @@ data class SøkSamhandlerInfo(
 data class SamhandlerInfo(
     val tssEksternId: String,
     val navn: String,
-    val adressser: List<SamhandlerAdresse> = emptyList()
+    val adresser: List<SamhandlerAdresse> = emptyList()
 )
 
 data class SamhandlerAdresse(

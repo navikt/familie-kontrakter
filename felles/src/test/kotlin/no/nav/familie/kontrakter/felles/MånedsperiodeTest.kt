@@ -1,10 +1,44 @@
 package no.nav.familie.kontrakter.felles
 
+import com.fasterxml.jackson.module.kotlin.readValue
 import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.Test
+import java.time.LocalDate
 import java.time.YearMonth
 
 internal class MånedsperiodeTest {
+
+    @Test
+    fun `Månedsperiode serialiserer og deserialiserer riktig ved tidenes morgen`() {
+        val månedsperiode = Månedsperiode(LocalDate.MIN, LocalDate.MIN)
+
+        val writeValueAsString = objectMapper.writeValueAsString(månedsperiode)
+
+        val deserialisert = objectMapper.readValue<Månedsperiode>(writeValueAsString)
+
+        månedsperiode shouldBe deserialisert
+    }
+    @Test
+    fun `Månedsperiode serialiserer og deserialiserer riktig ved tidenes ende`() {
+        val månedsperiode = Månedsperiode(LocalDate.MAX, LocalDate.MAX)
+
+        val writeValueAsString = objectMapper.writeValueAsString(månedsperiode)
+
+        val deserialisert = objectMapper.readValue<Månedsperiode>(writeValueAsString)
+
+        månedsperiode shouldBe deserialisert
+    }
+
+    @Test
+    fun `Månedsperiode serialiserer og deserialiserer riktig ved år 0`() {
+        val månedsperiode = Månedsperiode(YearMonth.of(0, 1), YearMonth.of(0, 1))
+
+        val writeValueAsString = objectMapper.writeValueAsString(månedsperiode)
+
+        val deserialisert = objectMapper.readValue<Månedsperiode>(writeValueAsString)
+
+        månedsperiode shouldBe deserialisert
+    }
 
     @Test
     fun `inneholder returnere true hvis måned er i perioden`() {

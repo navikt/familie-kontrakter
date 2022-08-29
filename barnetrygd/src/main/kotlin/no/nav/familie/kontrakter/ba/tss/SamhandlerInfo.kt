@@ -1,8 +1,10 @@
 package no.nav.familie.kontrakter.ba.tss
 
 data class SøkSamhandlerInfoRequest(
-    val navn: String,
-    val side: Int = 0
+    val navn: String?,
+    val side: Int = 0,
+    val postNr: String? = null,
+    val område: String? = null
 )
 
 data class SøkSamhandlerInfo(
@@ -13,7 +15,8 @@ data class SøkSamhandlerInfo(
 data class SamhandlerInfo(
     val tssEksternId: String,
     val navn: String,
-    val adresser: List<SamhandlerAdresse> = emptyList()
+    val adresser: List<SamhandlerAdresse> = emptyList(),
+    val orgNummer: String? = null
 )
 
 data class SamhandlerAdresse(

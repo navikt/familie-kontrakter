@@ -11,6 +11,7 @@ data class FinnOppgaveRequest(
     val tema: Tema,
     val behandlingstema: Behandlingstema? = null,
     val behandlingstype: Behandlingstype? = null,
+    val erUtenMappe: Boolean? = null,
     val oppgavetype: Oppgavetype? = null,
     val enhet: String? = null,
     val saksbehandler: String? = null,

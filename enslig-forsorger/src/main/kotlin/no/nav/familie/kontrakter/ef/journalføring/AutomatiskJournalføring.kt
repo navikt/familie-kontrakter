@@ -6,7 +6,8 @@ import java.util.UUID
 data class AutomatiskJournalføringRequest(
     val personIdent: String,
     val journalpostId: String,
-    val stønadstype: StønadType
+    val stønadstype: StønadType,
+    val mappeId: Long?
 )
 
 data class AutomatiskJournalføringResponse(

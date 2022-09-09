@@ -21,7 +21,7 @@
         <kotlin.version>1.7.10</kotlin.version>
         <kotest.version>5.3.1</kotest.version>
         <jackson.version>2.13.4</jackson.version>
-        <felles.version>1.20220810173009_7bf2638</felles.version>
+        <felles.version>1.20220901103347_4819e55</felles.version>
     </properties>
 
     <modules>
@@ -92,7 +92,8 @@
         <dependency>
             <groupId>org.junit.platform</groupId>
             <artifactId>junit-platform-commons</artifactId>
-            <version>1.8.2</version>
+            <scope>test</scope>
+            <version>1.9.0</version>
         </dependency>
         <dependency>
             <groupId>io.kotest</groupId>

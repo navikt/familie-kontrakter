@@ -21,6 +21,7 @@
         <kotlin.version>1.7.10</kotlin.version>
         <kotest.version>5.3.1</kotest.version>
         <jackson.version>2.13.4</jackson.version>
+        <felles.version>1.20220810173009_7bf2638</felles.version>
     </properties>
 
     <modules>

@@ -4,7 +4,7 @@ import no.nav.familie.kontrakter.felles.Fagsystem
 import no.nav.familie.kontrakter.felles.Ytelsestype
 import java.time.LocalDate
 
-data class OpprettKlageBehandlingRequest(
+data class OpprettKlagebehandlingRequest(
     val ident: String,
     val ytelsestype: Ytelsestype,
     val eksternBehandlingId: String,

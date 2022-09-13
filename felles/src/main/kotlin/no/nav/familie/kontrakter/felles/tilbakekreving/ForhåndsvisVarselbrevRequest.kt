@@ -21,7 +21,8 @@ data class ForhåndsvisVarselbrevRequest(
     val eksternFagsakId: String,
     val ident: String,
     val verge: Verge? = null,
-    val fagsystemsbehandlingId: String? = null
+    val fagsystemsbehandlingId: String? = null,
+    val institusjon: Institusjon? = null
 )
 
 data class FeilutbetaltePerioderDto(

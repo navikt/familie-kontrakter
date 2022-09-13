@@ -1,7 +1,5 @@
 package no.nav.familie.kontrakter.felles.tilbakekreving
 
-import no.nav.familie.kontrakter.felles.Ytelsestype
-
 // Denne brukes fagsystemet for å kalle /api/behandling/manuelt/task/v1 tjeneste i familie-tilbake
 data class OpprettManueltTilbakekrevingRequest(
     val eksternFagsakId: String,

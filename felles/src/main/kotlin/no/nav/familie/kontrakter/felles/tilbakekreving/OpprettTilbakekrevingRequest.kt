@@ -5,7 +5,6 @@ import no.nav.familie.kontrakter.felles.Språkkode
 import java.time.LocalDate
 import javax.validation.Valid
 import javax.validation.constraints.Pattern
-import no.nav.familie.kontrakter.felles.Ytelsestype
 
 data class OpprettTilbakekrevingRequest(
     val fagsystem: Fagsystem,

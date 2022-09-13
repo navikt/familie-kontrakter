@@ -1,6 +1,5 @@
 package no.nav.familie.kontrakter.felles.klage
 
-import no.nav.familie.kontrakter.felles.Fagsystem
 import java.time.LocalDate
 
 data class OpprettKlagebehandlingRequest(

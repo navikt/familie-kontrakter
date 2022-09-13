@@ -9,5 +9,6 @@ data class OpprettKlagebehandlingRequest(
     val eksternBehandlingId: String,
     val eksternFagsakId: String,
     val fagsystem: Fagsystem,
-    val klageMottatt: LocalDate
+    val klageMottatt: LocalDate,
+    val behandlendeEnhet: String
 )

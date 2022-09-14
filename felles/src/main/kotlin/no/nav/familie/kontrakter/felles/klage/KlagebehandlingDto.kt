@@ -6,7 +6,7 @@ import java.util.UUID
 data class KlagebehandlingDto(
     val id: UUID,
     val fagsakId: UUID,
-    val årsak: String,
+    val årsak: Årsak,
     val status: BehandlingStatus,
     val sistEndret: LocalDateTime,
     val resultat: BehandlingResultat?,

@@ -16,7 +16,6 @@ enum class BehandlingStatus {
 }
 
 enum class Årsak {
-    VELG,
     FEIL_I_LOVANDVENDELSE,
     FEIL_REGELVERKSFORSTÅELSE,
     FEIL_ELLER_ENDRET_FAKTA,

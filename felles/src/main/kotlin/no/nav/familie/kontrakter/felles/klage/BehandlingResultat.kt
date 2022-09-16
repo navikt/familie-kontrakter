@@ -1,9 +1,10 @@
 package no.nav.familie.kontrakter.felles.klage
 
-enum class BehandlingResultat(val displayName: String) {
-    MEDHOLD(displayName = "Medhold"),
-    IKKE_MEDHOLD(displayName = "Ikke medhold"),
-    IKKE_SATT(displayName = "Ikke satt"),
+enum class BehandlingResultat() {
+    MEDHOLD,
+    IKKE_MEDHOLD,
+    IKKE_MEDHOLD_FORMKRAV_AVVIST,
+    IKKE_SATT
 }
 
 enum class BehandlingStatus {

@@ -11,8 +11,6 @@ enum class BehandlingStatus {
     UTREDES,
     VENTER,
     FERDIGSTILT;
-
-    fun erLåstForVidereBehandling(): Boolean = listOf(VENTER, FERDIGSTILT).contains(this)
 }
 
 enum class Årsak {

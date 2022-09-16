@@ -11,12 +11,9 @@ enum class BehandlingStatus {
     UTREDES,
     VENTER,
     FERDIGSTILT;
-
-    fun erLåstForVidereBehandling(): Boolean = listOf(VENTER, FERDIGSTILT).contains(this)
 }
 
 enum class Årsak {
-    VELG,
     FEIL_I_LOVANDVENDELSE,
     FEIL_REGELVERKSFORSTÅELSE,
     FEIL_ELLER_ENDRET_FAKTA,

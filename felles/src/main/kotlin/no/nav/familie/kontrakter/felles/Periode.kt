@@ -4,11 +4,10 @@ import java.time.LocalDate
 import java.time.YearMonth
 import java.time.temporal.Temporal
 
-sealed class Periode<T>(
-    open val fom: T,
-    open val tom: T,
-) : Comparable<Periode<T>> where T : Comparable<T>, T : Temporal {
+sealed class Periode<T> : Comparable<Periode<T>> where T : Comparable<T>, T : Temporal {
 
+    abstract val fom: T
+    abstract val tom: T
     protected fun validate() {
         require(tom >= fom) { "Til-og-med før fra-og-med: $fom > $tom" }
     }
@@ -70,7 +69,7 @@ sealed class Periode<T>(
     abstract fun lagPeriode(fom: T, tom: T): Periode<T>
 }
 
-data class Månedsperiode(override val fom: YearMonth, override val tom: YearMonth) : Periode<YearMonth>(fom, tom) {
+data class Månedsperiode(override val fom: YearMonth, override val tom: YearMonth) : Periode<YearMonth>() {
 
     init {
         validate()
@@ -109,7 +108,7 @@ data class Månedsperiode(override val fom: YearMonth, override val tom: YearMon
     fun toDatoperiode() = Datoperiode(fomDato, tomDato)
 }
 
-data class Datoperiode(override val fom: LocalDate, override val tom: LocalDate) : Periode<LocalDate>(fom, tom) {
+data class Datoperiode(override val fom: LocalDate, override val tom: LocalDate) : Periode<LocalDate>() {
 
     init {
         validate()

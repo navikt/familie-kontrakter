@@ -13,7 +13,8 @@ enum class Behandlingstema(@JsonValue val value: String) {
     Overgangsstønad("ab0071"),
     Kontantstøtte("ab0084"),
     Feilutbetaling("ab0006"),
-    Tilbakebetaling("ab0007") // Tilbakekreving
+    Tilbakebetaling("ab0007"), // Tilbakekreving
+    Klage("ae0058")
     ;
 
     companion object {

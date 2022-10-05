@@ -263,6 +263,7 @@ enum class AktivitetType {
     FORLENGELSE_STØNAD_UT_SKOLEÅRET,
 }
 
+// Brukes også fra [FrittståendeBrevDto]
 data class Brevmottaker(
     val ident: String,
     val navn: String,

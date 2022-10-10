@@ -1,5 +1,6 @@
 package no.nav.familie.kontrakter.ef.felles
 
+import no.nav.familie.kontrakter.ef.iverksett.Brevmottaker
 import no.nav.familie.kontrakter.felles.ef.StønadType
 
 data class FrittståendeBrevDto(
@@ -9,7 +10,8 @@ data class FrittståendeBrevDto(
     val brevtype: FrittståendeBrevType,
     val fil: ByteArray,
     val journalførendeEnhet: String,
-    val saksbehandlerIdent: String
+    val saksbehandlerIdent: String,
+    val mottakere: List<Brevmottaker>? = null
 )
 
 enum class FrittståendeBrevType(val tittel: String) {

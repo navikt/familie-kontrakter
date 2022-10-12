@@ -18,11 +18,10 @@
         <sha1/>
         <changelist>-SNAPSHOT</changelist>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <kotlin.version>1.6.20</kotlin.version>
+        <kotlin.version>1.7.10</kotlin.version>
         <kotest.version>5.3.1</kotest.version>
-        <jackson.version>2.13.2</jackson.version>
-        <jackson-databind.version>2.13.2.2</jackson-databind.version>
-        <felles.version>1.20220810173009_7bf2638</felles.version>
+        <jackson.version>2.13.4</jackson.version>
+        <felles.version>1.20220901103347_4819e55</felles.version>
     </properties>
 
     <modules>
@@ -64,7 +63,7 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>${jackson-databind.version}</version>
+            <version>${jackson.version}</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.module</groupId>
@@ -93,7 +92,7 @@
         <dependency>
             <groupId>org.junit.platform</groupId>
             <artifactId>junit-platform-commons</artifactId>
-            <version>1.8.2</version>
+            <version>1.9.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>

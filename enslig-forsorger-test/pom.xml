@@ -21,11 +21,6 @@
             <artifactId>enslig-forsorger</artifactId>
             <version>${revision}${sha1}${changelist}</version>
         </dependency>
-        <dependency>
-            <groupId>no.nav.familie.felles</groupId>
-            <artifactId>util</artifactId>
-            <version>${felles.version}</version>
-        </dependency>
     </dependencies>
 
     <build>

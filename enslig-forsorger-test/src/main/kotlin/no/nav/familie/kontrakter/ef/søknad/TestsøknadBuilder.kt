@@ -1,13 +1,12 @@
 package no.nav.familie.kontrakter.ef.søknad
 
 import no.nav.familie.kontrakter.felles.Fødselsnummer
-import no.nav.familie.util.FnrGenerator
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.Month
 
 object Testsøknad {
-
+    val syntetiskFnr = "17898797953"
     val søknadOvergangsstønad: SøknadOvergangsstønad = TestsøknadBuilder.Builder().build().søknadOvergangsstønad
     val søknadSkolepenger: SøknadSkolepenger = TestsøknadBuilder.Builder().build().søknadSkolepenger
     val søknadBarnetilsyn: SøknadBarnetilsyn = TestsøknadBuilder.Builder().build().søknadBarnetilsyn
@@ -70,7 +69,7 @@ class TestsøknadBuilder private constructor(
         fun setPersonalia(navnOgFnr: NavnOgFnr? = null, adresse: Adresse = defaultAdresse()): Builder {
 
             this.personalia = Personalia(
-                Søknadsfelt("Fødselsnummer", Fødselsnummer(navnOgFnr?.fødselsnummer ?: FnrGenerator.generer())),
+                Søknadsfelt("Fødselsnummer", Fødselsnummer(navnOgFnr?.fødselsnummer ?: Testsøknad.syntetiskFnr)),
                 Søknadsfelt("Navn", navnOgFnr?.navn ?: "Kari Nordmann"),
                 Søknadsfelt("Statsborgerskap", "Norsk"),
                 Søknadsfelt("Adresse", adresse),
@@ -207,7 +206,7 @@ class TestsøknadBuilder private constructor(
                 Søknadsfelt("Navn", navn),
                 Søknadsfelt(
                     "Fødselsnummer",
-                    fødselsnummer?.let { Fødselsnummer(it) } ?: Fødselsnummer(FnrGenerator.generer())
+                    fødselsnummer?.let { Fødselsnummer(it) } ?: Fødselsnummer(Testsøknad.syntetiskFnr)
                 ),
                 Søknadsfelt("Har samme adresse som søker", harSkalHaSammeAdresse),
                 Søknadsfelt(

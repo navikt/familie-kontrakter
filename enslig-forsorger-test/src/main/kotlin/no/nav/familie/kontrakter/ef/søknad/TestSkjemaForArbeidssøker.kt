@@ -1,7 +1,6 @@
 package no.nav.familie.kontrakter.ef.søknad
 
 import no.nav.familie.kontrakter.felles.Fødselsnummer
-import no.nav.familie.util.FnrGenerator
 
 object TestSkjemaForArbeidssøker {
 
@@ -16,7 +15,7 @@ object TestSkjemaForArbeidssøker {
 
     private fun lagPersonaliaForArbeidssøker(): PersonaliaArbeidssøker {
         return PersonaliaArbeidssøker(
-            Søknadsfelt("fnr", Fødselsnummer(FnrGenerator.generer())),
+            Søknadsfelt("fnr", Fødselsnummer(Testsøknad.syntetiskFnr)),
             Søknadsfelt("Navn", "Navnesen")
         )
     }

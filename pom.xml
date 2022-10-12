@@ -21,6 +21,7 @@
         <kotlin.version>1.7.10</kotlin.version>
         <kotest.version>5.3.1</kotest.version>
         <jackson.version>2.13.4</jackson.version>
+        <maven-enforcer.version>3.1.0</maven-enforcer.version>
     </properties>
 
     <modules>
@@ -265,6 +266,29 @@
             </activation>
             <build>
                 <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-enforcer-plugin</artifactId>
+                        <version>${maven-enforcer.version}</version>
+                        <executions>
+                            <execution>
+                                <id>enforce-banned-dependencies</id>
+                                <goals>
+                                    <goal>enforce</goal>
+                                </goals>
+                                <configuration>
+                                    <rules>
+                                        <bannedDependencies>
+                                            <excludes>
+                                                <exclude>no.nav.familie.felles</exclude>
+                                            </excludes>
+                                        </bannedDependencies>
+                                    </rules>
+                                    <fail>true</fail>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
                     <plugin>
                         <groupId>org.jacoco</groupId>
                         <artifactId>jacoco-maven-plugin</artifactId>

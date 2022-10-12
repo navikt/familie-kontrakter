@@ -15,7 +15,7 @@ object TestSkjemaForArbeidssøker {
 
     private fun lagPersonaliaForArbeidssøker(): PersonaliaArbeidssøker {
         return PersonaliaArbeidssøker(
-            Søknadsfelt("fnr", Fødselsnummer("17898797953")),
+            Søknadsfelt("fnr", Fødselsnummer(Testsøknad.syntetiskFnr)),
             Søknadsfelt("Navn", "Navnesen")
         )
     }

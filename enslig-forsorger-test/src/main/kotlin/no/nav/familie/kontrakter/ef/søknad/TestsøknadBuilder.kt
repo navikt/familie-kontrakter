@@ -6,7 +6,7 @@ import java.time.LocalDateTime
 import java.time.Month
 
 object Testsøknad {
-
+    val syntetiskFnr = "17898797953"
     val søknadOvergangsstønad: SøknadOvergangsstønad = TestsøknadBuilder.Builder().build().søknadOvergangsstønad
     val søknadSkolepenger: SøknadSkolepenger = TestsøknadBuilder.Builder().build().søknadSkolepenger
     val søknadBarnetilsyn: SøknadBarnetilsyn = TestsøknadBuilder.Builder().build().søknadBarnetilsyn
@@ -69,7 +69,7 @@ class TestsøknadBuilder private constructor(
         fun setPersonalia(navnOgFnr: NavnOgFnr? = null, adresse: Adresse = defaultAdresse()): Builder {
 
             this.personalia = Personalia(
-                Søknadsfelt("Fødselsnummer", Fødselsnummer(navnOgFnr?.fødselsnummer ?: "17898797953")),
+                Søknadsfelt("Fødselsnummer", Fødselsnummer(navnOgFnr?.fødselsnummer ?: Testsøknad.syntetiskFnr)),
                 Søknadsfelt("Navn", navnOgFnr?.navn ?: "Kari Nordmann"),
                 Søknadsfelt("Statsborgerskap", "Norsk"),
                 Søknadsfelt("Adresse", adresse),
@@ -206,7 +206,7 @@ class TestsøknadBuilder private constructor(
                 Søknadsfelt("Navn", navn),
                 Søknadsfelt(
                     "Fødselsnummer",
-                    fødselsnummer?.let { Fødselsnummer(it) } ?: Fødselsnummer("17898797953")
+                    fødselsnummer?.let { Fødselsnummer(it) } ?: Fødselsnummer(Testsøknad.syntetiskFnr)
                 ),
                 Søknadsfelt("Har samme adresse som søker", harSkalHaSammeAdresse),
                 Søknadsfelt(

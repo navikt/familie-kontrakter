@@ -13,4 +13,11 @@ data class KlagebehandlingDto(
     val resultat: BehandlingResultat?,
     val årsak: Årsak?,
     val vedtaksdato: LocalDateTime?,
+    val eksternKlageresultat: List<EksternKlageresultatDto> = emptyList()
+)
+
+data class EksternKlageresultatDto(
+    val type: BehandlingEventType,
+    val utfall: ExternalUtfall?,
+    val mottattEllerAvsluttetTidspunkt: LocalDateTime
 )

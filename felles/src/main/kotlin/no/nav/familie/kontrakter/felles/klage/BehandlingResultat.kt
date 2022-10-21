@@ -28,7 +28,7 @@ enum class BehandlingEventType {
     KLAGEBEHANDLING_AVSLUTTET, ANKEBEHANDLING_OPPRETTET, ANKEBEHANDLING_AVSLUTTET, ANKE_I_TRYGDERETTENBEHANDLING_OPPRETTET // TODO ANKE_I_TRYGDERETTENBEHANDLING_OPPRETTET skal fjernes på sikt
 }
 
-enum class ExternalUtfall(val navn: String) {
+enum class KlageinstansUtfall(val navn: String) {
     TRUKKET("Trukket KA"),
     RETUR("Retur KA"),
     OPPHEVET("Opphevet KA"),

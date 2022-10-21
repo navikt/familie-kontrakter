@@ -19,5 +19,6 @@ data class KlagebehandlingDto(
 data class EksternKlageresultatDto(
     val type: BehandlingEventType,
     val utfall: ExternalUtfall?,
-    val mottattEllerAvsluttetTidspunkt: LocalDateTime
+    val mottattEllerAvsluttetTidspunkt: LocalDateTime,
+    val journalpostReferanser: List<String>
 )

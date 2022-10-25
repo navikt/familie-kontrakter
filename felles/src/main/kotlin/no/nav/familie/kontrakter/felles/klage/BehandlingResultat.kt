@@ -23,3 +23,18 @@ enum class Årsak {
     KØET_BEHANDLING,
     ANNET
 }
+
+enum class BehandlingEventType {
+    KLAGEBEHANDLING_AVSLUTTET, ANKEBEHANDLING_OPPRETTET, ANKEBEHANDLING_AVSLUTTET, ANKE_I_TRYGDERETTENBEHANDLING_OPPRETTET // TODO ANKE_I_TRYGDERETTENBEHANDLING_OPPRETTET skal fjernes på sikt
+}
+
+enum class KlageinstansUtfall(val navn: String) {
+    TRUKKET("Trukket KA"),
+    RETUR("Retur KA"),
+    OPPHEVET("Opphevet KA"),
+    MEDHOLD("Medhold KA"),
+    DELVIS_MEDHOLD("Delvis medhold KA"),
+    STADFESTELSE("Stadfestelse KA"),
+    UGUNST("Ugunst (Ugyldig) KA"),
+    AVVIST("Avvist KA");
+}

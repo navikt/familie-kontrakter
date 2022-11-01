@@ -8,6 +8,7 @@ import javax.validation.constraints.Pattern
 
 data class OpprettTilbakekrevingRequest(
     val fagsystem: Fagsystem,
+    val regelverk: Regelverk,
     val ytelsestype: Ytelsestype,
     val eksternFagsakId: String,
     @field:Pattern(regexp = "(^$|.{11})", message = "PersonIdent er ikke riktig")

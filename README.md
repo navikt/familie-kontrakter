@@ -64,7 +64,7 @@ i IntelliJ og huk av for 'Override' ved siden av 'User settings file:' med refer
  
 Github Actions benyttes for å bygge prosjektet og laste det opp til Github Package.
 
-Lokalt bygg av prosjektet utføres med `mvn clean install`.
+Lokalt bygg av prosjektet utføres med `mvn verify`.
 
 # Henvendelser
 

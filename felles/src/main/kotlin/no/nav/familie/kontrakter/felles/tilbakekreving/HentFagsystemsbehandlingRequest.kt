@@ -19,6 +19,7 @@ data class HentFagsystemsbehandlingRespons(
 data class HentFagsystemsbehandling(
     val eksternFagsakId: String,
     val ytelsestype: Ytelsestype,
+    val regelverk: Regelverk? = null,
     val eksternId: String,
     val personIdent: String,
     val språkkode: Språkkode = Språkkode.NB,

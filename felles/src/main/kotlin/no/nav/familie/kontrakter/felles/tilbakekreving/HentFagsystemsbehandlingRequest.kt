@@ -8,7 +8,6 @@ import javax.validation.constraints.Pattern
 data class HentFagsystemsbehandlingRequest(
     val eksternFagsakId: String,
     val ytelsestype: Ytelsestype,
-    val regelverk: Regelverk,
     val eksternId: String
 )
 
@@ -20,7 +19,7 @@ data class HentFagsystemsbehandlingRespons(
 data class HentFagsystemsbehandling(
     val eksternFagsakId: String,
     val ytelsestype: Ytelsestype,
-    val regelverk: Regelverk,
+    val regelverk: Regelverk? = null,
     val eksternId: String,
     val personIdent: String,
     val språkkode: Språkkode = Språkkode.NB,

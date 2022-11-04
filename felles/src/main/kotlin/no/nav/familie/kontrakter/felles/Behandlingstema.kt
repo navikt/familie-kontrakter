@@ -12,9 +12,11 @@ enum class Behandlingstema(@JsonValue val value: String) {
     Barnetilsyn("ab0028"),
     Overgangsstønad("ab0071"),
     Kontantstøtte("ab0084"),
+    KontantstøtteEØS("ab0060"),
     Feilutbetaling("ab0006"),
     Tilbakebetaling("ab0007"), // Tilbakekreving
-    Klage("ae0058")
+    Klage("ae0058"),
+    NasjonalInstitusjon("ab0437"), // Barnetrygd institusjon
     ;
 
     companion object {

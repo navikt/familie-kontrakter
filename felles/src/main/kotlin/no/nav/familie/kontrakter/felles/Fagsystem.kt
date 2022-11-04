@@ -3,6 +3,10 @@ package no.nav.familie.kontrakter.felles
 enum class Fagsystem(val navn: String, val tema: String) {
     BA("Barnetrygd", "BAR"),
     EF("Enslig forelder", "ENF"),
-    KS("Kontantstøtte", "KON"),
+
+    @Deprecated(message = "Gyldig verdi for kontantstøtte er KONT")
+    KS("Kontantstøtte - gammel", "KON"),
+
+    KONT("Kontantstøtte", "KON"),
     IT01("Infotrygd", "")
 }

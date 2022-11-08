@@ -21,6 +21,7 @@ enum class BehandlingÅrsak {
     G_OMREGNING,
     KORRIGERING_UTEN_BREV,
     PAPIRSØKNAD,
+    SATSENDRING
 }
 
 enum class OpphørÅrsak {

@@ -4,25 +4,6 @@ import no.nav.familie.kontrakter.felles.ef.StønadType
 import java.time.LocalDate
 import java.time.LocalDateTime
 
-/**
- * @param personIdenter alle identer til personen
- */
-data class InfotrygdPerioderArenaRequest(
-    val personIdenter: Set<String>,
-    val fomDato: LocalDate? = null,
-    val tomDato: LocalDate? = null
-)
-
-data class InfotrygdPerioderArenaResponse(val perioder: List<InfotrygdArenaPeriode>)
-
-data class InfotrygdArenaPeriode(
-    val personIdent: String,
-    val fomDato: LocalDate,
-    val tomDato: LocalDate,
-    val beløp: Float,
-    val opphørsdato: LocalDate? = null
-)
-
 data class InfotrygdPeriodeRequest(
     val personIdenter: Set<String>,
     val stønadstyper: Set<StønadType>

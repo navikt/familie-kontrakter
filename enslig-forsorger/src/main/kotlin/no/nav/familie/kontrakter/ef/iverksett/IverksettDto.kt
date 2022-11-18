@@ -69,10 +69,10 @@ data class BehandlingsdetaljerDto(
     val vilkårsvurderinger: List<VilkårsvurderingDto> = emptyList(),
     val aktivitetspliktInntrefferDato: LocalDate? = null,
     val kravMottatt: LocalDate? = null,
-    val årsakRevurdering: ÅrsakReurderingDto? = null
+    val årsakRevurdering: ÅrsakRevurderingDto? = null
 )
 
-data class ÅrsakReurderingDto(
+data class ÅrsakRevurderingDto(
     val opplysningskilde: Opplysningskilde,
     val årsak: Revurderingsårsak
 )

@@ -13,7 +13,8 @@ data class KlagebehandlingDto(
     val resultat: BehandlingResultat?,
     val årsak: Årsak?,
     val vedtaksdato: LocalDateTime?,
-    val klageinstansResultat: List<KlageinstansResultatDto> = emptyList()
+    val klageinstansResultat: List<KlageinstansResultatDto> = emptyList(),
+    val henlagtÅrsak: HenlagtÅrsak? = null
 )
 
 data class KlageinstansResultatDto(

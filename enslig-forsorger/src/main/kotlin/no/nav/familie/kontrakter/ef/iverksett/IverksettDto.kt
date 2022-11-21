@@ -67,6 +67,7 @@ data class BehandlingsdetaljerDto(
     val vilkårsvurderinger: List<VilkårsvurderingDto> = emptyList(),
     val aktivitetspliktInntrefferDato: LocalDate? = null,
     val kravMottatt: LocalDate? = null,
+    val årsakRevurdering: ÅrsakRevurderingDto? = null
 )
 
 sealed class VedtaksdetaljerDto {

@@ -3,9 +3,7 @@ package no.nav.familie.kontrakter.ef.iverksett
 import no.nav.familie.kontrakter.ef.felles.BehandlingType
 import no.nav.familie.kontrakter.ef.felles.BehandlingÅrsak
 import no.nav.familie.kontrakter.ef.felles.OpphørÅrsak
-import no.nav.familie.kontrakter.ef.felles.Opplysningskilde
 import no.nav.familie.kontrakter.ef.felles.RegelId
-import no.nav.familie.kontrakter.ef.felles.Revurderingsårsak
 import no.nav.familie.kontrakter.ef.felles.Vedtaksresultat
 import no.nav.familie.kontrakter.ef.felles.VilkårType
 import no.nav.familie.kontrakter.ef.felles.Vilkårsresultat
@@ -70,11 +68,6 @@ data class BehandlingsdetaljerDto(
     val aktivitetspliktInntrefferDato: LocalDate? = null,
     val kravMottatt: LocalDate? = null,
     val årsakRevurdering: ÅrsakRevurderingDto? = null
-)
-
-data class ÅrsakRevurderingDto(
-    val opplysningskilde: Opplysningskilde,
-    val årsak: Revurderingsårsak
 )
 
 sealed class VedtaksdetaljerDto {

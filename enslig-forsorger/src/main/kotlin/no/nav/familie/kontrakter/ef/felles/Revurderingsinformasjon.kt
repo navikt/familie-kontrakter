@@ -3,10 +3,10 @@ package no.nav.familie.kontrakter.ef.felles
 import no.nav.familie.kontrakter.felles.ef.StønadType
 
 enum class Opplysningskilde {
+    INNSENDT_SØKNAD,
     MELDING_MODIA,
     INNSENDT_DOKUMENTASJON,
     BESKJED_ANNEN_ENHET,
-    LIVSHENDELSER,
     OPPLYSNINGER_INTERNE_KONTROLLER
 }
 

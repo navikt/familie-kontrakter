@@ -1,5 +1,6 @@
 package no.nav.familie.kontrakter.ef.iverksett
 
+import no.nav.familie.kontrakter.ef.felles.AvslagÅrsak
 import no.nav.familie.kontrakter.ef.felles.BehandlingType
 import no.nav.familie.kontrakter.ef.felles.BehandlingÅrsak
 import no.nav.familie.kontrakter.ef.felles.OpphørÅrsak
@@ -81,6 +82,7 @@ sealed class VedtaksdetaljerDto {
     abstract val vedtaksperioder: List<VedtaksperiodeDto>
     abstract val tilbakekreving: TilbakekrevingDto?
     abstract val brevmottakere: List<Brevmottaker>
+    abstract val avslagÅrsak: AvslagÅrsak?
 }
 
 data class VedtaksdetaljerOvergangsstønadDto(
@@ -92,7 +94,8 @@ data class VedtaksdetaljerOvergangsstønadDto(
     override val tilkjentYtelse: TilkjentYtelseDto?,
     override val vedtaksperioder: List<VedtaksperiodeOvergangsstønadDto> = emptyList(),
     override val tilbakekreving: TilbakekrevingDto? = null,
-    override val brevmottakere: List<Brevmottaker> = emptyList()
+    override val brevmottakere: List<Brevmottaker> = emptyList(),
+    override val avslagÅrsak: AvslagÅrsak? = null
 ) : VedtaksdetaljerDto()
 
 data class VedtaksdetaljerBarnetilsynDto(
@@ -105,8 +108,10 @@ data class VedtaksdetaljerBarnetilsynDto(
     override val vedtaksperioder: List<VedtaksperiodeBarnetilsynDto> = emptyList(),
     override val tilbakekreving: TilbakekrevingDto? = null,
     override val brevmottakere: List<Brevmottaker> = emptyList(),
+    override val avslagÅrsak: AvslagÅrsak? = null,
     val kontantstøtte: List<PeriodeMedBeløpDto>,
     val tilleggsstønad: List<PeriodeMedBeløpDto>
+
 ) : VedtaksdetaljerDto()
 
 data class VedtaksdetaljerSkolepengerDto(
@@ -119,6 +124,7 @@ data class VedtaksdetaljerSkolepengerDto(
     override val vedtaksperioder: List<VedtaksperiodeSkolepengerDto> = emptyList(),
     override val tilbakekreving: TilbakekrevingDto? = null,
     override val brevmottakere: List<Brevmottaker> = emptyList(),
+    override val avslagÅrsak: AvslagÅrsak? = null,
     val begrunnelse: String? = null
 ) : VedtaksdetaljerDto()
 

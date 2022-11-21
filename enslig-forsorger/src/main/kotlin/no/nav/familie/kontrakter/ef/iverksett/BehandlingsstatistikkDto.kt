@@ -1,5 +1,6 @@
 package no.nav.familie.kontrakter.ef.iverksett
 
+import no.nav.familie.kontrakter.ef.felles.AvslagÅrsak
 import no.nav.familie.kontrakter.ef.felles.BehandlingType
 import no.nav.familie.kontrakter.ef.felles.BehandlingÅrsak
 import no.nav.familie.kontrakter.felles.ef.StønadType
@@ -30,7 +31,8 @@ data class BehandlingsstatistikkDto(
     val relatertBehandlingId: UUID?,
     val behandlingMetode: BehandlingMetode?,
     val kravMottatt: LocalDate? = null,
-    val årsakRevurdering: ÅrsakRevurderingDto? = null
+    val årsakRevurdering: ÅrsakRevurderingDto? = null,
+    val avslagÅrsak: AvslagÅrsak? = null
 )
 
 enum class Hendelse {

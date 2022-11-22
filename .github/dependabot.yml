@@ -14,9 +14,6 @@ updates:
       time: "04:00"
     open-pull-requests-limit: 10
     ignore:
-      - dependency-name: no.nav.familie.felles:util
-        versions:
-          - 1.20210416135502_5bf9eff
       - dependency-name: org.springframework:spring-context
         versions:
           - 5.3.5
@@ -38,5 +35,3 @@ updates:
       - dependency-name: org.springframework:spring-core
         versions:
           - 5.3.4
-    registries:
-      - maven-repository-maven-pkg-github-com-navikt-fp-felles

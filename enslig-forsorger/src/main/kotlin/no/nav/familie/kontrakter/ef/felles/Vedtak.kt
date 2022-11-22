@@ -72,3 +72,11 @@ enum class VilkårType(val beskrivelse: String) {
     DOKUMENTASJON_AV_UTDANNING("Dokumentasjon av utdanning"),
     ER_UTDANNING_HENSIKTSMESSIG("Er utdanning hensiktsmessig?")
 }
+
+enum class AvslagÅrsak {
+    VILKÅR_IKKE_OPPFYLT,
+    BARN_OVER_ÅTTE_ÅR,
+    STØNADSTID_OPPBRUKT,
+    MANGLENDE_OPPLYSNINGER,
+    MINDRE_INNTEKTSENDRINGER
+}

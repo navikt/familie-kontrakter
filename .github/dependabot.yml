@@ -38,5 +38,3 @@ updates:
       - dependency-name: org.springframework:spring-core
         versions:
           - 5.3.4
-    registries:
-      - maven-repository-maven-pkg-github-com-navikt-fp-felles

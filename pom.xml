@@ -281,6 +281,7 @@
                                         <bannedDependencies>
                                             <excludes>
                                                 <exclude>no.nav.familie.felles</exclude>
+                                                <exclude>org.springframework</exclude>
                                             </excludes>
                                         </bannedDependencies>
                                     </rules>

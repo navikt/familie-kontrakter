@@ -1,8 +1,8 @@
 package no.nav.familie.kontrakter.felles.oppgave
 
+import com.fasterxml.jackson.annotation.JsonFormat
 import no.nav.familie.kontrakter.felles.Behandlingstema
 import no.nav.familie.kontrakter.felles.Tema
-import org.springframework.format.annotation.DateTimeFormat
 import java.time.LocalDate
 import java.time.LocalDateTime
 
@@ -19,20 +19,23 @@ data class FinnOppgaveRequest(
     val saksreferanse: String? = null,
     val tilordnetRessurs: String? = null,
     val tildeltRessurs: Boolean? = null,
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = datoTidformat)
     val opprettetFomTidspunkt: LocalDateTime? = null,
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = datoTidformat)
     val opprettetTomTidspunkt: LocalDateTime? = null,
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = datoformat)
     val fristFomDato: LocalDate? = null,
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = datoformat)
     val fristTomDato: LocalDate? = null,
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = datoformat)
     val aktivFomDato: LocalDate? = null,
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = datoformat)
     val aktivTomDato: LocalDate? = null,
     val enhetsmappe: Enhetsmappe? = null,
     val mappeId: Long? = null,
     val limit: Long? = null,
     val offset: Long? = null
 )
+
+const val datoTidformat = "dd-MM-yyyy hh:mm:ss"
+const val datoformat = "dd-MM-yyyy"

@@ -2,7 +2,6 @@ package no.nav.familie.kontrakter.felles.oppgave
 
 import no.nav.familie.kontrakter.felles.Behandlingstema
 import no.nav.familie.kontrakter.felles.Tema
-import no.nav.familie.kontrakter.felles.abstraction.QueryObject
 import org.springframework.format.annotation.DateTimeFormat
 import java.time.LocalDate
 import java.time.LocalDateTime
@@ -36,4 +35,4 @@ data class FinnOppgaveRequest(
     val mappeId: Long? = null,
     val limit: Long? = null,
     val offset: Long? = null
-) : QueryObject()
+)

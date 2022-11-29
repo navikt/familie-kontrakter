@@ -18,8 +18,9 @@ class TestsøknadBuilder private constructor(
     val søknadSkolepenger: SøknadSkolepenger,
     val søknadBarnetilsyn: SøknadBarnetilsyn,
 
-    val personalia: Personalia,
     val innsendingsdetaljer: Innsendingsdetaljer,
+    val personalia: Personalia,
+    val opplysningerOmAdresse: OpplysningerOmAdresse,
     val sivilstandsdetaljer: Sivilstandsdetaljer,
     val medlemskapsdetaljer: Medlemskapsdetaljer,
     val bosituasjon: Bosituasjon,
@@ -37,8 +38,9 @@ class TestsøknadBuilder private constructor(
     class Builder {
 
         private lateinit var barnetilsynBarn: List<Barn>
-        private lateinit var personalia: Personalia
         private lateinit var innsendingsdetaljer: Innsendingsdetaljer
+        private lateinit var personalia: Personalia
+        private lateinit var opplysningerOmAdresse: OpplysningerOmAdresse
         private lateinit var sivilstandsdetaljer: Sivilstandsdetaljer
         private lateinit var medlemskapsdetaljer: Medlemskapsdetaljer
         private lateinit var bosituasjon: Bosituasjon
@@ -49,8 +51,9 @@ class TestsøknadBuilder private constructor(
         private lateinit var stønadsstart: Stønadsstart
 
         init {
-            setPersonalia()
             setInnsendingsdetaljer()
+            setPersonalia()
+            setOpplysningerOmAdresse()
             setSivilstandsdetaljer()
             setMedlemskapsdetaljer()
             setBosituasjon()
@@ -76,6 +79,20 @@ class TestsøknadBuilder private constructor(
                 Søknadsfelt("Sivilstand", "Ugift")
             )
 
+            return this
+        }
+
+        fun setOpplysningerOmAdresse(
+            borDuPåDenneAdressen: Boolean = false,
+            harDuMeldtAdresseendring: Boolean = true
+        ): Builder {
+            val dokumentasjonFlytteendring =
+                if (harDuMeldtAdresseendring) defaultDokumentfelt("dokumentasjonAdresseendring") else null
+            this.opplysningerOmAdresse = OpplysningerOmAdresse(
+                Søknadsfelt("Bor du på denne adressen", borDuPåDenneAdressen),
+                Søknadsfelt("Har du meldt adresseendring til folkeregisteret?", harDuMeldtAdresseendring),
+                dokumentasjonFlytteendring
+            )
             return this
         }
 
@@ -339,8 +356,9 @@ class TestsøknadBuilder private constructor(
 
             val søknadOvergangsstønad =
                 SøknadOvergangsstønad(
-                    Søknadsfelt("Søker", personalia),
                     Søknadsfelt("innsendingsdetaljer", innsendingsdetaljer),
+                    Søknadsfelt("Søker", personalia),
+                    Søknadsfelt("Opplysninger om adresse", opplysningerOmAdresse),
                     Søknadsfelt("Detaljer om sivilstand", sivilstandsdetaljer),
                     Søknadsfelt("Opphold i Norge", medlemskapsdetaljer),
                     Søknadsfelt("Bosituasjonen din", bosituasjon),
@@ -352,8 +370,9 @@ class TestsøknadBuilder private constructor(
                 )
 
             val søknadBarnetilsyn = SøknadBarnetilsyn(
-                Søknadsfelt("Søker", personalia),
                 Søknadsfelt("innsendingsdetaljer", innsendingsdetaljer),
+                Søknadsfelt("Søker", personalia),
+                Søknadsfelt("Opplysninger om adresse", opplysningerOmAdresse),
                 Søknadsfelt("Detaljer om sivilstand", sivilstandsdetaljer),
                 Søknadsfelt("Opphold i Norge", medlemskapsdetaljer),
                 Søknadsfelt("Bosituasjonen din", bosituasjon),
@@ -365,12 +384,13 @@ class TestsøknadBuilder private constructor(
             )
 
             val søknadSkolepenger = SøknadSkolepenger(
-                personalia = Søknadsfelt("Søker", personalia),
-                barn = Søknadsfelt("Barn fra folkeregisteret", barn),
                 innsendingsdetaljer = Søknadsfelt(
                     "innsendingsdetaljer",
                     innsendingsdetaljer
                 ),
+                personalia = Søknadsfelt("Søker", personalia),
+                opplysningerOmAdresse = Søknadsfelt("Opplysninger om adresse", opplysningerOmAdresse),
+                barn = Søknadsfelt("Barn fra folkeregisteret", barn),
                 sivilstandsdetaljer = Søknadsfelt(
                     "Detaljer om sivilstand",
                     sivilstandsdetaljer
@@ -386,8 +406,9 @@ class TestsøknadBuilder private constructor(
                 søknadOvergangsstønad,
                 søknadSkolepenger,
                 søknadBarnetilsyn,
-                personalia,
                 innsendingsdetaljer,
+                personalia,
+                opplysningerOmAdresse,
                 sivilstandsdetaljer,
                 medlemskapsdetaljer,
                 bosituasjon,

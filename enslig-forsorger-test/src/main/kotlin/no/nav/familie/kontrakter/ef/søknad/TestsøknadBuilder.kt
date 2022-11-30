@@ -86,12 +86,12 @@ class TestsøknadBuilder private constructor(
             borDuPåDenneAdressen: Boolean = false,
             harDuMeldtAdresseendring: Boolean = true
         ): Builder {
-            val dokumentasjonFlytteendring =
+            val dokumentasjonAdresseendring =
                 if (harDuMeldtAdresseendring) defaultDokumentfelt("dokumentasjonAdresseendring") else null
             this.adresseopplysninger = Adresseopplysninger(
                 Søknadsfelt("Bor du på denne adressen", borDuPåDenneAdressen),
                 Søknadsfelt("Har du meldt adresseendring til folkeregisteret?", harDuMeldtAdresseendring),
-                dokumentasjonFlytteendring
+                dokumentasjonAdresseendring
             )
             return this
         }

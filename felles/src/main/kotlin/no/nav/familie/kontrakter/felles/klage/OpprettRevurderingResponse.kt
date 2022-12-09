@@ -29,5 +29,7 @@ data class IkkeOpprettet(
 
 enum class IkkeOpprettetÅrsak {
     ÅPEN_BEHANDLING,
+    INGEN_BEHANDLING,
+    INGEN_BEHANDLING_FINNES_I_INFOTRYGD,
     FEIL
 }

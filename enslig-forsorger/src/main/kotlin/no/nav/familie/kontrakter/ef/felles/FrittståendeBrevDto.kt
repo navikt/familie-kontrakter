@@ -22,5 +22,6 @@ enum class FrittståendeBrevType(val tittel: String) {
     INNHENTING_AV_KARAKTERUTSKRIFT_HOVEDPERIODE("Innhenting av karakterutskrift (hovedperiode)"),
     INNHENTING_AV_KARAKTERUTSKRIFT_UTVIDET_PERIODE("Innhenting av karakterutskrift (utvidet periode)"),
     BREV_OM_SVARTID_KLAGE("Brev om svartid - klage"),
+    BREV_OM_FORLENGET_SVARTID("Brev om forlenget svartid"),
     BREV_OM_FORLENGET_SVARTID_KLAGE("Brev om forlenget svartid - klage")
 }

@@ -32,3 +32,13 @@ enum class IkkeOpprettetÅrsak {
     INGEN_BEHANDLING,
     FEIL
 }
+
+data class KanOppretteRevurderingResponse(
+    val kanOpprettes: Boolean,
+    val årsak: KanIkkeOppretteRevurderingÅrsak?
+)
+
+enum class KanIkkeOppretteRevurderingÅrsak {
+    ÅPEN_BEHANDLING,
+    INGEN_BEHANDLING
+}

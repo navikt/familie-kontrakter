@@ -6,7 +6,7 @@ data class KontantstøtteSøknad(
     val søker: Søker,
     val barn: List<Barn>,
     val dokumentasjon: List<Søknaddokumentasjon>,
-    val teksterTilPdf: Map<String, Map<Locale, String>>,
+    val teksterTilPdf: Map<String, TekstPåSpråkMap>,
     val originalSpråk: Locale,
     val erNoenAvBarnaFosterbarn: Søknadsfelt<String>,
     val søktAsylForBarn: Søknadsfelt<String>,
@@ -56,7 +56,7 @@ data class Barn(
     val navn: Søknadsfelt<String>,
     val registrertBostedType: Søknadsfelt<RegistrertBostedType>,
     val alder: Søknadsfelt<String>?,
-    val teksterTilPdf: Map<String, Map<Locale, String>>,
+    val teksterTilPdf: Map<String, TekstPåSpråkMap>,
 
     // Om Barna
     val erFosterbarn: Søknadsfelt<String>,
@@ -97,6 +97,8 @@ data class Søknadsfelt<T>(
     val label: Map<Locale, String>,
     val verdi: Map<Locale, T>
 )
+
+class TekstPåSpråkMap(tekstPåSpråk: Map<Locale, String>) : HashMap<Locale, String>(tekstPåSpråk)
 
 enum class Dokumentasjonsbehov {
     AVTALE_DELT_BOSTED,

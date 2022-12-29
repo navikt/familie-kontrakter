@@ -93,6 +93,7 @@ data class Barn(
 )
 
 typealias Locale = String
+
 data class Søknadsfelt<T>(
     val label: Map<Locale, String>,
     val verdi: Map<Locale, T>
@@ -104,7 +105,6 @@ enum class Dokumentasjonsbehov {
     AVTALE_DELT_BOSTED,
     VEDTAK_OPPHOLDSTILLATELSE,
     ADOPSJON_DATO,
-    BEKREFTELSE_FRA_BARNEVERN,
     BOR_FAST_MED_SØKER,
     ANNEN_DOKUMENTASJON,
     BEKREFTELESE_PÅ_BARNEHAGEPLASS
@@ -120,7 +120,7 @@ data class Søknaddokumentasjon(
     val dokumentasjonsbehov: Dokumentasjonsbehov,
     val harSendtInn: Boolean,
     val opplastedeVedlegg: List<Søknadsvedlegg>,
-    val dokumentasjonSpråkTittel: Map<Locale, String>
+    val dokumentasjonSpråkTittel: TekstPåSpråkMap
 )
 
 data class SøknadAdresse(
@@ -220,6 +220,7 @@ data class AndreForelder(
     val idNummer: List<Søknadsfelt<IdNummer>> = listOf(),
     val adresse: Søknadsfelt<String>?
 )
+
 data class Arbeidsperiode(
     val arbeidsperiodeAvsluttet: Søknadsfelt<String>?,
     val arbeidsperiodeland: Søknadsfelt<String>?,

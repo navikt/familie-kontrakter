@@ -1,5 +1,6 @@
 package no.nav.familie.kontrakter.felles.klage
 
+import no.nav.familie.kontrakter.felles.Regelverk
 import java.time.LocalDateTime
 
 data class FagsystemVedtak(
@@ -8,6 +9,7 @@ data class FagsystemVedtak(
     val resultat: String,
     val vedtakstidspunkt: LocalDateTime,
     val fagsystemType: FagsystemType,
+    val regelverk: Regelverk
 )
 
 enum class FagsystemType {

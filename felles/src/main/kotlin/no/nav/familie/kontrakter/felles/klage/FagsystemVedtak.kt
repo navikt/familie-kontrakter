@@ -8,6 +8,7 @@ data class FagsystemVedtak(
     val resultat: String,
     val vedtakstidspunkt: LocalDateTime,
     val fagsystemType: FagsystemType,
+    val nasjonalitetType: NasjonalitetType
 )
 
 enum class FagsystemType {
@@ -15,4 +16,9 @@ enum class FagsystemType {
     TILBAKEKREVING,
     SANKSJON_1_MND,
     UTESTENGELSE
+}
+
+enum class NasjonalitetType(dvhKode: String){
+    NASJONAL("Nasjonal"),
+    UTLAND("Utland")
 }

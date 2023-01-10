@@ -1,5 +1,6 @@
 package no.nav.familie.kontrakter.felles.klage
 
+import no.nav.familie.kontrakter.felles.Regelverk
 import java.time.LocalDateTime
 
 data class FagsystemVedtak(
@@ -8,7 +9,7 @@ data class FagsystemVedtak(
     val resultat: String,
     val vedtakstidspunkt: LocalDateTime,
     val fagsystemType: FagsystemType,
-    val nasjonalitetType: NasjonalitetType
+    val regelverk: Regelverk
 )
 
 enum class FagsystemType {
@@ -16,9 +17,4 @@ enum class FagsystemType {
     TILBAKEKREVING,
     SANKSJON_1_MND,
     UTESTENGELSE
-}
-
-enum class NasjonalitetType(dvhKode: String){
-    NASJONAL("Nasjonal"),
-    UTLAND("Utland")
 }

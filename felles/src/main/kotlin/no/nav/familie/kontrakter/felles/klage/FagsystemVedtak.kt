@@ -9,7 +9,7 @@ data class FagsystemVedtak(
     val resultat: String,
     val vedtakstidspunkt: LocalDateTime,
     val fagsystemType: FagsystemType,
-    val regelverk: Regelverk
+    val regelverk: Regelverk?
 )
 
 enum class FagsystemType {

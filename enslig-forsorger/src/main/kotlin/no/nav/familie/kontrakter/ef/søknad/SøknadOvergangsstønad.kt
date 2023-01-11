@@ -1,8 +1,9 @@
 package no.nav.familie.kontrakter.ef.søknad
 
 data class SøknadOvergangsstønad(
-    val personalia: Søknadsfelt<Personalia>,
     val innsendingsdetaljer: Søknadsfelt<Innsendingsdetaljer>,
+    val personalia: Søknadsfelt<Personalia>,
+    val adresseopplysninger: Søknadsfelt<Adresseopplysninger>? = null,
     val sivilstandsdetaljer: Søknadsfelt<Sivilstandsdetaljer>,
     val medlemskapsdetaljer: Søknadsfelt<Medlemskapsdetaljer>,
     val bosituasjon: Søknadsfelt<Bosituasjon>,

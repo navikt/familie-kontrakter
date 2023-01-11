@@ -1,5 +1,6 @@
 package no.nav.familie.kontrakter.felles.tilbakekreving
 
+import no.nav.familie.kontrakter.felles.Regelverk
 import no.nav.familie.kontrakter.felles.Språkkode
 import java.time.LocalDate
 import javax.validation.Valid

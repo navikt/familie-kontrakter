@@ -37,5 +37,5 @@ data class FinnOppgaveRequest(
     val offset: Long? = null
 )
 
-const val datoTidformat = "dd-MM-yyyy hh:mm:ss"
-const val datoformat = "dd-MM-yyyy"
+const val datoTidformat = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX"
+const val datoformat = "yyyy-MM-dd"

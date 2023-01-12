@@ -2,8 +2,6 @@ package no.nav.familie.kontrakter.felles.oppgave
 
 import no.nav.familie.kontrakter.felles.Behandlingstema
 import no.nav.familie.kontrakter.felles.Tema
-import no.nav.familie.kontrakter.felles.abstraction.QueryObject
-import org.springframework.format.annotation.DateTimeFormat
 import java.time.LocalDate
 import java.time.LocalDateTime
 
@@ -20,20 +18,14 @@ data class FinnOppgaveRequest(
     val saksreferanse: String? = null,
     val tilordnetRessurs: String? = null,
     val tildeltRessurs: Boolean? = null,
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     val opprettetFomTidspunkt: LocalDateTime? = null,
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     val opprettetTomTidspunkt: LocalDateTime? = null,
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     val fristFomDato: LocalDate? = null,
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     val fristTomDato: LocalDate? = null,
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     val aktivFomDato: LocalDate? = null,
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     val aktivTomDato: LocalDate? = null,
     val enhetsmappe: Enhetsmappe? = null,
     val mappeId: Long? = null,
     val limit: Long? = null,
     val offset: Long? = null
-) : QueryObject()
+)

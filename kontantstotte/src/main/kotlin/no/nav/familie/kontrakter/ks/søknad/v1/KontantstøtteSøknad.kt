@@ -166,7 +166,7 @@ data class Utenlandsopphold(
 
 data class Omsorgsperson(
     val navn: Søknadsfelt<String>,
-    val slektsforhold: Søknadsfelt<String>,
+    val slektsforhold: Søknadsfelt<String>?,
     val slektsforholdSpesifisering: Søknadsfelt<String>?,
     val idNummer: Søknadsfelt<String>,
     val adresse: Søknadsfelt<String>,

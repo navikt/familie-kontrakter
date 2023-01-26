@@ -5,6 +5,7 @@ import java.time.LocalDate
 
 data class SimulertPostering(
     val fagOmrådeKode: FagOmrådeKode,
+    val erFeilkonto: Boolean?,
     val fom: LocalDate,
     val tom: LocalDate,
     val betalingType: BetalingType,

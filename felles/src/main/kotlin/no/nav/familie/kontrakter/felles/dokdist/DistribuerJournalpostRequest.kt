@@ -31,8 +31,8 @@ enum class AdresseType {
 data class ManuellAdresse(
     val adresseType: AdresseType,
     val adresseLinje1: String?,
-    val adresseLinje2: String?,
-    val adresseLinje3: String?,
+    val adresseLinje2: String? = null,
+    val adresseLinje3: String? = null,
     val postnummer: String?,
     val poststed: String?,
     val land: String = "NO"

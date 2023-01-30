@@ -30,9 +30,9 @@ enum class AdresseType {
 
 data class ManuellAdresse(
     val adresseType: AdresseType,
-    val adresseLinje1: String?,
-    val adresseLinje2: String? = null,
-    val adresseLinje3: String? = null,
+    val adresselinje1: String?,
+    val adresselinje2: String? = null,
+    val adresselinje3: String? = null,
     val postnummer: String?,
     val poststed: String?,
     val land: String = "NO"
@@ -43,7 +43,7 @@ data class ManuellAdresse(
             check(adresseType != AdresseType.norskPostadresse, { "Feil adresse type" })
         }
         if (adresseType == AdresseType.norskPostadresse) {
-            checkNotNull(adresseLinje1, { "AdresseLinje1 er påkrevd for norsk postadresse" })
+            checkNotNull(adresselinje1, { "AdresseLinje1 er påkrevd for norsk postadresse" })
             checkNotNull(postnummer, { "Postnummer er påkrevd for norsk postadresse" })
             checkNotNull(poststed, { "Poststed er påkrevd for norsk postadresse" })
         }

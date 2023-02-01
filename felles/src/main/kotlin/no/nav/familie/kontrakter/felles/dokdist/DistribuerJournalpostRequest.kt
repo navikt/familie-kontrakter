@@ -38,14 +38,14 @@ data class ManuellAdresse(
     val land: String = "NO"
 ) {
     init {
-        check(land.length != 2) { "Ugyldig landkode" }
+        check(land.length == 2) { "Ugyldig landkode" }
         if (land == "NO") {
-            check(adresseType != AdresseType.norskPostadresse, { "Feil adresse type" })
+            check(adresseType == AdresseType.norskPostadresse) { "Feil adresse type" }
         }
         if (adresseType == AdresseType.norskPostadresse) {
-            checkNotNull(adresselinje1, { "AdresseLinje1 er påkrevd for norsk postadresse" })
-            checkNotNull(postnummer, { "Postnummer er påkrevd for norsk postadresse" })
-            checkNotNull(poststed, { "Poststed er påkrevd for norsk postadresse" })
+            checkNotNull(adresselinje1) { "AdresseLinje1 er påkrevd for norsk postadresse" }
+            checkNotNull(postnummer) { "Postnummer er påkrevd for norsk postadresse" }
+            checkNotNull(poststed) { "Poststed er påkrevd for norsk postadresse" }
         }
     }
 }

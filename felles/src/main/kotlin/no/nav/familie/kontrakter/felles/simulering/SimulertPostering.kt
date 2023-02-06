@@ -5,7 +5,7 @@ import java.time.LocalDate
 
 data class SimulertPostering(
     val fagOmrådeKode: FagOmrådeKode,
-    val erFeilkonto: Boolean?, // brukes for å skille manuelle korigeringer og reelle feilutbetalinger
+    val erFeilkonto: Boolean? = null, // brukes for å skille manuelle korigeringer og reelle feilutbetalinger
     val fom: LocalDate,
     val tom: LocalDate,
     val betalingType: BetalingType,

@@ -24,5 +24,7 @@ enum class FrittståendeBrevType(val tittel: String) {
     BREV_OM_SVARTID_KLAGE("Brev om svartid - klage"),
     BREV_OM_FORLENGET_SVARTID("Brev om forlenget svartid"),
     BREV_OM_FORLENGET_SVARTID_KLAGE("Brev om forlenget svartid - klage"),
-    INFORMASJONSBREV_TRUKKET_SØKNAD("Informasjonsbrev - bruker har trukket søknad")
+    INFORMASJONSBREV_TRUKKET_SØKNAD("Informasjonsbrev - bruker har trukket søknad"),
+    VARSEL_UTESTENGELSE("Varsel om utestengelse"),
+    VEDTAK_UTESTENGELSE("Vedtak om utestengelse")
 }

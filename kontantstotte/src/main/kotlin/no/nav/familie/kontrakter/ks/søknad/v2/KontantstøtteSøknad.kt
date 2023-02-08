@@ -1,6 +1,21 @@
-package no.nav.familie.kontrakter.ks.søknad.v1
+package no.nav.familie.kontrakter.ks.søknad.v2
 
-@Deprecated("Bruk v2", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ks.søknad.v2.KontantstøtteSøknad"))
+import no.nav.familie.kontrakter.ks.søknad.v1.Locale
+import no.nav.familie.kontrakter.ks.søknad.v1.Søknaddokumentasjon
+import no.nav.familie.kontrakter.ks.søknad.v1.Søknadsfelt
+import no.nav.familie.kontrakter.ks.søknad.v1.TekstPåSpråkMap
+import no.nav.familie.kontrakter.ks.søknad.v1.SøknadAdresse
+import no.nav.familie.kontrakter.ks.søknad.v1.SIVILSTANDTYPE
+import no.nav.familie.kontrakter.ks.søknad.v1.Utbetalingsperiode
+import no.nav.familie.kontrakter.ks.søknad.v1.Utenlandsopphold
+import no.nav.familie.kontrakter.ks.søknad.v1.Utenlandsperiode
+import no.nav.familie.kontrakter.ks.søknad.v1.Pensjonsperiode
+import no.nav.familie.kontrakter.ks.søknad.v1.IdNummer
+import no.nav.familie.kontrakter.ks.søknad.v1.RegistrertBostedType
+import no.nav.familie.kontrakter.ks.søknad.v1.KontantstøttePeriode
+import no.nav.familie.kontrakter.ks.søknad.v1.BarnehageplassPeriode
+import no.nav.familie.kontrakter.ks.søknad.v1.EøsKontantstøttePeriode
+
 data class KontantstøtteSøknad(
     val kontraktVersjon: Int,
     val antallEøsSteg: Int,
@@ -19,7 +34,6 @@ data class KontantstøtteSøknad(
     val erAvdødPartnerForelder: Søknadsfelt<String>?
 )
 
-@Deprecated("Bruk v2", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ks.søknad.v2.Søker"))
 data class Søker(
     val harEøsSteg: Boolean,
     val ident: Søknadsfelt<String>,
@@ -52,7 +66,6 @@ data class Søker(
     val adresseISøkeperiode: Søknadsfelt<String>?
 )
 
-@Deprecated("Bruk v2", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ks.søknad.v2.Barn"))
 data class Barn(
     val harEøsSteg: Boolean,
     val ident: Søknadsfelt<String>,
@@ -95,79 +108,6 @@ data class Barn(
     val idNummer: List<Søknadsfelt<IdNummer>> = listOf()
 )
 
-typealias Locale = String
-
-data class Søknadsfelt<T>(
-    val label: Map<Locale, String>,
-    val verdi: Map<Locale, T>
-)
-
-class TekstPåSpråkMap(tekstPåSpråk: Map<Locale, String>) : HashMap<Locale, String>(tekstPåSpråk)
-
-enum class Dokumentasjonsbehov {
-    AVTALE_DELT_BOSTED,
-    VEDTAK_OPPHOLDSTILLATELSE,
-    ADOPSJON_DATO,
-    BOR_FAST_MED_SØKER,
-    ANNEN_DOKUMENTASJON,
-    BEKREFTELESE_PÅ_BARNEHAGEPLASS
-}
-
-data class Søknadsvedlegg(
-    val dokumentId: String,
-    val navn: String,
-    val tittel: Dokumentasjonsbehov
-)
-
-data class Søknaddokumentasjon(
-    val dokumentasjonsbehov: Dokumentasjonsbehov,
-    val harSendtInn: Boolean,
-    val opplastedeVedlegg: List<Søknadsvedlegg>,
-    val dokumentasjonSpråkTittel: TekstPåSpråkMap
-)
-
-data class SøknadAdresse(
-    val adressenavn: String?,
-    val postnummer: String?,
-    val husbokstav: String?,
-    val bruksenhetsnummer: String?,
-    val husnummer: String?,
-    val poststed: String?
-)
-
-data class IdNummer(
-    val idNummer: Søknadsfelt<String>,
-    val land: Søknadsfelt<String>
-)
-
-enum class SIVILSTANDTYPE {
-    GIFT,
-    ENKE_ELLER_ENKEMANN,
-    SKILT,
-    SEPARERT,
-    REGISTRERT_PARTNER,
-    SEPARERT_PARTNER,
-    SKILT_PARTNER,
-    GJENLEVENDE_PARTNER,
-    UGIFT,
-    UOPPGITT
-}
-
-enum class RegistrertBostedType {
-    REGISTRERT_SOKERS_ADRESSE,
-    REGISTRERT_ANNEN_ADRESSE,
-    ADRESSESPERRE,
-    IKKE_FYLT_INN
-}
-
-data class Utenlandsopphold(
-    val utenlandsoppholdÅrsak: Søknadsfelt<String>,
-    val oppholdsland: Søknadsfelt<String>,
-    val oppholdslandTilDato: Søknadsfelt<String?>,
-    val oppholdslandFraDato: Søknadsfelt<String?>
-)
-
-@Deprecated("Bruk v2", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ks.søknad.v2.Omsorgsperson"))
 data class Omsorgsperson(
     val navn: Søknadsfelt<String>,
     val slektsforhold: Søknadsfelt<String>?,
@@ -190,15 +130,6 @@ data class Omsorgsperson(
     val eøsKontantstøttePerioder: List<Søknadsfelt<EøsKontantstøttePeriode>> = listOf()
 )
 
-data class EøsKontantstøttePeriode(
-    val mottarEøsKontantstøtteNå: Søknadsfelt<String>?,
-    val kontantstøtteLand: Søknadsfelt<String>,
-    val fraDatoKontantstøttePeriode: Søknadsfelt<String>,
-    val tilDatoKontantstøttePeriode: Søknadsfelt<String>?,
-    val månedligBeløp: Søknadsfelt<String>
-)
-
-@Deprecated("Bruk v2", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ks.søknad.v2.AndreForelder"))
 data class AndreForelder(
     val kanIkkeGiOpplysninger: Søknadsfelt<String>,
     val navn: Søknadsfelt<String>?,
@@ -226,50 +157,11 @@ data class AndreForelder(
     val adresse: Søknadsfelt<String>?
 )
 
-@Deprecated("Bruk v2", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ks.søknad.v2.Arbeidsperiode"))
 data class Arbeidsperiode(
     val arbeidsperiodeAvsluttet: Søknadsfelt<String>?,
     val arbeidsperiodeland: Søknadsfelt<String>?,
     val arbeidsgiver: Søknadsfelt<String>?,
     val fraDatoArbeidsperiode: Søknadsfelt<String>?,
-    val tilDatoArbeidsperiode: Søknadsfelt<String>?
-)
-
-data class Pensjonsperiode(
-    val mottarPensjonNå: Søknadsfelt<String>?,
-    val pensjonsland: Søknadsfelt<String>?,
-    val pensjonFra: Søknadsfelt<String>?,
-    val pensjonTil: Søknadsfelt<String>?
-)
-
-data class Utbetalingsperiode(
-    val fårUtbetalingNå: Søknadsfelt<String>?,
-    val utbetalingLand: Søknadsfelt<String>,
-    val utbetalingFraDato: Søknadsfelt<String>,
-    val utbetalingTilDato: Søknadsfelt<String>
-)
-
-data class Utenlandsperiode(
-    val utenlandsoppholdÅrsak: Søknadsfelt<String>,
-    val oppholdsland: Søknadsfelt<String>,
-    val oppholdslandFraDato: Søknadsfelt<String?>,
-    val oppholdslandTilDato: Søknadsfelt<String?>
-)
-
-data class KontantstøttePeriode(
-    val mottarEøsKontantstøtteNå: Søknadsfelt<String>?,
-    val kontantstøtteLand: Søknadsfelt<String>,
-    val fraDatoKontantstøttePeriode: Søknadsfelt<String>,
-    val tilDatoKontantstøttePeriode: Søknadsfelt<String>?,
-    val månedligBeløp: Søknadsfelt<String>
-)
-
-data class BarnehageplassPeriode(
-    val barnehageplassPeriodeBeskrivelse: Søknadsfelt<String>,
-    val barnehageplassUtlandet: Søknadsfelt<String>,
-    val barnehageplassLand: Søknadsfelt<String>?,
-    val offentligStøtte: Søknadsfelt<String>?,
-    val antallTimer: Søknadsfelt<String>,
-    val startetIBarnehagen: Søknadsfelt<String>,
-    val slutterIBarnehagen: Søknadsfelt<String>
+    val tilDatoArbeidsperiode: Søknadsfelt<String>?,
+    val adresse: Søknadsfelt<String>?
 )

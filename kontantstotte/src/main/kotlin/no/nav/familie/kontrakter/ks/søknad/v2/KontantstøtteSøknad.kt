@@ -1,6 +1,20 @@
 package no.nav.familie.kontrakter.ks.søknad.v2
 
-import no.nav.familie.kontrakter.ks.søknad.v1.*
+import no.nav.familie.kontrakter.ks.søknad.v1.Locale
+import no.nav.familie.kontrakter.ks.søknad.v1.Søknaddokumentasjon
+import no.nav.familie.kontrakter.ks.søknad.v1.Søknadsfelt
+import no.nav.familie.kontrakter.ks.søknad.v1.TekstPåSpråkMap
+import no.nav.familie.kontrakter.ks.søknad.v1.SøknadAdresse
+import no.nav.familie.kontrakter.ks.søknad.v1.SIVILSTANDTYPE
+import no.nav.familie.kontrakter.ks.søknad.v1.Utbetalingsperiode
+import no.nav.familie.kontrakter.ks.søknad.v1.Utenlandsopphold
+import no.nav.familie.kontrakter.ks.søknad.v1.Utenlandsperiode
+import no.nav.familie.kontrakter.ks.søknad.v1.Pensjonsperiode
+import no.nav.familie.kontrakter.ks.søknad.v1.IdNummer
+import no.nav.familie.kontrakter.ks.søknad.v1.RegistrertBostedType
+import no.nav.familie.kontrakter.ks.søknad.v1.KontantstøttePeriode
+import no.nav.familie.kontrakter.ks.søknad.v1.BarnehageplassPeriode
+import no.nav.familie.kontrakter.ks.søknad.v1.EøsKontantstøttePeriode
 
 data class KontantstøtteSøknad(
     val kontraktVersjon: Int,

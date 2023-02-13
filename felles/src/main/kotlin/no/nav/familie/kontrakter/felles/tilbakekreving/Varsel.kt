@@ -1,9 +1,9 @@
 package no.nav.familie.kontrakter.felles.tilbakekreving
 
+import jakarta.validation.constraints.Min
+import jakarta.validation.constraints.NotBlank
+import jakarta.validation.constraints.Size
 import java.math.BigDecimal
-import javax.validation.constraints.Min
-import javax.validation.constraints.NotBlank
-import javax.validation.constraints.Size
 
 data class Varsel(
     @field:NotBlank(message = "Mangler varseltekst")

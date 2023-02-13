@@ -1,6 +1,6 @@
 package no.nav.familie.kontrakter.felles.dokarkiv
 
-import javax.validation.constraints.NotBlank
+import jakarta.validation.constraints.NotBlank
 
 data class ArkiverDokumentResponse(
     @field:NotBlank val journalpostId: String,

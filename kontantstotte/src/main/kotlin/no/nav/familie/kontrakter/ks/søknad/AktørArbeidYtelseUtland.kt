@@ -1,6 +1,6 @@
 package no.nav.familie.kontrakter.ks.søknad
 
-import javax.validation.constraints.Pattern
+import jakarta.validation.constraints.Pattern
 
 data class AktørArbeidYtelseUtland(
     @Pattern(regexp = "[0-9]{13}")

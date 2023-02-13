@@ -1,10 +1,10 @@
 package no.nav.familie.kontrakter.felles.tilbakekreving
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
+import jakarta.validation.constraints.Size
 import no.nav.familie.kontrakter.felles.Fagsystem
 import no.nav.familie.kontrakter.felles.Språkkode
 import java.time.LocalDate
-import javax.validation.constraints.Size
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class ForhåndsvisVarselbrevRequest(

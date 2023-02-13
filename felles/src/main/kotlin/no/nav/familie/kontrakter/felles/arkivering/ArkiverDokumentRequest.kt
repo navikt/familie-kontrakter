@@ -1,8 +1,8 @@
 package no.nav.familie.kontrakter.felles.arkivering
 
+import jakarta.validation.constraints.NotBlank
+import jakarta.validation.constraints.NotEmpty
 import no.nav.familie.kontrakter.felles.dokarkiv.Dokument
-import javax.validation.constraints.NotBlank
-import javax.validation.constraints.NotEmpty
 
 @Deprecated(
     "Bruk arkiverDokumentV3",

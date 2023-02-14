@@ -30,6 +30,7 @@ jobs:
         if: steps.setup-java.outputs.cache-hit != 'true'
         run: mvn clean install
 
+      # TODO oppdater versjon til 3
       - name: Setting version
         run: |
           export GIT_COMMIT_HASH=$(git log -n 1 --pretty=format:'%h')

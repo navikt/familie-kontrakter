@@ -5,10 +5,10 @@ import no.nav.familie.kontrakter.felles.objectMapper
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
-class FinnOppgaveRequestTest{
+class FinnOppgaveRequestTest {
 
     @Test
-    fun `Kan konvertere fra json til FinnOppgaveRequest`(){
+    fun `Kan konvertere fra json til FinnOppgaveRequest`() {
 
         val finnOppgaveRequestString = """
             {

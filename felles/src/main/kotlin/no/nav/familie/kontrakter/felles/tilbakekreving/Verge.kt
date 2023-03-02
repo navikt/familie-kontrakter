@@ -1,5 +1,6 @@
 package no.nav.familie.kontrakter.felles.tilbakekreving
 
+import javax.validation.Valid
 import javax.validation.constraints.Pattern
 
 data class Verge(
@@ -8,7 +9,9 @@ data class Verge(
     @field:Pattern(regexp = "(^$|.{9})", message = "Organisasjonsnummer er ikke riktig")
     val organisasjonsnummer: String? = null,
     @field:Pattern(regexp = "(^$|.{11})", message = "PersonIdent er ikke riktig")
-    val personIdent: String? = null
+    val personIdent: String? = null,
+    @field:Valid
+    val manuellAdresseInfo: ManuellAdresseInfo? = null
 )
 
 enum class Vergetype(val navn: String) {

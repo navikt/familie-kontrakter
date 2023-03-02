@@ -1,8 +1,8 @@
-name: Build-Deploy
+name: Build-Deploy Jakarta
 on:
   push:
     branches:
-      - master
+      - jakarta
 
 jobs:
   build-and-deploy-artifact:
@@ -34,7 +34,7 @@ jobs:
         run: |
           export GIT_COMMIT_HASH=$(git log -n 1 --pretty=format:'%h')
           export GIT_COMMIT_DATE=$(git log -1 --pretty='%ad' --date=format:'%Y%m%d%H%M%S')
-          export VERSION=2.0_${GIT_COMMIT_DATE}_${GIT_COMMIT_HASH}
+          export VERSION=2.0_${GIT_COMMIT_DATE}_${GIT_COMMIT_HASH}-JAKARTA
           echo "Setting version $VERSION"
           mvn versions:set -DnewVersion="$VERSION"
           mvn versions:commit

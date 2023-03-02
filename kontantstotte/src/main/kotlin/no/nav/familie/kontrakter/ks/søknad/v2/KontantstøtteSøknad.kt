@@ -132,6 +132,7 @@ data class Omsorgsperson(
     val eøsKontantstøttePerioder: List<Søknadsfelt<EøsKontantstøttePeriode>> = listOf()
 )
 
+@Deprecated("Bruk v3", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ks.søknad.v3.AndreForelder"))
 data class AndreForelder(
     val kanIkkeGiOpplysninger: Søknadsfelt<String>,
     val navn: Søknadsfelt<String>?,

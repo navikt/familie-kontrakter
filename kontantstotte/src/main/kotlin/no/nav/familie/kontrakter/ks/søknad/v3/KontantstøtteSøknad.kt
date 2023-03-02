@@ -4,12 +4,14 @@ import no.nav.familie.kontrakter.ks.søknad.v1.BarnehageplassPeriode
 import no.nav.familie.kontrakter.ks.søknad.v1.IdNummer
 import no.nav.familie.kontrakter.ks.søknad.v1.KontantstøttePeriode
 import no.nav.familie.kontrakter.ks.søknad.v1.Locale
+import no.nav.familie.kontrakter.ks.søknad.v1.Pensjonsperiode
 import no.nav.familie.kontrakter.ks.søknad.v1.RegistrertBostedType
 import no.nav.familie.kontrakter.ks.søknad.v1.Søknaddokumentasjon
 import no.nav.familie.kontrakter.ks.søknad.v1.Søknadsfelt
 import no.nav.familie.kontrakter.ks.søknad.v1.TekstPåSpråkMap
+import no.nav.familie.kontrakter.ks.søknad.v1.Utbetalingsperiode
 import no.nav.familie.kontrakter.ks.søknad.v1.Utenlandsopphold
-import no.nav.familie.kontrakter.ks.søknad.v2.AndreForelder
+import no.nav.familie.kontrakter.ks.søknad.v2.Arbeidsperiode
 import no.nav.familie.kontrakter.ks.søknad.v2.Omsorgsperson
 import no.nav.familie.kontrakter.ks.søknad.v2.Søker
 
@@ -73,4 +75,30 @@ data class Barn(
     val adresse: Søknadsfelt<String>?,
     val omsorgsperson: Omsorgsperson?,
     val idNummer: List<Søknadsfelt<IdNummer>> = listOf()
+)
+
+data class AndreForelder(
+    val kanIkkeGiOpplysninger: Søknadsfelt<String>,
+    val navn: Søknadsfelt<String>?,
+    val fnr: Søknadsfelt<String>?,
+    val fødselsdato: Søknadsfelt<String>?,
+    val yrkesaktivFemÅr: Søknadsfelt<String>?,
+    val pensjonUtland: Søknadsfelt<String>?,
+    val arbeidUtlandet: Søknadsfelt<String>?,
+
+    // EØS
+    val pensjonNorge: Søknadsfelt<String>?,
+    val arbeidNorge: Søknadsfelt<String>?,
+    val andreUtbetalinger: Søknadsfelt<String>?,
+    val kontantstøtteFraEøs: Søknadsfelt<String>?,
+    val arbeidsperioderUtland: List<Søknadsfelt<Arbeidsperiode>> = listOf(),
+    val pensjonsperioderUtland: List<Søknadsfelt<Pensjonsperiode>> = listOf(),
+    val arbeidsperioderNorge: List<Søknadsfelt<Arbeidsperiode>> = listOf(),
+    val pensjonsperioderNorge: List<Søknadsfelt<Pensjonsperiode>> = listOf(),
+    val pågåendeSøknadFraAnnetEøsLand: Søknadsfelt<String>?,
+    val pågåendeSøknadHvilketLand: Søknadsfelt<String>?,
+    val eøsKontantstøttePerioder: List<Søknadsfelt<KontantstøttePeriode>> = listOf(),
+    val andreUtbetalingsperioder: List<Søknadsfelt<Utbetalingsperiode>> = listOf(),
+    val idNummer: List<Søknadsfelt<IdNummer>> = listOf(),
+    val adresse: Søknadsfelt<String>?
 )

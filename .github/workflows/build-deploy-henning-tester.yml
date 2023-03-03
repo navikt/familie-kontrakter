@@ -18,6 +18,10 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
           cache: 'maven'
+      - name: Use Maven v3.8.7
+        uses: stCarolas/setup-maven@v4.5
+        with:
+          maven-version: 3.8.7
 
       - name: Resolve/Update Dependencies
         env:

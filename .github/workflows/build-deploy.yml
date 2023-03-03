@@ -20,6 +20,11 @@ jobs:
           java-version: '17'
           cache: 'maven'
 
+      - name: Use Maven v3.8.7
+        uses: stCarolas/setup-maven@v4.5
+        with:
+          maven-version: 3.8.7
+
       - name: Resolve/Update Dependencies
         env:
           GITHUB_USERNAME: x-access-token
@@ -43,4 +48,4 @@ jobs:
         env:
           GITHUB_USERNAME: x-access-token
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: mvn -e --settings .github/maven-settings.xml source:jar-no-fork deploy -DskipTests=true -Dmaven.wagon.http.pool=false
+        run: mvn --settings .github/maven-settings.xml source:jar-no-fork deploy -DskipTests=true -Dmaven.wagon.http.pool=false

@@ -1,4 +1,4 @@
-name: Build-Deploy
+name: Build-Deploy-henning-tester
 on:
   workflow_dispatch:
   pull_request:
@@ -42,4 +42,4 @@ jobs:
         env:
           GITHUB_USERNAME: x-access-token
           GITHUB_TOKEN: ${{ secrets.TESTING }}
-        run: mvn -e --settings .github/maven-settings.xml source:jar-no-fork deploy -DskipTests=true -Dmaven.wagon.http.pool=false
+        run: mvn -e  -X --settings .github/maven-settings.xml source:jar-no-fork deploy -DskipTests=true -Dmaven.wagon.http.pool=false

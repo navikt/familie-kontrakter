@@ -7,7 +7,7 @@
     <server>
       <id>github</id>
       <username>${env.GITHUB_USERNAME}</username>
-      <password>${env.GITHUB_TOKEN}</password>
+      <password>${env.TESTING}</password>
     </server>
   </servers>
 

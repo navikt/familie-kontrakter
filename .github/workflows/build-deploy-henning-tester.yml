@@ -1,0 +1,45 @@
+name: Build-Deploy
+on:
+  workflow_dispatch:
+  pull_request:
+
+jobs:
+  build-and-deploy-artifact:
+    name: Build and deploy to github package
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        id: setup-java
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: 'maven'
+
+      - name: Resolve/Update Dependencies
+        env:
+          GITHUB_USERNAME: x-access-token
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: mvn package dependency:resolve-plugins dependency:go-offline
+
+      - name: Build (and run tests)
+        if: steps.setup-java.outputs.cache-hit != 'true'
+        run: mvn clean install
+
+      - name: Setting version
+        run: |
+          export GIT_COMMIT_HASH=$(git log -n 1 --pretty=format:'%h')
+          export GIT_COMMIT_DATE=$(git log -1 --pretty='%ad' --date=format:'%Y%m%d%H%M%S')
+          export VERSION=2.0_${GIT_COMMIT_DATE}_${GIT_COMMIT_HASH}
+          echo "Setting version $VERSION"
+          mvn versions:set -DnewVersion="$VERSION"
+          mvn versions:commit
+
+      - name: Deploy to Github Package
+        env:
+          GITHUB_USERNAME: x-access-token
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: mvn -e --settings .github/maven-settings.xml source:jar-no-fork deploy -DskipTests=true -Dmaven.wagon.http.pool=false

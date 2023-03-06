@@ -9,9 +9,7 @@ data class Verge(
     @field:Pattern(regexp = "(^$|.{9})", message = "Organisasjonsnummer er ikke riktig")
     val organisasjonsnummer: String? = null,
     @field:Pattern(regexp = "(^$|.{11})", message = "PersonIdent er ikke riktig")
-    val personIdent: String? = null,
-    @field:Valid
-    val manuellAdresseInfo: ManuellAdresseInfo? = null
+    val personIdent: String? = null
 )
 
 enum class Vergetype(val navn: String) {

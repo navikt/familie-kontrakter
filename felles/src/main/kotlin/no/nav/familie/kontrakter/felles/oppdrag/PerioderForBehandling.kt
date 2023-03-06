@@ -6,5 +6,9 @@ package no.nav.familie.kontrakter.felles.oppdrag
 data class PerioderForBehandling(
     val behandlingId: String,
     val perioder: Set<Long>,
-    val aktivFødselsnummer: String
+    val aktivFødselsnummer: String,
+    /**
+     * Hvis utbetalingen er til en annen enn aktivFødselsnummer
+     */
+    val utebetalesTil: String? = null
 )

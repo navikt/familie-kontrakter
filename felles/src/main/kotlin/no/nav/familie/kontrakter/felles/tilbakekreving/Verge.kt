@@ -1,6 +1,5 @@
 package no.nav.familie.kontrakter.felles.tilbakekreving
 
-import javax.validation.Valid
 import javax.validation.constraints.Pattern
 
 data class Verge(

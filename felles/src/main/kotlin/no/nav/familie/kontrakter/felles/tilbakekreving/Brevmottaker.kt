@@ -5,6 +5,7 @@ import javax.validation.constraints.Pattern
 
 data class Brevmottaker(
     val type: MottakerType,
+    val vergetype: Vergetype? = null,
     @field:Pattern(regexp = "^(.{1,80})\$", message = "Feltet kan ikke være tomt eller innholde mer enn 80 tegn")
     val navn: String,
     @field:Valid

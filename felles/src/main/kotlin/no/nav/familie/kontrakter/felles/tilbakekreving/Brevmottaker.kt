@@ -10,7 +10,11 @@ data class Brevmottaker(
     val navn: String,
     @field:Valid
     val manuellAdresseInfo: ManuellAdresseInfo
-)
+) {
+    init {
+        if (type == MottakerType.VERGE || type == MottakerType.FULLMEKTIG) requireNotNull(vergetype)
+    }
+}
 
 enum class MottakerType(val visningsnavn: String) {
     BRUKER_MED_UTENLANDSK_ADRESSE("Bruker med utenlandsk adresse"),

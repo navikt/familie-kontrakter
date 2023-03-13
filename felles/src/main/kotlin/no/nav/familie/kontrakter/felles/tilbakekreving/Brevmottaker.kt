@@ -8,11 +8,20 @@ data class Brevmottaker(
     val vergetype: Vergetype? = null,
     @field:Pattern(regexp = "^(.{1,80})\$", message = "Feltet kan ikke være tomt eller innholde mer enn 80 tegn")
     val navn: String,
+    @field:Pattern(regexp = "(^$|.{9})", message = "Organisasjonsnummer er ikke riktig")
+    val organisasjonsnummer: String? = null,
+    @field:Pattern(regexp = "(^$|.{11})", message = "PersonIdent er ikke riktig")
+    val personIdent: String? = null,
     @field:Valid
-    val manuellAdresseInfo: ManuellAdresseInfo
+    val manuellAdresseInfo: ManuellAdresseInfo? = null
 ) {
     init {
-        if (type == MottakerType.VERGE || type == MottakerType.FULLMEKTIG) requireNotNull(vergetype)
+        check(!(manuellAdresseInfo == null && personIdent.isNullOrBlank() && organisasjonsnummer.isNullOrBlank())) {
+            "Må ha enten manuellAdresseInfo, personIdent eller et organisasjonsnummer."
+        }
+        if (type == MottakerType.VERGE || type == MottakerType.FULLMEKTIG) checkNotNull(vergetype) {
+            "Vergetype kan ikke være null for brevmottakere av type verge og fullmektig."
+        }
     }
 }
 

@@ -30,6 +30,7 @@ data class Stønad(
     val opphørsgrunn: String? = null,
     val delytelse: List<Delytelse> = emptyList(),
     val antallBarn: Int? = null,
+    val mottakerNummer: Long? = null,
 )
 
 data class Sak(

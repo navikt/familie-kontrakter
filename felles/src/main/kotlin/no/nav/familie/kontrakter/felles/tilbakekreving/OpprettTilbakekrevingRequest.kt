@@ -30,7 +30,9 @@ data class OpprettTilbakekrevingRequest(
     @field:Valid
     val faktainfo: Faktainfo,
     @field:Valid
-    val institusjon: Institusjon? = null
+    val institusjon: Institusjon? = null,
+    @field:Valid
+    val manuelleBrevmottakere: Set<Brevmottaker> = emptySet()
 ) {
 
     init {

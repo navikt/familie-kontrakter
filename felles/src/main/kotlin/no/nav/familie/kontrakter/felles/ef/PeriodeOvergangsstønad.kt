@@ -6,23 +6,31 @@ import java.time.LocalDate
  * Klasser som brukes for å hente perioder for overgangsstønad fra enslig forsørger (ef-sak)
  */
 
-data class PerioderOvergangsstønadRequest(
+data class EksternePerioderRequest(
     val personIdent: String,
     val fomDato: LocalDate? = null,
-    val tomDato: LocalDate? = null
+    val tomDato: LocalDate? = null,
 )
 
-data class PerioderOvergangsstønadResponse(val perioder: List<PeriodeOvergangsstønad>)
+data class EksternePerioderResponse(val perioder: List<EksternPeriode>)
 
-data class PeriodeOvergangsstønad(
+data class EksternPeriodeMedBeløp(
     val personIdent: String,
     val fomDato: LocalDate,
     val tomDato: LocalDate,
-    val datakilde: Datakilde
+    val datakilde: EksternPeriode.Datakilde,
+    val beløp: Int,
+)
+
+data class EksternPeriode(
+    val personIdent: String,
+    val fomDato: LocalDate,
+    val tomDato: LocalDate,
+    val datakilde: Datakilde,
 ) {
 
     enum class Datakilde {
         INFOTRYGD,
-        EF
+        EF,
     }
 }

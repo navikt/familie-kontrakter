@@ -227,4 +227,40 @@ internal class MånedsperiodeTest {
 
         lengdeIHeleMåneder shouldBe 4
     }
+
+    @Test
+    fun `skal få treff på overlapper hvor en periode er inni en annen`() {
+        val periode1 = Månedsperiode(YearMonth.of(2014, 9), YearMonth.of(2016, 12))
+        val periode2 = Månedsperiode(YearMonth.of(2015, 1), YearMonth.of(2015, 12))
+
+        periode1.overlapper(periode2) shouldBe true
+        periode2.overlapper(periode1) shouldBe true
+    }
+
+    @Test
+    fun `skal få treff på overlapper hvor periodene krysser i enden`() {
+        val periode1 = Månedsperiode(YearMonth.of(2014, 9), YearMonth.of(2016, 12))
+        val periode2 = Månedsperiode(YearMonth.of(2016, 12), YearMonth.of(2017, 12))
+
+        periode1.overlapper(periode2) shouldBe true
+        periode2.overlapper(periode1) shouldBe true
+    }
+
+    @Test
+    fun `skal ikke få treff på overlapper hvor periodene ikke overlapper`() {
+        val periode1 = Månedsperiode(YearMonth.of(2014, 9), YearMonth.of(2016, 12))
+        val periode2 = Månedsperiode(YearMonth.of(2017, 1), YearMonth.of(2017, 12))
+
+        periode1.overlapper(periode2) shouldBe false
+        periode2.overlapper(periode1) shouldBe false
+    }
+
+    @Test
+    fun `skal få treff på overlapper på like perioder`() {
+        val periode1 = Månedsperiode(YearMonth.of(2014, 9), YearMonth.of(2016, 12))
+        val periode2 = Månedsperiode(YearMonth.of(2014, 9), YearMonth.of(2016, 12))
+
+        periode1.overlapper(periode2) shouldBe true
+        periode2.overlapper(periode1) shouldBe true
+    }
 }

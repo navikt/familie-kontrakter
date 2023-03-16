@@ -26,6 +26,7 @@ data class EksternPeriodeMedBeløp(
     val personIdent: String,
     val fomDato: LocalDate,
     val tomDato: LocalDate,
+    val beløp: Int,
     val datakilde: Datakilde,
 )
 

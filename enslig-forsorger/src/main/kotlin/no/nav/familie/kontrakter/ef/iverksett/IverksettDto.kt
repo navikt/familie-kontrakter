@@ -96,7 +96,7 @@ data class VedtaksdetaljerOvergangsstønadDto(
     override val tilbakekreving: TilbakekrevingDto? = null,
     override val brevmottakere: List<Brevmottaker> = emptyList(),
     override val avslagÅrsak: AvslagÅrsak? = null,
-    val opprettFremleggsoppgave: Boolean
+    val opprettFremleggsoppgave: Boolean = false
 ) : VedtaksdetaljerDto()
 
 data class VedtaksdetaljerBarnetilsynDto(

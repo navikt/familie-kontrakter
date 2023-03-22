@@ -85,6 +85,8 @@ sealed class VedtaksdetaljerDto {
     abstract val avslagÅrsak: AvslagÅrsak?
 }
 
+data class OpprettFremlegsoppgave(val inntekt: Boolean)
+
 data class VedtaksdetaljerOvergangsstønadDto(
     override val resultat: Vedtaksresultat,
     override val vedtakstidspunkt: LocalDateTime,
@@ -96,7 +98,7 @@ data class VedtaksdetaljerOvergangsstønadDto(
     override val tilbakekreving: TilbakekrevingDto? = null,
     override val brevmottakere: List<Brevmottaker> = emptyList(),
     override val avslagÅrsak: AvslagÅrsak? = null,
-    val opprettFremleggsoppgave: Boolean = false
+    val opprettFremleggsoppgave: OpprettFremlegsoppgave = OpprettFremlegsoppgave(inntekt = false)
 ) : VedtaksdetaljerDto()
 
 data class VedtaksdetaljerBarnetilsynDto(

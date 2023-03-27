@@ -85,8 +85,6 @@ sealed class VedtaksdetaljerDto {
     abstract val avslagÅrsak: AvslagÅrsak?
 }
 
-data class OpprettFremleggsoppgave(val inntekt: Boolean)
-
 data class VedtaksdetaljerOvergangsstønadDto(
     override val resultat: Vedtaksresultat,
     override val vedtakstidspunkt: LocalDateTime,
@@ -98,7 +96,7 @@ data class VedtaksdetaljerOvergangsstønadDto(
     override val tilbakekreving: TilbakekrevingDto? = null,
     override val brevmottakere: List<Brevmottaker> = emptyList(),
     override val avslagÅrsak: AvslagÅrsak? = null,
-    val opprettFremleggsoppgave: OpprettFremleggsoppgave = OpprettFremleggsoppgave(inntekt = false)
+    val opprettFremleggsoppgave: OpprettFremleggsoppgaveDto = OpprettFremleggsoppgaveDto(oppgaveTyper = emptyList())
 ) : VedtaksdetaljerDto()
 
 data class VedtaksdetaljerBarnetilsynDto(
@@ -223,6 +221,12 @@ data class TilbakekrevingMedVarselDto(
     val fellesperioder: List<Månedsperiode> = perioder?.map { Månedsperiode(it.fom, it.tom) }
         ?: error("Perioder eller fellesperioder må ha verdi!")
 ) // Hentes fra simulering hvis det mangler
+
+enum class FremleggsoppgaveType {
+    INNTEKT
+}
+
+data class OpprettFremleggsoppgaveDto(val oppgaveTyper: List<FremleggsoppgaveType>)
 
 enum class AdressebeskyttelseGradering {
     STRENGT_FORTROLIG,

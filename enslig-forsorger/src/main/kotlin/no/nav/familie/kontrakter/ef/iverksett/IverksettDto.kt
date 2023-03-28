@@ -223,7 +223,7 @@ data class TilbakekrevingMedVarselDto(
 ) // Hentes fra simulering hvis det mangler
 
 enum class FremleggsoppgaveType {
-    INNTEKT_1_ÅR_FREM_I_TID
+    INNTEKTSKONTROLL_1_ÅR_FREM_I_TID
 }
 
 data class OpprettFremleggsoppgaveDto(val oppgavetyper: List<FremleggsoppgaveType>)

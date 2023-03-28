@@ -226,7 +226,7 @@ enum class FremleggsoppgaveType {
     INNTEKT_1_ÅR_FREM_I_TID
 }
 
-data class OpprettFremleggsoppgaveDto(val oppgaveTyper: List<FremleggsoppgaveType>)
+data class OpprettFremleggsoppgaveDto(val oppgavetyper: List<FremleggsoppgaveType>)
 
 enum class AdressebeskyttelseGradering {
     STRENGT_FORTROLIG,

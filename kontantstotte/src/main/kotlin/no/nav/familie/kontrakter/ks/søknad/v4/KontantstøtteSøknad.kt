@@ -140,11 +140,11 @@ data class AndreForelder(
 
 data class Arbeidsperiode(
     val arbeidsperiodeAvsluttet: Søknadsfelt<String>?,
-    val arbeidsperiodeland: Søknadsfelt<String>,
+    val arbeidsperiodeland: Søknadsfelt<String>?,
     val arbeidsgiver: Søknadsfelt<String>,
     val fraDatoArbeidsperiode: Søknadsfelt<String>,
     val tilDatoArbeidsperiode: Søknadsfelt<String>,
-    val adresse: Søknadsfelt<String>
+    val adresse: Søknadsfelt<String>?
 )
 
 data class Utenlandsperiode(

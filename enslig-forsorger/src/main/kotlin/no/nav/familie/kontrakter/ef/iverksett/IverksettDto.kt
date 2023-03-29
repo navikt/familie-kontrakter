@@ -96,7 +96,7 @@ data class VedtaksdetaljerOvergangsstønadDto(
     override val tilbakekreving: TilbakekrevingDto? = null,
     override val brevmottakere: List<Brevmottaker> = emptyList(),
     override val avslagÅrsak: AvslagÅrsak? = null,
-    val opprettFremleggsoppgave: OpprettFremleggsoppgaveDto = OpprettFremleggsoppgaveDto(oppgavetyper = emptyList())
+    val opprettFremleggsoppgave: AutomatiskOppgaveDto = AutomatiskOppgaveDto(oppgavetyper = emptyList())
 ) : VedtaksdetaljerDto()
 
 data class VedtaksdetaljerBarnetilsynDto(
@@ -222,11 +222,11 @@ data class TilbakekrevingMedVarselDto(
         ?: error("Perioder eller fellesperioder må ha verdi!")
 ) // Hentes fra simulering hvis det mangler
 
-enum class FremleggsoppgaveType {
+enum class AutomatiskOppgaveType {
     INNTEKTSKONTROLL_1_ÅR_FREM_I_TID
 }
 
-data class OpprettFremleggsoppgaveDto(val oppgavetyper: List<FremleggsoppgaveType>)
+data class AutomatiskOppgaveDto(val oppgavetyper: List<AutomatiskOppgaveType>)
 
 enum class AdressebeskyttelseGradering {
     STRENGT_FORTROLIG,

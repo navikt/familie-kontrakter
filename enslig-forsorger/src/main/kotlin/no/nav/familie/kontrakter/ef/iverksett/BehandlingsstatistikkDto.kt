@@ -32,7 +32,8 @@ data class BehandlingsstatistikkDto(
     val behandlingMetode: BehandlingMetode?,
     val kravMottatt: LocalDate? = null,
     val årsakRevurdering: ÅrsakRevurderingDto? = null,
-    val avslagÅrsak: AvslagÅrsak? = null
+    val avslagÅrsak: AvslagÅrsak? = null,
+    val kategori: BehandlingKategori? = null,
 )
 
 enum class Hendelse {
@@ -49,4 +50,9 @@ enum class BehandlingMetode {
     MANUELL,
     AUTOMATISK,
     BATCH
+}
+
+enum class BehandlingKategori {
+    EØS,
+    NASJONAL,
 }

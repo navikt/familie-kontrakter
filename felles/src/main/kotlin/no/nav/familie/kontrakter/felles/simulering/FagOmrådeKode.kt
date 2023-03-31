@@ -2,6 +2,7 @@ package no.nav.familie.kontrakter.felles.simulering
 
 enum class FagOmrådeKode(val kode: String) {
     BARNETRYGD("BA"),
+    BARNETRYGD_MANUELT("MBA"),
     BARNETRYGD_INFOTRYGD("IT05"),
     BARNETRYGD_INFOTRYGD_MANUELT("MIT05"),
     ENSLIG_FORSØRGER_OVERGANGSSTØNAD("EFOG"),

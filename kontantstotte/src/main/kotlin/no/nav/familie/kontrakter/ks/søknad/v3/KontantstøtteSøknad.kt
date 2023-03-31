@@ -15,6 +15,7 @@ import no.nav.familie.kontrakter.ks.søknad.v2.Arbeidsperiode
 import no.nav.familie.kontrakter.ks.søknad.v2.Omsorgsperson
 import no.nav.familie.kontrakter.ks.søknad.v2.Søker
 
+@Deprecated("Bruk v4", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ks.søknad.v4.KontantstøtteSøknad"))
 data class KontantstøtteSøknad(
     val kontraktVersjon: Int,
     val antallEøsSteg: Int,
@@ -33,6 +34,7 @@ data class KontantstøtteSøknad(
     val erAvdødPartnerForelder: Søknadsfelt<String>?
 )
 
+@Deprecated("Bruk v4", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ks.søknad.v4.Barn"))
 data class Barn(
     val harEøsSteg: Boolean,
     val ident: Søknadsfelt<String>,
@@ -77,6 +79,7 @@ data class Barn(
     val idNummer: List<Søknadsfelt<IdNummer>> = listOf()
 )
 
+@Deprecated("Bruk v4", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ks.søknad.v4.AndreForelder"))
 data class AndreForelder(
     val kanIkkeGiOpplysninger: Søknadsfelt<String>,
     val navn: Søknadsfelt<String>?,

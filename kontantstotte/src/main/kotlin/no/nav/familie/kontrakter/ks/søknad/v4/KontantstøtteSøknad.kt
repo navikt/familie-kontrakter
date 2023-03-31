@@ -150,7 +150,7 @@ data class Arbeidsperiode(
 data class Utenlandsperiode(
     val utenlandsoppholdÅrsak: Søknadsfelt<String>,
     val oppholdsland: Søknadsfelt<String>,
-    val oppholdslandFraDato: Søknadsfelt<String?>,
-    val oppholdslandTilDato: Søknadsfelt<String?>,
+    val oppholdslandFraDato: Søknadsfelt<String>?,
+    val oppholdslandTilDato: Søknadsfelt<String>?,
     val adresse: Søknadsfelt<String>?
 )

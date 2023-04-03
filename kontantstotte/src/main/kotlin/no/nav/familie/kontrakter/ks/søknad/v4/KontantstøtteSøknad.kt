@@ -49,7 +49,7 @@ data class Søker(
     // Din livssituasjon
     val erAsylsøker: Søknadsfelt<String>,
     val utenlandsoppholdUtenArbeid: Søknadsfelt<String>,
-    val utenlandsperioder: List<Søknadsfelt<Utenlandsperiode>>,
+    val utenlandsperioder: List<Søknadsfelt<Utenlandsperiode>> = listOf(),
     val arbeidIUtlandet: Søknadsfelt<String>,
     val arbeidsperioderUtland: List<Søknadsfelt<Arbeidsperiode>>,
     val mottarUtenlandspensjon: Søknadsfelt<String>,
@@ -118,8 +118,8 @@ data class AndreForelder(
     val yrkesaktivFemÅr: Søknadsfelt<String>?,
     val arbeidUtlandet: Søknadsfelt<String>?,
     val arbeidsperioderUtland: List<Søknadsfelt<Arbeidsperiode>> = listOf(),
-    val utenlandsoppholdUtenArbeid: Søknadsfelt<String>,
-    val utenlandsperioder: List<Søknadsfelt<Utenlandsperiode>>,
+    val utenlandsoppholdUtenArbeid: Søknadsfelt<String>?,
+    val utenlandsperioder: List<Søknadsfelt<Utenlandsperiode>> = listOf(),
     val pensjonUtland: Søknadsfelt<String>?,
     val pensjonsperioderUtland: List<Søknadsfelt<Pensjonsperiode>> = listOf(),
 

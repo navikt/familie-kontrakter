@@ -12,7 +12,6 @@ import no.nav.familie.kontrakter.ks.søknad.v1.Søknaddokumentasjon
 import no.nav.familie.kontrakter.ks.søknad.v1.Søknadsfelt
 import no.nav.familie.kontrakter.ks.søknad.v1.TekstPåSpråkMap
 import no.nav.familie.kontrakter.ks.søknad.v1.Utbetalingsperiode
-import no.nav.familie.kontrakter.ks.søknad.v1.Utenlandsopphold
 import no.nav.familie.kontrakter.ks.søknad.v2.Omsorgsperson
 
 data class KontantstøtteSøknad(
@@ -98,7 +97,7 @@ data class Barn(
     val foreldreBorSammen: Søknadsfelt<String>?,
     val søkerDeltKontantstøtte: Søknadsfelt<String>?,
     val andreForelder: AndreForelder?,
-    val utenlandsperioder: List<Søknadsfelt<Utenlandsopphold>> = listOf(),
+    val utenlandsperioder: List<Søknadsfelt<Utenlandsperiode>> = listOf(),
 
     // EØS
     val søkersSlektsforhold: Søknadsfelt<String>?,

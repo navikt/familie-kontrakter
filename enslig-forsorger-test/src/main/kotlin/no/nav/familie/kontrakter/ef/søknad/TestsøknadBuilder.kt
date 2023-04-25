@@ -70,7 +70,6 @@ class TestsøknadBuilder private constructor(
         }
 
         fun setPersonalia(navnOgFnr: NavnOgFnr? = null, adresse: Adresse = defaultAdresse()): Builder {
-
             this.personalia = Personalia(
                 Søknadsfelt("Fødselsnummer", Fødselsnummer(navnOgFnr?.fødselsnummer ?: Testsøknad.syntetiskFnr)),
                 Søknadsfelt("Navn", navnOgFnr?.navn ?: "Kari Nordmann"),
@@ -119,7 +118,6 @@ class TestsøknadBuilder private constructor(
             endringSamværsordningDato: LocalDate = LocalDate.of(2013, 4, 17),
             tidligereSamboerdetaljer: PersonMinimum = defaultPersonMinimum()
         ): Builder {
-
             this.sivilstandsdetaljer = Sivilstandsdetaljer(
                 Søknadsfelt("Er du gift uten at dette er formelt registrert eller godkjent i Norge?", erUformeltGift),
                 defaultDokumentfelt(erUformeltGiftDokumentasjon),
@@ -154,11 +152,11 @@ class TestsøknadBuilder private constructor(
             bosattNorgeSisteÅrene: Boolean = true,
             utenlandsopphold: List<Utenlandsopphold> = defaultUtenlandsopphold()
         ): Builder {
-
             this.medlemskapsdetaljer = Medlemskapsdetaljer(
-                Søknadsfelt("Oppholder du deg i Norge?", oppholderDuDegINorge),
-                Søknadsfelt("Har du bodd i Norge de siste tre årene?", bosattNorgeSisteÅrene),
-                Søknadsfelt("", utenlandsopphold)
+                oppholderDuDegINorge = Søknadsfelt("Oppholder du deg i Norge?", oppholderDuDegINorge),
+                oppholdsland = Søknadsfelt(label = "Hvor oppholder du og barnet/barna dere?", verdi = "Sverige", svarId = "SWE"),
+                bosattNorgeSisteÅrene = Søknadsfelt("Har du bodd i Norge de siste tre årene?", bosattNorgeSisteÅrene),
+                utenlandsopphold = Søknadsfelt("", utenlandsopphold)
             )
 
             return this
@@ -173,7 +171,6 @@ class TestsøknadBuilder private constructor(
             sammenflyttingsdato: LocalDate = LocalDate.of(2018, 8, 12),
             datoFlyttetFraHverandre: LocalDate = LocalDate.of(2019, 8, 12)
         ): Builder {
-
             this.bosituasjon = Bosituasjon(
                 Søknadsfelt(
                     label = "Deler du bolig med andre voksne?",
@@ -193,7 +190,6 @@ class TestsøknadBuilder private constructor(
             fraDato: LocalDate = LocalDate.of(2021, 4, 15),
             vordendeSamboerEktefelle: PersonMinimum = defaultPersonMinimum()
         ): Builder {
-
             this.sivilstandsplaner = Sivilstandsplaner(
                 Søknadsfelt("Har du konkrete planer om å gifte deg eller bli samboer", harPlaner),
                 Søknadsfelt("Når skal dette skje?", fraDato),
@@ -274,7 +270,7 @@ class TestsøknadBuilder private constructor(
                     EnumTekstverdiMedSvarId(
                         "Jeg er selvstendig næringsdrivende eller frilanser",
                         "erSelvstendigNæringsdriveneEllerFrilanser"
-                    ),
+                    )
                 ),
             arbeidsforhold: List<Arbeidsgiver> = defaultArbeidsgiver(),
             selvstendig: Søknadsfelt<Selvstendig>? = null, // deprecated
@@ -284,7 +280,6 @@ class TestsøknadBuilder private constructor(
             underUtdanning: UnderUtdanning = defaultUtdanning(),
             aksjeselskap: List<Aksjeselskap> = defaultAksjeselskap()
         ): Builder {
-
             this.aktivitet = Aktivitet(
                 Søknadsfelt(
                     "Hvordan er arbeidssituasjonen din?",
@@ -307,7 +302,6 @@ class TestsøknadBuilder private constructor(
             oppstartUtdanning: LocalDate = LocalDate.of(2025, 7, 28),
             oppsigelseReduksjonTidspunkt: LocalDate = LocalDate.of(2014, 1, 12)
         ): Builder {
-
             this.situasjon = Situasjon(
                 Søknadsfelt(
                     "Gjelder noe av dette deg?",
@@ -342,7 +336,6 @@ class TestsøknadBuilder private constructor(
         }
 
         fun setStønadstart(month: Month = Month.AUGUST, fraÅr: Int = 2018, søkerFraBestemtMåned: Boolean = true): Builder {
-
             this.stønadsstart = Stønadsstart(
                 Søknadsfelt("Fra måned", month),
                 Søknadsfelt("Fra år", fraÅr),
@@ -353,7 +346,6 @@ class TestsøknadBuilder private constructor(
         }
 
         fun build(): TestsøknadBuilder {
-
             val søknadOvergangsstønad =
                 SøknadOvergangsstønad(
                     Søknadsfelt("innsendingsdetaljer", innsendingsdetaljer),
@@ -428,7 +420,6 @@ class TestsøknadBuilder private constructor(
             fødselsnummer: String? = null,
             land: String? = null
         ): PersonMinimum {
-
             return PersonMinimum(
                 Søknadsfelt("Navn", navn),
                 fødselsnummer?.let { Søknadsfelt("fødselsnummer", Fødselsnummer(fødselsnummer)) },
@@ -539,7 +530,9 @@ class TestsøknadBuilder private constructor(
                     borAnnenForelderISammeHus
                 ),
                 Søknadsfelt(
-                    "borAnnenForelderISammeHusBeskrivelse", "Bor i utleiedel", null,
+                    "borAnnenForelderISammeHusBeskrivelse",
+                    "Bor i utleiedel",
+                    null,
                     borAnnenForelderISammeHusBeskrivelse
                 ),
                 Søknadsfelt(
@@ -566,9 +559,10 @@ class TestsøknadBuilder private constructor(
         private fun defaultUtenlandsopphold(): List<Utenlandsopphold> {
             return listOf(
                 Utenlandsopphold(
-                    Søknadsfelt("Fra", LocalDate.of(2012, 12, 4)),
-                    Søknadsfelt("Til", LocalDate.of(2012, 12, 18)),
-                    Søknadsfelt("Hvorfor bodde du i utlandet?", "Granca, Granca, Granca")
+                    fradato = Søknadsfelt("Fra", LocalDate.of(2012, 12, 4)),
+                    tildato = Søknadsfelt("Til", LocalDate.of(2012, 12, 18)),
+                    land = Søknadsfelt(label = "I hvilket land oppholdt du deg i?", verdi = "Sverige", svarId = "SWE"),
+                    årsakUtenlandsopphold = Søknadsfelt("Hvorfor bodde du i utlandet?", "Granca, Granca, Granca")
                 )
             )
         }
@@ -620,7 +614,7 @@ class TestsøknadBuilder private constructor(
             kanStarteNårSomHelst: Boolean = true,
             harBarnepassInnenEnUke: Boolean = true,
             hvorØnskerDuArbeid: String = "nærme",
-            ønskerÅStåSomArbeidssøker: Boolean = true,
+            ønskerÅStåSomArbeidssøker: Boolean = true
         ): Arbeidssøker {
             return Arbeidssøker(
                 Søknadsfelt("Er du registrert som arbeidssøker hos NAV?", registrertArbeidssøker),
@@ -639,7 +633,8 @@ class TestsøknadBuilder private constructor(
                 Søknadsfelt(
                     "Hvor ønsker du å søke arbeid?",
                     "Kun i bodistriktet mitt, ikke mer enn 1 times reisevei",
-                    null, hvorØnskerDuArbeid
+                    null,
+                    hvorØnskerDuArbeid
                 ),
                 Søknadsfelt(
                     "Ønsker du å stå som arbeidssøker til minst 50% stilling?",
@@ -703,7 +698,8 @@ class TestsøknadBuilder private constructor(
                     )
                 ),
                 offentligEllerPrivat = Søknadsfelt(
-                    label = "Er utdanningen offentlig eller privat?", svarId = "offentlig",
+                    label = "Er utdanningen offentlig eller privat?",
+                    svarId = "offentlig",
                     verdi = "Offentlig"
                 ),
                 heltidEllerDeltid = Søknadsfelt(label = "Heltid, eller deltid", svarId = "heltid", verdi = "Heltid"),
@@ -753,7 +749,7 @@ class TestsøknadBuilder private constructor(
                     )
                 ),
                 semesteravgift = Søknadsfelt("Semesteravgift", 30000.toDouble()),
-                eksamensgebyr = Søknadsfelt("Eksamensgebyr", 0.toDouble()),
+                eksamensgebyr = Søknadsfelt("Eksamensgebyr", 0.toDouble())
             )
         }
 

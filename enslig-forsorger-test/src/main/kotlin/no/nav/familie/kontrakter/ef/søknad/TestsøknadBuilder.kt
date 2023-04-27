@@ -149,12 +149,13 @@ class TestsøknadBuilder private constructor(
 
         fun setMedlemskapsdetaljer(
             oppholderDuDegINorge: Boolean = true,
+            oppholdsland: Søknadsfelt<String>? = null,
             bosattNorgeSisteÅrene: Boolean = true,
             utenlandsopphold: List<Utenlandsopphold> = defaultUtenlandsopphold()
         ): Builder {
             this.medlemskapsdetaljer = Medlemskapsdetaljer(
                 oppholderDuDegINorge = Søknadsfelt("Oppholder du deg i Norge?", oppholderDuDegINorge),
-                oppholdsland = Søknadsfelt(label = "Hvor oppholder du og barnet/barna dere?", verdi = "Sverige", svarId = "SWE"),
+                oppholdsland = oppholdsland,
                 bosattNorgeSisteÅrene = Søknadsfelt("Har du bodd i Norge de siste tre årene?", bosattNorgeSisteÅrene),
                 utenlandsopphold = Søknadsfelt("", utenlandsopphold)
             )
@@ -561,7 +562,7 @@ class TestsøknadBuilder private constructor(
                 Utenlandsopphold(
                     fradato = Søknadsfelt("Fra", LocalDate.of(2012, 12, 4)),
                     tildato = Søknadsfelt("Til", LocalDate.of(2012, 12, 18)),
-                    land = Søknadsfelt(label = "I hvilket land oppholdt du deg i?", verdi = "Sverige", svarId = "SWE"),
+                    land = Søknadsfelt(label = "Hvor oppholder du og barnet/barna dere?", verdi = "Sverige", svarId = "SWE"),
                     årsakUtenlandsopphold = Søknadsfelt("Hvorfor bodde du i utlandet?", "Granca, Granca, Granca")
                 )
             )

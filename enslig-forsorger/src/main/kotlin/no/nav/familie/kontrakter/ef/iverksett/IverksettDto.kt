@@ -68,7 +68,8 @@ data class BehandlingsdetaljerDto(
     val vilkårsvurderinger: List<VilkårsvurderingDto> = emptyList(),
     val aktivitetspliktInntrefferDato: LocalDate? = null,
     val kravMottatt: LocalDate? = null,
-    val årsakRevurdering: ÅrsakRevurderingDto? = null
+    val årsakRevurdering: ÅrsakRevurderingDto? = null,
+    val kategori: BehandlingKategori? = null,
 )
 
 sealed class VedtaksdetaljerDto {
@@ -95,7 +96,8 @@ data class VedtaksdetaljerOvergangsstønadDto(
     override val vedtaksperioder: List<VedtaksperiodeOvergangsstønadDto> = emptyList(),
     override val tilbakekreving: TilbakekrevingDto? = null,
     override val brevmottakere: List<Brevmottaker> = emptyList(),
-    override val avslagÅrsak: AvslagÅrsak? = null
+    override val avslagÅrsak: AvslagÅrsak? = null,
+    val oppgaverForOpprettelse: OppgaverForOpprettelseDto = OppgaverForOpprettelseDto(oppgavetyper = emptyList())
 ) : VedtaksdetaljerDto()
 
 data class VedtaksdetaljerBarnetilsynDto(
@@ -220,6 +222,12 @@ data class TilbakekrevingMedVarselDto(
     val fellesperioder: List<Månedsperiode> = perioder?.map { Månedsperiode(it.fom, it.tom) }
         ?: error("Perioder eller fellesperioder må ha verdi!")
 ) // Hentes fra simulering hvis det mangler
+
+enum class OppgaveForOpprettelseType {
+    INNTEKTSKONTROLL_1_ÅR_FREM_I_TID
+}
+
+data class OppgaverForOpprettelseDto(val oppgavetyper: List<OppgaveForOpprettelseType>)
 
 enum class AdressebeskyttelseGradering {
     STRENGT_FORTROLIG,

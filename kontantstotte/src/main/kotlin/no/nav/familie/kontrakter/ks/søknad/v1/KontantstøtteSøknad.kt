@@ -160,6 +160,7 @@ enum class RegistrertBostedType {
     IKKE_FYLT_INN
 }
 
+@Deprecated("Bruk v4 Utenlandsperiode", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ks.søknad.v4.Utenlandsperiode"))
 data class Utenlandsopphold(
     val utenlandsoppholdÅrsak: Søknadsfelt<String>,
     val oppholdsland: Søknadsfelt<String>,
@@ -249,6 +250,7 @@ data class Utbetalingsperiode(
     val utbetalingTilDato: Søknadsfelt<String>
 )
 
+@Deprecated("Bruk v4", ReplaceWith("no.nav.familie.kontrakter.ks.søknad.v4.Utenlandsperiode"))
 data class Utenlandsperiode(
     val utenlandsoppholdÅrsak: Søknadsfelt<String>,
     val oppholdsland: Søknadsfelt<String>,

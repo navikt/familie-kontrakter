@@ -1,4 +1,4 @@
-package no.nav.familie.kontrakter.ks.søknad.v3
+package no.nav.familie.kontrakter.ks.søknad.v4
 
 import no.nav.familie.kontrakter.ks.søknad.v1.BarnehageplassPeriode
 import no.nav.familie.kontrakter.ks.søknad.v1.IdNummer
@@ -6,16 +6,14 @@ import no.nav.familie.kontrakter.ks.søknad.v1.KontantstøttePeriode
 import no.nav.familie.kontrakter.ks.søknad.v1.Locale
 import no.nav.familie.kontrakter.ks.søknad.v1.Pensjonsperiode
 import no.nav.familie.kontrakter.ks.søknad.v1.RegistrertBostedType
+import no.nav.familie.kontrakter.ks.søknad.v1.SIVILSTANDTYPE
+import no.nav.familie.kontrakter.ks.søknad.v1.SøknadAdresse
 import no.nav.familie.kontrakter.ks.søknad.v1.Søknaddokumentasjon
 import no.nav.familie.kontrakter.ks.søknad.v1.Søknadsfelt
 import no.nav.familie.kontrakter.ks.søknad.v1.TekstPåSpråkMap
 import no.nav.familie.kontrakter.ks.søknad.v1.Utbetalingsperiode
-import no.nav.familie.kontrakter.ks.søknad.v1.Utenlandsopphold
-import no.nav.familie.kontrakter.ks.søknad.v2.Arbeidsperiode
 import no.nav.familie.kontrakter.ks.søknad.v2.Omsorgsperson
-import no.nav.familie.kontrakter.ks.søknad.v2.Søker
 
-@Deprecated("Bruk v4", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ks.søknad.v4.KontantstøtteSøknad"))
 data class KontantstøtteSøknad(
     val kontraktVersjon: Int,
     val antallEøsSteg: Int,
@@ -34,7 +32,39 @@ data class KontantstøtteSøknad(
     val erAvdødPartnerForelder: Søknadsfelt<String>?
 )
 
-@Deprecated("Bruk v4", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ks.søknad.v4.Barn"))
+data class Søker(
+    val harEøsSteg: Boolean,
+    val ident: Søknadsfelt<String>,
+    val navn: Søknadsfelt<String>,
+    val statsborgerskap: Søknadsfelt<List<String>>,
+    val adresse: Søknadsfelt<SøknadAdresse?>,
+    val adressebeskyttelse: Boolean,
+    val sivilstand: Søknadsfelt<SIVILSTANDTYPE>,
+    val borPåRegistrertAdresse: Søknadsfelt<String>?,
+    val værtINorgeITolvMåneder: Søknadsfelt<String>,
+    val planleggerÅBoINorgeTolvMnd: Søknadsfelt<String>,
+    val yrkesaktivFemÅr: Søknadsfelt<String>,
+
+    // Din livssituasjon
+    val erAsylsøker: Søknadsfelt<String>,
+    val utenlandsoppholdUtenArbeid: Søknadsfelt<String>,
+    val utenlandsperioder: List<Søknadsfelt<Utenlandsperiode>> = listOf(),
+    val arbeidIUtlandet: Søknadsfelt<String>,
+    val arbeidsperioderUtland: List<Søknadsfelt<Arbeidsperiode>>,
+    val mottarUtenlandspensjon: Søknadsfelt<String>,
+    val pensjonsperioderUtland: List<Søknadsfelt<Pensjonsperiode>>,
+
+    // EØS
+    val arbeidINorge: Søknadsfelt<String>?,
+    val arbeidsperioderNorge: List<Søknadsfelt<Arbeidsperiode>>,
+    val pensjonNorge: Søknadsfelt<String>?,
+    val pensjonsperioderNorge: List<Søknadsfelt<Pensjonsperiode>>,
+    val andreUtbetalingsperioder: List<Søknadsfelt<Utbetalingsperiode>>,
+    val idNummer: List<Søknadsfelt<IdNummer>>,
+    val andreUtbetalinger: Søknadsfelt<String>?,
+    val adresseISøkeperiode: Søknadsfelt<String>?
+)
+
 data class Barn(
     val harEøsSteg: Boolean,
     val ident: Søknadsfelt<String>,
@@ -67,7 +97,7 @@ data class Barn(
     val foreldreBorSammen: Søknadsfelt<String>?,
     val søkerDeltKontantstøtte: Søknadsfelt<String>?,
     val andreForelder: AndreForelder?,
-    val utenlandsperioder: List<Søknadsfelt<Utenlandsopphold>> = listOf(),
+    val utenlandsperioder: List<Søknadsfelt<Utenlandsperiode>> = listOf(),
 
     // EØS
     val søkersSlektsforhold: Søknadsfelt<String>?,
@@ -79,29 +109,47 @@ data class Barn(
     val idNummer: List<Søknadsfelt<IdNummer>> = listOf()
 )
 
-@Deprecated("Bruk v4", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ks.søknad.v4.AndreForelder"))
 data class AndreForelder(
     val kanIkkeGiOpplysninger: Søknadsfelt<String>,
     val navn: Søknadsfelt<String>?,
     val fnr: Søknadsfelt<String>?,
     val fødselsdato: Søknadsfelt<String>?,
     val yrkesaktivFemÅr: Søknadsfelt<String>?,
-    val pensjonUtland: Søknadsfelt<String>?,
     val arbeidUtlandet: Søknadsfelt<String>?,
+    val arbeidsperioderUtland: List<Søknadsfelt<Arbeidsperiode>> = listOf(),
+    val utenlandsoppholdUtenArbeid: Søknadsfelt<String>?,
+    val utenlandsperioder: List<Søknadsfelt<Utenlandsperiode>> = listOf(),
+    val pensjonUtland: Søknadsfelt<String>?,
+    val pensjonsperioderUtland: List<Søknadsfelt<Pensjonsperiode>> = listOf(),
 
     // EØS
-    val pensjonNorge: Søknadsfelt<String>?,
+    val idNummer: List<Søknadsfelt<IdNummer>> = listOf(),
+    val adresse: Søknadsfelt<String>?,
     val arbeidNorge: Søknadsfelt<String>?,
-    val andreUtbetalinger: Søknadsfelt<String>?,
-    val kontantstøtteFraEøs: Søknadsfelt<String>?,
-    val arbeidsperioderUtland: List<Søknadsfelt<Arbeidsperiode>> = listOf(),
-    val pensjonsperioderUtland: List<Søknadsfelt<Pensjonsperiode>> = listOf(),
     val arbeidsperioderNorge: List<Søknadsfelt<Arbeidsperiode>> = listOf(),
+    val pensjonNorge: Søknadsfelt<String>?,
     val pensjonsperioderNorge: List<Søknadsfelt<Pensjonsperiode>> = listOf(),
+    val andreUtbetalinger: Søknadsfelt<String>?,
+    val andreUtbetalingsperioder: List<Søknadsfelt<Utbetalingsperiode>> = listOf(),
     val pågåendeSøknadFraAnnetEøsLand: Søknadsfelt<String>?,
     val pågåendeSøknadHvilketLand: Søknadsfelt<String>?,
-    val eøsKontantstøttePerioder: List<Søknadsfelt<KontantstøttePeriode>> = listOf(),
-    val andreUtbetalingsperioder: List<Søknadsfelt<Utbetalingsperiode>> = listOf(),
-    val idNummer: List<Søknadsfelt<IdNummer>> = listOf(),
+    val kontantstøtteFraEøs: Søknadsfelt<String>?,
+    val eøsKontantstøttePerioder: List<Søknadsfelt<KontantstøttePeriode>> = listOf()
+)
+
+data class Arbeidsperiode(
+    val arbeidsperiodeAvsluttet: Søknadsfelt<String>?,
+    val arbeidsperiodeland: Søknadsfelt<String>?,
+    val arbeidsgiver: Søknadsfelt<String>,
+    val fraDatoArbeidsperiode: Søknadsfelt<String>,
+    val tilDatoArbeidsperiode: Søknadsfelt<String>,
+    val adresse: Søknadsfelt<String>?
+)
+
+data class Utenlandsperiode(
+    val utenlandsoppholdÅrsak: Søknadsfelt<String>,
+    val oppholdsland: Søknadsfelt<String>,
+    val oppholdslandFraDato: Søknadsfelt<String>?,
+    val oppholdslandTilDato: Søknadsfelt<String>?,
     val adresse: Søknadsfelt<String>?
 )

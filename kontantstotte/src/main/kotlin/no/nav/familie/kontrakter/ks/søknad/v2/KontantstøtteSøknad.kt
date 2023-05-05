@@ -160,6 +160,7 @@ data class AndreForelder(
     val adresse: Søknadsfelt<String>?
 )
 
+@Deprecated("Bruk v4", ReplaceWith("no.nav.familie.kontrakter.ks.søknad.v4.Arbeidsperiode"))
 data class Arbeidsperiode(
     val arbeidsperiodeAvsluttet: Søknadsfelt<String>?,
     val arbeidsperiodeland: Søknadsfelt<String>?,

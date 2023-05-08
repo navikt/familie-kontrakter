@@ -1,6 +1,6 @@
 package no.nav.familie.kontrakter.felles.tilbakekreving
 
-import javax.validation.constraints.Pattern
+import jakarta.validation.constraints.Pattern
 
 data class Verge(
     val vergetype: Vergetype,

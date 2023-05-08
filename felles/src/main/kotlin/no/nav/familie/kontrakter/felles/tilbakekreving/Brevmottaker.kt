@@ -1,7 +1,7 @@
 package no.nav.familie.kontrakter.felles.tilbakekreving
 
-import javax.validation.Valid
-import javax.validation.constraints.Pattern
+import jakarta.validation.Valid
+import jakarta.validation.constraints.Pattern
 
 data class Brevmottaker(
     val type: MottakerType,

@@ -1,8 +1,8 @@
 package no.nav.familie.kontrakter.felles.dokarkiv.v2
 
+import jakarta.validation.constraints.NotBlank
+import jakarta.validation.constraints.NotEmpty
 import no.nav.familie.kontrakter.felles.dokarkiv.AvsenderMottaker
-import javax.validation.constraints.NotBlank
-import javax.validation.constraints.NotEmpty
 
 data class ArkiverDokumentRequest(
     @field:NotBlank val fnr: String,

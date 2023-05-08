@@ -1,11 +1,11 @@
 package no.nav.familie.kontrakter.felles.tilbakekreving
 
+import jakarta.validation.Valid
+import jakarta.validation.constraints.Pattern
 import no.nav.familie.kontrakter.felles.Fagsystem
 import no.nav.familie.kontrakter.felles.Regelverk
 import no.nav.familie.kontrakter.felles.Språkkode
 import java.time.LocalDate
-import javax.validation.Valid
-import javax.validation.constraints.Pattern
 
 data class OpprettTilbakekrevingRequest(
     val fagsystem: Fagsystem,

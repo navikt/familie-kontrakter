@@ -14,5 +14,5 @@ class OpprettInfotrygdSakRequest(
     var mottattdato: LocalDate? = null,
     var sendBekreftelsesbrev: Boolean? = null,
     var oppgaveId: String? = null,
-    var oppgaveOrganisasjonsenhetId: String? = null
+    var oppgaveOrganisasjonsenhetId: String? = null,
 )

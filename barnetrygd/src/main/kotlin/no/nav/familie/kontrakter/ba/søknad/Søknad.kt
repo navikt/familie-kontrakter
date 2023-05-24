@@ -6,15 +6,15 @@ import no.nav.familie.kontrakter.ba.Søknadstype
     "Bruk v2",
     ReplaceWith(
         "Søknad",
-        "no.nav.familie.kontrakter.ba.søknad.v2.Søknad"
-    )
+        "no.nav.familie.kontrakter.ba.søknad.v2.Søknad",
+    ),
 )
 data class Søknad(
     val søknadstype: Søknadstype,
     val søker: Søker,
     val barn: List<Barn>,
     val spørsmål: Map<String, Søknadsfelt<Any>>,
-    val dokumentasjon: List<Søknaddokumentasjon>
+    val dokumentasjon: List<Søknaddokumentasjon>,
 )
 
 enum class Dokumentasjonsbehov {
@@ -23,24 +23,24 @@ enum class Dokumentasjonsbehov {
     ADOPSJON_DATO,
     BEKREFTELSE_FRA_BARNEVERN,
     BOR_FAST_MED_SØKER,
-    ANNEN_DOKUMENTASJON
+    ANNEN_DOKUMENTASJON,
 }
 
 data class Søknaddokumentasjon(
     val dokumentasjonsbehov: Dokumentasjonsbehov,
     val harSendtInn: Boolean,
-    val opplastedeVedlegg: List<Søknadsvedlegg>
+    val opplastedeVedlegg: List<Søknadsvedlegg>,
 )
 
 data class Søknadsvedlegg(
     val dokumentId: String,
     val navn: String,
-    val tittel: Dokumentasjonsbehov
+    val tittel: Dokumentasjonsbehov,
 )
 
 data class Søknadsfelt<T>(
     val label: String,
-    val verdi: T
+    val verdi: T,
 )
 
 data class SøknadAdresse(
@@ -62,15 +62,15 @@ enum class SIVILSTANDTYPE {
     SKILT_PARTNER,
     GJENLEVENDE_PARTNER,
     UGIFT,
-    UOPPGITT
+    UOPPGITT,
 }
 
 @Deprecated(
     "Bruk v2",
     ReplaceWith(
         "Søker",
-        "no.nav.familie.kontrakter.ba.søknad.v2.Søker"
-    )
+        "no.nav.familie.kontrakter.ba.søknad.v2.Søker",
+    ),
 )
 data class Søker(
     val ident: Søknadsfelt<String>,
@@ -79,7 +79,7 @@ data class Søker(
     val adresse: Søknadsfelt<SøknadAdresse>,
     val sivilstand: Søknadsfelt<SIVILSTANDTYPE>,
     val telefonnummer: Søknadsfelt<String>,
-    val spørsmål: Map<String, Søknadsfelt<Any>>
+    val spørsmål: Map<String, Søknadsfelt<Any>>,
 )
 
 data class Barn(
@@ -87,5 +87,5 @@ data class Barn(
     val navn: Søknadsfelt<String>,
     val borMedSøker: Søknadsfelt<Boolean>,
     val alder: Søknadsfelt<String>,
-    val spørsmål: Map<String, Søknadsfelt<Any>>
+    val spørsmål: Map<String, Søknadsfelt<Any>>,
 )

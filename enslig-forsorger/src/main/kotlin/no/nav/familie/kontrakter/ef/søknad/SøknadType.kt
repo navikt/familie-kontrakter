@@ -4,7 +4,8 @@ enum class SøknadType(val dokumentType: String, val dokumentTypeVedlegg: String
     OVERGANGSSTØNAD("OVERGANGSSTØNAD_SØKNAD", "OVERGANGSSTØNAD_SØKNAD_VEDLEGG", true),
     BARNETILSYN("BARNETILSYNSTØNAD_SØKNAD", "BARNETILSYNSTØNAD_VEDLEGG", true),
     SKOLEPENGER("SKOLEPENGER_SØKNAD", "SKOLEPENGER_VEDLEGG", true),
-    OVERGANGSSTØNAD_ARBEIDSSØKER("SKJEMA_ARBEIDSSØKER");
+    OVERGANGSSTØNAD_ARBEIDSSØKER("SKJEMA_ARBEIDSSØKER"),
+    ;
 
     companion object {
         private val dokumenttypeMap = values().associateBy(SøknadType::dokumentType)

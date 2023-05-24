@@ -12,5 +12,5 @@ enum class Journalstatus {
     UKJENT_BRUKER,
     RESERVERT,
     OPPLASTING_DOKUMENT,
-    UKJENT
+    UKJENT,
 }

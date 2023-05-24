@@ -11,5 +11,5 @@ data class SøknadOvergangsstønad(
     val barn: Søknadsfelt<List<Barn>>,
     val aktivitet: Søknadsfelt<Aktivitet>,
     val situasjon: Søknadsfelt<Situasjon>,
-    val stønadsstart: Søknadsfelt<Stønadsstart>
+    val stønadsstart: Søknadsfelt<Stønadsstart>,
 )

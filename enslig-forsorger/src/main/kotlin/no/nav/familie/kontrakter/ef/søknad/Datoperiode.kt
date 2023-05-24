@@ -4,5 +4,5 @@ import java.time.LocalDate
 
 data class Datoperiode(
     val fra: LocalDate,
-    val til: LocalDate
+    val til: LocalDate,
 )

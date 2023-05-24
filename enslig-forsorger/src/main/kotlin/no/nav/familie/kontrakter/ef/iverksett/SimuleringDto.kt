@@ -6,7 +6,7 @@ import java.util.UUID
 
 data class SimuleringDto(
     val nyTilkjentYtelseMedMetaData: TilkjentYtelseMedMetadata,
-    val forrigeBehandlingId: UUID?
+    val forrigeBehandlingId: UUID?,
 )
 
 data class TilkjentYtelseMedMetadata(
@@ -17,5 +17,5 @@ data class TilkjentYtelseMedMetadata(
     val eksternFagsakId: Long,
     val personIdent: String,
     val behandlingId: UUID,
-    val vedtaksdato: LocalDate
+    val vedtaksdato: LocalDate,
 )

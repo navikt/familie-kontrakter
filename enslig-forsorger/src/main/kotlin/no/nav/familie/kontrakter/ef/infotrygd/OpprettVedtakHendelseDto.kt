@@ -9,5 +9,5 @@ import java.time.LocalDate
 data class OpprettVedtakHendelseDto(
     val personIdenter: Set<String>,
     val type: StønadType,
-    val startdato: LocalDate
+    val startdato: LocalDate,
 )

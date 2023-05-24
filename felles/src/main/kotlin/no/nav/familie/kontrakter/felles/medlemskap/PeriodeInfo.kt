@@ -9,5 +9,5 @@ data class PeriodeInfo(
     val tom: LocalDate,
     val gjelderMedlemskapIFolketrygden: Boolean,
     val grunnlag: String,
-    val dekning: String? = null
+    val dekning: String? = null,
 )

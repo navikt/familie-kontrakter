@@ -6,13 +6,13 @@ import java.time.LocalDateTime
 
 data class InfotrygdPeriodeRequest(
     val personIdenter: Set<String>,
-    val stønadstyper: Set<StønadType>
+    val stønadstyper: Set<StønadType>,
 )
 
 data class InfotrygdPeriodeResponse(
     val overgangsstønad: List<InfotrygdPeriode>,
     val barnetilsyn: List<InfotrygdPeriode>,
-    val skolepenger: List<InfotrygdPeriode>
+    val skolepenger: List<InfotrygdPeriode>,
 )
 
 /**
@@ -38,7 +38,7 @@ data class InfotrygdPeriode(
     val stønadFom: LocalDate,
     val stønadTom: LocalDate,
     val opphørsdato: LocalDate?,
-    val barnIdenter: List<String> = emptyList()
+    val barnIdenter: List<String> = emptyList(),
 )
 
 @Suppress("unused")
@@ -52,7 +52,7 @@ enum class InfotrygdEndringKode(val infotrygdKode: String, val beskrivelse: Stri
     OPPHØRT("O", "Opphørt"),
     SATSENDRING("S", "Satsendring"),
     UAKTUELL("UA", "Uaktuell"),
-    OVERTFØRT_NY_LØSNING("OO", "Overf ny løsning");
+    OVERTFØRT_NY_LØSNING("OO", "Overf ny løsning"),
 }
 
 @Suppress("unused")
@@ -66,7 +66,7 @@ enum class InfotrygdSakstype(val infotrygdKode: String, val beskrivelse: String)
     MASKINELL_SATSOMREGNING("MS", "Maskinell satsomregning"),
     ANKE("A", "Anke"),
     SØKNAD("S", "Søknad"),
-    SØKNAD_ØKNING_ENDRING("SØ", "Søknad om økning/endring")
+    SØKNAD_ØKNING_ENDRING("SØ", "Søknad om økning/endring"),
 }
 
 @Suppress("unused")
@@ -76,7 +76,7 @@ enum class InfotrygdOvergangsstønadKode(val infotrygdKode: String, val beskrive
     YRKESRETTET_AKTIVITET_BARN_FYLT_1_3_ÅR("2", "Er i yrkesrettet aktivitet - barn har fylt 1 år / 3 år (gamle tilfeller)"),
     UNNTAK_FRA_KRAV_TIL_YRKESRETTET_AKTIVITET(
         "3",
-        "Unntak fra krav til yrkesr. aktivitet når barn har fylt 1 år / år (gamle tilfeller)"
+        "Unntak fra krav til yrkesr. aktivitet når barn har fylt 1 år / år (gamle tilfeller)",
     ),
     UTVIDELSE_NØDVENDIG_UTDANNING("4", "Utvidelse på grunn av nødvendig utdanning jf 15-6. 3. ledd"),
     PÅVENTE_SKOLESTART_ARBEID_TILSYNSPLASS("5", "I påvente av skolestart/arbeid/tilsynsplass 15-6. 4. ledd"),
@@ -84,7 +84,7 @@ enum class InfotrygdOvergangsstønadKode(val infotrygdKode: String, val beskrive
     FORBIGÅENDE_SYKDOM("7", "Forbig. sykdom hos forsørger eller barnet 15-6. 6. ledd"),
     SÆRLIG_TILSSYNSKREVENDE_BARN("8", "Har særlig tilssynskrevende barn"),
     ETABLERER_EGEN_VIRKSOMHET("9", "Etablerer egen virksomhet"),
-    FORTSATT_INNVILGET_TROSS_VARSEL_OM_OPPHØR_PGA_SAMBOER("10", "Fortsatt innvilget tro");
+    FORTSATT_INNVILGET_TROSS_VARSEL_OM_OPPHØR_PGA_SAMBOER("10", "Fortsatt innvilget tro"),
 }
 
 @Suppress("unused")
@@ -95,5 +95,5 @@ enum class InfotrygdAktivitetstype(val infotrygdKode: String, val beskrivelse: S
     TILMELDT_SOM_REELL_ARBEIDSSØKER("S", "Tilmeldt som reell arbeidssøker"),
     KURS("K", "Kurs o.l."),
     BRUKERKONTAKT("B", "Brukerkontakt"),
-    IKKE_I_AKTIVITET("N", "Ikke i aktivitet");
+    IKKE_I_AKTIVITET("N", "Ikke i aktivitet"),
 }

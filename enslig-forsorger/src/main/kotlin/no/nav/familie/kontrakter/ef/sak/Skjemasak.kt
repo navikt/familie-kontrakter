@@ -5,5 +5,5 @@ import no.nav.familie.kontrakter.ef.søknad.SkjemaForArbeidssøker
 data class Skjemasak(
     val skjemaForArbeidssøker: SkjemaForArbeidssøker,
     val saksnummer: String,
-    val journalpostId: String
+    val journalpostId: String,
 )

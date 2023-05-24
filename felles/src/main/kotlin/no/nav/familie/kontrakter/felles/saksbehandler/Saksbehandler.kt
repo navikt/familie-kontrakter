@@ -6,5 +6,5 @@ class Saksbehandler(
     val azureId: UUID,
     val navIdent: String,
     val fornavn: String,
-    val etternavn: String
+    val etternavn: String,
 )

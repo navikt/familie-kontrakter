@@ -4,5 +4,5 @@ data class SøknadMedVedlegg<T>(
     val søknad: T,
     val vedlegg: List<Vedlegg>,
     val dokumentasjonsbehov: List<Dokumentasjonsbehov> = emptyList(),
-    val behandleINySaksbehandling: Boolean = false
+    val behandleINySaksbehandling: Boolean = false,
 )

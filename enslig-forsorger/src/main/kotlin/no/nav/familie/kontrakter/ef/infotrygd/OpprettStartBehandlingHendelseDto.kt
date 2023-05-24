@@ -7,5 +7,5 @@ import no.nav.familie.kontrakter.felles.ef.StønadType
  */
 data class OpprettStartBehandlingHendelseDto(
     val personIdenter: Set<String>,
-    val type: StønadType
+    val type: StønadType,
 )

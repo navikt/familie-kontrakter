@@ -9,7 +9,6 @@ class FinnOppgaveRequestTest {
 
     @Test
     fun `Kan konvertere fra json til FinnOppgaveRequest`() {
-
         val finnOppgaveRequestString = """
             {
                 "tema": "BAR",

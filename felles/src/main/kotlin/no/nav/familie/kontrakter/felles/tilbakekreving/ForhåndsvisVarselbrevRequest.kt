@@ -22,10 +22,10 @@ data class ForhåndsvisVarselbrevRequest(
     val ident: String,
     val verge: Verge? = null,
     val fagsystemsbehandlingId: String? = null,
-    val institusjon: Institusjon? = null
+    val institusjon: Institusjon? = null,
 )
 
 data class FeilutbetaltePerioderDto(
     val sumFeilutbetaling: Long,
-    val perioder: List<Periode>
+    val perioder: List<Periode>,
 )

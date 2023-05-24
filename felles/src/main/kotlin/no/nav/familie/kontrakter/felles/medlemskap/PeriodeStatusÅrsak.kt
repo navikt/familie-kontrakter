@@ -4,5 +4,5 @@ enum class PeriodeStatusÅrsak {
     Avvist,
     Feilregistrert,
     Migrert,
-    Opphort
+    Opphort,
 }

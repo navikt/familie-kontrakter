@@ -5,7 +5,7 @@ import java.time.LocalDate
 
 @Suppress("unused")
 data class InfotrygdSakResponse(
-    val saker: List<InfotrygdSak>
+    val saker: List<InfotrygdSak>,
 )
 
 data class InfotrygdSak(
@@ -62,7 +62,7 @@ enum class InfotrygdSakType(val infotrygdKode: String, val beskrivelse: String) 
     TILBAKEBETALING_ENDRING("TE", "Tilbakebetaling endring"),
     TIPSUTREDNING("TU", "Tipsutredning"),
     UTBETALING_TIL_ANNEN("UA", "Utbetaling til annen"),
-    VURDERING_UTESTENGING("VU", "Vurdering utestenging");
+    VURDERING_UTESTENGING("VU", "Vurdering utestenging"),
 }
 
 @Suppress("unused")
@@ -97,8 +97,7 @@ enum class InfotrygdSakResultat(val infotrygdKode: String, val beskrivelse: Stri
     TVANGSGEBYR_FASTHOLDES("TF", "Tvangsgebyr fastholdes"),
     TIPS_OPPFØLGING("TO", "Tips oppfølging"),
     VU("VU", ""), // TODO
-    ØKNING("Ø", "Økning")
-    ;
+    ØKNING("Ø", "Økning"),
 }
 
 @Suppress("unused")
@@ -113,7 +112,6 @@ enum class InfotrygdSakNivå(val infotrygdKode: String, val beskrivelse: String)
     SFK("SFK", ""),
     NAV_KONTOR("TK", "NAV-kontor (trygdekontor)"),
     TRYGDERETTEN("TR", "Trygderetten"),
-    ;
 }
 
 /*
@@ -125,5 +123,5 @@ enum class InfotrygdSakUndervalg {
     AK,
     NY,
     OL,
-    OR
+    OR,
 }

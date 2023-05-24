@@ -4,5 +4,5 @@ import no.nav.familie.kontrakter.felles.BrukerIdType
 
 data class Bruker(
     val id: String,
-    val type: BrukerIdType
+    val type: BrukerIdType,
 )

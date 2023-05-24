@@ -9,7 +9,7 @@ import java.time.LocalDate
 data class OpprettPeriodeHendelseDto(
     val personIdenter: Set<String>,
     val type: StønadType,
-    val perioder: List<Periode>
+    val perioder: List<Periode>,
 )
 
 data class Periode(val startdato: LocalDate, val sluttdato: LocalDate, val fullOvergangsstønad: Boolean)

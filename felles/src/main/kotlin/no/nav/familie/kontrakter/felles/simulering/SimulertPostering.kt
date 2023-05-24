@@ -12,5 +12,5 @@ data class SimulertPostering(
     val beløp: BigDecimal,
     val posteringType: PosteringType,
     val forfallsdato: LocalDate,
-    val utenInntrekk: Boolean = false
+    val utenInntrekk: Boolean = false,
 )

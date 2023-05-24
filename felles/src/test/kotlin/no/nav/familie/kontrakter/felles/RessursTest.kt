@@ -11,6 +11,7 @@ import java.time.LocalDate
 
 class RessursTest {
     private val date = LocalDate.of(2019, 11, 30)
+
     @Test
     fun `skal lagre object på ressurs og hente opp igjen`() {
         val (result) = success(TestObject("tekst", 42L, date), "OK")
@@ -25,7 +26,7 @@ class RessursTest {
         Assertions.assertEquals(
             ressurs.toJson(),
             "{\"data\":{\"tekst\":\"tekst\",\"nummer\":42,\"date\":\"2019-11-30\"}," +
-                "\"status\":\"SUKSESS\",\"melding\":\"OK\",\"frontendFeilmelding\":null,\"stacktrace\":null}"
+                "\"status\":\"SUKSESS\",\"melding\":\"OK\",\"frontendFeilmelding\":null,\"stacktrace\":null}",
         )
     }
 
@@ -37,7 +38,7 @@ class RessursTest {
             ObjectMapper()
                 .registerModule(JavaTimeModule())
                 .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false)
-                .writeValueAsString(ressurs)
+                .writeValueAsString(ressurs),
         )
     }
 
@@ -49,14 +50,14 @@ class RessursTest {
             stacktrace!!.contains(
                 "java.lang.RuntimeException: Dette er feilkoden" +
                     System.getProperty("line.separator") +
-                    "\tat no.nav.familie.kontrakter.felles.RessursTest.skal konvertere stacktrace to data"
-            )
+                    "\tat no.nav.familie.kontrakter.felles.RessursTest.skal konvertere stacktrace to data",
+            ),
         )
     }
 
     internal class TestObject(
         val tekst: String,
         val nummer: Long,
-        val date: LocalDate?
+        val date: LocalDate?,
     )
 }

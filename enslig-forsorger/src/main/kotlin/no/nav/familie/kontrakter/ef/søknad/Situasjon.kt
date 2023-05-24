@@ -17,5 +17,5 @@ data class Situasjon(
     val oppsigelseReduksjonÅrsak: Søknadsfelt<String>? = null,
     val oppsigelseReduksjonTidspunkt: Søknadsfelt<LocalDate>? = null,
     val reduksjonAvArbeidsforholdDokumentasjon: Søknadsfelt<Dokumentasjon>? = null,
-    val oppsigelseDokumentasjon: Søknadsfelt<Dokumentasjon>? = null
+    val oppsigelseDokumentasjon: Søknadsfelt<Dokumentasjon>? = null,
 )

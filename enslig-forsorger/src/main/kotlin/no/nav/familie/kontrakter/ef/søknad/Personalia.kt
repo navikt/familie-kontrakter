@@ -7,5 +7,5 @@ data class Personalia(
     val navn: Søknadsfelt<String>,
     val statsborgerskap: Søknadsfelt<String>,
     val adresse: Søknadsfelt<Adresse>,
-    val sivilstatus: Søknadsfelt<String>
+    val sivilstatus: Søknadsfelt<String>,
 )

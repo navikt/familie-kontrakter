@@ -5,14 +5,14 @@ enum class BehandlingResultat() {
     IKKE_MEDHOLD,
     IKKE_MEDHOLD_FORMKRAV_AVVIST,
     IKKE_SATT,
-    HENLAGT
+    HENLAGT,
 }
 
 enum class BehandlingStatus {
     OPPRETTET,
     UTREDES,
     VENTER,
-    FERDIGSTILT;
+    FERDIGSTILT,
 }
 
 enum class Årsak {
@@ -20,7 +20,7 @@ enum class Årsak {
     FEIL_REGELVERKSFORSTÅELSE,
     FEIL_ELLER_ENDRET_FAKTA,
     FEIL_PROSESSUELL,
-    ANNET
+    ANNET,
 }
 
 enum class BehandlingEventType {
@@ -35,5 +35,5 @@ enum class KlageinstansUtfall(val navn: String) {
     DELVIS_MEDHOLD("Delvis medhold KA"),
     STADFESTELSE("Stadfestelse KA"),
     UGUNST("Ugunst (Ugyldig) KA"),
-    AVVIST("Avvist KA");
+    AVVIST("Avvist KA"),
 }

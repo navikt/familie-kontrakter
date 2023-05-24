@@ -17,7 +17,7 @@ data class OpprettHistorikkinnslagRequest(
     val tittel: String,
     val tekst: String? = null,
     val journalpostId: String? = null,
-    val dokumentId: String? = null
+    val dokumentId: String? = null,
 ) {
 
     init {
@@ -36,11 +36,11 @@ data class OpprettHistorikkinnslagRequest(
 enum class Historikkinnslagstype {
     HENDELSE,
     SKJERMLENKE,
-    BREV
+    BREV,
 }
 
 enum class Aktør {
     SAKSBEHANDLER,
     BESLUTTER,
-    VEDTAKSLØSNING
+    VEDTAKSLØSNING,
 }

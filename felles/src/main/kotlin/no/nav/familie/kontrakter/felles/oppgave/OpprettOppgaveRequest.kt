@@ -18,7 +18,7 @@ data class OpprettOppgaveRequest(
     val prioritet: OppgavePrioritet = OppgavePrioritet.NORM,
     val behandlingstype: String? = null,
     val behandlesAvApplikasjon: String? = null,
-    val mappeId: Long? = null
+    val mappeId: Long? = null,
 )
 
 enum class Oppgavetype(val value: String) {
@@ -49,13 +49,13 @@ enum class Behandlingstype(val value: String) {
     Utland("ae0106"),
     NASJONAL("ae0118"),
     EØS("ae0120"),
-    Tilbakekreving("ae0161")
+    Tilbakekreving("ae0161"),
 }
 
 enum class OppgavePrioritet {
     HOY,
     NORM,
-    LAV;
+    LAV,
 }
 
 @Deprecated("Misforstått bruk - ulike identer på tvers av miljøer")
@@ -69,5 +69,5 @@ enum class Enhetsmappe(val value: Long) {
     TilbakekrevingKlarTilBehandling(100000266),
     Flyttesaker(100024195),
     EØSMedlemskap(100025358),
-    Corona(100025133);
+    Corona(100025133),
 }

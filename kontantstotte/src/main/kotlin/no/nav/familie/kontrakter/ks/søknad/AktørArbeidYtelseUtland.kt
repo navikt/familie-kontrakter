@@ -11,5 +11,5 @@ data class AktørArbeidYtelseUtland(
     val ytelseIUtlandet: Standpunkt,
     val ytelseIUtlandetForklaring: String,
     val kontantstøtteIUtlandet: Standpunkt,
-    val kontantstøtteIUtlandetForklaring: String
+    val kontantstøtteIUtlandetForklaring: String,
 )

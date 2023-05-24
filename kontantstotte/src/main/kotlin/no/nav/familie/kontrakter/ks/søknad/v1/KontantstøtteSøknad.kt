@@ -16,7 +16,7 @@ data class KontantstøtteSøknad(
     val erBarnAdoptert: Søknadsfelt<String>,
     val mottarKontantstøtteForBarnFraAnnetEøsland: Søknadsfelt<String>,
     val harEllerTildeltBarnehageplass: Søknadsfelt<String>,
-    val erAvdødPartnerForelder: Søknadsfelt<String>?
+    val erAvdødPartnerForelder: Søknadsfelt<String>?,
 )
 
 @Deprecated("Bruk v2", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ks.søknad.v2.Søker"))
@@ -49,7 +49,7 @@ data class Søker(
     val andreUtbetalingsperioder: List<Søknadsfelt<Utbetalingsperiode>>,
     val idNummer: List<Søknadsfelt<IdNummer>>,
     val andreUtbetalinger: Søknadsfelt<String>?,
-    val adresseISøkeperiode: Søknadsfelt<String>?
+    val adresseISøkeperiode: Søknadsfelt<String>?,
 )
 
 @Deprecated("Bruk v2", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ks.søknad.v2.Barn"))
@@ -92,14 +92,14 @@ data class Barn(
     val borMedOmsorgsperson: Søknadsfelt<String>?,
     val adresse: Søknadsfelt<String>?,
     val omsorgsperson: Omsorgsperson?,
-    val idNummer: List<Søknadsfelt<IdNummer>> = listOf()
+    val idNummer: List<Søknadsfelt<IdNummer>> = listOf(),
 )
 
 typealias Locale = String
 
 data class Søknadsfelt<T>(
     val label: Map<Locale, String>,
-    val verdi: Map<Locale, T>
+    val verdi: Map<Locale, T>,
 )
 
 class TekstPåSpråkMap(tekstPåSpråk: Map<Locale, String>) : HashMap<Locale, String>(tekstPåSpråk)
@@ -110,20 +110,20 @@ enum class Dokumentasjonsbehov {
     ADOPSJON_DATO,
     BOR_FAST_MED_SØKER,
     ANNEN_DOKUMENTASJON,
-    BEKREFTELESE_PÅ_BARNEHAGEPLASS
+    BEKREFTELESE_PÅ_BARNEHAGEPLASS,
 }
 
 data class Søknadsvedlegg(
     val dokumentId: String,
     val navn: String,
-    val tittel: Dokumentasjonsbehov
+    val tittel: Dokumentasjonsbehov,
 )
 
 data class Søknaddokumentasjon(
     val dokumentasjonsbehov: Dokumentasjonsbehov,
     val harSendtInn: Boolean,
     val opplastedeVedlegg: List<Søknadsvedlegg>,
-    val dokumentasjonSpråkTittel: TekstPåSpråkMap
+    val dokumentasjonSpråkTittel: TekstPåSpråkMap,
 )
 
 data class SøknadAdresse(
@@ -132,12 +132,12 @@ data class SøknadAdresse(
     val husbokstav: String?,
     val bruksenhetsnummer: String?,
     val husnummer: String?,
-    val poststed: String?
+    val poststed: String?,
 )
 
 data class IdNummer(
     val idNummer: Søknadsfelt<String>,
-    val land: Søknadsfelt<String>
+    val land: Søknadsfelt<String>,
 )
 
 enum class SIVILSTANDTYPE {
@@ -150,14 +150,14 @@ enum class SIVILSTANDTYPE {
     SKILT_PARTNER,
     GJENLEVENDE_PARTNER,
     UGIFT,
-    UOPPGITT
+    UOPPGITT,
 }
 
 enum class RegistrertBostedType {
     REGISTRERT_SOKERS_ADRESSE,
     REGISTRERT_ANNEN_ADRESSE,
     ADRESSESPERRE,
-    IKKE_FYLT_INN
+    IKKE_FYLT_INN,
 }
 
 @Deprecated("Bruk v4 Utenlandsperiode", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ks.søknad.v4.Utenlandsperiode"))
@@ -165,7 +165,7 @@ data class Utenlandsopphold(
     val utenlandsoppholdÅrsak: Søknadsfelt<String>,
     val oppholdsland: Søknadsfelt<String>,
     val oppholdslandTilDato: Søknadsfelt<String?>,
-    val oppholdslandFraDato: Søknadsfelt<String?>
+    val oppholdslandFraDato: Søknadsfelt<String?>,
 )
 
 @Deprecated("Bruk v2", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ks.søknad.v2.Omsorgsperson"))
@@ -188,7 +188,7 @@ data class Omsorgsperson(
     val pågåendeSøknadFraAnnetEøsLand: Søknadsfelt<String>,
     val pågåendeSøknadHvilketLand: Søknadsfelt<String>?,
     val kontantstøtteFraEøs: Søknadsfelt<String>,
-    val eøsKontantstøttePerioder: List<Søknadsfelt<EøsKontantstøttePeriode>> = listOf()
+    val eøsKontantstøttePerioder: List<Søknadsfelt<EøsKontantstøttePeriode>> = listOf(),
 )
 
 data class EøsKontantstøttePeriode(
@@ -196,7 +196,7 @@ data class EøsKontantstøttePeriode(
     val kontantstøtteLand: Søknadsfelt<String>,
     val fraDatoKontantstøttePeriode: Søknadsfelt<String>,
     val tilDatoKontantstøttePeriode: Søknadsfelt<String>?,
-    val månedligBeløp: Søknadsfelt<String>
+    val månedligBeløp: Søknadsfelt<String>,
 )
 
 @Deprecated("Bruk v2", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ks.søknad.v2.AndreForelder"))
@@ -224,7 +224,7 @@ data class AndreForelder(
     val eøsKontantstøttePerioder: List<Søknadsfelt<KontantstøttePeriode>> = listOf(),
     val andreUtbetalingsperioder: List<Søknadsfelt<Utbetalingsperiode>> = listOf(),
     val idNummer: List<Søknadsfelt<IdNummer>> = listOf(),
-    val adresse: Søknadsfelt<String>?
+    val adresse: Søknadsfelt<String>?,
 )
 
 @Deprecated("Bruk v2", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ks.søknad.v2.Arbeidsperiode"))
@@ -233,21 +233,21 @@ data class Arbeidsperiode(
     val arbeidsperiodeland: Søknadsfelt<String>?,
     val arbeidsgiver: Søknadsfelt<String>?,
     val fraDatoArbeidsperiode: Søknadsfelt<String>?,
-    val tilDatoArbeidsperiode: Søknadsfelt<String>?
+    val tilDatoArbeidsperiode: Søknadsfelt<String>?,
 )
 
 data class Pensjonsperiode(
     val mottarPensjonNå: Søknadsfelt<String>?,
     val pensjonsland: Søknadsfelt<String>?,
     val pensjonFra: Søknadsfelt<String>?,
-    val pensjonTil: Søknadsfelt<String>?
+    val pensjonTil: Søknadsfelt<String>?,
 )
 
 data class Utbetalingsperiode(
     val fårUtbetalingNå: Søknadsfelt<String>?,
     val utbetalingLand: Søknadsfelt<String>,
     val utbetalingFraDato: Søknadsfelt<String>,
-    val utbetalingTilDato: Søknadsfelt<String>
+    val utbetalingTilDato: Søknadsfelt<String>,
 )
 
 @Deprecated("Bruk v4", ReplaceWith("no.nav.familie.kontrakter.ks.søknad.v4.Utenlandsperiode"))
@@ -255,7 +255,7 @@ data class Utenlandsperiode(
     val utenlandsoppholdÅrsak: Søknadsfelt<String>,
     val oppholdsland: Søknadsfelt<String>,
     val oppholdslandFraDato: Søknadsfelt<String?>,
-    val oppholdslandTilDato: Søknadsfelt<String?>
+    val oppholdslandTilDato: Søknadsfelt<String?>,
 )
 
 data class KontantstøttePeriode(
@@ -263,7 +263,7 @@ data class KontantstøttePeriode(
     val kontantstøtteLand: Søknadsfelt<String>,
     val fraDatoKontantstøttePeriode: Søknadsfelt<String>,
     val tilDatoKontantstøttePeriode: Søknadsfelt<String>?,
-    val månedligBeløp: Søknadsfelt<String>
+    val månedligBeløp: Søknadsfelt<String>,
 )
 
 data class BarnehageplassPeriode(
@@ -273,5 +273,5 @@ data class BarnehageplassPeriode(
     val offentligStøtte: Søknadsfelt<String>?,
     val antallTimer: Søknadsfelt<String>,
     val startetIBarnehagen: Søknadsfelt<String>,
-    val slutterIBarnehagen: Søknadsfelt<String>
+    val slutterIBarnehagen: Søknadsfelt<String>,
 )

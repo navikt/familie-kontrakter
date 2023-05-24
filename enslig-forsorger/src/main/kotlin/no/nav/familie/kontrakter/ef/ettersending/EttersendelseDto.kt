@@ -7,7 +7,7 @@ import java.time.LocalDateTime
 
 data class EttersendelseDto(
     val dokumentasjonsbehov: List<Dokumentasjonsbehov>,
-    val personIdent: String
+    val personIdent: String,
 )
 
 data class Dokumentasjonsbehov(
@@ -17,12 +17,12 @@ data class Dokumentasjonsbehov(
     val beskrivelse: String,
     val stønadType: StønadType,
     val innsendingstidspunkt: LocalDateTime? = null,
-    val vedlegg: List<Vedlegg>
+    val vedlegg: List<Vedlegg>,
 )
 
 data class SøknadMetadata(
     val søknadId: String,
     val søknadsdato: LocalDate,
     val dokumentasjonsbehovId: String,
-    val harSendtInnTidligere: Boolean
+    val harSendtInnTidligere: Boolean,
 )

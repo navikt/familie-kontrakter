@@ -5,5 +5,5 @@ import no.nav.familie.kontrakter.ef.felles.Revurderingsårsak
 
 data class ÅrsakRevurderingDto(
     val opplysningskilde: Opplysningskilde,
-    val årsak: Revurderingsårsak
+    val årsak: Revurderingsårsak,
 )

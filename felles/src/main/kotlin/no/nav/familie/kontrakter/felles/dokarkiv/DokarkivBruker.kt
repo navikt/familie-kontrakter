@@ -4,5 +4,5 @@ import no.nav.familie.kontrakter.felles.BrukerIdType
 
 data class DokarkivBruker(
     val idType: BrukerIdType,
-    val id: String
+    val id: String,
 )

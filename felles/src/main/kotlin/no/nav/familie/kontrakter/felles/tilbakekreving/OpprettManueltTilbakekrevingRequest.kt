@@ -5,12 +5,12 @@ data class OpprettManueltTilbakekrevingRequest(
     val eksternFagsakId: String,
     val ytelsestype: Ytelsestype,
     // Fagsystemreferanse til behandlingen, må være samme id som brukes mot datavarehus og økonomi
-    val eksternId: String
+    val eksternId: String,
 )
 
 // familie-tilbake bruker denne dto-en til å sende respons på ../kanBehandlingOpprettesManuelt/v1 tjeneste
 data class KanBehandlingOpprettesManueltRespons(
     val kanBehandlingOpprettes: Boolean,
     val melding: String,
-    val kravgrunnlagsreferanse: String? = null
+    val kravgrunnlagsreferanse: String? = null,
 )

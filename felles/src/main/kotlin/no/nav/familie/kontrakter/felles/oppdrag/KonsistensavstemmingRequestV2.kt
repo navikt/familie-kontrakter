@@ -5,5 +5,5 @@ import java.time.LocalDateTime
 data class KonsistensavstemmingRequestV2(
     val fagsystem: String,
     val perioderForBehandlinger: List<PerioderForBehandling>,
-    val avstemmingstidspunkt: LocalDateTime
+    val avstemmingstidspunkt: LocalDateTime,
 )

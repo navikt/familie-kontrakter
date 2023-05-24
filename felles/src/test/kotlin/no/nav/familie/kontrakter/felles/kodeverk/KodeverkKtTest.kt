@@ -27,7 +27,7 @@ internal class KodeverkKtTest {
            "term": "BERGEN2",
            "tekst": "BERGEN2"
           }}}]}}
-        """.trimIndent()
+        """.trimIndent(),
     )
 
     @Test
@@ -45,7 +45,7 @@ internal class KodeverkKtTest {
     internal fun `skal hente siste gjeldende kodeverk hvis verdi mangler, med sisteGjeldende=true`() {
         assertEquals(
             "BERGEN2",
-            kodeverk.hentGjeldende("5036", LocalDate.of(1900, 1, 1), sisteGjeldende = true)
+            kodeverk.hentGjeldende("5036", LocalDate.of(1900, 1, 1), sisteGjeldende = true),
         )
         assertNull(kodeverk.hentGjeldende("FINNES_IKKE", LocalDate.of(1900, 1, 1), sisteGjeldende = true))
     }

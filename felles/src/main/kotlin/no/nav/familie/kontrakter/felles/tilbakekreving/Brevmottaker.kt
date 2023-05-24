@@ -13,14 +13,16 @@ data class Brevmottaker(
     @field:Pattern(regexp = "(^$|.{11})", message = "PersonIdent er ikke riktig")
     val personIdent: String? = null,
     @field:Valid
-    val manuellAdresseInfo: ManuellAdresseInfo? = null
+    val manuellAdresseInfo: ManuellAdresseInfo? = null,
 ) {
     init {
         check(!(manuellAdresseInfo == null && personIdent.isNullOrBlank() && organisasjonsnummer.isNullOrBlank())) {
             "Må ha enten manuellAdresseInfo, personIdent eller et organisasjonsnummer."
         }
-        if (type == MottakerType.VERGE || type == MottakerType.FULLMEKTIG) checkNotNull(vergetype) {
-            "Vergetype kan ikke være null for brevmottakere av type verge og fullmektig."
+        if (type == MottakerType.VERGE || type == MottakerType.FULLMEKTIG) {
+            checkNotNull(vergetype) {
+                "Vergetype kan ikke være null for brevmottakere av type verge og fullmektig."
+            }
         }
     }
 }
@@ -29,7 +31,7 @@ enum class MottakerType(val visningsnavn: String) {
     BRUKER_MED_UTENLANDSK_ADRESSE("Bruker med utenlandsk adresse"),
     FULLMEKTIG("Fullmektig"),
     VERGE("Verge"),
-    DØDSBO("Dødsbo")
+    DØDSBO("Dødsbo"),
 }
 
 data class ManuellAdresseInfo(
@@ -42,5 +44,5 @@ data class ManuellAdresseInfo(
     @field:Pattern(regexp = "^(.{1,50})\$", message = "Feltet kan ikke være tomt eller innholde mer enn 50 tegn")
     val poststed: String,
     @field:Pattern(regexp = "^[a-zA-Z]{2}$", message = "Landkode må følge ISO standard, alpha-2")
-    val landkode: String
+    val landkode: String,
 )

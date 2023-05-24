@@ -8,7 +8,8 @@ enum class Stønadstype {
     OVERGANGSSTØNAD,
     BARNETILSYN,
     SKOLEPENGER,
-    KONTANTSTØTTE;
+    KONTANTSTØTTE,
+    ;
 
     fun tilTema(): Tema = when (this) {
         BARNETRYGD -> Tema.BAR

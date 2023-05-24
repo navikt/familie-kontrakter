@@ -7,10 +7,10 @@ data class AutomatiskJournalføringRequest(
     val personIdent: String,
     val journalpostId: String,
     val stønadstype: StønadType,
-    val mappeId: Long?
+    val mappeId: Long?,
 )
 
 data class AutomatiskJournalføringResponse(
     val fagsakId: UUID,
-    val behandlingId: UUID
+    val behandlingId: UUID,
 )

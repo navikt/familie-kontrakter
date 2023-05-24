@@ -27,5 +27,5 @@ data class FinnOppgaveRequest(
     val enhetsmappe: Enhetsmappe? = null,
     val mappeId: Long? = null,
     val limit: Long? = null,
-    val offset: Long? = null
+    val offset: Long? = null,
 )

@@ -15,5 +15,5 @@ data class ArkiverDokumentRequest(
     // Ønsker du å generer forside når du tilskriver bruker kan du fylle ut denne
     val førsteside: Førsteside? = null,
     val eksternReferanseId: String? = null,
-    val avsenderMottaker: AvsenderMottaker? = null
+    val avsenderMottaker: AvsenderMottaker? = null,
 )

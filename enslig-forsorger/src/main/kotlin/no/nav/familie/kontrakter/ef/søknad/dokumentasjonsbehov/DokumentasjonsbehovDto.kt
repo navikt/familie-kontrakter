@@ -8,5 +8,5 @@ data class DokumentasjonsbehovDto(
     val dokumentasjonsbehov: List<Dokumentasjonsbehov>,
     val innsendingstidspunkt: LocalDateTime,
     val søknadType: SøknadType,
-    val personIdent: String
+    val personIdent: String,
 )

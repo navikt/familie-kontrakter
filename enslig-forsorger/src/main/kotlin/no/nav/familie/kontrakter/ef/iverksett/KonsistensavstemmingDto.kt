@@ -7,7 +7,7 @@ import java.util.UUID
 data class KonsistensavstemmingDto(
     val stønadType: StønadType,
     val tilkjenteYtelser: List<KonsistensavstemmingTilkjentYtelseDto>,
-    val avstemmingstidspunkt: LocalDateTime? = null
+    val avstemmingstidspunkt: LocalDateTime? = null,
 )
 
 data class KonsistensavstemmingTilkjentYtelseDto(
@@ -15,5 +15,5 @@ data class KonsistensavstemmingTilkjentYtelseDto(
     val eksternBehandlingId: Long,
     val eksternFagsakId: Long,
     val personIdent: String,
-    val andelerTilkjentYtelse: List<AndelTilkjentYtelseDto>
+    val andelerTilkjentYtelse: List<AndelTilkjentYtelseDto>,
 )

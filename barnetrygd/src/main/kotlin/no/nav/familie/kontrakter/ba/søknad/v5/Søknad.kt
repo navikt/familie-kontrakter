@@ -16,7 +16,7 @@ data class Søknad(
     val spørsmål: Map<SpørsmålId, Søknadsfelt<Any>>,
     val dokumentasjon: List<Søknaddokumentasjon>,
     val teksterUtenomSpørsmål: Map<SpørsmålId, Map<Locale, String>>,
-    val originalSpråk: Locale
+    val originalSpråk: Locale,
 )
 
 enum class RegistrertBostedType {
@@ -33,5 +33,5 @@ data class Barn(
     val registrertBostedType: Søknadsfelt<RegistrertBostedType>,
     val alder: Søknadsfelt<String>,
     val spørsmål: Map<String, Søknadsfelt<Any>>,
-    val utenlandsperioder: List<Søknadsfelt<Utenlandsopphold>> = listOf()
+    val utenlandsperioder: List<Søknadsfelt<Utenlandsopphold>> = listOf(),
 )

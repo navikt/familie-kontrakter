@@ -8,5 +8,5 @@ data class NyttBarn(val personIdent: String, val stønadstype: StønadType, val 
 
 enum class NyttBarnÅrsak {
     BARN_FINNES_IKKE_PÅ_BEHANDLING,
-    FØDT_FØR_TERMIN
+    FØDT_FØR_TERMIN,
 }

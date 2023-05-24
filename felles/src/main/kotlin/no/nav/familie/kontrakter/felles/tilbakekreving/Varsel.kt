@@ -11,5 +11,5 @@ data class Varsel(
     @field:Min(value = 1, message = "sumFeilutbetaling må være større enn null")
     val sumFeilutbetaling: BigDecimal,
     @field:Size(min = 1, message = "Periode kan ikke være tom")
-    val perioder: List<Periode>
+    val perioder: List<Periode>,
 )

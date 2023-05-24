@@ -22,13 +22,13 @@ data class Søknad(
     val spørsmål: Map<SpørsmålId, Søknadsfelt<Any>>,
     val dokumentasjon: List<Søknaddokumentasjon>,
     val teksterUtenomSpørsmål: Map<SpørsmålId, Map<Locale, String>>,
-    val originalSpråk: Locale
+    val originalSpråk: Locale,
 )
 data class Søknaddokumentasjon(
     val dokumentasjonsbehov: Dokumentasjonsbehov,
     val harSendtInn: Boolean,
     val opplastedeVedlegg: List<Søknadsvedlegg>,
-    val dokumentasjonSpråkTittel: Map<Locale, String>
+    val dokumentasjonSpråkTittel: Map<Locale, String>,
 )
 enum class Dokumentasjonsbehov {
     AVTALE_DELT_BOSTED,
@@ -45,6 +45,7 @@ data class Søknadsvedlegg(
     val navn: String,
     val tittel: Dokumentasjonsbehov,
 )
+
 @Deprecated("Bruk v8", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ba.søknad.v8.Søker"))
 data class Søker(
     val harEøsSteg: Boolean,
@@ -62,7 +63,7 @@ data class Søker(
     val arbeidsperioderNorge: List<Søknadsfelt<Arbeidsperiode>> = listOf(),
     val pensjonsperioderNorge: List<Søknadsfelt<Pensjonsperiode>> = listOf(),
     val pensjonsperioderUtland: List<Søknadsfelt<Pensjonsperiode>> = listOf(),
-    val idNummer: List<Søknadsfelt<IdNummer>> = listOf()
+    val idNummer: List<Søknadsfelt<IdNummer>> = listOf(),
 )
 
 data class IdNummer(
@@ -107,7 +108,7 @@ data class Barn(
     val andreForelder: AndreForelder? = null,
     val omsorgsperson: Omsorgsperson? = null,
     val eøsBarnetrygdsperioder: List<Søknadsfelt<EøsBarnetrygdsperiode>> = listOf(),
-    val idNummer: List<Søknadsfelt<IdNummer>> = listOf()
+    val idNummer: List<Søknadsfelt<IdNummer>> = listOf(),
 )
 
 @Deprecated("Bruk v8", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ba.søknad.v8.AndreForelder"))

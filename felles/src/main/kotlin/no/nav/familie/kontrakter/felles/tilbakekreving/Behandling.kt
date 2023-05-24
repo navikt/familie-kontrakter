@@ -11,7 +11,7 @@ data class Behandling(
     val type: Behandlingstype,
     val status: Behandlingsstatus,
     val vedtaksdato: LocalDateTime?,
-    val resultat: Behandlingsresultatstype?
+    val resultat: Behandlingsresultatstype?,
 )
 
 enum class Behandlingsårsakstype {

@@ -10,7 +10,7 @@ data class Aktivitet(
     val underUtdanning: Søknadsfelt<UnderUtdanning>? = null,
     val aksjeselskap: Søknadsfelt<List<Aksjeselskap>>? = null,
     val erIArbeid: Søknadsfelt<String>? = null,
-    val erIArbeidDokumentasjon: Søknadsfelt<Dokumentasjon>? = null
+    val erIArbeidDokumentasjon: Søknadsfelt<Dokumentasjon>? = null,
 )
 
 /**

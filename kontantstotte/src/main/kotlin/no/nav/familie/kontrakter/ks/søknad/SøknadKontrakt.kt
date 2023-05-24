@@ -13,7 +13,7 @@ data class Søknad(
     val innsendtTidspunkt: LocalDateTime?,
     val oppgittFamilieforhold: OppgittFamilieforhold,
     val oppgittUtlandsTilknytning: OppgittUtlandsTilknytning,
-    val oppgittErklæring: OppgittErklæring
+    val oppgittErklæring: OppgittErklæring,
 )
 
 fun String.toSøknad(): Søknad = objectMapper.readValue(this)

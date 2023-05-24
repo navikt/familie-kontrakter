@@ -4,7 +4,7 @@ import java.time.LocalDate
 
 data class InfotrygdSøkRequest(
     val brukere: List<String>,
-    val barn: List<String>? = null
+    val barn: List<String>? = null,
 )
 
 data class InfotrygdSøkResponse<T>(

@@ -29,7 +29,7 @@ data class KontantstøtteSøknad(
     val erBarnAdoptert: Søknadsfelt<String>,
     val mottarKontantstøtteForBarnFraAnnetEøsland: Søknadsfelt<String>,
     val harEllerTildeltBarnehageplass: Søknadsfelt<String>,
-    val erAvdødPartnerForelder: Søknadsfelt<String>?
+    val erAvdødPartnerForelder: Søknadsfelt<String>?,
 )
 
 data class Søker(
@@ -62,7 +62,7 @@ data class Søker(
     val andreUtbetalingsperioder: List<Søknadsfelt<Utbetalingsperiode>>,
     val idNummer: List<Søknadsfelt<IdNummer>>,
     val andreUtbetalinger: Søknadsfelt<String>?,
-    val adresseISøkeperiode: Søknadsfelt<String>?
+    val adresseISøkeperiode: Søknadsfelt<String>?,
 )
 
 data class Barn(
@@ -106,7 +106,7 @@ data class Barn(
     val borMedOmsorgsperson: Søknadsfelt<String>?,
     val adresse: Søknadsfelt<String>?,
     val omsorgsperson: Omsorgsperson?,
-    val idNummer: List<Søknadsfelt<IdNummer>> = listOf()
+    val idNummer: List<Søknadsfelt<IdNummer>> = listOf(),
 )
 
 data class AndreForelder(
@@ -134,7 +134,7 @@ data class AndreForelder(
     val pågåendeSøknadFraAnnetEøsLand: Søknadsfelt<String>?,
     val pågåendeSøknadHvilketLand: Søknadsfelt<String>?,
     val kontantstøtteFraEøs: Søknadsfelt<String>?,
-    val eøsKontantstøttePerioder: List<Søknadsfelt<KontantstøttePeriode>> = listOf()
+    val eøsKontantstøttePerioder: List<Søknadsfelt<KontantstøttePeriode>> = listOf(),
 )
 
 data class Arbeidsperiode(
@@ -143,7 +143,7 @@ data class Arbeidsperiode(
     val arbeidsgiver: Søknadsfelt<String>,
     val fraDatoArbeidsperiode: Søknadsfelt<String>,
     val tilDatoArbeidsperiode: Søknadsfelt<String>,
-    val adresse: Søknadsfelt<String>?
+    val adresse: Søknadsfelt<String>?,
 )
 
 data class Utenlandsperiode(
@@ -151,5 +151,5 @@ data class Utenlandsperiode(
     val oppholdsland: Søknadsfelt<String>,
     val oppholdslandFraDato: Søknadsfelt<String>?,
     val oppholdslandTilDato: Søknadsfelt<String>?,
-    val adresse: Søknadsfelt<String>?
+    val adresse: Søknadsfelt<String>?,
 )

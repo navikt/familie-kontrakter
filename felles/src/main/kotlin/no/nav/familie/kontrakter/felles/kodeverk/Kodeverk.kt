@@ -7,16 +7,16 @@ data class KodeverkDto(val betydninger: Map<String, List<BetydningDto>>)
 data class BetydningDto(
     val gyldigFra: LocalDate,
     val gyldigTil: LocalDate,
-    val beskrivelser: Map<String, BeskrivelseDto>
+    val beskrivelser: Map<String, BeskrivelseDto>,
 )
 
 data class BeskrivelseDto(
     val term: String,
-    val tekst: String
+    val tekst: String,
 )
 
 enum class KodeverkSpråk(val kode: String) {
-    BOKMÅL("nb")
+    BOKMÅL("nb"),
 }
 
 private fun LocalDate.mellom(fra: LocalDate, til: LocalDate) =
@@ -29,7 +29,7 @@ fun KodeverkDto.hentGjeldende(
     kode: String,
     gjeldendeDato: LocalDate = LocalDate.now(),
     språk: KodeverkSpråk = KodeverkSpråk.BOKMÅL,
-    sisteGjeldende: Boolean = false
+    sisteGjeldende: Boolean = false,
 ): String? {
     val betydningForKode = betydninger[kode] ?: return null
     var betydning = betydningForKode.firstOrNull { gjeldendeDato.mellom(it.gyldigFra, it.gyldigTil) }

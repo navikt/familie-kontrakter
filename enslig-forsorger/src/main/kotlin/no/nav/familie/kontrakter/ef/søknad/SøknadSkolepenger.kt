@@ -10,7 +10,7 @@ data class SøknadSkolepenger(
     val sivilstandsplaner: Søknadsfelt<Sivilstandsplaner>? = null,
     val barn: Søknadsfelt<List<Barn>>,
     val utdanning: Søknadsfelt<UnderUtdanning>,
-    val dokumentasjon: SkolepengerDokumentasjon
+    val dokumentasjon: SkolepengerDokumentasjon,
 )
 
 data class SkolepengerDokumentasjon(val utdanningsutgifter: Søknadsfelt<Dokumentasjon>? = null)

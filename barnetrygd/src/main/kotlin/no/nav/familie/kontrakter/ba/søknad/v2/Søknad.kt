@@ -12,7 +12,7 @@ data class Søknad(
     val søker: Søker,
     val barn: List<Barn>,
     val spørsmål: Map<String, Søknadsfelt<Any>>,
-    val dokumentasjon: List<Søknaddokumentasjon>
+    val dokumentasjon: List<Søknaddokumentasjon>,
 )
 
 data class Søker(
@@ -21,5 +21,5 @@ data class Søker(
     val statsborgerskap: Søknadsfelt<List<String>>,
     val adresse: Søknadsfelt<SøknadAdresse>,
     val sivilstand: Søknadsfelt<SIVILSTANDTYPE>,
-    val spørsmål: Map<String, Søknadsfelt<Any>>
+    val spørsmål: Map<String, Søknadsfelt<Any>>,
 )

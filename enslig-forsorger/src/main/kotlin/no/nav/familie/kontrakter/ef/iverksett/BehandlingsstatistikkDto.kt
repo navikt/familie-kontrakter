@@ -43,13 +43,13 @@ enum class Hendelse {
     VEDTATT,
     BESLUTTET,
     HENLAGT,
-    FERDIG
+    FERDIG,
 }
 
 enum class BehandlingMetode {
     MANUELL,
     AUTOMATISK,
-    BATCH
+    BATCH,
 }
 
 enum class BehandlingKategori {

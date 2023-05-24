@@ -2,7 +2,7 @@ package no.nav.familie.kontrakter.ef.søknad
 
 data class Barnepass(
     val årsakBarnepass: Søknadsfelt<String>? = null,
-    val barnepassordninger: Søknadsfelt<List<BarnepassOrdning>>
+    val barnepassordninger: Søknadsfelt<List<BarnepassOrdning>>,
 )
 
 data class BarnepassOrdning(
@@ -10,5 +10,5 @@ data class BarnepassOrdning(
     val navn: Søknadsfelt<String>,
     @Deprecated("Bruk datoperiode") val periode: Søknadsfelt<MånedÅrPeriode>? = null,
     val datoperiode: Søknadsfelt<Datoperiode>? = null,
-    val belop: Søknadsfelt<Double>
+    val belop: Søknadsfelt<Double>,
 )

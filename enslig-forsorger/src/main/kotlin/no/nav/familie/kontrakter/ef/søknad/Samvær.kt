@@ -16,5 +16,5 @@ data class Samvær(
     val nårFlyttetDereFraHverandre: Søknadsfelt<LocalDate>? = null,
     val erklæringOmSamlivsbrudd: Søknadsfelt<Dokumentasjon>? = null,
     val hvorMyeErDuSammenMedAnnenForelder: Søknadsfelt<String>? = null,
-    val beskrivSamværUtenBarn: Søknadsfelt<String>? = null
+    val beskrivSamværUtenBarn: Søknadsfelt<String>? = null,
 )

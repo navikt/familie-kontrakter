@@ -4,5 +4,5 @@ enum class Dokumentstatus {
     FERDIGSTILT,
     AVBRUTT,
     UNDER_REDIGERING,
-    KASSERT
+    KASSERT,
 }

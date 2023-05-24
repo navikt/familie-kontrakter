@@ -8,7 +8,7 @@ data class Verge(
     @field:Pattern(regexp = "(^$|.{9})", message = "Organisasjonsnummer er ikke riktig")
     val organisasjonsnummer: String? = null,
     @field:Pattern(regexp = "(^$|.{11})", message = "PersonIdent er ikke riktig")
-    val personIdent: String? = null
+    val personIdent: String? = null,
 )
 
 enum class Vergetype(val navn: String) {
@@ -17,5 +17,5 @@ enum class Vergetype(val navn: String) {
     VERGE_FOR_VOKSEN("Verge for voksen"),
     ADVOKAT("Advokat/advokatfullmektig"),
     ANNEN_FULLMEKTIG("Annen fullmektig"),
-    UDEFINERT("Udefinert")
+    UDEFINERT("Udefinert"),
 }

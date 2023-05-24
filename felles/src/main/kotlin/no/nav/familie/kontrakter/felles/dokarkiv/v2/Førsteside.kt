@@ -5,5 +5,5 @@ import no.nav.familie.kontrakter.felles.Språkkode
 data class Førsteside(
     val språkkode: Språkkode = Språkkode.NB,
     val navSkjemaId: String,
-    val overskriftstittel: String
+    val overskriftstittel: String,
 )

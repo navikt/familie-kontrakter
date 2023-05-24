@@ -9,23 +9,23 @@ data class DistribuerJournalpostRequest(
     @field:NotBlank val dokumentProdApp: String,
     val distribusjonstype: Distribusjonstype?,
     val distribusjonstidspunkt: Distribusjonstidspunkt = Distribusjonstidspunkt.KJERNETID,
-    val adresse: ManuellAdresse? = null
+    val adresse: ManuellAdresse? = null,
 )
 
 enum class Distribusjonstype {
     VEDTAK,
     VIKTIG,
-    ANNET
+    ANNET,
 }
 
 enum class Distribusjonstidspunkt {
     KJERNETID,
-    UMIDDELBART
+    UMIDDELBART,
 }
 
 enum class AdresseType {
-    norskPostadresse,
-    utenlandskPostadresse
+    norskPostadresse, // ktlint-disable enum-entry-name-case
+    utenlandskPostadresse, // ktlint-disable enum-entry-name-case
 }
 
 data class ManuellAdresse(
@@ -35,7 +35,7 @@ data class ManuellAdresse(
     val adresselinje3: String? = null,
     val postnummer: String?,
     val poststed: String?,
-    val land: String = "NO"
+    val land: String = "NO",
 ) {
     init {
         check(land.length == 2) { "Ugyldig landkode" }

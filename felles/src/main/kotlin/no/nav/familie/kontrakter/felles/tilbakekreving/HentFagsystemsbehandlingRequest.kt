@@ -9,12 +9,12 @@ import java.time.LocalDate
 data class HentFagsystemsbehandlingRequest(
     val eksternFagsakId: String,
     val ytelsestype: Ytelsestype,
-    val eksternId: String
+    val eksternId: String,
 )
 
 data class HentFagsystemsbehandlingRespons(
     val feilMelding: String? = null,
-    val hentFagsystemsbehandling: HentFagsystemsbehandling? = null
+    val hentFagsystemsbehandling: HentFagsystemsbehandling? = null,
 )
 
 data class HentFagsystemsbehandling(
@@ -33,5 +33,5 @@ data class HentFagsystemsbehandling(
     @field:Valid
     val faktainfo: Faktainfo,
     @field:Valid
-    val institusjon: Institusjon? = null
+    val institusjon: Institusjon? = null,
 )

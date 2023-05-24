@@ -9,5 +9,5 @@ data class Barn(
     val barnehageKommune: String?,
     val barnehageVedlegg: List<String>?,
     val fødselsnummer: String,
-    val navn: String?
+    val navn: String?,
 )

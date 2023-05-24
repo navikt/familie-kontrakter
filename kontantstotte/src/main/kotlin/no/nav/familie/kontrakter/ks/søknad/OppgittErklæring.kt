@@ -4,5 +4,5 @@ data class OppgittErklæring(
     val isBarnetHjemmeværendeOgIkkeAdoptert: Boolean,
     val isBorSammenMedBarnet: Boolean,
     val isIkkeAvtaltDeltBosted: Boolean,
-    val isBarnINorgeNeste12Måneder: Boolean
+    val isBarnINorgeNeste12Måneder: Boolean,
 )

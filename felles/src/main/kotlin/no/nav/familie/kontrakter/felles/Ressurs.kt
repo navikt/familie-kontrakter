@@ -18,7 +18,7 @@ data class Ressurs<T>(
     val status: Status,
     val melding: String,
     val frontendFeilmelding: String? = null,
-    val stacktrace: String?
+    val stacktrace: String?,
 ) {
 
     enum class Status {
@@ -26,7 +26,7 @@ data class Ressurs<T>(
         FEILET,
         IKKE_HENTET,
         IKKE_TILGANG,
-        FUNKSJONELL_FEIL
+        FUNKSJONELL_FEIL,
     }
 
     companion object {
@@ -34,44 +34,44 @@ data class Ressurs<T>(
             data = data,
             status = Status.SUKSESS,
             melding = "Innhenting av data var vellykket",
-            stacktrace = null
+            stacktrace = null,
         )
 
         fun <T> success(data: T, melding: String?): Ressurs<T> = Ressurs(
             data = data,
             status = Status.SUKSESS,
             melding = melding ?: "Innhenting av data var vellykket",
-            stacktrace = null
+            stacktrace = null,
         )
 
         fun <T> failure(
             errorMessage: String? = null,
             frontendFeilmelding: String? = null,
-            error: Throwable? = null
+            error: Throwable? = null,
         ): Ressurs<T> = Ressurs(
             data = null,
             status = Status.FEILET,
             melding = errorMessage ?: "En feil har oppstått: ${error?.message}",
             frontendFeilmelding = frontendFeilmelding,
-            stacktrace = error?.textValue()
+            stacktrace = error?.textValue(),
         )
 
         fun <T> ikkeTilgang(melding: String): Ressurs<T> = Ressurs(
             data = null,
             status = Status.IKKE_TILGANG,
             melding = melding,
-            stacktrace = null
+            stacktrace = null,
         )
 
         fun <T> funksjonellFeil(
             melding: String,
-            frontendFeilmelding: String? = null
+            frontendFeilmelding: String? = null,
         ): Ressurs<T> = Ressurs(
             data = null,
             status = Status.FUNKSJONELL_FEIL,
             melding = melding,
             frontendFeilmelding = frontendFeilmelding,
-            stacktrace = null
+            stacktrace = null,
         )
 
         private fun Throwable.textValue(): String {

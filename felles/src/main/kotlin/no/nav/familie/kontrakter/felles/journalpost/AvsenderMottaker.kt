@@ -6,7 +6,7 @@ enum class AvsenderMottakerIdType {
     NULL,
     ORGNR,
     UKJENT,
-    UTL_ORG
+    UTL_ORG,
 }
 
 data class AvsenderMottaker(
@@ -14,5 +14,5 @@ data class AvsenderMottaker(
     val type: AvsenderMottakerIdType?,
     val navn: String?,
     val land: String?,
-    val erLikBruker: Boolean
+    val erLikBruker: Boolean,
 )

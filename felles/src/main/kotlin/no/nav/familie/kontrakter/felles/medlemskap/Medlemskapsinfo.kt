@@ -4,5 +4,5 @@ data class Medlemskapsinfo(
     val personIdent: String,
     val gyldigePerioder: List<PeriodeInfo>,
     val avvistePerioder: List<PeriodeInfo>,
-    val uavklartePerioder: List<PeriodeInfo>
+    val uavklartePerioder: List<PeriodeInfo>,
 )

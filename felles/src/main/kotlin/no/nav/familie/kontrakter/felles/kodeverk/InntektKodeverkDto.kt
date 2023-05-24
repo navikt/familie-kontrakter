@@ -7,5 +7,5 @@ enum class InntektKodeverkType(val kodeverk: String) {
     NAERINGSINNTEKT("Naeringsinntektsbeskrivelse"),
     PENSJON_ELLER_TRYGD("PensjonEllerTrygdeBeskrivelse"),
     YTELSE_FRA_OFFENTLIGE("YtelseFraOffentligeBeskrivelse"),
-    TILLEGSINFORMASJON_KATEGORI("EDAGTilleggsinfoKategorier")
+    TILLEGSINFORMASJON_KATEGORI("EDAGTilleggsinfoKategorier"),
 }

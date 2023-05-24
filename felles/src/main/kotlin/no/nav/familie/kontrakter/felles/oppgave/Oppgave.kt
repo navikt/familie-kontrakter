@@ -40,7 +40,7 @@ data class Oppgave(
     val endretTidspunkt: String? = null,
     val prioritet: OppgavePrioritet? = null,
     val status: StatusEnum? = null,
-    private var metadata: MutableMap<String, String>? = null
+    private var metadata: MutableMap<String, String>? = null,
 )
 
 enum class StatusEnum {
@@ -48,5 +48,5 @@ enum class StatusEnum {
     AAPNET,
     UNDER_BEHANDLING,
     FERDIGSTILT,
-    FEILREGISTRERT;
+    FEILREGISTRERT,
 }

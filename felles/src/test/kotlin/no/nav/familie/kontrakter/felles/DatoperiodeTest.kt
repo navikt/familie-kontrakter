@@ -83,7 +83,7 @@ internal class DatoperiodeTest {
         val periode2 = Datoperiode(LocalDate.of(2018, 1, 1), LocalDate.of(2018, 11, 1))
 
         shouldThrowMessage(
-            "Kan ikke lage union av perioder som $periode1 og $periode2 som ikke overlapper eller direkte følger hverandre."
+            "Kan ikke lage union av perioder som $periode1 og $periode2 som ikke overlapper eller direkte følger hverandre.",
         ) {
             periode1 union periode2
         }
@@ -226,7 +226,7 @@ internal class DatoperiodeTest {
         val periode = Datoperiode(LocalDate.of(2018, 9, 2), LocalDate.of(2020, 5, 31))
 
         shouldThrowMessage(
-            "Forsøk på å beregne lengde i hele måneder for en periode som ikke er hele måneder: 2018-09-02 - 2020-05-31"
+            "Forsøk på å beregne lengde i hele måneder for en periode som ikke er hele måneder: 2018-09-02 - 2020-05-31",
         ) {
             periode.lengdeIHeleMåneder()
         }

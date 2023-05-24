@@ -31,7 +31,7 @@ data class KontantstøtteSøknad(
     val erBarnAdoptert: Søknadsfelt<String>,
     val mottarKontantstøtteForBarnFraAnnetEøsland: Søknadsfelt<String>,
     val harEllerTildeltBarnehageplass: Søknadsfelt<String>,
-    val erAvdødPartnerForelder: Søknadsfelt<String>?
+    val erAvdødPartnerForelder: Søknadsfelt<String>?,
 )
 
 @Deprecated("Bruk v4", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ks.søknad.v4.Barn"))
@@ -76,7 +76,7 @@ data class Barn(
     val borMedOmsorgsperson: Søknadsfelt<String>?,
     val adresse: Søknadsfelt<String>?,
     val omsorgsperson: Omsorgsperson?,
-    val idNummer: List<Søknadsfelt<IdNummer>> = listOf()
+    val idNummer: List<Søknadsfelt<IdNummer>> = listOf(),
 )
 
 @Deprecated("Bruk v4", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ks.søknad.v4.AndreForelder"))
@@ -103,5 +103,5 @@ data class AndreForelder(
     val eøsKontantstøttePerioder: List<Søknadsfelt<KontantstøttePeriode>> = listOf(),
     val andreUtbetalingsperioder: List<Søknadsfelt<Utbetalingsperiode>> = listOf(),
     val idNummer: List<Søknadsfelt<IdNummer>> = listOf(),
-    val adresse: Søknadsfelt<String>?
+    val adresse: Søknadsfelt<String>?,
 )

@@ -18,6 +18,7 @@ internal class MånedsperiodeTest {
 
         månedsperiode shouldBe deserialisert
     }
+
     @Test
     fun `Månedsperiode serialiserer og deserialiserer riktig ved tidenes ende`() {
         val månedsperiode = Månedsperiode(LocalDate.MAX, LocalDate.MAX)

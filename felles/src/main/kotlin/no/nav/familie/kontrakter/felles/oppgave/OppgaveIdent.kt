@@ -7,5 +7,5 @@ enum class IdentGruppe {
     FOLKEREGISTERIDENT,
     NPID,
     ORGNR,
-    SAMHANDLERNR
+    SAMHANDLERNR,
 }

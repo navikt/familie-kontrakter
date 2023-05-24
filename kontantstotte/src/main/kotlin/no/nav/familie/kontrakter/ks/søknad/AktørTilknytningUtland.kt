@@ -7,5 +7,5 @@ data class AktørTilknytningUtland(
     val aktørId: String?,
     val fødselsnummer: String,
     val boddEllerJobbetINorgeMinstFemAar: TilknytningTilUtlandVerdier,
-    val boddEllerJobbetINorgeMinstFemAarForklaring: String
+    val boddEllerJobbetINorgeMinstFemAarForklaring: String,
 )

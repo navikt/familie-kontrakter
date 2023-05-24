@@ -14,7 +14,8 @@ enum class FagOmrådeKode(val kode: String) {
     ENSLIG_FORSØRGER_BARNETILSYN_INFOTRYGD("IT30BT"),
     TILBAKEKREVING_EF_MANUELL_POSTERING("MEFTB"),
     KONTANTSTØTTE("KS"),
-    KONTANTSTØTTE_INFOTRYGD("IT18");
+    KONTANTSTØTTE_INFOTRYGD("IT18"),
+    ;
 
     companion object {
 

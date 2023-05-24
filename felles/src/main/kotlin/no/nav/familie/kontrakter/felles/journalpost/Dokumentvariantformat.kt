@@ -6,5 +6,5 @@ enum class Dokumentvariantformat {
     FULLVERSJON,
     PRODUKSJON,
     PRODUKSJON_DLF,
-    SLADDET
+    SLADDET,
 }

@@ -13,13 +13,13 @@ data class Utbetalingsoppdrag(
     val saksbehandlerId: String,
     val avstemmingTidspunkt: LocalDateTime = LocalDateTime.now(),
     val utbetalingsperiode: List<Utbetalingsperiode>,
-    val gOmregning: Boolean = false
+    val gOmregning: Boolean = false,
 ) {
 
     enum class KodeEndring {
         NY,
         ENDR,
-        UEND
+        UEND,
     }
 }
 
@@ -37,20 +37,19 @@ data class Utbetalingsperiode(
     val satsType: SatsType,
     val utbetalesTil: String,
     val behandlingId: Long,
-    val utbetalingsgrad: Int? = null
+    val utbetalingsgrad: Int? = null,
 ) {
 
     enum class SatsType {
         DAG,
         MND,
-        ENG
+        ENG,
     }
 }
 
 data class Opphør(val opphørDatoFom: LocalDate)
 
 fun Utbetalingsoppdrag.behandlingsIdForFørsteUtbetalingsperiode(): String {
-
     return utbetalingsperiode[0].behandlingId.toString()
 }
 

@@ -9,5 +9,5 @@ data class OpprettKlagebehandlingRequest(
     val fagsystem: Fagsystem,
     val klageMottatt: LocalDate,
     val behandlendeEnhet: String,
-    val klageGjelderTilbakekreving: Boolean = false
+    val klageGjelderTilbakekreving: Boolean = false,
 )

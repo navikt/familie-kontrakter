@@ -6,7 +6,7 @@ open class KontantstøtteFeedDto(val type: KontantstøtteType)
 
 data class VedtakDto(
     val datoStartNyKS: LocalDate,
-    val fnrStoenadsmottaker: String
+    val fnrStoenadsmottaker: String,
 ) : KontantstøtteFeedDto(KontantstøtteType.KS_Vedtak)
 
 data class StartBehandlingDto(val fnrStoenadsmottaker: String) : KontantstøtteFeedDto(KontantstøtteType.KS_StartBeh)
@@ -15,5 +15,5 @@ data class StartBehandlingDto(val fnrStoenadsmottaker: String) : KontantstøtteF
 enum class KontantstøtteType {
 
     KS_Vedtak,
-    KS_StartBeh
+    KS_StartBeh,
 }

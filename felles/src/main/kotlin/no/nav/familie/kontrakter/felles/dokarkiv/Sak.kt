@@ -7,5 +7,5 @@ data class Sak(
     val arkivsaksystem: String? = null,
     val fagsakId: String? = null,
     val fagsaksystem: Fagsystem? = null,
-    val sakstype: String? = null
+    val sakstype: String? = null,
 )

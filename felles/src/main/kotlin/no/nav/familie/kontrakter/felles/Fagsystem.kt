@@ -8,5 +8,5 @@ enum class Fagsystem(val navn: String, val tema: String) {
     KS("Kontantstøtte - gammel", "KON"),
 
     KONT("Kontantstøtte", "KON"),
-    IT01("Infotrygd", "")
+    IT01("Infotrygd", ""),
 }

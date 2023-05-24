@@ -10,5 +10,5 @@ data class PerioderForBehandling(
     /**
      * Hvis utbetalingen er til en annen enn aktivFødselsnummer
      */
-    val utebetalesTil: String? = null
+    val utebetalesTil: String? = null,
 )

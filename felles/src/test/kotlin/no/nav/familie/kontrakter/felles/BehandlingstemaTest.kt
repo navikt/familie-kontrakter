@@ -19,7 +19,7 @@ internal class BehandlingstemaTest {
     internal fun `serialisering av behandlingstema skal gi value`() {
         assertEquals(
             asJsonList(Behandlingstema.Barnetilsyn.value),
-            objectMapper.writeValueAsString(listOf(Behandlingstema.Barnetilsyn))
+            objectMapper.writeValueAsString(listOf(Behandlingstema.Barnetilsyn)),
         )
     }
 

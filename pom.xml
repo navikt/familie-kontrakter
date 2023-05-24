@@ -20,7 +20,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <kotlin.version>1.8.21</kotlin.version>
         <kotest.version>5.6.2</kotest.version>
-        <jackson.version>2.15.0</jackson.version>
+        <jackson.version>2.15.1</jackson.version>
         <maven-enforcer.version>3.3.0</maven-enforcer.version>
     </properties>
 

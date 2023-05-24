@@ -22,7 +22,7 @@ data class Søknad(
     val spørsmål: Map<SpørsmålId, Søknadsfelt<Any>>,
     val dokumentasjon: List<Søknaddokumentasjon>,
     val teksterUtenomSpørsmål: Map<SpørsmålId, Map<Locale, String>>,
-    val originalSpråk: Locale
+    val originalSpråk: Locale,
 )
 
 data class Søker(
@@ -42,7 +42,7 @@ data class Søker(
     val arbeidsperioderNorge: List<Søknadsfelt<Arbeidsperiode>> = listOf(),
     val pensjonsperioderNorge: List<Søknadsfelt<Pensjonsperiode>> = listOf(),
     val pensjonsperioderUtland: List<Søknadsfelt<Pensjonsperiode>> = listOf(),
-    val idNummer: List<Søknadsfelt<IdNummer>> = listOf()
+    val idNummer: List<Søknadsfelt<IdNummer>> = listOf(),
 )
 
 data class Barn(
@@ -56,7 +56,7 @@ data class Barn(
     val andreForelder: AndreForelder? = null,
     val omsorgsperson: Omsorgsperson? = null,
     val eøsBarnetrygdsperioder: List<Søknadsfelt<EøsBarnetrygdsperiode>> = listOf(),
-    val idNummer: List<Søknadsfelt<IdNummer>> = listOf()
+    val idNummer: List<Søknadsfelt<IdNummer>> = listOf(),
 )
 
 data class Omsorgsperson(

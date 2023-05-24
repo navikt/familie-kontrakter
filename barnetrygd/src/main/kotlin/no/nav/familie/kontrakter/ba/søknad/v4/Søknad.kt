@@ -9,7 +9,7 @@ typealias SpørsmålId = String
 
 data class Søknadsfelt<T>(
     val label: Map<Locale, String>,
-    val verdi: Map<Locale, T>
+    val verdi: Map<Locale, T>,
 )
 
 enum class Søknadstype(val tittel: String, val søknadskode: String) {
@@ -26,7 +26,7 @@ data class Søknad(
     val spørsmål: Map<SpørsmålId, Søknadsfelt<Any>>,
     val dokumentasjon: List<Søknaddokumentasjon>,
     val teksterUtenomSpørsmål: Map<SpørsmålId, Map<Locale, String>>,
-    val originalSpråk: Locale
+    val originalSpråk: Locale,
 )
 
 @Deprecated("Bruk v7", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ba.søknad.v7.Dokumentasjonsbehov"))
@@ -48,12 +48,13 @@ data class Søknadsvedlegg(
     val navn: String,
     val tittel: Dokumentasjonsbehov,
 )
+
 @Deprecated("Bruk v7", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ba.søknad.v7.Søknaddokumentasjon"))
 data class Søknaddokumentasjon(
     val dokumentasjonsbehov: Dokumentasjonsbehov,
     val harSendtInn: Boolean,
     val opplastedeVedlegg: List<Søknadsvedlegg>,
-    val dokumentasjonSpråkTittel: Map<Locale, String>
+    val dokumentasjonSpråkTittel: Map<Locale, String>,
 )
 
 data class NåværendeSamboer(
@@ -75,7 +76,7 @@ data class Utenlandsopphold(
     val utenlandsoppholdÅrsak: Søknadsfelt<String>,
     val oppholdsland: Søknadsfelt<String>,
     val oppholdslandTilDato: Søknadsfelt<String?>,
-    val oppholdslandFraDato: Søknadsfelt<String?>
+    val oppholdslandFraDato: Søknadsfelt<String?>,
 )
 
 data class Søker(
@@ -87,7 +88,7 @@ data class Søker(
     val spørsmål: Map<String, Søknadsfelt<Any>>,
     val nåværendeSamboer: Søknadsfelt<NåværendeSamboer>?,
     val tidligereSamboere: List<Søknadsfelt<TidligereSamboer>>,
-    val utenlandsperioder: List<Søknadsfelt<Utenlandsopphold>> = listOf()
+    val utenlandsperioder: List<Søknadsfelt<Utenlandsopphold>> = listOf(),
 )
 
 @Deprecated("Bruk v5", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ba.søknad.v5.Barn"))
@@ -96,5 +97,5 @@ data class Barn(
     val navn: Søknadsfelt<String>,
     val borMedSøker: Søknadsfelt<Boolean>,
     val alder: Søknadsfelt<String>,
-    val spørsmål: Map<String, Søknadsfelt<Any>>
+    val spørsmål: Map<String, Søknadsfelt<Any>>,
 )

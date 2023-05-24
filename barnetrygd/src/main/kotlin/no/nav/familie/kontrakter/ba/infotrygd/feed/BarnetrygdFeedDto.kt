@@ -8,7 +8,7 @@ data class FødselsDto(val fnrBarn: String) : BarnetrygdFeedDto(BarnetrygdType.B
 
 data class VedtakDto(
     val datoStartNyBa: LocalDate,
-    val fnrStoenadsmottaker: String
+    val fnrStoenadsmottaker: String,
 ) : BarnetrygdFeedDto(BarnetrygdType.BA_Vedtak_v1)
 
 data class StartBehandlingDto(val fnrStoenadsmottaker: String) : BarnetrygdFeedDto(BarnetrygdType.BA_StartBeh)
@@ -18,5 +18,5 @@ enum class BarnetrygdType {
 
     BA_Vedtak_v1,
     BA_Foedsel_v1,
-    BA_StartBeh
+    BA_StartBeh,
 }

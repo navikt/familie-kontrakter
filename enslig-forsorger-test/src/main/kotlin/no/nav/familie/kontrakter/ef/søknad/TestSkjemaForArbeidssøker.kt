@@ -10,13 +10,13 @@ object TestSkjemaForArbeidssøker {
     val skjema = SkjemaForArbeidssøker(
         Søknadsfelt("Søker", lagPersonaliaForArbeidssøker()),
         testsøknad.aktivitet.arbeidssøker!!,
-        Søknadsfelt("Innsendingsdetaljer", testsøknad.innsendingsdetaljer)
+        Søknadsfelt("Innsendingsdetaljer", testsøknad.innsendingsdetaljer),
     )
 
     private fun lagPersonaliaForArbeidssøker(): PersonaliaArbeidssøker {
         return PersonaliaArbeidssøker(
             Søknadsfelt("fnr", Fødselsnummer(Testsøknad.syntetiskFnr)),
-            Søknadsfelt("Navn", "Navnesen")
+            Søknadsfelt("Navn", "Navnesen"),
         )
     }
 }

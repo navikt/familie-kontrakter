@@ -16,7 +16,7 @@ enum class Revurderingsårsak(
         StønadType.OVERGANGSSTØNAD,
         StønadType.BARNETILSYN,
         StønadType.SKOLEPENGER,
-        ),
+    ),
 ) {
 
     ENDRING_INNTEKT(StønadType.OVERGANGSSTØNAD),

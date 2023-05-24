@@ -11,7 +11,7 @@ data class Søknad(
     val søker: Søker,
     val barn: List<Barn>,
     val spørsmål: Map<String, Søknadsfelt<Any>>,
-    val dokumentasjon: List<Søknaddokumentasjon>
+    val dokumentasjon: List<Søknaddokumentasjon>,
 )
 
 enum class Dokumentasjonsbehov {
@@ -22,19 +22,19 @@ enum class Dokumentasjonsbehov {
     BOR_FAST_MED_SØKER,
     ANNEN_DOKUMENTASJON,
     SEPARERT_SKILT_ENKE,
-    MEKLINGSATTEST
+    MEKLINGSATTEST,
 }
 
 data class Søknaddokumentasjon(
     val dokumentasjonsbehov: Dokumentasjonsbehov,
     val harSendtInn: Boolean,
-    val opplastedeVedlegg: List<Søknadsvedlegg>
+    val opplastedeVedlegg: List<Søknadsvedlegg>,
 )
 
 data class Søknadsvedlegg(
     val dokumentId: String,
     val navn: String,
-    val tittel: Dokumentasjonsbehov
+    val tittel: Dokumentasjonsbehov,
 )
 
 data class NåværendeSamboer(
@@ -55,7 +55,7 @@ data class TidligereSamboer(
 data class UtvidetSøkerInfo(
     val spørsmål: Map<String, Søknadsfelt<Any>>,
     val nåværendeSamboer: Søknadsfelt<NåværendeSamboer>?,
-    val tidligereSamboere: List<Søknadsfelt<TidligereSamboer>>
+    val tidligereSamboere: List<Søknadsfelt<TidligereSamboer>>,
 )
 
 data class Søker(
@@ -65,7 +65,7 @@ data class Søker(
     val adresse: Søknadsfelt<SøknadAdresse>,
     val sivilstand: Søknadsfelt<SIVILSTANDTYPE>,
     val spørsmål: Map<String, Søknadsfelt<Any>>,
-    val utvidet: Søknadsfelt<UtvidetSøkerInfo>?
+    val utvidet: Søknadsfelt<UtvidetSøkerInfo>?,
 )
 
 data class Barn(
@@ -74,5 +74,5 @@ data class Barn(
     val borMedSøker: Søknadsfelt<Boolean>,
     val alder: Søknadsfelt<String>,
     val spørsmål: Map<String, Søknadsfelt<Any>>,
-    val utvidet: Map<String, Søknadsfelt<Any>>
+    val utvidet: Map<String, Søknadsfelt<Any>>,
 )

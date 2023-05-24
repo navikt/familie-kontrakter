@@ -6,5 +6,5 @@ data class MånedÅrPeriode(
     val fraMåned: Month,
     val fraÅr: Int,
     val tilMåned: Month,
-    val tilÅr: Int
+    val tilÅr: Int,
 )

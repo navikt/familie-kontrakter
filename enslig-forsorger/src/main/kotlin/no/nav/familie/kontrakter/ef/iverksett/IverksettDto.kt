@@ -56,7 +56,7 @@ data class SøkerDto(
 data class FagsakdetaljerDto(
     val fagsakId: UUID,
     val eksternId: Long,
-    val stønadstype: StønadType
+    val stønadstype: StønadType,
 )
 
 data class BehandlingsdetaljerDto(
@@ -97,7 +97,7 @@ data class VedtaksdetaljerOvergangsstønadDto(
     override val tilbakekreving: TilbakekrevingDto? = null,
     override val brevmottakere: List<Brevmottaker> = emptyList(),
     override val avslagÅrsak: AvslagÅrsak? = null,
-    val oppgaverForOpprettelse: OppgaverForOpprettelseDto = OppgaverForOpprettelseDto(oppgavetyper = emptyList())
+    val oppgaverForOpprettelse: OppgaverForOpprettelseDto = OppgaverForOpprettelseDto(oppgavetyper = emptyList()),
 ) : VedtaksdetaljerDto()
 
 data class VedtaksdetaljerBarnetilsynDto(
@@ -112,7 +112,7 @@ data class VedtaksdetaljerBarnetilsynDto(
     override val brevmottakere: List<Brevmottaker> = emptyList(),
     override val avslagÅrsak: AvslagÅrsak? = null,
     val kontantstøtte: List<PeriodeMedBeløpDto>,
-    val tilleggsstønad: List<PeriodeMedBeløpDto>
+    val tilleggsstønad: List<PeriodeMedBeløpDto>,
 
 ) : VedtaksdetaljerDto()
 
@@ -127,24 +127,24 @@ data class VedtaksdetaljerSkolepengerDto(
     override val tilbakekreving: TilbakekrevingDto? = null,
     override val brevmottakere: List<Brevmottaker> = emptyList(),
     override val avslagÅrsak: AvslagÅrsak? = null,
-    val begrunnelse: String? = null
+    val begrunnelse: String? = null,
 ) : VedtaksdetaljerDto()
 
 data class VilkårsvurderingDto(
     val vilkårType: VilkårType,
     val resultat: Vilkårsresultat,
-    val delvilkårsvurderinger: List<DelvilkårsvurderingDto> = emptyList()
+    val delvilkårsvurderinger: List<DelvilkårsvurderingDto> = emptyList(),
 )
 
 data class DelvilkårsvurderingDto(
     val resultat: Vilkårsresultat,
-    val vurderinger: List<VurderingDto> = emptyList()
+    val vurderinger: List<VurderingDto> = emptyList(),
 )
 
 data class VurderingDto(
     val regelId: RegelId,
     val svar: SvarId? = null,
-    val begrunnelse: String? = null
+    val begrunnelse: String? = null,
 )
 
 sealed class VedtaksperiodeDto
@@ -154,10 +154,10 @@ data class VedtaksperiodeOvergangsstønadDto(
     @Deprecated("Bruk periode!", ReplaceWith("periode.tom")) val tilOgMed: LocalDate? = null,
     val periode: Månedsperiode = Månedsperiode(
         YearMonth.from(fraOgMed) ?: error("Periode eller fraOgMed må ha verdi!"),
-        YearMonth.from(tilOgMed) ?: error("Periode eller fraOgMed må ha verdi!")
+        YearMonth.from(tilOgMed) ?: error("Periode eller fraOgMed må ha verdi!"),
     ),
     val aktivitet: AktivitetType,
-    val periodeType: VedtaksperiodeType
+    val periodeType: VedtaksperiodeType,
 ) : VedtaksperiodeDto()
 
 data class VedtaksperiodeBarnetilsynDto(
@@ -165,15 +165,15 @@ data class VedtaksperiodeBarnetilsynDto(
     @Deprecated("Bruk periode!", ReplaceWith("periode.tom")) val tilOgMed: LocalDate? = null,
     val periode: Månedsperiode = Månedsperiode(
         YearMonth.from(fraOgMed) ?: error("Periode eller fraOgMed må ha verdi!"),
-        YearMonth.from(tilOgMed) ?: error("Periode eller fraOgMed må ha verdi!")
+        YearMonth.from(tilOgMed) ?: error("Periode eller fraOgMed må ha verdi!"),
     ),
     val utgifter: Int,
-    val antallBarn: Int
+    val antallBarn: Int,
 ) : VedtaksperiodeDto()
 
 data class VedtaksperiodeSkolepengerDto(
     val perioder: List<DelårsperiodeSkoleårSkolepengerDto>,
-    val utgiftsperioder: List<SkolepengerUtgiftDto>
+    val utgiftsperioder: List<SkolepengerUtgiftDto>,
 ) : VedtaksperiodeDto()
 
 data class DelårsperiodeSkoleårSkolepengerDto(
@@ -182,16 +182,16 @@ data class DelårsperiodeSkoleårSkolepengerDto(
     @Deprecated("Bruk periode!", ReplaceWith("periode.tom")) val tilOgMed: LocalDate? = null,
     val periode: Månedsperiode = Månedsperiode(
         YearMonth.from(fraOgMed) ?: error("Periode eller fraOgMed må ha verdi!"),
-        YearMonth.from(tilOgMed) ?: error("Periode eller fraOgMed må ha verdi!")
+        YearMonth.from(tilOgMed) ?: error("Periode eller fraOgMed må ha verdi!"),
     ),
     val studiebelastning: Int,
-    val maksSatsForSkoleår: Int
+    val maksSatsForSkoleår: Int,
 )
 
 data class SkolepengerUtgiftDto(
     val utgiftsdato: LocalDate,
     val utgifter: Int,
-    val stønad: Int
+    val stønad: Int,
 )
 
 enum class SkolepengerStudietype {
@@ -201,7 +201,7 @@ enum class SkolepengerStudietype {
 
 data class TilbakekrevingDto(
     val tilbakekrevingsvalg: Tilbakekrevingsvalg,
-    val tilbakekrevingMedVarsel: TilbakekrevingMedVarselDto?
+    val tilbakekrevingMedVarsel: TilbakekrevingMedVarselDto?,
 )
 
 data class PeriodeMedBeløpDto(
@@ -209,9 +209,9 @@ data class PeriodeMedBeløpDto(
     @Deprecated("Bruk periode!", ReplaceWith("periode.tom")) val tilOgMed: LocalDate? = null,
     val periode: Månedsperiode = Månedsperiode(
         YearMonth.from(fraOgMed) ?: error("Periode eller fraOgMed må ha verdi!"),
-        YearMonth.from(tilOgMed) ?: error("Periode eller fraOgMed må ha verdi!")
+        YearMonth.from(tilOgMed) ?: error("Periode eller fraOgMed må ha verdi!"),
     ),
-    val beløp: Int
+    val beløp: Int,
 )
 
 data class TilbakekrevingMedVarselDto(
@@ -220,11 +220,11 @@ data class TilbakekrevingMedVarselDto(
     @Deprecated("Bruk fellesperioder!", ReplaceWith("fellesperioder"))
     val perioder: List<no.nav.familie.kontrakter.felles.tilbakekreving.Periode>? = null,
     val fellesperioder: List<Månedsperiode> = perioder?.map { Månedsperiode(it.fom, it.tom) }
-        ?: error("Perioder eller fellesperioder må ha verdi!")
+        ?: error("Perioder eller fellesperioder må ha verdi!"),
 ) // Hentes fra simulering hvis det mangler
 
 enum class OppgaveForOpprettelseType {
-    INNTEKTSKONTROLL_1_ÅR_FREM_I_TID
+    INNTEKTSKONTROLL_1_ÅR_FREM_I_TID,
 }
 
 data class OppgaverForOpprettelseDto(val oppgavetyper: List<OppgaveForOpprettelseType>)
@@ -233,7 +233,7 @@ enum class AdressebeskyttelseGradering {
     STRENGT_FORTROLIG,
     STRENGT_FORTROLIG_UTLAND,
     FORTROLIG,
-    UGRADERT
+    UGRADERT,
 }
 
 enum class IverksettStatus {
@@ -242,7 +242,7 @@ enum class IverksettStatus {
     OK_MOT_OPPDRAG,
     JOURNALFØRT,
     OK,
-    IKKE_PÅBEGYNT
+    IKKE_PÅBEGYNT,
 }
 
 enum class VedtaksperiodeType {
@@ -252,7 +252,7 @@ enum class VedtaksperiodeType {
     PERIODE_FØR_FØDSEL,
     UTVIDELSE,
     SANKSJON,
-    NY_PERIODE_FOR_NYTT_BARN
+    NY_PERIODE_FOR_NYTT_BARN,
 }
 
 enum class AktivitetType {
@@ -283,17 +283,17 @@ data class Brevmottaker(
     val ident: String,
     val navn: String,
     val mottakerRolle: MottakerRolle,
-    val identType: IdentType
+    val identType: IdentType,
 ) {
 
     enum class MottakerRolle {
         BRUKER,
         VERGE,
-        FULLMEKTIG
+        FULLMEKTIG,
     }
 
     enum class IdentType {
         PERSONIDENT,
-        ORGANISASJONSNUMMER
+        ORGANISASJONSNUMMER,
     }
 }

@@ -7,5 +7,5 @@ data class PersonMinimum(
     val navn: Søknadsfelt<String>,
     val fødselsnummer: Søknadsfelt<Fødselsnummer>? = null,
     val fødselsdato: Søknadsfelt<LocalDate>? = null,
-    val land: Søknadsfelt<String>? = null
+    val land: Søknadsfelt<String>? = null,
 )

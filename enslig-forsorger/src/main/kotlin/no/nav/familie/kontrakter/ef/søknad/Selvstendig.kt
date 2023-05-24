@@ -7,7 +7,7 @@ data class Selvstendig(
     val organisasjonsnummer: Søknadsfelt<String>,
     val etableringsdato: Søknadsfelt<LocalDate>,
     val arbeidsmengde: Søknadsfelt<Int>? = null,
-    val hvordanSerArbeidsukenUt: Søknadsfelt<String>
+    val hvordanSerArbeidsukenUt: Søknadsfelt<String>,
 )
 
 /**

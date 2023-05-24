@@ -8,5 +8,5 @@ data class SøknadMedDokumentasjonsbehovDto(
     val søknadId: String,
     val stønadType: StønadType,
     val søknadDato: LocalDate,
-    val dokumentasjonsbehov: DokumentasjonsbehovDto
+    val dokumentasjonsbehov: DokumentasjonsbehovDto,
 )

@@ -12,7 +12,7 @@ data class UnderUtdanning(
     val tidligereUtdanninger: Søknadsfelt<List<TidligereUtdanning>>? = null,
     val semesteravgift: Søknadsfelt<Double>? = null,
     val studieavgift: Søknadsfelt<Double>? = null,
-    val eksamensgebyr: Søknadsfelt<Double>? = null
+    val eksamensgebyr: Søknadsfelt<Double>? = null,
 )
 
 /**

@@ -11,7 +11,7 @@ data class SøknadBarnetilsyn(
     val barn: Søknadsfelt<List<Barn>>,
     val aktivitet: Søknadsfelt<Aktivitet>,
     val stønadsstart: Søknadsfelt<Stønadsstart>,
-    val dokumentasjon: BarnetilsynDokumentasjon
+    val dokumentasjon: BarnetilsynDokumentasjon,
 )
 
 data class BarnetilsynDokumentasjon(
@@ -19,5 +19,5 @@ data class BarnetilsynDokumentasjon(
     val avtaleBarnepasser: Søknadsfelt<Dokumentasjon>? = null,
     val arbeidstid: Søknadsfelt<Dokumentasjon>? = null,
     val roterendeArbeidstid: Søknadsfelt<Dokumentasjon>? = null,
-    val spesielleBehov: Søknadsfelt<Dokumentasjon>? = null
+    val spesielleBehov: Søknadsfelt<Dokumentasjon>? = null,
 )

@@ -7,7 +7,7 @@ data class Arbeidsgiver(
     val arbeidsmengde: Søknadsfelt<Int>? = null,
     val fastEllerMidlertidig: Søknadsfelt<String>,
     val harSluttdato: Søknadsfelt<Boolean>?,
-    val sluttdato: Søknadsfelt<LocalDate>? = null
+    val sluttdato: Søknadsfelt<LocalDate>? = null,
 )
 
 /**

@@ -10,7 +10,7 @@ data class OppgaveForBarn(
     val personIdent: String,
     val stønadType: StønadType,
     val beskrivelse: String,
-    val aktivFra: LocalDate? = null
+    val aktivFra: LocalDate? = null,
 )
 
 data class OppgaverForBarnDto(val oppgaverForBarn: List<OppgaveForBarn>)

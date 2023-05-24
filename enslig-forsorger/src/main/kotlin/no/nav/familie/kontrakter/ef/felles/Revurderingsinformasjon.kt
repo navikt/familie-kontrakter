@@ -7,7 +7,7 @@ enum class Opplysningskilde {
     MELDING_MODIA,
     INNSENDT_DOKUMENTASJON,
     BESKJED_ANNEN_ENHET,
-    OPPLYSNINGER_INTERNE_KONTROLLER
+    OPPLYSNINGER_INTERNE_KONTROLLER,
 }
 
 @Suppress("EnumEntryName", "unused")
@@ -15,8 +15,8 @@ enum class Revurderingsårsak(
     vararg stønadstyper: StønadType = arrayOf(
         StønadType.OVERGANGSSTØNAD,
         StønadType.BARNETILSYN,
-        StønadType.SKOLEPENGER
-    )
+        StønadType.SKOLEPENGER,
+        ),
 ) {
 
     ENDRING_INNTEKT(StønadType.OVERGANGSSTØNAD),
@@ -47,7 +47,8 @@ enum class Revurderingsårsak(
     UTESTENGELSE,
     ANNET,
     KLAGE_OMGJØRING,
-    ANKE_OMGJØRING;
+    ANKE_OMGJØRING,
+    ;
 
     val gjelderStønadstyper = stønadstyper.toSet()
 

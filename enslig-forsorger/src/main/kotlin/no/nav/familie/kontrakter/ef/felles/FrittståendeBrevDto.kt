@@ -11,7 +11,7 @@ data class FrittståendeBrevDto(
     val fil: ByteArray,
     val journalførendeEnhet: String,
     val saksbehandlerIdent: String,
-    val mottakere: List<Brevmottaker>? = null
+    val mottakere: List<Brevmottaker>? = null,
 )
 
 enum class FrittståendeBrevType(val tittel: String) {
@@ -26,5 +26,5 @@ enum class FrittståendeBrevType(val tittel: String) {
     BREV_OM_FORLENGET_SVARTID_KLAGE("Brev om forlenget svartid - klage"),
     INFORMASJONSBREV_TRUKKET_SØKNAD("Informasjonsbrev - bruker har trukket søknad"),
     VARSEL_UTESTENGELSE("Varsel om utestengelse"),
-    VEDTAK_UTESTENGELSE("Vedtak om utestengelse")
+    VEDTAK_UTESTENGELSE("Vedtak om utestengelse"),
 }

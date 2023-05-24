@@ -3,7 +3,7 @@ package no.nav.familie.kontrakter.ef.felles
 enum class Vedtaksresultat(val visningsnavn: String) {
     INNVILGET(visningsnavn = "Innvilget"),
     OPPHØRT(visningsnavn = "Opphørt"),
-    AVSLÅTT(visningsnavn = "Avslått")
+    AVSLÅTT(visningsnavn = "Avslått"),
 }
 
 enum class BehandlingType {
@@ -21,11 +21,11 @@ enum class BehandlingÅrsak {
     G_OMREGNING,
     KORRIGERING_UTEN_BREV,
     PAPIRSØKNAD,
-    SATSENDRING
+    SATSENDRING,
 }
 
 enum class OpphørÅrsak {
-    PERIODE_UTLØPT
+    PERIODE_UTLØPT,
 }
 
 enum class TilkjentYtelseStatus {
@@ -33,7 +33,7 @@ enum class TilkjentYtelseStatus {
     OPPRETTET,
     SENDT_TIL_IVERKSETTING,
     AKTIV,
-    AVSLUTTET
+    AVSLUTTET,
 }
 
 enum class Vilkårsresultat(val beskrivelse: String) {
@@ -42,7 +42,8 @@ enum class Vilkårsresultat(val beskrivelse: String) {
     IKKE_OPPFYLT("Vilkåret er ikke oppfylt hvis alle delvilkår er oppfylt eller ikke oppfylt, men minimum 1 ikke oppfylt"),
     IKKE_AKTUELL("Hvis søknaden/pdl data inneholder noe som gjør att delvilkåret ikke må besvares"),
     IKKE_TATT_STILLING_TIL("Init state, eller att brukeren ikke svaret på hele delvilkåret"),
-    SKAL_IKKE_VURDERES("Saksbehandleren kan sette att ett delvilkår ikke skal vurderes");
+    SKAL_IKKE_VURDERES("Saksbehandleren kan sette att ett delvilkår ikke skal vurderes"),
+    ;
 
     fun oppfyltEllerIkkeOppfylt() = this == OPPFYLT || this == IKKE_OPPFYLT
 }
@@ -70,7 +71,7 @@ enum class VilkårType(val beskrivelse: String) {
     // Skolepenger
     RETT_TIL_OVERGANGSSTØNAD("Er vilkårene for rett til overgangsstønad oppfylt?"),
     DOKUMENTASJON_AV_UTDANNING("Dokumentasjon av utdanning"),
-    ER_UTDANNING_HENSIKTSMESSIG("Er utdanning hensiktsmessig?")
+    ER_UTDANNING_HENSIKTSMESSIG("Er utdanning hensiktsmessig?"),
 }
 
 enum class AvslagÅrsak {
@@ -78,5 +79,5 @@ enum class AvslagÅrsak {
     BARN_OVER_ÅTTE_ÅR,
     STØNADSTID_OPPBRUKT,
     MANGLENDE_OPPLYSNINGER,
-    MINDRE_INNTEKTSENDRINGER
+    MINDRE_INNTEKTSENDRINGER,
 }

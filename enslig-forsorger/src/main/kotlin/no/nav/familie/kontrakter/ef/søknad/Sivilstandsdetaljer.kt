@@ -15,5 +15,5 @@ data class Sivilstandsdetaljer(
     val samlivsbruddsdato: Søknadsfelt<LocalDate>? = null,
     val fraflytningsdato: Søknadsfelt<LocalDate>? = null,
     val endringSamværsordningDato: Søknadsfelt<LocalDate>? = null,
-    val tidligereSamboerdetaljer: Søknadsfelt<PersonMinimum>? = null
+    val tidligereSamboerdetaljer: Søknadsfelt<PersonMinimum>? = null,
 )

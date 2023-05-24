@@ -7,5 +7,5 @@ data class Arbeidssøker(
     val kanDuSkaffeBarnepassInnenEnUke: Søknadsfelt<Boolean>?,
     val hvorØnskerDuArbeid: Søknadsfelt<String>,
     val ønskerDuMinst50ProsentStilling: Søknadsfelt<Boolean>,
-    val ikkeVilligTilÅTaImotTilbudOmArbeidDokumentasjon: Søknadsfelt<Dokumentasjon>? = null
+    val ikkeVilligTilÅTaImotTilbudOmArbeidDokumentasjon: Søknadsfelt<Dokumentasjon>? = null,
 )

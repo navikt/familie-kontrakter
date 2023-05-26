@@ -20,7 +20,7 @@ data class Utsendingsinfo(
 
 data class VarselSendt(
     val type: VarselType,
-    val varslingstidspunkt: LocalDateTime,
+    val varslingstidspunkt: LocalDateTime?,
 )
 
 data class FysiskpostSendt(

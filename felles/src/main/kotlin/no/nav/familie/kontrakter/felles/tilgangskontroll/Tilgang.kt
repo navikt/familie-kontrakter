@@ -6,7 +6,7 @@ package no.nav.familie.kontrakter.felles.tilgangskontroll
  * så returnerer man fortsatt bare identen til den person som man etterspurt
  */
 data class Tilgang(
+    val personIdent: String,
     val harTilgang: Boolean,
     val begrunnelse: String? = null,
-    val personIdent: String? = null,
 )

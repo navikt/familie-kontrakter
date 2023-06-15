@@ -7,7 +7,9 @@ data class FrittståendeBrevDto(
     val personIdent: String,
     val eksternFagsakId: Long,
     val stønadType: StønadType,
-    val brevtype: FrittståendeBrevType,
+    @Deprecated("Skal erstattes av tittel")
+    val brevtype: FrittståendeBrevType? = null,
+    val tittel: String,
     val fil: ByteArray,
     val journalførendeEnhet: String,
     val saksbehandlerIdent: String,

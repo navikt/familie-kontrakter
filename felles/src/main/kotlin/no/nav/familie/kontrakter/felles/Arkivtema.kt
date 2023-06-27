@@ -1,6 +1,5 @@
 package no.nav.familie.kontrakter.felles
 
-
 enum class Arkivtema(val navn: String) {
     AAP("Arbeidsavklaringspenger"),
     AAR("Aa-registeret"),
@@ -62,5 +61,5 @@ enum class Arkivtema(val navn: String) {
     UKJ("Ukjent"),
     VEN("Ventelønn"),
     YRA("Yrkesrettet attføring"),
-    YRK("Yrkesskade");
+    YRK("Yrkesskade"),
 }

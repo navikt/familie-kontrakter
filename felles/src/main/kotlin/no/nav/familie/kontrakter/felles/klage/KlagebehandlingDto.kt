@@ -22,5 +22,5 @@ data class KlageinstansResultatDto(
     val utfall: KlageinstansUtfall?,
     val mottattEllerAvsluttetTidspunkt: LocalDateTime,
     val journalpostReferanser: List<String>,
-    val årsakFeilregistrert: String?
+    val årsakFeilregistrert: String?,
 )

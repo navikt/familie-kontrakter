@@ -36,4 +36,6 @@ enum class KlageinstansUtfall(val navn: String) {
     STADFESTELSE("Stadfestelse KA"),
     UGUNST("Ugunst (Ugyldig) KA"),
     AVVIST("Avvist KA"),
+    INNSTILLING_STADFESTELSE("Instilling om stadfestelse til trygderetten fra KA"),
+    INNSTILLING_AVVIST("Instilling om avist til trygderetten fra KA"),
 }

@@ -190,7 +190,8 @@ data class DelårsperiodeSkoleårSkolepengerDto(
 
 data class SkolepengerUtgiftDto(
     val utgiftsdato: LocalDate,
-    val utgifter: Int,
+    @Deprecated("Skal ikke sende med utgifter etter oppdatering av UI.")
+    val utgifter: Int? = null,
     val stønad: Int,
 )
 

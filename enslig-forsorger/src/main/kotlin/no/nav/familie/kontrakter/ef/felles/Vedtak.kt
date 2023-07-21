@@ -22,6 +22,7 @@ enum class BehandlingÅrsak {
     KORRIGERING_UTEN_BREV,
     PAPIRSØKNAD,
     SATSENDRING,
+    MANUELT_OPPRETTET,
 }
 
 enum class OpphørÅrsak {

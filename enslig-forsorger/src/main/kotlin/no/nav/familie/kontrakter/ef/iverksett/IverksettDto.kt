@@ -98,6 +98,7 @@ data class VedtaksdetaljerOvergangsstønadDto(
     override val brevmottakere: List<Brevmottaker> = emptyList(),
     override val avslagÅrsak: AvslagÅrsak? = null,
     val oppgaverForOpprettelse: OppgaverForOpprettelseDto = OppgaverForOpprettelseDto(oppgavetyper = emptyList()),
+    val grunnbeløp: Grunnbeløp? = null,
 ) : VedtaksdetaljerDto()
 
 data class VedtaksdetaljerBarnetilsynDto(
@@ -298,3 +299,4 @@ data class Brevmottaker(
         ORGANISASJONSNUMMER,
     }
 }
+data class Grunnbeløp(val periode: Månedsperiode, val grunnbeløp: BigDecimal)

@@ -13,7 +13,7 @@ data class VedtakDto(
 
 data class StartBehandlingDto(val fnrStoenadsmottaker: String) : BarnetrygdFeedDto(BarnetrygdType.BA_StartBeh)
 
-@Suppress("ktlint:enum-entry-name-case")
+@Suppress("ktlint:standard:enum-entry-name-case")
 enum class BarnetrygdType {
 
     BA_Vedtak_v1,

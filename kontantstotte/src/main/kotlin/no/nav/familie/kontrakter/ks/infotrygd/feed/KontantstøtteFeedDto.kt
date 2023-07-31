@@ -11,7 +11,7 @@ data class VedtakDto(
 
 data class StartBehandlingDto(val fnrStoenadsmottaker: String) : KontantstøtteFeedDto(KontantstøtteType.KS_StartBeh)
 
-@Suppress("ktlint:enum-entry-name-case")
+@Suppress("ktlint:standard:enum-entry-name-case")
 enum class KontantstøtteType {
 
     KS_Vedtak,

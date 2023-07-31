@@ -24,8 +24,11 @@ enum class Distribusjonstidspunkt {
 }
 
 enum class AdresseType {
-    norskPostadresse, // ktlint-disable enum-entry-name-case
-    utenlandskPostadresse, // ktlint-disable enum-entry-name-case
+    @Suppress("ktlint:standard:enum-entry-name-case")
+    norskPostadresse,
+
+    @Suppress("ktlint:standard:enum-entry-name-case")
+    utenlandskPostadresse,
 }
 
 data class ManuellAdresse(

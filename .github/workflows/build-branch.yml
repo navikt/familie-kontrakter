@@ -2,7 +2,7 @@ name: Build-Deploy
 on:
   push:
     branches-ignore:
-      - 'master'
+      - 'main'
 
 jobs:
   build-and-deploy-artifact:

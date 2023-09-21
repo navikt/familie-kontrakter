@@ -13,7 +13,7 @@ data class Simuleringsoppsummering(
     val forfallsdatoNestePeriode: LocalDate?,
     val tidSimuleringHentet: LocalDate?,
     val tomSisteUtbetaling: LocalDate?,
-    val sumManuellePosteringer: BigDecimal = BigDecimal.ZERO,
+    val sumManuellePosteringer: BigDecimal? = BigDecimal.ZERO,
 )
 
 data class Simuleringsperiode(

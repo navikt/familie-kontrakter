@@ -19,6 +19,7 @@ enum class BehandlingÅrsak {
     SØKNAD,
     MIGRERING,
     G_OMREGNING,
+    IVERKSETTE_KA_VEDTAK,
     KORRIGERING_UTEN_BREV,
     PAPIRSØKNAD,
     SATSENDRING,

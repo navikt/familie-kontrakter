@@ -12,6 +12,8 @@ enum class Arkivtema(val navn: String) {
     DAG("Dagpenger"),
     ENF("Enslig forsørger"),
     ERS("Erstatning"),
+    EYB("Barnepensjon"),
+    EYO("Omstillingsstønad"),
     FAR("Farskap"),
     FIP("Fiskerpensjon"),
     FOS("Forsikring"),

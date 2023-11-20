@@ -77,3 +77,7 @@ Spørsmål knyttet til koden eller prosjektet kan rettes mot:
 ## For NAV-ansatte
 
 Interne henvendelser kan sendes via Slack i kanalen #team-familie
+
+## Kode generert av GitHub Copilot
+
+Dette repoet bruker GitHub Copilot til å generere kode.

@@ -40,6 +40,7 @@ enum class Oppgavetype(val value: String) {
     SvarIkkeMottatt("SVAR_IK_MOT"),
     VurderDokument("VUR"),
     VurderHenvendelse("VURD_HENV"),
+    VurderInntekt("VURD_INNT"),
     VurderKonsekvensForYtelse("VUR_KONS_YTE"),
     VurderLivshendelse("VURD_LIVS"),
     VurderSvar("VUR_SVAR"),

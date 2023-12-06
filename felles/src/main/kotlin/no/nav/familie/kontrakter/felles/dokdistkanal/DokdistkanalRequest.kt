@@ -9,4 +9,3 @@ data class DokdistkanalRequest(
     val erArkivert: Boolean? = null,
     val forsendelseStørrelseIMegabytes: Int? = null,
 )
-

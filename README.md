@@ -68,11 +68,7 @@ Lokalt bygg av prosjektet utføres med `mvn verify`.
 
 # Henvendelser
 
-Spørsmål knyttet til koden eller prosjektet kan rettes mot:
-
-* Tor Narland, tor.narland@nav.no
-* Geirmund Simonsen, geirmund.simonsen@nav.no
-* Ang. enslig forsørger: mattis.janitz@nav.no
+Opprett en issue her på GitHub dersom du har spørsmål til koden, eller prosjektet
 
 ## For NAV-ansatte
 

@@ -5,7 +5,7 @@ import java.util.UUID
 
 /**
  * @property avstemmingId Unik id for en grenseavsnittsavstemming.
- * Dersom det er fulllført en grenseavsnittsavstemming på en avstemmingId vil alle fremdtidige grenseavsnittsavstemminger på samme avstemmingId ignoreres.
+ * Dersom det er fullført en grenseavsnittsavstemming på en avstemmingId vil alle fremdtidige grenseavsnittsavstemminger på samme avstemmingId ignoreres.
  */
 data class GrensesnittavstemmingRequest(
     val fagsystem: String,

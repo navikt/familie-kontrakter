@@ -11,5 +11,5 @@ data class GrensesnittavstemmingRequest(
     val fagsystem: String,
     val fra: LocalDateTime,
     val til: LocalDateTime,
-    val avstemmingId: UUID?,
+    val avstemmingId: UUID? = null,
 )

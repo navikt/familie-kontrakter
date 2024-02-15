@@ -1,5 +1,6 @@
 package no.nav.familie.kontrakter.felles.dokarkiv
 
+@Suppress("unused")
 enum class Dokumenttype {
     SKJEMA_ARBEIDSSØKER,
     BARNETILSYNSTØNAD_ETTERSENDING,

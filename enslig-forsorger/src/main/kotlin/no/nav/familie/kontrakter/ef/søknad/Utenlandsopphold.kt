@@ -9,6 +9,6 @@ data class Utenlandsopphold(
     val årsakUtenlandsopphold: Søknadsfelt<String>,
     val personidentEøsLand: Søknadsfelt<String>? = null,
     val adresseEøsLand: Søknadsfelt<String>? = null,
-    val erEøsLand: Søknadsfelt<Boolean>? = null,
+    val erEøsLand: Boolean,
     val kanIkkeOppgiPersonident: Søknadsfelt<Boolean>? = null,
 )

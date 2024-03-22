@@ -20,7 +20,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <kotlin.version>1.9.23</kotlin.version>
         <kotest.version>5.8.1</kotest.version>
-        <jackson.version>2.17.0</jackson.version>
         <maven-enforcer.version>3.4.1</maven-enforcer.version>
     </properties>
 
@@ -30,8 +29,6 @@
         <module>enslig-forsorger</module>
         <module>enslig-forsorger-test</module>
         <module>barnetrygd</module>
-        <!--module>ba</module-->
-        <!--module>ef</module-->
     </modules>
 
     <dependencies>
@@ -53,22 +50,18 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
-            <version>${jackson.version}</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.datatype</groupId>
             <artifactId>jackson-datatype-jsr310</artifactId>
-            <version>${jackson.version}</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>${jackson.version}</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.module</groupId>
             <artifactId>jackson-module-kotlin</artifactId>
-            <version>${jackson.version}</version>
         </dependency>
         <dependency>
             <groupId>jakarta.validation</groupId>
@@ -97,6 +90,28 @@
         </dependency>
     </dependencies>
 
+    <dependencyManagement>
+        <!--
+        Denne gjør det slik at det er Spring som styrer versjonen av jackson, siden vi for det meste bruker spring.
+        Det prosjekt som ønsker nyere jackson kan overstyre hos seg, men kontraktene bør ikke levere noe som er
+        høyere enn det som følger med Spring, eller så kan det bli vanskelig å oppgradere.
+
+        Ingen avhengigheter til Spring kommer med pga dette.
+
+        For å overstyre legger man til property jackson-bom.version
+
+        -->
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>3.2.4</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <distributionManagement>
         <repository>
             <id>github</id>
@@ -108,16 +123,6 @@
     <build>
         <pluginManagement>
             <plugins>
-                <plugin>
-                    <groupId>org.sonarsource.scanner.maven</groupId>
-                    <artifactId>sonar-maven-plugin</artifactId>
-                    <version>3.11.0.3922</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.jacoco</groupId>
-                    <artifactId>jacoco-maven-plugin</artifactId>
-                    <version>0.8.11</version>
-                </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jar-plugin</artifactId>

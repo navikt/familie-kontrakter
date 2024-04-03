@@ -50,6 +50,8 @@ enum class BehandlingMetode {
     MANUELL,
     AUTOMATISK,
     BATCH,
+    TOTRINN,
+    G_OMREGNING,
 }
 
 enum class BehandlingKategori {

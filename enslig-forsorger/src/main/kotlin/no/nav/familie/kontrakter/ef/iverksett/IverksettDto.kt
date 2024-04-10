@@ -62,6 +62,7 @@ data class FagsakdetaljerDto(
 data class BehandlingsdetaljerDto(
     val behandlingId: UUID,
     val forrigeBehandlingId: UUID? = null,
+    val forrigeBehandlingEksternId: Long? = null,
     val eksternId: Long,
     val behandlingType: BehandlingType,
     val behandlingÅrsak: BehandlingÅrsak,

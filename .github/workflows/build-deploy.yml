@@ -23,7 +23,7 @@ jobs:
           cache: 'maven'
 
       - name: Use Maven v3.8.7
-        uses: stCarolas/setup-maven@v4.5
+        uses: stCarolas/setup-maven@v5
         with:
           maven-version: 3.8.7
 

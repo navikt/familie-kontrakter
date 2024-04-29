@@ -33,6 +33,7 @@ data class OpprettTilbakekrevingRequest(
     val institusjon: Institusjon? = null,
     @field:Valid
     val manuelleBrevmottakere: Set<Brevmottaker> = emptySet(),
+    val begrunnelseForTilbakekreving: String?
 ) {
 
     init {

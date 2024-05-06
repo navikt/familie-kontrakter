@@ -205,6 +205,7 @@ enum class SkolepengerStudietype {
 data class TilbakekrevingDto(
     val tilbakekrevingsvalg: Tilbakekrevingsvalg,
     val tilbakekrevingMedVarsel: TilbakekrevingMedVarselDto?,
+    val begrunnelseForTilbakekreving: String?,
 )
 
 data class PeriodeMedBeløpDto(

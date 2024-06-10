@@ -12,6 +12,7 @@ data class Behandling(
     val status: Behandlingsstatus,
     val vedtaksdato: LocalDateTime?,
     val resultat: Behandlingsresultatstype?,
+    val saksbehandlingstype: Saksbehandlingstype,
 )
 
 enum class Behandlingsårsakstype {
@@ -36,4 +37,11 @@ enum class Behandlingsresultatstype {
     DELVIS_TILBAKEBETALING,
     FULL_TILBAKEBETALING,
     HENLAGT,
+}
+
+enum class Saksbehandlingstype {
+    ORDINÆR,
+    AUTOMATISK_IKKE_INNKREVING_LAVT_BELØP,
+    AUTOMATISK_IKKE_INNKREVING_UNDER_4X_RETTSGEBYR,
+    ;
 }

@@ -1,0 +1,53 @@
+name: 'Remove Old Images'
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 2-5 * * *'
+
+jobs:
+  remove-images:
+    name: 'Remove old images job'
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+    steps:
+      - uses: actions/delete-package-versions@v5
+        with:
+          package-name: 'no.nav.familie.kontrakter.felles'
+          package-type: 'container'
+          min-versions-to-keep: 1
+      - uses: actions/delete-package-versions@v5
+        with:
+          package-name: 'no.nav.familie.kontrakter.enslig-forsorger'
+          package-type: 'container'
+          min-versions-to-keep: 1
+      - uses: actions/delete-package-versions@v5
+        with:
+          package-name: 'no.nav.familie.kontrakter.barnetrygd'
+          package-type: 'container'
+          min-versions-to-keep: 1
+      - uses: actions/delete-package-versions@v5
+        with:
+          package-name: 'no.nav.familie.kontrakter.kontantstotte'
+          package-type: 'container'
+          min-versions-to-keep: 1
+      - uses: actions/delete-package-versions@v5
+        with:
+          package-name: 'no.nav.familie.kontrakter.enslig-forsorger-test'
+          package-type: 'container'
+          min-versions-to-keep: 1
+      - uses: actions/delete-package-versions@v5
+        with:
+          package-name: 'no.nav.familie.ks.kontrakt'
+          package-type: 'container'
+          min-versions-to-keep: 1
+      - uses: actions/delete-package-versions@v5
+        with:
+          package-name: 'no.nav.familie.kontrakter.kontrakter-bom'
+          package-type: 'container'
+          min-versions-to-keep: 1
+      - uses: actions/delete-package-versions@v5
+        with:
+          package-name: 'no.nav.familie.kontrakter'
+          package-type: 'container'
+          min-versions-to-keep: 1

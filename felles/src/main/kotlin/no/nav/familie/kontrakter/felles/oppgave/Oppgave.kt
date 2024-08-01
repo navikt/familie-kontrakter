@@ -21,6 +21,7 @@ data class Oppgave(
     val samhandlernr: String? = null,
     @field:Pattern(regexp = "[0-9]{13}")
     val aktoerId: String? = null,
+    val personident: String? = null,
     val orgnr: String? = null,
     val tilordnetRessurs: String? = null,
     val beskrivelse: String? = null,

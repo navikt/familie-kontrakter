@@ -8,7 +8,7 @@ import no.nav.familie.kontrakter.ba.søknad.v7.Søknaddokumentasjon
 import no.nav.familie.kontrakter.ba.søknad.v8.Barn
 import no.nav.familie.kontrakter.ba.søknad.v8.Søker
 
-data class Søknad(
+data class BarnetrygdSøknad(
     val kontraktVersjon: Int,
     val antallEøsSteg: Int,
     val søknadstype: Søknadstype,

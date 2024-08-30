@@ -44,7 +44,7 @@ data class Statsborgerskap(
 )
 
 data class Sivilstand(
-    val type: SIVILSTAND,
+    val type: SIVILSTANDTYPE,
     val gyldigFraOgMed: LocalDate? = null,
 )
 
@@ -69,7 +69,7 @@ enum class OPPHOLDSTILLATELSE {
     OPPLYSNING_MANGLER,
 }
 
-enum class SIVILSTAND {
+enum class SIVILSTANDTYPE {
     UOPPGITT,
     UGIFT,
     GIFT,

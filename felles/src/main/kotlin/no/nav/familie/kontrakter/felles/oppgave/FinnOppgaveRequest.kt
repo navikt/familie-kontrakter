@@ -29,7 +29,7 @@ data class FinnOppgaveRequest(
     val limit: Long? = null,
     val offset: Long? = null,
     val sorteringsfelt: Sorteringsfelt? = null,
-    val sorteringsrekkefølge: Sorteringsrekkefølge? = null
+    val sorteringsrekkefølge: Sorteringsrekkefølge? = null,
 )
 
 enum class Sorteringsfelt {

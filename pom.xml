@@ -18,7 +18,7 @@
         <sha1/>
         <changelist>-SNAPSHOT</changelist>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <kotlin.version>2.0.0</kotlin.version>
+        <kotlin.version>2.0.20</kotlin.version>
         <kotest.version>5.9.0</kotest.version>
         <maven-enforcer.version>3.5.0</maven-enforcer.version>
     </properties>
@@ -105,7 +105,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>3.3.0</version>
+                <version>3.3.3</version>
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
@@ -163,17 +163,17 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-install-plugin</artifactId>
-                    <version>3.1.2</version>
+                    <version>3.1.3</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-deploy-plugin</artifactId>
-                    <version>3.1.2</version>
+                    <version>3.1.3</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-failsafe-plugin</artifactId>
-                    <version>3.2.5</version>
+                    <version>3.5.0</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>

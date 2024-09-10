@@ -14,6 +14,7 @@ data class Simuleringsoppsummering(
     val tidSimuleringHentet: LocalDate?,
     val tomSisteUtbetaling: LocalDate?,
     val sumManuellePosteringer: BigDecimal? = BigDecimal.ZERO,
+    val sumKreditortrekk: BigDecimal? = BigDecimal.ZERO,
 )
 
 data class Simuleringsperiode(

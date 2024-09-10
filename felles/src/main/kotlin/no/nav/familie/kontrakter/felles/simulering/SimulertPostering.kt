@@ -13,4 +13,5 @@ data class SimulertPostering(
     val posteringType: PosteringType,
     val forfallsdato: LocalDate,
     val utenInntrekk: Boolean = false,
+    val klassekode: String? = "",
 )

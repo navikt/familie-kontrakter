@@ -34,3 +34,14 @@ enum class Datakilde {
     INFOTRYGD,
     EF,
 }
+
+data class OvergangsstønadOgSkolepengerResponse(
+    val personIdent: String,
+    val perioder: List<EksternPeriodeMedStønadstype>,
+)
+
+data class EksternPeriodeMedStønadstype(
+    val fomDato: LocalDate,
+    val tomDato: LocalDate,
+    val stønadstype: StønadType,
+)

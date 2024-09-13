@@ -13,4 +13,7 @@ data class SimulertPostering(
     val posteringType: PosteringType,
     val forfallsdato: LocalDate,
     val utenInntrekk: Boolean = false,
-)
+    val klassekode: String? = "",
+) {
+    fun gjelderKreditortrekk(): Boolean = this.klassekode == "KREDKRED"
+}

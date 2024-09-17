@@ -6,7 +6,7 @@ import kotlin.test.assertEquals
 
 class NavIdentTest {
     @Test
-    fun `skal kaste exception om ident er blank`() {
+    fun `skal kaste exception om ident er tom`() {
         // Act & assert
         val exception =
             assertThrows<IllegalArgumentException> {

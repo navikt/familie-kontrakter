@@ -28,4 +28,13 @@ data class FinnOppgaveRequest(
     val mappeId: Long? = null,
     val limit: Long? = null,
     val offset: Long? = null,
+    val sorteringsfelt: Sorteringsfelt? = null,
+    val sorteringsrekkefølge: Sorteringsrekkefølge? = null,
 )
+
+enum class Sorteringsfelt {
+    OPPRETTET_TIDSPUNKT, AKTIV_DATO, FRIST, ENDRET_TIDSPUNKT
+}
+enum class Sorteringsrekkefølge {
+    ASC, DESC
+}

@@ -3,6 +3,7 @@ package no.nav.familie.kontrakter.felles.klage
 enum class BehandlingResultat() {
     MEDHOLD,
     IKKE_MEDHOLD,
+    IKKE_MEDHOLD_UTEN_BREV,
     IKKE_MEDHOLD_FORMKRAV_AVVIST,
     IKKE_SATT,
     HENLAGT,

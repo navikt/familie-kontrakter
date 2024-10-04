@@ -10,4 +10,5 @@ data class OpprettKlagebehandlingRequest(
     val klageMottatt: LocalDate,
     val behandlendeEnhet: String,
     val klageGjelderTilbakekreving: Boolean = false,
+    val behandlingsårsak: Klagebehandlingsårsak,
 )

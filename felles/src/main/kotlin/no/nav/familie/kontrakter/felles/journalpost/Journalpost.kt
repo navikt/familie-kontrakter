@@ -1,5 +1,9 @@
 package no.nav.familie.kontrakter.felles.journalpost
 
+import no.nav.familie.kontrakter.felles.Brevkoder
+import no.nav.familie.kontrakter.felles.Tema
+import no.nav.familie.kontrakter.felles.dokdistkanal.Distribusjonskanal
+
 data class Journalpost(
     val journalpostId: String,
     val journalposttype: Journalposttype,
@@ -19,4 +23,17 @@ data class Journalpost(
 ) {
 
     val datoMottatt = relevanteDatoer?.firstOrNull { it.datotype == "DATO_REGISTRERT" }?.dato
+
+    fun erDigitalKanal() = this.kanal == "NAV_NO"
+
+    fun erDigitalBarnetrygdSøknad() = erDigitalKanal() && this.dokumenter?.any { dokument -> Brevkoder.BARNETRYGD_BREVKODER.any { brevkode -> brevkode == dokument.brevkode } } ?: false
+
+    fun erDigitalKontantstøtteSøknad() = erDigitalKanal() && this.dokumenter?.any { dokument -> Brevkoder.KONTANTSTØTTE_SØKNAD == dokument.brevkode } ?: false
+
+    fun erDigitalSøknad(tema: Tema): Boolean = when(tema) {
+        Tema.BAR -> erDigitalBarnetrygdSøknad()
+        Tema.KON -> erDigitalKontantstøtteSøknad()
+        else -> throw Error("Støtter ikke tema $tema")
+    }
+
 }

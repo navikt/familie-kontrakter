@@ -2,7 +2,6 @@ package no.nav.familie.kontrakter.felles.journalpost
 
 import no.nav.familie.kontrakter.felles.Brevkoder
 import no.nav.familie.kontrakter.felles.Tema
-import no.nav.familie.kontrakter.felles.dokdistkanal.Distribusjonskanal
 
 data class Journalpost(
     val journalpostId: String,

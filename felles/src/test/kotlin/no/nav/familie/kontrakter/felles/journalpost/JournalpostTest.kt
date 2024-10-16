@@ -27,7 +27,7 @@ class JournalpostTest {
         )
 
         // Act
-        val erDigitalSøknad = journalpost.erDigitalSøknad(Tema.KON)
+        val erDigitalSøknad = journalpost.harDigitalSøknad(Tema.KON)
 
         // Assert
         assertTrue(erDigitalSøknad)
@@ -50,7 +50,7 @@ class JournalpostTest {
         )
 
         // Act
-        val erDigitalSøknad = journalpost.erDigitalSøknad(Tema.KON)
+        val erDigitalSøknad = journalpost.harDigitalSøknad(Tema.KON)
 
         // Assert
         assertFalse(erDigitalSøknad)
@@ -68,7 +68,7 @@ class JournalpostTest {
         )
 
         // Act
-        val erDigitalSøknad = journalpost.erDigitalSøknad(Tema.KON)
+        val erDigitalSøknad = journalpost.harDigitalSøknad(Tema.KON)
 
         // Assert
         assertFalse(erDigitalSøknad)
@@ -86,7 +86,7 @@ class JournalpostTest {
         )
 
         // Act
-        val erDigitalSøknad = journalpost.erDigitalSøknad(Tema.KON)
+        val erDigitalSøknad = journalpost.harDigitalSøknad(Tema.KON)
 
         // Assert
         assertFalse(erDigitalSøknad)
@@ -109,7 +109,7 @@ class JournalpostTest {
         )
 
         // Act
-        val erDigitalSøknad = journalpost.erDigitalSøknad(Tema.BAR)
+        val erDigitalSøknad = journalpost.harDigitalSøknad(Tema.BAR)
 
         // Assert
         assertTrue(erDigitalSøknad)
@@ -132,7 +132,7 @@ class JournalpostTest {
         )
 
         // Act
-        val erDigitalSøknad = journalpost.erDigitalSøknad(Tema.BAR)
+        val erDigitalSøknad = journalpost.harDigitalSøknad(Tema.BAR)
 
         // Assert
         assertFalse(erDigitalSøknad)
@@ -150,7 +150,7 @@ class JournalpostTest {
         )
 
         // Act
-        val erDigitalSøknad = journalpost.erDigitalSøknad(Tema.BAR)
+        val erDigitalSøknad = journalpost.harDigitalSøknad(Tema.BAR)
 
         // Assert
         assertFalse(erDigitalSøknad)
@@ -168,7 +168,7 @@ class JournalpostTest {
         )
 
         // Act
-        val erDigitalSøknad = journalpost.erDigitalSøknad(Tema.BAR)
+        val erDigitalSøknad = journalpost.harDigitalSøknad(Tema.BAR)
 
         // Assert
         assertFalse(erDigitalSøknad)
@@ -184,7 +184,7 @@ class JournalpostTest {
         )
 
         // Act
-        val error = assertThrows<Error> { journalpost.erDigitalSøknad(Tema.ENF) }
+        val error = assertThrows<Error> { journalpost.harDigitalSøknad(Tema.ENF) }
 
         // Assert
         assertEquals(expected = "Støtter ikke tema ${Tema.ENF}", actual = error.message)

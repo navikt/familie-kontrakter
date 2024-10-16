@@ -1,6 +1,5 @@
 package no.nav.familie.kontrakter.felles.journalpost
 
-import no.nav.familie.kontrakter.felles.Brevkoder
 import no.nav.familie.kontrakter.felles.Tema
 
 data class Journalpost(
@@ -25,13 +24,13 @@ data class Journalpost(
 
     fun erDigitalKanal() = this.kanal == "NAV_NO"
 
-    fun erDigitalBarnetrygdSøknad() = erDigitalKanal() && this.dokumenter?.any { dokument -> Brevkoder.BARNETRYGD_BREVKODER.any { brevkode -> brevkode == dokument.brevkode } } ?: false
+    fun harDigitalBarnetrygdSøknad() = erDigitalKanal() && this.dokumenter?.any { it.erDigitalBarnetrygdSøknad()} ?: false
 
-    fun erDigitalKontantstøtteSøknad() = erDigitalKanal() && this.dokumenter?.any { dokument -> Brevkoder.KONTANTSTØTTE_SØKNAD == dokument.brevkode } ?: false
+    fun harDigitalKontantstøtteSøknad() = erDigitalKanal() && this.dokumenter?.any { it.erDigitalKontantstøtteSøknad() } ?: false
 
-    fun erDigitalSøknad(tema: Tema): Boolean = when(tema) {
-        Tema.BAR -> erDigitalBarnetrygdSøknad()
-        Tema.KON -> erDigitalKontantstøtteSøknad()
+    fun harDigitalSøknad(tema: Tema): Boolean = when(tema) {
+        Tema.BAR -> harDigitalBarnetrygdSøknad()
+        Tema.KON -> harDigitalKontantstøtteSøknad()
         else -> throw Error("Støtter ikke tema $tema")
     }
 

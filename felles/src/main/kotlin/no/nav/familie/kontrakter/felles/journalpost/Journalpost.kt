@@ -24,14 +24,13 @@ data class Journalpost(
 
     fun erDigitalKanal() = this.kanal == "NAV_NO"
 
-    fun harDigitalBarnetrygdSøknad() = erDigitalKanal() && this.dokumenter?.any { it.erDigitalBarnetrygdSøknad()} ?: false
+    fun harDigitalBarnetrygdSøknad() = erDigitalKanal() && this.dokumenter?.any { it.erDigitalBarnetrygdSøknad() } ?: false
 
     fun harDigitalKontantstøtteSøknad() = erDigitalKanal() && this.dokumenter?.any { it.erDigitalKontantstøtteSøknad() } ?: false
 
-    fun harDigitalSøknad(tema: Tema): Boolean = when(tema) {
+    fun harDigitalSøknad(tema: Tema): Boolean = when (tema) {
         Tema.BAR -> harDigitalBarnetrygdSøknad()
         Tema.KON -> harDigitalKontantstøtteSøknad()
         else -> throw Error("Støtter ikke tema $tema")
     }
-
 }

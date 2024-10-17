@@ -12,7 +12,7 @@ class JournalpostTest {
 
     @Test
     fun `skal returnere true dersom journalpost er digital kontantstøtte søknad og tema er KON`() {
-        //Arrange
+        // Arrange
         val journalpost = Journalpost(
             journalpostId = "123",
             journalposttype = Journalposttype.I,
@@ -21,9 +21,9 @@ class JournalpostTest {
             dokumenter = listOf(
                 DokumentInfo(
                     dokumentInfoId = "1",
-                    brevkode = Brevkoder.KONTANTSTØTTE_SØKNAD
-                )
-            )
+                    brevkode = Brevkoder.KONTANTSTØTTE_SØKNAD,
+                ),
+            ),
         )
 
         // Act
@@ -35,7 +35,7 @@ class JournalpostTest {
 
     @Test
     fun `skal returnere false dersom journalpost ikke er digital kontantstøtte søknad og tema er KON`() {
-        //Arrange
+        // Arrange
         val journalpost = Journalpost(
             journalpostId = "123",
             journalposttype = Journalposttype.I,
@@ -44,9 +44,9 @@ class JournalpostTest {
             dokumenter = listOf(
                 DokumentInfo(
                     dokumentInfoId = "1",
-                    brevkode = Brevkoder.BARNETRYGD_ORDINÆR_SØKNAD
-                )
-            )
+                    brevkode = Brevkoder.BARNETRYGD_ORDINÆR_SØKNAD,
+                ),
+            ),
         )
 
         // Act
@@ -58,13 +58,13 @@ class JournalpostTest {
 
     @Test
     fun `skal returnere false dersom journalpost ikke inneholder noen dokumenter og tema er KON`() {
-        //Arrange
+        // Arrange
         val journalpost = Journalpost(
             journalpostId = "123",
             journalposttype = Journalposttype.I,
             journalstatus = Journalstatus.MOTTATT,
             kanal = "NAV_NO",
-            dokumenter = null
+            dokumenter = null,
         )
 
         // Act
@@ -76,13 +76,13 @@ class JournalpostTest {
 
     @Test
     fun `skal returnere false dersom journalpost ikke har kommet via digital kanal og tema er KON`() {
-        //Arrange
+        // Arrange
         val journalpost = Journalpost(
             journalpostId = "123",
             journalposttype = Journalposttype.I,
             journalstatus = Journalstatus.MOTTATT,
             kanal = "SKAN_",
-            dokumenter = emptyList()
+            dokumenter = emptyList(),
         )
 
         // Act
@@ -94,7 +94,7 @@ class JournalpostTest {
 
     @Test
     fun `skal returnere true dersom journalpost er digital barnetrygd søknad og tema er BAR`() {
-        //Arrange
+        // Arrange
         val journalpost = Journalpost(
             journalpostId = "123",
             journalposttype = Journalposttype.I,
@@ -103,9 +103,9 @@ class JournalpostTest {
             dokumenter = listOf(
                 DokumentInfo(
                     dokumentInfoId = "1",
-                    brevkode = Brevkoder.BARNETRYGD_ORDINÆR_SØKNAD
-                )
-            )
+                    brevkode = Brevkoder.BARNETRYGD_ORDINÆR_SØKNAD,
+                ),
+            ),
         )
 
         // Act
@@ -117,7 +117,7 @@ class JournalpostTest {
 
     @Test
     fun `skal returnere false dersom journalpost ikke er digital barnetrygd søknad og tema er BAR`() {
-        //Arrange
+        // Arrange
         val journalpost = Journalpost(
             journalpostId = "123",
             journalposttype = Journalposttype.I,
@@ -126,9 +126,9 @@ class JournalpostTest {
             dokumenter = listOf(
                 DokumentInfo(
                     dokumentInfoId = "1",
-                    brevkode = Brevkoder.KONTANTSTØTTE_SØKNAD
-                )
-            )
+                    brevkode = Brevkoder.KONTANTSTØTTE_SØKNAD,
+                ),
+            ),
         )
 
         // Act
@@ -140,13 +140,13 @@ class JournalpostTest {
 
     @Test
     fun `skal returnere false dersom journalpost ikke inneholder noen dokumenter og tema er BAR`() {
-        //Arrange
+        // Arrange
         val journalpost = Journalpost(
             journalpostId = "123",
             journalposttype = Journalposttype.I,
             journalstatus = Journalstatus.MOTTATT,
             kanal = "NAV_NO",
-            dokumenter = null
+            dokumenter = null,
         )
 
         // Act
@@ -158,13 +158,13 @@ class JournalpostTest {
 
     @Test
     fun `skal returnere false dersom journalpost ikke har kommet via digital kanal og tema er BAR`() {
-        //Arrange
+        // Arrange
         val journalpost = Journalpost(
             journalpostId = "123",
             journalposttype = Journalposttype.I,
             journalstatus = Journalstatus.MOTTATT,
             kanal = "SKAN_",
-            dokumenter = emptyList()
+            dokumenter = emptyList(),
         )
 
         // Act
@@ -180,7 +180,7 @@ class JournalpostTest {
         val journalpost = Journalpost(
             journalpostId = "123",
             journalposttype = Journalposttype.I,
-            journalstatus = Journalstatus.MOTTATT
+            journalstatus = Journalstatus.MOTTATT,
         )
 
         // Act

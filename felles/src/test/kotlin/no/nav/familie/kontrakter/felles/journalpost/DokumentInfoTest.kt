@@ -11,7 +11,6 @@ import kotlin.test.assertTrue
 
 class DokumentInfoTest {
 
-
     @Nested
     inner class ErDigitalSøknad {
 
@@ -20,7 +19,7 @@ class DokumentInfoTest {
             // Arrange
             val dokumentInfo = DokumentInfo(
                 dokumentInfoId = "1",
-                brevkode = Brevkoder.BARNETRYGD_ORDINÆR_SØKNAD
+                brevkode = Brevkoder.BARNETRYGD_ORDINÆR_SØKNAD,
             )
 
             // Act & Assert
@@ -32,7 +31,7 @@ class DokumentInfoTest {
             // Arrange
             val dokumentInfo = DokumentInfo(
                 dokumentInfoId = "1",
-                brevkode = Brevkoder.KONTANTSTØTTE_SØKNAD
+                brevkode = Brevkoder.KONTANTSTØTTE_SØKNAD,
             )
 
             // Act & Assert
@@ -44,7 +43,7 @@ class DokumentInfoTest {
             // Arrange
             val dokumentInfo = DokumentInfo(
                 dokumentInfoId = "1",
-                brevkode = Brevkoder.KONTANTSTØTTE_SØKNAD
+                brevkode = Brevkoder.KONTANTSTØTTE_SØKNAD,
             )
 
             // Act & Assert
@@ -56,7 +55,7 @@ class DokumentInfoTest {
             // Arrange
             val dokumentInfo = DokumentInfo(
                 dokumentInfoId = "1",
-                brevkode = Brevkoder.BARNETRYGD_UTVIDET_SØKNAD
+                brevkode = Brevkoder.BARNETRYGD_UTVIDET_SØKNAD,
             )
 
             // Act & Assert
@@ -68,7 +67,7 @@ class DokumentInfoTest {
             // Arrange
             val dokumentInfo = DokumentInfo(
                 dokumentInfoId = "1",
-                brevkode = Brevkoder.BARNETRYGD_ORDINÆR_SØKNAD
+                brevkode = Brevkoder.BARNETRYGD_ORDINÆR_SØKNAD,
             )
 
             // Act & Assert

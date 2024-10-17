@@ -9,7 +9,8 @@ data class DokumentInfo(
     val brevkode: String? = null,
     val dokumentstatus: Dokumentstatus? = null,
     val dokumentvarianter: List<Dokumentvariant>? = null,
-    val logiskeVedlegg: List<LogiskVedlegg>? = null) {
+    val logiskeVedlegg: List<LogiskVedlegg>? = null,
+) {
 
     fun erDigitalBarnetrygdSøknad() =
         Brevkoder.BARNETRYGD_BREVKODER.any { brevkode -> brevkode == this.brevkode }

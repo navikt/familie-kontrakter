@@ -12,7 +12,10 @@ data class Søknadsfelt<T>(
     val verdi: Map<Locale, T>,
 )
 
-enum class Søknadstype(val tittel: String, val søknadskode: String) {
+enum class Søknadstype(
+    val tittel: String,
+    val søknadskode: String,
+) {
     IKKE_SATT("SØKNADSTYPE MANGLER", "SØKNADSTYPE MANGLER"),
     ORDINÆR("Søknad om barnetrygd ordinær", "NAV 33-00.07"),
     UTVIDET("Søknad om utvidet barnetrygd", "NAV 33-00.09"),

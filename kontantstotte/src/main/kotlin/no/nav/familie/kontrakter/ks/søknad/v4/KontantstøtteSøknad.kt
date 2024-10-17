@@ -1,5 +1,8 @@
 package no.nav.familie.kontrakter.ks.søknad.v4
 
+import no.nav.familie.kontrakter.felles.søknad.BaksSøknadBase
+import no.nav.familie.kontrakter.felles.søknad.BaksSøknadPersonBase
+import no.nav.familie.kontrakter.felles.søknad.Søknadsfelt
 import no.nav.familie.kontrakter.ks.søknad.v1.BarnehageplassPeriode
 import no.nav.familie.kontrakter.ks.søknad.v1.IdNummer
 import no.nav.familie.kontrakter.ks.søknad.v1.KontantstøttePeriode
@@ -9,16 +12,15 @@ import no.nav.familie.kontrakter.ks.søknad.v1.RegistrertBostedType
 import no.nav.familie.kontrakter.ks.søknad.v1.SIVILSTANDTYPE
 import no.nav.familie.kontrakter.ks.søknad.v1.SøknadAdresse
 import no.nav.familie.kontrakter.ks.søknad.v1.Søknaddokumentasjon
-import no.nav.familie.kontrakter.ks.søknad.v1.Søknadsfelt
 import no.nav.familie.kontrakter.ks.søknad.v1.TekstPåSpråkMap
 import no.nav.familie.kontrakter.ks.søknad.v1.Utbetalingsperiode
 import no.nav.familie.kontrakter.ks.søknad.v2.Omsorgsperson
 
 data class KontantstøtteSøknad(
-    val kontraktVersjon: Int,
+    override val kontraktVersjon: Int,
+    override val søker: Søker,
+    override val barn: List<Barn>,
     val antallEøsSteg: Int,
-    val søker: Søker,
-    val barn: List<Barn>,
     val dokumentasjon: List<Søknaddokumentasjon>,
     val teksterTilPdf: Map<String, TekstPåSpråkMap>,
     val originalSpråk: Locale,
@@ -30,11 +32,11 @@ data class KontantstøtteSøknad(
     val mottarKontantstøtteForBarnFraAnnetEøsland: Søknadsfelt<String>,
     val harEllerTildeltBarnehageplass: Søknadsfelt<String>,
     val erAvdødPartnerForelder: Søknadsfelt<String>?,
-)
+) : BaksSøknadBase
 
 data class Søker(
     val harEøsSteg: Boolean,
-    val ident: Søknadsfelt<String>,
+    override val ident: Søknadsfelt<String>,
     val navn: Søknadsfelt<String>,
     val statsborgerskap: Søknadsfelt<List<String>>,
     val adresse: Søknadsfelt<SøknadAdresse?>,
@@ -44,7 +46,6 @@ data class Søker(
     val værtINorgeITolvMåneder: Søknadsfelt<String>,
     val planleggerÅBoINorgeTolvMnd: Søknadsfelt<String>,
     val yrkesaktivFemÅr: Søknadsfelt<String>,
-
     // Din livssituasjon
     val erAsylsøker: Søknadsfelt<String>,
     val utenlandsoppholdUtenArbeid: Søknadsfelt<String>,
@@ -53,7 +54,6 @@ data class Søker(
     val arbeidsperioderUtland: List<Søknadsfelt<Arbeidsperiode>>,
     val mottarUtenlandspensjon: Søknadsfelt<String>,
     val pensjonsperioderUtland: List<Søknadsfelt<Pensjonsperiode>>,
-
     // EØS
     val arbeidINorge: Søknadsfelt<String>?,
     val arbeidsperioderNorge: List<Søknadsfelt<Arbeidsperiode>>,
@@ -63,16 +63,15 @@ data class Søker(
     val idNummer: List<Søknadsfelt<IdNummer>>,
     val andreUtbetalinger: Søknadsfelt<String>?,
     val adresseISøkeperiode: Søknadsfelt<String>?,
-)
+) : BaksSøknadPersonBase
 
 data class Barn(
     val harEøsSteg: Boolean,
-    val ident: Søknadsfelt<String>,
+    override val ident: Søknadsfelt<String>,
     val navn: Søknadsfelt<String>,
     val registrertBostedType: Søknadsfelt<RegistrertBostedType>,
     val alder: Søknadsfelt<String>?,
     val teksterTilPdf: Map<String, TekstPåSpråkMap>,
-
     // Om Barna
     val erFosterbarn: Søknadsfelt<String>,
     val oppholderSegIInstitusjon: Søknadsfelt<String>,
@@ -82,7 +81,6 @@ data class Barn(
     val kontantstøtteFraAnnetEøsland: Søknadsfelt<String>,
     val harBarnehageplass: Søknadsfelt<String>,
     val andreForelderErDød: Søknadsfelt<String>?,
-
     // Om barnet - oppfølgningsspørsmål fra "om barna"
     val utbetaltForeldrepengerEllerEngangsstønad: Søknadsfelt<String>?,
     val mottarEllerMottokEøsKontantstøtte: Søknadsfelt<String>?,
@@ -91,14 +89,12 @@ data class Barn(
     val planleggerÅBoINorge12Mnd: Søknadsfelt<String>?,
     val eøsKontantstøttePerioder: List<Søknadsfelt<KontantstøttePeriode>> = listOf(),
     val barnehageplassPerioder: List<Søknadsfelt<BarnehageplassPeriode>> = listOf(),
-
     // Om barnet
     val borFastMedSøker: Søknadsfelt<String>,
     val foreldreBorSammen: Søknadsfelt<String>?,
     val søkerDeltKontantstøtte: Søknadsfelt<String>?,
     val andreForelder: AndreForelder?,
     val utenlandsperioder: List<Søknadsfelt<Utenlandsperiode>> = listOf(),
-
     // EØS
     val søkersSlektsforhold: Søknadsfelt<String>?,
     val søkersSlektsforholdSpesifisering: Søknadsfelt<String>?,
@@ -107,7 +103,7 @@ data class Barn(
     val adresse: Søknadsfelt<String>?,
     val omsorgsperson: Omsorgsperson?,
     val idNummer: List<Søknadsfelt<IdNummer>> = listOf(),
-)
+) : BaksSøknadPersonBase
 
 data class AndreForelder(
     val kanIkkeGiOpplysninger: Søknadsfelt<String>,
@@ -121,7 +117,6 @@ data class AndreForelder(
     val utenlandsperioder: List<Søknadsfelt<Utenlandsperiode>> = listOf(),
     val pensjonUtland: Søknadsfelt<String>?,
     val pensjonsperioderUtland: List<Søknadsfelt<Pensjonsperiode>> = listOf(),
-
     // EØS
     val idNummer: List<Søknadsfelt<IdNummer>> = listOf(),
     val adresse: Søknadsfelt<String>?,

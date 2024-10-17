@@ -1,5 +1,8 @@
 package no.nav.familie.kontrakter.ks.søknad.v3
 
+import no.nav.familie.kontrakter.felles.søknad.BaksSøknadBase
+import no.nav.familie.kontrakter.felles.søknad.BaksSøknadPersonBase
+import no.nav.familie.kontrakter.felles.søknad.Søknadsfelt
 import no.nav.familie.kontrakter.ks.søknad.v1.BarnehageplassPeriode
 import no.nav.familie.kontrakter.ks.søknad.v1.IdNummer
 import no.nav.familie.kontrakter.ks.søknad.v1.KontantstøttePeriode
@@ -7,7 +10,6 @@ import no.nav.familie.kontrakter.ks.søknad.v1.Locale
 import no.nav.familie.kontrakter.ks.søknad.v1.Pensjonsperiode
 import no.nav.familie.kontrakter.ks.søknad.v1.RegistrertBostedType
 import no.nav.familie.kontrakter.ks.søknad.v1.Søknaddokumentasjon
-import no.nav.familie.kontrakter.ks.søknad.v1.Søknadsfelt
 import no.nav.familie.kontrakter.ks.søknad.v1.TekstPåSpråkMap
 import no.nav.familie.kontrakter.ks.søknad.v1.Utbetalingsperiode
 import no.nav.familie.kontrakter.ks.søknad.v1.Utenlandsopphold
@@ -17,10 +19,10 @@ import no.nav.familie.kontrakter.ks.søknad.v2.Søker
 
 @Deprecated("Bruk v4", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ks.søknad.v4.KontantstøtteSøknad"))
 data class KontantstøtteSøknad(
-    val kontraktVersjon: Int,
+    override val kontraktVersjon: Int,
+    override val søker: Søker,
+    override val barn: List<Barn>,
     val antallEøsSteg: Int,
-    val søker: Søker,
-    val barn: List<Barn>,
     val dokumentasjon: List<Søknaddokumentasjon>,
     val teksterTilPdf: Map<String, TekstPåSpråkMap>,
     val originalSpråk: Locale,
@@ -32,17 +34,16 @@ data class KontantstøtteSøknad(
     val mottarKontantstøtteForBarnFraAnnetEøsland: Søknadsfelt<String>,
     val harEllerTildeltBarnehageplass: Søknadsfelt<String>,
     val erAvdødPartnerForelder: Søknadsfelt<String>?,
-)
+) : BaksSøknadBase
 
 @Deprecated("Bruk v4", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ks.søknad.v4.Barn"))
 data class Barn(
+    override val ident: Søknadsfelt<String>,
     val harEøsSteg: Boolean,
-    val ident: Søknadsfelt<String>,
     val navn: Søknadsfelt<String>,
     val registrertBostedType: Søknadsfelt<RegistrertBostedType>,
     val alder: Søknadsfelt<String>?,
     val teksterTilPdf: Map<String, TekstPåSpråkMap>,
-
     // Om Barna
     val erFosterbarn: Søknadsfelt<String>,
     val oppholderSegIInstitusjon: Søknadsfelt<String>,
@@ -52,7 +53,6 @@ data class Barn(
     val kontantstøtteFraAnnetEøsland: Søknadsfelt<String>,
     val harBarnehageplass: Søknadsfelt<String>,
     val andreForelderErDød: Søknadsfelt<String>?,
-
     // Om barnet - oppfølgningsspørsmål fra "om barna"
     val utbetaltForeldrepengerEllerEngangsstønad: Søknadsfelt<String>?,
     val mottarEllerMottokEøsKontantstøtte: Søknadsfelt<String>?,
@@ -61,14 +61,12 @@ data class Barn(
     val planleggerÅBoINorge12Mnd: Søknadsfelt<String>?,
     val eøsKontantstøttePerioder: List<Søknadsfelt<KontantstøttePeriode>> = listOf(),
     val barnehageplassPerioder: List<Søknadsfelt<BarnehageplassPeriode>> = listOf(),
-
     // Om barnet
     val borFastMedSøker: Søknadsfelt<String>,
     val foreldreBorSammen: Søknadsfelt<String>?,
     val søkerDeltKontantstøtte: Søknadsfelt<String>?,
     val andreForelder: AndreForelder?,
     val utenlandsperioder: List<Søknadsfelt<Utenlandsopphold>> = listOf(),
-
     // EØS
     val søkersSlektsforhold: Søknadsfelt<String>?,
     val søkersSlektsforholdSpesifisering: Søknadsfelt<String>?,
@@ -77,7 +75,7 @@ data class Barn(
     val adresse: Søknadsfelt<String>?,
     val omsorgsperson: Omsorgsperson?,
     val idNummer: List<Søknadsfelt<IdNummer>> = listOf(),
-)
+) : BaksSøknadPersonBase
 
 @Deprecated("Bruk v4", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ks.søknad.v4.AndreForelder"))
 data class AndreForelder(
@@ -88,7 +86,6 @@ data class AndreForelder(
     val yrkesaktivFemÅr: Søknadsfelt<String>?,
     val pensjonUtland: Søknadsfelt<String>?,
     val arbeidUtlandet: Søknadsfelt<String>?,
-
     // EØS
     val pensjonNorge: Søknadsfelt<String>?,
     val arbeidNorge: Søknadsfelt<String>?,

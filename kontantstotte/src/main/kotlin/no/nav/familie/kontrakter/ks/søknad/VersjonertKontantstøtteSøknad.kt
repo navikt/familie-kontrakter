@@ -16,8 +16,8 @@ import no.nav.familie.kontrakter.ks.søknad.v5.KontantstøtteSøknad as Kontants
 
 class VersjonertKontantstøtteSøknadDeserializer : JsonDeserializer<VersjonertKontantstøtteSøknad>() {
     /**
-     * @throws MissingVersionException dersom `kontraktVersjon` ikke er støttet.
-     * @throws UnsupportedVersionException `kontraktVersjon` ikke finnes i JSON-string.
+     * @throws MissingVersionException `kontraktVersjon` ikke finnes i JSON-string.
+     * @throws UnsupportedVersionException dersom `kontraktVersjon` ikke er støttet.
      */
     override fun deserialize(
         p: JsonParser,

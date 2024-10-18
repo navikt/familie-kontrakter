@@ -14,8 +14,8 @@ import no.nav.familie.kontrakter.ba.søknad.v9.BarnetrygdSøknad as BarnetrygdS�
 
 class VersjonertBarnetrygdSøknadDeserializer : JsonDeserializer<VersjonertBarnetrygdSøknad>() {
     /**
-     * @throws MissingVersionException dersom `kontraktVersjon` ikke er støttet.
-     * @throws UnsupportedVersionException `kontraktVersjon` ikke finnes i JSON-string.
+     * @throws MissingVersionException `kontraktVersjon` ikke finnes i JSON-string.
+     * @throws UnsupportedVersionException dersom `kontraktVersjon` ikke er støttet.
      */
     override fun deserialize(
         p: JsonParser,

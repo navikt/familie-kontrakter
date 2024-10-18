@@ -1,11 +1,11 @@
 package no.nav.familie.kontrakter.ba.søknad.v2
 
 import no.nav.familie.kontrakter.ba.Søknadstype
-import no.nav.familie.kontrakter.ba.søknad.Barn
-import no.nav.familie.kontrakter.ba.søknad.SIVILSTANDTYPE
-import no.nav.familie.kontrakter.ba.søknad.SøknadAdresse
-import no.nav.familie.kontrakter.ba.søknad.Søknaddokumentasjon
-import no.nav.familie.kontrakter.ba.søknad.Søknadsfelt
+import no.nav.familie.kontrakter.ba.søknad.v1.Barn
+import no.nav.familie.kontrakter.ba.søknad.v1.SIVILSTANDTYPE
+import no.nav.familie.kontrakter.ba.søknad.v1.SøknadAdresse
+import no.nav.familie.kontrakter.ba.søknad.v1.Søknaddokumentasjon
+import no.nav.familie.kontrakter.ba.søknad.v1.Søknadsfelt
 
 data class Søknad(
     val søknadstype: Søknadstype,

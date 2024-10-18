@@ -1,9 +1,9 @@
 package no.nav.familie.kontrakter.ba.søknad.v3
 
 import no.nav.familie.kontrakter.ba.Søknadstype
-import no.nav.familie.kontrakter.ba.søknad.SIVILSTANDTYPE
-import no.nav.familie.kontrakter.ba.søknad.SøknadAdresse
-import no.nav.familie.kontrakter.ba.søknad.Søknadsfelt
+import no.nav.familie.kontrakter.ba.søknad.v1.SIVILSTANDTYPE
+import no.nav.familie.kontrakter.ba.søknad.v1.SøknadAdresse
+import no.nav.familie.kontrakter.ba.søknad.v1.Søknadsfelt
 import java.time.LocalDate
 
 data class Søknad(

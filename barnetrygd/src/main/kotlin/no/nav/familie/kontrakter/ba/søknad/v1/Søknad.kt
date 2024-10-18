@@ -1,4 +1,4 @@
-package no.nav.familie.kontrakter.ba.søknad
+package no.nav.familie.kontrakter.ba.søknad.v1
 
 import no.nav.familie.kontrakter.ba.Søknadstype
 

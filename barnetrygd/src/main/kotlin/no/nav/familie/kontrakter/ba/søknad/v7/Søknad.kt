@@ -1,7 +1,7 @@
 package no.nav.familie.kontrakter.ba.søknad.v7
 
-import no.nav.familie.kontrakter.ba.søknad.SIVILSTANDTYPE
-import no.nav.familie.kontrakter.ba.søknad.SøknadAdresse
+import no.nav.familie.kontrakter.ba.søknad.v1.SIVILSTANDTYPE
+import no.nav.familie.kontrakter.ba.søknad.v1.SøknadAdresse
 import no.nav.familie.kontrakter.ba.søknad.v4.Locale
 import no.nav.familie.kontrakter.ba.søknad.v4.NåværendeSamboer
 import no.nav.familie.kontrakter.ba.søknad.v4.SpørsmålId

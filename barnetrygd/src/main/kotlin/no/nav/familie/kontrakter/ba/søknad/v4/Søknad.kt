@@ -1,7 +1,7 @@
 package no.nav.familie.kontrakter.ba.søknad.v4
 
-import no.nav.familie.kontrakter.ba.søknad.SIVILSTANDTYPE
-import no.nav.familie.kontrakter.ba.søknad.SøknadAdresse
+import no.nav.familie.kontrakter.ba.søknad.v1.SIVILSTANDTYPE
+import no.nav.familie.kontrakter.ba.søknad.v1.SøknadAdresse
 import java.time.LocalDate
 
 typealias Locale = String

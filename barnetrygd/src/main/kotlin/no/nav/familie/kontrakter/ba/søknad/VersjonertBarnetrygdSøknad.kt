@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.JsonDeserializer
 import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize
 import no.nav.familie.kontrakter.felles.søknad.BaksSøknadBase
-import no.nav.familie.kontrakter.felles.søknad.MissingVersionImplementationException
+import no.nav.familie.kontrakter.felles.søknad.MissingVersionException
 import no.nav.familie.kontrakter.felles.søknad.UnsupportedVersionException
 import no.nav.familie.kontrakter.ba.søknad.v7.Søknad as BarnetrygdSøknadV7
 import no.nav.familie.kontrakter.ba.søknad.v8.Søknad as BarnetrygdSøknadV8
@@ -14,8 +14,8 @@ import no.nav.familie.kontrakter.ba.søknad.v9.BarnetrygdSøknad as BarnetrygdS�
 
 class VersjonertBarnetrygdSøknadDeserializer : JsonDeserializer<VersjonertBarnetrygdSøknad>() {
     /**
-     * @throws UnsupportedVersionException dersom `kontraktVersjon` ikke er støttet.
-     * @throws MissingVersionImplementationException `kontraktVersjon` ikke finnes i JSON-string.
+     * @throws MissingVersionException dersom `kontraktVersjon` ikke er støttet.
+     * @throws UnsupportedVersionException `kontraktVersjon` ikke finnes i JSON-string.
      */
     override fun deserialize(
         p: JsonParser,
@@ -24,13 +24,13 @@ class VersjonertBarnetrygdSøknadDeserializer : JsonDeserializer<VersjonertBarne
         val node: JsonNode = p.codec.readTree(p)
         val versjon =
             node.get("kontraktVersjon")?.asInt()
-                ?: throw UnsupportedVersionException("JSON-string mangler feltet 'kontraktVersjon' og kan ikke deserialiseres. $node")
+                ?: throw MissingVersionException("JSON-string mangler feltet 'kontraktVersjon' og kan ikke deserialiseres. $node")
 
         return when (versjon) {
             7 -> VersjonertBarnetrygdSøknadV7(baksSøknadBase = p.codec.treeToValue(node, BarnetrygdSøknadV7::class.java))
             8 -> VersjonertBarnetrygdSøknadV8(baksSøknadBase = p.codec.treeToValue(node, BarnetrygdSøknadV8::class.java))
             9 -> VersjonertBarnetrygdSøknadV9(baksSøknadBase = p.codec.treeToValue(node, BarnetrygdSøknadV9::class.java))
-            else -> throw MissingVersionImplementationException("Mangler implementasjon for versjon: $versjon av BarnetrygdSøknad.")
+            else -> throw UnsupportedVersionException("Mangler implementasjon for versjon: $versjon av BarnetrygdSøknad.")
         }
     }
 }

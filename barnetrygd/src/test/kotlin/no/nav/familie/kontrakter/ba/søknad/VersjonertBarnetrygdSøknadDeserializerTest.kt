@@ -1,10 +1,12 @@
 package no.nav.familie.kontrakter.ba.søknad
 
 import com.fasterxml.jackson.module.kotlin.readValue
+import no.nav.familie.kontrakter.ba.søknad.v1.SIVILSTANDTYPE
+import no.nav.familie.kontrakter.ba.søknad.v1.SøknadAdresse
 import no.nav.familie.kontrakter.ba.søknad.v4.Søknadstype
 import no.nav.familie.kontrakter.ba.søknad.v5.RegistrertBostedType
 import no.nav.familie.kontrakter.felles.objectMapper
-import no.nav.familie.kontrakter.felles.søknad.MissingVersionImplementationException
+import no.nav.familie.kontrakter.felles.søknad.MissingVersionException
 import no.nav.familie.kontrakter.felles.søknad.Søknadsfelt
 import no.nav.familie.kontrakter.felles.søknad.UnsupportedVersionException
 import org.junit.jupiter.api.Assertions.assertEquals
@@ -127,11 +129,11 @@ class VersjonertBarnetrygdSøknadDeserializerTest {
         val jsonString = """{"felt1":123,"felt2":"hei"}"""
 
         // Act & Assert
-        val unsupportedVersionException =
-            assertThrows<UnsupportedVersionException> { objectMapper.readValue<VersjonertBarnetrygdSøknad>(jsonString) }
+        val missingVersionException =
+            assertThrows<MissingVersionException> { objectMapper.readValue<VersjonertBarnetrygdSøknad>(jsonString) }
         assertEquals(
             "JSON-string mangler feltet 'kontraktVersjon' og kan ikke deserialiseres. $jsonString",
-            unsupportedVersionException.message,
+            missingVersionException.message,
         )
     }
 
@@ -142,7 +144,7 @@ class VersjonertBarnetrygdSøknadDeserializerTest {
 
         // Act & Assert
         val unsupportedVersionException =
-            assertThrows<MissingVersionImplementationException> { objectMapper.readValue<VersjonertBarnetrygdSøknad>(jsonString) }
+            assertThrows<UnsupportedVersionException> { objectMapper.readValue<VersjonertBarnetrygdSøknad>(jsonString) }
         assertEquals(
             "Mangler implementasjon for versjon: 100 av BarnetrygdSøknad.",
             unsupportedVersionException.message,
@@ -162,16 +164,16 @@ class VersjonertBarnetrygdSøknadDeserializerTest {
             navn = lagStringSøknadsfelt("Navn"),
             statsborgerskap = lagStringSøknadsfelt(listOf("Norge")),
             adresse =
-            lagStringSøknadsfelt(
-                SøknadAdresse(
-                    adressenavn = "Gate",
-                    postnummer = null,
-                    husbokstav = null,
-                    bruksenhetsnummer = null,
-                    husnummer = null,
-                    poststed = null,
+                lagStringSøknadsfelt(
+                    SøknadAdresse(
+                        adressenavn = "Gate",
+                        postnummer = null,
+                        husbokstav = null,
+                        bruksenhetsnummer = null,
+                        husnummer = null,
+                        poststed = null,
+                    ),
                 ),
-            ),
             adressebeskyttelse = false,
             sivilstand = lagStringSøknadsfelt(SIVILSTANDTYPE.UOPPGITT),
             utenlandsperioder = emptyList(),
@@ -193,16 +195,16 @@ class VersjonertBarnetrygdSøknadDeserializerTest {
             navn = lagStringSøknadsfelt("Navn"),
             statsborgerskap = lagStringSøknadsfelt(listOf("Norge")),
             adresse =
-            lagStringSøknadsfelt(
-                SøknadAdresse(
-                    adressenavn = "Gate",
-                    postnummer = null,
-                    husbokstav = null,
-                    bruksenhetsnummer = null,
-                    husnummer = null,
-                    poststed = null,
+                lagStringSøknadsfelt(
+                    SøknadAdresse(
+                        adressenavn = "Gate",
+                        postnummer = null,
+                        husbokstav = null,
+                        bruksenhetsnummer = null,
+                        husnummer = null,
+                        poststed = null,
+                    ),
                 ),
-            ),
             sivilstand = lagStringSøknadsfelt(SIVILSTANDTYPE.UOPPGITT),
             utenlandsperioder = emptyList(),
             arbeidsperioderUtland = emptyList(),

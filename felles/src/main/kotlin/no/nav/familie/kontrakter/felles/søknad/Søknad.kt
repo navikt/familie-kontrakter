@@ -22,10 +22,10 @@ data class Søknadsfelt<T>(
     val verdi: Map<Locale, T>,
 )
 
-class UnsupportedVersionException(
+class MissingVersionException(
     msg: String,
 ) : RuntimeException(msg)
 
-class MissingVersionImplementationException(
+class UnsupportedVersionException(
     msg: String,
 ) : RuntimeException(msg)

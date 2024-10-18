@@ -2,7 +2,7 @@ package no.nav.familie.kontrakter.ks.søknad
 
 import com.fasterxml.jackson.module.kotlin.readValue
 import no.nav.familie.kontrakter.felles.objectMapper
-import no.nav.familie.kontrakter.felles.søknad.MissingVersionImplementationException
+import no.nav.familie.kontrakter.felles.søknad.MissingVersionException
 import no.nav.familie.kontrakter.felles.søknad.Søknadsfelt
 import no.nav.familie.kontrakter.felles.søknad.UnsupportedVersionException
 import no.nav.familie.kontrakter.ks.søknad.v1.RegistrertBostedType
@@ -214,11 +214,11 @@ class VersjonertKontantstøtteSøknadDeserializerTest {
         val jsonString = """{"felt1":123,"felt2":"hei"}"""
 
         // Act & Assert
-        val unsupportedVersionException =
-            assertThrows<UnsupportedVersionException> { objectMapper.readValue<VersjonertKontantstøtteSøknad>(jsonString) }
+        val missingVersionException =
+            assertThrows<MissingVersionException> { objectMapper.readValue<VersjonertKontantstøtteSøknad>(jsonString) }
         assertEquals(
             "JSON-string mangler feltet 'kontraktVersjon' og kan ikke deserialiseres. $jsonString",
-            unsupportedVersionException.message,
+            missingVersionException.message,
         )
     }
 
@@ -229,7 +229,7 @@ class VersjonertKontantstøtteSøknadDeserializerTest {
 
         // Act & Assert
         val unsupportedVersionException =
-            assertThrows<MissingVersionImplementationException> { objectMapper.readValue<VersjonertKontantstøtteSøknad>(jsonString) }
+            assertThrows<UnsupportedVersionException> { objectMapper.readValue<VersjonertKontantstøtteSøknad>(jsonString) }
         assertEquals(
             "Mangler implementasjon for versjon: 100 av KontantstøtteSøknad.",
             unsupportedVersionException.message,
@@ -249,16 +249,16 @@ class VersjonertKontantstøtteSøknadDeserializerTest {
             navn = lagStringSøknadsfelt("Navn"),
             statsborgerskap = lagStringSøknadsfelt(listOf("Norge")),
             adresse =
-            lagStringSøknadsfelt(
-                SøknadAdresse(
-                    adressenavn = "Gate",
-                    postnummer = null,
-                    husbokstav = null,
-                    bruksenhetsnummer = null,
-                    husnummer = null,
-                    poststed = null,
+                lagStringSøknadsfelt(
+                    SøknadAdresse(
+                        adressenavn = "Gate",
+                        postnummer = null,
+                        husbokstav = null,
+                        bruksenhetsnummer = null,
+                        husnummer = null,
+                        poststed = null,
+                    ),
                 ),
-            ),
             adressebeskyttelse = false,
             sivilstand = lagStringSøknadsfelt(SIVILSTANDTYPE.UOPPGITT),
             borPåRegistrertAdresse = null,
@@ -289,16 +289,16 @@ class VersjonertKontantstøtteSøknadDeserializerTest {
             navn = lagStringSøknadsfelt("Navn"),
             statsborgerskap = lagStringSøknadsfelt(listOf("Norge")),
             adresse =
-            lagStringSøknadsfelt(
-                SøknadAdresse(
-                    adressenavn = "Gate",
-                    postnummer = null,
-                    husbokstav = null,
-                    bruksenhetsnummer = null,
-                    husnummer = null,
-                    poststed = null,
+                lagStringSøknadsfelt(
+                    SøknadAdresse(
+                        adressenavn = "Gate",
+                        postnummer = null,
+                        husbokstav = null,
+                        bruksenhetsnummer = null,
+                        husnummer = null,
+                        poststed = null,
+                    ),
                 ),
-            ),
             adressebeskyttelse = false,
             sivilstand = lagStringSøknadsfelt(SIVILSTANDTYPE.UOPPGITT),
             borPåRegistrertAdresse = null,
@@ -328,16 +328,16 @@ class VersjonertKontantstøtteSøknadDeserializerTest {
             navn = lagStringSøknadsfelt("Navn"),
             statsborgerskap = lagStringSøknadsfelt(listOf("Norge")),
             adresse =
-            lagStringSøknadsfelt(
-                SøknadAdresse(
-                    adressenavn = "Gate",
-                    postnummer = null,
-                    husbokstav = null,
-                    bruksenhetsnummer = null,
-                    husnummer = null,
-                    poststed = null,
+                lagStringSøknadsfelt(
+                    SøknadAdresse(
+                        adressenavn = "Gate",
+                        postnummer = null,
+                        husbokstav = null,
+                        bruksenhetsnummer = null,
+                        husnummer = null,
+                        poststed = null,
+                    ),
                 ),
-            ),
             adressebeskyttelse = false,
             sivilstand = lagStringSøknadsfelt(SIVILSTANDTYPE.UOPPGITT),
             borPåRegistrertAdresse = null,

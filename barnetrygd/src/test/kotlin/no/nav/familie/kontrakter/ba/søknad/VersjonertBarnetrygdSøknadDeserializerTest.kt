@@ -58,6 +58,40 @@ class VersjonertBarnetrygdSøknadDeserializerTest {
     }
 
     @Test
+    fun `skal kunne deserialisere BarnetrygdSøknadV9 til StøttetVersjonertBarnetrygdSøknadV9 når kontraktVersjon er 9`() {
+        // Arrange
+        val søkerFnr = "12345678910"
+        val barnFnr = "12345678911"
+        val barnetrygdSøknadV9 =
+            BarnetrygdSøknadV9(
+                kontraktVersjon = 9,
+                søker = lagSøkerV8(søkerFnr),
+                barn = listOf(lagBarnV8(barnFnr)),
+                antallEøsSteg = 0,
+                dokumentasjon = emptyList(),
+                originalSpråk = "NB",
+                finnesPersonMedAdressebeskyttelse = false,
+                søknadstype = Søknadstype.ORDINÆR,
+                spørsmål = emptyMap(),
+                teksterUtenomSpørsmål = emptyMap(),
+            )
+        val søknadJson = objectMapper.writeValueAsString(barnetrygdSøknadV9)
+
+        // Act
+        val versjonertBarnetrygdSøknad = objectMapper.readValue<StøttetVersjonertBarnetrygdSøknad>(søknadJson)
+
+        // Assert
+        assertNotNull(versjonertBarnetrygdSøknad)
+        assertTrue(versjonertBarnetrygdSøknad is VersjonertBarnetrygdSøknadV9)
+        assertEquals(9, versjonertBarnetrygdSøknad.barnetrygdSøknad.kontraktVersjon)
+        assertEquals(2, versjonertBarnetrygdSøknad.barnetrygdSøknad.personerISøknad().size)
+        assertEquals(
+            listOf("12345678910", "12345678911"),
+            versjonertBarnetrygdSøknad.barnetrygdSøknad.personerISøknad(),
+        )
+    }
+
+    @Test
     fun `skal kunne deserialisere BarnetrygdSøknad V8 når kontraktVersjon er 8`() {
         // Arrange
         val søkerFnr = "12345678910"
@@ -78,6 +112,39 @@ class VersjonertBarnetrygdSøknadDeserializerTest {
 
         // Act
         val versjonertBarnetrygdSøknad = objectMapper.readValue<VersjonertBarnetrygdSøknad>(søknadJson)
+
+        // Assert
+        assertNotNull(versjonertBarnetrygdSøknad)
+        assertTrue(versjonertBarnetrygdSøknad is VersjonertBarnetrygdSøknadV8)
+        assertEquals(8, versjonertBarnetrygdSøknad.barnetrygdSøknad.kontraktVersjon)
+        assertEquals(2, versjonertBarnetrygdSøknad.barnetrygdSøknad.personerISøknad().size)
+        assertEquals(
+            listOf("12345678910", "12345678911"),
+            versjonertBarnetrygdSøknad.barnetrygdSøknad.personerISøknad(),
+        )
+    }
+
+    @Test
+    fun `skal kunne deserialisere BarnetrygdSøknadV8 til StøttetVersjonertBarnetrygdSøknad når kontraktVersjon er 8`() {
+        // Arrange
+        val søkerFnr = "12345678910"
+        val barnFnr = "12345678911"
+        val barnetrygdSøknadV9 =
+            BarnetrygdSøknadV8(
+                kontraktVersjon = 8,
+                søker = lagSøkerV8(søkerFnr),
+                barn = listOf(lagBarnV8(barnFnr)),
+                antallEøsSteg = 0,
+                dokumentasjon = emptyList(),
+                originalSpråk = "NB",
+                søknadstype = Søknadstype.ORDINÆR,
+                spørsmål = emptyMap(),
+                teksterUtenomSpørsmål = emptyMap(),
+            )
+        val søknadJson = objectMapper.writeValueAsString(barnetrygdSøknadV9)
+
+        // Act
+        val versjonertBarnetrygdSøknad = objectMapper.readValue<StøttetVersjonertBarnetrygdSøknad>(søknadJson)
 
         // Assert
         assertNotNull(versjonertBarnetrygdSøknad)
@@ -164,16 +231,16 @@ class VersjonertBarnetrygdSøknadDeserializerTest {
             navn = lagStringSøknadsfelt("Navn"),
             statsborgerskap = lagStringSøknadsfelt(listOf("Norge")),
             adresse =
-            lagStringSøknadsfelt(
-                SøknadAdresse(
-                    adressenavn = "Gate",
-                    postnummer = null,
-                    husbokstav = null,
-                    bruksenhetsnummer = null,
-                    husnummer = null,
-                    poststed = null,
+                lagStringSøknadsfelt(
+                    SøknadAdresse(
+                        adressenavn = "Gate",
+                        postnummer = null,
+                        husbokstav = null,
+                        bruksenhetsnummer = null,
+                        husnummer = null,
+                        poststed = null,
+                    ),
                 ),
-            ),
             adressebeskyttelse = false,
             sivilstand = lagStringSøknadsfelt(SIVILSTANDTYPE.UOPPGITT),
             utenlandsperioder = emptyList(),
@@ -195,16 +262,16 @@ class VersjonertBarnetrygdSøknadDeserializerTest {
             navn = lagStringSøknadsfelt("Navn"),
             statsborgerskap = lagStringSøknadsfelt(listOf("Norge")),
             adresse =
-            lagStringSøknadsfelt(
-                SøknadAdresse(
-                    adressenavn = "Gate",
-                    postnummer = null,
-                    husbokstav = null,
-                    bruksenhetsnummer = null,
-                    husnummer = null,
-                    poststed = null,
+                lagStringSøknadsfelt(
+                    SøknadAdresse(
+                        adressenavn = "Gate",
+                        postnummer = null,
+                        husbokstav = null,
+                        bruksenhetsnummer = null,
+                        husnummer = null,
+                        poststed = null,
+                    ),
                 ),
-            ),
             sivilstand = lagStringSøknadsfelt(SIVILSTANDTYPE.UOPPGITT),
             utenlandsperioder = emptyList(),
             arbeidsperioderUtland = emptyList(),

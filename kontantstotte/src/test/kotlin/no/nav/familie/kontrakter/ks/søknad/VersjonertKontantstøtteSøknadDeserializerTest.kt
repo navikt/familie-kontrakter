@@ -28,7 +28,7 @@ import no.nav.familie.kontrakter.ks.søknad.v5.KontantstøtteSøknad as Kontants
 
 class VersjonertKontantstøtteSøknadDeserializerTest {
     @Test
-    fun`skal kunne deserialisere KontantstøtteSøknad V5`() {
+    fun`skal kunne deserialisere KontantstøtteSøknad V5 til VersjonertKontantstøtteSøknad`() {
         // Arrange
         val søkerFnr = "12345678910"
         val barnFnr = "12345678911"
@@ -65,6 +65,43 @@ class VersjonertKontantstøtteSøknadDeserializerTest {
     }
 
     @Test
+    fun`skal kunne deserialisere KontantstøtteSøknad V5 til StøttetVersjonertKontantstøtteSøknad`() {
+        // Arrange
+        val søkerFnr = "12345678910"
+        val barnFnr = "12345678911"
+        val kontantstøtteSøknadV5 =
+            KontantstøtteSøknadV5(
+                kontraktVersjon = 5,
+                søker = lagSøkerV4(søkerFnr),
+                barn = listOf(lagBarnV4(barnFnr)),
+                antallEøsSteg = 0,
+                dokumentasjon = emptyList(),
+                teksterTilPdf = emptyMap(),
+                originalSpråk = "NB",
+                finnesPersonMedAdressebeskyttelse = false,
+                erNoenAvBarnaFosterbarn = lagStringSøknadsfelt("Nei"),
+                søktAsylForBarn = lagStringSøknadsfelt("Nei"),
+                oppholderBarnSegIInstitusjon = lagStringSøknadsfelt("Nei"),
+                barnOppholdtSegTolvMndSammenhengendeINorge = lagStringSøknadsfelt("Ja"),
+                erBarnAdoptert = lagStringSøknadsfelt("Nei"),
+                mottarKontantstøtteForBarnFraAnnetEøsland = lagStringSøknadsfelt("Nei"),
+                harEllerTildeltBarnehageplass = lagStringSøknadsfelt("Nei"),
+                erAvdødPartnerForelder = null,
+            )
+        val søknadJson = objectMapper.writeValueAsString(kontantstøtteSøknadV5)
+
+        // Act
+        val versjonertKontantstøtteSøknad = objectMapper.readValue<StøttetVersjonertKontantstøtteSøknad>(søknadJson)
+
+        // Assert
+        assertNotNull(versjonertKontantstøtteSøknad)
+        assertTrue { versjonertKontantstøtteSøknad is VersjonertKontantstøtteSøknadV5 }
+        assertEquals(5, versjonertKontantstøtteSøknad.kontantstøtteSøknad.kontraktVersjon)
+        assertEquals(2, versjonertKontantstøtteSøknad.kontantstøtteSøknad.personerISøknad().size)
+        assertEquals(listOf("12345678910", "12345678911"), versjonertKontantstøtteSøknad.kontantstøtteSøknad.personerISøknad())
+    }
+
+    @Test
     fun`skal kunne deserialisere KontantstøtteSøknad V4`() {
         // Arrange
         val søkerFnr = "12345678910"
@@ -91,6 +128,42 @@ class VersjonertKontantstøtteSøknadDeserializerTest {
 
         // Act
         val versjonertKontantstøtteSøknad = objectMapper.readValue<VersjonertKontantstøtteSøknad>(søknadJson)
+
+        // Assert
+        assertNotNull(versjonertKontantstøtteSøknad)
+        assertTrue { versjonertKontantstøtteSøknad is VersjonertKontantstøtteSøknadV4 }
+        assertEquals(4, versjonertKontantstøtteSøknad.kontantstøtteSøknad.kontraktVersjon)
+        assertEquals(2, versjonertKontantstøtteSøknad.kontantstøtteSøknad.personerISøknad().size)
+        assertEquals(listOf("12345678910", "12345678911"), versjonertKontantstøtteSøknad.kontantstøtteSøknad.personerISøknad())
+    }
+
+    @Test
+    fun`skal kunne deserialisere KontantstøtteSøknad V4 til StøttetVersjonertKontantstøtteSøknad`() {
+        // Arrange
+        val søkerFnr = "12345678910"
+        val barnFnr = "12345678911"
+        val kontantstøtteSøknadV4 =
+            KontantstøtteSøknadV4(
+                kontraktVersjon = 4,
+                søker = lagSøkerV4(søkerFnr),
+                barn = listOf(lagBarnV4(barnFnr)),
+                antallEøsSteg = 0,
+                dokumentasjon = emptyList(),
+                teksterTilPdf = emptyMap(),
+                originalSpråk = "NB",
+                erNoenAvBarnaFosterbarn = lagStringSøknadsfelt("Nei"),
+                søktAsylForBarn = lagStringSøknadsfelt("Nei"),
+                oppholderBarnSegIInstitusjon = lagStringSøknadsfelt("Nei"),
+                barnOppholdtSegTolvMndSammenhengendeINorge = lagStringSøknadsfelt("Ja"),
+                erBarnAdoptert = lagStringSøknadsfelt("Nei"),
+                mottarKontantstøtteForBarnFraAnnetEøsland = lagStringSøknadsfelt("Nei"),
+                harEllerTildeltBarnehageplass = lagStringSøknadsfelt("Nei"),
+                erAvdødPartnerForelder = null,
+            )
+        val søknadJson = objectMapper.writeValueAsString(kontantstøtteSøknadV4)
+
+        // Act
+        val versjonertKontantstøtteSøknad = objectMapper.readValue<StøttetVersjonertKontantstøtteSøknad>(søknadJson)
 
         // Assert
         assertNotNull(versjonertKontantstøtteSøknad)
@@ -249,16 +322,16 @@ class VersjonertKontantstøtteSøknadDeserializerTest {
             navn = lagStringSøknadsfelt("Navn"),
             statsborgerskap = lagStringSøknadsfelt(listOf("Norge")),
             adresse =
-            lagStringSøknadsfelt(
-                SøknadAdresse(
-                    adressenavn = "Gate",
-                    postnummer = null,
-                    husbokstav = null,
-                    bruksenhetsnummer = null,
-                    husnummer = null,
-                    poststed = null,
+                lagStringSøknadsfelt(
+                    SøknadAdresse(
+                        adressenavn = "Gate",
+                        postnummer = null,
+                        husbokstav = null,
+                        bruksenhetsnummer = null,
+                        husnummer = null,
+                        poststed = null,
+                    ),
                 ),
-            ),
             adressebeskyttelse = false,
             sivilstand = lagStringSøknadsfelt(SIVILSTANDTYPE.UOPPGITT),
             borPåRegistrertAdresse = null,
@@ -289,16 +362,16 @@ class VersjonertKontantstøtteSøknadDeserializerTest {
             navn = lagStringSøknadsfelt("Navn"),
             statsborgerskap = lagStringSøknadsfelt(listOf("Norge")),
             adresse =
-            lagStringSøknadsfelt(
-                SøknadAdresse(
-                    adressenavn = "Gate",
-                    postnummer = null,
-                    husbokstav = null,
-                    bruksenhetsnummer = null,
-                    husnummer = null,
-                    poststed = null,
+                lagStringSøknadsfelt(
+                    SøknadAdresse(
+                        adressenavn = "Gate",
+                        postnummer = null,
+                        husbokstav = null,
+                        bruksenhetsnummer = null,
+                        husnummer = null,
+                        poststed = null,
+                    ),
                 ),
-            ),
             adressebeskyttelse = false,
             sivilstand = lagStringSøknadsfelt(SIVILSTANDTYPE.UOPPGITT),
             borPåRegistrertAdresse = null,
@@ -328,16 +401,16 @@ class VersjonertKontantstøtteSøknadDeserializerTest {
             navn = lagStringSøknadsfelt("Navn"),
             statsborgerskap = lagStringSøknadsfelt(listOf("Norge")),
             adresse =
-            lagStringSøknadsfelt(
-                SøknadAdresse(
-                    adressenavn = "Gate",
-                    postnummer = null,
-                    husbokstav = null,
-                    bruksenhetsnummer = null,
-                    husnummer = null,
-                    poststed = null,
+                lagStringSøknadsfelt(
+                    SøknadAdresse(
+                        adressenavn = "Gate",
+                        postnummer = null,
+                        husbokstav = null,
+                        bruksenhetsnummer = null,
+                        husnummer = null,
+                        poststed = null,
+                    ),
                 ),
-            ),
             adressebeskyttelse = false,
             sivilstand = lagStringSøknadsfelt(SIVILSTANDTYPE.UOPPGITT),
             borPåRegistrertAdresse = null,

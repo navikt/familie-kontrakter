@@ -59,9 +59,9 @@ class VersjonertKontantstøtteSøknadDeserializerTest {
         // Assert
         assertNotNull(versjonertKontantstøtteSøknad)
         assertTrue { versjonertKontantstøtteSøknad is VersjonertKontantstøtteSøknadV5 }
-        assertEquals(5, versjonertKontantstøtteSøknad.baksSøknadBase.kontraktVersjon)
-        assertEquals(2, versjonertKontantstøtteSøknad.baksSøknadBase.personerISøknad().size)
-        assertEquals(listOf("12345678910", "12345678911"), versjonertKontantstøtteSøknad.baksSøknadBase.personerISøknad())
+        assertEquals(5, versjonertKontantstøtteSøknad.kontantstøtteSøknad.kontraktVersjon)
+        assertEquals(2, versjonertKontantstøtteSøknad.kontantstøtteSøknad.personerISøknad().size)
+        assertEquals(listOf("12345678910", "12345678911"), versjonertKontantstøtteSøknad.kontantstøtteSøknad.personerISøknad())
     }
 
     @Test
@@ -95,9 +95,9 @@ class VersjonertKontantstøtteSøknadDeserializerTest {
         // Assert
         assertNotNull(versjonertKontantstøtteSøknad)
         assertTrue { versjonertKontantstøtteSøknad is VersjonertKontantstøtteSøknadV4 }
-        assertEquals(4, versjonertKontantstøtteSøknad.baksSøknadBase.kontraktVersjon)
-        assertEquals(2, versjonertKontantstøtteSøknad.baksSøknadBase.personerISøknad().size)
-        assertEquals(listOf("12345678910", "12345678911"), versjonertKontantstøtteSøknad.baksSøknadBase.personerISøknad())
+        assertEquals(4, versjonertKontantstøtteSøknad.kontantstøtteSøknad.kontraktVersjon)
+        assertEquals(2, versjonertKontantstøtteSøknad.kontantstøtteSøknad.personerISøknad().size)
+        assertEquals(listOf("12345678910", "12345678911"), versjonertKontantstøtteSøknad.kontantstøtteSøknad.personerISøknad())
     }
 
     @Test
@@ -131,9 +131,9 @@ class VersjonertKontantstøtteSøknadDeserializerTest {
         // Assert
         assertNotNull(versjonertKontantstøtteSøknad)
         assertTrue { versjonertKontantstøtteSøknad is VersjonertKontantstøtteSøknadV3 }
-        assertEquals(3, versjonertKontantstøtteSøknad.baksSøknadBase.kontraktVersjon)
-        assertEquals(2, versjonertKontantstøtteSøknad.baksSøknadBase.personerISøknad().size)
-        assertEquals(listOf("12345678910", "12345678911"), versjonertKontantstøtteSøknad.baksSøknadBase.personerISøknad())
+        assertEquals(3, versjonertKontantstøtteSøknad.kontantstøtteSøknad.kontraktVersjon)
+        assertEquals(2, versjonertKontantstøtteSøknad.kontantstøtteSøknad.personerISøknad().size)
+        assertEquals(listOf("12345678910", "12345678911"), versjonertKontantstøtteSøknad.kontantstøtteSøknad.personerISøknad())
     }
 
     @Test
@@ -167,9 +167,9 @@ class VersjonertKontantstøtteSøknadDeserializerTest {
         // Assert
         assertNotNull(versjonertKontantstøtteSøknad)
         assertTrue { versjonertKontantstøtteSøknad is VersjonertKontantstøtteSøknadV2 }
-        assertEquals(2, versjonertKontantstøtteSøknad.baksSøknadBase.kontraktVersjon)
-        assertEquals(2, versjonertKontantstøtteSøknad.baksSøknadBase.personerISøknad().size)
-        assertEquals(listOf("12345678910", "12345678911"), versjonertKontantstøtteSøknad.baksSøknadBase.personerISøknad())
+        assertEquals(2, versjonertKontantstøtteSøknad.kontantstøtteSøknad.kontraktVersjon)
+        assertEquals(2, versjonertKontantstøtteSøknad.kontantstøtteSøknad.personerISøknad().size)
+        assertEquals(listOf("12345678910", "12345678911"), versjonertKontantstøtteSøknad.kontantstøtteSøknad.personerISøknad())
     }
 
     @Test
@@ -203,9 +203,9 @@ class VersjonertKontantstøtteSøknadDeserializerTest {
         // Assert
         assertNotNull(versjonertKontantstøtteSøknad)
         assertTrue { versjonertKontantstøtteSøknad is VersjonertKontantstøtteSøknadV1 }
-        assertEquals(1, versjonertKontantstøtteSøknad.baksSøknadBase.kontraktVersjon)
-        assertEquals(2, versjonertKontantstøtteSøknad.baksSøknadBase.personerISøknad().size)
-        assertEquals(listOf("12345678910", "12345678911"), versjonertKontantstøtteSøknad.baksSøknadBase.personerISøknad())
+        assertEquals(1, versjonertKontantstøtteSøknad.kontantstøtteSøknad.kontraktVersjon)
+        assertEquals(2, versjonertKontantstøtteSøknad.kontantstøtteSøknad.personerISøknad().size)
+        assertEquals(listOf("12345678910", "12345678911"), versjonertKontantstøtteSøknad.kontantstøtteSøknad.personerISøknad())
     }
 
     @Test
@@ -249,16 +249,16 @@ class VersjonertKontantstøtteSøknadDeserializerTest {
             navn = lagStringSøknadsfelt("Navn"),
             statsborgerskap = lagStringSøknadsfelt(listOf("Norge")),
             adresse =
-                lagStringSøknadsfelt(
-                    SøknadAdresse(
-                        adressenavn = "Gate",
-                        postnummer = null,
-                        husbokstav = null,
-                        bruksenhetsnummer = null,
-                        husnummer = null,
-                        poststed = null,
-                    ),
+            lagStringSøknadsfelt(
+                SøknadAdresse(
+                    adressenavn = "Gate",
+                    postnummer = null,
+                    husbokstav = null,
+                    bruksenhetsnummer = null,
+                    husnummer = null,
+                    poststed = null,
                 ),
+            ),
             adressebeskyttelse = false,
             sivilstand = lagStringSøknadsfelt(SIVILSTANDTYPE.UOPPGITT),
             borPåRegistrertAdresse = null,
@@ -289,16 +289,16 @@ class VersjonertKontantstøtteSøknadDeserializerTest {
             navn = lagStringSøknadsfelt("Navn"),
             statsborgerskap = lagStringSøknadsfelt(listOf("Norge")),
             adresse =
-                lagStringSøknadsfelt(
-                    SøknadAdresse(
-                        adressenavn = "Gate",
-                        postnummer = null,
-                        husbokstav = null,
-                        bruksenhetsnummer = null,
-                        husnummer = null,
-                        poststed = null,
-                    ),
+            lagStringSøknadsfelt(
+                SøknadAdresse(
+                    adressenavn = "Gate",
+                    postnummer = null,
+                    husbokstav = null,
+                    bruksenhetsnummer = null,
+                    husnummer = null,
+                    poststed = null,
                 ),
+            ),
             adressebeskyttelse = false,
             sivilstand = lagStringSøknadsfelt(SIVILSTANDTYPE.UOPPGITT),
             borPåRegistrertAdresse = null,
@@ -328,16 +328,16 @@ class VersjonertKontantstøtteSøknadDeserializerTest {
             navn = lagStringSøknadsfelt("Navn"),
             statsborgerskap = lagStringSøknadsfelt(listOf("Norge")),
             adresse =
-                lagStringSøknadsfelt(
-                    SøknadAdresse(
-                        adressenavn = "Gate",
-                        postnummer = null,
-                        husbokstav = null,
-                        bruksenhetsnummer = null,
-                        husnummer = null,
-                        poststed = null,
-                    ),
+            lagStringSøknadsfelt(
+                SøknadAdresse(
+                    adressenavn = "Gate",
+                    postnummer = null,
+                    husbokstav = null,
+                    bruksenhetsnummer = null,
+                    husnummer = null,
+                    poststed = null,
                 ),
+            ),
             adressebeskyttelse = false,
             sivilstand = lagStringSøknadsfelt(SIVILSTANDTYPE.UOPPGITT),
             borPåRegistrertAdresse = null,

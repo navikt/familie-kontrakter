@@ -49,11 +49,11 @@ class VersjonertBarnetrygdSøknadDeserializerTest {
         // Assert
         assertNotNull(versjonertBarnetrygdSøknad)
         assertTrue(versjonertBarnetrygdSøknad is VersjonertBarnetrygdSøknadV9)
-        assertEquals(9, versjonertBarnetrygdSøknad.baksSøknadBase.kontraktVersjon)
-        assertEquals(2, versjonertBarnetrygdSøknad.baksSøknadBase.personerISøknad().size)
+        assertEquals(9, versjonertBarnetrygdSøknad.barnetrygdSøknad.kontraktVersjon)
+        assertEquals(2, versjonertBarnetrygdSøknad.barnetrygdSøknad.personerISøknad().size)
         assertEquals(
             listOf("12345678910", "12345678911"),
-            versjonertBarnetrygdSøknad.baksSøknadBase.personerISøknad(),
+            versjonertBarnetrygdSøknad.barnetrygdSøknad.personerISøknad(),
         )
     }
 
@@ -82,11 +82,11 @@ class VersjonertBarnetrygdSøknadDeserializerTest {
         // Assert
         assertNotNull(versjonertBarnetrygdSøknad)
         assertTrue(versjonertBarnetrygdSøknad is VersjonertBarnetrygdSøknadV8)
-        assertEquals(8, versjonertBarnetrygdSøknad.baksSøknadBase.kontraktVersjon)
-        assertEquals(2, versjonertBarnetrygdSøknad.baksSøknadBase.personerISøknad().size)
+        assertEquals(8, versjonertBarnetrygdSøknad.barnetrygdSøknad.kontraktVersjon)
+        assertEquals(2, versjonertBarnetrygdSøknad.barnetrygdSøknad.personerISøknad().size)
         assertEquals(
             listOf("12345678910", "12345678911"),
-            versjonertBarnetrygdSøknad.baksSøknadBase.personerISøknad(),
+            versjonertBarnetrygdSøknad.barnetrygdSøknad.personerISøknad(),
         )
     }
 
@@ -115,11 +115,11 @@ class VersjonertBarnetrygdSøknadDeserializerTest {
         // Assert
         assertNotNull(versjonertBarnetrygdSøknad)
         assertTrue(versjonertBarnetrygdSøknad is VersjonertBarnetrygdSøknadV7)
-        assertEquals(7, versjonertBarnetrygdSøknad.baksSøknadBase.kontraktVersjon)
-        assertEquals(2, versjonertBarnetrygdSøknad.baksSøknadBase.personerISøknad().size)
+        assertEquals(7, versjonertBarnetrygdSøknad.barnetrygdSøknad.kontraktVersjon)
+        assertEquals(2, versjonertBarnetrygdSøknad.barnetrygdSøknad.personerISøknad().size)
         assertEquals(
             listOf("12345678910", "12345678911"),
-            versjonertBarnetrygdSøknad.baksSøknadBase.personerISøknad(),
+            versjonertBarnetrygdSøknad.barnetrygdSøknad.personerISøknad(),
         )
     }
 
@@ -164,16 +164,16 @@ class VersjonertBarnetrygdSøknadDeserializerTest {
             navn = lagStringSøknadsfelt("Navn"),
             statsborgerskap = lagStringSøknadsfelt(listOf("Norge")),
             adresse =
-                lagStringSøknadsfelt(
-                    SøknadAdresse(
-                        adressenavn = "Gate",
-                        postnummer = null,
-                        husbokstav = null,
-                        bruksenhetsnummer = null,
-                        husnummer = null,
-                        poststed = null,
-                    ),
+            lagStringSøknadsfelt(
+                SøknadAdresse(
+                    adressenavn = "Gate",
+                    postnummer = null,
+                    husbokstav = null,
+                    bruksenhetsnummer = null,
+                    husnummer = null,
+                    poststed = null,
                 ),
+            ),
             adressebeskyttelse = false,
             sivilstand = lagStringSøknadsfelt(SIVILSTANDTYPE.UOPPGITT),
             utenlandsperioder = emptyList(),
@@ -195,16 +195,16 @@ class VersjonertBarnetrygdSøknadDeserializerTest {
             navn = lagStringSøknadsfelt("Navn"),
             statsborgerskap = lagStringSøknadsfelt(listOf("Norge")),
             adresse =
-                lagStringSøknadsfelt(
-                    SøknadAdresse(
-                        adressenavn = "Gate",
-                        postnummer = null,
-                        husbokstav = null,
-                        bruksenhetsnummer = null,
-                        husnummer = null,
-                        poststed = null,
-                    ),
+            lagStringSøknadsfelt(
+                SøknadAdresse(
+                    adressenavn = "Gate",
+                    postnummer = null,
+                    husbokstav = null,
+                    bruksenhetsnummer = null,
+                    husnummer = null,
+                    poststed = null,
                 ),
+            ),
             sivilstand = lagStringSøknadsfelt(SIVILSTANDTYPE.UOPPGITT),
             utenlandsperioder = emptyList(),
             arbeidsperioderUtland = emptyList(),

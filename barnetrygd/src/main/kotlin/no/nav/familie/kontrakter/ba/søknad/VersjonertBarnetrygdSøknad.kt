@@ -27,9 +27,9 @@ class VersjonertBarnetrygdSøknadDeserializer : JsonDeserializer<VersjonertBarne
                 ?: throw MissingVersionException("JSON-string mangler feltet 'kontraktVersjon' og kan ikke deserialiseres. $node")
 
         return when (versjon) {
-            7 -> VersjonertBarnetrygdSøknadV7(baksSøknadBase = p.codec.treeToValue(node, BarnetrygdSøknadV7::class.java))
-            8 -> VersjonertBarnetrygdSøknadV8(baksSøknadBase = p.codec.treeToValue(node, BarnetrygdSøknadV8::class.java))
-            9 -> VersjonertBarnetrygdSøknadV9(baksSøknadBase = p.codec.treeToValue(node, BarnetrygdSøknadV9::class.java))
+            7 -> VersjonertBarnetrygdSøknadV7(barnetrygdSøknad = p.codec.treeToValue(node, BarnetrygdSøknadV7::class.java))
+            8 -> VersjonertBarnetrygdSøknadV8(barnetrygdSøknad = p.codec.treeToValue(node, BarnetrygdSøknadV8::class.java))
+            9 -> VersjonertBarnetrygdSøknadV9(barnetrygdSøknad = p.codec.treeToValue(node, BarnetrygdSøknadV9::class.java))
             else -> throw UnsupportedVersionException("Mangler implementasjon for versjon: $versjon av BarnetrygdSøknad.")
         }
     }
@@ -37,17 +37,22 @@ class VersjonertBarnetrygdSøknadDeserializer : JsonDeserializer<VersjonertBarne
 
 @JsonDeserialize(using = VersjonertBarnetrygdSøknadDeserializer::class)
 sealed class VersjonertBarnetrygdSøknad(
-    open val baksSøknadBase: BaksSøknadBase,
+    open val barnetrygdSøknad: BaksSøknadBase,
 )
 
+// Egen sealed class for versjoner av barnetrygdsøknad vi støtter ved mottak. Dette vil være de 2 siste versjonene til enhver tid.
+sealed class StøttetVersjonertBarnetrygdSøknad(
+    override val barnetrygdSøknad: BaksSøknadBase,
+) : VersjonertBarnetrygdSøknad(barnetrygdSøknad = barnetrygdSøknad)
+
 data class VersjonertBarnetrygdSøknadV7(
-    override val baksSøknadBase: BarnetrygdSøknadV7,
-) : VersjonertBarnetrygdSøknad(baksSøknadBase = baksSøknadBase)
+    override val barnetrygdSøknad: BarnetrygdSøknadV7,
+) : VersjonertBarnetrygdSøknad(barnetrygdSøknad = barnetrygdSøknad)
 
 data class VersjonertBarnetrygdSøknadV8(
-    override val baksSøknadBase: BarnetrygdSøknadV8,
-) : VersjonertBarnetrygdSøknad(baksSøknadBase = baksSøknadBase)
+    override val barnetrygdSøknad: BarnetrygdSøknadV8,
+) : StøttetVersjonertBarnetrygdSøknad(barnetrygdSøknad = barnetrygdSøknad)
 
 data class VersjonertBarnetrygdSøknadV9(
-    override val baksSøknadBase: BarnetrygdSøknadV9,
-) : VersjonertBarnetrygdSøknad(baksSøknadBase = baksSøknadBase)
+    override val barnetrygdSøknad: BarnetrygdSøknadV9,
+) : StøttetVersjonertBarnetrygdSøknad(barnetrygdSøknad = barnetrygdSøknad)

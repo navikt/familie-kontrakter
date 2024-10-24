@@ -44,7 +44,7 @@ sealed class VersjonertKontantstøtteSøknad(
     open val kontantstøtteSøknad: BaksSøknadBase,
 )
 
-// Egen sealed class for versjoner av barnetrygdsøknad vi støtter ved mottak. Dette vil være de 2 siste versjonene til enhver tid.
+// Egen sealed class for versjoner av kontantstøttesøknad vi støtter ved mottak. Dette vil være de 2 siste versjonene til enhver tid.
 sealed class StøttetVersjonertKontantstøtteSøknad(
     override val kontantstøtteSøknad: BaksSøknadBase,
 ) : VersjonertKontantstøtteSøknad(kontantstøtteSøknad = kontantstøtteSøknad)

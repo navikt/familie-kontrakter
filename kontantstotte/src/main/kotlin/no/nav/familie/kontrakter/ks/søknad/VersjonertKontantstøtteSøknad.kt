@@ -29,11 +29,11 @@ class VersjonertKontantstøtteSøknadDeserializer : JsonDeserializer<VersjonertK
                 ?: throw MissingVersionException("JSON-string mangler feltet 'kontraktVersjon' og kan ikke deserialiseres. $node")
 
         return when (versjon) {
-            1 -> VersjonertKontantstøtteSøknadV1(baksSøknadBase = p.codec.treeToValue(node, KontantstøtteSøknadV1::class.java))
-            2 -> VersjonertKontantstøtteSøknadV2(baksSøknadBase = p.codec.treeToValue(node, KontantstøtteSøknadV2::class.java))
-            3 -> VersjonertKontantstøtteSøknadV3(baksSøknadBase = p.codec.treeToValue(node, KontantstøtteSøknadV3::class.java))
-            4 -> VersjonertKontantstøtteSøknadV4(baksSøknadBase = p.codec.treeToValue(node, KontantstøtteSøknadV4::class.java))
-            5 -> VersjonertKontantstøtteSøknadV5(baksSøknadBase = p.codec.treeToValue(node, KontantstøtteSøknadV5::class.java))
+            1 -> VersjonertKontantstøtteSøknadV1(kontantstøtteSøknad = p.codec.treeToValue(node, KontantstøtteSøknadV1::class.java))
+            2 -> VersjonertKontantstøtteSøknadV2(kontantstøtteSøknad = p.codec.treeToValue(node, KontantstøtteSøknadV2::class.java))
+            3 -> VersjonertKontantstøtteSøknadV3(kontantstøtteSøknad = p.codec.treeToValue(node, KontantstøtteSøknadV3::class.java))
+            4 -> VersjonertKontantstøtteSøknadV4(kontantstøtteSøknad = p.codec.treeToValue(node, KontantstøtteSøknadV4::class.java))
+            5 -> VersjonertKontantstøtteSøknadV5(kontantstøtteSøknad = p.codec.treeToValue(node, KontantstøtteSøknadV5::class.java))
             else -> throw UnsupportedVersionException("Mangler implementasjon for versjon: $versjon av KontantstøtteSøknad.")
         }
     }
@@ -41,25 +41,30 @@ class VersjonertKontantstøtteSøknadDeserializer : JsonDeserializer<VersjonertK
 
 @JsonDeserialize(using = VersjonertKontantstøtteSøknadDeserializer::class)
 sealed class VersjonertKontantstøtteSøknad(
-    open val baksSøknadBase: BaksSøknadBase,
+    open val kontantstøtteSøknad: BaksSøknadBase,
 )
 
+// Egen sealed class for versjoner av kontantstøttesøknad vi støtter ved mottak. Dette vil være de 2 siste versjonene til enhver tid.
+sealed class StøttetVersjonertKontantstøtteSøknad(
+    override val kontantstøtteSøknad: BaksSøknadBase,
+) : VersjonertKontantstøtteSøknad(kontantstøtteSøknad = kontantstøtteSøknad)
+
 data class VersjonertKontantstøtteSøknadV1(
-    override val baksSøknadBase: KontantstøtteSøknadV1,
-) : VersjonertKontantstøtteSøknad(baksSøknadBase = baksSøknadBase)
+    override val kontantstøtteSøknad: KontantstøtteSøknadV1,
+) : VersjonertKontantstøtteSøknad(kontantstøtteSøknad = kontantstøtteSøknad)
 
 data class VersjonertKontantstøtteSøknadV2(
-    override val baksSøknadBase: KontantstøtteSøknadV2,
-) : VersjonertKontantstøtteSøknad(baksSøknadBase = baksSøknadBase)
+    override val kontantstøtteSøknad: KontantstøtteSøknadV2,
+) : VersjonertKontantstøtteSøknad(kontantstøtteSøknad = kontantstøtteSøknad)
 
 data class VersjonertKontantstøtteSøknadV3(
-    override val baksSøknadBase: KontantstøtteSøknadV3,
-) : VersjonertKontantstøtteSøknad(baksSøknadBase = baksSøknadBase)
+    override val kontantstøtteSøknad: KontantstøtteSøknadV3,
+) : VersjonertKontantstøtteSøknad(kontantstøtteSøknad = kontantstøtteSøknad)
 
 data class VersjonertKontantstøtteSøknadV4(
-    override val baksSøknadBase: KontantstøtteSøknadV4,
-) : VersjonertKontantstøtteSøknad(baksSøknadBase = baksSøknadBase)
+    override val kontantstøtteSøknad: KontantstøtteSøknadV4,
+) : StøttetVersjonertKontantstøtteSøknad(kontantstøtteSøknad = kontantstøtteSøknad)
 
 data class VersjonertKontantstøtteSøknadV5(
-    override val baksSøknadBase: KontantstøtteSøknadV5,
-) : VersjonertKontantstøtteSøknad(baksSøknadBase = baksSøknadBase)
+    override val kontantstøtteSøknad: KontantstøtteSøknadV5,
+) : StøttetVersjonertKontantstøtteSøknad(kontantstøtteSøknad = kontantstøtteSøknad)

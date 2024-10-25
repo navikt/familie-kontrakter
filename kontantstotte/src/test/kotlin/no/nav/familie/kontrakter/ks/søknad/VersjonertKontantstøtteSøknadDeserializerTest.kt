@@ -28,7 +28,7 @@ import no.nav.familie.kontrakter.ks.søknad.v5.KontantstøtteSøknad as Kontants
 
 class VersjonertKontantstøtteSøknadDeserializerTest {
     @Test
-    fun`skal kunne deserialisere KontantstøtteSøknad V5`() {
+    fun`skal kunne deserialisere KontantstøtteSøknad V5 til VersjonertKontantstøtteSøknad`() {
         // Arrange
         val søkerFnr = "12345678910"
         val barnFnr = "12345678911"
@@ -59,9 +59,46 @@ class VersjonertKontantstøtteSøknadDeserializerTest {
         // Assert
         assertNotNull(versjonertKontantstøtteSøknad)
         assertTrue { versjonertKontantstøtteSøknad is VersjonertKontantstøtteSøknadV5 }
-        assertEquals(5, versjonertKontantstøtteSøknad.baksSøknadBase.kontraktVersjon)
-        assertEquals(2, versjonertKontantstøtteSøknad.baksSøknadBase.personerISøknad().size)
-        assertEquals(listOf("12345678910", "12345678911"), versjonertKontantstøtteSøknad.baksSøknadBase.personerISøknad())
+        assertEquals(5, versjonertKontantstøtteSøknad.kontantstøtteSøknad.kontraktVersjon)
+        assertEquals(2, versjonertKontantstøtteSøknad.kontantstøtteSøknad.personerISøknad().size)
+        assertEquals(listOf("12345678910", "12345678911"), versjonertKontantstøtteSøknad.kontantstøtteSøknad.personerISøknad())
+    }
+
+    @Test
+    fun`skal kunne deserialisere KontantstøtteSøknad V5 til StøttetVersjonertKontantstøtteSøknad`() {
+        // Arrange
+        val søkerFnr = "12345678910"
+        val barnFnr = "12345678911"
+        val kontantstøtteSøknadV5 =
+            KontantstøtteSøknadV5(
+                kontraktVersjon = 5,
+                søker = lagSøkerV4(søkerFnr),
+                barn = listOf(lagBarnV4(barnFnr)),
+                antallEøsSteg = 0,
+                dokumentasjon = emptyList(),
+                teksterTilPdf = emptyMap(),
+                originalSpråk = "NB",
+                finnesPersonMedAdressebeskyttelse = false,
+                erNoenAvBarnaFosterbarn = lagStringSøknadsfelt("Nei"),
+                søktAsylForBarn = lagStringSøknadsfelt("Nei"),
+                oppholderBarnSegIInstitusjon = lagStringSøknadsfelt("Nei"),
+                barnOppholdtSegTolvMndSammenhengendeINorge = lagStringSøknadsfelt("Ja"),
+                erBarnAdoptert = lagStringSøknadsfelt("Nei"),
+                mottarKontantstøtteForBarnFraAnnetEøsland = lagStringSøknadsfelt("Nei"),
+                harEllerTildeltBarnehageplass = lagStringSøknadsfelt("Nei"),
+                erAvdødPartnerForelder = null,
+            )
+        val søknadJson = objectMapper.writeValueAsString(kontantstøtteSøknadV5)
+
+        // Act
+        val versjonertKontantstøtteSøknad = objectMapper.readValue<StøttetVersjonertKontantstøtteSøknad>(søknadJson)
+
+        // Assert
+        assertNotNull(versjonertKontantstøtteSøknad)
+        assertTrue { versjonertKontantstøtteSøknad is VersjonertKontantstøtteSøknadV5 }
+        assertEquals(5, versjonertKontantstøtteSøknad.kontantstøtteSøknad.kontraktVersjon)
+        assertEquals(2, versjonertKontantstøtteSøknad.kontantstøtteSøknad.personerISøknad().size)
+        assertEquals(listOf("12345678910", "12345678911"), versjonertKontantstøtteSøknad.kontantstøtteSøknad.personerISøknad())
     }
 
     @Test
@@ -95,9 +132,45 @@ class VersjonertKontantstøtteSøknadDeserializerTest {
         // Assert
         assertNotNull(versjonertKontantstøtteSøknad)
         assertTrue { versjonertKontantstøtteSøknad is VersjonertKontantstøtteSøknadV4 }
-        assertEquals(4, versjonertKontantstøtteSøknad.baksSøknadBase.kontraktVersjon)
-        assertEquals(2, versjonertKontantstøtteSøknad.baksSøknadBase.personerISøknad().size)
-        assertEquals(listOf("12345678910", "12345678911"), versjonertKontantstøtteSøknad.baksSøknadBase.personerISøknad())
+        assertEquals(4, versjonertKontantstøtteSøknad.kontantstøtteSøknad.kontraktVersjon)
+        assertEquals(2, versjonertKontantstøtteSøknad.kontantstøtteSøknad.personerISøknad().size)
+        assertEquals(listOf("12345678910", "12345678911"), versjonertKontantstøtteSøknad.kontantstøtteSøknad.personerISøknad())
+    }
+
+    @Test
+    fun`skal kunne deserialisere KontantstøtteSøknad V4 til StøttetVersjonertKontantstøtteSøknad`() {
+        // Arrange
+        val søkerFnr = "12345678910"
+        val barnFnr = "12345678911"
+        val kontantstøtteSøknadV4 =
+            KontantstøtteSøknadV4(
+                kontraktVersjon = 4,
+                søker = lagSøkerV4(søkerFnr),
+                barn = listOf(lagBarnV4(barnFnr)),
+                antallEøsSteg = 0,
+                dokumentasjon = emptyList(),
+                teksterTilPdf = emptyMap(),
+                originalSpråk = "NB",
+                erNoenAvBarnaFosterbarn = lagStringSøknadsfelt("Nei"),
+                søktAsylForBarn = lagStringSøknadsfelt("Nei"),
+                oppholderBarnSegIInstitusjon = lagStringSøknadsfelt("Nei"),
+                barnOppholdtSegTolvMndSammenhengendeINorge = lagStringSøknadsfelt("Ja"),
+                erBarnAdoptert = lagStringSøknadsfelt("Nei"),
+                mottarKontantstøtteForBarnFraAnnetEøsland = lagStringSøknadsfelt("Nei"),
+                harEllerTildeltBarnehageplass = lagStringSøknadsfelt("Nei"),
+                erAvdødPartnerForelder = null,
+            )
+        val søknadJson = objectMapper.writeValueAsString(kontantstøtteSøknadV4)
+
+        // Act
+        val versjonertKontantstøtteSøknad = objectMapper.readValue<StøttetVersjonertKontantstøtteSøknad>(søknadJson)
+
+        // Assert
+        assertNotNull(versjonertKontantstøtteSøknad)
+        assertTrue { versjonertKontantstøtteSøknad is VersjonertKontantstøtteSøknadV4 }
+        assertEquals(4, versjonertKontantstøtteSøknad.kontantstøtteSøknad.kontraktVersjon)
+        assertEquals(2, versjonertKontantstøtteSøknad.kontantstøtteSøknad.personerISøknad().size)
+        assertEquals(listOf("12345678910", "12345678911"), versjonertKontantstøtteSøknad.kontantstøtteSøknad.personerISøknad())
     }
 
     @Test
@@ -131,9 +204,9 @@ class VersjonertKontantstøtteSøknadDeserializerTest {
         // Assert
         assertNotNull(versjonertKontantstøtteSøknad)
         assertTrue { versjonertKontantstøtteSøknad is VersjonertKontantstøtteSøknadV3 }
-        assertEquals(3, versjonertKontantstøtteSøknad.baksSøknadBase.kontraktVersjon)
-        assertEquals(2, versjonertKontantstøtteSøknad.baksSøknadBase.personerISøknad().size)
-        assertEquals(listOf("12345678910", "12345678911"), versjonertKontantstøtteSøknad.baksSøknadBase.personerISøknad())
+        assertEquals(3, versjonertKontantstøtteSøknad.kontantstøtteSøknad.kontraktVersjon)
+        assertEquals(2, versjonertKontantstøtteSøknad.kontantstøtteSøknad.personerISøknad().size)
+        assertEquals(listOf("12345678910", "12345678911"), versjonertKontantstøtteSøknad.kontantstøtteSøknad.personerISøknad())
     }
 
     @Test
@@ -167,9 +240,9 @@ class VersjonertKontantstøtteSøknadDeserializerTest {
         // Assert
         assertNotNull(versjonertKontantstøtteSøknad)
         assertTrue { versjonertKontantstøtteSøknad is VersjonertKontantstøtteSøknadV2 }
-        assertEquals(2, versjonertKontantstøtteSøknad.baksSøknadBase.kontraktVersjon)
-        assertEquals(2, versjonertKontantstøtteSøknad.baksSøknadBase.personerISøknad().size)
-        assertEquals(listOf("12345678910", "12345678911"), versjonertKontantstøtteSøknad.baksSøknadBase.personerISøknad())
+        assertEquals(2, versjonertKontantstøtteSøknad.kontantstøtteSøknad.kontraktVersjon)
+        assertEquals(2, versjonertKontantstøtteSøknad.kontantstøtteSøknad.personerISøknad().size)
+        assertEquals(listOf("12345678910", "12345678911"), versjonertKontantstøtteSøknad.kontantstøtteSøknad.personerISøknad())
     }
 
     @Test
@@ -203,9 +276,9 @@ class VersjonertKontantstøtteSøknadDeserializerTest {
         // Assert
         assertNotNull(versjonertKontantstøtteSøknad)
         assertTrue { versjonertKontantstøtteSøknad is VersjonertKontantstøtteSøknadV1 }
-        assertEquals(1, versjonertKontantstøtteSøknad.baksSøknadBase.kontraktVersjon)
-        assertEquals(2, versjonertKontantstøtteSøknad.baksSøknadBase.personerISøknad().size)
-        assertEquals(listOf("12345678910", "12345678911"), versjonertKontantstøtteSøknad.baksSøknadBase.personerISøknad())
+        assertEquals(1, versjonertKontantstøtteSøknad.kontantstøtteSøknad.kontraktVersjon)
+        assertEquals(2, versjonertKontantstøtteSøknad.kontantstøtteSøknad.personerISøknad().size)
+        assertEquals(listOf("12345678910", "12345678911"), versjonertKontantstøtteSøknad.kontantstøtteSøknad.personerISøknad())
     }
 
     @Test

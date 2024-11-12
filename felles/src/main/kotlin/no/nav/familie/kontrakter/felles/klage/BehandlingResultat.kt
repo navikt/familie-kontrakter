@@ -30,6 +30,7 @@ enum class BehandlingEventType {
     ANKE_I_TRYGDERETTENBEHANDLING_OPPRETTET, // TODO ANKE_I_TRYGDERETTENBEHANDLING_OPPRETTET skal fjernes på sikt
     BEHANDLING_FEILREGISTRERT,
     BEHANDLING_ETTER_TRYGDERETTEN_OPPHEVET_AVSLUTTET,
+    OMGJOERINGSKRAV_AVSLUTTET,
 }
 
 enum class KlageinstansUtfall(val navn: String) {
@@ -44,4 +45,5 @@ enum class KlageinstansUtfall(val navn: String) {
     INNSTILLING_STADFESTELSE("Innstilling om stadfestelse til trygderetten fra KA"),
     INNSTILLING_AVVIST("Innstilling om avist til trygderetten fra KA"),
     HEVET("Hevet KA"),
+    MEDHOLD_ETTER_FVL_35("Medhold etter fvl. § 35 KA"),
 }

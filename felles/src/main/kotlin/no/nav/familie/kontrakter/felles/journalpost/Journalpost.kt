@@ -24,13 +24,28 @@ data class Journalpost(
 
     fun erDigitalKanal() = this.kanal == "NAV_NO"
 
-    fun harDigitalBarnetrygdSøknad() = erDigitalKanal() && this.dokumenter?.any { it.erDigitalBarnetrygdSøknad() } ?: false
+    fun harKontantstøtteSøknad(): Boolean = dokumenter?.any { it.brevkode == "NAV 34-00.08" } ?: false
 
-    fun harDigitalKontantstøtteSøknad() = erDigitalKanal() && this.dokumenter?.any { it.erDigitalKontantstøtteSøknad() } ?: false
+    fun harBarnetrygdOrdinærSøknad(): Boolean = dokumenter?.any { it.brevkode == "NAV 33-00.07" } ?: false
+
+    fun harBarnetrygdUtvidetSøknad(): Boolean = dokumenter?.any { it.brevkode == "NAV 33-00.09" } ?: false
+
+    fun harBarnetrygdSøknad(): Boolean = harBarnetrygdOrdinærSøknad() || harBarnetrygdUtvidetSøknad()
+
+    fun harDigitalBarnetrygdSøknad() =
+        erDigitalKanal() && this.dokumenter?.any { it.erDigitalBarnetrygdSøknad() } ?: false
+
+    fun harDigitalKontantstøtteSøknad() =
+        erDigitalKanal() && this.dokumenter?.any { it.erDigitalKontantstøtteSøknad() } ?: false
 
     fun harDigitalSøknad(tema: Tema): Boolean = when (tema) {
         Tema.BAR -> harDigitalBarnetrygdSøknad()
         Tema.KON -> harDigitalKontantstøtteSøknad()
         else -> throw Error("Støtter ikke tema $tema")
+    }
+
+    fun hentHovedDokumentTittel(): String? {
+        if (dokumenter.isNullOrEmpty()) error("Journalpost $journalpostId mangler dokumenter")
+        return dokumenter.firstOrNull { it.brevkode != null }?.tittel
     }
 }

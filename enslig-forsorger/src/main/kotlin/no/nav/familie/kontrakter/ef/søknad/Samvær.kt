@@ -3,8 +3,6 @@ package no.nav.familie.kontrakter.ef.søknad
 import java.time.LocalDate
 
 data class Samvær(
-    val spørsmålAvtaleOmDeltBosted: Søknadsfelt<Boolean>? = null,
-    val avtaleOmDeltBosted: Søknadsfelt<Dokumentasjon>? = null,
     val skalAnnenForelderHaSamvær: Søknadsfelt<String>? = null,
     val harDereSkriftligAvtaleOmSamvær: Søknadsfelt<String>? = null,
     val samværsavtale: Søknadsfelt<Dokumentasjon>? = null,

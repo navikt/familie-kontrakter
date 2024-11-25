@@ -19,30 +19,28 @@ data class Journalpost(
     val eksternReferanseId: String? = null,
     val utsendingsinfo: Utsendingsinfo? = null,
 ) {
-
     val datoMottatt = relevanteDatoer?.firstOrNull { it.datotype == "DATO_REGISTRERT" }?.dato
 
-    fun erDigitalKanal() = this.kanal == "NAV_NO"
+    fun erDigitalKanal() = kanal == "NAV_NO"
 
-    fun harKontantstøtteSøknad(): Boolean = dokumenter?.any { it.brevkode == "NAV 34-00.08" } ?: false
+    fun harKontantstøtteSøknad(): Boolean = dokumenter?.any { it.erKontantstøtteSøknad() } ?: false
 
-    fun harBarnetrygdOrdinærSøknad(): Boolean = dokumenter?.any { it.brevkode == "NAV 33-00.07" } ?: false
+    fun harBarnetrygdOrdinærSøknad(): Boolean = dokumenter?.any { it.erBarnetrygdOrdinærSøknad() } ?: false
 
-    fun harBarnetrygdUtvidetSøknad(): Boolean = dokumenter?.any { it.brevkode == "NAV 33-00.09" } ?: false
+    fun harBarnetrygdUtvidetSøknad(): Boolean = dokumenter?.any { it.erBarnetrygdUtvidetSøknad() } ?: false
 
     fun harBarnetrygdSøknad(): Boolean = harBarnetrygdOrdinærSøknad() || harBarnetrygdUtvidetSøknad()
 
-    fun harDigitalBarnetrygdSøknad() =
-        erDigitalKanal() && this.dokumenter?.any { it.erDigitalBarnetrygdSøknad() } ?: false
+    fun harDigitalBarnetrygdSøknad() = erDigitalKanal() && dokumenter?.any { it.erBarnetrygdSøknad() } ?: false
 
-    fun harDigitalKontantstøtteSøknad() =
-        erDigitalKanal() && this.dokumenter?.any { it.erDigitalKontantstøtteSøknad() } ?: false
+    fun harDigitalKontantstøtteSøknad() = erDigitalKanal() && dokumenter?.any { it.erKontantstøtteSøknad() } ?: false
 
-    fun harDigitalSøknad(tema: Tema): Boolean = when (tema) {
-        Tema.BAR -> harDigitalBarnetrygdSøknad()
-        Tema.KON -> harDigitalKontantstøtteSøknad()
-        else -> throw Error("Støtter ikke tema $tema")
-    }
+    fun harDigitalSøknad(tema: Tema): Boolean =
+        when (tema) {
+            Tema.BAR -> harDigitalBarnetrygdSøknad()
+            Tema.KON -> harDigitalKontantstøtteSøknad()
+            else -> throw Error("Støtter ikke tema $tema")
+        }
 
     fun hentHovedDokumentTittel(): String? {
         if (dokumenter.isNullOrEmpty()) error("Journalpost $journalpostId mangler dokumenter")

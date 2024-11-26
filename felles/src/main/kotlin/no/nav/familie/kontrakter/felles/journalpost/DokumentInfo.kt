@@ -11,16 +11,18 @@ data class DokumentInfo(
     val dokumentvarianter: List<Dokumentvariant>? = null,
     val logiskeVedlegg: List<LogiskVedlegg>? = null,
 ) {
+    fun erBarnetrygdOrdinærSøknad() = Brevkoder.BARNETRYGD_ORDINÆR_SØKNAD == this.brevkode
 
-    fun erDigitalBarnetrygdSøknad() =
-        Brevkoder.BARNETRYGD_BREVKODER.any { brevkode -> brevkode == this.brevkode }
+    fun erBarnetrygdUtvidetSøknad() = Brevkoder.BARNETRYGD_UTVIDET_SØKNAD == this.brevkode
 
-    fun erDigitalKontantstøtteSøknad() =
-        Brevkoder.KONTANTSTØTTE_SØKNAD == this.brevkode
+    fun erBarnetrygdSøknad() = Brevkoder.BARNETRYGD_BREVKODER.any { brevkode -> brevkode == this.brevkode }
 
-    fun erDigitalSøknad(tema: Tema): Boolean = when (tema) {
-        Tema.BAR -> erDigitalBarnetrygdSøknad()
-        Tema.KON -> erDigitalKontantstøtteSøknad()
-        else -> throw Error("Støtter ikke tema $tema")
-    }
+    fun erKontantstøtteSøknad() = Brevkoder.KONTANTSTØTTE_SØKNAD == this.brevkode
+
+    fun erSøknadForTema(tema: Tema): Boolean =
+        when (tema) {
+            Tema.BAR -> erBarnetrygdSøknad()
+            Tema.KON -> erKontantstøtteSøknad()
+            else -> throw Error("Støtter ikke tema $tema")
+        }
 }

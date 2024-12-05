@@ -25,4 +25,6 @@ data class DokumentInfo(
             Tema.KON -> erKontantstøtteSøknad()
             else -> throw Error("Støtter ikke tema $tema")
         }
+
+    fun harOriginalVariant(): Boolean = this.dokumentvarianter?.any { it.variantformat == Dokumentvariantformat.ORIGINAL } ?: false
 }

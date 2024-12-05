@@ -13,6 +13,7 @@ enum class BehandlingStatus {
     UTREDES,
     VENTER,
     FERDIGSTILT,
+    SATT_PÅ_VENT,
 }
 
 enum class Årsak {

@@ -298,4 +298,64 @@ class DokumentInfoTest {
             assertEquals("Støtter ikke tema ENF", error.message)
         }
     }
+
+    @Nested
+    inner class HarOriginalVariant {
+        @Test
+        fun `skal returnere true dersom dokumentvarianter inneholder original variant`() {
+            // Arrange
+            val dokumentInfo =
+                DokumentInfo(
+                    dokumentInfoId = "1",
+                    brevkode = Brevkoder.BARNETRYGD_ORDINÆR_SØKNAD,
+                    dokumentvarianter =
+                        listOf(
+                            Dokumentvariant(Dokumentvariantformat.ORIGINAL, "Testfil", false),
+                        ),
+                )
+
+            // Act
+            val harOriginalVariant = dokumentInfo.harOriginalVariant()
+
+            // Assert
+            assertTrue(harOriginalVariant)
+        }
+
+        @Test
+        fun `skal returnere false dersom dokumentvarianter ikke inneholder original variant`() {
+            // Arrange
+            val dokumentInfo =
+                DokumentInfo(
+                    dokumentInfoId = "1",
+                    brevkode = Brevkoder.BARNETRYGD_ORDINÆR_SØKNAD,
+                    dokumentvarianter =
+                        listOf(
+                            Dokumentvariant(Dokumentvariantformat.ARKIV, "Testfil", false),
+                        ),
+                )
+
+            // Act
+            val harOriginalVariant = dokumentInfo.harOriginalVariant()
+
+            // Assert
+            assertFalse(harOriginalVariant)
+        }
+
+        @Test
+        fun `skal returnere false dersom dokumentvarianter er en tom liste`() {
+            // Arrange
+            val dokumentInfo =
+                DokumentInfo(
+                    dokumentInfoId = "1",
+                    brevkode = Brevkoder.BARNETRYGD_ORDINÆR_SØKNAD,
+                    dokumentvarianter = emptyList(),
+                )
+
+            // Act
+            val harOriginalVariant = dokumentInfo.harOriginalVariant()
+
+            // Assert
+            assertFalse(harOriginalVariant)
+        }
+    }
 }

@@ -489,7 +489,6 @@ class TestsøknadBuilder private constructor(
         }
 
         fun defaultSamvær(
-            spørsmålAvtaleOmDeltBosted: Boolean = true,
             skalAnnenForelderHaSamvær: String = "jaMerEnnVanlig",
             harDereSkriftligAvtaleOmSamvær: String = "jaIkkeKonkreteTidspunkter",
             hvordanPraktiseresSamværet: String = "Litt hver for oss",
@@ -501,11 +500,6 @@ class TestsøknadBuilder private constructor(
             beskrivSamværUtenBarn: String = "Vi sees stadig vekk",
         ): Samvær {
             return Samvær(
-                Søknadsfelt(
-                    "Har du og den andre forelderen skriftlig avtale om delt bosted for barnet?",
-                    spørsmålAvtaleOmDeltBosted,
-                ),
-                defaultDokumentfelt("Avtale om delt bosted for barna"),
                 Søknadsfelt(
                     "Har den andre forelderen samvær med barnet",
                     "Ja, men ikke mer enn vanlig samværsrett",

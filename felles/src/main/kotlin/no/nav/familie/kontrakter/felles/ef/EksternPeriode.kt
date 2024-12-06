@@ -35,7 +35,14 @@ enum class Datakilde {
     EF,
 }
 
-data class OvergangsstønadOgSkolepengerResponse(
+data class EksternePerioderForStønadstyperRequest(
+    val personIdent: String,
+    val fomDato: LocalDate? = null,
+    val tomDato: LocalDate? = null,
+    val stønadstyper: List<StønadType> = listOf(),
+)
+
+data class EksternePerioderMedStønadstypeResponse(
     val personIdent: String,
     val perioder: List<EksternPeriodeMedStønadstype>,
 )

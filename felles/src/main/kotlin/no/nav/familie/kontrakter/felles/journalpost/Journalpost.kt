@@ -1,5 +1,7 @@
 package no.nav.familie.kontrakter.felles.journalpost
 
+import no.nav.familie.kontrakter.felles.Tema
+
 data class Journalpost(
     val journalpostId: String,
     val journalposttype: Journalposttype,
@@ -17,6 +19,31 @@ data class Journalpost(
     val eksternReferanseId: String? = null,
     val utsendingsinfo: Utsendingsinfo? = null,
 ) {
-
     val datoMottatt = relevanteDatoer?.firstOrNull { it.datotype == "DATO_REGISTRERT" }?.dato
+
+    fun erDigitalKanal() = kanal == "NAV_NO"
+
+    fun harKontantstøtteSøknad(): Boolean = dokumenter?.any { it.erKontantstøtteSøknad() } ?: false
+
+    fun harBarnetrygdOrdinærSøknad(): Boolean = dokumenter?.any { it.erBarnetrygdOrdinærSøknad() } ?: false
+
+    fun harBarnetrygdUtvidetSøknad(): Boolean = dokumenter?.any { it.erBarnetrygdUtvidetSøknad() } ?: false
+
+    fun harBarnetrygdSøknad(): Boolean = harBarnetrygdOrdinærSøknad() || harBarnetrygdUtvidetSøknad()
+
+    fun harDigitalBarnetrygdSøknad() = erDigitalKanal() && dokumenter?.any { it.erBarnetrygdSøknad() } ?: false
+
+    fun harDigitalKontantstøtteSøknad() = erDigitalKanal() && dokumenter?.any { it.erKontantstøtteSøknad() } ?: false
+
+    fun harDigitalSøknad(tema: Tema): Boolean =
+        when (tema) {
+            Tema.BAR -> harDigitalBarnetrygdSøknad()
+            Tema.KON -> harDigitalKontantstøtteSøknad()
+            else -> throw Error("Støtter ikke tema $tema")
+        }
+
+    fun hentHovedDokumentTittel(): String? {
+        if (dokumenter.isNullOrEmpty()) error("Journalpost $journalpostId mangler dokumenter")
+        return dokumenter.firstOrNull { it.brevkode != null }?.tittel
+    }
 }

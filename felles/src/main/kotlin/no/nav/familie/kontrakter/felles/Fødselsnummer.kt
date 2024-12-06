@@ -11,6 +11,8 @@ data class Fødselsnummer(val verdi: String) {
     val erDNummer get() = verdi.substring(0, 1).toInt() > 3
     val erNAVSyntetisk get() = verdi.substring(2, 3).toInt() >= 4 && verdi.substring(2, 3).toInt() < 8
     val erSkattSyntetisk get() = verdi.substring(2, 3).toInt() >= 8
+
+    @Deprecated("Denne kalkulerer fødselsdato basert på ident. Dette kan bli feil.")
     val fødselsdato get() = beregnFødselsdato()
 
     private fun beregnFødselsdato(): LocalDate {

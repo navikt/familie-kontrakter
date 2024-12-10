@@ -10,7 +10,6 @@ import no.nav.familie.kontrakter.ks.søknad.v1.Locale
 import no.nav.familie.kontrakter.ks.søknad.v1.Pensjonsperiode
 import no.nav.familie.kontrakter.ks.søknad.v1.RegistrertBostedType
 import no.nav.familie.kontrakter.ks.søknad.v1.Søknaddokumentasjon
-import no.nav.familie.kontrakter.ks.søknad.v1.TekstPåSpråkMap
 import no.nav.familie.kontrakter.ks.søknad.v1.Utbetalingsperiode
 import no.nav.familie.kontrakter.ks.søknad.v1.Utenlandsopphold
 import no.nav.familie.kontrakter.ks.søknad.v2.Arbeidsperiode
@@ -24,7 +23,7 @@ data class KontantstøtteSøknad(
     override val barn: List<Barn>,
     val antallEøsSteg: Int,
     val dokumentasjon: List<Søknaddokumentasjon>,
-    val teksterTilPdf: Map<String, TekstPåSpråkMap>,
+    val teksterTilPdf: Map<String, Map<Locale, String>>,
     val originalSpråk: Locale,
     val erNoenAvBarnaFosterbarn: Søknadsfelt<String>,
     val søktAsylForBarn: Søknadsfelt<String>,
@@ -43,7 +42,7 @@ data class Barn(
     val navn: Søknadsfelt<String>,
     val registrertBostedType: Søknadsfelt<RegistrertBostedType>,
     val alder: Søknadsfelt<String>?,
-    val teksterTilPdf: Map<String, TekstPåSpråkMap>,
+    val teksterTilPdf: Map<String, Map<Locale, String>>,
     // Om Barna
     val erFosterbarn: Søknadsfelt<String>,
     val oppholderSegIInstitusjon: Søknadsfelt<String>,

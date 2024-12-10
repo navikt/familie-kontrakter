@@ -4,7 +4,6 @@ import no.nav.familie.kontrakter.felles.søknad.BaksSøknadBase
 import no.nav.familie.kontrakter.felles.søknad.Søknadsfelt
 import no.nav.familie.kontrakter.ks.søknad.v1.Locale
 import no.nav.familie.kontrakter.ks.søknad.v1.Søknaddokumentasjon
-import no.nav.familie.kontrakter.ks.søknad.v1.TekstPåSpråkMap
 import no.nav.familie.kontrakter.ks.søknad.v4.Barn
 import no.nav.familie.kontrakter.ks.søknad.v4.Søker
 
@@ -14,7 +13,7 @@ data class KontantstøtteSøknad(
     override val barn: List<Barn>,
     val antallEøsSteg: Int,
     val dokumentasjon: List<Søknaddokumentasjon>,
-    val teksterTilPdf: Map<String, TekstPåSpråkMap>,
+    val teksterTilPdf: Map<String, Map<Locale, String>>,
     val originalSpråk: Locale,
     val finnesPersonMedAdressebeskyttelse: Boolean,
     val erNoenAvBarnaFosterbarn: Søknadsfelt<String>,

@@ -231,16 +231,16 @@ class VersjonertBarnetrygdSøknadDeserializerTest {
             navn = lagStringSøknadsfelt("Navn"),
             statsborgerskap = lagStringSøknadsfelt(listOf("Norge")),
             adresse =
-                lagStringSøknadsfelt(
-                    SøknadAdresse(
-                        adressenavn = "Gate",
-                        postnummer = null,
-                        husbokstav = null,
-                        bruksenhetsnummer = null,
-                        husnummer = null,
-                        poststed = null,
-                    ),
+            lagStringSøknadsfelt(
+                SøknadAdresse(
+                    adressenavn = "Gate",
+                    postnummer = null,
+                    husbokstav = null,
+                    bruksenhetsnummer = null,
+                    husnummer = null,
+                    poststed = null,
                 ),
+            ),
             adressebeskyttelse = false,
             sivilstand = lagStringSøknadsfelt(SIVILSTANDTYPE.UOPPGITT),
             utenlandsperioder = emptyList(),
@@ -262,16 +262,16 @@ class VersjonertBarnetrygdSøknadDeserializerTest {
             navn = lagStringSøknadsfelt("Navn"),
             statsborgerskap = lagStringSøknadsfelt(listOf("Norge")),
             adresse =
-                lagStringSøknadsfelt(
-                    SøknadAdresse(
-                        adressenavn = "Gate",
-                        postnummer = null,
-                        husbokstav = null,
-                        bruksenhetsnummer = null,
-                        husnummer = null,
-                        poststed = null,
-                    ),
+            lagStringSøknadsfelt(
+                SøknadAdresse(
+                    adressenavn = "Gate",
+                    postnummer = null,
+                    husbokstav = null,
+                    bruksenhetsnummer = null,
+                    husnummer = null,
+                    poststed = null,
                 ),
+            ),
             sivilstand = lagStringSøknadsfelt(SIVILSTANDTYPE.UOPPGITT),
             utenlandsperioder = emptyList(),
             arbeidsperioderUtland = emptyList(),

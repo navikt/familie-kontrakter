@@ -309,9 +309,9 @@ class DokumentInfoTest {
                     dokumentInfoId = "1",
                     brevkode = Brevkoder.BARNETRYGD_ORDINÆR_SØKNAD,
                     dokumentvarianter =
-                        listOf(
-                            Dokumentvariant(Dokumentvariantformat.ORIGINAL, "Testfil", false),
-                        ),
+                    listOf(
+                        Dokumentvariant(Dokumentvariantformat.ORIGINAL, "Testfil", false),
+                    ),
                 )
 
             // Act
@@ -329,9 +329,9 @@ class DokumentInfoTest {
                     dokumentInfoId = "1",
                     brevkode = Brevkoder.BARNETRYGD_ORDINÆR_SØKNAD,
                     dokumentvarianter =
-                        listOf(
-                            Dokumentvariant(Dokumentvariantformat.ARKIV, "Testfil", false),
-                        ),
+                    listOf(
+                        Dokumentvariant(Dokumentvariantformat.ARKIV, "Testfil", false),
+                    ),
                 )
 
             // Act

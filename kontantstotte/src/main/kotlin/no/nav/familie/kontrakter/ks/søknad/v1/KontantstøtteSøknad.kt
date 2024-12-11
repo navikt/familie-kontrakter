@@ -1,5 +1,7 @@
 package no.nav.familie.kontrakter.ks.søknad.v1
 
+import com.fasterxml.jackson.annotation.JsonCreator
+import com.fasterxml.jackson.annotation.JsonValue
 import no.nav.familie.kontrakter.felles.søknad.BaksSøknadBase
 import no.nav.familie.kontrakter.felles.søknad.BaksSøknadPersonBase
 import no.nav.familie.kontrakter.felles.søknad.Søknadsfelt
@@ -96,8 +98,14 @@ data class Barn(
 typealias Locale = String
 
 class TekstPåSpråkMap(
-    tekstPåSpråk: Map<Locale, String>,
-) : HashMap<Locale, String>(tekstPåSpråk)
+    val tekstPåSpråk: Map<Locale, String>,
+) : Map<Locale, String> by tekstPåSpråk {
+    @JsonCreator
+    fun fromJson(tekstPåSpråk: Map<Locale, String>): TekstPåSpråkMap = TekstPåSpråkMap(tekstPåSpråk)
+
+    @JsonValue
+    fun toJson(): Map<Locale, String> = tekstPåSpråk
+}
 
 enum class Dokumentasjonsbehov {
     AVTALE_DELT_BOSTED,

@@ -98,13 +98,13 @@ data class Barn(
 typealias Locale = String
 
 class TekstPåSpråkMap(
-    val tekstPåSpråk: Map<String, String>,
-) : Map<String, String> by tekstPåSpråk {
+    val tekstPåSpråk: Map<Locale, String>,
+) : Map<Locale, String> by tekstPåSpråk {
     @JsonCreator
-    fun fromJson(tekstPåSpråk: Map<String, String>): TekstPåSpråkMap = TekstPåSpråkMap(tekstPåSpråk)
+    fun fromJson(tekstPåSpråk: Map<Locale, String>): TekstPåSpråkMap = TekstPåSpråkMap(tekstPåSpråk)
 
     @JsonValue
-    fun toJson(): Map<String, String> = tekstPåSpråk
+    fun toJson(): Map<Locale, String> = tekstPåSpråk
 }
 
 enum class Dokumentasjonsbehov {

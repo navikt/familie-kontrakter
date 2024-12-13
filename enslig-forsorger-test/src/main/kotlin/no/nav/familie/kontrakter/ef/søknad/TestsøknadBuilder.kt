@@ -338,9 +338,9 @@ class TestsøknadBuilder private constructor(
 
         fun setStønadstart(month: Month = Month.AUGUST, fraÅr: Int = 2018, søkerFraBestemtMåned: Boolean = true): Builder {
             this.stønadsstart = Stønadsstart(
+                Søknadsfelt("Søker du stønad fra et bestemt tidspunkt", søkerFraBestemtMåned),
                 Søknadsfelt("Fra måned", month),
                 Søknadsfelt("Fra år", fraÅr),
-                Søknadsfelt("Søker du stønad fra et bestemt tidspunkt", søkerFraBestemtMåned),
             )
 
             return this

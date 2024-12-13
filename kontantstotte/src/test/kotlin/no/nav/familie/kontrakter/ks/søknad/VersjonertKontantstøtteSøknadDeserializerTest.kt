@@ -8,6 +8,7 @@ import no.nav.familie.kontrakter.felles.søknad.UnsupportedVersionException
 import no.nav.familie.kontrakter.ks.søknad.v1.RegistrertBostedType
 import no.nav.familie.kontrakter.ks.søknad.v1.SIVILSTANDTYPE
 import no.nav.familie.kontrakter.ks.søknad.v1.SøknadAdresse
+import no.nav.familie.kontrakter.ks.søknad.v1.TekstPåSpråkMap
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNotNull
 import org.junit.jupiter.api.Test
@@ -39,7 +40,10 @@ class VersjonertKontantstøtteSøknadDeserializerTest {
                 barn = listOf(lagBarnV4(barnFnr)),
                 antallEøsSteg = 0,
                 dokumentasjon = emptyList(),
-                teksterTilPdf = emptyMap(),
+                teksterTilPdf =
+                mapOf(
+                    "testApiNavn" to TekstPåSpråkMap(mapOf("nb" to "bokmål", "nn" to "nynorsk", "en" to "engelsk")),
+                ),
                 originalSpråk = "NB",
                 finnesPersonMedAdressebeskyttelse = false,
                 erNoenAvBarnaFosterbarn = lagStringSøknadsfelt("Nei"),
@@ -76,7 +80,10 @@ class VersjonertKontantstøtteSøknadDeserializerTest {
                 barn = listOf(lagBarnV4(barnFnr)),
                 antallEøsSteg = 0,
                 dokumentasjon = emptyList(),
-                teksterTilPdf = emptyMap(),
+                teksterTilPdf =
+                mapOf(
+                    "testApiNavn" to TekstPåSpråkMap(mapOf("nb" to "bokmål", "nn" to "nynorsk", "en" to "engelsk")),
+                ),
                 originalSpråk = "NB",
                 finnesPersonMedAdressebeskyttelse = false,
                 erNoenAvBarnaFosterbarn = lagStringSøknadsfelt("Nei"),
@@ -113,7 +120,10 @@ class VersjonertKontantstøtteSøknadDeserializerTest {
                 barn = listOf(lagBarnV4(barnFnr)),
                 antallEøsSteg = 0,
                 dokumentasjon = emptyList(),
-                teksterTilPdf = emptyMap(),
+                teksterTilPdf =
+                mapOf(
+                    "testApiNavn" to TekstPåSpråkMap(mapOf("nb" to "bokmål", "nn" to "nynorsk", "en" to "engelsk")),
+                ),
                 originalSpråk = "NB",
                 erNoenAvBarnaFosterbarn = lagStringSøknadsfelt("Nei"),
                 søktAsylForBarn = lagStringSøknadsfelt("Nei"),
@@ -149,7 +159,10 @@ class VersjonertKontantstøtteSøknadDeserializerTest {
                 barn = listOf(lagBarnV4(barnFnr)),
                 antallEøsSteg = 0,
                 dokumentasjon = emptyList(),
-                teksterTilPdf = emptyMap(),
+                teksterTilPdf =
+                mapOf(
+                    "testApiNavn" to TekstPåSpråkMap(mapOf("nb" to "bokmål", "nn" to "nynorsk", "en" to "engelsk")),
+                ),
                 originalSpråk = "NB",
                 erNoenAvBarnaFosterbarn = lagStringSøknadsfelt("Nei"),
                 søktAsylForBarn = lagStringSøknadsfelt("Nei"),
@@ -185,7 +198,10 @@ class VersjonertKontantstøtteSøknadDeserializerTest {
                 barn = listOf(lagBarnV3(barnFnr)),
                 antallEøsSteg = 0,
                 dokumentasjon = emptyList(),
-                teksterTilPdf = emptyMap(),
+                teksterTilPdf =
+                mapOf(
+                    "testApiNavn" to TekstPåSpråkMap(mapOf("nb" to "bokmål", "nn" to "nynorsk", "en" to "engelsk")),
+                ),
                 originalSpråk = "NB",
                 erNoenAvBarnaFosterbarn = lagStringSøknadsfelt("Nei"),
                 søktAsylForBarn = lagStringSøknadsfelt("Nei"),
@@ -221,7 +237,10 @@ class VersjonertKontantstøtteSøknadDeserializerTest {
                 barn = listOf(lagBarnV2(barnFnr)),
                 antallEøsSteg = 0,
                 dokumentasjon = emptyList(),
-                teksterTilPdf = emptyMap(),
+                teksterTilPdf =
+                mapOf(
+                    "testApiNavn" to TekstPåSpråkMap(mapOf("nb" to "bokmål", "nn" to "nynorsk", "en" to "engelsk")),
+                ),
                 originalSpråk = "NB",
                 erNoenAvBarnaFosterbarn = lagStringSøknadsfelt("Nei"),
                 søktAsylForBarn = lagStringSøknadsfelt("Nei"),
@@ -257,7 +276,10 @@ class VersjonertKontantstøtteSøknadDeserializerTest {
                 barn = listOf(lagBarnV1(barnFnr)),
                 antallEøsSteg = 0,
                 dokumentasjon = emptyList(),
-                teksterTilPdf = emptyMap(),
+                teksterTilPdf =
+                mapOf(
+                    "testApiNavn" to TekstPåSpråkMap(mapOf("nb" to "bokmål", "nn" to "nynorsk", "en" to "engelsk")),
+                ),
                 originalSpråk = "NB",
                 erNoenAvBarnaFosterbarn = lagStringSøknadsfelt("Nei"),
                 søktAsylForBarn = lagStringSøknadsfelt("Nei"),
@@ -322,16 +344,16 @@ class VersjonertKontantstøtteSøknadDeserializerTest {
             navn = lagStringSøknadsfelt("Navn"),
             statsborgerskap = lagStringSøknadsfelt(listOf("Norge")),
             adresse =
-                lagStringSøknadsfelt(
-                    SøknadAdresse(
-                        adressenavn = "Gate",
-                        postnummer = null,
-                        husbokstav = null,
-                        bruksenhetsnummer = null,
-                        husnummer = null,
-                        poststed = null,
-                    ),
+            lagStringSøknadsfelt(
+                SøknadAdresse(
+                    adressenavn = "Gate",
+                    postnummer = null,
+                    husbokstav = null,
+                    bruksenhetsnummer = null,
+                    husnummer = null,
+                    poststed = null,
                 ),
+            ),
             adressebeskyttelse = false,
             sivilstand = lagStringSøknadsfelt(SIVILSTANDTYPE.UOPPGITT),
             borPåRegistrertAdresse = null,
@@ -362,16 +384,16 @@ class VersjonertKontantstøtteSøknadDeserializerTest {
             navn = lagStringSøknadsfelt("Navn"),
             statsborgerskap = lagStringSøknadsfelt(listOf("Norge")),
             adresse =
-                lagStringSøknadsfelt(
-                    SøknadAdresse(
-                        adressenavn = "Gate",
-                        postnummer = null,
-                        husbokstav = null,
-                        bruksenhetsnummer = null,
-                        husnummer = null,
-                        poststed = null,
-                    ),
+            lagStringSøknadsfelt(
+                SøknadAdresse(
+                    adressenavn = "Gate",
+                    postnummer = null,
+                    husbokstav = null,
+                    bruksenhetsnummer = null,
+                    husnummer = null,
+                    poststed = null,
                 ),
+            ),
             adressebeskyttelse = false,
             sivilstand = lagStringSøknadsfelt(SIVILSTANDTYPE.UOPPGITT),
             borPåRegistrertAdresse = null,
@@ -401,16 +423,16 @@ class VersjonertKontantstøtteSøknadDeserializerTest {
             navn = lagStringSøknadsfelt("Navn"),
             statsborgerskap = lagStringSøknadsfelt(listOf("Norge")),
             adresse =
-                lagStringSøknadsfelt(
-                    SøknadAdresse(
-                        adressenavn = "Gate",
-                        postnummer = null,
-                        husbokstav = null,
-                        bruksenhetsnummer = null,
-                        husnummer = null,
-                        poststed = null,
-                    ),
+            lagStringSøknadsfelt(
+                SøknadAdresse(
+                    adressenavn = "Gate",
+                    postnummer = null,
+                    husbokstav = null,
+                    bruksenhetsnummer = null,
+                    husnummer = null,
+                    poststed = null,
                 ),
+            ),
             adressebeskyttelse = false,
             sivilstand = lagStringSøknadsfelt(SIVILSTANDTYPE.UOPPGITT),
             borPåRegistrertAdresse = null,

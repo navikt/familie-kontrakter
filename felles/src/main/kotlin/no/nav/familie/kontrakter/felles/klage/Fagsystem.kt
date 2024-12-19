@@ -8,7 +8,7 @@ enum class Fagsystem {
     KS,
     ;
 
-    fun tilFagsaksystem(): Fagsystem =
+    fun tilFellesFagsystem(): Fagsystem =
         when (this) {
             EF -> Fagsystem.EF
             BA -> Fagsystem.BA

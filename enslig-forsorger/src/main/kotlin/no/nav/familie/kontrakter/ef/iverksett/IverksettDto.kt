@@ -229,6 +229,7 @@ data class TilbakekrevingMedVarselDto(
 
 enum class OppgaveForOpprettelseType {
     INNTEKTSKONTROLL_1_ÅR_FREM_I_TID,
+    INNTEKTSKONTROLL_SELVSTENDIG_NÆRINGSDRIVENDE,
 }
 
 data class OppgaverForOpprettelseDto(val oppgavetyper: List<OppgaveForOpprettelseType>)

@@ -230,12 +230,12 @@ data class TilbakekrevingMedVarselDto(
 sealed class OppgaveForOpprettelseDto {
 
     data class InntektskontrollEttÅrFremITid(
-        val oppgavetype: OppgaveForOpprettelseType = OppgaveForOpprettelseType.INNTEKTSKONTROLL_1_ÅR_FREM_I_TID
+        val oppgavetype: OppgaveForOpprettelseType = OppgaveForOpprettelseType.INNTEKTSKONTROLL_1_ÅR_FREM_I_TID,
     ) : OppgaveForOpprettelseDto()
 
     data class InntektskontrollSelvstendigNæringsdrivende(
         val oppgavetype: OppgaveForOpprettelseType = OppgaveForOpprettelseType.INNTEKTSKONTROLL_SELVSTENDIG_NÆRINGSDRIVENDE,
-        val årForInntektskontrollSelvstendigNæringsdrivende: Int
+        val årForInntektskontrollSelvstendigNæringsdrivende: Int,
     ) : OppgaveForOpprettelseDto()
 }
 
@@ -245,7 +245,7 @@ enum class OppgaveForOpprettelseType {
 }
 
 data class OppgaverForOpprettelseDto(
-    val oppgavetyper: List<OppgaveForOpprettelseDto>
+    val oppgavetyper: List<OppgaveForOpprettelseDto>,
 )
 
 enum class AdressebeskyttelseGradering {

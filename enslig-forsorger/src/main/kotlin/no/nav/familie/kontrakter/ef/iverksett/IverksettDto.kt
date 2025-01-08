@@ -227,12 +227,26 @@ data class TilbakekrevingMedVarselDto(
         ?: error("Perioder eller fellesperioder må ha verdi!"),
 ) // Hentes fra simulering hvis det mangler
 
+sealed class OppgaveForOpprettelseDto {
+
+    data class InntektskontrollEttÅrFremITid(
+        val oppgavetype: OppgaveForOpprettelseType = OppgaveForOpprettelseType.INNTEKTSKONTROLL_1_ÅR_FREM_I_TID
+    ) : OppgaveForOpprettelseDto()
+
+    data class InntektskontrollSelvstendigNæringsdrivende(
+        val oppgavetype: OppgaveForOpprettelseType = OppgaveForOpprettelseType.INNTEKTSKONTROLL_SELVSTENDIG_NÆRINGSDRIVENDE,
+        val årForInntektskontrollSelvstendigNæringsdrivende: Int
+    ) : OppgaveForOpprettelseDto()
+}
+
 enum class OppgaveForOpprettelseType {
     INNTEKTSKONTROLL_1_ÅR_FREM_I_TID,
     INNTEKTSKONTROLL_SELVSTENDIG_NÆRINGSDRIVENDE,
 }
 
-data class OppgaverForOpprettelseDto(val oppgavetyper: List<OppgaveForOpprettelseType>)
+data class OppgaverForOpprettelseDto(
+    val oppgavetyper: List<OppgaveForOpprettelseDto>
+)
 
 enum class AdressebeskyttelseGradering {
     STRENGT_FORTROLIG,

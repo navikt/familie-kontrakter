@@ -244,8 +244,13 @@ enum class OppgaveForOpprettelseType {
     INNTEKTSKONTROLL_SELVSTENDIG_NÆRINGSDRIVENDE,
 }
 
-data class OppgaverForOpprettelseDto(
+data class OppgaverForOpprettelseDtoV2(
     val oppgavetyper: List<OppgaveForOpprettelseDto>,
+)
+
+data class OppgaverForOpprettelseDto(
+    val oppgavetyper: List<OppgaveForOpprettelseType>,
+    val årForInntektskontrollSelvstendigNæringsdrivende: Int? = null,
 )
 
 enum class AdressebeskyttelseGradering {

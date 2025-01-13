@@ -5,4 +5,5 @@ data class SøknadMedVedlegg<T>(
     val vedlegg: List<Vedlegg>,
     val dokumentasjonsbehov: List<Dokumentasjonsbehov> = emptyList(),
     val behandleINySaksbehandling: Boolean = false,
+    val locale: String,
 )

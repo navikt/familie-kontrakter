@@ -1,16 +1,30 @@
 package no.nav.familie.kontrakter.ba.søknad
 
+import com.fasterxml.jackson.core.JsonGenerator
 import com.fasterxml.jackson.core.JsonParser
 import com.fasterxml.jackson.databind.DeserializationContext
 import com.fasterxml.jackson.databind.JsonDeserializer
 import com.fasterxml.jackson.databind.JsonNode
+import com.fasterxml.jackson.databind.JsonSerializer
+import com.fasterxml.jackson.databind.SerializerProvider
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize
+import com.fasterxml.jackson.databind.annotation.JsonSerialize
 import no.nav.familie.kontrakter.felles.søknad.BaksSøknadBase
 import no.nav.familie.kontrakter.felles.søknad.MissingVersionException
 import no.nav.familie.kontrakter.felles.søknad.UnsupportedVersionException
 import no.nav.familie.kontrakter.ba.søknad.v7.Søknad as BarnetrygdSøknadV7
 import no.nav.familie.kontrakter.ba.søknad.v8.Søknad as BarnetrygdSøknadV8
 import no.nav.familie.kontrakter.ba.søknad.v9.BarnetrygdSøknad as BarnetrygdSøknadV9
+
+class VersjonertBarnetrygdSøknadSerializer : JsonSerializer<VersjonertBarnetrygdSøknad>() {
+    override fun serialize(
+        value: VersjonertBarnetrygdSøknad,
+        jsonGenerator: JsonGenerator,
+        serializers: SerializerProvider,
+    ) {
+        jsonGenerator.writePOJO(value.barnetrygdSøknad)
+    }
+}
 
 class VersjonertBarnetrygdSøknadDeserializer : JsonDeserializer<VersjonertBarnetrygdSøknad>() {
     /**
@@ -35,6 +49,7 @@ class VersjonertBarnetrygdSøknadDeserializer : JsonDeserializer<VersjonertBarne
     }
 }
 
+@JsonSerialize(using = VersjonertBarnetrygdSøknadSerializer::class)
 @JsonDeserialize(using = VersjonertBarnetrygdSøknadDeserializer::class)
 sealed class VersjonertBarnetrygdSøknad(
     open val barnetrygdSøknad: BaksSøknadBase,

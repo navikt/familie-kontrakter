@@ -96,7 +96,7 @@ class VersjonertBarnetrygdSøknadDeserializerTest {
         // Arrange
         val søkerFnr = "12345678910"
         val barnFnr = "12345678911"
-        val barnetrygdSøknadV9 =
+        val barnetrygdSøknadV8 =
             BarnetrygdSøknadV8(
                 kontraktVersjon = 8,
                 søker = lagSøkerV8(søkerFnr),
@@ -108,7 +108,7 @@ class VersjonertBarnetrygdSøknadDeserializerTest {
                 spørsmål = emptyMap(),
                 teksterUtenomSpørsmål = emptyMap(),
             )
-        val søknadJson = objectMapper.writeValueAsString(barnetrygdSøknadV9)
+        val søknadJson = objectMapper.writeValueAsString(barnetrygdSøknadV8)
 
         // Act
         val versjonertBarnetrygdSøknad = objectMapper.readValue<VersjonertBarnetrygdSøknad>(søknadJson)
@@ -129,7 +129,7 @@ class VersjonertBarnetrygdSøknadDeserializerTest {
         // Arrange
         val søkerFnr = "12345678910"
         val barnFnr = "12345678911"
-        val barnetrygdSøknadV9 =
+        val barnetrygdSøknadV8 =
             BarnetrygdSøknadV8(
                 kontraktVersjon = 8,
                 søker = lagSøkerV8(søkerFnr),
@@ -141,7 +141,7 @@ class VersjonertBarnetrygdSøknadDeserializerTest {
                 spørsmål = emptyMap(),
                 teksterUtenomSpørsmål = emptyMap(),
             )
-        val søknadJson = objectMapper.writeValueAsString(barnetrygdSøknadV9)
+        val søknadJson = objectMapper.writeValueAsString(barnetrygdSøknadV8)
 
         // Act
         val versjonertBarnetrygdSøknad = objectMapper.readValue<StøttetVersjonertBarnetrygdSøknad>(søknadJson)
@@ -162,7 +162,7 @@ class VersjonertBarnetrygdSøknadDeserializerTest {
         // Arrange
         val søkerFnr = "12345678910"
         val barnFnr = "12345678911"
-        val barnetrygdSøknadV9 =
+        val barnetrygdSøknadV7 =
             BarnetrygdSøknadV7(
                 kontraktVersjon = 7,
                 søker = lagSøkerV7(søkerFnr),
@@ -174,7 +174,7 @@ class VersjonertBarnetrygdSøknadDeserializerTest {
                 spørsmål = emptyMap(),
                 teksterUtenomSpørsmål = emptyMap(),
             )
-        val søknadJson = objectMapper.writeValueAsString(barnetrygdSøknadV9)
+        val søknadJson = objectMapper.writeValueAsString(barnetrygdSøknadV7)
 
         // Act
         val versjonertBarnetrygdSøknad = objectMapper.readValue<VersjonertBarnetrygdSøknad>(søknadJson)
@@ -231,16 +231,16 @@ class VersjonertBarnetrygdSøknadDeserializerTest {
             navn = lagStringSøknadsfelt("Navn"),
             statsborgerskap = lagStringSøknadsfelt(listOf("Norge")),
             adresse =
-            lagStringSøknadsfelt(
-                SøknadAdresse(
-                    adressenavn = "Gate",
-                    postnummer = null,
-                    husbokstav = null,
-                    bruksenhetsnummer = null,
-                    husnummer = null,
-                    poststed = null,
+                lagStringSøknadsfelt(
+                    SøknadAdresse(
+                        adressenavn = "Gate",
+                        postnummer = null,
+                        husbokstav = null,
+                        bruksenhetsnummer = null,
+                        husnummer = null,
+                        poststed = null,
+                    ),
                 ),
-            ),
             adressebeskyttelse = false,
             sivilstand = lagStringSøknadsfelt(SIVILSTANDTYPE.UOPPGITT),
             utenlandsperioder = emptyList(),
@@ -262,16 +262,16 @@ class VersjonertBarnetrygdSøknadDeserializerTest {
             navn = lagStringSøknadsfelt("Navn"),
             statsborgerskap = lagStringSøknadsfelt(listOf("Norge")),
             adresse =
-            lagStringSøknadsfelt(
-                SøknadAdresse(
-                    adressenavn = "Gate",
-                    postnummer = null,
-                    husbokstav = null,
-                    bruksenhetsnummer = null,
-                    husnummer = null,
-                    poststed = null,
+                lagStringSøknadsfelt(
+                    SøknadAdresse(
+                        adressenavn = "Gate",
+                        postnummer = null,
+                        husbokstav = null,
+                        bruksenhetsnummer = null,
+                        husnummer = null,
+                        poststed = null,
+                    ),
                 ),
-            ),
             sivilstand = lagStringSøknadsfelt(SIVILSTANDTYPE.UOPPGITT),
             utenlandsperioder = emptyList(),
             arbeidsperioderUtland = emptyList(),

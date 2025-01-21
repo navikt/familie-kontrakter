@@ -1,10 +1,14 @@
 package no.nav.familie.kontrakter.ks.søknad
 
+import com.fasterxml.jackson.core.JsonGenerator
 import com.fasterxml.jackson.core.JsonParser
 import com.fasterxml.jackson.databind.DeserializationContext
 import com.fasterxml.jackson.databind.JsonDeserializer
 import com.fasterxml.jackson.databind.JsonNode
+import com.fasterxml.jackson.databind.JsonSerializer
+import com.fasterxml.jackson.databind.SerializerProvider
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize
+import com.fasterxml.jackson.databind.annotation.JsonSerialize
 import no.nav.familie.kontrakter.felles.søknad.BaksSøknadBase
 import no.nav.familie.kontrakter.felles.søknad.MissingVersionException
 import no.nav.familie.kontrakter.felles.søknad.UnsupportedVersionException
@@ -13,6 +17,16 @@ import no.nav.familie.kontrakter.ks.søknad.v2.KontantstøtteSøknad as Kontants
 import no.nav.familie.kontrakter.ks.søknad.v3.KontantstøtteSøknad as KontantstøtteSøknadV3
 import no.nav.familie.kontrakter.ks.søknad.v4.KontantstøtteSøknad as KontantstøtteSøknadV4
 import no.nav.familie.kontrakter.ks.søknad.v5.KontantstøtteSøknad as KontantstøtteSøknadV5
+
+class VersjonertKontantStøtteSerializer : JsonSerializer<VersjonertKontantstøtteSøknad>() {
+    override fun serialize(
+        value: VersjonertKontantstøtteSøknad,
+        jsonGenerator: JsonGenerator,
+        serializers: SerializerProvider,
+    ) {
+        jsonGenerator.writePOJO(value.kontantstøtteSøknad)
+    }
+}
 
 class VersjonertKontantstøtteSøknadDeserializer : JsonDeserializer<VersjonertKontantstøtteSøknad>() {
     /**
@@ -39,6 +53,7 @@ class VersjonertKontantstøtteSøknadDeserializer : JsonDeserializer<VersjonertK
     }
 }
 
+@JsonSerialize(using = VersjonertKontantStøtteSerializer::class)
 @JsonDeserialize(using = VersjonertKontantstøtteSøknadDeserializer::class)
 sealed class VersjonertKontantstøtteSøknad(
     open val kontantstøtteSøknad: BaksSøknadBase,

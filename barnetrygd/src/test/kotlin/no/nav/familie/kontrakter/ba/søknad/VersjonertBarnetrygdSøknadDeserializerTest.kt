@@ -1,26 +1,14 @@
 package no.nav.familie.kontrakter.ba.søknad
 
 import com.fasterxml.jackson.module.kotlin.readValue
-import no.nav.familie.kontrakter.ba.søknad.v1.SIVILSTANDTYPE
-import no.nav.familie.kontrakter.ba.søknad.v1.SøknadAdresse
-import no.nav.familie.kontrakter.ba.søknad.v4.Søknadstype
-import no.nav.familie.kontrakter.ba.søknad.v5.RegistrertBostedType
 import no.nav.familie.kontrakter.felles.objectMapper
 import no.nav.familie.kontrakter.felles.søknad.MissingVersionException
-import no.nav.familie.kontrakter.felles.søknad.Søknadsfelt
 import no.nav.familie.kontrakter.felles.søknad.UnsupportedVersionException
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNotNull
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
-import no.nav.familie.kontrakter.ba.søknad.v7.Barn as BarnV7
-import no.nav.familie.kontrakter.ba.søknad.v7.Søker as SøkerV7
-import no.nav.familie.kontrakter.ba.søknad.v7.Søknad as BarnetrygdSøknadV7
-import no.nav.familie.kontrakter.ba.søknad.v8.Barn as BarnV8
-import no.nav.familie.kontrakter.ba.søknad.v8.Søker as SøkerV8
-import no.nav.familie.kontrakter.ba.søknad.v8.Søknad as BarnetrygdSøknadV8
-import no.nav.familie.kontrakter.ba.søknad.v9.BarnetrygdSøknad as BarnetrygdSøknadV9
 
 class VersjonertBarnetrygdSøknadDeserializerTest {
     @Test
@@ -28,19 +16,7 @@ class VersjonertBarnetrygdSøknadDeserializerTest {
         // Arrange
         val søkerFnr = "12345678910"
         val barnFnr = "12345678911"
-        val barnetrygdSøknadV9 =
-            BarnetrygdSøknadV9(
-                kontraktVersjon = 9,
-                søker = lagSøkerV8(søkerFnr),
-                barn = listOf(lagBarnV8(barnFnr)),
-                antallEøsSteg = 0,
-                dokumentasjon = emptyList(),
-                originalSpråk = "NB",
-                finnesPersonMedAdressebeskyttelse = false,
-                søknadstype = Søknadstype.ORDINÆR,
-                spørsmål = emptyMap(),
-                teksterUtenomSpørsmål = emptyMap(),
-            )
+        val barnetrygdSøknadV9 = lagBarnetrygdSøknadV9(søkerFnr, barnFnr)
         val søknadJson = objectMapper.writeValueAsString(barnetrygdSøknadV9)
 
         // Act
@@ -62,19 +38,7 @@ class VersjonertBarnetrygdSøknadDeserializerTest {
         // Arrange
         val søkerFnr = "12345678910"
         val barnFnr = "12345678911"
-        val barnetrygdSøknadV9 =
-            BarnetrygdSøknadV9(
-                kontraktVersjon = 9,
-                søker = lagSøkerV8(søkerFnr),
-                barn = listOf(lagBarnV8(barnFnr)),
-                antallEøsSteg = 0,
-                dokumentasjon = emptyList(),
-                originalSpråk = "NB",
-                finnesPersonMedAdressebeskyttelse = false,
-                søknadstype = Søknadstype.ORDINÆR,
-                spørsmål = emptyMap(),
-                teksterUtenomSpørsmål = emptyMap(),
-            )
+        val barnetrygdSøknadV9 = lagBarnetrygdSøknadV9(søkerFnr, barnFnr)
         val søknadJson = objectMapper.writeValueAsString(barnetrygdSøknadV9)
 
         // Act
@@ -96,18 +60,7 @@ class VersjonertBarnetrygdSøknadDeserializerTest {
         // Arrange
         val søkerFnr = "12345678910"
         val barnFnr = "12345678911"
-        val barnetrygdSøknadV8 =
-            BarnetrygdSøknadV8(
-                kontraktVersjon = 8,
-                søker = lagSøkerV8(søkerFnr),
-                barn = listOf(lagBarnV8(barnFnr)),
-                antallEøsSteg = 0,
-                dokumentasjon = emptyList(),
-                originalSpråk = "NB",
-                søknadstype = Søknadstype.ORDINÆR,
-                spørsmål = emptyMap(),
-                teksterUtenomSpørsmål = emptyMap(),
-            )
+        val barnetrygdSøknadV8 = lagBarnetrygdSøknadV8(søkerFnr, barnFnr)
         val søknadJson = objectMapper.writeValueAsString(barnetrygdSøknadV8)
 
         // Act
@@ -129,18 +82,7 @@ class VersjonertBarnetrygdSøknadDeserializerTest {
         // Arrange
         val søkerFnr = "12345678910"
         val barnFnr = "12345678911"
-        val barnetrygdSøknadV8 =
-            BarnetrygdSøknadV8(
-                kontraktVersjon = 8,
-                søker = lagSøkerV8(søkerFnr),
-                barn = listOf(lagBarnV8(barnFnr)),
-                antallEøsSteg = 0,
-                dokumentasjon = emptyList(),
-                originalSpråk = "NB",
-                søknadstype = Søknadstype.ORDINÆR,
-                spørsmål = emptyMap(),
-                teksterUtenomSpørsmål = emptyMap(),
-            )
+        val barnetrygdSøknadV8 = lagBarnetrygdSøknadV8(søkerFnr, barnFnr)
         val søknadJson = objectMapper.writeValueAsString(barnetrygdSøknadV8)
 
         // Act
@@ -162,18 +104,7 @@ class VersjonertBarnetrygdSøknadDeserializerTest {
         // Arrange
         val søkerFnr = "12345678910"
         val barnFnr = "12345678911"
-        val barnetrygdSøknadV7 =
-            BarnetrygdSøknadV7(
-                kontraktVersjon = 7,
-                søker = lagSøkerV7(søkerFnr),
-                barn = listOf(lagBarnV7(barnFnr)),
-                antallEøsSteg = 0,
-                dokumentasjon = emptyList(),
-                originalSpråk = "NB",
-                søknadstype = Søknadstype.ORDINÆR,
-                spørsmål = emptyMap(),
-                teksterUtenomSpørsmål = emptyMap(),
-            )
+        val barnetrygdSøknadV7 = lagBarnetrygdSøknadV7(søkerFnr, barnFnr)
         val søknadJson = objectMapper.writeValueAsString(barnetrygdSøknadV7)
 
         // Act
@@ -217,101 +148,4 @@ class VersjonertBarnetrygdSøknadDeserializerTest {
             unsupportedVersionException.message,
         )
     }
-
-    private fun <T> lagStringSøknadsfelt(verdi: T): Søknadsfelt<T> =
-        Søknadsfelt(
-            label = mapOf("no" to ""),
-            verdi = mapOf("no" to verdi),
-        )
-
-    private fun lagSøkerV8(fnr: String): SøkerV8 =
-        SøkerV8(
-            harEøsSteg = false,
-            ident = lagStringSøknadsfelt(fnr),
-            navn = lagStringSøknadsfelt("Navn"),
-            statsborgerskap = lagStringSøknadsfelt(listOf("Norge")),
-            adresse =
-                lagStringSøknadsfelt(
-                    SøknadAdresse(
-                        adressenavn = "Gate",
-                        postnummer = null,
-                        husbokstav = null,
-                        bruksenhetsnummer = null,
-                        husnummer = null,
-                        poststed = null,
-                    ),
-                ),
-            adressebeskyttelse = false,
-            sivilstand = lagStringSøknadsfelt(SIVILSTANDTYPE.UOPPGITT),
-            utenlandsperioder = emptyList(),
-            arbeidsperioderUtland = emptyList(),
-            pensjonsperioderUtland = emptyList(),
-            arbeidsperioderNorge = emptyList(),
-            pensjonsperioderNorge = emptyList(),
-            andreUtbetalingsperioder = emptyList(),
-            idNummer = emptyList(),
-            spørsmål = emptyMap(),
-            nåværendeSamboer = null,
-            tidligereSamboere = emptyList(),
-        )
-
-    private fun lagSøkerV7(fnr: String): SøkerV7 =
-        SøkerV7(
-            harEøsSteg = false,
-            ident = lagStringSøknadsfelt(fnr),
-            navn = lagStringSøknadsfelt("Navn"),
-            statsborgerskap = lagStringSøknadsfelt(listOf("Norge")),
-            adresse =
-                lagStringSøknadsfelt(
-                    SøknadAdresse(
-                        adressenavn = "Gate",
-                        postnummer = null,
-                        husbokstav = null,
-                        bruksenhetsnummer = null,
-                        husnummer = null,
-                        poststed = null,
-                    ),
-                ),
-            sivilstand = lagStringSøknadsfelt(SIVILSTANDTYPE.UOPPGITT),
-            utenlandsperioder = emptyList(),
-            arbeidsperioderUtland = emptyList(),
-            pensjonsperioderUtland = emptyList(),
-            arbeidsperioderNorge = emptyList(),
-            pensjonsperioderNorge = emptyList(),
-            andreUtbetalingsperioder = emptyList(),
-            idNummer = emptyList(),
-            spørsmål = emptyMap(),
-            nåværendeSamboer = null,
-            tidligereSamboere = emptyList(),
-        )
-
-    private fun lagBarnV8(fnr: String): BarnV8 =
-        BarnV8(
-            harEøsSteg = false,
-            ident = lagStringSøknadsfelt(fnr),
-            navn = lagStringSøknadsfelt(""),
-            registrertBostedType = lagStringSøknadsfelt(RegistrertBostedType.REGISTRERT_SOKERS_ADRESSE),
-            alder = null,
-            andreForelder = null,
-            utenlandsperioder = emptyList(),
-            omsorgsperson = null,
-            idNummer = emptyList(),
-            spørsmål = emptyMap(),
-            eøsBarnetrygdsperioder = emptyList(),
-        )
-
-    private fun lagBarnV7(fnr: String): BarnV7 =
-        BarnV7(
-            harEøsSteg = false,
-            ident = lagStringSøknadsfelt(fnr),
-            navn = lagStringSøknadsfelt(""),
-            registrertBostedType = lagStringSøknadsfelt(RegistrertBostedType.REGISTRERT_SOKERS_ADRESSE),
-            alder = lagStringSøknadsfelt("1"),
-            andreForelder = null,
-            utenlandsperioder = emptyList(),
-            omsorgsperson = null,
-            idNummer = emptyList(),
-            spørsmål = emptyMap(),
-            eøsBarnetrygdsperioder = emptyList(),
-        )
 }

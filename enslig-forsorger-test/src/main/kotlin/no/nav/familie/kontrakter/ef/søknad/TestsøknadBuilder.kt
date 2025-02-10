@@ -282,6 +282,7 @@ class TestsøknadBuilder private constructor(
             aksjeselskap: List<Aksjeselskap> = defaultAksjeselskap(),
         ): Builder {
             this.aktivitet = Aktivitet(
+                Søknadsfelt("Er du i arbeid?", "Ja"),
                 Søknadsfelt(
                     "Hvordan er arbeidssituasjonen din?",
                     verdi = hvordanErArbeidssituasjonen.map { it.verdi },

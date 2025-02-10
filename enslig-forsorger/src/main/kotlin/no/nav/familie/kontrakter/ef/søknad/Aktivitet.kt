@@ -1,6 +1,7 @@
 package no.nav.familie.kontrakter.ef.søknad
 
 data class Aktivitet(
+    val erIArbeid: Søknadsfelt<String>? = null,
     val hvordanErArbeidssituasjonen: Søknadsfelt<List<String>>,
     val arbeidsforhold: Søknadsfelt<List<Arbeidsgiver>>? = null,
     @Deprecated("Bruk firmaer istedenfor") val selvstendig: Søknadsfelt<Selvstendig>? = null,
@@ -9,7 +10,6 @@ data class Aktivitet(
     val arbeidssøker: Søknadsfelt<Arbeidssøker>? = null,
     val underUtdanning: Søknadsfelt<UnderUtdanning>? = null,
     val aksjeselskap: Søknadsfelt<List<Aksjeselskap>>? = null,
-    val erIArbeid: Søknadsfelt<String>? = null,
     val erIArbeidDokumentasjon: Søknadsfelt<Dokumentasjon>? = null,
 )
 

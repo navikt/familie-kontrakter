@@ -282,23 +282,21 @@ class TestsøknadBuilder private constructor(
             aksjeselskap: List<Aksjeselskap> = defaultAksjeselskap(),
         ): Builder {
             this.aktivitet = Aktivitet(
-                Søknadsfelt("Er du i arbeid?", "Ja"),
-                Søknadsfelt(
+                hvordanErArbeidssituasjonen = Søknadsfelt(
                     "Hvordan er arbeidssituasjonen din?",
                     verdi = hvordanErArbeidssituasjonen.map { it.verdi },
                     svarId = hvordanErArbeidssituasjonen.map { it.svarId },
                 ),
-                Søknadsfelt("Om arbeidsforholdet ditt", arbeidsforhold),
-                selvstendig,
-                Søknadsfelt("Selvstendig næringsdrivende", firmaer),
-                Søknadsfelt("Om virksomheten du etablerer", virksomhet),
-                Søknadsfelt("Når du er arbeidssøker", arbeidssøker),
-                Søknadsfelt("Utdanningen du skal ta", underUtdanning),
-                Søknadsfelt("Eget AS", aksjeselskap),
+                arbeidsforhold = Søknadsfelt("Om arbeidsforholdet ditt", arbeidsforhold),
+                selvstendig= selvstendig,
+                firmaer= Søknadsfelt("Selvstendig næringsdrivende", firmaer),
+                virksomhet = Søknadsfelt("Om virksomheten du etablerer", virksomhet),
+                arbeidssøker = Søknadsfelt("Når du er arbeidssøker", arbeidssøker),
+                underUtdanning= Søknadsfelt("Utdanningen du skal ta", underUtdanning),
+                aksjeselskap= Søknadsfelt("Eget AS", aksjeselskap),
             )
             return this
         }
-
         fun setSituasjon(
             oppstartNyJobb: LocalDate = LocalDate.of(2045, 12, 16),
             oppstartUtdanning: LocalDate = LocalDate.of(2025, 7, 28),

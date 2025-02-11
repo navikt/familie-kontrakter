@@ -30,7 +30,7 @@ class TestsøknadBuilder private constructor(
     val situasjon: Situasjon,
     val stønadsstart: Stønadsstart,
 
-) {
+    ) {
 
     /**
      * En builder med defaultverdier for 'Testsøknad', men som kan "overlagres" om man ønsker andre verdier
@@ -215,7 +215,7 @@ class TestsøknadBuilder private constructor(
             lagtTilManuelt: Boolean = true,
             skalBoHosSøker: String? = "jaMenSamarbeiderIkke",
 
-        ): Barn {
+            ): Barn {
             return Barn(
                 Søknadsfelt("Navn", navn),
                 Søknadsfelt(
@@ -288,15 +288,16 @@ class TestsøknadBuilder private constructor(
                     svarId = hvordanErArbeidssituasjonen.map { it.svarId },
                 ),
                 arbeidsforhold = Søknadsfelt("Om arbeidsforholdet ditt", arbeidsforhold),
-                selvstendig= selvstendig,
-                firmaer= Søknadsfelt("Selvstendig næringsdrivende", firmaer),
+                selvstendig = selvstendig,
+                firmaer = Søknadsfelt("Selvstendig næringsdrivende", firmaer),
                 virksomhet = Søknadsfelt("Om virksomheten du etablerer", virksomhet),
                 arbeidssøker = Søknadsfelt("Når du er arbeidssøker", arbeidssøker),
-                underUtdanning= Søknadsfelt("Utdanningen du skal ta", underUtdanning),
-                aksjeselskap= Søknadsfelt("Eget AS", aksjeselskap),
+                underUtdanning = Søknadsfelt("Utdanningen du skal ta", underUtdanning),
+                aksjeselskap = Søknadsfelt("Eget AS", aksjeselskap),
             )
             return this
         }
+
         fun setSituasjon(
             oppstartNyJobb: LocalDate = LocalDate.of(2045, 12, 16),
             oppstartUtdanning: LocalDate = LocalDate.of(2025, 7, 28),
@@ -335,7 +336,11 @@ class TestsøknadBuilder private constructor(
             return this
         }
 
-        fun setStønadstart(month: Month = Month.AUGUST, fraÅr: Int = 2018, søkerFraBestemtMåned: Boolean = true): Builder {
+        fun setStønadstart(
+            month: Month = Month.AUGUST,
+            fraÅr: Int = 2018,
+            søkerFraBestemtMåned: Boolean = true
+        ): Builder {
             this.stønadsstart = Stønadsstart(
                 Søknadsfelt("Søker du stønad fra et bestemt tidspunkt", søkerFraBestemtMåned),
                 Søknadsfelt("Fra måned", month),
@@ -464,7 +469,7 @@ class TestsøknadBuilder private constructor(
             datoperiode = Søknadsfelt("Periode", Datoperiode(fra = fraDato, til = tilDato)),
             belop = Søknadsfelt(label = "Beløp", verdi = beløp),
 
-        )
+            )
 
         fun defaultBarnepass(
             årsakSvarId: String? = "trengerMerPassEnnJevnaldrede",
@@ -555,7 +560,11 @@ class TestsøknadBuilder private constructor(
                 Utenlandsopphold(
                     fradato = Søknadsfelt("Fra", LocalDate.of(2012, 12, 4)),
                     tildato = Søknadsfelt("Til", LocalDate.of(2012, 12, 18)),
-                    land = Søknadsfelt(label = "Hvor oppholder du og barnet/barna dere?", verdi = "Sverige", svarId = "SWE"),
+                    land = Søknadsfelt(
+                        label = "Hvor oppholder du og barnet/barna dere?",
+                        verdi = "Sverige",
+                        svarId = "SWE"
+                    ),
                     årsakUtenlandsopphold = Søknadsfelt("Hvorfor bodde du i utlandet?", "Granca, Granca, Granca"),
                 ),
             )
@@ -701,10 +710,10 @@ class TestsøknadBuilder private constructor(
                 hvaErMåletMedUtdanningen = Søknadsfelt(
                     "Hva er målet med utdanningen?",
                     "Odio quam nulla at amet eget. Faucibus feugiat orci, nisi a venenatis metus. Tincidunt massa amet sapien velit egestas varius in.\n" +
-                        "\n" +
-                        "Leo sed bibendum sapien eros, dui nunc, purus. Morbi vulputate non facilisi neque pulvinar. Vulputate malesuada risus ipsum scelerisque. Id ac consequat, curabitur fermentum mauris blandit dictum rhoncus nibh. Etiam hendrerit amet tempor ultrices eu ultrices. Enim in parturient at ut tincidunt sit.\n" +
-                        "\n" +
-                        "Leo donec diam vestibulum tempus at dictum lacinia rutrum. Molestie sit netus sagittis sit sodales ultrices orci. Placerat vehicula sit quis in. Nulla nunc, egestas id etiam sit facilisis enim vitae sed.",
+                            "\n" +
+                            "Leo sed bibendum sapien eros, dui nunc, purus. Morbi vulputate non facilisi neque pulvinar. Vulputate malesuada risus ipsum scelerisque. Id ac consequat, curabitur fermentum mauris blandit dictum rhoncus nibh. Etiam hendrerit amet tempor ultrices eu ultrices. Enim in parturient at ut tincidunt sit.\n" +
+                            "\n" +
+                            "Leo donec diam vestibulum tempus at dictum lacinia rutrum. Molestie sit netus sagittis sit sodales ultrices orci. Placerat vehicula sit quis in. Nulla nunc, egestas id etiam sit facilisis enim vitae sed.",
                 ),
                 utdanningEtterGrunnskolen = Søknadsfelt("Har du tatt utdanning etter grunnskolen?", true),
                 tidligereUtdanninger = Søknadsfelt(

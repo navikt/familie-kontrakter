@@ -12,6 +12,7 @@ import java.io.StringWriter
  * @param melding teknisk melding som ikke skal inneholde sensitive data
  * @param frontendFeilmelding feilmelding forbehold frontend og kan inneholde sensitive data
  * @param stacktrace stacktrace fra feil som kan være nyttig til debugging i familie-prosessering
+ * @param callId stacktrace fra feil som kan være nyttig til debugging i familie-prosessering
  */
 data class Ressurs<T>(
     val data: T?,
@@ -19,6 +20,7 @@ data class Ressurs<T>(
     val melding: String,
     val frontendFeilmelding: String? = null,
     val stacktrace: String?,
+    val callId: String? = null,
 ) {
 
     enum class Status {
@@ -48,11 +50,13 @@ data class Ressurs<T>(
             errorMessage: String? = null,
             frontendFeilmelding: String? = null,
             error: Throwable? = null,
+            callId: String? = null,
         ): Ressurs<T> = Ressurs(
             data = null,
             status = Status.FEILET,
             melding = errorMessage ?: "En feil har oppstått: ${error?.message}",
             frontendFeilmelding = frontendFeilmelding,
+            callId = callId,
             stacktrace = error?.textValue(),
         )
 

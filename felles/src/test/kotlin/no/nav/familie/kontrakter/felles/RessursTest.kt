@@ -26,7 +26,7 @@ class RessursTest {
         Assertions.assertEquals(
             ressurs.toJson(),
             "{\"data\":{\"tekst\":\"tekst\",\"nummer\":42,\"date\":\"2019-11-30\"}," +
-                "\"status\":\"SUKSESS\",\"melding\":\"OK\",\"frontendFeilmelding\":null,\"stacktrace\":null}",
+                "\"status\":\"SUKSESS\",\"melding\":\"OK\",\"frontendFeilmelding\":null,\"stacktrace\":null,\"callId\":null}",
         )
     }
 
@@ -34,7 +34,7 @@ class RessursTest {
     fun `skal konvertere success til json string med vanlig objektmapper`() {
         val ressurs: Ressurs<*> = success("a", "OK")
         Assertions.assertEquals(
-            "{\"data\":\"a\",\"status\":\"SUKSESS\",\"melding\":\"OK\",\"frontendFeilmelding\":null,\"stacktrace\":null}",
+            "{\"data\":\"a\",\"status\":\"SUKSESS\",\"melding\":\"OK\",\"frontendFeilmelding\":null,\"stacktrace\":null,\"callId\":null}",
             ObjectMapper()
                 .registerModule(JavaTimeModule())
                 .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false)

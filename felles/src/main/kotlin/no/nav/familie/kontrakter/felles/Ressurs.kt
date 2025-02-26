@@ -11,16 +11,16 @@ import java.io.StringWriter
  * @param status status på request. Kan være 200 OK med feilet ressurs
  * @param melding teknisk melding som ikke skal inneholde sensitive data
  * @param frontendFeilmelding feilmelding forbehold frontend og kan inneholde sensitive data
- * @param callId Unik identifikator for å spore en spesifikk request i loggene.
  * @param stacktrace stacktrace fra feil som kan være nyttig til debugging i familie-prosessering
+ * @param callId stacktrace fra feil som kan være nyttig til debugging i familie-prosessering
  */
 data class Ressurs<T>(
     val data: T?,
     val status: Status,
     val melding: String,
     val frontendFeilmelding: String? = null,
-    val callId: String? = null,
     val stacktrace: String?,
+    val callId: String? = null,
 ) {
 
     enum class Status {

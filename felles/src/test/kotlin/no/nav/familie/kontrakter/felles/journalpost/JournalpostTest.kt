@@ -35,12 +35,12 @@ class JournalpostTest {
             val journalpost =
                 lagJournalpost(
                     relevanteDatoer =
-                    listOf(
-                        RelevantDato(
-                            dato = LocalDateTime.of(2024, 8, 1, 12, 0),
-                            datotype = "FEIL_DATOTYPE",
+                        listOf(
+                            RelevantDato(
+                                dato = LocalDateTime.of(2024, 8, 1, 12, 0),
+                                datotype = "FEIL_DATOTYPE",
+                            ),
                         ),
-                    ),
                 )
 
             // Act
@@ -58,12 +58,12 @@ class JournalpostTest {
             val journalpost =
                 lagJournalpost(
                     relevanteDatoer =
-                    listOf(
-                        RelevantDato(
-                            dato = enDato,
-                            datotype = "DATO_REGISTRERT",
+                        listOf(
+                            RelevantDato(
+                                dato = enDato,
+                                datotype = "DATO_REGISTRERT",
+                            ),
                         ),
-                    ),
                 )
 
             // Act
@@ -145,12 +145,12 @@ class JournalpostTest {
             val journalpost =
                 lagJournalpost(
                     dokumenter =
-                    listOf(
-                        DokumentInfo(
-                            dokumentInfoId = "1",
-                            brevkode = Brevkoder.BARNETRYGD_ORDINÆR_SØKNAD,
+                        listOf(
+                            DokumentInfo(
+                                dokumentInfoId = "1",
+                                brevkode = Brevkoder.BARNETRYGD_ORDINÆR_SØKNAD,
+                            ),
                         ),
-                    ),
                 )
 
             // Act
@@ -166,12 +166,12 @@ class JournalpostTest {
             val journalpost =
                 lagJournalpost(
                     dokumenter =
-                    listOf(
-                        DokumentInfo(
-                            dokumentInfoId = "1",
-                            brevkode = Brevkoder.KONTANTSTØTTE_SØKNAD,
+                        listOf(
+                            DokumentInfo(
+                                dokumentInfoId = "1",
+                                brevkode = Brevkoder.KONTANTSTØTTE_SØKNAD,
+                            ),
                         ),
-                    ),
                 )
 
             // Act
@@ -220,12 +220,12 @@ class JournalpostTest {
             val journalpost =
                 lagJournalpost(
                     dokumenter =
-                    listOf(
-                        DokumentInfo(
-                            dokumentInfoId = "1",
-                            brevkode = Brevkoder.KONTANTSTØTTE_SØKNAD,
+                        listOf(
+                            DokumentInfo(
+                                dokumentInfoId = "1",
+                                brevkode = Brevkoder.KONTANTSTØTTE_SØKNAD,
+                            ),
                         ),
-                    ),
                 )
 
             // Act
@@ -241,12 +241,12 @@ class JournalpostTest {
             val journalpost =
                 lagJournalpost(
                     dokumenter =
-                    listOf(
-                        DokumentInfo(
-                            dokumentInfoId = "1",
-                            brevkode = Brevkoder.BARNETRYGD_ORDINÆR_SØKNAD,
+                        listOf(
+                            DokumentInfo(
+                                dokumentInfoId = "1",
+                                brevkode = Brevkoder.BARNETRYGD_ORDINÆR_SØKNAD,
+                            ),
                         ),
-                    ),
                 )
 
             // Act
@@ -295,12 +295,12 @@ class JournalpostTest {
             val journalpost =
                 lagJournalpost(
                     dokumenter =
-                    listOf(
-                        DokumentInfo(
-                            dokumentInfoId = "1",
-                            brevkode = Brevkoder.KONTANTSTØTTE_SØKNAD,
+                        listOf(
+                            DokumentInfo(
+                                dokumentInfoId = "1",
+                                brevkode = Brevkoder.KONTANTSTØTTE_SØKNAD,
+                            ),
                         ),
-                    ),
                 )
 
             // Act
@@ -316,12 +316,12 @@ class JournalpostTest {
             val journalpost =
                 lagJournalpost(
                     dokumenter =
-                    listOf(
-                        DokumentInfo(
-                            dokumentInfoId = "1",
-                            brevkode = Brevkoder.BARNETRYGD_UTVIDET_SØKNAD,
+                        listOf(
+                            DokumentInfo(
+                                dokumentInfoId = "1",
+                                brevkode = Brevkoder.BARNETRYGD_UTVIDET_SØKNAD,
+                            ),
                         ),
-                    ),
                 )
 
             // Act
@@ -340,12 +340,12 @@ class JournalpostTest {
             val journalpost =
                 lagJournalpost(
                     dokumenter =
-                    listOf(
-                        DokumentInfo(
-                            dokumentInfoId = "1",
-                            brevkode = Brevkoder.KONTANTSTØTTE_SØKNAD,
+                        listOf(
+                            DokumentInfo(
+                                dokumentInfoId = "1",
+                                brevkode = Brevkoder.KONTANTSTØTTE_SØKNAD,
+                            ),
                         ),
-                    ),
                 )
 
             // Act
@@ -361,12 +361,12 @@ class JournalpostTest {
             val journalpost =
                 lagJournalpost(
                     dokumenter =
-                    listOf(
-                        DokumentInfo(
-                            dokumentInfoId = "1",
-                            brevkode = Brevkoder.BARNETRYGD_ORDINÆR_SØKNAD,
+                        listOf(
+                            DokumentInfo(
+                                dokumentInfoId = "1",
+                                brevkode = Brevkoder.BARNETRYGD_ORDINÆR_SØKNAD,
+                            ),
                         ),
-                    ),
                 )
 
             // Act
@@ -382,12 +382,12 @@ class JournalpostTest {
             val journalpost =
                 lagJournalpost(
                     dokumenter =
-                    listOf(
-                        DokumentInfo(
-                            dokumentInfoId = "1",
-                            brevkode = Brevkoder.BARNETRYGD_UTVIDET_SØKNAD,
+                        listOf(
+                            DokumentInfo(
+                                dokumentInfoId = "1",
+                                brevkode = Brevkoder.BARNETRYGD_UTVIDET_SØKNAD,
+                            ),
                         ),
-                    ),
                 )
 
             // Act
@@ -403,16 +403,16 @@ class JournalpostTest {
             val journalpost =
                 lagJournalpost(
                     dokumenter =
-                    listOf(
-                        DokumentInfo(
-                            dokumentInfoId = "1",
-                            brevkode = Brevkoder.BARNETRYGD_UTVIDET_SØKNAD,
+                        listOf(
+                            DokumentInfo(
+                                dokumentInfoId = "1",
+                                brevkode = Brevkoder.BARNETRYGD_UTVIDET_SØKNAD,
+                            ),
+                            DokumentInfo(
+                                dokumentInfoId = "2",
+                                brevkode = Brevkoder.BARNETRYGD_UTVIDET_SØKNAD,
+                            ),
                         ),
-                        DokumentInfo(
-                            dokumentInfoId = "2",
-                            brevkode = Brevkoder.BARNETRYGD_UTVIDET_SØKNAD,
-                        ),
-                    ),
                 )
 
             // Act
@@ -479,12 +479,12 @@ class JournalpostTest {
                 lagJournalpost(
                     kanal = "NAV_NO",
                     dokumenter =
-                    listOf(
-                        DokumentInfo(
-                            dokumentInfoId = "1",
-                            brevkode = Brevkoder.KONTANTSTØTTE_SØKNAD,
+                        listOf(
+                            DokumentInfo(
+                                dokumentInfoId = "1",
+                                brevkode = Brevkoder.KONTANTSTØTTE_SØKNAD,
+                            ),
                         ),
-                    ),
                 )
 
             // Act
@@ -501,12 +501,12 @@ class JournalpostTest {
                 lagJournalpost(
                     kanal = "NAV_NO",
                     dokumenter =
-                    listOf(
-                        DokumentInfo(
-                            dokumentInfoId = "1",
-                            brevkode = Brevkoder.BARNETRYGD_ORDINÆR_SØKNAD,
+                        listOf(
+                            DokumentInfo(
+                                dokumentInfoId = "1",
+                                brevkode = Brevkoder.BARNETRYGD_ORDINÆR_SØKNAD,
+                            ),
                         ),
-                    ),
                 )
 
             // Act
@@ -573,12 +573,12 @@ class JournalpostTest {
                 lagJournalpost(
                     kanal = "NAV_NO",
                     dokumenter =
-                    listOf(
-                        DokumentInfo(
-                            dokumentInfoId = "1",
-                            brevkode = Brevkoder.BARNETRYGD_ORDINÆR_SØKNAD,
+                        listOf(
+                            DokumentInfo(
+                                dokumentInfoId = "1",
+                                brevkode = Brevkoder.BARNETRYGD_ORDINÆR_SØKNAD,
+                            ),
                         ),
-                    ),
                 )
 
             // Act
@@ -595,12 +595,12 @@ class JournalpostTest {
                 lagJournalpost(
                     kanal = "NAV_NO",
                     dokumenter =
-                    listOf(
-                        DokumentInfo(
-                            dokumentInfoId = "1",
-                            brevkode = Brevkoder.KONTANTSTØTTE_SØKNAD,
+                        listOf(
+                            DokumentInfo(
+                                dokumentInfoId = "1",
+                                brevkode = Brevkoder.KONTANTSTØTTE_SØKNAD,
+                            ),
                         ),
-                    ),
                 )
 
             // Act
@@ -623,12 +623,12 @@ class JournalpostTest {
                     journalstatus = Journalstatus.MOTTATT,
                     kanal = "NAV_NO",
                     dokumenter =
-                    listOf(
-                        DokumentInfo(
-                            dokumentInfoId = "1",
-                            brevkode = Brevkoder.KONTANTSTØTTE_SØKNAD,
+                        listOf(
+                            DokumentInfo(
+                                dokumentInfoId = "1",
+                                brevkode = Brevkoder.KONTANTSTØTTE_SØKNAD,
+                            ),
                         ),
-                    ),
                 )
 
             // Act
@@ -648,12 +648,12 @@ class JournalpostTest {
                     journalstatus = Journalstatus.MOTTATT,
                     kanal = "NAV_NO",
                     dokumenter =
-                    listOf(
-                        DokumentInfo(
-                            dokumentInfoId = "1",
-                            brevkode = Brevkoder.BARNETRYGD_ORDINÆR_SØKNAD,
+                        listOf(
+                            DokumentInfo(
+                                dokumentInfoId = "1",
+                                brevkode = Brevkoder.BARNETRYGD_ORDINÆR_SØKNAD,
+                            ),
                         ),
-                    ),
                 )
 
             // Act
@@ -711,12 +711,12 @@ class JournalpostTest {
                     journalstatus = Journalstatus.MOTTATT,
                     kanal = "NAV_NO",
                     dokumenter =
-                    listOf(
-                        DokumentInfo(
-                            dokumentInfoId = "1",
-                            brevkode = Brevkoder.BARNETRYGD_ORDINÆR_SØKNAD,
+                        listOf(
+                            DokumentInfo(
+                                dokumentInfoId = "1",
+                                brevkode = Brevkoder.BARNETRYGD_ORDINÆR_SØKNAD,
+                            ),
                         ),
-                    ),
                 )
 
             // Act
@@ -736,12 +736,12 @@ class JournalpostTest {
                     journalstatus = Journalstatus.MOTTATT,
                     kanal = "NAV_NO",
                     dokumenter =
-                    listOf(
-                        DokumentInfo(
-                            dokumentInfoId = "1",
-                            brevkode = Brevkoder.KONTANTSTØTTE_SØKNAD,
+                        listOf(
+                            DokumentInfo(
+                                dokumentInfoId = "1",
+                                brevkode = Brevkoder.KONTANTSTØTTE_SØKNAD,
+                            ),
                         ),
-                    ),
                 )
 
             // Act
@@ -808,6 +808,168 @@ class JournalpostTest {
     }
 
     @Nested
+    inner class HarKlageTest {
+        @Test
+        fun `skal returnere false om dokumenter er null`() {
+            // Arrange
+            val journalpost = lagJournalpost(dokumenter = null)
+
+            // Act
+            val harKlage = journalpost.harKlage()
+
+            // assert
+            assertFalse(harKlage)
+        }
+
+        @Test
+        fun `skal returnere false om dokumenter er tom`() {
+            // Arrange
+            val journalpost = lagJournalpost(dokumenter = emptyList())
+
+            // Act
+            val harKlage = journalpost.harKlage()
+
+            // assert
+            assertFalse(harKlage)
+        }
+
+        @Test
+        fun `skal returnere true om det finnes et dokument med brevkode klage`() {
+            // Arrange
+            val journalpost =
+                lagJournalpost(
+                    dokumenter =
+                        listOf(
+                            DokumentInfo(
+                                dokumentInfoId = "1",
+                                brevkode = Brevkoder.KLAGE,
+                            ),
+                        ),
+                )
+
+            // Act
+            val harKlage = journalpost.harKlage()
+
+            // assert
+            assertTrue(harKlage)
+        }
+
+        @Test
+        fun `skal returnere false om det ikke finnes et dokument med brevkode klage`() {
+            // Arrange
+            val journalpost =
+                lagJournalpost(
+                    dokumenter =
+                        listOf(
+                            DokumentInfo(
+                                dokumentInfoId = "1",
+                                brevkode = Brevkoder.BARNETRYGD_ORDINÆR_SØKNAD,
+                            ),
+                        ),
+                )
+
+            // Act
+            val harKlage = journalpost.harKlage()
+
+            // assert
+            assertFalse(harKlage)
+        }
+    }
+
+    @Nested
+    inner class HarDigitalKlageTest {
+        @Test
+        fun `skal returnere false om dokumenter er null`() {
+            // Arrange
+            val journalpost = lagJournalpost(dokumenter = null, kanal = "NAV_NO")
+
+            // Act
+            val harKlage = journalpost.harDigitalKlage()
+
+            // assert
+            assertFalse(harKlage)
+        }
+
+        @Test
+        fun `skal returnere false om dokumenter er tom`() {
+            // Arrange
+            val journalpost = lagJournalpost(dokumenter = emptyList(), kanal = "NAV_NO")
+
+            // Act
+            val harKlage = journalpost.harDigitalKlage()
+
+            // assert
+            assertFalse(harKlage)
+        }
+
+        @Test
+        fun `skal returnere true om det finnes et dokument med brevkode klage og kanal er NAV_NO`() {
+            // Arrange
+            val journalpost =
+                lagJournalpost(
+                    kanal = "NAV_NO",
+                    dokumenter =
+                        listOf(
+                            DokumentInfo(
+                                dokumentInfoId = "1",
+                                brevkode = Brevkoder.KLAGE,
+                            ),
+                        ),
+                )
+
+            // Act
+            val harKlage = journalpost.harDigitalKlage()
+
+            // assert
+            assertTrue(harKlage)
+        }
+
+        @Test
+        fun `skal returnere false om det finnes et dokument med brevkode klage men kanal er ikke NAV_NO`() {
+            // Arrange
+            val journalpost =
+                lagJournalpost(
+                    kanal = "IKKE_NAV_NO",
+                    dokumenter =
+                        listOf(
+                            DokumentInfo(
+                                dokumentInfoId = "1",
+                                brevkode = Brevkoder.KLAGE,
+                            ),
+                        ),
+                )
+
+            // Act
+            val harKlage = journalpost.harDigitalKlage()
+
+            // assert
+            assertFalse(harKlage)
+        }
+
+        @Test
+        fun `skal returnere false om det ikke finnes et dokument med brevkode klage og kanal er NAV_NO`() {
+            // Arrange
+            val journalpost =
+                lagJournalpost(
+                    kanal = "NAV_NO",
+                    dokumenter =
+                        listOf(
+                            DokumentInfo(
+                                dokumentInfoId = "1",
+                                brevkode = Brevkoder.BARNETRYGD_ORDINÆR_SØKNAD,
+                            ),
+                        ),
+                )
+
+            // Act
+            val harKlage = journalpost.harDigitalKlage()
+
+            // assert
+            assertFalse(harKlage)
+        }
+    }
+
+    @Nested
     inner class HentHovedDokumentTittelTest {
         @Test
         fun `skal kaste exception om dokumenter er null`() {
@@ -847,12 +1009,12 @@ class JournalpostTest {
             val journalpost =
                 lagJournalpost(
                     dokumenter =
-                    listOf(
-                        DokumentInfo(
-                            dokumentInfoId = "1",
-                            brevkode = null,
+                        listOf(
+                            DokumentInfo(
+                                dokumentInfoId = "1",
+                                brevkode = null,
+                            ),
                         ),
-                    ),
                 )
 
             // Act
@@ -868,23 +1030,23 @@ class JournalpostTest {
             val journalpost =
                 lagJournalpost(
                     dokumenter =
-                    listOf(
-                        DokumentInfo(
-                            dokumentInfoId = "1",
-                            brevkode = null,
-                            tittel = "AAA",
+                        listOf(
+                            DokumentInfo(
+                                dokumentInfoId = "1",
+                                brevkode = null,
+                                tittel = "AAA",
+                            ),
+                            DokumentInfo(
+                                dokumentInfoId = "2",
+                                brevkode = "2",
+                                tittel = null,
+                            ),
+                            DokumentInfo(
+                                dokumentInfoId = "3",
+                                brevkode = "1",
+                                tittel = "CCC",
+                            ),
                         ),
-                        DokumentInfo(
-                            dokumentInfoId = "2",
-                            brevkode = "2",
-                            tittel = null,
-                        ),
-                        DokumentInfo(
-                            dokumentInfoId = "3",
-                            brevkode = "1",
-                            tittel = "CCC",
-                        ),
-                    ),
                 )
 
             // Act
@@ -900,23 +1062,23 @@ class JournalpostTest {
             val journalpost =
                 lagJournalpost(
                     dokumenter =
-                    listOf(
-                        DokumentInfo(
-                            dokumentInfoId = "1",
-                            brevkode = null,
-                            tittel = "AAA",
+                        listOf(
+                            DokumentInfo(
+                                dokumentInfoId = "1",
+                                brevkode = null,
+                                tittel = "AAA",
+                            ),
+                            DokumentInfo(
+                                dokumentInfoId = "2",
+                                brevkode = "2",
+                                tittel = "BBB",
+                            ),
+                            DokumentInfo(
+                                dokumentInfoId = "3",
+                                brevkode = "1",
+                                tittel = "CCC",
+                            ),
                         ),
-                        DokumentInfo(
-                            dokumentInfoId = "2",
-                            brevkode = "2",
-                            tittel = "BBB",
-                        ),
-                        DokumentInfo(
-                            dokumentInfoId = "3",
-                            brevkode = "1",
-                            tittel = "CCC",
-                        ),
-                    ),
                 )
 
             // Act

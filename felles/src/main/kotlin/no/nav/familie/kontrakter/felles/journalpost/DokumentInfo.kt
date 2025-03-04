@@ -26,5 +26,7 @@ data class DokumentInfo(
             else -> throw Error("Støtter ikke tema $tema")
         }
 
+    fun erKlage() = Brevkoder.KLAGE_BREVKODER.any { brevkode -> brevkode == this.brevkode }
+
     fun harOriginalVariant(): Boolean = this.dokumentvarianter?.any { it.variantformat == Dokumentvariantformat.ORIGINAL } ?: false
 }

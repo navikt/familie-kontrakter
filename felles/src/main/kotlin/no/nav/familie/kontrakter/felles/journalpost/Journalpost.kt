@@ -42,6 +42,10 @@ data class Journalpost(
             else -> throw Error("Støtter ikke tema $tema")
         }
 
+    fun harKlage() = dokumenter?.any { it -> it.erKlage() } ?: false
+
+    fun harDigitalKlage() = erDigitalKanal() && harKlage()
+
     fun hentHovedDokumentTittel(): String? {
         if (dokumenter.isNullOrEmpty()) error("Journalpost $journalpostId mangler dokumenter")
         return dokumenter.firstOrNull { it.brevkode != null }?.tittel

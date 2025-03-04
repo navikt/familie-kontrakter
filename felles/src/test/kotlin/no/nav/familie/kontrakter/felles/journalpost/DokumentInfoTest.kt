@@ -300,6 +300,89 @@ class DokumentInfoTest {
     }
 
     @Nested
+    inner class ErKlageTest {
+        @Test
+        fun `skal returnere true for brevkode klage`() {
+            // Arrange
+            val dokumentInfo =
+                DokumentInfo(
+                    dokumentInfoId = "1",
+                    brevkode = Brevkoder.KLAGE,
+                )
+
+            // Act
+            val erKlage = dokumentInfo.erKlage()
+
+            // Assert
+            assertTrue(erKlage)
+        }
+
+        @Test
+        fun `skal returnere true for brevkode klage anke`() {
+            // Arrange
+            val dokumentInfo =
+                DokumentInfo(
+                    dokumentInfoId = "1",
+                    brevkode = Brevkoder.KLAGE_ANKE,
+                )
+
+            // Act
+            val erKlage = dokumentInfo.erKlage()
+
+            // Assert
+            assertTrue(erKlage)
+        }
+
+        @Test
+        fun `skal returnere true for brevkode ettersendelse til klage`() {
+            // Arrange
+            val dokumentInfo =
+                DokumentInfo(
+                    dokumentInfoId = "1",
+                    brevkode = Brevkoder.ETTERSENDELSE_TIL_KLAGE,
+                )
+
+            // Act
+            val erKlage = dokumentInfo.erKlage()
+
+            // Assert
+            assertTrue(erKlage)
+        }
+
+        @Test
+        fun `skal returnere true for brevkode ettersendelse til klage anke`() {
+            // Arrange
+            val dokumentInfo =
+                DokumentInfo(
+                    dokumentInfoId = "1",
+                    brevkode = Brevkoder.ETTERSENDELSE_TIL_KLAGE_ANKE,
+                )
+
+            // Act
+            val erKlage = dokumentInfo.erKlage()
+
+            // Assert
+            assertTrue(erKlage)
+        }
+
+        @Test
+        fun `skal returnere false for brevkode som ikke er relatert til klage`() {
+            // Arrange
+            val dokumentInfo =
+                DokumentInfo(
+                    dokumentInfoId = "1",
+                    brevkode = Brevkoder.BARNETRYGD_ORDINÆR_SØKNAD,
+                )
+
+            // Act
+            val erKlage = dokumentInfo.erKlage()
+
+            // Assert
+            assertFalse(erKlage)
+        }
+    }
+
+    @Nested
     inner class HarOriginalVariant {
         @Test
         fun `skal returnere true dersom dokumentvarianter inneholder original variant`() {
@@ -309,9 +392,9 @@ class DokumentInfoTest {
                     dokumentInfoId = "1",
                     brevkode = Brevkoder.BARNETRYGD_ORDINÆR_SØKNAD,
                     dokumentvarianter =
-                    listOf(
-                        Dokumentvariant(Dokumentvariantformat.ORIGINAL, "Testfil", false),
-                    ),
+                        listOf(
+                            Dokumentvariant(Dokumentvariantformat.ORIGINAL, "Testfil", false),
+                        ),
                 )
 
             // Act
@@ -329,9 +412,9 @@ class DokumentInfoTest {
                     dokumentInfoId = "1",
                     brevkode = Brevkoder.BARNETRYGD_ORDINÆR_SØKNAD,
                     dokumentvarianter =
-                    listOf(
-                        Dokumentvariant(Dokumentvariantformat.ARKIV, "Testfil", false),
-                    ),
+                        listOf(
+                            Dokumentvariant(Dokumentvariantformat.ARKIV, "Testfil", false),
+                        ),
                 )
 
             // Act

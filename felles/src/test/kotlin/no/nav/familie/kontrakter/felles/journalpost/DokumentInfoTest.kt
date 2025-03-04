@@ -366,6 +366,38 @@ class DokumentInfoTest {
         }
 
         @Test
+        fun `skal returnere true for brevkode anke`() {
+            // Arrange
+            val dokumentInfo =
+                DokumentInfo(
+                    dokumentInfoId = "1",
+                    brevkode = Brevkoder.ANKE,
+                )
+
+            // Act
+            val erKlage = dokumentInfo.erKlage()
+
+            // Assert
+            assertTrue(erKlage)
+        }
+
+        @Test
+        fun `skal returnere true for brevkode ettersendelse til anke`() {
+            // Arrange
+            val dokumentInfo =
+                DokumentInfo(
+                    dokumentInfoId = "1",
+                    brevkode = Brevkoder.ETTERSENDELSE_TIL_ANKE,
+                )
+
+            // Act
+            val erKlage = dokumentInfo.erKlage()
+
+            // Assert
+            assertTrue(erKlage)
+        }
+
+        @Test
         fun `skal returnere false for brevkode som ikke er relatert til klage`() {
             // Arrange
             val dokumentInfo =

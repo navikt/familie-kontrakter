@@ -24,6 +24,7 @@ enum class BehandlingÅrsak {
     PAPIRSØKNAD,
     SATSENDRING,
     MANUELT_OPPRETTET,
+    AUTOMATISK_INNTEKTSENDRING,
 }
 
 enum class OpphørÅrsak {

@@ -8,6 +8,7 @@ enum class Opplysningskilde {
     INNSENDT_DOKUMENTASJON,
     BESKJED_ANNEN_ENHET,
     OPPLYSNINGER_INTERNE_KONTROLLER,
+    AUTOMATISK_OPPRETTET_BEHANDLING,
 }
 
 @Suppress("EnumEntryName", "unused")

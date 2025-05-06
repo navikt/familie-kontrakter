@@ -47,6 +47,6 @@ enum class SvarId {
     NOEN_MÅNEDER_OVERSTIGER_6G,
     BRUKER_MOTTAR_IKKE_OVERGANGSSTØNAD,
 
-    //Sagt opp eller redusert
+    //Sagt opp arbeidsforhold
     IKKE_RELEVANT,
 }

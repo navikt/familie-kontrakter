@@ -21,6 +21,6 @@ object Brevkoder {
         ETTERSENDELSE_TIL_KLAGE_ANKE,
         ETTERSENDELSE_TIL_KLAGE,
         ANKE,
-        ETTERSENDELSE_TIL_ANKE
+        ETTERSENDELSE_TIL_ANKE,
     )
 }

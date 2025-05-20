@@ -10,3 +10,13 @@ class Saksbehandler(
     val enhet: String,
     val enhetsnavn: String = "",
 )
+
+
+data class SaksbehandlerGruppe(
+    val id: String,
+    val displayName: String?,
+)
+
+data class SaksbehandlerGrupper(
+    val value: List<SaksbehandlerGruppe>,
+)

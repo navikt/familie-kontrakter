@@ -1,0 +1,1394 @@
+{
+  "søknadstype" : "UTVIDET",
+  "kontraktVersjon" : 9,
+  "antallEøsSteg" : 0,
+  "søker" : {
+    "harEøsSteg" : false,
+    "navn" : {
+      "label" : {
+        "en" : "Name",
+        "nb" : "Navn",
+        "nn" : "Namn"
+      },
+      "verdi" : {
+        "nb" : "UFRUKTBAR BEKK",
+        "nn" : "UFRUKTBAR BEKK",
+        "en" : "UFRUKTBAR BEKK"
+      }
+    },
+    "ident" : {
+      "label" : {
+        "en" : "Ident",
+        "nb" : "Ident",
+        "nn" : "Ident"
+      },
+      "verdi" : {
+        "nb" : "05449031611",
+        "nn" : "05449031611",
+        "en" : "05449031611"
+      }
+    },
+    "sivilstand" : {
+      "label" : {
+        "en" : "Marital status",
+        "nb" : "Sivilstatus",
+        "nn" : "Sivilstatus"
+      },
+      "verdi" : {
+        "nb" : "UGIFT",
+        "nn" : "UGIFT",
+        "en" : "UGIFT"
+      }
+    },
+    "statsborgerskap" : {
+      "label" : {
+        "en" : "Citizenship",
+        "nb" : "Statsborgerskap",
+        "nn" : "Statsborgarskap"
+      },
+      "verdi" : {
+        "nb" : [
+          "Norge"
+        ],
+        "nn" : [
+          "Noreg"
+        ],
+        "en" : [
+          "Norway"
+        ]
+      }
+    },
+    "adresse" : {
+      "label" : {
+        "en" : "Address",
+        "nb" : "Adresse",
+        "nn" : "Adresse"
+      },
+      "verdi" : {
+        "nb" : {
+          "adressenavn" : null,
+          "postnummer" : "5936",
+          "husbokstav" : null,
+          "bruksenhetsnummer" : null,
+          "husnummer" : null,
+          "poststed" : "MANGER"
+        },
+        "nn" : {
+          "adressenavn" : null,
+          "postnummer" : "5936",
+          "husbokstav" : null,
+          "bruksenhetsnummer" : null,
+          "husnummer" : null,
+          "poststed" : "MANGER"
+        },
+        "en" : {
+          "adressenavn" : null,
+          "postnummer" : "5936",
+          "husbokstav" : null,
+          "bruksenhetsnummer" : null,
+          "husnummer" : null,
+          "poststed" : "MANGER"
+        }
+      }
+    },
+    "adressebeskyttelse" : false,
+    "utenlandsperioder" : [],
+    "idNummer" : [],
+    "spørsmål" : {
+      "borPåRegistrertAdresse" : {
+        "label" : {
+          "en" : "Do you live at this address?",
+          "nb" : "Bor du på denne adressen?",
+          "nn" : "Bur du på denne adressa?"
+        },
+        "verdi" : {
+          "nb" : "JA",
+          "nn" : "JA",
+          "en" : "JA"
+        }
+      },
+      "værtINorgeITolvMåneder" : {
+        "label" : {
+          "en" : "Have you stayed continuously in Norway for the last twelve months?",
+          "nb" : "Har du oppholdt deg sammenhengende i Norge de siste tolv månedene?",
+          "nn" : "Har du opphalde deg samanhengande i Noreg dei siste tolv månadene?"
+        },
+        "verdi" : {
+          "nb" : "JA",
+          "nn" : "JA",
+          "en" : "JA"
+        }
+      },
+      "erAsylsøker" : {
+        "label" : {
+          "en" : "Are you an asylum seeker?",
+          "nb" : "Er du asylsøker?",
+          "nn" : "Er du asylsøkar?"
+        },
+        "verdi" : {
+          "nb" : "NEI",
+          "nn" : "NEI",
+          "en" : "NEI"
+        }
+      },
+      "arbeidIUtlandet" : {
+        "label" : {
+          "en" : "Do you or have you worked outside of Norway, on a foreign ship or on another country's continental shelf?",
+          "nb" : "Arbeider eller har du arbeidet utenfor Norge, på utenlandsk skip eller på utenlandsk kontinentalsokkel?",
+          "nn" : "Arbeider eller har du arbeidt utanfor Noreg, på utanlandsk skip eller på utanlandsk kontinentalsokkel?"
+        },
+        "verdi" : {
+          "nb" : "NEI",
+          "nn" : "NEI",
+          "en" : "NEI"
+        }
+      },
+      "mottarUtenlandspensjon" : {
+        "label" : {
+          "en" : "Do you or have you received a pension from abroad?",
+          "nb" : "Får eller har du fått pensjon fra utlandet?",
+          "nn" : "Får eller har du fått pensjon frå utlandet?"
+        },
+        "verdi" : {
+          "nb" : "NEI",
+          "nn" : "NEI",
+          "en" : "NEI"
+        }
+      },
+      "årsak" : {
+        "label" : {
+          "en" : "What is the reason for you to apply for extended child benefit?",
+          "nb" : "Hva er årsaken til at du søker om utvidet barnetrygd?",
+          "nn" : "Kva er årsaka til at du søker om utvida barnetrygd?"
+        },
+        "verdi" : {
+          "_createdAt" : "2024-10-15T08:13:37Z",
+          "_id" : "6fce2f19-89f3-43a0-8726-ae055d2c2d32",
+          "_rev" : "pzXhTl0YHyfAi1zIdFZQjo",
+          "_type" : "DIN_LIVSSITUASJON_ARSAK_ALTERNATIVER",
+          "_updatedAt" : "2024-10-15T08:13:37Z",
+          "api_navn" : "valgalternativSeparert",
+          "en" : "I am separated",
+          "nb" : "Jeg er separert",
+          "nn" : "Eg er separert",
+          "steg" : "DIN_LIVSSITUASJON",
+          "visningsnavn" : "Separert",
+          "ytelse" : [
+            "BARNETRYGD"
+          ]
+        }
+      },
+      "harSamboerNå" : {
+        "label" : {
+          "en" : "Are you currently living with a partner?",
+          "nb" : "Har du samboer nå?",
+          "nn" : "Har du sambuar no?"
+        },
+        "verdi" : {
+          "nb" : "JA",
+          "nn" : "JA",
+          "en" : "JA"
+        }
+      },
+      "hattAnnenSamboerForSøktPeriode" : {
+        "label" : {
+          "en" : "Have you had a cohabiting partner earlier during the period for which you are applying for child benefit?",
+          "nb" : "Har du hatt samboer tidligere i perioden du søker barnetrygd for?",
+          "nn" : "Har du hatt sambuar tidlegare i perioden du søker barnetrygd for?"
+        },
+        "verdi" : {
+          "nb" : "NEI",
+          "nn" : "NEI",
+          "en" : "NEI"
+        }
+      }
+    },
+    "tidligereSamboere" : [],
+    "nåværendeSamboer" : {
+      "label" : {
+        "en" : "Previous cohabiting partner",
+        "nn" : "Tidlegare sambuar",
+        "nb" : "Tidligere samboer"
+      },
+      "verdi" : {
+        "nb" : {
+          "navn" : {
+            "label" : {
+              "en" : "Name of your cohabiting partner",
+              "nn" : "Sambuaren sitt namn",
+              "nb" : "Samboerens navn"
+            },
+            "verdi" : {
+              "nb" : "heisann",
+              "nn" : "heisann",
+              "en" : "heisann"
+            }
+          },
+          "ident" : {
+            "label" : {
+              "en" : "Norwegian National identity number or D number",
+              "nn" : "Fødselsnummer eller d-nummer",
+              "nb" : "Fødselsnummer eller d-nummer"
+            },
+            "verdi" : {
+              "nb" : "UKJENT",
+              "nn" : "UKJENT",
+              "en" : "UKJENT"
+            }
+          },
+          "fødselsdato" : {
+            "label" : {
+              "en" : "Date of birth",
+              "nn" : "Fødselsdato",
+              "nb" : "Fødselsdato"
+            },
+            "verdi" : {
+              "nb" : "1997-05-15",
+              "nn" : "1997-05-15",
+              "en" : "1997-05-15"
+            }
+          },
+          "samboerFraDato" : {
+            "label" : {
+              "en" : "When did you start living together?",
+              "nn" : "Når starta sambuarforholdet?",
+              "nb" : "Når startet samboerforholdet?"
+            },
+            "verdi" : {
+              "nb" : "2024-05-10",
+              "nn" : "2024-05-10",
+              "en" : "2024-05-10"
+            }
+          }
+        },
+        "nn" : {
+          "navn" : {
+            "label" : {
+              "en" : "Name of your cohabiting partner",
+              "nn" : "Sambuaren sitt namn",
+              "nb" : "Samboerens navn"
+            },
+            "verdi" : {
+              "nb" : "heisann",
+              "nn" : "heisann",
+              "en" : "heisann"
+            }
+          },
+          "ident" : {
+            "label" : {
+              "en" : "Norwegian National identity number or D number",
+              "nn" : "Fødselsnummer eller d-nummer",
+              "nb" : "Fødselsnummer eller d-nummer"
+            },
+            "verdi" : {
+              "nb" : "UKJENT",
+              "nn" : "UKJENT",
+              "en" : "UKJENT"
+            }
+          },
+          "fødselsdato" : {
+            "label" : {
+              "en" : "Date of birth",
+              "nn" : "Fødselsdato",
+              "nb" : "Fødselsdato"
+            },
+            "verdi" : {
+              "nb" : "1997-05-15",
+              "nn" : "1997-05-15",
+              "en" : "1997-05-15"
+            }
+          },
+          "samboerFraDato" : {
+            "label" : {
+              "en" : "When did you start living together?",
+              "nn" : "Når starta sambuarforholdet?",
+              "nb" : "Når startet samboerforholdet?"
+            },
+            "verdi" : {
+              "nb" : "2024-05-10",
+              "nn" : "2024-05-10",
+              "en" : "2024-05-10"
+            }
+          }
+        },
+        "en" : {
+          "navn" : {
+            "label" : {
+              "en" : "Name of your cohabiting partner",
+              "nn" : "Sambuaren sitt namn",
+              "nb" : "Samboerens navn"
+            },
+            "verdi" : {
+              "nb" : "heisann",
+              "nn" : "heisann",
+              "en" : "heisann"
+            }
+          },
+          "ident" : {
+            "label" : {
+              "en" : "Norwegian National identity number or D number",
+              "nn" : "Fødselsnummer eller d-nummer",
+              "nb" : "Fødselsnummer eller d-nummer"
+            },
+            "verdi" : {
+              "nb" : "UKJENT",
+              "nn" : "UKJENT",
+              "en" : "UKJENT"
+            }
+          },
+          "fødselsdato" : {
+            "label" : {
+              "en" : "Date of birth",
+              "nn" : "Fødselsdato",
+              "nb" : "Fødselsdato"
+            },
+            "verdi" : {
+              "nb" : "1997-05-15",
+              "nn" : "1997-05-15",
+              "en" : "1997-05-15"
+            }
+          },
+          "samboerFraDato" : {
+            "label" : {
+              "en" : "When did you start living together?",
+              "nn" : "Når starta sambuarforholdet?",
+              "nb" : "Når startet samboerforholdet?"
+            },
+            "verdi" : {
+              "nb" : "2024-05-10",
+              "nn" : "2024-05-10",
+              "en" : "2024-05-10"
+            }
+          }
+        }
+      }
+    },
+    "arbeidsperioderUtland" : [],
+    "arbeidsperioderNorge" : [],
+    "pensjonsperioderUtland" : [],
+    "pensjonsperioderNorge" : [],
+    "andreUtbetalingsperioder" : []
+  },
+  "barn" : [
+    {
+      "harEøsSteg" : false,
+      "navn" : {
+        "label" : {
+          "en" : "Name",
+          "nb" : "Navn",
+          "nn" : "Namn"
+        },
+        "verdi" : {
+          "nb" : "BLØT INNHEGNING",
+          "nn" : "BLØT INNHEGNING",
+          "en" : "BLØT INNHEGNING"
+        }
+      },
+      "ident" : {
+        "label" : {
+          "en" : "Ident",
+          "nb" : "Ident",
+          "nn" : "Ident"
+        },
+        "verdi" : {
+          "nb" : "07491459314",
+          "nn" : "07491459314",
+          "en" : "07491459314"
+        }
+      },
+      "registrertBostedType" : {
+        "label" : {
+          "en" : "Registered place of residence",
+          "nb" : "Registrert bosted",
+          "nn" : "Registrert bustad"
+        },
+        "verdi" : {
+          "nb" : "REGISTRERT_SOKERS_ADRESSE",
+          "nn" : "REGISTRERT_SOKERS_ADRESSE",
+          "en" : "REGISTRERT_SOKERS_ADRESSE"
+        }
+      },
+      "alder" : {
+        "label" : {
+          "en" : "Age",
+          "nb" : "Alder",
+          "nn" : "Alder"
+        },
+        "verdi" : {
+          "en" : "10 years",
+          "nb" : "10 år",
+          "nn" : "10 år"
+        }
+      },
+      "utenlandsperioder" : [
+        {
+          "label" : {
+            "en" : "Stay abroad 1",
+            "nn" : "Utanlandsopphald 1",
+            "nb" : "Utenlandsopphold 1"
+          },
+          "verdi" : {
+            "nb" : {
+              "utenlandsoppholdÅrsak" : {
+                "label" : {
+                  "en" : "What best describes BLØT INNHEGNING the child stayed outside of Norway?",
+                  "nn" : "Kva beskriv perioden BLØT INNHEGNING har opphalde seg utanfor Noreg best?",
+                  "nb" : "Hva beskriver perioden BLØT INNHEGNING oppholdt seg utenfor Norge best?"
+                },
+                "verdi" : {
+                  "en" : "The child has permanently moved to Norway during the last twelve months",
+                  "nn" : "Barnet har flytta permanent til Noreg dei siste tolv månadane",
+                  "nb" : "Barnet har flyttet til Norge permanent de siste tolv månedene"
+                }
+              },
+              "oppholdsland" : {
+                "label" : {
+                  "en" : "Which country did the child move from?",
+                  "nn" : "Kva land flytta barnet frå?",
+                  "nb" : "Hvilket land flyttet barnet fra?"
+                },
+                "verdi" : {
+                  "nb" : "Andorra",
+                  "nn" : "Andorra",
+                  "en" : "Andorra"
+                }
+              },
+              "oppholdslandFraDato" : {
+                "label" : {
+                  "en" : "When did the stay start?",
+                  "nn" : "Når starta opphaldet?",
+                  "nb" : "Når startet oppholdet?"
+                },
+                "verdi" : {}
+              },
+              "oppholdslandTilDato" : {
+                "label" : {
+                  "en" : "When did barnet move to Norway?",
+                  "nn" : "Når flytta barnet til Noreg?",
+                  "nb" : "Når flyttet barnet til Norge?"
+                },
+                "verdi" : {
+                  "nb" : "2025-05-21",
+                  "nn" : "2025-05-21",
+                  "en" : "2025-05-21"
+                }
+              }
+            },
+            "nn" : {
+              "utenlandsoppholdÅrsak" : {
+                "label" : {
+                  "en" : "What best describes BLØT INNHEGNING the child stayed outside of Norway?",
+                  "nn" : "Kva beskriv perioden BLØT INNHEGNING har opphalde seg utanfor Noreg best?",
+                  "nb" : "Hva beskriver perioden BLØT INNHEGNING oppholdt seg utenfor Norge best?"
+                },
+                "verdi" : {
+                  "en" : "The child has permanently moved to Norway during the last twelve months",
+                  "nn" : "Barnet har flytta permanent til Noreg dei siste tolv månadane",
+                  "nb" : "Barnet har flyttet til Norge permanent de siste tolv månedene"
+                }
+              },
+              "oppholdsland" : {
+                "label" : {
+                  "en" : "Which country did the child move from?",
+                  "nn" : "Kva land flytta barnet frå?",
+                  "nb" : "Hvilket land flyttet barnet fra?"
+                },
+                "verdi" : {
+                  "nb" : "Andorra",
+                  "nn" : "Andorra",
+                  "en" : "Andorra"
+                }
+              },
+              "oppholdslandFraDato" : {
+                "label" : {
+                  "en" : "When did the stay start?",
+                  "nn" : "Når starta opphaldet?",
+                  "nb" : "Når startet oppholdet?"
+                },
+                "verdi" : {}
+              },
+              "oppholdslandTilDato" : {
+                "label" : {
+                  "en" : "When did barnet move to Norway?",
+                  "nn" : "Når flytta barnet til Noreg?",
+                  "nb" : "Når flyttet barnet til Norge?"
+                },
+                "verdi" : {
+                  "nb" : "2025-05-21",
+                  "nn" : "2025-05-21",
+                  "en" : "2025-05-21"
+                }
+              }
+            },
+            "en" : {
+              "utenlandsoppholdÅrsak" : {
+                "label" : {
+                  "en" : "What best describes BLØT INNHEGNING the child stayed outside of Norway?",
+                  "nn" : "Kva beskriv perioden BLØT INNHEGNING har opphalde seg utanfor Noreg best?",
+                  "nb" : "Hva beskriver perioden BLØT INNHEGNING oppholdt seg utenfor Norge best?"
+                },
+                "verdi" : {
+                  "en" : "The child has permanently moved to Norway during the last twelve months",
+                  "nn" : "Barnet har flytta permanent til Noreg dei siste tolv månadane",
+                  "nb" : "Barnet har flyttet til Norge permanent de siste tolv månedene"
+                }
+              },
+              "oppholdsland" : {
+                "label" : {
+                  "en" : "Which country did the child move from?",
+                  "nn" : "Kva land flytta barnet frå?",
+                  "nb" : "Hvilket land flyttet barnet fra?"
+                },
+                "verdi" : {
+                  "nb" : "Andorra",
+                  "nn" : "Andorra",
+                  "en" : "Andorra"
+                }
+              },
+              "oppholdslandFraDato" : {
+                "label" : {
+                  "en" : "When did the stay start?",
+                  "nn" : "Når starta opphaldet?",
+                  "nb" : "Når startet oppholdet?"
+                },
+                "verdi" : {}
+              },
+              "oppholdslandTilDato" : {
+                "label" : {
+                  "en" : "When did barnet move to Norway?",
+                  "nn" : "Når flytta barnet til Noreg?",
+                  "nb" : "Når flyttet barnet til Norge?"
+                },
+                "verdi" : {
+                  "nb" : "2025-05-21",
+                  "nn" : "2025-05-21",
+                  "en" : "2025-05-21"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "eøsBarnetrygdsperioder" : [],
+      "idNummer" : [],
+      "andreForelder" : {
+        "kanIkkeGiOpplysninger" : {
+          "label" : {
+            "en" : "I am unable to provide information about the other parent",
+            "nb" : "Jeg kan ikke gi opplysninger om den andre forelderen",
+            "nn" : "Eg kan ikkje gje opplysningar om den andre forelderen"
+          },
+          "verdi" : {
+            "nb" : "JA",
+            "nn" : "JA",
+            "en" : "JA"
+          }
+        },
+        "navn" : null,
+        "fnr" : null,
+        "fødselsdato" : null,
+        "pensjonUtland" : null,
+        "arbeidUtlandet" : null,
+        "pensjonNorge" : null,
+        "arbeidNorge" : null,
+        "andreUtbetalinger" : null,
+        "pågåendeSøknadFraAnnetEøsLand" : null,
+        "pågåendeSøknadHvilketLand" : null,
+        "barnetrygdFraEøs" : null,
+        "skriftligAvtaleOmDeltBosted" : {
+          "label" : {
+            "en" : "Do you and the other parent have a written agreement on dual residence for BLØT INNHEGNING?",
+            "nb" : "Har du og den andre forelderen skriftlig avtale om delt bosted for BLØT INNHEGNING?",
+            "nn" : "Har du og den andre forelderen skriftleg avtale om delt bustad for BLØT INNHEGNING?"
+          },
+          "verdi" : {
+            "nb" : "JA",
+            "nn" : "JA",
+            "en" : "JA"
+          }
+        },
+        "adresse" : null,
+        "utvidet" : {
+          "søkerHarBoddMedAndreForelder" : {
+            "label" : {
+              "en" : "Have you ever lived with BLØT INNHEGNING's other parent?",
+              "nb" : "Har du bodd sammen med BLØT INNHEGNING sin andre forelder?",
+              "nn" : "Har du budd saman med BLØT INNHEGNING sin andre forelder?"
+            },
+            "verdi" : {
+              "nb" : "JA",
+              "nn" : "JA",
+              "en" : "JA"
+            }
+          },
+          "søkerFlyttetFraAndreForelderDato" : {
+            "label" : {
+              "en" : "When did you move apart?",
+              "nb" : "Når flyttet dere fra hverandre?",
+              "nn" : "Når flytta de frå kvarandre?"
+            },
+            "verdi" : {
+              "en" : "We are currently living together",
+              "nb" : "Vi bor sammen nå",
+              "nn" : "Vi bur saman no"
+            }
+          }
+        },
+        "arbeidsperioderUtland" : [],
+        "pensjonsperioderUtland" : [],
+        "arbeidsperioderNorge" : [],
+        "pensjonsperioderNorge" : [],
+        "andreUtbetalingsperioder" : [],
+        "eøsBarnetrygdsperioder" : [],
+        "idNummer" : []
+      },
+      "omsorgsperson" : null,
+      "spørsmål" : {
+        "erFosterbarn" : {
+          "label" : {
+            "en" : "Which of the children are foster children?",
+            "nb" : "Hvem av barna er fosterbarn?",
+            "nn" : "Kven av barna er fosterbarn?"
+          },
+          "verdi" : {
+            "nb" : "NEI",
+            "nn" : "NEI",
+            "en" : "NEI"
+          }
+        },
+        "erAdoptertFraUtland" : {
+          "label" : {
+            "en" : "Which of the children are adopted from abroad?",
+            "nb" : "Hvem av barna er adoptert fra utlandet?",
+            "nn" : "Kven av barna er adoptert frå utlandet?"
+          },
+          "verdi" : {
+            "nb" : "NEI",
+            "nn" : "NEI",
+            "en" : "NEI"
+          }
+        },
+        "erAsylsøker" : {
+          "label" : {
+            "en" : "For which of the children has an application for asylum been submitted?",
+            "nb" : "Hvem av barna er det søkt om asyl for?",
+            "nn" : "Kven av barna er det søkt om asyl for?"
+          },
+          "verdi" : {
+            "nb" : "NEI",
+            "nn" : "NEI",
+            "en" : "NEI"
+          }
+        },
+        "barnetrygdFraAnnetEøsland" : {
+          "label" : {
+            "en" : "For which of the children are you receiving, have received or have applied for child benefit?",
+            "nb" : "Hvem av barna får du, har du fått eller har du søkt om barnetrygd for?",
+            "nn" : "Kven av barna får du, har du fått eller har du søkt om barnetrygd for?"
+          },
+          "verdi" : {
+            "nb" : "NEI",
+            "nn" : "NEI",
+            "en" : "NEI"
+          }
+        },
+        "andreForelderErDød" : {
+          "label" : {
+            "en" : "Which of the children is your previous spouse/cohabiting partner the parent of?",
+            "nb" : "Hvem av barna er din tidligere ektefelle/samboer forelder til?",
+            "nn" : "Kven av barna er din tidlegare ektefelle/sambuar forelder til?"
+          },
+          "verdi" : {
+            "nb" : "NEI",
+            "nn" : "NEI",
+            "en" : "NEI"
+          }
+        },
+        "oppholderSegIInstitusjon" : {
+          "label" : {
+            "en" : "Which of the children are in an institution?",
+            "nb" : "Hvem av barna er i institusjon?",
+            "nn" : "Kven av barna er seg i institusjon?"
+          },
+          "verdi" : {
+            "nb" : "NEI",
+            "nn" : "NEI",
+            "en" : "NEI"
+          }
+        },
+        "institusjonIUtland" : {
+          "label" : {
+            "en" : "The institution is outside of Norway",
+            "nb" : "Institusjonen er i utlandet",
+            "nn" : "Institusjonen er i utlandet"
+          },
+          "verdi" : {
+            "nb" : "NEI",
+            "nn" : "NEI",
+            "en" : "NEI"
+          }
+        },
+        "boddMindreEnn12MndINorge" : {
+          "label" : {
+            "en" : "Which of the children have stayed outside of Norway during the last twelve months?",
+            "nb" : "Hvem av barna har oppholdt seg utenfor Norge i løpet av de siste tolv månedene?",
+            "nn" : "Kven av barna har oppheldt seg utanfor Noreg i løpet av dei siste tolv månadene?"
+          },
+          "verdi" : {
+            "nb" : "JA",
+            "nn" : "JA",
+            "en" : "JA"
+          }
+        },
+        "planleggerÅBoINorge12Mnd" : {
+          "label" : {
+            "en" : "Is it planned that BLØT INNHEGNING will live in Norway continuously for more than 12 months?",
+            "nb" : "Er det planlagt at BLØT INNHEGNING skal bo sammenhengende i Norge i mer enn tolv måneder?",
+            "nn" : "Er det planlagd at BLØT INNHEGNING skal bu i Noreg samanhengande i meir enn tolv månadar?"
+          },
+          "verdi" : {
+            "nb" : "JA",
+            "nn" : "JA",
+            "en" : "JA"
+          }
+        },
+        "borFastMedSøker" : {
+          "label" : {
+            "en" : "Does BLØT INNHEGNING live with you on a permanent basis?",
+            "nb" : "Bor BLØT INNHEGNING fast sammen med deg?",
+            "nn" : "Bur BLØT INNHEGNING fast saman med deg?"
+          },
+          "verdi" : {
+            "nb" : "JA",
+            "nn" : "JA",
+            "en" : "JA"
+          }
+        },
+        "institusjonOppholdSluttdato" : {
+          "label" : {
+            "en" : "When is the stay at the institution ending?",
+            "nb" : "Når avsluttes institusjonsoppholdet?",
+            "nn" : "Når avsluttast institusjonsopphaldet?"
+          },
+          "verdi" : {
+            "nb" : "",
+            "nn" : "",
+            "en" : ""
+          }
+        },
+        "adresse" : {
+          "label" : {
+            "en" : "Where is BLØT INNHEGNING's living during the period for which you are applying for child benefit?",
+            "nb" : "Hvor bor BLØT INNHEGNING i perioden det søkes om barnetrygd?",
+            "nn" : "Kor bur BLØT INNHEGNING i perioden det vert søkt om barnetrygd?"
+          },
+          "verdi" : {
+            "nb" : "",
+            "nn" : "",
+            "en" : ""
+          }
+        }
+      }
+    },
+    {
+      "harEøsSteg" : false,
+      "navn" : {
+        "label" : {
+          "en" : "Name",
+          "nb" : "Navn",
+          "nn" : "Namn"
+        },
+        "verdi" : {
+          "nb" : "OMSORGSFULL SATELLITT",
+          "nn" : "OMSORGSFULL SATELLITT",
+          "en" : "OMSORGSFULL SATELLITT"
+        }
+      },
+      "ident" : {
+        "label" : {
+          "en" : "Ident",
+          "nb" : "Ident",
+          "nn" : "Ident"
+        },
+        "verdi" : {
+          "nb" : "23412351010",
+          "nn" : "23412351010",
+          "en" : "23412351010"
+        }
+      },
+      "registrertBostedType" : {
+        "label" : {
+          "en" : "Registered place of residence",
+          "nb" : "Registrert bosted",
+          "nn" : "Registrert bustad"
+        },
+        "verdi" : {
+          "nb" : "REGISTRERT_SOKERS_ADRESSE",
+          "nn" : "REGISTRERT_SOKERS_ADRESSE",
+          "en" : "REGISTRERT_SOKERS_ADRESSE"
+        }
+      },
+      "alder" : {
+        "label" : {
+          "en" : "Age",
+          "nb" : "Alder",
+          "nn" : "Alder"
+        },
+        "verdi" : {
+          "en" : "2 years",
+          "nb" : "2 år",
+          "nn" : "2 år"
+        }
+      },
+      "utenlandsperioder" : [],
+      "eøsBarnetrygdsperioder" : [],
+      "idNummer" : [],
+      "andreForelder" : {
+        "kanIkkeGiOpplysninger" : {
+          "label" : {
+            "en" : "I am unable to provide information about the other parent",
+            "nb" : "Jeg kan ikke gi opplysninger om den andre forelderen",
+            "nn" : "Eg kan ikkje gje opplysningar om den andre forelderen"
+          },
+          "verdi" : {
+            "nb" : "JA",
+            "nn" : "JA",
+            "en" : "JA"
+          }
+        },
+        "navn" : null,
+        "fnr" : null,
+        "fødselsdato" : null,
+        "pensjonUtland" : null,
+        "arbeidUtlandet" : null,
+        "pensjonNorge" : null,
+        "arbeidNorge" : null,
+        "andreUtbetalinger" : null,
+        "pågåendeSøknadFraAnnetEøsLand" : null,
+        "pågåendeSøknadHvilketLand" : null,
+        "barnetrygdFraEøs" : null,
+        "skriftligAvtaleOmDeltBosted" : {
+          "label" : {
+            "en" : "Do you and the other parent have a written agreement on dual residence for OMSORGSFULL SATELLITT?",
+            "nb" : "Har du og den andre forelderen skriftlig avtale om delt bosted for OMSORGSFULL SATELLITT?",
+            "nn" : "Har du og den andre forelderen skriftleg avtale om delt bustad for OMSORGSFULL SATELLITT?"
+          },
+          "verdi" : {
+            "nb" : "JA",
+            "nn" : "JA",
+            "en" : "JA"
+          }
+        },
+        "adresse" : null,
+        "utvidet" : {
+          "søkerHarBoddMedAndreForelder" : {
+            "label" : {
+              "en" : "Have you ever lived with OMSORGSFULL SATELLITT's other parent?",
+              "nb" : "Har du bodd sammen med OMSORGSFULL SATELLITT sin andre forelder?",
+              "nn" : "Har du budd saman med OMSORGSFULL SATELLITT sin andre forelder?"
+            },
+            "verdi" : {
+              "nb" : "JA",
+              "nn" : "JA",
+              "en" : "JA"
+            }
+          },
+          "søkerFlyttetFraAndreForelderDato" : {
+            "label" : {
+              "en" : "When did you move apart?",
+              "nb" : "Når flyttet dere fra hverandre?",
+              "nn" : "Når flytta de frå kvarandre?"
+            },
+            "verdi" : {
+              "en" : "We are currently living together",
+              "nb" : "Vi bor sammen nå",
+              "nn" : "Vi bur saman no"
+            }
+          }
+        },
+        "arbeidsperioderUtland" : [],
+        "pensjonsperioderUtland" : [],
+        "arbeidsperioderNorge" : [],
+        "pensjonsperioderNorge" : [],
+        "andreUtbetalingsperioder" : [],
+        "eøsBarnetrygdsperioder" : [],
+        "idNummer" : []
+      },
+      "omsorgsperson" : null,
+      "spørsmål" : {
+        "sammeForelderSomAnnetBarnMedId" : {
+          "label" : {
+            "en" : "Who is OMSORGSFULL SATELLITT's other parent?",
+            "nb" : "Hvem er OMSORGSFULL SATELLITT sin andre forelder?",
+            "nn" : "Kven er OMSORGSFULL SATELLITT sin andre forelder?"
+          },
+          "verdi" : {
+            "nb" : "9cf03b50-6028-4c4a-99be-dd1fa5c955be",
+            "nn" : "9cf03b50-6028-4c4a-99be-dd1fa5c955be",
+            "en" : "9cf03b50-6028-4c4a-99be-dd1fa5c955be"
+          }
+        },
+        "erFosterbarn" : {
+          "label" : {
+            "en" : "Which of the children are foster children?",
+            "nb" : "Hvem av barna er fosterbarn?",
+            "nn" : "Kven av barna er fosterbarn?"
+          },
+          "verdi" : {
+            "nb" : "NEI",
+            "nn" : "NEI",
+            "en" : "NEI"
+          }
+        },
+        "erAdoptertFraUtland" : {
+          "label" : {
+            "en" : "Which of the children are adopted from abroad?",
+            "nb" : "Hvem av barna er adoptert fra utlandet?",
+            "nn" : "Kven av barna er adoptert frå utlandet?"
+          },
+          "verdi" : {
+            "nb" : "NEI",
+            "nn" : "NEI",
+            "en" : "NEI"
+          }
+        },
+        "erAsylsøker" : {
+          "label" : {
+            "en" : "For which of the children has an application for asylum been submitted?",
+            "nb" : "Hvem av barna er det søkt om asyl for?",
+            "nn" : "Kven av barna er det søkt om asyl for?"
+          },
+          "verdi" : {
+            "nb" : "NEI",
+            "nn" : "NEI",
+            "en" : "NEI"
+          }
+        },
+        "barnetrygdFraAnnetEøsland" : {
+          "label" : {
+            "en" : "For which of the children are you receiving, have received or have applied for child benefit?",
+            "nb" : "Hvem av barna får du, har du fått eller har du søkt om barnetrygd for?",
+            "nn" : "Kven av barna får du, har du fått eller har du søkt om barnetrygd for?"
+          },
+          "verdi" : {
+            "nb" : "NEI",
+            "nn" : "NEI",
+            "en" : "NEI"
+          }
+        },
+        "andreForelderErDød" : {
+          "label" : {
+            "en" : "Which of the children is your previous spouse/cohabiting partner the parent of?",
+            "nb" : "Hvem av barna er din tidligere ektefelle/samboer forelder til?",
+            "nn" : "Kven av barna er din tidlegare ektefelle/sambuar forelder til?"
+          },
+          "verdi" : {
+            "nb" : "NEI",
+            "nn" : "NEI",
+            "en" : "NEI"
+          }
+        },
+        "oppholderSegIInstitusjon" : {
+          "label" : {
+            "en" : "Which of the children are in an institution?",
+            "nb" : "Hvem av barna er i institusjon?",
+            "nn" : "Kven av barna er seg i institusjon?"
+          },
+          "verdi" : {
+            "nb" : "NEI",
+            "nn" : "NEI",
+            "en" : "NEI"
+          }
+        },
+        "institusjonIUtland" : {
+          "label" : {
+            "en" : "The institution is outside of Norway",
+            "nb" : "Institusjonen er i utlandet",
+            "nn" : "Institusjonen er i utlandet"
+          },
+          "verdi" : {
+            "nb" : "NEI",
+            "nn" : "NEI",
+            "en" : "NEI"
+          }
+        },
+        "boddMindreEnn12MndINorge" : {
+          "label" : {
+            "en" : "Which of the children have stayed outside of Norway during the last twelve months?",
+            "nb" : "Hvem av barna har oppholdt seg utenfor Norge i løpet av de siste tolv månedene?",
+            "nn" : "Kven av barna har oppheldt seg utanfor Noreg i løpet av dei siste tolv månadene?"
+          },
+          "verdi" : {
+            "nb" : "NEI",
+            "nn" : "NEI",
+            "en" : "NEI"
+          }
+        },
+        "borFastMedSøker" : {
+          "label" : {
+            "en" : "Does OMSORGSFULL SATELLITT live with you on a permanent basis?",
+            "nb" : "Bor OMSORGSFULL SATELLITT fast sammen med deg?",
+            "nn" : "Bur OMSORGSFULL SATELLITT fast saman med deg?"
+          },
+          "verdi" : {
+            "nb" : "JA",
+            "nn" : "JA",
+            "en" : "JA"
+          }
+        },
+        "institusjonOppholdSluttdato" : {
+          "label" : {
+            "en" : "When is the stay at the institution ending?",
+            "nb" : "Når avsluttes institusjonsoppholdet?",
+            "nn" : "Når avsluttast institusjonsopphaldet?"
+          },
+          "verdi" : {
+            "nb" : "",
+            "nn" : "",
+            "en" : ""
+          }
+        },
+        "adresse" : {
+          "label" : {
+            "en" : "Where is OMSORGSFULL SATELLITT's living during the period for which you are applying for child benefit?",
+            "nb" : "Hvor bor OMSORGSFULL SATELLITT i perioden det søkes om barnetrygd?",
+            "nn" : "Kor bur OMSORGSFULL SATELLITT i perioden det vert søkt om barnetrygd?"
+          },
+          "verdi" : {
+            "nb" : "",
+            "nn" : "",
+            "en" : ""
+          }
+        }
+      }
+    }
+  ],
+  "spørsmål" : {
+    "erNoenAvBarnaFosterbarn" : {
+      "label" : {
+        "en" : "Are any of the children foster children?",
+        "nb" : "Er noen av barna fosterbarn?",
+        "nn" : "Er nokre av barna fosterbarn?"
+      },
+      "verdi" : {
+        "nb" : "NEI",
+        "nn" : "NEI",
+        "en" : "NEI"
+      }
+    },
+    "søktAsylForBarn" : {
+      "label" : {
+        "en" : "Has an application for asylum been submitted for any of the children?",
+        "nb" : "Er det søkt om asyl i Norge for noen av barna?",
+        "nn" : "Er det søkt om asyl i Noreg for nokre av barna?"
+      },
+      "verdi" : {
+        "nb" : "NEI",
+        "nn" : "NEI",
+        "en" : "NEI"
+      }
+    },
+    "oppholderBarnSegIInstitusjon" : {
+      "label" : {
+        "en" : "Are any of the children in a child welfare institution or other institution?",
+        "nb" : "Er noen av barna i barnverninstitusjon eller i annen institusjon?",
+        "nn" : "Er nokre av barna i barneverninstitusjon eller i anna institusjon?"
+      },
+      "verdi" : {
+        "nb" : "NEI",
+        "nn" : "NEI",
+        "en" : "NEI"
+      }
+    },
+    "barnOppholdtSegTolvMndSammenhengendeINorge" : {
+      "label" : {
+        "en" : "Have the children stayed continuously in Norway during the last twelve months?",
+        "nb" : "Har barna oppholdt seg sammenhengende i Norge de siste tolv månedene?",
+        "nn" : "Har barna oppheldt seg samanhengande i Noreg dei siste tolv månadene?"
+      },
+      "verdi" : {
+        "nb" : "NEI",
+        "nn" : "NEI",
+        "en" : "NEI"
+      }
+    },
+    "erBarnAdoptertFraUtland" : {
+      "label" : {
+        "en" : "Are any of the children adopted from abroad?",
+        "nb" : "Er noen av barna adoptert fra utlandet?",
+        "nn" : "Er nokre av barna adoptert frå utlandet?"
+      },
+      "verdi" : {
+        "nb" : "NEI",
+        "nn" : "NEI",
+        "en" : "NEI"
+      }
+    },
+    "mottarBarnetrygdForBarnFraAnnetEøsland" : {
+      "label" : {
+        "en" : "Are you receiving, have you received or have you applied for child benefit for some of the children from another EEA country?",
+        "nb" : "Får, har du fått eller har du søkt om barnetrygd for noen av barna fra et annet EØS land?",
+        "nn" : "Får du, har du fått eller har du søkt om barnetrygd for nokre av barna frå eit anna EØS land?"
+      },
+      "verdi" : {
+        "nb" : "NEI",
+        "nn" : "NEI",
+        "en" : "NEI"
+      }
+    },
+    "erAvdødPartnerForelder" : {
+      "label" : {
+        "en" : "You are registered as a widow/widower in the Norwegian National Registry (folkeregisteret). Is your previous spouse the parent of any of the children you are applying for child benefit for?",
+        "nb" : "Du er folkeregistrert som enke/enkemann. Er din tidligere ektefelle forelder til noen av barna du søker barnetrygd for?",
+        "nn" : "Du er folkeregistrert som enke/enkemann. Er din tidlegare ektefelle forelder til nokre av barna du søker barnetrygd for?"
+      },
+      "verdi" : {
+        "nb" : null,
+        "nn" : null,
+        "en" : null
+      }
+    },
+    "lestOgForståttBekreftelse" : {
+      "label" : {
+        "en" : "I am aware that I may lose my right to Child Benefit if I provide incorrect information. I am also aware that I will have to pay back any money I receive that I am not entitled to, that I have received if I have failed to provide information or have provided incorrect information.",
+        "nb" : "Det er viktig at du gir oss riktige opplysninger slik at vi kan behandle saken din.",
+        "nn" : "Det er viktig at du gir oss riktige opplysningar slik at me kan behandla saka di."
+      },
+      "verdi" : {
+        "en" : "I confirm that I will provide correct and complete information.",
+        "nb" : "Jeg vil svare så godt jeg kan på spørsmålene i søknaden.",
+        "nn" : "Eg svara så godt eg kan på spørsmåla i søknaden."
+      }
+    }
+  },
+  "dokumentasjon" : [
+    {
+      "dokumentasjonsbehov" : "AVTALE_DELT_BOSTED",
+      "harSendtInn" : true,
+      "opplastedeVedlegg" : [],
+      "dokumentasjonSpråkTittel" : {
+        "en" : "Agreement on dual residence",
+        "nn" : "Avtale om delt bustad",
+        "nb" : "Avtale om delt bosted"
+      }
+    },
+    {
+      "dokumentasjonsbehov" : "SEPARERT_SKILT_ENKE",
+      "harSendtInn" : true,
+      "opplastedeVedlegg" : [],
+      "dokumentasjonSpråkTittel" : {
+        "en" : "Confirmation of the date separated, divorced or widowed",
+        "nn" : "Stadfesting på separasjon, skilsmisse eller enkestatus",
+        "nb" : "Bekreftelse på separasjon, skilsmisse eller enkestatus"
+      }
+    },
+    {
+      "dokumentasjonsbehov" : "ANNEN_DOKUMENTASJON",
+      "harSendtInn" : false,
+      "opplastedeVedlegg" : [],
+      "dokumentasjonSpråkTittel" : {
+        "en" : "Other documentation",
+        "nn" : "Anna dokumentasjon",
+        "nb" : "Annen dokumentasjon"
+      }
+    }
+  ],
+  "teksterUtenomSpørsmål" : {
+    "hvilkebarn.barn.bosted.adressesperre" : {
+      "en" : "The child is registered with a blocked address.",
+      "nb" : "Barnet er registrert med adressesperre.",
+      "nn" : "Barnet er registrert med adressesperre."
+    },
+    "ombarnet.fosterbarn" : {
+      "en" : "You have stated that {navn} is a foster child",
+      "nb" : "Du har opplyst at {navn} er fosterbarn",
+      "nn" : "Du har opplyst at {navn} er fosterbarn"
+    },
+    "ombarnet.institusjon" : {
+      "en" : "You have stated that {navn} is in an institution",
+      "nb" : "Du har opplyst at {navn} er i institusjon",
+      "nn" : "Du har opplyst at {navn} er i institusjon"
+    },
+    "ombarnet.opplystatbarnutlandopphold.info" : {
+      "en" : "You have stated that {navn} has stayed outside of Norway during the last twelve months",
+      "nb" : "Du har opplyst at {navn} har oppholdt seg utenfor Norge i løpet av de siste tolv månedene",
+      "nn" : "Du har opplyst at {navn} har oppheldt seg utanfor Noreg i løpet av dei siste tolv månadene"
+    },
+    "ombarnet.barnetrygd-eøs" : {
+      "en" : "You have stated that you are receiving, have received or have applied for child benefit for {navn} from another EEA country.",
+      "nb" : "Du har opplyst at du får, har fått eller har søkt om barnetrygd for {navn} fra et annet EØS land.",
+      "nn" : "Du har opplyst at du får, har fått eller har søkt om barnetrygd for {navn} frå eit anna EØS land."
+    },
+    "omdeg.annensamboer.spm" : {
+      "en" : "Have you had a cohabiting partner earlier during the period for which you are applying for child benefit?",
+      "nb" : "Har du hatt samboer tidligere i perioden du søker barnetrygd for?",
+      "nn" : "Har du hatt sambuar tidlegare i perioden du søker barnetrygd for?"
+    },
+    "omdeg.personopplysninger.adressesperre.alert" : {
+      "en" : "You are registered with a blocked address",
+      "nb" : "Du er registrert med adressesperre",
+      "nn" : "Du er registrert med adressesperre"
+    },
+    "omdeg.personopplysninger.ikke-registrert.alert" : {
+      "en" : "You are not registered with a residential address in Norway",
+      "nb" : "Du er ikke registrert med bostedsadresse i Norge",
+      "nn" : "Du er ikkje registrert med bustadsadresse i Noreg"
+    },
+    "pdf.andreforelder.seksjonstittel" : {
+      "en" : "Child's other parent",
+      "nb" : "Barnets andre forelder",
+      "nn" : "Barnet sin andre forelder"
+    },
+    "pdf.hvilkebarn.seksjonstittel" : {
+      "en" : "Which children are you applying for?",
+      "nb" : "Hvilke barn søker du for?",
+      "nn" : "Kva barn søker du for?"
+    },
+    "pdf.hvilkebarn.registrert-på-adresse" : {
+      "en" : "Registered on applicant's address",
+      "nb" : "Registrert på søkers adresse",
+      "nn" : "Registrert på søkars adresse"
+    },
+    "pdf.hvilkebarn.ikke-registrert-på-adresse" : {
+      "en" : "Not registered on applicant's address",
+      "nb" : "Ikke registrert på søkers adresse",
+      "nn" : "Ikkje registrert på søkars adresse"
+    },
+    "pdf.ombarnet.seksjonstittel" : {
+      "en" : "About {navn}",
+      "nb" : "Om {navn}",
+      "nn" : "Om {navn}"
+    },
+    "pdf.omdeg.seksjonstittel" : {
+      "en" : "About you",
+      "nb" : "Om deg",
+      "nn" : "Om deg"
+    },
+    "pdf.bosted.seksjonstittel" : {
+      "en" : "Place of residence",
+      "nb" : "Bosted",
+      "nn" : "Bustad"
+    },
+    "pdf.ombarna.seksjonstittel" : {
+      "en" : "About your children",
+      "nb" : "Om barna dine",
+      "nn" : "Om barna dine"
+    },
+    "pdf.søker.seksjonstittel" : {
+      "en" : "Applicant",
+      "nb" : "Søker",
+      "nn" : "Søkar"
+    },
+    "pdf.vedlegg.seksjonstittel" : {
+      "en" : "List of attachments",
+      "nb" : "Liste over vedlegg",
+      "nn" : "Liste over vedlegg"
+    },
+    "pdf.vedlegg.lastet-opp-antall" : {
+      "en" : "Uploaded {antall} attachments",
+      "nb" : "Lastet opp {antall} vedlegg",
+      "nn" : "Lasta opp {antall} vedlegg"
+    },
+    "pdf.vedlegg.nummerering" : {
+      "en" : "Attachment {x} of {total}",
+      "nb" : "Vedlegg {x} av {total}",
+      "nn" : "Vedlegg {x} av {total}"
+    },
+    "dokumentasjon.har-sendt-inn.spm" : {
+      "en" : "I have already submitted this documentation to Nav in the past",
+      "nb" : "Jeg har sendt inn denne dokumentasjonen til Nav tidligere",
+      "nn" : "Eg har sendt inn denne dokumentasjonen til Nav tidlegare"
+    },
+    "dinlivssituasjon.sidetittel" : {
+      "en" : "Your life situation",
+      "nb" : "Livssituasjonen din",
+      "nn" : "Livssituasjonen din"
+    },
+    "pdf.dinlivssituasjon.tidligeresamboer.seksjonstittel" : {
+      "en" : "Former cohabitant {x}",
+      "nb" : "Tidligere samboer {x}",
+      "nn" : "Tidlegare sambuar {x}"
+    },
+    "eøs-om-deg.sidetittel" : {
+      "en" : "Child benefit by the EEA-regulations - About you",
+      "nb" : "Barnetrygd etter EØS-reglene - Om deg",
+      "nn" : "Barnetrygd etter EØS-reglane - Om deg"
+    },
+    "eøs-om-barn.sidetittel" : {
+      "en" : "Child benefit by the EEA-regulations - About {barn}",
+      "nb" : "Barnetrygd etter EØS-reglene - Om {barn}",
+      "nn" : "Barnetrygd etter EØS-reglane - Om {barn}"
+    },
+    "felles.sivilstatus.kode.GIFT" : {
+      "en" : "Married",
+      "nb" : "Gift",
+      "nn" : "Gift"
+    },
+    "felles.sivilstatus.kode.ENKE_ELLER_ENKEMANN" : {
+      "en" : "Widow(er)",
+      "nb" : "Enke/Enkemann",
+      "nn" : "Enke/enkemann"
+    },
+    "felles.sivilstatus.kode.SKILT" : {
+      "en" : "Divorced",
+      "nb" : "Skilt",
+      "nn" : "Skilt"
+    },
+    "felles.sivilstatus.kode.SEPARERT" : {
+      "en" : "Separated",
+      "nb" : "Separert",
+      "nn" : "Separert"
+    },
+    "felles.sivilstatus.kode.REGISTRERT_PARTNER" : {
+      "en" : "Registered partner",
+      "nb" : "Registrert partner",
+      "nn" : "Registrert partner"
+    },
+    "felles.sivilstatus.kode.SEPARERT_PARTNER" : {
+      "en" : "Separated partner",
+      "nb" : "Separert partner",
+      "nn" : "Separert partner"
+    },
+    "felles.sivilstatus.kode.SKILT_PARTNER" : {
+      "en" : "Divorced partner",
+      "nb" : "Skilt partner",
+      "nn" : "Skilt partner"
+    },
+    "felles.sivilstatus.kode.GJENLEVENDE_PARTNER" : {
+      "en" : "Surviving partner",
+      "nb" : "Gjenlevende partner",
+      "nn" : "Attlevande partner"
+    },
+    "felles.sivilstatus.kode.UGIFT" : {
+      "en" : "Unmarried",
+      "nb" : "Ugift",
+      "nn" : "Ugift"
+    },
+    "felles.sivilstatus.kode.UOPPGITT" : {
+      "en" : "Not specified",
+      "nb" : "Ikke oppgitt",
+      "nn" : "Ikkje oppgitt"
+    },
+    "felles.svaralternativ.ja" : {
+      "en" : "Yes",
+      "nb" : "Ja",
+      "nn" : "Ja"
+    },
+    "felles.svaralternativ.nei" : {
+      "en" : "No",
+      "nb" : "Nei",
+      "nn" : "Nei"
+    },
+    "felles.svaralternativ.vetikke" : {
+      "en" : "Don't know",
+      "nb" : "Jeg vet ikke",
+      "nn" : "Eg veit ikkje"
+    },
+    "skjermetAdresse" : {
+      "en" : "Blocked address",
+      "nn" : "Skjerma adresse",
+      "nb" : "Skjermet adresse"
+    }
+  },
+  "originalSpråk" : "nb"
+}

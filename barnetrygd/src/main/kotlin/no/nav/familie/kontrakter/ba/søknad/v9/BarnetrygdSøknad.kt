@@ -8,6 +8,7 @@ import no.nav.familie.kontrakter.ba.søknad.v7.Søknaddokumentasjon
 import no.nav.familie.kontrakter.ba.søknad.v8.Barn
 import no.nav.familie.kontrakter.ba.søknad.v8.Søker
 import no.nav.familie.kontrakter.felles.søknad.BaksSøknadBase
+import no.nav.familie.kontrakter.felles.søknad.Søknadsfelt as FellesSøknadsfelt
 
 data class BarnetrygdSøknad(
     override val kontraktVersjon: Int,
@@ -21,3 +22,21 @@ data class BarnetrygdSøknad(
     val teksterUtenomSpørsmål: Map<SpørsmålId, Map<Locale, String>>,
     val originalSpråk: Locale,
 ) : BaksSøknadBase
+
+@JvmName("hentVerdiForV4Søknadsfelt")
+fun Map<String, Søknadsfelt<Any>>.hentVerdiForSøknadsfelt(søknadsFeltId: SøknadsFeltId): Any? {
+    return this[søknadsFeltId.verdiIKontrakt]?.bokmålsverdi()
+}
+
+@JvmName("hentVerdiForFellesSøknadsfelt")
+fun Map<String, FellesSøknadsfelt<Any>>.hentVerdiForSøknadsfelt(søknadsFeltId: SøknadsFeltId): Any? {
+    return this[søknadsFeltId.verdiIKontrakt]?.bokmålsverdi()
+}
+
+fun <T> Søknadsfelt<T>.bokmålsverdi(): T? {
+    return this.verdi["nb"]
+}
+
+fun <T> FellesSøknadsfelt<T>.bokmålsverdi(): T? {
+    return this.verdi["nb"]
+}

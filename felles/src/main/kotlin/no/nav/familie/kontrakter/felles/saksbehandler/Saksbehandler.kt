@@ -11,7 +11,6 @@ class Saksbehandler(
     val enhetsnavn: String = "",
 )
 
-
 data class SaksbehandlerGruppe(
     val id: String,
     val displayName: String?,

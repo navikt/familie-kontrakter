@@ -11,5 +11,5 @@ enum class SøknadsFeltId(val verdiIKontrakt: String) {
     OPPHOLDSLAND_TIL_DATO("oppholdslandTilDato"),
     ER_ADOPTERT_FRA_UTLAND("erAdoptertFraUtland"),
     BODD_MINDRE_ENN_12_MND_I_NORGE("boddMindreEnn12MndINorge"),
-    ER_BARN_ADOPTERT_FRA_UTLAND("erBarnAdoptertFraUtland")
+    ER_BARN_ADOPTERT_FRA_UTLAND("erBarnAdoptertFraUtland"),
 }

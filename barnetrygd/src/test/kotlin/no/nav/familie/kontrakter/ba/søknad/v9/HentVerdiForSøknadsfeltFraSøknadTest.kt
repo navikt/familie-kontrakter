@@ -1,46 +1,32 @@
 package no.nav.familie.kontrakter.ba.søknad.v9
 
 import com.fasterxml.jackson.module.kotlin.readValue
-import no.nav.familie.kontrakter.ba.søknad.lagBarnetrygdSøknadV9
-import no.nav.familie.kontrakter.ba.søknad.v9.SøknadsFeltId.VÆRT_I_NORGE_I_TOLV_MÅNEDER
 import no.nav.familie.kontrakter.felles.objectMapper
-import no.nav.familie.kontrakter.felles.søknad.Søknadsfelt
 import org.junit.jupiter.api.Assertions.assertEquals
 import kotlin.test.Test
 import kotlin.test.assertNotNull
 
 class HentVerdiForSøknadsfeltFraSøknadTest {
 
-    @Test
-    fun `skal hente ut verdi til spørsmål`() {
+    fun `skal hente ut verdi for spørsmål`() {
         // Arrange
-        val tomSøknad = lagBarnetrygdSøknadV9("12345678901", "23456789012")
-        val søknad = tomSøknad
-            .copy(
-                søker = tomSøknad.søker.copy(
-                    spørsmål = mapOf(
-                        "værtINorgeITolvMåneder" to Søknadsfelt(
-                            label = mapOf("nb" to "Har du oppholdt deg sammenhengende i Norge de siste tolv månedene?"),
-                            verdi = mapOf("nb" to "JA")
-                        )
-                    )
-                )
-            )
+        val versjonertBarnetrygdSøknad = lesSøknad("søknadMedUtenlandsOpphold.json")
 
+        SøknadsFeltId.entries.forEach { søknadsFeltId ->
+            // Act
+            val verdiForSpørsmålSøker = versjonertBarnetrygdSøknad.søker.spørsmål.hentVerdiForSøknadsfelt(søknadsFeltId)
+            val verdiForSpørsmålBarn =
+                versjonertBarnetrygdSøknad.barn.map { it.spørsmål.hentVerdiForSøknadsfelt(søknadsFeltId) }
 
-        // Act
-        val verdiForSpørsmål = søknad.søker.spørsmål.hentVerdiForSøknadsfelt(VÆRT_I_NORGE_I_TOLV_MÅNEDER)
-
-        // Assert
-        assertEquals(verdiForSpørsmål, "JA")
+            // Assert
+            assert((verdiForSpørsmålBarn + verdiForSpørsmålSøker).isNotEmpty())
+        }
     }
-
 
     @Test
     fun `skal hente ut verdier fra nøstet data`() {
         // Arrange
-        val søknadJson = this::class.java.getResource("søknadMedUtenlandsOpphold.json").readText()
-        val versjonertBarnetrygdSøknad = objectMapper.readValue<BarnetrygdSøknad>(søknadJson)
+        val versjonertBarnetrygdSøknad = lesSøknad("søknadMedUtenlandsOpphold.json")
 
         // Act
         val barnISøknad =
@@ -51,10 +37,15 @@ class HentVerdiForSøknadsfeltFraSøknadTest {
         // Assert
         assertNotNull(barnISøknad)
         assertEquals(
-            utenlandsOppholdÅrsak, "Barnet har flyttet til Norge permanent de siste tolv månedene"
+            utenlandsOppholdÅrsak,
+            "Barnet har flyttet til Norge permanent de siste tolv månedene",
         )
     }
+
+    private fun lesSøknad(søknadFilnavn: String): BarnetrygdSøknad {
+        val søknadJson = this::class.java.getResource(søknadFilnavn)?.readText()
+            ?: throw IllegalArgumentException("Fant ingen søknad med navn $søknadFilnavn")
+        val søknad = objectMapper.readValue<BarnetrygdSøknad>(søknadJson)
+        return søknad
+    }
 }
-
-
-

@@ -40,3 +40,6 @@ fun <T> Søknadsfelt<T>.bokmålsverdi(): T? {
 fun <T> FellesSøknadsfelt<T>.bokmålsverdi(): T? {
     return this.verdi["nb"]
 }
+
+fun Any?.tilBoolskSvar(): Boolean = this is String && this.equals("JA", ignoreCase = true)
+

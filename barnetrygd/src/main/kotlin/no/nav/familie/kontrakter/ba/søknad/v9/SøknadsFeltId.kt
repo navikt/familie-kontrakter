@@ -4,7 +4,8 @@ package no.nav.familie.kontrakter.ba.søknad.v9
 enum class SøknadsFeltId(val verdiIKontrakt: String) {
     BOR_PÅ_REGISTRERT_ADRESSE("borPåRegistrertAdresse"),
     VÆRT_I_NORGE_I_TOLV_MÅNEDER("værtINorgeITolvMåneder"),
-    PLANLEGGER_Å_BO_I_NORGE_12_MND("planleggerÅBoINorge12Mnd"),
+    PLANLEGGER_Å_BO_I_NORGE_12_MND_BARN("planleggerÅBoINorge12Mnd"),
+    PLANLEGGER_Å_BO_I_NORGE_12_MND_SØKER("planleggerÅBoINorgeTolvMnd"),
     UTENLANDSOPPHOLD_ÅRSAK("utenlandsoppholdÅrsak"),
     OPPHOLDSLAND("oppholdsland"),
     OPPHOLDSLAND_FRA_DATO("oppholdslandFraDato"),

@@ -9,18 +9,47 @@ import kotlin.test.assertNotNull
 class HentVerdiForSøknadsfeltFraSøknadTest {
 
     @Test
-    fun `skal hente ut verdi for spørsmål`() {
+    fun `skal hente ut true verdi for søknadsfeltId PLANLEGGER_Å_BO_I_NORGE_12_MND_SØKER for søker`() {
         // Arrange
         val versjonertBarnetrygdSøknad = lesSøknad("søknadMedUtenlandsOpphold.json")
 
-        SøknadsFeltId.entries.forEach { søknadsFeltId ->
-            // Act
-            val verdiForSpørsmålSøker = versjonertBarnetrygdSøknad.søker.spørsmål.hentVerdiForSøknadsfelt(søknadsFeltId)
-            val verdiForSpørsmålBarn =
-                versjonertBarnetrygdSøknad.barn.map { it.spørsmål.hentVerdiForSøknadsfelt(søknadsFeltId) }
+        // Act
+        val verdiForSpørsmålSøker =
+            versjonertBarnetrygdSøknad.søker.spørsmål.hentVerdiForSøknadsfelt(SøknadsFeltId.PLANLEGGER_Å_BO_I_NORGE_12_MND_SØKER)
+                .tilBoolskSvar()
 
-            // Assert
-            assert((verdiForSpørsmålBarn + verdiForSpørsmålSøker).isNotEmpty())
+        // Assert
+        assertEquals(verdiForSpørsmålSøker, true)
+    }
+
+    @Test
+    fun `skal hente ut true verdi for søknadsfeltId PLANLEGGER_Å_BO_I_NORGE_12_MND_BARN for barn`() {
+        // Arrange
+        val versjonertBarnetrygdSøknad = lesSøknad("søknadMedUtenlandsOpphold.json")
+
+        // Act
+        val verdiForSpørsmål = versjonertBarnetrygdSøknad.barn.map {
+            it.spørsmål.hentVerdiForSøknadsfelt(SøknadsFeltId.PLANLEGGER_Å_BO_I_NORGE_12_MND_BARN).tilBoolskSvar()
+        }
+
+        // Assert
+        verdiForSpørsmål.forEach {
+            assertEquals(it, true)
+        }
+    }
+
+    @Test
+    fun `skal hente ut false verdi for søknadsfeltId ER_ADOPTERT_FRA_UTLAND for barn`() {
+        // Arrange
+        val versjonertBarnetrygdSøknad = lesSøknad("søknadMedUtenlandsOpphold.json")
+
+        // Act
+        val verdiForSpørsmål = versjonertBarnetrygdSøknad.barn.map {
+                it.spørsmål.hentVerdiForSøknadsfelt(SøknadsFeltId.ER_ADOPTERT_FRA_UTLAND).tilBoolskSvar() }
+
+        // Assert
+        verdiForSpørsmål.forEach {
+            assertEquals(it, false)
         }
     }
 
@@ -50,7 +79,8 @@ class HentVerdiForSøknadsfeltFraSøknadTest {
         val søknadsFeltId = SøknadsFeltId.BOR_PÅ_REGISTRERT_ADRESSE
 
         //Act
-        val verdiForSpørsmål = versjonertBarnetrygdSøknad.søker.spørsmål.hentVerdiForSøknadsfelt(søknadsFeltId).tilBoolskSvar()
+        val verdiForSpørsmål =
+            versjonertBarnetrygdSøknad.søker.spørsmål.hentVerdiForSøknadsfelt(søknadsFeltId).tilBoolskSvar()
 
         //Assert
         assertEquals(verdiForSpørsmål, true)

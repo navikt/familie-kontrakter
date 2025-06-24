@@ -1036,6 +1036,18 @@
             "en" : "NEI"
           }
         },
+        "planleggerÅBoINorge12Mnd" : {
+          "label" : {
+            "en" : "Is it planned that BLØT INNHEGNING will live in Norway continuously for more than 12 months?",
+            "nb" : "Er det planlagt at BLØT INNHEGNING skal bo sammenhengende i Norge i mer enn tolv måneder?",
+            "nn" : "Er det planlagd at BLØT INNHEGNING skal bu i Noreg samanhengande i meir enn tolv månadar?"
+          },
+          "verdi" : {
+            "nb" : "JA",
+            "nn" : "JA",
+            "en" : "JA"
+          }
+        },
         "borFastMedSøker" : {
           "label" : {
             "en" : "Does OMSORGSFULL SATELLITT live with you on a permanent basis?",

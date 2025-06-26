@@ -113,6 +113,7 @@ data class VedtaksdetaljerBarnetilsynDto(
     override val tilbakekreving: TilbakekrevingDto? = null,
     override val brevmottakere: List<Brevmottaker> = emptyList(),
     override val avslagÅrsak: AvslagÅrsak? = null,
+    val oppgaverForOpprettelse: OppgaverForOpprettelseDto = OppgaverForOpprettelseDto(oppgavetyper = emptyList()),
     val kontantstøtte: List<PeriodeMedBeløpDto>,
     val tilleggsstønad: List<PeriodeMedBeløpDto>,
 

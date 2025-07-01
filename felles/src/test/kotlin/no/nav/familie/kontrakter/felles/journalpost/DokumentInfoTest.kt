@@ -2,12 +2,12 @@ package no.nav.familie.kontrakter.felles.journalpost
 
 import no.nav.familie.kontrakter.felles.Brevkoder
 import no.nav.familie.kontrakter.felles.Tema
+import org.junit.jupiter.api.Assertions.assertFalse
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 import kotlin.test.assertEquals
-import kotlin.test.assertFalse
-import kotlin.test.assertTrue
 
 class DokumentInfoTest {
     @Nested

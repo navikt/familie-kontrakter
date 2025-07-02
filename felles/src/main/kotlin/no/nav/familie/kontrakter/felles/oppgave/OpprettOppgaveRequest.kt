@@ -29,7 +29,6 @@ enum class Oppgavetype(val value: String) {
     Fordeling("FDR"),
     BehandleReturpost("RETUR"),
     BehandleSED("BEH_SED"),
-    BehandleUderkjentVedtak("BEH_UND_VED"),
     FordelingSED("FDR_SED"),
     Fremlegg("FREM"),
     Generell("GEN"),

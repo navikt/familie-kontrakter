@@ -13,4 +13,7 @@ data class SøknadSkolepenger(
     val dokumentasjon: SkolepengerDokumentasjon,
 )
 
-data class SkolepengerDokumentasjon(val utdanningsutgifter: Søknadsfelt<Dokumentasjon>? = null, val utdanningDokumentasjon: Søknadsfelt<Dokumentasjon>? = null)
+data class SkolepengerDokumentasjon(
+    val utdanningsutgifter: Søknadsfelt<Dokumentasjon>? = null,
+    val utdanningDokumentasjon: Søknadsfelt<Dokumentasjon>? = null,
+)

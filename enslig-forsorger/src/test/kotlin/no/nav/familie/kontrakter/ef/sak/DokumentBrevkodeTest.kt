@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
 class DokumentBrevkodeTest {
-
     @Test
     internal fun `skal returnere riktig element for gyldig brevkode`() {
         Assertions.assertEquals(DokumentBrevkode.OVERGANGSSTØNAD, DokumentBrevkode.fraBrevkode("NAV 15-00.01"))

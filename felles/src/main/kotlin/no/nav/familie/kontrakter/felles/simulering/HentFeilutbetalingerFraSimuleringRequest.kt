@@ -10,7 +10,9 @@ data class HentFeilutbetalingerFraSimuleringRequest(
     val fagsystemsbehandlingId: String,
 )
 
-data class FeilutbetalingerFraSimulering(val feilutbetaltePerioder: List<FeilutbetaltPeriode>)
+data class FeilutbetalingerFraSimulering(
+    val feilutbetaltePerioder: List<FeilutbetaltPeriode>,
+)
 
 data class FeilutbetaltPeriode(
     val fom: LocalDate,

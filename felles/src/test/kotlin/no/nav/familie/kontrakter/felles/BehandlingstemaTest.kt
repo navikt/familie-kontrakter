@@ -23,8 +23,7 @@ internal class BehandlingstemaTest {
         )
     }
 
-    private fun readJsonString(s: String) =
-        objectMapper.readValue<List<Behandlingstema>>(asJsonList(s))
+    private fun readJsonString(s: String) = objectMapper.readValue<List<Behandlingstema>>(asJsonList(s))
 
     private fun asJsonList(s: String) = "[\"$s\"]"
 }

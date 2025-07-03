@@ -12,8 +12,13 @@ data class EksternePerioderRequest(
     val tomDato: LocalDate? = null,
 )
 
-data class EksternePerioderResponse(val perioder: List<EksternPeriode>)
-data class EksternePerioderMedBeløpResponse(val perioder: List<EksternPeriodeMedBeløp>)
+data class EksternePerioderResponse(
+    val perioder: List<EksternPeriode>,
+)
+
+data class EksternePerioderMedBeløpResponse(
+    val perioder: List<EksternPeriodeMedBeløp>,
+)
 
 data class EksternPeriode(
     val personIdent: String,

@@ -6,7 +6,6 @@ import org.junit.jupiter.api.assertThrows
 import kotlin.test.Test
 
 class EnhetTest {
-
     @Test
     fun `skal kunne opprette Enhet dersom enhetsnummer inneholder nøyaktig 4 siffer`() {
         // Act and assert

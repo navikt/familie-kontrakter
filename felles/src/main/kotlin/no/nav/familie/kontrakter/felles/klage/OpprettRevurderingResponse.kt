@@ -5,7 +5,6 @@ data class OpprettRevurderingResponse internal constructor(
     val opprettet: Opprettet? = null,
     val ikkeOpprettet: IkkeOpprettet? = null,
 ) {
-
     constructor(opprettet: Opprettet) : this(true, opprettet = opprettet)
     constructor(ikkeOpprettet: IkkeOpprettet) : this(false, ikkeOpprettet = ikkeOpprettet)
 
@@ -20,7 +19,9 @@ data class OpprettRevurderingResponse internal constructor(
     }
 }
 
-data class Opprettet(val eksternBehandlingId: String)
+data class Opprettet(
+    val eksternBehandlingId: String,
+)
 
 data class IkkeOpprettet(
     val årsak: IkkeOpprettetÅrsak,

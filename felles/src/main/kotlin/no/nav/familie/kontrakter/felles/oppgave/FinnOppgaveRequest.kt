@@ -33,8 +33,13 @@ data class FinnOppgaveRequest(
 )
 
 enum class Sorteringsfelt {
-    OPPRETTET_TIDSPUNKT, AKTIV_DATO, FRIST, ENDRET_TIDSPUNKT
+    OPPRETTET_TIDSPUNKT,
+    AKTIV_DATO,
+    FRIST,
+    ENDRET_TIDSPUNKT,
 }
+
 enum class Sorteringsrekkefølge {
-    ASC, DESC
+    ASC,
+    DESC,
 }

@@ -12,9 +12,10 @@ data class AndelTilkjentYtelseDto(
     val samordningsfradrag: Int,
     @Deprecated("Bruk periode!", ReplaceWith("periode.fom")) val fraOgMed: LocalDate? = null,
     @Deprecated("Bruk periode!", ReplaceWith("periode.tom")) val tilOgMed: LocalDate? = null,
-    val periode: Månedsperiode = Månedsperiode(
-        YearMonth.from(fraOgMed) ?: error("Periode eller fraOgMed må ha verdi!"),
-        YearMonth.from(tilOgMed) ?: error("Periode eller fraOgMed må ha verdi!"),
-    ),
+    val periode: Månedsperiode =
+        Månedsperiode(
+            YearMonth.from(fraOgMed) ?: error("Periode eller fraOgMed må ha verdi!"),
+            YearMonth.from(tilOgMed) ?: error("Periode eller fraOgMed må ha verdi!"),
+        ),
     val kildeBehandlingId: UUID? = null,
 )

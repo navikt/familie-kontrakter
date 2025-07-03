@@ -15,12 +15,13 @@ object Brevkoder {
 
     val BARNETRYGD_BREVKODER = listOf(BARNETRYGD_ORDINÆR_SØKNAD, BARNETRYGD_UTVIDET_SØKNAD)
 
-    val KLAGE_BREVKODER = setOf(
-        KLAGE_ANKE,
-        KLAGE,
-        ETTERSENDELSE_TIL_KLAGE_ANKE,
-        ETTERSENDELSE_TIL_KLAGE,
-        ANKE,
-        ETTERSENDELSE_TIL_ANKE,
-    )
+    val KLAGE_BREVKODER =
+        setOf(
+            KLAGE_ANKE,
+            KLAGE,
+            ETTERSENDELSE_TIL_KLAGE_ANKE,
+            ETTERSENDELSE_TIL_KLAGE,
+            ANKE,
+            ETTERSENDELSE_TIL_ANKE,
+        )
 }

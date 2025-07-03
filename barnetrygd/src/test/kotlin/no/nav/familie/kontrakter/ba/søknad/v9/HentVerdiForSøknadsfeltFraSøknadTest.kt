@@ -7,7 +7,6 @@ import kotlin.test.Test
 import kotlin.test.assertNotNull
 
 class HentVerdiForSøknadsfeltFraSøknadTest {
-
     @Test
     fun `skal hente ut true verdi for søknadsfeltId PLANLEGGER_Å_BO_I_NORGE_12_MND_SØKER for søker`() {
         // Arrange
@@ -15,7 +14,8 @@ class HentVerdiForSøknadsfeltFraSøknadTest {
 
         // Act
         val verdiForSpørsmålSøker =
-            versjonertBarnetrygdSøknad.søker.spørsmål.hentVerdiForSøknadsfelt(SøknadsFeltId.PLANLEGGER_Å_BO_I_NORGE_12_MND_SØKER)
+            versjonertBarnetrygdSøknad.søker.spørsmål
+                .hentVerdiForSøknadsfelt(SøknadsFeltId.PLANLEGGER_Å_BO_I_NORGE_12_MND_SØKER)
                 .tilBoolskSvar()
 
         // Assert
@@ -28,9 +28,10 @@ class HentVerdiForSøknadsfeltFraSøknadTest {
         val versjonertBarnetrygdSøknad = lesSøknad("søknadMedUtenlandsOpphold.json")
 
         // Act
-        val verdiForSpørsmål = versjonertBarnetrygdSøknad.barn.map {
-            it.spørsmål.hentVerdiForSøknadsfelt(SøknadsFeltId.PLANLEGGER_Å_BO_I_NORGE_12_MND_BARN).tilBoolskSvar()
-        }
+        val verdiForSpørsmål =
+            versjonertBarnetrygdSøknad.barn.map {
+                it.spørsmål.hentVerdiForSøknadsfelt(SøknadsFeltId.PLANLEGGER_Å_BO_I_NORGE_12_MND_BARN).tilBoolskSvar()
+            }
 
         // Assert
         verdiForSpørsmål.forEach {
@@ -44,8 +45,10 @@ class HentVerdiForSøknadsfeltFraSøknadTest {
         val versjonertBarnetrygdSøknad = lesSøknad("søknadMedUtenlandsOpphold.json")
 
         // Act
-        val verdiForSpørsmål = versjonertBarnetrygdSøknad.barn.map {
-                it.spørsmål.hentVerdiForSøknadsfelt(SøknadsFeltId.ER_ADOPTERT_FRA_UTLAND).tilBoolskSvar() }
+        val verdiForSpørsmål =
+            versjonertBarnetrygdSøknad.barn.map {
+                it.spørsmål.hentVerdiForSøknadsfelt(SøknadsFeltId.ER_ADOPTERT_FRA_UTLAND).tilBoolskSvar()
+            }
 
         // Assert
         verdiForSpørsmål.forEach {
@@ -62,7 +65,12 @@ class HentVerdiForSøknadsfeltFraSøknadTest {
         val barnISøknad =
             versjonertBarnetrygdSøknad.barn.find { it.navn.bokmålsverdi() == "BLØT INNHEGNING" }
         val utenlandsOppholdÅrsak =
-            barnISøknad?.utenlandsperioder?.first()?.bokmålsverdi()?.utenlandsoppholdÅrsak?.bokmålsverdi()
+            barnISøknad
+                ?.utenlandsperioder
+                ?.first()
+                ?.bokmålsverdi()
+                ?.utenlandsoppholdÅrsak
+                ?.bokmålsverdi()
 
         // Assert
         assertNotNull(barnISøknad)
@@ -74,15 +82,17 @@ class HentVerdiForSøknadsfeltFraSøknadTest {
 
     @Test
     fun `tilBoolskSvar skal returnere true når verdi for spørsmål er JA eller ja`() {
-        //Arrange
+        // Arrange
         val versjonertBarnetrygdSøknad = lesSøknad("søknadMedUtenlandsOpphold.json")
         val søknadsFeltId = SøknadsFeltId.BOR_PÅ_REGISTRERT_ADRESSE
 
-        //Act
+        // Act
         val verdiForSpørsmål =
-            versjonertBarnetrygdSøknad.søker.spørsmål.hentVerdiForSøknadsfelt(søknadsFeltId).tilBoolskSvar()
+            versjonertBarnetrygdSøknad.søker.spørsmål
+                .hentVerdiForSøknadsfelt(søknadsFeltId)
+                .tilBoolskSvar()
 
-        //Assert
+        // Assert
         assertEquals(verdiForSpørsmål, true)
     }
 
@@ -96,8 +106,9 @@ class HentVerdiForSøknadsfeltFraSøknadTest {
     }
 
     private fun lesSøknad(søknadFilnavn: String): BarnetrygdSøknad {
-        val søknadJson = this::class.java.getResource(søknadFilnavn)?.readText()
-            ?: throw IllegalArgumentException("Fant ingen søknad med navn $søknadFilnavn")
+        val søknadJson =
+            this::class.java.getResource(søknadFilnavn)?.readText()
+                ?: throw IllegalArgumentException("Fant ingen søknad med navn $søknadFilnavn")
         val søknad = objectMapper.readValue<BarnetrygdSøknad>(søknadJson)
         return søknad
     }

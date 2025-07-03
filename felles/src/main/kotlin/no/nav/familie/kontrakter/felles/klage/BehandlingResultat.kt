@@ -1,6 +1,6 @@
 package no.nav.familie.kontrakter.felles.klage
 
-enum class BehandlingResultat() {
+enum class BehandlingResultat {
     MEDHOLD,
     IKKE_MEDHOLD,
     IKKE_MEDHOLD_FORMKRAV_AVVIST,
@@ -35,7 +35,9 @@ enum class BehandlingEventType {
     OMGJOERINGSKRAVBEHANDLING_AVSLUTTET,
 }
 
-enum class KlageinstansUtfall(val navn: String) {
+enum class KlageinstansUtfall(
+    val navn: String,
+) {
     TRUKKET("Trukket KA"),
     RETUR("Retur KA"),
     OPPHEVET("Opphevet KA"),

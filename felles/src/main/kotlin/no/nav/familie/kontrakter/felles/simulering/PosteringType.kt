@@ -1,6 +1,8 @@
 package no.nav.familie.kontrakter.felles.simulering
 
-enum class PosteringType(val kode: String) {
+enum class PosteringType(
+    val kode: String,
+) {
     YTELSE("YTEL"),
     FEILUTBETALING("FEIL"),
     FORSKUDSSKATT("SKAT"),
@@ -10,7 +12,6 @@ enum class PosteringType(val kode: String) {
     ;
 
     companion object {
-
         fun fraKode(kode: String): PosteringType {
             for (posteringType in values()) {
                 if (posteringType.kode == kode) {

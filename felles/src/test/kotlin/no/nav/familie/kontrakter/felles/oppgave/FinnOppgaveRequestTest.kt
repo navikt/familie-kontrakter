@@ -6,10 +6,10 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
 class FinnOppgaveRequestTest {
-
     @Test
     fun `Kan konvertere fra json til FinnOppgaveRequest`() {
-        val finnOppgaveRequestString = """
+        val finnOppgaveRequestString =
+            """
             {
                 "tema": "BAR",
                 "behandlingstema": "Barnetrygd",
@@ -34,7 +34,7 @@ class FinnOppgaveRequestTest {
                 "limit": 10,
                 "offset": 0
             }
-        """.trimIndent()
+            """.trimIndent()
 
         Assertions.assertDoesNotThrow {
             objectMapper.readValue<FinnOppgaveRequest>(finnOppgaveRequestString)

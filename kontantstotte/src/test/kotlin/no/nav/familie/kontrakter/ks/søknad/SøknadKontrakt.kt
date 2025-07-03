@@ -8,13 +8,12 @@ import kotlin.test.assertNotNull
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class SøknadKontrakt {
-
     @Test
     fun test_uthenting_av_testdata() {
         val søknad = SøknadTestdata.norskFamilieUtenBarnehageplass()
 
         assertNotNull(søknad)
-        assertEquals(søknad.søkerFødselsnummer, SøknadTestdata.morPersonident)
+        assertEquals(søknad.søkerFødselsnummer, SøknadTestdata.MOR_PERSONIDENT)
     }
 
     @Test
@@ -22,7 +21,7 @@ class SøknadKontrakt {
         val søknad = SøknadTestdata.norskFamilieUtenAnnenPartOgUtenBarnehageplass()
 
         assertNotNull(søknad)
-        assertEquals(søknad.søkerFødselsnummer, SøknadTestdata.morPersonident)
+        assertEquals(søknad.søkerFødselsnummer, SøknadTestdata.MOR_PERSONIDENT)
     }
 
     @Test

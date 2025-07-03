@@ -7,5 +7,13 @@ data class InfotrygdFinnesResponse(
     val saker: List<Saktreff>,
 )
 
-data class Vedtakstreff(val personIdent: String, val stønadType: StønadType, val harLøpendeVedtak: Boolean)
-data class Saktreff(val personIdent: String, val stønadType: StønadType)
+data class Vedtakstreff(
+    val personIdent: String,
+    val stønadType: StønadType,
+    val harLøpendeVedtak: Boolean,
+)
+
+data class Saktreff(
+    val personIdent: String,
+    val stønadType: StønadType,
+)

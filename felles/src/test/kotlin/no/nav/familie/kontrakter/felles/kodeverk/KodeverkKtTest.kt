@@ -8,27 +8,27 @@ import kotlin.test.assertEquals
 import kotlin.test.assertNull
 
 internal class KodeverkKtTest {
-
-    val kodeverk = objectMapper.readValue<KodeverkDto>(
-        """
-     {"betydninger": {
-       "5036": [
-        {"gyldigFra": "2003-10-01",
-         "gyldigTil": "2010-12-31",
-         "beskrivelser": {
-          "nb": {
-           "term": "BERGEN",
-           "tekst": "BERGEN"
-          }}},
-        {"gyldigFra": "2011-10-01",
-         "gyldigTil": "9999-12-31",
-         "beskrivelser": {
-          "nb": {
-           "term": "BERGEN2",
-           "tekst": "BERGEN2"
-          }}}]}}
-        """.trimIndent(),
-    )
+    val kodeverk =
+        objectMapper.readValue<KodeverkDto>(
+            """
+            {"betydninger": {
+              "5036": [
+               {"gyldigFra": "2003-10-01",
+                "gyldigTil": "2010-12-31",
+                "beskrivelser": {
+                 "nb": {
+                  "term": "BERGEN",
+                  "tekst": "BERGEN"
+                 }}},
+               {"gyldigFra": "2011-10-01",
+                "gyldigTil": "9999-12-31",
+                "beskrivelser": {
+                 "nb": {
+                  "term": "BERGEN2",
+                  "tekst": "BERGEN2"
+                 }}}]}}
+            """.trimIndent(),
+        )
 
     @Test
     internal fun `skal hente kodeverk som er gyldig for gitt dato`() {

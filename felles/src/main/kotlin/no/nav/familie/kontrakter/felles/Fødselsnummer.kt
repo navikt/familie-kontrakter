@@ -2,8 +2,9 @@ package no.nav.familie.kontrakter.felles
 
 import java.time.LocalDate
 
-data class Fødselsnummer(val verdi: String) {
-
+data class Fødselsnummer(
+    val verdi: String,
+) {
     init {
         check(gyldig(), verdi::toString)
     }
@@ -17,7 +18,16 @@ data class Fødselsnummer(val verdi: String) {
 
     private fun beregnFødselsdato(): LocalDate {
         val dag = verdi.substring(0, 2).toInt() - (if (erDNummer) 40 else 0)
-        val måned = verdi.substring(2, 4).toInt() - (if (erNAVSyntetisk) 40 else if (erSkattSyntetisk) 80 else 0)
+        val måned =
+            verdi.substring(2, 4).toInt() - (
+                if (erNAVSyntetisk) {
+                    40
+                } else if (erSkattSyntetisk) {
+                    80
+                } else {
+                    0
+                }
+            )
         val år = verdi.substring(4, 6).toInt()
         val datoUtenÅrhundre = LocalDate.of(år, måned, dag)
         val individnummer = verdi.substring(6, 9).toInt()
@@ -47,7 +57,10 @@ data class Fødselsnummer(val verdi: String) {
         return gyldigKontrollSiffer(kontrollMod1, kontrollsiffer1) && gyldigKontrollSiffer(kontrollMod2, kontrollsiffer2)
     }
 
-    private fun gyldigKontrollSiffer(kontrollMod: Int, kontrollsiffer: Int): Boolean {
+    private fun gyldigKontrollSiffer(
+        kontrollMod: Int,
+        kontrollsiffer: Int,
+    ): Boolean {
         if (kontrollMod == kontrollsiffer) {
             return true
         }
@@ -57,7 +70,5 @@ data class Fødselsnummer(val verdi: String) {
         return false
     }
 
-    override fun toString(): String {
-        return "***********"
-    }
+    override fun toString(): String = "***********"
 }

@@ -1,6 +1,8 @@
 package no.nav.familie.kontrakter.felles.simulering
 
-enum class FagOmrådeKode(val kode: String) {
+enum class FagOmrådeKode(
+    val kode: String,
+) {
     BARNETRYGD("BA"),
     BARNETRYGD_MANUELT("MBA"),
     BARNETRYGD_INFOTRYGD("IT05"),
@@ -22,7 +24,6 @@ enum class FagOmrådeKode(val kode: String) {
     ;
 
     companion object {
-
         fun fraKode(kode: String): FagOmrådeKode {
             for (fagOmrådeKode in values()) {
                 if (fagOmrådeKode.kode == kode) {

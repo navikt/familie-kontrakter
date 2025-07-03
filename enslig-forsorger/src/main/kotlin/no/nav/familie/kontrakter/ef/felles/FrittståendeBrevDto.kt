@@ -16,7 +16,9 @@ data class FrittståendeBrevDto(
     val mottakere: List<Brevmottaker>? = null,
 )
 
-enum class FrittståendeBrevType(val tittel: String) {
+enum class FrittståendeBrevType(
+    val tittel: String,
+) {
     INFORMASJONSBREV("Informasjonsbrev"),
     INNHENTING_AV_OPPLYSNINGER("Innhenting av opplysninger"),
     VARSEL_OM_AKTIVITETSPLIKT("Varsel om aktivitetsplikt"),

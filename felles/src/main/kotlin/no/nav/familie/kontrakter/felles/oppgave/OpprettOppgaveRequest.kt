@@ -21,7 +21,9 @@ data class OpprettOppgaveRequest(
     val mappeId: Long? = null,
 )
 
-enum class Oppgavetype(val value: String) {
+enum class Oppgavetype(
+    val value: String,
+) {
     BehandleSak("BEH_SAK"),
     Journalføring("JFR"),
     GodkjenneVedtak("GOD_VED"),
@@ -45,7 +47,9 @@ enum class Oppgavetype(val value: String) {
     VurderSvar("VUR_SVAR"),
 }
 
-enum class Behandlingstype(val value: String) {
+enum class Behandlingstype(
+    val value: String,
+) {
     Utland("ae0106"),
     NASJONAL("ae0118"),
     EØS("ae0120"),
@@ -60,7 +64,9 @@ enum class OppgavePrioritet {
 }
 
 @Deprecated("Misforstått bruk - ulike identer på tvers av miljøer")
-enum class Enhetsmappe(val value: Long) {
+enum class Enhetsmappe(
+    val value: Long,
+) {
     SøknaderKlarTilBehandling(100000035),
     AvventerDokumentasjon(100000036),
     KlagerKlarTilBehandling(100000037),

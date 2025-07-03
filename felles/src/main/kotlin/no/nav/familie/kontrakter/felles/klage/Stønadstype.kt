@@ -11,18 +11,19 @@ enum class Stønadstype {
     KONTANTSTØTTE,
     ;
 
-    fun tilTema(): Tema = when (this) {
-        BARNETRYGD -> Tema.BAR
-        BARNETILSYN, OVERGANGSSTØNAD, SKOLEPENGER -> Tema.ENF
-        KONTANTSTØTTE -> Tema.KON
-    }
+    fun tilTema(): Tema =
+        when (this) {
+            BARNETRYGD -> Tema.BAR
+            BARNETILSYN, OVERGANGSSTØNAD, SKOLEPENGER -> Tema.ENF
+            KONTANTSTØTTE -> Tema.KON
+        }
 
     companion object {
-
-        fun fraEfStønadstype(stønadType: StønadType): Stønadstype = when (stønadType) {
-            StønadType.OVERGANGSSTØNAD -> OVERGANGSSTØNAD
-            StønadType.BARNETILSYN -> BARNETILSYN
-            StønadType.SKOLEPENGER -> SKOLEPENGER
-        }
+        fun fraEfStønadstype(stønadType: StønadType): Stønadstype =
+            when (stønadType) {
+                StønadType.OVERGANGSSTØNAD -> OVERGANGSSTØNAD
+                StønadType.BARNETILSYN -> BARNETILSYN
+                StønadType.SKOLEPENGER -> SKOLEPENGER
+            }
     }
 }

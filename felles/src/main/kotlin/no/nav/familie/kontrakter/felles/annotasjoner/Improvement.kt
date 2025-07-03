@@ -8,4 +8,6 @@ package no.nav.familie.kontrakter.felles.annotasjoner
 )
 @Retention(AnnotationRetention.SOURCE)
 @MustBeDocumented
-annotation class Improvement(val message: String = "")
+annotation class Improvement(
+    val message: String = "",
+)

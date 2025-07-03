@@ -13,4 +13,6 @@ data class OppgaveForBarn(
     val aktivFra: LocalDate? = null,
 )
 
-data class OppgaverForBarnDto(val oppgaverForBarn: List<OppgaveForBarn>)
+data class OppgaverForBarnDto(
+    val oppgaverForBarn: List<OppgaveForBarn>,
+)

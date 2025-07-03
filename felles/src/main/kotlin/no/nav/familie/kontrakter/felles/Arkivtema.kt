@@ -1,6 +1,8 @@
 package no.nav.familie.kontrakter.felles
 
-enum class Arkivtema(val navn: String) {
+enum class Arkivtema(
+    val navn: String,
+) {
     AAP("Arbeidsavklaringspenger"),
     AAR("Aa-registeret"),
     AGR("Ajourhold - Grunnopplysninger"),

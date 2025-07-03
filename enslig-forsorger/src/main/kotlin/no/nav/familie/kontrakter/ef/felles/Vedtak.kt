@@ -1,6 +1,8 @@
 package no.nav.familie.kontrakter.ef.felles
 
-enum class Vedtaksresultat(val visningsnavn: String) {
+enum class Vedtaksresultat(
+    val visningsnavn: String,
+) {
     INNVILGET(visningsnavn = "Innvilget"),
     OPPHØRT(visningsnavn = "Opphørt"),
     AVSLÅTT(visningsnavn = "Avslått"),
@@ -39,7 +41,9 @@ enum class TilkjentYtelseStatus {
     AVSLUTTET,
 }
 
-enum class Vilkårsresultat(val beskrivelse: String) {
+enum class Vilkårsresultat(
+    val beskrivelse: String,
+) {
     OPPFYLT("Vilkåret er oppfylt når alle delvilkår er oppfylte"),
     AUTOMATISK_OPPFYLT("Delvilkår er oppfylt med automatisk beregning"),
     IKKE_OPPFYLT("Vilkåret er ikke oppfylt hvis alle delvilkår er oppfylt eller ikke oppfylt, men minimum 1 ikke oppfylt"),
@@ -51,8 +55,9 @@ enum class Vilkårsresultat(val beskrivelse: String) {
     fun oppfyltEllerIkkeOppfylt() = this == OPPFYLT || this == IKKE_OPPFYLT
 }
 
-enum class VilkårType(val beskrivelse: String) {
-
+enum class VilkårType(
+    val beskrivelse: String,
+) {
     FORUTGÅENDE_MEDLEMSKAP("§15-2 Forutgående medlemskap"),
     LOVLIG_OPPHOLD("§15-3 Lovlig opphold"),
 

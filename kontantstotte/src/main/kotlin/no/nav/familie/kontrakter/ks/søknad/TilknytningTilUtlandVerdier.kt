@@ -1,6 +1,8 @@
 package no.nav.familie.kontrakter.ks.søknad
 
-enum class TilknytningTilUtlandVerdier(val beskrivelse: String) {
+enum class TilknytningTilUtlandVerdier(
+    val beskrivelse: String,
+) {
     @Suppress("ktlint:standard:enum-entry-name-case")
     jaINorge("Ja, i Norge"),
 

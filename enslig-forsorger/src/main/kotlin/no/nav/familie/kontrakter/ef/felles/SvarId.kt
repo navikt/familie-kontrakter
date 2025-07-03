@@ -1,7 +1,6 @@
 package no.nav.familie.kontrakter.ef.iverksett
 
 enum class SvarId {
-
     // Felles
     JA,
     NEI,

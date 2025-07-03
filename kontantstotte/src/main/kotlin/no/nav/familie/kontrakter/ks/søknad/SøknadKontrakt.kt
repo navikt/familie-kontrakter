@@ -17,4 +17,5 @@ data class Søknad(
 )
 
 fun String.toSøknad(): Søknad = objectMapper.readValue(this)
+
 fun Søknad.toJson(): String = objectMapper.writeValueAsString(this)

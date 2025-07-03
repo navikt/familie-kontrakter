@@ -24,9 +24,9 @@ fun lagKontantstøtteSøknadV5(
         antallEøsSteg = 0,
         dokumentasjon = emptyList(),
         teksterTilPdf =
-        mapOf(
-            "testApiNavn" to TekstPåSpråkMap(mapOf("nb" to "bokmål", "nn" to "nynorsk", "en" to "engelsk")),
-        ),
+            mapOf(
+                "testApiNavn" to TekstPåSpråkMap(mapOf("nb" to "bokmål", "nn" to "nynorsk", "en" to "engelsk")),
+            ),
         originalSpråk = "NB",
         finnesPersonMedAdressebeskyttelse = false,
         erNoenAvBarnaFosterbarn = lagStringSøknadsfelt("Nei"),
@@ -50,9 +50,9 @@ fun lagKontantstøtteSøknadV4(
         antallEøsSteg = 0,
         dokumentasjon = emptyList(),
         teksterTilPdf =
-        mapOf(
-            "testApiNavn" to TekstPåSpråkMap(mapOf("nb" to "bokmål", "nn" to "nynorsk", "en" to "engelsk")),
-        ),
+            mapOf(
+                "testApiNavn" to TekstPåSpråkMap(mapOf("nb" to "bokmål", "nn" to "nynorsk", "en" to "engelsk")),
+            ),
         originalSpråk = "NB",
         erNoenAvBarnaFosterbarn = lagStringSøknadsfelt("Nei"),
         søktAsylForBarn = lagStringSøknadsfelt("Nei"),
@@ -75,9 +75,9 @@ fun lagKontantstøtteSøknadV3(
         antallEøsSteg = 0,
         dokumentasjon = emptyList(),
         teksterTilPdf =
-        mapOf(
-            "testApiNavn" to TekstPåSpråkMap(mapOf("nb" to "bokmål", "nn" to "nynorsk", "en" to "engelsk")),
-        ),
+            mapOf(
+                "testApiNavn" to TekstPåSpråkMap(mapOf("nb" to "bokmål", "nn" to "nynorsk", "en" to "engelsk")),
+            ),
         originalSpråk = "NB",
         erNoenAvBarnaFosterbarn = lagStringSøknadsfelt("Nei"),
         søktAsylForBarn = lagStringSøknadsfelt("Nei"),
@@ -100,9 +100,9 @@ fun lagKontantstøtteSøknadV2(
         antallEøsSteg = 0,
         dokumentasjon = emptyList(),
         teksterTilPdf =
-        mapOf(
-            "testApiNavn" to TekstPåSpråkMap(mapOf("nb" to "bokmål", "nn" to "nynorsk", "en" to "engelsk")),
-        ),
+            mapOf(
+                "testApiNavn" to TekstPåSpråkMap(mapOf("nb" to "bokmål", "nn" to "nynorsk", "en" to "engelsk")),
+            ),
         originalSpråk = "NB",
         erNoenAvBarnaFosterbarn = lagStringSøknadsfelt("Nei"),
         søktAsylForBarn = lagStringSøknadsfelt("Nei"),
@@ -125,9 +125,9 @@ fun lagKontantstøtteSøknadV1(
         antallEøsSteg = 0,
         dokumentasjon = emptyList(),
         teksterTilPdf =
-        mapOf(
-            "testApiNavn" to TekstPåSpråkMap(mapOf("nb" to "bokmål", "nn" to "nynorsk", "en" to "engelsk")),
-        ),
+            mapOf(
+                "testApiNavn" to TekstPåSpråkMap(mapOf("nb" to "bokmål", "nn" to "nynorsk", "en" to "engelsk")),
+            ),
         originalSpråk = "NB",
         erNoenAvBarnaFosterbarn = lagStringSøknadsfelt("Nei"),
         søktAsylForBarn = lagStringSøknadsfelt("Nei"),
@@ -152,16 +152,16 @@ fun lagSøkerV4(fnr: String): Søker =
         navn = lagStringSøknadsfelt("Navn"),
         statsborgerskap = lagStringSøknadsfelt(listOf("Norge")),
         adresse =
-        lagStringSøknadsfelt(
-            SøknadAdresse(
-                adressenavn = "Gate",
-                postnummer = null,
-                husbokstav = null,
-                bruksenhetsnummer = null,
-                husnummer = null,
-                poststed = null,
+            lagStringSøknadsfelt(
+                SøknadAdresse(
+                    adressenavn = "Gate",
+                    postnummer = null,
+                    husbokstav = null,
+                    bruksenhetsnummer = null,
+                    husnummer = null,
+                    poststed = null,
+                ),
             ),
-        ),
         adressebeskyttelse = false,
         sivilstand = lagStringSøknadsfelt(SIVILSTANDTYPE.UOPPGITT),
         borPåRegistrertAdresse = null,
@@ -192,16 +192,16 @@ fun lagSøkerV2(fnr: String): no.nav.familie.kontrakter.ks.søknad.v2.Søker =
         navn = lagStringSøknadsfelt("Navn"),
         statsborgerskap = lagStringSøknadsfelt(listOf("Norge")),
         adresse =
-        lagStringSøknadsfelt(
-            SøknadAdresse(
-                adressenavn = "Gate",
-                postnummer = null,
-                husbokstav = null,
-                bruksenhetsnummer = null,
-                husnummer = null,
-                poststed = null,
+            lagStringSøknadsfelt(
+                SøknadAdresse(
+                    adressenavn = "Gate",
+                    postnummer = null,
+                    husbokstav = null,
+                    bruksenhetsnummer = null,
+                    husnummer = null,
+                    poststed = null,
+                ),
             ),
-        ),
         adressebeskyttelse = false,
         sivilstand = lagStringSøknadsfelt(SIVILSTANDTYPE.UOPPGITT),
         borPåRegistrertAdresse = null,
@@ -231,16 +231,16 @@ fun lagSøkerV1(fnr: String): no.nav.familie.kontrakter.ks.søknad.v1.Søker =
         navn = lagStringSøknadsfelt("Navn"),
         statsborgerskap = lagStringSøknadsfelt(listOf("Norge")),
         adresse =
-        lagStringSøknadsfelt(
-            SøknadAdresse(
-                adressenavn = "Gate",
-                postnummer = null,
-                husbokstav = null,
-                bruksenhetsnummer = null,
-                husnummer = null,
-                poststed = null,
+            lagStringSøknadsfelt(
+                SøknadAdresse(
+                    adressenavn = "Gate",
+                    postnummer = null,
+                    husbokstav = null,
+                    bruksenhetsnummer = null,
+                    husnummer = null,
+                    poststed = null,
+                ),
             ),
-        ),
         adressebeskyttelse = false,
         sivilstand = lagStringSøknadsfelt(SIVILSTANDTYPE.UOPPGITT),
         borPåRegistrertAdresse = null,

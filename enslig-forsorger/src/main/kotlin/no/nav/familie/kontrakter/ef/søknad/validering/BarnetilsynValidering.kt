@@ -3,7 +3,6 @@ package no.nav.familie.kontrakter.ef.søknad.validering
 import no.nav.familie.kontrakter.ef.søknad.SøknadBarnetilsyn
 
 object BarnetilsynValidering {
-
     fun validate(søknad: SøknadBarnetilsyn) {
         requireNotNull(søknad.aktivitet.verdi.erIArbeid, "aktivitet->erIArbeid")
         søknad.barn.verdi.forEach {
@@ -15,7 +14,10 @@ object BarnetilsynValidering {
         }
     }
 
-    private fun requireNotNull(any: Any?, melding: String) {
+    private fun requireNotNull(
+        any: Any?,
+        melding: String,
+    ) {
         requireNotNull(any) { "$melding er obligatorisk i Barnetilsyn" }
     }
 }

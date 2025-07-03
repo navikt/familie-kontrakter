@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test
 import java.time.LocalDate
 
 internal class DatoperiodeTest {
-
     @Test
     fun `inneholder returnere true hvis dato er i perioden`() {
         val periode = Datoperiode(LocalDate.of(2019, 1, 1), LocalDate.of(2019, 5, 1))

@@ -31,8 +31,10 @@ data class InfotrygdSak(
 )
 
 @Suppress("unused")
-enum class InfotrygdSakType(val infotrygdKode: String, val beskrivelse: String) {
-
+enum class InfotrygdSakType(
+    val infotrygdKode: String,
+    val beskrivelse: String,
+) {
     ANKE("A", "Anke"),
     DISPENSASJON_FORELDELSE("DF", "Dispensasjon foreldelse"),
     DOKUMENTINNSYN("DI", "Dokumentinnsyn"),
@@ -66,7 +68,10 @@ enum class InfotrygdSakType(val infotrygdKode: String, val beskrivelse: String) 
 }
 
 @Suppress("unused")
-enum class InfotrygdSakResultat(val infotrygdKode: String, val beskrivelse: String) {
+enum class InfotrygdSakResultat(
+    val infotrygdKode: String,
+    val beskrivelse: String,
+) {
     ÅPEN_SAK("", "Åpen sak"), // Denne er alltså blank, den har ikke verdiet blank
     AVSLAG("A", "Avslag"),
     AVSLAG_GODKJENT("AG", "Avslag godkjent"),
@@ -101,8 +106,10 @@ enum class InfotrygdSakResultat(val infotrygdKode: String, val beskrivelse: Stri
 }
 
 @Suppress("unused")
-enum class InfotrygdSakNivå(val infotrygdKode: String, val beskrivelse: String) {
-
+enum class InfotrygdSakNivå(
+    val infotrygdKode: String,
+    val beskrivelse: String,
+) {
     AN("AN", ""),
     FOLKETRYGDKONTORET_FOR_UTENLANDSSAKER("FFU", "Folketrygdkontoret for utenlandssaker"),
     HTF("HTF", ""),

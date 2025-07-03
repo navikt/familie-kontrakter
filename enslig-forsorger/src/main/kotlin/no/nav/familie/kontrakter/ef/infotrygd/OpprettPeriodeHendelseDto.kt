@@ -12,4 +12,8 @@ data class OpprettPeriodeHendelseDto(
     val perioder: List<Periode>,
 )
 
-data class Periode(val startdato: LocalDate, val sluttdato: LocalDate, val fullOvergangsstønad: Boolean)
+data class Periode(
+    val startdato: LocalDate,
+    val sluttdato: LocalDate,
+    val fullOvergangsstønad: Boolean,
+)

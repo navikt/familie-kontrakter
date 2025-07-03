@@ -13,13 +13,13 @@ enum class Opplysningskilde {
 
 @Suppress("EnumEntryName", "unused")
 enum class Revurderingsårsak(
-    vararg stønadstyper: StønadType = arrayOf(
-        StønadType.OVERGANGSSTØNAD,
-        StønadType.BARNETILSYN,
-        StønadType.SKOLEPENGER,
-    ),
+    vararg stønadstyper: StønadType =
+        arrayOf(
+            StønadType.OVERGANGSSTØNAD,
+            StønadType.BARNETILSYN,
+            StønadType.SKOLEPENGER,
+        ),
 ) {
-
     ENDRING_INNTEKT(StønadType.OVERGANGSSTØNAD),
     ENDRING_AKTIVITET(StønadType.OVERGANGSSTØNAD, StønadType.BARNETILSYN),
     ENDRING_INNTEKT_OG_AKTIVITET(StønadType.OVERGANGSSTØNAD),
@@ -53,7 +53,5 @@ enum class Revurderingsårsak(
 
     val gjelderStønadstyper = stønadstyper.toSet()
 
-    fun erGyldigForStønadstype(stønadType: StønadType): Boolean {
-        return gjelderStønadstyper.contains(stønadType)
-    }
+    fun erGyldigForStønadstype(stønadType: StønadType): Boolean = gjelderStønadstyper.contains(stønadType)
 }

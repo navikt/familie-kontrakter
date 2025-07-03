@@ -9,7 +9,6 @@ import kotlin.test.assertEquals
 import kotlin.test.assertNull
 
 class UtsendingsinfoTest {
-
     @Test
     fun `skal mappe utsendingsinfo uten varslingstidspunkt`() {
         val utsendingsinfo = objectMapper.readValue<Utsendingsinfo>("{\"varselSendt\":[{\"type\":\"SMS\"}]}")

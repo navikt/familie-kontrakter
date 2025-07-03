@@ -1,6 +1,8 @@
 package no.nav.familie.kontrakter.ks.søknad
 
-enum class BarnehageplassStatus(val beskrivelse: String) {
+enum class BarnehageplassStatus(
+    val beskrivelse: String,
+) {
     @Suppress("ktlint:standard:enum-entry-name-case")
     garIkkeIBarnehage("Går ikke i barnehage"),
 

@@ -9,13 +9,13 @@ data class Utsendingsinfo(
     val fysiskpostSendt: FysiskpostSendt?,
     val digitalpostSendt: DigitalpostSendt?,
 ) {
-
-    val utsendingsmåter = Utsendingsmåte.values().filter {
-        when (it) {
-            FYSISK_POST -> fysiskpostSendt != null
-            DIGITAL_POST -> digitalpostSendt != null
+    val utsendingsmåter =
+        Utsendingsmåte.values().filter {
+            when (it) {
+                FYSISK_POST -> fysiskpostSendt != null
+                DIGITAL_POST -> digitalpostSendt != null
+            }
         }
-    }
 }
 
 data class VarselSendt(

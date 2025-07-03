@@ -24,22 +24,15 @@ data class BarnetrygdSøknad(
 ) : BaksSøknadBase
 
 @JvmName("hentVerdiForV4Søknadsfelt")
-fun Map<String, Søknadsfelt<Any>>.hentVerdiForSøknadsfelt(søknadsFeltId: SøknadsFeltId): Any? {
-    return this[søknadsFeltId.verdiIKontrakt]?.bokmålsverdi()
-}
+fun Map<String, Søknadsfelt<Any>>.hentVerdiForSøknadsfelt(søknadsFeltId: SøknadsFeltId): Any? =
+    this[søknadsFeltId.verdiIKontrakt]?.bokmålsverdi()
 
 @JvmName("hentVerdiForFellesSøknadsfelt")
-fun Map<String, FellesSøknadsfelt<Any>>.hentVerdiForSøknadsfelt(søknadsFeltId: SøknadsFeltId): Any? {
-    return this[søknadsFeltId.verdiIKontrakt]?.bokmålsverdi()
-}
+fun Map<String, FellesSøknadsfelt<Any>>.hentVerdiForSøknadsfelt(søknadsFeltId: SøknadsFeltId): Any? =
+    this[søknadsFeltId.verdiIKontrakt]?.bokmålsverdi()
 
-fun <T> Søknadsfelt<T>.bokmålsverdi(): T? {
-    return this.verdi["nb"]
-}
+fun <T> Søknadsfelt<T>.bokmålsverdi(): T? = this.verdi["nb"]
 
-fun <T> FellesSøknadsfelt<T>.bokmålsverdi(): T? {
-    return this.verdi["nb"]
-}
+fun <T> FellesSøknadsfelt<T>.bokmålsverdi(): T? = this.verdi["nb"]
 
 fun Any?.tilBoolskSvar(): Boolean = this is String && this.equals("JA", ignoreCase = true)
-

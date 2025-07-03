@@ -3,7 +3,10 @@ package no.nav.familie.kontrakter.felles.tilbakekreving
 import no.nav.familie.kontrakter.felles.Språkkode
 import no.nav.familie.kontrakter.felles.Tema
 
-enum class Ytelsestype(val kode: String, val navn: Map<Språkkode, String>) {
+enum class Ytelsestype(
+    val kode: String,
+    val navn: Map<Språkkode, String>,
+) {
     BARNETRYGD(
         "BA",
         mapOf(
@@ -41,11 +44,10 @@ enum class Ytelsestype(val kode: String, val navn: Map<Språkkode, String>) {
     ),
     ;
 
-    fun tilTema(): Tema {
-        return when (this) {
+    fun tilTema(): Tema =
+        when (this) {
             BARNETRYGD -> Tema.BAR
             BARNETILSYN, OVERGANGSSTØNAD, SKOLEPENGER -> Tema.ENF
             KONTANTSTØTTE -> Tema.KON
         }
-    }
 }

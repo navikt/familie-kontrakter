@@ -35,7 +35,6 @@ data class OpprettTilbakekrevingRequest(
     val manuelleBrevmottakere: Set<Brevmottaker> = emptySet(),
     val begrunnelseForTilbakekreving: String?,
 ) {
-
     init {
         if (manueltOpprettet) {
             require(varsel == null) { "Kan ikke opprette manuelt behandling med varsel" }

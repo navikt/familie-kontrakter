@@ -7,7 +7,6 @@ import java.time.LocalDate
 import java.time.YearMonth
 
 internal class MånedsperiodeTest {
-
     @Test
     fun `Månedsperiode serialiserer og deserialiserer riktig ved tidenes morgen`() {
         val månedsperiode = Månedsperiode(LocalDate.MIN, LocalDate.MIN)

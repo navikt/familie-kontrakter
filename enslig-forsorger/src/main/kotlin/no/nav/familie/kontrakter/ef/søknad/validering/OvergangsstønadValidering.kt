@@ -3,7 +3,6 @@ package no.nav.familie.kontrakter.ef.søknad.validering
 import no.nav.familie.kontrakter.ef.søknad.SøknadOvergangsstønad
 
 object OvergangsstønadValidering {
-
     fun validate(søknad: SøknadOvergangsstønad) {
         søknad.aktivitet.verdi.aksjeselskap?.verdi?.forEach {
             requireNotNull(it.arbeidsmengde, "aktivitet->aksjeselskap->arbeidsmengdea")
@@ -19,7 +18,10 @@ object OvergangsstønadValidering {
         }
     }
 
-    private fun requireNotNull(any: Any?, melding: String) {
+    private fun requireNotNull(
+        any: Any?,
+        melding: String,
+    ) {
         requireNotNull(any) { "$melding er obligatorisk i Overgangsstønad" }
     }
 }

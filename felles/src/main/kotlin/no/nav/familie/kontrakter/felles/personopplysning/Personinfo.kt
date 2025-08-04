@@ -13,6 +13,15 @@ data class Bostedsadresse(
     val ukjentBosted: UkjentBosted? = null,
 )
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
+data class DeltBosted(
+    val startdatoForKontrakt: LocalDate? = null,
+    val sluttdatoForKontrakt: LocalDate? = null,
+    val vegadresse: Vegadresse? = null,
+    val matrikkeladresse: Matrikkeladresse? = null,
+    val ukjentBosted: UkjentBosted? = null,
+)
+
 data class Vegadresse(
     val matrikkelId: Long?,
     val husnummer: String?,

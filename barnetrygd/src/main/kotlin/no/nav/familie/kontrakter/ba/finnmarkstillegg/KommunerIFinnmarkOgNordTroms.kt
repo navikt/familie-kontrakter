@@ -33,4 +33,4 @@ enum class KommunerIFinnmarkOgNordTroms(
     KVÆNANGEN("5546");
 }
 
-fun String.erIFinnmarkEllerNordTroms(): Boolean = KommunerIFinnmarkOgNordTroms.entries.any { it.kommunenummer == this }
+fun kommuneErIFinnmarkEllerNordTroms(kommunenummer: String): Boolean = KommunerIFinnmarkOgNordTroms.entries.any { it.kommunenummer == kommunenummer }

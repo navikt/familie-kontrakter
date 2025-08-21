@@ -10,8 +10,28 @@ import no.nav.familie.kontrakter.ba.søknad.v7.Søker as SøkerV7
 import no.nav.familie.kontrakter.ba.søknad.v7.Søknad as BarnetrygdSøknadV7
 import no.nav.familie.kontrakter.ba.søknad.v8.Barn as BarnV8
 import no.nav.familie.kontrakter.ba.søknad.v8.Søker as SøkerV8
+import no.nav.familie.kontrakter.ba.søknad.v10.Søker as SøkerV10
 import no.nav.familie.kontrakter.ba.søknad.v8.Søknad as BarnetrygdSøknadV8
 import no.nav.familie.kontrakter.ba.søknad.v9.BarnetrygdSøknad as BarnetrygdSøknadV9
+import no.nav.familie.kontrakter.ba.søknad.v10.BarnetrygdSøknad as BarnetrygdSøknadV10
+
+
+fun lagBarnetrygdSøknadV10(
+    søkerFnr: String,
+    barnFnr: String,
+): BarnetrygdSøknadV10 =
+    BarnetrygdSøknadV10(
+        kontraktVersjon = 10,
+        søker = lagSøkerV10(søkerFnr),
+        barn = listOf(lagBarnV8(barnFnr)),
+        antallEøsSteg = 0,
+        dokumentasjon = emptyList(),
+        originalSpråk = "NB",
+        finnesPersonMedAdressebeskyttelse = false,
+        søknadstype = Søknadstype.ORDINÆR,
+        spørsmål = emptyMap(),
+        teksterUtenomSpørsmål = emptyMap(),
+    )
 
 fun lagBarnetrygdSøknadV9(
     søkerFnr: String,
@@ -66,6 +86,38 @@ fun <T> lagStringSøknadsfelt(verdi: T): Søknadsfelt<T> =
     Søknadsfelt(
         label = mapOf("no" to ""),
         verdi = mapOf("no" to verdi),
+    )
+
+fun lagSøkerV10(fnr: String): SøkerV10 =
+    SøkerV10(
+        harEøsSteg = false,
+        ident = lagStringSøknadsfelt(fnr),
+        navn = lagStringSøknadsfelt("Navn"),
+        statsborgerskap = lagStringSøknadsfelt(listOf("Norge")),
+        adresse =
+            lagStringSøknadsfelt(
+                SøknadAdresse(
+                    adressenavn = "Gate",
+                    postnummer = null,
+                    husbokstav = null,
+                    bruksenhetsnummer = null,
+                    husnummer = null,
+                    poststed = null,
+                ),
+            ),
+        adressebeskyttelse = false,
+        sivilstand = lagStringSøknadsfelt(SIVILSTANDTYPE.UOPPGITT),
+        utenlandsperioder = emptyList(),
+        svalbardOppholdPerioder = emptyList(),
+        arbeidsperioderUtland = emptyList(),
+        pensjonsperioderUtland = emptyList(),
+        arbeidsperioderNorge = emptyList(),
+        pensjonsperioderNorge = emptyList(),
+        andreUtbetalingsperioder = emptyList(),
+        idNummer = emptyList(),
+        spørsmål = emptyMap(),
+        nåværendeSamboer = null,
+        tidligereSamboere = emptyList(),
     )
 
 fun lagSøkerV8(fnr: String): SøkerV8 =

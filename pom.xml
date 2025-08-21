@@ -19,7 +19,7 @@
         <changelist>-SNAPSHOT</changelist>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <kotlin.version>2.2.10</kotlin.version>
-        <kotest.version>5.9.1</kotest.version>
+        <kotest.version>6.0.0</kotest.version>
         <maven-enforcer.version>3.6.1</maven-enforcer.version>
     </properties>
 

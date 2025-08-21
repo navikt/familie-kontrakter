@@ -2,7 +2,6 @@ package no.nav.familie.kontrakter.ba.søknad.v10
 
 import no.nav.familie.kontrakter.ba.søknad.v1.SIVILSTANDTYPE
 import no.nav.familie.kontrakter.ba.søknad.v1.SøknadAdresse
-import no.nav.familie.kontrakter.ba.søknad.v9.SøknadsFeltId
 
 import no.nav.familie.kontrakter.ba.søknad.v4.Locale
 import no.nav.familie.kontrakter.ba.søknad.v4.NåværendeSamboer
@@ -34,20 +33,6 @@ data class BarnetrygdSøknad(
     val teksterUtenomSpørsmål: Map<SpørsmålId, Map<Locale, String>>,
     val originalSpråk: Locale,
 ) : BaksSøknadBase
-
-@JvmName("hentVerdiForV4Søknadsfelt")
-fun Map<String, Søknadsfelt<Any>>.hentVerdiForSøknadsfelt(søknadsFeltId: SøknadsFeltId): Any? =
-    this[søknadsFeltId.verdiIKontrakt]?.bokmålsverdi()
-
-@JvmName("hentVerdiForFellesSøknadsfelt")
-fun Map<String, FellesSøknadsfelt<Any>>.hentVerdiForSøknadsfelt(søknadsFeltId: SøknadsFeltId): Any? =
-    this[søknadsFeltId.verdiIKontrakt]?.bokmålsverdi()
-
-fun <T> Søknadsfelt<T>.bokmålsverdi(): T? = this.verdi["nb"]
-
-fun <T> FellesSøknadsfelt<T>.bokmålsverdi(): T? = this.verdi["nb"]
-
-fun Any?.tilBoolskSvar(): Boolean = this is String && this.equals("JA", ignoreCase = true)
 
 data class Søker(
     override val ident: FellesSøknadsfelt<String>,

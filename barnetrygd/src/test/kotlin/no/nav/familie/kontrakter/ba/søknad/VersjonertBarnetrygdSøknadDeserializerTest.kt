@@ -12,6 +12,50 @@ import org.junit.jupiter.api.assertThrows
 
 class VersjonertBarnetrygdSøknadDeserializerTest {
     @Test
+    fun `skal kunne deserialisere BarnetrygdSøknad V10 når kontraktVersjon er 10`() {
+        // Arrange
+        val søkerFnr = "12345678910"
+        val barnFnr = "12345678911"
+        val barnetrygdSøknadV10 = lagBarnetrygdSøknadV10(søkerFnr, barnFnr)
+        val søknadJson = objectMapper.writeValueAsString(barnetrygdSøknadV10)
+
+        // Act
+        val versjonertBarnetrygdSøknad = objectMapper.readValue<VersjonertBarnetrygdSøknad>(søknadJson)
+
+        // Assert
+        assertNotNull(versjonertBarnetrygdSøknad)
+        assertTrue(versjonertBarnetrygdSøknad is VersjonertBarnetrygdSøknadV10)
+        assertEquals(10, versjonertBarnetrygdSøknad.barnetrygdSøknad.kontraktVersjon)
+        assertEquals(2, versjonertBarnetrygdSøknad.barnetrygdSøknad.personerISøknad().size)
+        assertEquals(
+            listOf("12345678910", "12345678911"),
+            versjonertBarnetrygdSøknad.barnetrygdSøknad.personerISøknad(),
+        )
+    }
+
+    @Test
+    fun `skal kunne deserialisere BarnetrygdSøknadV10 til StøttetVersjonertBarnetrygdSøknadV10 når kontraktVersjon er 10`() {
+        // Arrange
+        val søkerFnr = "12345678910"
+        val barnFnr = "12345678911"
+        val barnetrygdSøknadV10 = lagBarnetrygdSøknadV10(søkerFnr, barnFnr)
+        val søknadJson = objectMapper.writeValueAsString(barnetrygdSøknadV10)
+
+        // Act
+        val versjonertBarnetrygdSøknad = objectMapper.readValue<StøttetVersjonertBarnetrygdSøknad>(søknadJson)
+
+        // Assert
+        assertNotNull(versjonertBarnetrygdSøknad)
+        assertTrue(versjonertBarnetrygdSøknad is VersjonertBarnetrygdSøknadV10)
+        assertEquals(10, versjonertBarnetrygdSøknad.barnetrygdSøknad.kontraktVersjon)
+        assertEquals(2, versjonertBarnetrygdSøknad.barnetrygdSøknad.personerISøknad().size)
+        assertEquals(
+            listOf("12345678910", "12345678911"),
+            versjonertBarnetrygdSøknad.barnetrygdSøknad.personerISøknad(),
+        )
+    }
+
+    @Test
     fun `skal kunne deserialisere BarnetrygdSøknad V9 når kontraktVersjon er 9`() {
         // Arrange
         val søkerFnr = "12345678910"

@@ -10,6 +10,20 @@ class VersjonertBarnetrygdSøknadSerializerTest {
     @Nested
     inner class VersjonertKontantstøtteSøknadTest {
         @Test
+        fun `skal kunne deserialisere og serialisere VersjonertBarnetrygdSøknad hvis kontraktversjon er 10`() {
+            // Arrange
+            val barnetrygdSøknadV10 = lagBarnetrygdSøknadV10("12345678910", "12345678911")
+            val søknadJson = objectMapper.writeValueAsString(barnetrygdSøknadV10)
+
+            // Act & Assert
+            assertDoesNotThrow {
+                val versjonertBarnetrygdSøknad = objectMapper.readValue<VersjonertBarnetrygdSøknad>(søknadJson)
+                val versjonertJson = objectMapper.writeValueAsString(versjonertBarnetrygdSøknad)
+                objectMapper.readValue<VersjonertBarnetrygdSøknad>(versjonertJson)
+            }
+        }
+
+        @Test
         fun `skal kunne deserialisere og serialisere VersjonertBarnetrygdSøknad hvis kontraktversjon er 9`() {
             // Arrange
             val barnetrygdSøknadV9 = lagBarnetrygdSøknadV9("12345678910", "12345678911")

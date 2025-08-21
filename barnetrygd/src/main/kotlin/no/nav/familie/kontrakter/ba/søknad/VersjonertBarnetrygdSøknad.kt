@@ -15,6 +15,7 @@ import no.nav.familie.kontrakter.felles.søknad.UnsupportedVersionException
 import no.nav.familie.kontrakter.ba.søknad.v7.Søknad as BarnetrygdSøknadV7
 import no.nav.familie.kontrakter.ba.søknad.v8.Søknad as BarnetrygdSøknadV8
 import no.nav.familie.kontrakter.ba.søknad.v9.BarnetrygdSøknad as BarnetrygdSøknadV9
+import no.nav.familie.kontrakter.ba.søknad.v10.BarnetrygdSøknad as BarnetrygdSøknadV10
 
 class VersjonertBarnetrygdSøknadSerializer : JsonSerializer<VersjonertBarnetrygdSøknad>() {
     override fun serialize(
@@ -44,6 +45,7 @@ class VersjonertBarnetrygdSøknadDeserializer : JsonDeserializer<VersjonertBarne
             7 -> VersjonertBarnetrygdSøknadV7(barnetrygdSøknad = p.codec.treeToValue(node, BarnetrygdSøknadV7::class.java))
             8 -> VersjonertBarnetrygdSøknadV8(barnetrygdSøknad = p.codec.treeToValue(node, BarnetrygdSøknadV8::class.java))
             9 -> VersjonertBarnetrygdSøknadV9(barnetrygdSøknad = p.codec.treeToValue(node, BarnetrygdSøknadV9::class.java))
+            10 -> VersjonertBarnetrygdSøknadV10(barnetrygdSøknad = p.codec.treeToValue(node, BarnetrygdSøknadV10::class.java))
             else -> throw UnsupportedVersionException("Mangler implementasjon for versjon: $versjon av BarnetrygdSøknad.")
         }
     }
@@ -70,4 +72,8 @@ data class VersjonertBarnetrygdSøknadV8(
 
 data class VersjonertBarnetrygdSøknadV9(
     override val barnetrygdSøknad: BarnetrygdSøknadV9,
+) : StøttetVersjonertBarnetrygdSøknad(barnetrygdSøknad = barnetrygdSøknad)
+
+data class VersjonertBarnetrygdSøknadV10(
+    override val barnetrygdSøknad: BarnetrygdSøknadV10,
 ) : StøttetVersjonertBarnetrygdSøknad(barnetrygdSøknad = barnetrygdSøknad)

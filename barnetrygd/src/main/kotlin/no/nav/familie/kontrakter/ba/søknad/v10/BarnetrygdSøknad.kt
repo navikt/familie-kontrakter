@@ -56,6 +56,6 @@ data class Søker(
 ) : BaksSøknadPersonBase
 
 data class SvalbardPeriode(
-    val fraDatoSvalbardOpphold: Søknadsfelt<LocalDate>,
-    val tilDatoSvalbardOpphold: Søknadsfelt<LocalDate>,
+    val fraDatoSvalbardOpphold: Søknadsfelt<String?>,
+    val tilDatoSvalbardOpphold: Søknadsfelt<String?>,
 )

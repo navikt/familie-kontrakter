@@ -12,8 +12,6 @@ import no.nav.familie.kontrakter.ba.søknad.v4.TidligereSamboer
 import no.nav.familie.kontrakter.ba.søknad.v4.Utenlandsopphold
 import no.nav.familie.kontrakter.ba.søknad.v5.RegistrertBostedType
 import no.nav.familie.kontrakter.ba.søknad.v7.IdNummer
-import no.nav.familie.kontrakter.ba.søknad.v7.Søknaddokumentasjon
-import no.nav.familie.kontrakter.ba.søknad.v7.Søknadsvedlegg
 import no.nav.familie.kontrakter.ba.søknad.v8.AndreForelder
 import no.nav.familie.kontrakter.ba.søknad.v8.Arbeidsperiode
 import no.nav.familie.kontrakter.ba.søknad.v8.Barn
@@ -83,6 +81,12 @@ data class Søknaddokumentasjon(
     val harSendtInn: Boolean,
     val opplastedeVedlegg: List<Søknadsvedlegg>,
     val dokumentasjonSpråkTittel: Map<Locale, String>,
+)
+
+data class Søknadsvedlegg(
+    val dokumentId: String,
+    val navn: String,
+    val tittel: Dokumentasjonsbehov,
 )
 
 enum class Dokumentasjonsbehov {

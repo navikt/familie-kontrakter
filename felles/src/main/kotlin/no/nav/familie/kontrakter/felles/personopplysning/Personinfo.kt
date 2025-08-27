@@ -131,3 +131,25 @@ enum class KJOENN {
     KVINNE,
     UKJENT,
 }
+
+enum class OppholdAnnetSted(
+    val kode: String,
+) {
+    MILITAER("militaer"),
+    PENDLER("pendler"),
+    UTENRIKS("utenriks"),
+    PAA_SVALBARD("paaSvalbard"),
+    ;
+
+    override fun toString(): String =
+        when (this) {
+            MILITAER -> "militær"
+            PENDLER -> "pendler"
+            UTENRIKS -> "utenriks"
+            PAA_SVALBARD -> "Svalbard"
+        }
+
+    companion object {
+        fun parse(verdi: String?): OppholdAnnetSted? = entries.firstOrNull { it.kode == verdi || it.name == verdi }
+    }
+}

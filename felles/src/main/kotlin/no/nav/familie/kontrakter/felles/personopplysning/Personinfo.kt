@@ -14,6 +14,16 @@ data class Bostedsadresse(
 )
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
+data class Oppholdsadresse(
+    val gyldigFraOgMed: LocalDate? = null,
+    val gyldigTilOgMed: LocalDate? = null,
+    val oppholdAnnetSted: String? = null,
+    val vegadresse: Vegadresse? = null,
+    val matrikkeladresse: Matrikkeladresse? = null,
+    val utenlandskAdresse: UtenlandskAdresse? = null,
+)
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
 data class DeltBosted(
     val startdatoForKontrakt: LocalDate? = null,
     val sluttdatoForKontrakt: LocalDate? = null,
@@ -43,6 +53,16 @@ data class Matrikkeladresse(
     val tilleggsnavn: String?,
     val postnummer: String?,
     val kommunenummer: String?,
+)
+
+data class UtenlandskAdresse(
+    val adressenavnNummer: String?,
+    val bygningEtasjeLeilighet: String?,
+    val postboksNummerNavn: String?,
+    val postkode: String?,
+    val bySted: String?,
+    val regionDistriktOmraade: String?,
+    val landkode: String,
 )
 
 data class Statsborgerskap(

@@ -69,8 +69,6 @@ sealed interface BaFellesDokumentasjonsbehov {
 
     object AnnenDokumentasjon : BaFellesDokumentasjonsbehov
 
-    object OppholdSvalbard : BaFellesDokumentasjonsbehov
-
     data class UkjentDokumentasjonsbehov(
         val ukjentDokumentasjonsbehov: String,
     ) : BaFellesDokumentasjonsbehov

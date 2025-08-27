@@ -14,7 +14,6 @@ import no.nav.familie.kontrakter.ba.søknad.v7.IdNummer
 import no.nav.familie.kontrakter.ba.søknad.v7.Søknaddokumentasjon
 import no.nav.familie.kontrakter.ba.søknad.v8.AndreForelder
 import no.nav.familie.kontrakter.ba.søknad.v8.Arbeidsperiode
-import no.nav.familie.kontrakter.ba.søknad.v8.Barn
 import no.nav.familie.kontrakter.ba.søknad.v8.EøsBarnetrygdsperiode
 import no.nav.familie.kontrakter.ba.søknad.v8.Omsorgsperson
 import no.nav.familie.kontrakter.ba.søknad.v8.Pensjonsperiode

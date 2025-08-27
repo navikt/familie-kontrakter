@@ -5,6 +5,7 @@ import no.nav.familie.kontrakter.ba.søknad.v1.SøknadAdresse
 import no.nav.familie.kontrakter.ba.søknad.v4.Søknadstype
 import no.nav.familie.kontrakter.ba.søknad.v5.RegistrertBostedType
 import no.nav.familie.kontrakter.felles.søknad.Søknadsfelt
+import no.nav.familie.kontrakter.ba.søknad.v10.Barn as BarnV10
 import no.nav.familie.kontrakter.ba.søknad.v10.BarnetrygdSøknad as BarnetrygdSøknadV10
 import no.nav.familie.kontrakter.ba.søknad.v10.Søker as SøkerV10
 import no.nav.familie.kontrakter.ba.søknad.v7.Barn as BarnV7
@@ -22,7 +23,7 @@ fun lagBarnetrygdSøknadV10(
     BarnetrygdSøknadV10(
         kontraktVersjon = 10,
         søker = lagSøkerV10(søkerFnr),
-        barn = listOf(lagBarnV8(barnFnr)),
+        barn = listOf(lagBarnV10(barnFnr)),
         antallEøsSteg = 0,
         dokumentasjon = emptyList(),
         originalSpråk = "NB",
@@ -193,6 +194,22 @@ fun lagBarnV8(fnr: String): BarnV8 =
         idNummer = emptyList(),
         spørsmål = emptyMap(),
         eøsBarnetrygdsperioder = emptyList(),
+    )
+
+fun lagBarnV10(fnr: String): BarnV10 =
+    BarnV10(
+        harEøsSteg = false,
+        ident = lagStringSøknadsfelt(fnr),
+        navn = lagStringSøknadsfelt(""),
+        registrertBostedType = lagStringSøknadsfelt(RegistrertBostedType.REGISTRERT_SOKERS_ADRESSE),
+        alder = null,
+        andreForelder = null,
+        utenlandsperioder = emptyList(),
+        omsorgsperson = null,
+        idNummer = emptyList(),
+        spørsmål = emptyMap(),
+        eøsBarnetrygdsperioder = emptyList(),
+        svalbardOppholdPerioder = emptyList(),
     )
 
 fun lagBarnV7(fnr: String): BarnV7 =

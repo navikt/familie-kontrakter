@@ -10,7 +10,11 @@ import no.nav.familie.kontrakter.ba.søknad.v4.TidligereSamboer
 import no.nav.familie.kontrakter.ba.søknad.v4.Utenlandsopphold
 import no.nav.familie.kontrakter.ba.søknad.v5.RegistrertBostedType
 import no.nav.familie.kontrakter.ba.søknad.v6.AndreForelderUtvidet
-import no.nav.familie.kontrakter.felles.søknad.BaksSøknadBase
+import no.nav.familie.kontrakter.felles.søknad.BaDokumentasjonsbehov
+import no.nav.familie.kontrakter.felles.søknad.BaFellesDokumentasjonsbehov
+import no.nav.familie.kontrakter.felles.søknad.BaSøknadBase
+import no.nav.familie.kontrakter.felles.søknad.BaSøknaddokumentasjon
+import no.nav.familie.kontrakter.felles.søknad.BaSøknadsvedlegg
 import no.nav.familie.kontrakter.felles.søknad.BaksSøknadPersonBase
 import no.nav.familie.kontrakter.felles.søknad.Søknadsfelt
 
@@ -19,22 +23,22 @@ data class Søknad(
     override val kontraktVersjon: Int,
     override val søker: Søker,
     override val barn: List<Barn>,
+    override val dokumentasjon: List<Søknaddokumentasjon>,
+    override val søknadstype: Søknadstype,
     val antallEøsSteg: Int,
-    val søknadstype: Søknadstype,
     val spørsmål: Map<SpørsmålId, Søknadsfelt<Any>>,
-    val dokumentasjon: List<Søknaddokumentasjon>,
     val teksterUtenomSpørsmål: Map<SpørsmålId, Map<Locale, String>>,
     val originalSpråk: Locale,
-) : BaksSøknadBase
+) : BaSøknadBase
 
 data class Søknaddokumentasjon(
-    val dokumentasjonsbehov: Dokumentasjonsbehov,
-    val harSendtInn: Boolean,
-    val opplastedeVedlegg: List<Søknadsvedlegg>,
+    override val dokumentasjonsbehov: Dokumentasjonsbehov,
+    override val harSendtInn: Boolean,
+    override val opplastedeVedlegg: List<Søknadsvedlegg>,
     val dokumentasjonSpråkTittel: Map<Locale, String>,
-)
+) : BaSøknaddokumentasjon
 
-enum class Dokumentasjonsbehov {
+enum class Dokumentasjonsbehov : BaDokumentasjonsbehov {
     AVTALE_DELT_BOSTED,
     VEDTAK_OPPHOLDSTILLATELSE,
     ADOPSJON_DATO,
@@ -43,13 +47,26 @@ enum class Dokumentasjonsbehov {
     SEPARERT_SKILT_ENKE,
     MEKLINGSATTEST,
     ANNEN_DOKUMENTASJON,
+    ;
+
+    override fun tilFellesDokumentasjonsbehov(): BaFellesDokumentasjonsbehov =
+        when (this) {
+            AVTALE_DELT_BOSTED -> BaFellesDokumentasjonsbehov.AvtaleDeltBosted
+            VEDTAK_OPPHOLDSTILLATELSE -> BaFellesDokumentasjonsbehov.VedtakOppholdstillatelse
+            ADOPSJON_DATO -> BaFellesDokumentasjonsbehov.AdopsjonDato
+            BEKREFTELSE_FRA_BARNEVERN -> BaFellesDokumentasjonsbehov.BekreftelseFraBarnevern
+            BOR_FAST_MED_SØKER -> BaFellesDokumentasjonsbehov.BorFastMedSøker
+            SEPARERT_SKILT_ENKE -> BaFellesDokumentasjonsbehov.SeparertSkiltEnke
+            MEKLINGSATTEST -> BaFellesDokumentasjonsbehov.Meklingsattest
+            ANNEN_DOKUMENTASJON -> BaFellesDokumentasjonsbehov.AnnenDokumentasjon
+        }
 }
 
 data class Søknadsvedlegg(
-    val dokumentId: String,
-    val navn: String,
-    val tittel: Dokumentasjonsbehov,
-)
+    override val dokumentId: String,
+    override val navn: String,
+    override val tittel: Dokumentasjonsbehov,
+) : BaSøknadsvedlegg
 
 @Deprecated("Bruk v8", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ba.søknad.v8.Søker"))
 data class Søker(

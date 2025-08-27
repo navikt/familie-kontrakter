@@ -2,7 +2,6 @@ package no.nav.familie.kontrakter.ba.søknad.v10
 
 import no.nav.familie.kontrakter.ba.søknad.v1.SIVILSTANDTYPE
 import no.nav.familie.kontrakter.ba.søknad.v1.SøknadAdresse
-
 import no.nav.familie.kontrakter.ba.søknad.v4.Locale
 import no.nav.familie.kontrakter.ba.søknad.v4.NåværendeSamboer
 import no.nav.familie.kontrakter.ba.søknad.v4.SpørsmålId
@@ -12,6 +11,7 @@ import no.nav.familie.kontrakter.ba.søknad.v4.TidligereSamboer
 import no.nav.familie.kontrakter.ba.søknad.v4.Utenlandsopphold
 import no.nav.familie.kontrakter.ba.søknad.v5.RegistrertBostedType
 import no.nav.familie.kontrakter.ba.søknad.v7.IdNummer
+import no.nav.familie.kontrakter.ba.søknad.v7.Søknaddokumentasjon
 import no.nav.familie.kontrakter.ba.søknad.v8.AndreForelder
 import no.nav.familie.kontrakter.ba.søknad.v8.Arbeidsperiode
 import no.nav.familie.kontrakter.ba.søknad.v8.Barn
@@ -19,7 +19,7 @@ import no.nav.familie.kontrakter.ba.søknad.v8.EøsBarnetrygdsperiode
 import no.nav.familie.kontrakter.ba.søknad.v8.Omsorgsperson
 import no.nav.familie.kontrakter.ba.søknad.v8.Pensjonsperiode
 import no.nav.familie.kontrakter.ba.søknad.v8.Utbetalingsperiode
-import no.nav.familie.kontrakter.felles.søknad.BaksSøknadBase
+import no.nav.familie.kontrakter.felles.søknad.BaSøknadBase
 import no.nav.familie.kontrakter.felles.søknad.BaksSøknadPersonBase
 import no.nav.familie.kontrakter.felles.søknad.Søknadsfelt as FellesSøknadsfelt
 
@@ -27,14 +27,14 @@ data class BarnetrygdSøknad(
     override val kontraktVersjon: Int,
     override val søker: Søker,
     override val barn: List<Barn>,
+    override val dokumentasjon: List<Søknaddokumentasjon>,
+    override val søknadstype: Søknadstype,
     val antallEøsSteg: Int,
-    val søknadstype: Søknadstype,
     val finnesPersonMedAdressebeskyttelse: Boolean,
     val spørsmål: Map<SpørsmålId, Søknadsfelt<Any>>,
-    val dokumentasjon: List<Søknaddokumentasjon>,
     val teksterUtenomSpørsmål: Map<SpørsmålId, Map<Locale, String>>,
     val originalSpråk: Locale,
-) : BaksSøknadBase
+) : BaSøknadBase
 
 data class Søker(
     override val ident: FellesSøknadsfelt<String>,
@@ -76,27 +76,3 @@ data class SvalbardPeriode(
     val fraDatoSvalbardOpphold: Søknadsfelt<String?>,
     val tilDatoSvalbardOpphold: Søknadsfelt<String?>,
 )
-data class Søknaddokumentasjon(
-    val dokumentasjonsbehov: Dokumentasjonsbehov,
-    val harSendtInn: Boolean,
-    val opplastedeVedlegg: List<Søknadsvedlegg>,
-    val dokumentasjonSpråkTittel: Map<Locale, String>,
-)
-
-data class Søknadsvedlegg(
-    val dokumentId: String,
-    val navn: String,
-    val tittel: Dokumentasjonsbehov,
-)
-
-enum class Dokumentasjonsbehov {
-    AVTALE_DELT_BOSTED,
-    VEDTAK_OPPHOLDSTILLATELSE,
-    ADOPSJON_DATO,
-    BEKREFTELSE_FRA_BARNEVERN,
-    BOR_FAST_MED_SØKER,
-    SEPARERT_SKILT_ENKE,
-    MEKLINGSATTEST,
-    ANNEN_DOKUMENTASJON,
-    OPPHOLD_SVALBARD,
-}

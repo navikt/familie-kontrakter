@@ -11,7 +11,7 @@ import no.nav.familie.kontrakter.ba.søknad.v4.Utenlandsopphold
 import no.nav.familie.kontrakter.ba.søknad.v5.RegistrertBostedType
 import no.nav.familie.kontrakter.ba.søknad.v7.IdNummer
 import no.nav.familie.kontrakter.ba.søknad.v7.Søknaddokumentasjon
-import no.nav.familie.kontrakter.felles.søknad.BaksSøknadBase
+import no.nav.familie.kontrakter.felles.søknad.BaSøknadBase
 import no.nav.familie.kontrakter.felles.søknad.BaksSøknadPersonBase
 import no.nav.familie.kontrakter.felles.søknad.Søknadsfelt
 
@@ -19,13 +19,13 @@ data class Søknad(
     override val kontraktVersjon: Int,
     override val søker: Søker,
     override val barn: List<Barn>,
+    override val dokumentasjon: List<Søknaddokumentasjon>,
+    override val søknadstype: Søknadstype,
     val antallEøsSteg: Int,
-    val søknadstype: Søknadstype,
     val spørsmål: Map<SpørsmålId, Søknadsfelt<Any>>,
-    val dokumentasjon: List<Søknaddokumentasjon>,
     val teksterUtenomSpørsmål: Map<SpørsmålId, Map<Locale, String>>,
     val originalSpråk: Locale,
-) : BaksSøknadBase
+) : BaSøknadBase
 
 data class Søker(
     override val ident: Søknadsfelt<String>,

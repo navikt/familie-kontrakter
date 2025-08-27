@@ -2,6 +2,8 @@ package no.nav.familie.kontrakter.ba.søknad.v4
 
 import no.nav.familie.kontrakter.ba.søknad.v1.SIVILSTANDTYPE
 import no.nav.familie.kontrakter.ba.søknad.v1.SøknadAdresse
+import no.nav.familie.kontrakter.felles.søknad.BaFellesSøknadstype
+import no.nav.familie.kontrakter.felles.søknad.BaSøknadstype
 import java.time.LocalDate
 
 typealias Locale = String
@@ -15,10 +17,18 @@ data class Søknadsfelt<T>(
 enum class Søknadstype(
     val tittel: String,
     val søknadskode: String,
-) {
+) : BaSøknadstype {
     IKKE_SATT("SØKNADSTYPE MANGLER", "SØKNADSTYPE MANGLER"),
     ORDINÆR("Søknad om barnetrygd ordinær", "NAV 33-00.07"),
     UTVIDET("Søknad om utvidet barnetrygd", "NAV 33-00.09"),
+    ;
+
+    override fun tilFellesSøknadstype(): BaFellesSøknadstype =
+        when (this) {
+            IKKE_SATT -> BaFellesSøknadstype.IkkeSatt
+            ORDINÆR -> BaFellesSøknadstype.Ordinær
+            UTVIDET -> BaFellesSøknadstype.Utvidet
+        }
 }
 
 @Deprecated("Bruk v5", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ba.søknad.v5.Søknad"))

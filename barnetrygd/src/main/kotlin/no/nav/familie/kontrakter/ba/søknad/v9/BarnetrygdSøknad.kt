@@ -7,21 +7,21 @@ import no.nav.familie.kontrakter.ba.søknad.v4.Søknadstype
 import no.nav.familie.kontrakter.ba.søknad.v7.Søknaddokumentasjon
 import no.nav.familie.kontrakter.ba.søknad.v8.Barn
 import no.nav.familie.kontrakter.ba.søknad.v8.Søker
-import no.nav.familie.kontrakter.felles.søknad.BaksSøknadBase
+import no.nav.familie.kontrakter.felles.søknad.BaSøknadBase
 import no.nav.familie.kontrakter.felles.søknad.Søknadsfelt as FellesSøknadsfelt
 
 data class BarnetrygdSøknad(
     override val kontraktVersjon: Int,
     override val søker: Søker,
     override val barn: List<Barn>,
+    override val dokumentasjon: List<Søknaddokumentasjon>,
+    override val søknadstype: Søknadstype,
     val antallEøsSteg: Int,
-    val søknadstype: Søknadstype,
     val finnesPersonMedAdressebeskyttelse: Boolean,
     val spørsmål: Map<SpørsmålId, Søknadsfelt<Any>>,
-    val dokumentasjon: List<Søknaddokumentasjon>,
     val teksterUtenomSpørsmål: Map<SpørsmålId, Map<Locale, String>>,
     val originalSpråk: Locale,
-) : BaksSøknadBase
+) : BaSøknadBase
 
 @JvmName("hentVerdiForV4Søknadsfelt")
 fun Map<String, Søknadsfelt<Any>>.hentVerdiForSøknadsfelt(søknadsFeltId: SøknadsFeltId): Any? =

@@ -68,10 +68,6 @@ sealed interface BaFellesDokumentasjonsbehov {
     object Meklingsattest : BaFellesDokumentasjonsbehov
 
     object AnnenDokumentasjon : BaFellesDokumentasjonsbehov
-
-    data class UkjentDokumentasjonsbehov(
-        val ukjentDokumentasjonsbehov: String,
-    ) : BaFellesDokumentasjonsbehov
 }
 
 typealias Locale = String

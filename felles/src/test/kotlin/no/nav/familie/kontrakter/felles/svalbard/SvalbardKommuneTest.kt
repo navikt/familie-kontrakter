@@ -1,4 +1,4 @@
-package no.nav.familie.kontrakter.ba.svalbardtillegg
+package no.nav.familie.kontrakter.felles.svalbard
 
 import org.junit.jupiter.api.Assertions.assertFalse
 import org.junit.jupiter.api.Assertions.assertTrue

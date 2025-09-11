@@ -1,7 +1,7 @@
 package no.nav.familie.kontrakter.ba.finnmarkstillegg
 
 enum class KommunerIFinnmarkOgNordTroms(
-    val kommunenummer: String
+    val kommunenummer: String,
 ) {
     // Finnmark
     ALTA("5601"),
@@ -30,7 +30,11 @@ enum class KommunerIFinnmarkOgNordTroms(
     KÅFJORD("5540"),
     SKJERVØY("5542"),
     NORDREISA("5544"),
-    KVÆNANGEN("5546");
+    KVÆNANGEN("5546"),
 }
 
-fun kommuneErIFinnmarkEllerNordTroms(kommunenummer: String): Boolean = KommunerIFinnmarkOgNordTroms.entries.any { it.kommunenummer == kommunenummer }
+fun kommuneErIFinnmarkEllerNordTroms(kommunenummer: String): Boolean =
+    KommunerIFinnmarkOgNordTroms.entries.any {
+        it.kommunenummer ==
+            kommunenummer
+    }

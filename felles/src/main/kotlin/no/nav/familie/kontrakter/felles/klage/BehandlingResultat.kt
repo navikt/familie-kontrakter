@@ -39,6 +39,7 @@ enum class KlageinstansUtfall(
     val navn: String,
 ) {
     TRUKKET("Trukket KA"),
+    HENLAGT("Henlagt KA"),
     RETUR("Retur KA"),
     OPPHEVET("Opphevet KA"),
     MEDHOLD("Medhold KA"),

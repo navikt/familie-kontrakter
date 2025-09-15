@@ -14,12 +14,12 @@ data class OrganisasjonAdresse(
     val adresselinje1: String?,
     val adresselinje2: String?,
     val adresselinje3: String?,
-    val postnummer: String?,
-    val kommunenummer: String?,
+    val postnummer: String,
+    val kommunenummer: String,
     val gyldighetsperiode: Gyldighetsperiode?,
 )
 
 data class Gyldighetsperiode(
-    val fom: LocalDate?,
+    val fom: LocalDate,
     val tom: LocalDate?,
 )

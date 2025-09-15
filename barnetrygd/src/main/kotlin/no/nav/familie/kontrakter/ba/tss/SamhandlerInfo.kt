@@ -1,5 +1,7 @@
 package no.nav.familie.kontrakter.ba.tss
 
+import java.time.LocalDate
+
 data class SøkSamhandlerInfoRequest(
     val navn: String?,
     val side: Int = 0,
@@ -24,4 +26,11 @@ data class SamhandlerAdresse(
     val postNr: String,
     val postSted: String,
     val adresseType: String,
+    val kommunenummer: String? = null,
+    val gyldighetsperiode: Gyldighetsperiode? = null,
+)
+
+data class Gyldighetsperiode(
+    val fom: LocalDate,
+    val tom: LocalDate?,
 )

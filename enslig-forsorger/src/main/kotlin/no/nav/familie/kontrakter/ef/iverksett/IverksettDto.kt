@@ -315,6 +315,7 @@ data class Brevmottaker(
         BRUKER,
         VERGE,
         FULLMEKTIG,
+        MOTTAKER,
     }
 
     enum class IdentType {

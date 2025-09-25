@@ -42,7 +42,7 @@ class Arbeidssted(
 )
 
 class Ansettelsesperiode(
-    val startdato: String?,
+    val startDato: String?,
     val sluttdato: String?,
     val sluttaarsak: Kodeverksenitet?,
     val varsling: Kodeverksenitet?,

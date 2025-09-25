@@ -22,31 +22,33 @@ data class Innland(
 data class LandDto(
     private val undernoder: Map<String, Fylke>,
 ) {
-    val fylker: Map<String, Fylke> get() = undernoder
+    val fylker: List<Fylke> get() = undernoder.values.toList()
 }
 
 data class Fylke(
     val kode: String,
-    val tekster: Map<String, String>,
-    val termer: Map<String, String>,
-    val undernoder: Map<String, Kommune>,
+    private val tekster: Map<String, String>,
+    private val termer: Map<String, String>,
+    private val undernoder: Map<String, Kommune>,
 ) {
     val navn: String get() = tekster.getValue("nb")
+    val kommuner: List<Kommune> get() = undernoder.values.toList()
 }
 
 data class Kommune(
     val kode: String,
-    val tekster: Map<String, String>,
-    val termer: Map<String, String>,
-    val undernoder: Map<String, Bydel>? = null,
+    private val tekster: Map<String, String>,
+    private val termer: Map<String, String>,
+    private val undernoder: Map<String, Bydel>? = null,
 ) {
     val navn: String get() = tekster.getValue("nb")
+    val bydeler: List<Bydel> get() = undernoder?.values?.toList() ?: emptyList()
 }
 
 data class Bydel(
     val kode: String,
-    val tekster: Map<String, String>,
-    val termer: Map<String, String>,
+    private val tekster: Map<String, String>,
+    private val termer: Map<String, String>,
 ) {
     val navn: String get() = tekster.getValue("nb")
 }

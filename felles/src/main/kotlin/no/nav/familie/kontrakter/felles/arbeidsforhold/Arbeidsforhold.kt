@@ -44,14 +44,6 @@ class Ansettelsesdetaljer(
     val sisteLoennsendring: String? = null,
 )
 
-class Utenlandsopphold(
-    val land: Kodeverksentitet? = null,
-    val startdato: String? = null,
-    val sluttdato: String? = null,
-    val rapporteringsmaaned: String? = null,
-    val sporingsinformasjon: Sporingsinformasjon? = null,
-)
-
 class Rapporteringsmaaneder(
     val fra: String? = null,
     val til: String? = null,

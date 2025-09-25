@@ -1,17 +1,18 @@
 package no.nav.familie.kontrakter.felles.kodeverk
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
+import com.fasterxml.jackson.annotation.JsonProperty
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class HierarkiGeografiInnlandDto(
     val noder: NoderInnland,
 ) {
-    val fylker: LandDto
-        get() = requireNotNull(noder.INNLAND.undernoder["NOR"]) { "Fant ikke undernode 'NOR'" }
+    val norgeNode: LandDto
+        get() = requireNotNull(noder.innland.undernoder["NOR"]) { "Fant ikke undernode 'NOR'" }
 }
 
 data class NoderInnland(
-    val INNLAND: Innland,
+    @param:JsonProperty("INNLAND") val innland: Innland,
 )
 
 data class Innland(
@@ -30,7 +31,7 @@ data class Fylke(
     val termer: Map<String, String>,
     val undernoder: Map<String, Kommune>,
 ) {
-    val nb: String get() = tekster.getValue("nb")
+    val navn: String get() = tekster.getValue("nb")
 }
 
 data class Kommune(
@@ -39,7 +40,7 @@ data class Kommune(
     val termer: Map<String, String>,
     val undernoder: Map<String, Bydel>? = null,
 ) {
-    val nb: String get() = tekster.getValue("nb")
+    val navn: String get() = tekster.getValue("nb")
 }
 
 data class Bydel(
@@ -47,5 +48,5 @@ data class Bydel(
     val tekster: Map<String, String>,
     val termer: Map<String, String>,
 ) {
-    val nb: String get() = tekster.getValue("nb")
+    val navn: String get() = tekster.getValue("nb")
 }

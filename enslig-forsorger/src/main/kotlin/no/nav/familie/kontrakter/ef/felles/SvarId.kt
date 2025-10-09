@@ -32,6 +32,7 @@ enum class SvarId {
     // Sivilstand
     GJENLEVENDE_IKKE_RETT_TIL_YTELSER,
     GJENLEVENDE_OVERTAR_OMSORG,
+    GJENLEVENDE_SEPARERT_FØR_DØDSFALL,
 
     // Aktivitet i arbeid
     ER_I_ARBEID,

@@ -1,6 +1,6 @@
 package no.nav.familie.kontrakter.felles.arbeidsforhold
 
-class Arbeidsforhold(
+data class Arbeidsforhold(
     val id: String,
     val type: Kodeverksentitet? = null,
     val arbeidstaker: Arbeidstaker? = null,
@@ -9,21 +9,21 @@ class Arbeidsforhold(
     val ansettelsesdetaljer: List<Ansettelsesdetaljer>? = null,
 )
 
-class Kodeverksentitet(
+data class Kodeverksentitet(
     val kode: String? = null,
     val beskrivelse: String? = null,
 )
 
-class Arbeidstaker(
+data class Arbeidstaker(
     val identer: List<Ident>? = null,
 )
 
-class Arbeidssted(
+data class Arbeidssted(
     val type: ArbeidsstedType? = null,
     val identer: List<Ident>? = null,
 )
 
-class Ansettelsesperiode(
+data class Ansettelsesperiode(
     val startdato: String? = null,
     val sluttdato: String? = null,
     val sluttaarsak: Kodeverksenitet? = null,
@@ -31,7 +31,7 @@ class Ansettelsesperiode(
     val sporingsinformasjon: Sporingsinformasjon? = null,
 )
 
-class Ansettelsesdetaljer(
+data class Ansettelsesdetaljer(
     val arbeidstidsordning: Kodeverksentitet? = null,
     val ansettelsesform: Kodeverksentitet? = null,
     val yrke: Kodeverksentitet? = null,
@@ -44,23 +44,23 @@ class Ansettelsesdetaljer(
     val sisteLoennsendring: String? = null,
 )
 
-class Rapporteringsmaaneder(
+data class Rapporteringsmaaneder(
     val fra: String? = null,
     val til: String? = null,
 )
 
-class Ident(
+data class Ident(
     val type: IdentType? = null,
     val ident: String? = null,
     val gjeldende: Boolean? = null,
 )
 
-class Kodeverksenitet(
+data class Kodeverksenitet(
     val kode: String? = null,
     val beskrivelse: String? = null,
 )
 
-class Sporingsinformasjon(
+data class Sporingsinformasjon(
     val opprettetTidspunkt: String? = null,
     val opprettetAv: String? = null,
     val opprettetKilde: String? = null,

@@ -11,7 +11,8 @@ data class Bostedsadresse(
     val vegadresse: Vegadresse? = null,
     val matrikkeladresse: Matrikkeladresse? = null,
     val ukjentBosted: UkjentBosted? = null,
-)
+    val folkeregistermetadata: Folkeregistermetadata? = null,
+    )
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 data class Oppholdsadresse(
@@ -31,7 +32,8 @@ data class DeltBosted(
     val vegadresse: Vegadresse? = null,
     val matrikkeladresse: Matrikkeladresse? = null,
     val ukjentBosted: UkjentBosted? = null,
-)
+    val folkeregistermetadata: Folkeregistermetadata? = null,
+    )
 
 data class Vegadresse(
     val matrikkelId: Long?,

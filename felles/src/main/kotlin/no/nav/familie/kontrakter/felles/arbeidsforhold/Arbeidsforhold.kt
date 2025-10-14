@@ -1,7 +1,7 @@
 package no.nav.familie.kontrakter.felles.arbeidsforhold
 
 data class Arbeidsforhold(
-    val id: String,
+    val id: String? = null,
     val type: Kodeverksentitet? = null,
     val arbeidstaker: Arbeidstaker? = null,
     val arbeidssted: Arbeidssted? = null,

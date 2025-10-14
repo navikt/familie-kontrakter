@@ -47,6 +47,7 @@ data class Vegadresse(
 data class Folkeregistermetadata(
     val opphoerstidspunkt: LocalDate?,
     val kilde: String?,
+    val aarsak: String?,
 )
 
 data class UkjentBosted(

@@ -21,6 +21,7 @@ data class Oppholdsadresse(
     val vegadresse: Vegadresse? = null,
     val matrikkeladresse: Matrikkeladresse? = null,
     val utenlandskAdresse: UtenlandskAdresse? = null,
+    val folkeregistermetadata: Folkeregistermetadata? = null,
 )
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -41,6 +42,10 @@ data class Vegadresse(
     val kommunenummer: String?,
     val tilleggsnavn: String?,
     val postnummer: String?,
+)
+
+data class Folkeregistermetadata(
+    val opphoerstidspunkt: LocalDate?,
 )
 
 data class UkjentBosted(

@@ -46,12 +46,6 @@ data class Vegadresse(
     val postnummer: String?,
 )
 
-data class Folkeregistermetadata(
-    val opphoerstidspunkt: LocalDate?,
-    val kilde: String?,
-    val aarsak: String?,
-)
-
 data class UkjentBosted(
     val bostedskommune: String,
 )
@@ -79,6 +73,13 @@ data class Statsborgerskap(
     val gyldigFraOgMed: LocalDate?,
     val gyldigTilOgMed: LocalDate?,
     val bekreftelsesdato: LocalDate?,
+    val folkeregistermetadata: Folkeregistermetadata? = null,
+    )
+
+data class Folkeregistermetadata(
+    val opphoerstidspunkt: LocalDate?,
+    val kilde: String?,
+    val aarsak: String?,
 )
 
 data class Sivilstand(

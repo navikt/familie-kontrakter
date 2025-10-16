@@ -14,6 +14,7 @@ data class SimulertPostering(
     val forfallsdato: LocalDate,
     val utenInntrekk: Boolean = false,
     val klassekode: String? = "",
+    val fagsakId: String? = "", // Oppdrag gir tilbake for alle fagsaker aktør er i
 ) {
     fun gjelderKreditortrekk(): Boolean = this.klassekode == "KREDKRED"
 }

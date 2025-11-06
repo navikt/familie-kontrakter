@@ -16,6 +16,7 @@ import no.nav.familie.kontrakter.ks.søknad.v1.TekstPåSpråkMap
 import no.nav.familie.kontrakter.ks.søknad.v1.Utbetalingsperiode
 import no.nav.familie.kontrakter.ks.søknad.v2.Omsorgsperson
 
+@Deprecated("Bruk v5", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ks.søknad.v5.KontantstøtteSøknad"))
 data class KontantstøtteSøknad(
     override val kontraktVersjon: Int,
     override val søker: Søker,

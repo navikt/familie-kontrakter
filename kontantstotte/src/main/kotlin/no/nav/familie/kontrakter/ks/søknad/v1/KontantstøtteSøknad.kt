@@ -268,6 +268,7 @@ data class KontantstøttePeriode(
     val månedligBeløp: Søknadsfelt<String>,
 )
 
+@Deprecated("Bruk v6", ReplaceWith("no.nav.familie.kontrakter.ks.søknad.v6.BarnehageplassPeriode"))
 data class BarnehageplassPeriode(
     val barnehageplassPeriodeBeskrivelse: Søknadsfelt<String>,
     val barnehageplassUtlandet: Søknadsfelt<String>,

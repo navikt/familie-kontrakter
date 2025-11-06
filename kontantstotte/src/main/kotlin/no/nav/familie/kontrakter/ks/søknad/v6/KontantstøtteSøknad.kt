@@ -1,4 +1,4 @@
-package no.nav.familie.kontrakter.ks.søknad.v5
+package no.nav.familie.kontrakter.ks.søknad.v6;
 
 import no.nav.familie.kontrakter.felles.søknad.BaksSøknadBase
 import no.nav.familie.kontrakter.felles.søknad.Søknadsfelt
@@ -8,7 +8,6 @@ import no.nav.familie.kontrakter.ks.søknad.v1.TekstPåSpråkMap
 import no.nav.familie.kontrakter.ks.søknad.v4.Barn
 import no.nav.familie.kontrakter.ks.søknad.v4.Søker
 
-@Deprecated("Bruk v6", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ks.søknad.v6.KontantstøtteSøknad"))
 data class KontantstøtteSøknad(
     override val kontraktVersjon: Int,
     override val søker: Søker,
@@ -27,3 +26,14 @@ data class KontantstøtteSøknad(
     val harEllerTildeltBarnehageplass: Søknadsfelt<String>,
     val erAvdødPartnerForelder: Søknadsfelt<String>?,
 ) : BaksSøknadBase
+
+data class BarnehageplassPeriode(
+    val barnehageplassPeriodeBeskrivelse: Søknadsfelt<String>,
+    val barnehageplassUtlandet: Søknadsfelt<String>,
+    val barnehageplassLand: Søknadsfelt<String>?,
+    val offentligStøtte: Søknadsfelt<String>?,
+    val harHeltidDeltidBarnehageplass: Søknadsfelt<String>,
+    val antallTimer: Søknadsfelt<String>?,
+    val startetIBarnehagen: Søknadsfelt<String>,
+    val slutterIBarnehagen: Søknadsfelt<String>,
+)

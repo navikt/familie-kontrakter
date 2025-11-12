@@ -12,6 +12,28 @@ import org.junit.jupiter.api.assertThrows
 
 class VersjonertKontantstøtteSøknadDeserializerTest {
     @Test
+    fun `skal kunne deserialisere KontantstøtteSøknad V6 til VersjonertKontantstøtteSøknad`() {
+        // Arrange
+        val søkerFnr = "12345678910"
+        val barnFnr = "12345678911"
+        val kontantstøtteSøknadV6 = lagKontantstøtteSøknadV6(søkerFnr, barnFnr)
+        val søknadJson = objectMapper.writeValueAsString(kontantstøtteSøknadV6)
+
+        // Act
+        val versjonertKontantstøtteSøknad = objectMapper.readValue<VersjonertKontantstøtteSøknad>(søknadJson)
+
+        // Assert
+        assertNotNull(versjonertKontantstøtteSøknad)
+        assertTrue { versjonertKontantstøtteSøknad is VersjonertKontantstøtteSøknadV6 }
+        assertEquals(6, versjonertKontantstøtteSøknad.kontantstøtteSøknad.kontraktVersjon)
+        assertEquals(2, versjonertKontantstøtteSøknad.kontantstøtteSøknad.personerISøknad().size)
+        assertEquals(
+            listOf("12345678910", "12345678911"),
+            versjonertKontantstøtteSøknad.kontantstøtteSøknad.personerISøknad(),
+        )
+    }
+
+    @Test
     fun `skal kunne deserialisere KontantstøtteSøknad V5 til VersjonertKontantstøtteSøknad`() {
         // Arrange
         val søkerFnr = "12345678910"
@@ -26,6 +48,28 @@ class VersjonertKontantstøtteSøknadDeserializerTest {
         assertNotNull(versjonertKontantstøtteSøknad)
         assertTrue { versjonertKontantstøtteSøknad is VersjonertKontantstøtteSøknadV5 }
         assertEquals(5, versjonertKontantstøtteSøknad.kontantstøtteSøknad.kontraktVersjon)
+        assertEquals(2, versjonertKontantstøtteSøknad.kontantstøtteSøknad.personerISøknad().size)
+        assertEquals(
+            listOf("12345678910", "12345678911"),
+            versjonertKontantstøtteSøknad.kontantstøtteSøknad.personerISøknad(),
+        )
+    }
+
+    @Test
+    fun `skal kunne deserialisere KontantstøtteSøknad V6 til StøttetVersjonertKontantstøtteSøknad`() {
+        // Arrange
+        val søkerFnr = "12345678910"
+        val barnFnr = "12345678911"
+        val kontantstøtteSøknadV6 = lagKontantstøtteSøknadV6(søkerFnr, barnFnr)
+        val søknadJson = objectMapper.writeValueAsString(kontantstøtteSøknadV6)
+
+        // Act
+        val versjonertKontantstøtteSøknad = objectMapper.readValue<StøttetVersjonertKontantstøtteSøknad>(søknadJson)
+
+        // Assert
+        assertNotNull(versjonertKontantstøtteSøknad)
+        assertTrue { versjonertKontantstøtteSøknad is VersjonertKontantstøtteSøknadV6 }
+        assertEquals(6, versjonertKontantstøtteSøknad.kontantstøtteSøknad.kontraktVersjon)
         assertEquals(2, versjonertKontantstøtteSøknad.kontantstøtteSøknad.personerISøknad().size)
         assertEquals(
             listOf("12345678910", "12345678911"),

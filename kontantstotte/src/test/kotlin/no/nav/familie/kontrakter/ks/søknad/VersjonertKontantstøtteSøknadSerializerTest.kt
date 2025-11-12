@@ -10,6 +10,20 @@ class VersjonertKontantstøtteSøknadSerializerTest {
     @Nested
     inner class VersjonertKontantstøtteSøknadTest {
         @Test
+        fun `skal kunne deserialisere og serialisere VersjonertKontantstøtteSøknad kontraktversjon er 6`() {
+            // Arrange
+            val kontantstøtteSøknadV6 = lagKontantstøtteSøknadV6("12345678910", "12345678911")
+            val søknadJson = objectMapper.writeValueAsString(kontantstøtteSøknadV6)
+
+            // Act & Assert
+            assertDoesNotThrow {
+                val versjonertKontantstøtteSøknad = objectMapper.readValue<VersjonertKontantstøtteSøknad>(søknadJson)
+                val versjonertJson = objectMapper.writeValueAsString(versjonertKontantstøtteSøknad)
+                objectMapper.readValue<VersjonertKontantstøtteSøknad>(versjonertJson)
+            }
+        }
+
+        @Test
         fun `skal kunne deserialisere og serialisere VersjonertKontantstøtteSøknad kontraktversjon er 5`() {
             // Arrange
             val kontantstøtteSøknadV5 = lagKontantstøtteSøknadV5("12345678910", "12345678911")
@@ -82,6 +96,20 @@ class VersjonertKontantstøtteSøknadSerializerTest {
 
     @Nested
     inner class StøttetVersjonertKontantstøtteSøknadTest {
+        @Test
+        fun `skal kunne deserialisere og serialisere StøttetVersjonertKontantstøtteSøknad hvis kontraktversjon er 6`() {
+            // Arrange
+            val kontantstøtteSøknadV6 = lagKontantstøtteSøknadV6("12345678910", "12345678911")
+            val søknadJson = objectMapper.writeValueAsString(kontantstøtteSøknadV6)
+
+            // Act & Assert
+            assertDoesNotThrow {
+                val støttetVersjonertKontantStøtte = objectMapper.readValue<StøttetVersjonertKontantstøtteSøknad>(søknadJson)
+                val versjonertJson = objectMapper.writeValueAsString(støttetVersjonertKontantStøtte)
+                objectMapper.readValue<StøttetVersjonertKontantstøtteSøknad>(versjonertJson)
+            }
+        }
+
         @Test
         fun `skal kunne deserialisere og serialisere StøttetVersjonertKontantstøtteSøknad hvis kontraktversjon er 5`() {
             // Arrange

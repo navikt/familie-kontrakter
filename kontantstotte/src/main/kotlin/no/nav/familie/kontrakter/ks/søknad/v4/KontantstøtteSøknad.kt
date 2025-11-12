@@ -66,6 +66,7 @@ data class Søker(
     val adresseISøkeperiode: Søknadsfelt<String>?,
 ) : BaksSøknadPersonBase
 
+@Deprecated("Bruk v6", replaceWith = ReplaceWith("no.nav.familie.kontrakter.ks.søknad.v6.Barn"))
 data class Barn(
     val harEøsSteg: Boolean,
     override val ident: Søknadsfelt<String>,

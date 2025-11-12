@@ -12,6 +12,33 @@ import no.nav.familie.kontrakter.ks.søknad.v2.KontantstøtteSøknad as Kontants
 import no.nav.familie.kontrakter.ks.søknad.v3.KontantstøtteSøknad as KontantstøtteSøknadV3
 import no.nav.familie.kontrakter.ks.søknad.v4.KontantstøtteSøknad as KontantstøtteSøknadV4
 import no.nav.familie.kontrakter.ks.søknad.v5.KontantstøtteSøknad as KontantstøtteSøknadV5
+import no.nav.familie.kontrakter.ks.søknad.v6.KontantstøtteSøknad as KontantstøtteSøknadV6
+
+fun lagKontantstøtteSøknadV6(
+    søkerFnr: String,
+    barnFnr: String,
+): KontantstøtteSøknadV6 =
+    KontantstøtteSøknadV6(
+        kontraktVersjon = 6,
+        søker = lagSøkerV4(søkerFnr),
+        barn = listOf(lagBarnV4(barnFnr)),
+        antallEøsSteg = 0,
+        dokumentasjon = emptyList(),
+        teksterTilPdf =
+            mapOf(
+                "testApiNavn" to TekstPåSpråkMap(mapOf("nb" to "bokmål", "nn" to "nynorsk", "en" to "engelsk")),
+            ),
+        originalSpråk = "NB",
+        finnesPersonMedAdressebeskyttelse = false,
+        erNoenAvBarnaFosterbarn = lagStringSøknadsfelt("Nei"),
+        søktAsylForBarn = lagStringSøknadsfelt("Nei"),
+        oppholderBarnSegIInstitusjon = lagStringSøknadsfelt("Nei"),
+        barnOppholdtSegTolvMndSammenhengendeINorge = lagStringSøknadsfelt("Ja"),
+        erBarnAdoptert = lagStringSøknadsfelt("Nei"),
+        mottarKontantstøtteForBarnFraAnnetEøsland = lagStringSøknadsfelt("Nei"),
+        harEllerTildeltBarnehageplass = lagStringSøknadsfelt("Nei"),
+        erAvdødPartnerForelder = null,
+    )
 
 fun lagKontantstøtteSøknadV5(
     søkerFnr: String,

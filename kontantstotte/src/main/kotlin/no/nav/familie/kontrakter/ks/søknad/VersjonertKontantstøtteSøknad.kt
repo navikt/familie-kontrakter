@@ -17,6 +17,7 @@ import no.nav.familie.kontrakter.ks.søknad.v2.KontantstøtteSøknad as Kontants
 import no.nav.familie.kontrakter.ks.søknad.v3.KontantstøtteSøknad as KontantstøtteSøknadV3
 import no.nav.familie.kontrakter.ks.søknad.v4.KontantstøtteSøknad as KontantstøtteSøknadV4
 import no.nav.familie.kontrakter.ks.søknad.v5.KontantstøtteSøknad as KontantstøtteSøknadV5
+import no.nav.familie.kontrakter.ks.søknad.v6.KontantstøtteSøknad as KontantstøtteSøknadV6
 
 class VersjonertKontantStøtteSerializer : JsonSerializer<VersjonertKontantstøtteSøknad>() {
     override fun serialize(
@@ -48,6 +49,7 @@ class VersjonertKontantstøtteSøknadDeserializer : JsonDeserializer<VersjonertK
             3 -> VersjonertKontantstøtteSøknadV3(kontantstøtteSøknad = p.codec.treeToValue(node, KontantstøtteSøknadV3::class.java))
             4 -> VersjonertKontantstøtteSøknadV4(kontantstøtteSøknad = p.codec.treeToValue(node, KontantstøtteSøknadV4::class.java))
             5 -> VersjonertKontantstøtteSøknadV5(kontantstøtteSøknad = p.codec.treeToValue(node, KontantstøtteSøknadV5::class.java))
+            6 -> VersjonertKontantstøtteSøknadV6(kontantstøtteSøknad = p.codec.treeToValue(node, KontantstøtteSøknadV6::class.java))
             else -> throw UnsupportedVersionException("Mangler implementasjon for versjon: $versjon av KontantstøtteSøknad.")
         }
     }
@@ -82,4 +84,8 @@ data class VersjonertKontantstøtteSøknadV4(
 
 data class VersjonertKontantstøtteSøknadV5(
     override val kontantstøtteSøknad: KontantstøtteSøknadV5,
+) : StøttetVersjonertKontantstøtteSøknad(kontantstøtteSøknad = kontantstøtteSøknad)
+
+data class VersjonertKontantstøtteSøknadV6(
+    override val kontantstøtteSøknad: KontantstøtteSøknadV6,
 ) : StøttetVersjonertKontantstøtteSøknad(kontantstøtteSøknad = kontantstøtteSøknad)

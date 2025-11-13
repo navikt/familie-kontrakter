@@ -5,7 +5,8 @@ import no.nav.familie.kontrakter.ks.søknad.v1.RegistrertBostedType
 import no.nav.familie.kontrakter.ks.søknad.v1.SIVILSTANDTYPE
 import no.nav.familie.kontrakter.ks.søknad.v1.SøknadAdresse
 import no.nav.familie.kontrakter.ks.søknad.v1.TekstPåSpråkMap
-import no.nav.familie.kontrakter.ks.søknad.v4.Barn
+import no.nav.familie.kontrakter.ks.søknad.v4.Barn as BarnV4
+import no.nav.familie.kontrakter.ks.søknad.v6.Barn as BarnV6
 import no.nav.familie.kontrakter.ks.søknad.v4.Søker
 import no.nav.familie.kontrakter.ks.søknad.v1.KontantstøtteSøknad as KontantstøtteSøknadV1
 import no.nav.familie.kontrakter.ks.søknad.v2.KontantstøtteSøknad as KontantstøtteSøknadV2
@@ -21,7 +22,7 @@ fun lagKontantstøtteSøknadV6(
     KontantstøtteSøknadV6(
         kontraktVersjon = 6,
         søker = lagSøkerV4(søkerFnr),
-        barn = listOf(lagBarnV4(barnFnr)),
+        barn = listOf(lagBarnV6(barnFnr)),
         antallEøsSteg = 0,
         dokumentasjon = emptyList(),
         teksterTilPdf =
@@ -290,8 +291,45 @@ fun lagSøkerV1(fnr: String): no.nav.familie.kontrakter.ks.søknad.v1.Søker =
         adresseISøkeperiode = null,
     )
 
-fun lagBarnV4(fnr: String): Barn =
-    Barn(
+fun lagBarnV6(fnr: String): BarnV6 =
+    BarnV6(
+        harEøsSteg = false,
+        ident = lagStringSøknadsfelt(fnr),
+        navn = lagStringSøknadsfelt(""),
+        registrertBostedType = lagStringSøknadsfelt(RegistrertBostedType.REGISTRERT_SOKERS_ADRESSE),
+        alder = null,
+        teksterTilPdf = emptyMap(),
+        erFosterbarn = lagStringSøknadsfelt("Nei"),
+        oppholderSegIInstitusjon = lagStringSøknadsfelt("Nei"),
+        erAdoptert = lagStringSøknadsfelt("Nei"),
+        erAsylsøker = lagStringSøknadsfelt("Nei"),
+        boddMindreEnn12MndINorge = lagStringSøknadsfelt("Nei"),
+        kontantstøtteFraAnnetEøsland = lagStringSøknadsfelt("Nei"),
+        harBarnehageplass = lagStringSøknadsfelt("Nei"),
+        andreForelderErDød = null,
+        utbetaltForeldrepengerEllerEngangsstønad = null,
+        mottarEllerMottokEøsKontantstøtte = null,
+        pågåendeSøknadFraAnnetEøsLand = null,
+        pågåendeSøknadHvilketLand = null,
+        planleggerÅBoINorge12Mnd = null,
+        eøsKontantstøttePerioder = emptyList(),
+        barnehageplassPerioder = emptyList(),
+        borFastMedSøker = lagStringSøknadsfelt("Ja"),
+        foreldreBorSammen = null,
+        søkerDeltKontantstøtte = null,
+        andreForelder = null,
+        utenlandsperioder = emptyList(),
+        søkersSlektsforhold = null,
+        søkersSlektsforholdSpesifisering = null,
+        borMedAndreForelder = null,
+        borMedOmsorgsperson = null,
+        adresse = null,
+        omsorgsperson = null,
+        idNummer = emptyList(),
+    )
+
+fun lagBarnV4(fnr: String): BarnV4 =
+    BarnV4(
         harEøsSteg = false,
         ident = lagStringSøknadsfelt(fnr),
         navn = lagStringSøknadsfelt(""),

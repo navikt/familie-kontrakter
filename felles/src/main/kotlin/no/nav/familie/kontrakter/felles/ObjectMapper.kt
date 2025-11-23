@@ -11,20 +11,19 @@ import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 import java.time.YearMonth
 import java.time.format.DateTimeFormatter
 
-val objectMapper: ObjectMapper
-    get() =
-        ObjectMapper()
-            .setVisibility(PropertyAccessor.GETTER, JsonAutoDetect.Visibility.NONE)
-            .setVisibility(PropertyAccessor.SETTER, JsonAutoDetect.Visibility.NONE)
-            .setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY)
-            .setVisibility(PropertyAccessor.CREATOR, JsonAutoDetect.Visibility.ANY)
-            .registerKotlinModule()
-            .registerModule(
-                JavaTimeModule()
-                    .addDeserializer(
-                        YearMonth::class.java,
-                        YearMonthDeserializer(DateTimeFormatter.ofPattern("u-MM")), // Denne trengs for å parse år over 9999 riktig.
-                    ),
-            ).configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
-            .disable(SerializationFeature.FAIL_ON_EMPTY_BEANS)
-            .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
+val objectMapper: ObjectMapper =
+    ObjectMapper().apply {
+        registerKotlinModule()
+        registerModule(
+            JavaTimeModule().apply {
+                addDeserializer(YearMonth::class.java, YearMonthDeserializer(DateTimeFormatter.ofPattern("u-MM")))
+            },
+        )
+        setVisibility(PropertyAccessor.GETTER, JsonAutoDetect.Visibility.NONE)
+        setVisibility(PropertyAccessor.SETTER, JsonAutoDetect.Visibility.NONE)
+        setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY)
+        setVisibility(PropertyAccessor.CREATOR, JsonAutoDetect.Visibility.ANY)
+        configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+        disable(SerializationFeature.FAIL_ON_EMPTY_BEANS)
+        disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
+    }

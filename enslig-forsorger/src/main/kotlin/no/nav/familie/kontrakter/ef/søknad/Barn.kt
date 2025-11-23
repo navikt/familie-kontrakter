@@ -3,6 +3,9 @@ package no.nav.familie.kontrakter.ef.søknad
 import no.nav.familie.kontrakter.felles.Fødselsnummer
 import java.time.LocalDate
 
+/**
+ * skalHaBarnepass, barnepass gjelder Barnetilsyn
+ */
 data class Barn(
     val navn: Søknadsfelt<String>? = null,
     val fødselsnummer: Søknadsfelt<Fødselsnummer>? = null,
@@ -19,7 +22,3 @@ data class Barn(
     val lagtTilManuelt: Boolean? = false,
     val skalBarnetBoHosSøker: Søknadsfelt<String>? = null,
 )
-
-/**
- * skalHaBarnepass, barnepass gjelder Barnetilsyn
- */

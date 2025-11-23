@@ -1,5 +1,8 @@
 package no.nav.familie.kontrakter.ef.søknad
 
+/**
+ * erIArbeid, erIArbeidDokumentasjon: gjelder Barnetilsyn
+ */
 data class Aktivitet(
     val erIArbeid: Søknadsfelt<String>? = null,
     val hvordanErArbeidssituasjonen: Søknadsfelt<List<String>>,
@@ -12,7 +15,3 @@ data class Aktivitet(
     val aksjeselskap: Søknadsfelt<List<Aksjeselskap>>? = null,
     val erIArbeidDokumentasjon: Søknadsfelt<Dokumentasjon>? = null,
 )
-
-/**
- * erIArbeid, erIArbeidDokumentasjon: gjelder Barnetilsyn
- */

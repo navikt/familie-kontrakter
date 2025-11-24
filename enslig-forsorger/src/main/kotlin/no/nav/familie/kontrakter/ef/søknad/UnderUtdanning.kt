@@ -1,5 +1,9 @@
 package no.nav.familie.kontrakter.ef.søknad
 
+/**
+ *  semesteravgift, studieavgift, eksamensgebyr gjelder kun Skolepenger
+ */
+
 data class UnderUtdanning(
     val skoleUtdanningssted: Søknadsfelt<String>,
     @Deprecated("Bruk gjeldende utdanning") val utdanning: Søknadsfelt<TidligereUtdanning>?,
@@ -14,7 +18,3 @@ data class UnderUtdanning(
     val studieavgift: Søknadsfelt<Double>? = null,
     val eksamensgebyr: Søknadsfelt<Double>? = null,
 )
-
-/**
- *  semesteravgift, studieavgift, eksamensgebyr gjelder kun Skolepenger
- */

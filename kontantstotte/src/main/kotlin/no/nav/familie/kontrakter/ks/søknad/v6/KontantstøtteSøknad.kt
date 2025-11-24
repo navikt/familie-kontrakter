@@ -1,4 +1,4 @@
-package no.nav.familie.kontrakter.ks.søknad.v6;
+package no.nav.familie.kontrakter.ks.søknad.v6
 
 import no.nav.familie.kontrakter.felles.søknad.BaksSøknadBase
 import no.nav.familie.kontrakter.felles.søknad.BaksSøknadPersonBase

@@ -5,14 +5,14 @@ import no.nav.familie.kontrakter.ks.søknad.v1.RegistrertBostedType
 import no.nav.familie.kontrakter.ks.søknad.v1.SIVILSTANDTYPE
 import no.nav.familie.kontrakter.ks.søknad.v1.SøknadAdresse
 import no.nav.familie.kontrakter.ks.søknad.v1.TekstPåSpråkMap
-import no.nav.familie.kontrakter.ks.søknad.v4.Barn as BarnV4
-import no.nav.familie.kontrakter.ks.søknad.v6.Barn as BarnV6
 import no.nav.familie.kontrakter.ks.søknad.v4.Søker
 import no.nav.familie.kontrakter.ks.søknad.v1.KontantstøtteSøknad as KontantstøtteSøknadV1
 import no.nav.familie.kontrakter.ks.søknad.v2.KontantstøtteSøknad as KontantstøtteSøknadV2
 import no.nav.familie.kontrakter.ks.søknad.v3.KontantstøtteSøknad as KontantstøtteSøknadV3
+import no.nav.familie.kontrakter.ks.søknad.v4.Barn as BarnV4
 import no.nav.familie.kontrakter.ks.søknad.v4.KontantstøtteSøknad as KontantstøtteSøknadV4
 import no.nav.familie.kontrakter.ks.søknad.v5.KontantstøtteSøknad as KontantstøtteSøknadV5
+import no.nav.familie.kontrakter.ks.søknad.v6.Barn as BarnV6
 import no.nav.familie.kontrakter.ks.søknad.v6.KontantstøtteSøknad as KontantstøtteSøknadV6
 
 fun lagKontantstøtteSøknadV6(

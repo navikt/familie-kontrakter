@@ -49,7 +49,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <jvmTarget>21</jvmTarget>
+                    <jvmTarget>${jdk.version}</jvmTarget>
                 </configuration>
             </plugin>
         </plugins>

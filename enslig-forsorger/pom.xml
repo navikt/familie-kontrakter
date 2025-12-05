@@ -48,6 +48,9 @@
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <jvmTarget>21</jvmTarget>
+                </configuration>
             </plugin>
         </plugins>
     </build>

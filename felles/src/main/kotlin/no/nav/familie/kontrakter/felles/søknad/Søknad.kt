@@ -1,5 +1,8 @@
 package no.nav.familie.kontrakter.felles.søknad
 
+import com.fasterxml.jackson.annotation.JsonSetter
+import com.fasterxml.jackson.annotation.Nulls
+
 interface BaksSøknadBase {
     val kontraktVersjon: Int
     val søker: BaksSøknadPersonBase
@@ -74,6 +77,9 @@ typealias Locale = String
 
 data class Søknadsfelt<T>(
     val label: Map<Locale, String>,
+    // I Spring Boot 4.x vil deserialisering av null verdier i Map føre til feil uten denne annotasjonen. Tidligere har vi tillatt null verdier.
+    // For å slippe en stor endring i kontrakten, setter vi nå at null verdier skal deserialiseres til Nulls.SET, som vil sette verdien til null i stedet for å kaste feil.
+    @param:JsonSetter(contentNulls = Nulls.SET)
     val verdi: Map<Locale, T>,
 )
 

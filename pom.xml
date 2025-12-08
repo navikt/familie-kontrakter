@@ -14,10 +14,11 @@
     <name>Kontrakter for familieytelsene</name>
 
     <properties>
-        <revision>3.0</revision>
+        <revision>4.0</revision>
         <sha1/>
         <changelist>-SNAPSHOT</changelist>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <jdk.version>21</jdk.version>
         <kotlin.version>2.2.21</kotlin.version>
         <kotest.version>6.0.5</kotest.version>
         <maven-enforcer.version>3.6.2</maven-enforcer.version>
@@ -66,7 +67,6 @@
         <dependency>
             <groupId>jakarta.validation</groupId>
             <artifactId>jakarta.validation-api</artifactId>
-            <version>3.1.1</version>
         </dependency>
 
         <!-- Test -->
@@ -99,7 +99,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>3.5.7</version>
+                <version>4.0.0</version>
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
@@ -127,7 +127,7 @@
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>3.14.1</version>
                     <configuration>
-                        <release>11</release>
+                        <release>${jdk.version}</release>
                     </configuration>
                 </plugin>
                 <plugin>

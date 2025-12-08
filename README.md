@@ -5,6 +5,10 @@ Interne kontrakter for familie-applikasjonene.
 
 Kontrakten er uttrykt som et sett med klasser og deres avhengigheter til hverandre. Denne strukturen skal gjenbrukes i andre prosjekter, så man ikke spesifiserer den samme strukturen i flere prosjekter. Enkel felt-validering spesifiseres også i denne kontrakten.
 
+## Krav
+
+- JDK 21 eller nyere
+
 # Komme i gang
 
 Prosjekter som har avhengigheter til en gitt modul i familie-kontrakter må legge til følgende elementer i pom.xml:

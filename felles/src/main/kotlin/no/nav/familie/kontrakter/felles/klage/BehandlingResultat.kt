@@ -52,6 +52,6 @@ enum class KlageinstansUtfall(
     INNSTILLING_AVVIST("Innstilling om avist til trygderetten fra KA"),
     HEVET("Hevet KA"),
     MEDHOLD_ETTER_FVL_35("Medhold etter fvl. § 35 KA"),
-    GJENOPPTATT_DELVIS_ELLER_FULLT_MEDHOLD("Gjenopptatt - Devlvis eller fullt medhold"),
+    GJENOPPTATT_DELVIS_ELLER_FULLT_MEDHOLD("Gjenopptatt - Delvis eller fullt medhold"),
     GJENOPPTATT_OPPHEVET("Gjenopptatt - Opphevet"),
 }

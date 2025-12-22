@@ -20,6 +20,7 @@ class BarnetrygdSøknadV10Validator {
 
     companion object {
         private const val MAKS_LENGDE = 200
+        private val UGYLDIGE_TEGN_REGEX = Regex("[<>\"]")
 
         fun valider(søknad: BarnetrygdSøknad): List<Valideringsfeil> {
             val feil = mutableListOf<Valideringsfeil>()
@@ -146,7 +147,6 @@ class BarnetrygdSøknadV10Validator {
         ): List<Valideringsfeil> {
             val feil = mutableListOf<Valideringsfeil>()
 
-            // Valider etiketter
             søknadsfelt.label.forEach { (locale, label) ->
                 if (label.length > MAKS_LENGDE) {
                     feil.add(
@@ -154,6 +154,16 @@ class BarnetrygdSøknadV10Validator {
                             objectPath = "$objectPath.label",
                             locale = locale,
                             feilmelding = "Label overskrider maksimal lengde på $MAKS_LENGDE tegn (faktisk: ${label.length})",
+                        ),
+                    )
+                }
+
+                if (UGYLDIGE_TEGN_REGEX.containsMatchIn(label)) {
+                    feil.add(
+                        Valideringsfeil(
+                            objectPath = "$objectPath.label",
+                            locale = locale,
+                            feilmelding = "Label inneholder ugyldige tegn: $label",
                         ),
                     )
                 }
@@ -181,14 +191,23 @@ class BarnetrygdSøknadV10Validator {
         ): List<Valideringsfeil> {
             val feil = mutableListOf<Valideringsfeil>()
 
-            // Valider etiketter
             søknadsfelt.label.forEach { (locale, label) ->
                 if (label.length > MAKS_LENGDE) {
                     feil.add(
                         Valideringsfeil(
                             objectPath = "$objectPath.label",
                             locale = locale,
-                            feilmelding = "Etikett overskrider maksimal lengde på $MAKS_LENGDE tegn (faktisk: ${label.length})",
+                            feilmelding = "Label overskrider maksimal lengde på $MAKS_LENGDE tegn (faktisk: ${label.length})",
+                        ),
+                    )
+                }
+
+                if (UGYLDIGE_TEGN_REGEX.containsMatchIn(label)) {
+                    feil.add(
+                        Valideringsfeil(
+                            objectPath = "$objectPath.label",
+                            locale = locale,
+                            feilmelding = "Label inneholder ugyldige tegn: $label",
                         ),
                     )
                 }

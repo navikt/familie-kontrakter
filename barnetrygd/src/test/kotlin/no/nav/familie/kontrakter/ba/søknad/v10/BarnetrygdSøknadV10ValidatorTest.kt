@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test
 import no.nav.familie.kontrakter.felles.søknad.Søknadsfelt as FellesSøknadsfelt
 
 class BarnetrygdSøknadV10ValidatorTest {
-    private val gyldigEtikett = mapOf("nb" to "Gyldig etikett", "nn" to "Gyldig etikett")
+    private val gyldigLabel = mapOf("nb" to "Gyldig label", "nn" to "Gyldig label")
     private val gyldigVerdi = mapOf("nb" to "Gyldig verdi", "nn" to "Gyldig verdi")
     private val langStreng = "a".repeat(201)
 
@@ -53,7 +53,7 @@ class BarnetrygdSøknadV10ValidatorTest {
                     lagGyldigSøker().copy(
                         navn =
                             FellesSøknadsfelt(
-                                label = gyldigEtikett,
+                                label = gyldigLabel,
                                 verdi = mapOf("nb" to langStreng),
                             ),
                     ),
@@ -94,7 +94,7 @@ class BarnetrygdSøknadV10ValidatorTest {
                     mapOf(
                         "testSpørsmål" to
                             FellesSøknadsfelt(
-                                label = gyldigEtikett,
+                                label = gyldigLabel,
                                 verdi = mapOf("nb" to langStreng),
                             ),
                     ),
@@ -140,7 +140,7 @@ class BarnetrygdSøknadV10ValidatorTest {
                     ),
                 navn =
                     FellesSøknadsfelt(
-                        label = gyldigEtikett,
+                        label = gyldigLabel,
                         verdi = mapOf("nb" to langStreng),
                     ),
             )
@@ -200,7 +200,7 @@ class BarnetrygdSøknadV10ValidatorTest {
                             mapOf(
                                 "booleanSpørsmål" to
                                     FellesSøknadsfelt(
-                                        label = gyldigEtikett,
+                                        label = gyldigLabel,
                                         verdi = mapOf("nb" to true, "nn" to false),
                                     ),
                             ),
@@ -248,7 +248,92 @@ class BarnetrygdSøknadV10ValidatorTest {
 
         val feil = BarnetrygdSøknadV10Validator.valider(søknad)
 
-        assertTrue(feil.isEmpty(), "Etikett med nøyaktig 200 tegn skal være gyldig")
+        assertTrue(feil.isEmpty(), "Label med nøyaktig 200 tegn skal være gyldig")
+    }
+
+    @Test
+    fun `valider skal returnere feil når label inneholder mindre enn tegn`() {
+        val søknad =
+            lagGyldigSøknad().copy(
+                søker =
+                    lagGyldigSøker().copy(
+                        ident =
+                            FellesSøknadsfelt(
+                                label = mapOf("nb" to "Test < verdi"),
+                                verdi = gyldigVerdi,
+                            ),
+                    ),
+            )
+
+        val feil = BarnetrygdSøknadV10Validator.valider(søknad)
+
+        assertEquals(1, feil.size)
+        assertEquals("søker.ident.label", feil[0].objectPath)
+        assertEquals("nb", feil[0].locale)
+        assertTrue(feil[0].feilmelding.contains("ugyldige tegn"))
+    }
+
+    @Test
+    fun `valider skal returnere feil når label inneholder større enn tegn`() {
+        val søknad =
+            lagGyldigSøknad().copy(
+                søker =
+                    lagGyldigSøker().copy(
+                        navn =
+                            FellesSøknadsfelt(
+                                label = mapOf("nb" to "Test > verdi"),
+                                verdi = gyldigVerdi,
+                            ),
+                    ),
+            )
+
+        val feil = BarnetrygdSøknadV10Validator.valider(søknad)
+
+        assertEquals(1, feil.size)
+        assertEquals("søker.navn.label", feil[0].objectPath)
+        assertTrue(feil[0].feilmelding.contains("ugyldige tegn"))
+    }
+
+    @Test
+    fun `valider skal returnere feil når label inneholder anførselstegn`() {
+        val søknad =
+            lagGyldigSøknad().copy(
+                søker =
+                    lagGyldigSøker().copy(
+                        statsborgerskap =
+                            FellesSøknadsfelt(
+                                label = mapOf("nb" to "Test \"verdi\""),
+                                verdi = mapOf("nb" to listOf("NOR")),
+                            ),
+                    ),
+            )
+
+        val feil = BarnetrygdSøknadV10Validator.valider(søknad)
+
+        assertEquals(1, feil.size)
+        assertEquals("søker.statsborgerskap.label", feil[0].objectPath)
+        assertTrue(feil[0].feilmelding.contains("ugyldige tegn"))
+    }
+
+    @Test
+    fun `valider skal returnere feil når v4 Søknadsfelt label inneholder ugyldige tegn`() {
+        val søknad =
+            lagGyldigSøknad().copy(
+                spørsmål =
+                    mapOf(
+                        "testSpørsmål" to
+                            Søknadsfelt(
+                                label = mapOf("nb" to "Test<>verdi"),
+                                verdi = gyldigVerdi,
+                            ),
+                    ),
+            )
+
+        val feil = BarnetrygdSøknadV10Validator.valider(søknad)
+
+        assertEquals(1, feil.size)
+        assertEquals("spørsmål.testSpørsmål.label", feil[0].objectPath)
+        assertTrue(feil[0].feilmelding.contains("ugyldige tegn"))
     }
 
     private fun lagGyldigSøknad() =
@@ -267,13 +352,13 @@ class BarnetrygdSøknadV10ValidatorTest {
 
     private fun lagGyldigSøker() =
         Søker(
-            ident = FellesSøknadsfelt(label = gyldigEtikett, verdi = gyldigVerdi),
+            ident = FellesSøknadsfelt(label = gyldigLabel, verdi = gyldigVerdi),
             harEøsSteg = false,
-            navn = FellesSøknadsfelt(label = gyldigEtikett, verdi = gyldigVerdi),
-            statsborgerskap = FellesSøknadsfelt(label = gyldigEtikett, verdi = mapOf("nb" to listOf("NOR"))),
+            navn = FellesSøknadsfelt(label = gyldigLabel, verdi = gyldigVerdi),
+            statsborgerskap = FellesSøknadsfelt(label = gyldigLabel, verdi = mapOf("nb" to listOf("NOR"))),
             adresse =
                 FellesSøknadsfelt(
-                    label = gyldigEtikett,
+                    label = gyldigLabel,
                     verdi =
                         mapOf(
                             "nb" to
@@ -288,18 +373,18 @@ class BarnetrygdSøknadV10ValidatorTest {
                         ),
                 ),
             adressebeskyttelse = false,
-            sivilstand = FellesSøknadsfelt(label = gyldigEtikett, verdi = mapOf("nb" to SIVILSTANDTYPE.GIFT)),
+            sivilstand = FellesSøknadsfelt(label = gyldigLabel, verdi = mapOf("nb" to SIVILSTANDTYPE.GIFT)),
             spørsmål = emptyMap(),
         )
 
     private fun lagGyldigBarn() =
         Barn(
-            ident = FellesSøknadsfelt(label = gyldigEtikett, verdi = gyldigVerdi),
+            ident = FellesSøknadsfelt(label = gyldigLabel, verdi = gyldigVerdi),
             harEøsSteg = false,
-            navn = FellesSøknadsfelt(label = gyldigEtikett, verdi = gyldigVerdi),
+            navn = FellesSøknadsfelt(label = gyldigLabel, verdi = gyldigVerdi),
             registrertBostedType =
                 FellesSøknadsfelt(
-                    label = gyldigEtikett,
+                    label = gyldigLabel,
                     verdi = mapOf("nb" to RegistrertBostedType.REGISTRERT_SOKERS_ADRESSE),
                 ),
             spørsmål = emptyMap(),

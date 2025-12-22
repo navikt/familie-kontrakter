@@ -336,6 +336,92 @@ class BarnetrygdSøknadV10ValidatorTest {
         assertTrue(feil[0].feilmelding.contains("ugyldige tegn"))
     }
 
+    @Test
+    fun `valider skal returnere feil når verdi inneholder mindre enn tegn`() {
+        val søknad =
+            lagGyldigSøknad().copy(
+                søker =
+                    lagGyldigSøker().copy(
+                        navn =
+                            FellesSøknadsfelt(
+                                label = gyldigLabel,
+                                verdi = mapOf("nb" to "Test < verdi"),
+                            ),
+                    ),
+            )
+
+        val feil = BarnetrygdSøknadV10Validator.valider(søknad)
+
+        assertEquals(1, feil.size)
+        assertEquals("søker.navn.verdi", feil[0].objectPath)
+        assertEquals("nb", feil[0].locale)
+        assertTrue(feil[0].feilmelding.contains("ugyldige tegn"))
+        assertTrue(feil[0].feilmelding.contains("Verdi"))
+    }
+
+    @Test
+    fun `valider skal returnere feil når verdi inneholder større enn tegn`() {
+        val søknad =
+            lagGyldigSøknad().copy(
+                søker =
+                    lagGyldigSøker().copy(
+                        ident =
+                            FellesSøknadsfelt(
+                                label = gyldigLabel,
+                                verdi = mapOf("nb" to "Test > verdi"),
+                            ),
+                    ),
+            )
+
+        val feil = BarnetrygdSøknadV10Validator.valider(søknad)
+
+        assertEquals(1, feil.size)
+        assertEquals("søker.ident.verdi", feil[0].objectPath)
+        assertTrue(feil[0].feilmelding.contains("ugyldige tegn"))
+        assertTrue(feil[0].feilmelding.contains("Verdi"))
+    }
+
+    @Test
+    fun `valider skal returnere feil når verdi inneholder anførselstegn`() {
+        val barn =
+            lagGyldigBarn().copy(
+                navn =
+                    FellesSøknadsfelt(
+                        label = gyldigLabel,
+                        verdi = mapOf("nb" to "Test \"verdi\""),
+                    ),
+            )
+        val søknad = lagGyldigSøknad().copy(barn = listOf(barn))
+
+        val feil = BarnetrygdSøknadV10Validator.valider(søknad)
+
+        assertEquals(1, feil.size)
+        assertEquals("barn[0].navn.verdi", feil[0].objectPath)
+        assertTrue(feil[0].feilmelding.contains("ugyldige tegn"))
+        assertTrue(feil[0].feilmelding.contains("Verdi"))
+    }
+
+    @Test
+    fun `valider skal returnere feil når v4 Søknadsfelt verdi inneholder ugyldige tegn`() {
+        val søknad =
+            lagGyldigSøknad().copy(
+                spørsmål =
+                    mapOf(
+                        "testSpørsmål" to
+                            Søknadsfelt(
+                                label = gyldigLabel,
+                                verdi = mapOf("nb" to "Test<>verdi"),
+                            ),
+                    ),
+            )
+
+        val feil = BarnetrygdSøknadV10Validator.valider(søknad)
+
+        assertEquals(1, feil.size)
+        assertEquals("spørsmål.testSpørsmål.verdi", feil[0].objectPath)
+        assertTrue(feil[0].feilmelding.contains("ugyldige tegn"))
+    }
+
     private fun lagGyldigSøknad() =
         BarnetrygdSøknad(
             kontraktVersjon = 10,

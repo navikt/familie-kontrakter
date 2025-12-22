@@ -180,6 +180,16 @@ class BarnetrygdSøknadV10Validator {
                         ),
                     )
                 }
+
+                if (verdi is String && UGYLDIGE_TEGN_REGEX.containsMatchIn(verdi)) {
+                    feil.add(
+                        Valideringsfeil(
+                            objectPath = "$objectPath.verdi",
+                            locale = locale,
+                            feilmelding = "Verdi inneholder ugyldige tegn: $verdi",
+                        ),
+                    )
+                }
             }
 
             return feil
@@ -221,6 +231,16 @@ class BarnetrygdSøknadV10Validator {
                             objectPath = "$objectPath.verdi",
                             locale = locale,
                             feilmelding = "Verdi overskrider maksimal lengde på $MAKS_LENGDE tegn (faktisk: ${verdi.length})",
+                        ),
+                    )
+                }
+
+                if (verdi is String && UGYLDIGE_TEGN_REGEX.containsMatchIn(verdi)) {
+                    feil.add(
+                        Valideringsfeil(
+                            objectPath = "$objectPath.verdi",
+                            locale = locale,
+                            feilmelding = "Verdi inneholder ugyldige tegn: $verdi",
                         ),
                     )
                 }

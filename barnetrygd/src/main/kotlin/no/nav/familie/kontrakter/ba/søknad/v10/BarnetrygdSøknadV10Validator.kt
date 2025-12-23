@@ -1,27 +1,14 @@
 package no.nav.familie.kontrakter.ba.søknad.v10
 
+import no.nav.familie.kontrakter.ba.søknad.MAKS_LENGDE
+import no.nav.familie.kontrakter.ba.søknad.UGYLDIGE_TEGN_REGEX
+import no.nav.familie.kontrakter.ba.søknad.Valideringsfeil
 import no.nav.familie.kontrakter.ba.søknad.v4.Locale
 import no.nav.familie.kontrakter.ba.søknad.v4.Søknadsfelt
 import no.nav.familie.kontrakter.felles.søknad.Søknadsfelt as FellesSøknadsfelt
 
 class BarnetrygdSøknadV10Validator {
-    /**
-     * Representerer valideringsfeil i søknaden.
-     *
-     * @param objectPath Sti til objektet som feilet validering
-     * @param locale Språket til verdien som feilet validering
-     * @param feilmelding Beskrivelse av valideringsfeilen
-     */
-    data class Valideringsfeil(
-        val objectPath: String,
-        val locale: Locale,
-        val feilmelding: String,
-    )
-
     companion object {
-        private const val MAKS_LENGDE = 200
-        private val UGYLDIGE_TEGN_REGEX = Regex("[<>\"]")
-
         fun valider(søknad: BarnetrygdSøknad): List<Valideringsfeil> {
             val feil = mutableListOf<Valideringsfeil>()
 

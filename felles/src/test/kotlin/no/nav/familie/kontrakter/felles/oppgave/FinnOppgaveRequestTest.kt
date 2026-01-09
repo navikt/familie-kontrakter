@@ -1,9 +1,9 @@
 package no.nav.familie.kontrakter.felles.oppgave
 
-import com.fasterxml.jackson.module.kotlin.readValue
-import no.nav.familie.kontrakter.felles.objectMapper
+import no.nav.familie.kontrakter.felles.jsonMapper
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
+import tools.jackson.module.kotlin.readValue
 
 class FinnOppgaveRequestTest {
     @Test
@@ -37,7 +37,7 @@ class FinnOppgaveRequestTest {
             """.trimIndent()
 
         Assertions.assertDoesNotThrow {
-            objectMapper.readValue<FinnOppgaveRequest>(finnOppgaveRequestString)
+            jsonMapper.readValue<FinnOppgaveRequest>(finnOppgaveRequestString)
         }
     }
 }

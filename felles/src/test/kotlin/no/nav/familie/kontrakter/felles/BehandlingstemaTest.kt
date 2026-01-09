@@ -1,7 +1,7 @@
 package no.nav.familie.kontrakter.felles
 
-import com.fasterxml.jackson.module.kotlin.readValue
 import org.junit.jupiter.api.Test
+import tools.jackson.module.kotlin.readValue
 import kotlin.test.assertEquals
 
 internal class BehandlingstemaTest {
@@ -19,11 +19,11 @@ internal class BehandlingstemaTest {
     internal fun `serialisering av behandlingstema skal gi value`() {
         assertEquals(
             asJsonList(Behandlingstema.Barnetilsyn.value),
-            objectMapper.writeValueAsString(listOf(Behandlingstema.Barnetilsyn)),
+            jsonMapper.writeValueAsString(listOf(Behandlingstema.Barnetilsyn)),
         )
     }
 
-    private fun readJsonString(s: String) = objectMapper.readValue<List<Behandlingstema>>(asJsonList(s))
+    private fun readJsonString(s: String) = jsonMapper.readValue<List<Behandlingstema>>(asJsonList(s))
 
     private fun asJsonList(s: String) = "[\"$s\"]"
 }

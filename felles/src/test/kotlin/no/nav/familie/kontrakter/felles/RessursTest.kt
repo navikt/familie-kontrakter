@@ -1,12 +1,10 @@
 package no.nav.familie.kontrakter.felles
 
-import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.databind.SerializationFeature
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import no.nav.familie.kontrakter.felles.Ressurs.Companion.failure
 import no.nav.familie.kontrakter.felles.Ressurs.Companion.success
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
+import tools.jackson.databind.json.JsonMapper
 import java.time.LocalDate
 
 class RessursTest {
@@ -35,9 +33,7 @@ class RessursTest {
         val ressurs: Ressurs<*> = success("a", "OK")
         Assertions.assertEquals(
             "{\"data\":\"a\",\"status\":\"SUKSESS\",\"melding\":\"OK\",\"frontendFeilmelding\":null,\"stacktrace\":null,\"callId\":null}",
-            ObjectMapper()
-                .registerModule(JavaTimeModule())
-                .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false)
+            JsonMapper()
                 .writeValueAsString(ressurs),
         )
     }

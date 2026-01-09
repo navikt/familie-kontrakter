@@ -1,8 +1,8 @@
 package no.nav.familie.kontrakter.ks.søknad.testdata
 
-import com.fasterxml.jackson.databind.ObjectMapper
 import no.nav.familie.kontrakter.ks.søknad.Søknad
 import no.nav.familie.kontrakter.ks.søknad.toSøknad
+import tools.jackson.databind.ObjectMapper
 
 class SøknadTestdata {
     companion object {

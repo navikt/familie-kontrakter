@@ -92,7 +92,7 @@ data class Ressurs<T>(
         }
     }
 
-    fun toJson(): String = objectMapper.writeValueAsString(this)
+    fun toJson(): String = jsonMapper.writeValueAsString(this)
 
     override fun toString(): String = "Ressurs(status=$status, melding='$melding')"
 

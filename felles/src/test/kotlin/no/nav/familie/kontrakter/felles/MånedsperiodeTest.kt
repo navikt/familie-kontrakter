@@ -1,8 +1,8 @@
 package no.nav.familie.kontrakter.felles
 
-import com.fasterxml.jackson.module.kotlin.readValue
 import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.Test
+import tools.jackson.module.kotlin.readValue
 import java.time.LocalDate
 import java.time.YearMonth
 
@@ -11,9 +11,9 @@ internal class MånedsperiodeTest {
     fun `Månedsperiode serialiserer og deserialiserer riktig ved tidenes morgen`() {
         val månedsperiode = Månedsperiode(LocalDate.MIN, LocalDate.MIN)
 
-        val writeValueAsString = objectMapper.writeValueAsString(månedsperiode)
+        val writeValueAsString = jsonMapper.writeValueAsString(månedsperiode)
 
-        val deserialisert = objectMapper.readValue<Månedsperiode>(writeValueAsString)
+        val deserialisert = jsonMapper.readValue<Månedsperiode>(writeValueAsString)
 
         månedsperiode shouldBe deserialisert
     }
@@ -22,9 +22,9 @@ internal class MånedsperiodeTest {
     fun `Månedsperiode serialiserer og deserialiserer riktig ved tidenes ende`() {
         val månedsperiode = Månedsperiode(LocalDate.MAX, LocalDate.MAX)
 
-        val writeValueAsString = objectMapper.writeValueAsString(månedsperiode)
+        val writeValueAsString = jsonMapper.writeValueAsString(månedsperiode)
 
-        val deserialisert = objectMapper.readValue<Månedsperiode>(writeValueAsString)
+        val deserialisert = jsonMapper.readValue<Månedsperiode>(writeValueAsString)
 
         månedsperiode shouldBe deserialisert
     }
@@ -33,9 +33,9 @@ internal class MånedsperiodeTest {
     fun `Månedsperiode serialiserer og deserialiserer riktig ved år 0`() {
         val månedsperiode = Månedsperiode(YearMonth.of(0, 1), YearMonth.of(0, 1))
 
-        val writeValueAsString = objectMapper.writeValueAsString(månedsperiode)
+        val writeValueAsString = jsonMapper.writeValueAsString(månedsperiode)
 
-        val deserialisert = objectMapper.readValue<Månedsperiode>(writeValueAsString)
+        val deserialisert = jsonMapper.readValue<Månedsperiode>(writeValueAsString)
 
         månedsperiode shouldBe deserialisert
     }

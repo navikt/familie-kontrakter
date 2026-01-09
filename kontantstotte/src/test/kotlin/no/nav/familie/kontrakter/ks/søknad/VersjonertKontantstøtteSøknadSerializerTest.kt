@@ -1,10 +1,10 @@
 package no.nav.familie.kontrakter.ks.søknad
 
-import com.fasterxml.jackson.module.kotlin.readValue
-import no.nav.familie.kontrakter.felles.objectMapper
+import no.nav.familie.kontrakter.felles.jsonMapper
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertDoesNotThrow
+import tools.jackson.module.kotlin.readValue
 
 class VersjonertKontantstøtteSøknadSerializerTest {
     @Nested
@@ -13,13 +13,13 @@ class VersjonertKontantstøtteSøknadSerializerTest {
         fun `skal kunne deserialisere og serialisere VersjonertKontantstøtteSøknad kontraktversjon er 6`() {
             // Arrange
             val kontantstøtteSøknadV6 = lagKontantstøtteSøknadV6("12345678910", "12345678911")
-            val søknadJson = objectMapper.writeValueAsString(kontantstøtteSøknadV6)
+            val søknadJson = jsonMapper.writeValueAsString(kontantstøtteSøknadV6)
 
             // Act & Assert
             assertDoesNotThrow {
-                val versjonertKontantstøtteSøknad = objectMapper.readValue<VersjonertKontantstøtteSøknad>(søknadJson)
-                val versjonertJson = objectMapper.writeValueAsString(versjonertKontantstøtteSøknad)
-                objectMapper.readValue<VersjonertKontantstøtteSøknad>(versjonertJson)
+                val versjonertKontantstøtteSøknad = jsonMapper.readValue<VersjonertKontantstøtteSøknad>(søknadJson)
+                val versjonertJson = jsonMapper.writeValueAsString(versjonertKontantstøtteSøknad)
+                jsonMapper.readValue<VersjonertKontantstøtteSøknad>(versjonertJson)
             }
         }
 
@@ -27,13 +27,13 @@ class VersjonertKontantstøtteSøknadSerializerTest {
         fun `skal kunne deserialisere og serialisere VersjonertKontantstøtteSøknad kontraktversjon er 5`() {
             // Arrange
             val kontantstøtteSøknadV5 = lagKontantstøtteSøknadV5("12345678910", "12345678911")
-            val søknadJson = objectMapper.writeValueAsString(kontantstøtteSøknadV5)
+            val søknadJson = jsonMapper.writeValueAsString(kontantstøtteSøknadV5)
 
             // Act & Assert
             assertDoesNotThrow {
-                val versjonertKontantstøtteSøknad = objectMapper.readValue<VersjonertKontantstøtteSøknad>(søknadJson)
-                val versjonertJson = objectMapper.writeValueAsString(versjonertKontantstøtteSøknad)
-                objectMapper.readValue<VersjonertKontantstøtteSøknad>(versjonertJson)
+                val versjonertKontantstøtteSøknad = jsonMapper.readValue<VersjonertKontantstøtteSøknad>(søknadJson)
+                val versjonertJson = jsonMapper.writeValueAsString(versjonertKontantstøtteSøknad)
+                jsonMapper.readValue<VersjonertKontantstøtteSøknad>(versjonertJson)
             }
         }
 
@@ -41,13 +41,13 @@ class VersjonertKontantstøtteSøknadSerializerTest {
         fun `skal kunne deserialisere og serialisere VersjonertKontantstøtteSøknad kontraktversjon er 4`() {
             // Arrange
             val kontantstøtteSøknadV4 = lagKontantstøtteSøknadV4("12345678910", "12345678911")
-            val søknadJson = objectMapper.writeValueAsString(kontantstøtteSøknadV4)
+            val søknadJson = jsonMapper.writeValueAsString(kontantstøtteSøknadV4)
 
             // Act & Assert
             assertDoesNotThrow {
-                val versjonertKontantstøtteSøknad = objectMapper.readValue<VersjonertKontantstøtteSøknad>(søknadJson)
-                val versjonertJson = objectMapper.writeValueAsString(versjonertKontantstøtteSøknad)
-                objectMapper.readValue<VersjonertKontantstøtteSøknad>(versjonertJson)
+                val versjonertKontantstøtteSøknad = jsonMapper.readValue<VersjonertKontantstøtteSøknad>(søknadJson)
+                val versjonertJson = jsonMapper.writeValueAsString(versjonertKontantstøtteSøknad)
+                jsonMapper.readValue<VersjonertKontantstøtteSøknad>(versjonertJson)
             }
         }
 
@@ -55,13 +55,13 @@ class VersjonertKontantstøtteSøknadSerializerTest {
         @Test
         fun `skal kunne deserialisere og serialisere VersjonertKontantstøtteSøknad kontraktversjon er 3`() {
             val kontantstøtteSøknadV3 = lagKontantstøtteSøknadV3("12345678910", "12345678911")
-            val søknadJson = objectMapper.writeValueAsString(kontantstøtteSøknadV3)
+            val søknadJson = jsonMapper.writeValueAsString(kontantstøtteSøknadV3)
 
             // Act & Assert
             assertDoesNotThrow {
-                val versjonertKontantstøtteSøknad = objectMapper.readValue<VersjonertKontantstøtteSøknad>(søknadJson)
-                val versjonertJson = objectMapper.writeValueAsString(versjonertKontantstøtteSøknad)
-                objectMapper.readValue<VersjonertKontantstøtteSøknad>(versjonertJson)
+                val versjonertKontantstøtteSøknad = jsonMapper.readValue<VersjonertKontantstøtteSøknad>(søknadJson)
+                val versjonertJson = jsonMapper.writeValueAsString(versjonertKontantstøtteSøknad)
+                jsonMapper.readValue<VersjonertKontantstøtteSøknad>(versjonertJson)
             }
         }
 
@@ -69,13 +69,13 @@ class VersjonertKontantstøtteSøknadSerializerTest {
         fun `skal kunne deserialisere og serialisere VersjonertKontantstøtteSøknad kontraktversjon er 2`() {
             // Arrange
             val kontantstøtteSøknadV2 = lagKontantstøtteSøknadV2("12345678910", "12345678911")
-            val søknadJson = objectMapper.writeValueAsString(kontantstøtteSøknadV2)
+            val søknadJson = jsonMapper.writeValueAsString(kontantstøtteSøknadV2)
 
             // Act & Assert
             assertDoesNotThrow {
-                val versjonertKontantstøtteSøknad = objectMapper.readValue<VersjonertKontantstøtteSøknad>(søknadJson)
-                val versjonertJson = objectMapper.writeValueAsString(versjonertKontantstøtteSøknad)
-                objectMapper.readValue<VersjonertKontantstøtteSøknad>(versjonertJson)
+                val versjonertKontantstøtteSøknad = jsonMapper.readValue<VersjonertKontantstøtteSøknad>(søknadJson)
+                val versjonertJson = jsonMapper.writeValueAsString(versjonertKontantstøtteSøknad)
+                jsonMapper.readValue<VersjonertKontantstøtteSøknad>(versjonertJson)
             }
         }
 
@@ -83,13 +83,13 @@ class VersjonertKontantstøtteSøknadSerializerTest {
         fun `skal kunne deserialisere og serialisere VersjonertKontantstøtteSøknad kontraktversjon er 1`() {
             // Arrange
             val kontantstøtteSøknadV1 = lagKontantstøtteSøknadV1("12345678910", "12345678911")
-            val søknadJson = objectMapper.writeValueAsString(kontantstøtteSøknadV1)
+            val søknadJson = jsonMapper.writeValueAsString(kontantstøtteSøknadV1)
 
             // Act & Assert
             assertDoesNotThrow {
-                val versjonertKontantstøtteSøknad = objectMapper.readValue<VersjonertKontantstøtteSøknad>(søknadJson)
-                val versjonertJson = objectMapper.writeValueAsString(versjonertKontantstøtteSøknad)
-                objectMapper.readValue<VersjonertKontantstøtteSøknad>(versjonertJson)
+                val versjonertKontantstøtteSøknad = jsonMapper.readValue<VersjonertKontantstøtteSøknad>(søknadJson)
+                val versjonertJson = jsonMapper.writeValueAsString(versjonertKontantstøtteSøknad)
+                jsonMapper.readValue<VersjonertKontantstøtteSøknad>(versjonertJson)
             }
         }
     }
@@ -100,13 +100,13 @@ class VersjonertKontantstøtteSøknadSerializerTest {
         fun `skal kunne deserialisere og serialisere StøttetVersjonertKontantstøtteSøknad hvis kontraktversjon er 6`() {
             // Arrange
             val kontantstøtteSøknadV6 = lagKontantstøtteSøknadV6("12345678910", "12345678911")
-            val søknadJson = objectMapper.writeValueAsString(kontantstøtteSøknadV6)
+            val søknadJson = jsonMapper.writeValueAsString(kontantstøtteSøknadV6)
 
             // Act & Assert
             assertDoesNotThrow {
-                val støttetVersjonertKontantStøtte = objectMapper.readValue<StøttetVersjonertKontantstøtteSøknad>(søknadJson)
-                val versjonertJson = objectMapper.writeValueAsString(støttetVersjonertKontantStøtte)
-                objectMapper.readValue<StøttetVersjonertKontantstøtteSøknad>(versjonertJson)
+                val støttetVersjonertKontantStøtte = jsonMapper.readValue<StøttetVersjonertKontantstøtteSøknad>(søknadJson)
+                val versjonertJson = jsonMapper.writeValueAsString(støttetVersjonertKontantStøtte)
+                jsonMapper.readValue<StøttetVersjonertKontantstøtteSøknad>(versjonertJson)
             }
         }
 
@@ -114,13 +114,13 @@ class VersjonertKontantstøtteSøknadSerializerTest {
         fun `skal kunne deserialisere og serialisere StøttetVersjonertKontantstøtteSøknad hvis kontraktversjon er 5`() {
             // Arrange
             val kontantstøtteSøknadV5 = lagKontantstøtteSøknadV5("12345678910", "12345678911")
-            val søknadJson = objectMapper.writeValueAsString(kontantstøtteSøknadV5)
+            val søknadJson = jsonMapper.writeValueAsString(kontantstøtteSøknadV5)
 
             // Act & Assert
             assertDoesNotThrow {
-                val støttetVersjonertKontantStøtte = objectMapper.readValue<StøttetVersjonertKontantstøtteSøknad>(søknadJson)
-                val versjonertJson = objectMapper.writeValueAsString(støttetVersjonertKontantStøtte)
-                objectMapper.readValue<StøttetVersjonertKontantstøtteSøknad>(versjonertJson)
+                val støttetVersjonertKontantStøtte = jsonMapper.readValue<StøttetVersjonertKontantstøtteSøknad>(søknadJson)
+                val versjonertJson = jsonMapper.writeValueAsString(støttetVersjonertKontantStøtte)
+                jsonMapper.readValue<StøttetVersjonertKontantstøtteSøknad>(versjonertJson)
             }
         }
 
@@ -128,13 +128,13 @@ class VersjonertKontantstøtteSøknadSerializerTest {
         fun `skal kunne deserialisere og serialisere StøttetVersjonertKontantstøtteSøknad hvis kontraktversjon er 4`() {
             // Arrange
             val kontantstøtteSøknadV4 = lagKontantstøtteSøknadV4("12345678910", "12345678911")
-            val søknadJson = objectMapper.writeValueAsString(kontantstøtteSøknadV4)
+            val søknadJson = jsonMapper.writeValueAsString(kontantstøtteSøknadV4)
 
             // Act & Assert
             assertDoesNotThrow {
-                val støttetVersjonertKontantStøtte = objectMapper.readValue<StøttetVersjonertKontantstøtteSøknad>(søknadJson)
-                val versjonertJson = objectMapper.writeValueAsString(støttetVersjonertKontantStøtte)
-                objectMapper.readValue<StøttetVersjonertKontantstøtteSøknad>(versjonertJson)
+                val støttetVersjonertKontantStøtte = jsonMapper.readValue<StøttetVersjonertKontantstøtteSøknad>(søknadJson)
+                val versjonertJson = jsonMapper.writeValueAsString(støttetVersjonertKontantStøtte)
+                jsonMapper.readValue<StøttetVersjonertKontantstøtteSøknad>(versjonertJson)
             }
         }
     }

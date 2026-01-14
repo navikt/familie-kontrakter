@@ -48,6 +48,9 @@
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <jvmTarget>${jdk.version}</jvmTarget>
+                </configuration>
             </plugin>
         </plugins>
     </build>

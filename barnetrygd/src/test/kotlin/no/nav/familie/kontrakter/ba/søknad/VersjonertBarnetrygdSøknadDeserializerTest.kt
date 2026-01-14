@@ -1,7 +1,6 @@
 package no.nav.familie.kontrakter.ba.søknad
 
-import com.fasterxml.jackson.module.kotlin.readValue
-import no.nav.familie.kontrakter.felles.objectMapper
+import no.nav.familie.kontrakter.felles.jsonMapper
 import no.nav.familie.kontrakter.felles.søknad.MissingVersionException
 import no.nav.familie.kontrakter.felles.søknad.UnsupportedVersionException
 import org.junit.jupiter.api.Assertions.assertEquals
@@ -9,6 +8,7 @@ import org.junit.jupiter.api.Assertions.assertNotNull
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
+import tools.jackson.module.kotlin.readValue
 
 class VersjonertBarnetrygdSøknadDeserializerTest {
     @Test
@@ -17,10 +17,10 @@ class VersjonertBarnetrygdSøknadDeserializerTest {
         val søkerFnr = "12345678910"
         val barnFnr = "12345678911"
         val barnetrygdSøknadV10 = lagBarnetrygdSøknadV10(søkerFnr, barnFnr)
-        val søknadJson = objectMapper.writeValueAsString(barnetrygdSøknadV10)
+        val søknadJson = jsonMapper.writeValueAsString(barnetrygdSøknadV10)
 
         // Act
-        val versjonertBarnetrygdSøknad = objectMapper.readValue<VersjonertBarnetrygdSøknad>(søknadJson)
+        val versjonertBarnetrygdSøknad = jsonMapper.readValue<VersjonertBarnetrygdSøknad>(søknadJson)
 
         // Assert
         assertNotNull(versjonertBarnetrygdSøknad)
@@ -39,10 +39,10 @@ class VersjonertBarnetrygdSøknadDeserializerTest {
         val søkerFnr = "12345678910"
         val barnFnr = "12345678911"
         val barnetrygdSøknadV10 = lagBarnetrygdSøknadV10(søkerFnr, barnFnr)
-        val søknadJson = objectMapper.writeValueAsString(barnetrygdSøknadV10)
+        val søknadJson = jsonMapper.writeValueAsString(barnetrygdSøknadV10)
 
         // Act
-        val versjonertBarnetrygdSøknad = objectMapper.readValue<StøttetVersjonertBarnetrygdSøknad>(søknadJson)
+        val versjonertBarnetrygdSøknad = jsonMapper.readValue<StøttetVersjonertBarnetrygdSøknad>(søknadJson)
 
         // Assert
         assertNotNull(versjonertBarnetrygdSøknad)
@@ -61,10 +61,10 @@ class VersjonertBarnetrygdSøknadDeserializerTest {
         val søkerFnr = "12345678910"
         val barnFnr = "12345678911"
         val barnetrygdSøknadV9 = lagBarnetrygdSøknadV9(søkerFnr, barnFnr)
-        val søknadJson = objectMapper.writeValueAsString(barnetrygdSøknadV9)
+        val søknadJson = jsonMapper.writeValueAsString(barnetrygdSøknadV9)
 
         // Act
-        val versjonertBarnetrygdSøknad = objectMapper.readValue<VersjonertBarnetrygdSøknad>(søknadJson)
+        val versjonertBarnetrygdSøknad = jsonMapper.readValue<VersjonertBarnetrygdSøknad>(søknadJson)
 
         // Assert
         assertNotNull(versjonertBarnetrygdSøknad)
@@ -83,10 +83,10 @@ class VersjonertBarnetrygdSøknadDeserializerTest {
         val søkerFnr = "12345678910"
         val barnFnr = "12345678911"
         val barnetrygdSøknadV9 = lagBarnetrygdSøknadV9(søkerFnr, barnFnr)
-        val søknadJson = objectMapper.writeValueAsString(barnetrygdSøknadV9)
+        val søknadJson = jsonMapper.writeValueAsString(barnetrygdSøknadV9)
 
         // Act
-        val versjonertBarnetrygdSøknad = objectMapper.readValue<StøttetVersjonertBarnetrygdSøknad>(søknadJson)
+        val versjonertBarnetrygdSøknad = jsonMapper.readValue<StøttetVersjonertBarnetrygdSøknad>(søknadJson)
 
         // Assert
         assertNotNull(versjonertBarnetrygdSøknad)
@@ -105,10 +105,10 @@ class VersjonertBarnetrygdSøknadDeserializerTest {
         val søkerFnr = "12345678910"
         val barnFnr = "12345678911"
         val barnetrygdSøknadV8 = lagBarnetrygdSøknadV8(søkerFnr, barnFnr)
-        val søknadJson = objectMapper.writeValueAsString(barnetrygdSøknadV8)
+        val søknadJson = jsonMapper.writeValueAsString(barnetrygdSøknadV8)
 
         // Act
-        val versjonertBarnetrygdSøknad = objectMapper.readValue<VersjonertBarnetrygdSøknad>(søknadJson)
+        val versjonertBarnetrygdSøknad = jsonMapper.readValue<VersjonertBarnetrygdSøknad>(søknadJson)
 
         // Assert
         assertNotNull(versjonertBarnetrygdSøknad)
@@ -127,10 +127,10 @@ class VersjonertBarnetrygdSøknadDeserializerTest {
         val søkerFnr = "12345678910"
         val barnFnr = "12345678911"
         val barnetrygdSøknadV8 = lagBarnetrygdSøknadV8(søkerFnr, barnFnr)
-        val søknadJson = objectMapper.writeValueAsString(barnetrygdSøknadV8)
+        val søknadJson = jsonMapper.writeValueAsString(barnetrygdSøknadV8)
 
         // Act
-        val versjonertBarnetrygdSøknad = objectMapper.readValue<StøttetVersjonertBarnetrygdSøknad>(søknadJson)
+        val versjonertBarnetrygdSøknad = jsonMapper.readValue<StøttetVersjonertBarnetrygdSøknad>(søknadJson)
 
         // Assert
         assertNotNull(versjonertBarnetrygdSøknad)
@@ -149,10 +149,10 @@ class VersjonertBarnetrygdSøknadDeserializerTest {
         val søkerFnr = "12345678910"
         val barnFnr = "12345678911"
         val barnetrygdSøknadV7 = lagBarnetrygdSøknadV7(søkerFnr, barnFnr)
-        val søknadJson = objectMapper.writeValueAsString(barnetrygdSøknadV7)
+        val søknadJson = jsonMapper.writeValueAsString(barnetrygdSøknadV7)
 
         // Act
-        val versjonertBarnetrygdSøknad = objectMapper.readValue<VersjonertBarnetrygdSøknad>(søknadJson)
+        val versjonertBarnetrygdSøknad = jsonMapper.readValue<VersjonertBarnetrygdSøknad>(søknadJson)
 
         // Assert
         assertNotNull(versjonertBarnetrygdSøknad)
@@ -172,7 +172,7 @@ class VersjonertBarnetrygdSøknadDeserializerTest {
 
         // Act & Assert
         val missingVersionException =
-            assertThrows<MissingVersionException> { objectMapper.readValue<VersjonertBarnetrygdSøknad>(jsonString) }
+            assertThrows<MissingVersionException> { jsonMapper.readValue<VersjonertBarnetrygdSøknad>(jsonString) }
         assertEquals(
             "JSON-string mangler feltet 'kontraktVersjon' og kan ikke deserialiseres. $jsonString",
             missingVersionException.message,
@@ -186,7 +186,7 @@ class VersjonertBarnetrygdSøknadDeserializerTest {
 
         // Act & Assert
         val unsupportedVersionException =
-            assertThrows<UnsupportedVersionException> { objectMapper.readValue<VersjonertBarnetrygdSøknad>(jsonString) }
+            assertThrows<UnsupportedVersionException> { jsonMapper.readValue<VersjonertBarnetrygdSøknad>(jsonString) }
         assertEquals(
             "Mangler implementasjon for versjon: 100 av BarnetrygdSøknad.",
             unsupportedVersionException.message,

@@ -1,7 +1,6 @@
 package no.nav.familie.kontrakter.ks.søknad
 
-import com.fasterxml.jackson.module.kotlin.readValue
-import no.nav.familie.kontrakter.felles.objectMapper
+import no.nav.familie.kontrakter.felles.jsonMapper
 import no.nav.familie.kontrakter.felles.søknad.MissingVersionException
 import no.nav.familie.kontrakter.felles.søknad.UnsupportedVersionException
 import org.junit.jupiter.api.Assertions.assertEquals
@@ -9,6 +8,7 @@ import org.junit.jupiter.api.Assertions.assertNotNull
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
+import tools.jackson.module.kotlin.readValue
 
 class VersjonertKontantstøtteSøknadDeserializerTest {
     @Test
@@ -17,10 +17,10 @@ class VersjonertKontantstøtteSøknadDeserializerTest {
         val søkerFnr = "12345678910"
         val barnFnr = "12345678911"
         val kontantstøtteSøknadV6 = lagKontantstøtteSøknadV6(søkerFnr, barnFnr)
-        val søknadJson = objectMapper.writeValueAsString(kontantstøtteSøknadV6)
+        val søknadJson = jsonMapper.writeValueAsString(kontantstøtteSøknadV6)
 
         // Act
-        val versjonertKontantstøtteSøknad = objectMapper.readValue<VersjonertKontantstøtteSøknad>(søknadJson)
+        val versjonertKontantstøtteSøknad = jsonMapper.readValue<VersjonertKontantstøtteSøknad>(søknadJson)
 
         // Assert
         assertNotNull(versjonertKontantstøtteSøknad)
@@ -39,10 +39,10 @@ class VersjonertKontantstøtteSøknadDeserializerTest {
         val søkerFnr = "12345678910"
         val barnFnr = "12345678911"
         val kontantstøtteSøknadV5 = lagKontantstøtteSøknadV5(søkerFnr, barnFnr)
-        val søknadJson = objectMapper.writeValueAsString(kontantstøtteSøknadV5)
+        val søknadJson = jsonMapper.writeValueAsString(kontantstøtteSøknadV5)
 
         // Act
-        val versjonertKontantstøtteSøknad = objectMapper.readValue<VersjonertKontantstøtteSøknad>(søknadJson)
+        val versjonertKontantstøtteSøknad = jsonMapper.readValue<VersjonertKontantstøtteSøknad>(søknadJson)
 
         // Assert
         assertNotNull(versjonertKontantstøtteSøknad)
@@ -61,10 +61,10 @@ class VersjonertKontantstøtteSøknadDeserializerTest {
         val søkerFnr = "12345678910"
         val barnFnr = "12345678911"
         val kontantstøtteSøknadV6 = lagKontantstøtteSøknadV6(søkerFnr, barnFnr)
-        val søknadJson = objectMapper.writeValueAsString(kontantstøtteSøknadV6)
+        val søknadJson = jsonMapper.writeValueAsString(kontantstøtteSøknadV6)
 
         // Act
-        val versjonertKontantstøtteSøknad = objectMapper.readValue<StøttetVersjonertKontantstøtteSøknad>(søknadJson)
+        val versjonertKontantstøtteSøknad = jsonMapper.readValue<StøttetVersjonertKontantstøtteSøknad>(søknadJson)
 
         // Assert
         assertNotNull(versjonertKontantstøtteSøknad)
@@ -83,10 +83,10 @@ class VersjonertKontantstøtteSøknadDeserializerTest {
         val søkerFnr = "12345678910"
         val barnFnr = "12345678911"
         val kontantstøtteSøknadV5 = lagKontantstøtteSøknadV5(søkerFnr, barnFnr)
-        val søknadJson = objectMapper.writeValueAsString(kontantstøtteSøknadV5)
+        val søknadJson = jsonMapper.writeValueAsString(kontantstøtteSøknadV5)
 
         // Act
-        val versjonertKontantstøtteSøknad = objectMapper.readValue<StøttetVersjonertKontantstøtteSøknad>(søknadJson)
+        val versjonertKontantstøtteSøknad = jsonMapper.readValue<StøttetVersjonertKontantstøtteSøknad>(søknadJson)
 
         // Assert
         assertNotNull(versjonertKontantstøtteSøknad)
@@ -105,10 +105,10 @@ class VersjonertKontantstøtteSøknadDeserializerTest {
         val søkerFnr = "12345678910"
         val barnFnr = "12345678911"
         val kontantstøtteSøknadV4 = lagKontantstøtteSøknadV4(søkerFnr, barnFnr)
-        val søknadJson = objectMapper.writeValueAsString(kontantstøtteSøknadV4)
+        val søknadJson = jsonMapper.writeValueAsString(kontantstøtteSøknadV4)
 
         // Act
-        val versjonertKontantstøtteSøknad = objectMapper.readValue<VersjonertKontantstøtteSøknad>(søknadJson)
+        val versjonertKontantstøtteSøknad = jsonMapper.readValue<VersjonertKontantstøtteSøknad>(søknadJson)
 
         // Assert
         assertNotNull(versjonertKontantstøtteSøknad)
@@ -127,10 +127,10 @@ class VersjonertKontantstøtteSøknadDeserializerTest {
         val søkerFnr = "12345678910"
         val barnFnr = "12345678911"
         val kontantstøtteSøknadV4 = lagKontantstøtteSøknadV4(søkerFnr, barnFnr)
-        val søknadJson = objectMapper.writeValueAsString(kontantstøtteSøknadV4)
+        val søknadJson = jsonMapper.writeValueAsString(kontantstøtteSøknadV4)
 
         // Act
-        val versjonertKontantstøtteSøknad = objectMapper.readValue<StøttetVersjonertKontantstøtteSøknad>(søknadJson)
+        val versjonertKontantstøtteSøknad = jsonMapper.readValue<StøttetVersjonertKontantstøtteSøknad>(søknadJson)
 
         // Assert
         assertNotNull(versjonertKontantstøtteSøknad)
@@ -150,10 +150,10 @@ class VersjonertKontantstøtteSøknadDeserializerTest {
         val barnFnr = "12345678911"
         val kontantstøtteSøknadV3 = lagKontantstøtteSøknadV3(søkerFnr, barnFnr)
 
-        val søknadJson = objectMapper.writeValueAsString(kontantstøtteSøknadV3)
+        val søknadJson = jsonMapper.writeValueAsString(kontantstøtteSøknadV3)
 
         // Act
-        val versjonertKontantstøtteSøknad = objectMapper.readValue<VersjonertKontantstøtteSøknad>(søknadJson)
+        val versjonertKontantstøtteSøknad = jsonMapper.readValue<VersjonertKontantstøtteSøknad>(søknadJson)
 
         // Assert
         assertNotNull(versjonertKontantstøtteSøknad)
@@ -172,10 +172,10 @@ class VersjonertKontantstøtteSøknadDeserializerTest {
         val søkerFnr = "12345678910"
         val barnFnr = "12345678911"
         val kontantstøtteSøknadV2 = lagKontantstøtteSøknadV2(søkerFnr, barnFnr)
-        val søknadJson = objectMapper.writeValueAsString(kontantstøtteSøknadV2)
+        val søknadJson = jsonMapper.writeValueAsString(kontantstøtteSøknadV2)
 
         // Act
-        val versjonertKontantstøtteSøknad = objectMapper.readValue<VersjonertKontantstøtteSøknad>(søknadJson)
+        val versjonertKontantstøtteSøknad = jsonMapper.readValue<VersjonertKontantstøtteSøknad>(søknadJson)
 
         // Assert
         assertNotNull(versjonertKontantstøtteSøknad)
@@ -194,10 +194,10 @@ class VersjonertKontantstøtteSøknadDeserializerTest {
         val søkerFnr = "12345678910"
         val barnFnr = "12345678911"
         val kontantstøtteSøknadV1 = lagKontantstøtteSøknadV1(søkerFnr, barnFnr)
-        val søknadJson = objectMapper.writeValueAsString(kontantstøtteSøknadV1)
+        val søknadJson = jsonMapper.writeValueAsString(kontantstøtteSøknadV1)
 
         // Act
-        val versjonertKontantstøtteSøknad = objectMapper.readValue<VersjonertKontantstøtteSøknad>(søknadJson)
+        val versjonertKontantstøtteSøknad = jsonMapper.readValue<VersjonertKontantstøtteSøknad>(søknadJson)
 
         // Assert
         assertNotNull(versjonertKontantstøtteSøknad)
@@ -217,7 +217,7 @@ class VersjonertKontantstøtteSøknadDeserializerTest {
 
         // Act & Assert
         val missingVersionException =
-            assertThrows<MissingVersionException> { objectMapper.readValue<VersjonertKontantstøtteSøknad>(jsonString) }
+            assertThrows<MissingVersionException> { jsonMapper.readValue<VersjonertKontantstøtteSøknad>(jsonString) }
         assertEquals(
             "JSON-string mangler feltet 'kontraktVersjon' og kan ikke deserialiseres. $jsonString",
             missingVersionException.message,
@@ -231,7 +231,7 @@ class VersjonertKontantstøtteSøknadDeserializerTest {
 
         // Act & Assert
         val unsupportedVersionException =
-            assertThrows<UnsupportedVersionException> { objectMapper.readValue<VersjonertKontantstøtteSøknad>(jsonString) }
+            assertThrows<UnsupportedVersionException> { jsonMapper.readValue<VersjonertKontantstøtteSøknad>(jsonString) }
         assertEquals(
             "Mangler implementasjon for versjon: 100 av KontantstøtteSøknad.",
             unsupportedVersionException.message,

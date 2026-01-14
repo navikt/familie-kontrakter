@@ -32,7 +32,7 @@ class RessursTest {
     fun `skal konvertere success til json string med vanlig objektmapper`() {
         val ressurs: Ressurs<*> = success("a", "OK")
         Assertions.assertEquals(
-            "{\"data\":\"a\",\"status\":\"SUKSESS\",\"melding\":\"OK\",\"frontendFeilmelding\":null,\"stacktrace\":null,\"callId\":null}",
+            """{"callId":null,"data":"a","frontendFeilmelding":null,"melding":"OK","stacktrace":null,"status":"SUKSESS"}""",
             JsonMapper()
                 .writeValueAsString(ressurs),
         )

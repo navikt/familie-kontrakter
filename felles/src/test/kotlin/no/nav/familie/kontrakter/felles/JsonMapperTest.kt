@@ -1,5 +1,7 @@
 package no.nav.familie.kontrakter.felles
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect
+import com.fasterxml.jackson.annotation.JsonProperty
 import org.junit.jupiter.api.Assertions.assertDoesNotThrow
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
@@ -12,6 +14,11 @@ import kotlin.jvm.java
 
 data class TestData(
     val field: String,
+)
+
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
+data class TestDataMedNorskeTegn(
+    val år: String,
 )
 
 class EmptyBean
@@ -125,5 +132,15 @@ class JsonMapperTest {
         val dateTime = ZonedDateTime.of(2024, 6, 1, 1, 1, 42, 32, ZoneId.of("Europe/Oslo"))
         val json = jsonMapper.writeValueAsString(dateTime)
         assertEquals("\"2024-06-01T01:01:42.000000032+02:00\"", json)
+    }
+
+    @Test
+    fun `skal deserialisere norske tegn`() {
+        val data = TestDataMedNorskeTegn("2024")
+        val json = jsonMapper.writeValueAsString(data)
+        assertEquals("""{"år":"2024"}""", json)
+
+        val deserialized = jsonMapper.readValue(json, TestDataMedNorskeTegn::class.java)
+        assertEquals(data, deserialized)
     }
 }

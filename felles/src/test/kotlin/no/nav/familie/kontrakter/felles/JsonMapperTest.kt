@@ -1,7 +1,6 @@
 package no.nav.familie.kontrakter.felles
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect
-import com.fasterxml.jackson.annotation.JsonProperty
 import org.junit.jupiter.api.Assertions.assertDoesNotThrow
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
@@ -10,15 +9,19 @@ import java.time.LocalDateTime
 import java.time.YearMonth
 import java.time.ZoneId
 import java.time.ZonedDateTime
-import kotlin.jvm.java
 
 data class TestData(
     val field: String,
 )
 
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
-data class TestDataMedNorskeTegn(
+data class TestDataMedKeySomBegynnerMedNorskeTegn(
     val år: String,
+    val felt: String,
+)
+
+data class TestDataMedNorskeTegnIKey(
+    val søknad: String,
 )
 
 class EmptyBean
@@ -135,12 +138,22 @@ class JsonMapperTest {
     }
 
     @Test
-    fun `skal deserialisere norske tegn`() {
-        val data = TestDataMedNorskeTegn("2024")
+    fun `skal serialisere og deserialisere json key som starter med norske tegn`() {
+        val data = TestDataMedKeySomBegynnerMedNorskeTegn(år = "2024", felt = "Foo")
         val json = jsonMapper.writeValueAsString(data)
-        assertEquals("""{"år":"2024"}""", json)
+        assertEquals("""{"år":"2024","felt":"Foo"}""", json)
 
-        val deserialized = jsonMapper.readValue(json, TestDataMedNorskeTegn::class.java)
+        val deserialized = jsonMapper.readValue(json, TestDataMedKeySomBegynnerMedNorskeTegn::class.java)
+        assertEquals(data, deserialized)
+    }
+
+    @Test
+    fun `skal serialisere og deserialisere json key som harnorske tegn`() {
+        val data = TestDataMedNorskeTegnIKey(søknad = "Jeg søker")
+        val json = jsonMapper.writeValueAsString(data)
+        assertEquals("""{"søknad":"Jeg søker"}""", json)
+
+        val deserialized = jsonMapper.readValue(json, TestDataMedNorskeTegnIKey::class.java)
         assertEquals(data, deserialized)
     }
 }

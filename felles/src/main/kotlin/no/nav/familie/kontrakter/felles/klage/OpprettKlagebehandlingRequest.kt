@@ -4,6 +4,7 @@ import java.time.LocalDate
 
 data class OpprettKlagebehandlingRequest(
     val ident: String,
+    val orgNummer: String?,
     val stønadstype: Stønadstype,
     val eksternFagsakId: String,
     val fagsystem: Fagsystem,

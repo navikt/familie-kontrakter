@@ -156,4 +156,14 @@ class JsonMapperTest {
         val deserialized = jsonMapper.readValue(json, TestDataMedNorskeTegnIKey::class.java)
         assertEquals(data, deserialized)
     }
+
+    @Test
+    fun `skal serialisere og deserialisere tom string`() {
+        val data = TestData("")
+        val json = jsonMapper.writeValueAsString(data)
+        assertEquals("""{"field":""}""", json)
+
+        val deserialized = jsonMapper.readValue(json, TestData::class.java)
+        assertEquals(data, deserialized)
+    }
 }

@@ -1,17 +1,17 @@
 package no.nav.familie.kontrakter.ks.søknad
 
-import com.fasterxml.jackson.core.JsonGenerator
-import com.fasterxml.jackson.core.JsonParser
-import com.fasterxml.jackson.databind.DeserializationContext
-import com.fasterxml.jackson.databind.JsonDeserializer
-import com.fasterxml.jackson.databind.JsonNode
-import com.fasterxml.jackson.databind.JsonSerializer
-import com.fasterxml.jackson.databind.SerializerProvider
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize
-import com.fasterxml.jackson.databind.annotation.JsonSerialize
 import no.nav.familie.kontrakter.felles.søknad.BaksSøknadBase
 import no.nav.familie.kontrakter.felles.søknad.MissingVersionException
 import no.nav.familie.kontrakter.felles.søknad.UnsupportedVersionException
+import tools.jackson.core.JsonGenerator
+import tools.jackson.core.JsonParser
+import tools.jackson.databind.DeserializationContext
+import tools.jackson.databind.JsonNode
+import tools.jackson.databind.SerializationContext
+import tools.jackson.databind.ValueDeserializer
+import tools.jackson.databind.ValueSerializer
+import tools.jackson.databind.annotation.JsonDeserialize
+import tools.jackson.databind.annotation.JsonSerialize
 import no.nav.familie.kontrakter.ks.søknad.v1.KontantstøtteSøknad as KontantstøtteSøknadV1
 import no.nav.familie.kontrakter.ks.søknad.v2.KontantstøtteSøknad as KontantstøtteSøknadV2
 import no.nav.familie.kontrakter.ks.søknad.v3.KontantstøtteSøknad as KontantstøtteSøknadV3
@@ -19,17 +19,17 @@ import no.nav.familie.kontrakter.ks.søknad.v4.KontantstøtteSøknad as Kontants
 import no.nav.familie.kontrakter.ks.søknad.v5.KontantstøtteSøknad as KontantstøtteSøknadV5
 import no.nav.familie.kontrakter.ks.søknad.v6.KontantstøtteSøknad as KontantstøtteSøknadV6
 
-class VersjonertKontantStøtteSerializer : JsonSerializer<VersjonertKontantstøtteSøknad>() {
+class VersjonertKontantStøtteSerializer : ValueSerializer<VersjonertKontantstøtteSøknad>() {
     override fun serialize(
         value: VersjonertKontantstøtteSøknad,
         jsonGenerator: JsonGenerator,
-        serializers: SerializerProvider,
+        serializers: SerializationContext,
     ) {
         jsonGenerator.writePOJO(value.kontantstøtteSøknad)
     }
 }
 
-class VersjonertKontantstøtteSøknadDeserializer : JsonDeserializer<VersjonertKontantstøtteSøknad>() {
+class VersjonertKontantstøtteSøknadDeserializer : ValueDeserializer<VersjonertKontantstøtteSøknad>() {
     /**
      * @throws MissingVersionException `kontraktVersjon` ikke finnes i JSON-string.
      * @throws UnsupportedVersionException dersom `kontraktVersjon` ikke er støttet.
@@ -38,18 +38,18 @@ class VersjonertKontantstøtteSøknadDeserializer : JsonDeserializer<VersjonertK
         p: JsonParser,
         ctxt: DeserializationContext,
     ): VersjonertKontantstøtteSøknad {
-        val node: JsonNode = p.codec.readTree(p)
+        val node: JsonNode = p.readValueAsTree()
         val versjon =
             node.get("kontraktVersjon")?.asInt()
                 ?: throw MissingVersionException("JSON-string mangler feltet 'kontraktVersjon' og kan ikke deserialiseres. $node")
 
         return when (versjon) {
-            1 -> VersjonertKontantstøtteSøknadV1(kontantstøtteSøknad = p.codec.treeToValue(node, KontantstøtteSøknadV1::class.java))
-            2 -> VersjonertKontantstøtteSøknadV2(kontantstøtteSøknad = p.codec.treeToValue(node, KontantstøtteSøknadV2::class.java))
-            3 -> VersjonertKontantstøtteSøknadV3(kontantstøtteSøknad = p.codec.treeToValue(node, KontantstøtteSøknadV3::class.java))
-            4 -> VersjonertKontantstøtteSøknadV4(kontantstøtteSøknad = p.codec.treeToValue(node, KontantstøtteSøknadV4::class.java))
-            5 -> VersjonertKontantstøtteSøknadV5(kontantstøtteSøknad = p.codec.treeToValue(node, KontantstøtteSøknadV5::class.java))
-            6 -> VersjonertKontantstøtteSøknadV6(kontantstøtteSøknad = p.codec.treeToValue(node, KontantstøtteSøknadV6::class.java))
+            1 -> VersjonertKontantstøtteSøknadV1(kontantstøtteSøknad = ctxt.readTreeAsValue(node, KontantstøtteSøknadV1::class.java))
+            2 -> VersjonertKontantstøtteSøknadV2(kontantstøtteSøknad = ctxt.readTreeAsValue(node, KontantstøtteSøknadV2::class.java))
+            3 -> VersjonertKontantstøtteSøknadV3(kontantstøtteSøknad = ctxt.readTreeAsValue(node, KontantstøtteSøknadV3::class.java))
+            4 -> VersjonertKontantstøtteSøknadV4(kontantstøtteSøknad = ctxt.readTreeAsValue(node, KontantstøtteSøknadV4::class.java))
+            5 -> VersjonertKontantstøtteSøknadV5(kontantstøtteSøknad = ctxt.readTreeAsValue(node, KontantstøtteSøknadV5::class.java))
+            6 -> VersjonertKontantstøtteSøknadV6(kontantstøtteSøknad = ctxt.readTreeAsValue(node, KontantstøtteSøknadV6::class.java))
             else -> throw UnsupportedVersionException("Mangler implementasjon for versjon: $versjon av KontantstøtteSøknad.")
         }
     }

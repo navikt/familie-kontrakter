@@ -2,6 +2,7 @@
   "søknadstype" : "UTVIDET",
   "kontraktVersjon" : 9,
   "antallEøsSteg" : 0,
+  "finnesPersonMedAdressebeskyttelse" : false,
   "søker" : {
     "harEøsSteg" : false,
     "navn" : {

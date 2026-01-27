@@ -1,33 +1,33 @@
 package no.nav.familie.kontrakter.ba.søknad
 
-import com.fasterxml.jackson.core.JsonGenerator
-import com.fasterxml.jackson.core.JsonParser
-import com.fasterxml.jackson.databind.DeserializationContext
-import com.fasterxml.jackson.databind.JsonDeserializer
-import com.fasterxml.jackson.databind.JsonNode
-import com.fasterxml.jackson.databind.JsonSerializer
-import com.fasterxml.jackson.databind.SerializerProvider
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize
-import com.fasterxml.jackson.databind.annotation.JsonSerialize
 import no.nav.familie.kontrakter.felles.søknad.BaSøknadBase
 import no.nav.familie.kontrakter.felles.søknad.MissingVersionException
 import no.nav.familie.kontrakter.felles.søknad.UnsupportedVersionException
+import tools.jackson.core.JsonGenerator
+import tools.jackson.core.JsonParser
+import tools.jackson.databind.DeserializationContext
+import tools.jackson.databind.JsonNode
+import tools.jackson.databind.SerializationContext
+import tools.jackson.databind.ValueDeserializer
+import tools.jackson.databind.ValueSerializer
+import tools.jackson.databind.annotation.JsonDeserialize
+import tools.jackson.databind.annotation.JsonSerialize
 import no.nav.familie.kontrakter.ba.søknad.v10.BarnetrygdSøknad as BarnetrygdSøknadV10
 import no.nav.familie.kontrakter.ba.søknad.v7.Søknad as BarnetrygdSøknadV7
 import no.nav.familie.kontrakter.ba.søknad.v8.Søknad as BarnetrygdSøknadV8
 import no.nav.familie.kontrakter.ba.søknad.v9.BarnetrygdSøknad as BarnetrygdSøknadV9
 
-class VersjonertBarnetrygdSøknadSerializer : JsonSerializer<VersjonertBarnetrygdSøknad>() {
+class VersjonertBarnetrygdSøknadSerializer : ValueSerializer<VersjonertBarnetrygdSøknad>() {
     override fun serialize(
         value: VersjonertBarnetrygdSøknad,
         jsonGenerator: JsonGenerator,
-        serializers: SerializerProvider,
+        serializers: SerializationContext,
     ) {
         jsonGenerator.writePOJO(value.barnetrygdSøknad)
     }
 }
 
-class VersjonertBarnetrygdSøknadDeserializer : JsonDeserializer<VersjonertBarnetrygdSøknad>() {
+class VersjonertBarnetrygdSøknadDeserializer : ValueDeserializer<VersjonertBarnetrygdSøknad>() {
     /**
      * @throws MissingVersionException `kontraktVersjon` ikke finnes i JSON-string.
      * @throws UnsupportedVersionException dersom `kontraktVersjon` ikke er støttet.
@@ -36,16 +36,16 @@ class VersjonertBarnetrygdSøknadDeserializer : JsonDeserializer<VersjonertBarne
         p: JsonParser,
         ctxt: DeserializationContext,
     ): VersjonertBarnetrygdSøknad {
-        val node: JsonNode = p.codec.readTree(p)
+        val node: JsonNode = p.readValueAsTree()
         val versjon =
             node.get("kontraktVersjon")?.asInt()
                 ?: throw MissingVersionException("JSON-string mangler feltet 'kontraktVersjon' og kan ikke deserialiseres. $node")
 
         return when (versjon) {
-            7 -> VersjonertBarnetrygdSøknadV7(barnetrygdSøknad = p.codec.treeToValue(node, BarnetrygdSøknadV7::class.java))
-            8 -> VersjonertBarnetrygdSøknadV8(barnetrygdSøknad = p.codec.treeToValue(node, BarnetrygdSøknadV8::class.java))
-            9 -> VersjonertBarnetrygdSøknadV9(barnetrygdSøknad = p.codec.treeToValue(node, BarnetrygdSøknadV9::class.java))
-            10 -> VersjonertBarnetrygdSøknadV10(barnetrygdSøknad = p.codec.treeToValue(node, BarnetrygdSøknadV10::class.java))
+            7 -> VersjonertBarnetrygdSøknadV7(barnetrygdSøknad = ctxt.readTreeAsValue(node, BarnetrygdSøknadV7::class.java))
+            8 -> VersjonertBarnetrygdSøknadV8(barnetrygdSøknad = ctxt.readTreeAsValue(node, BarnetrygdSøknadV8::class.java))
+            9 -> VersjonertBarnetrygdSøknadV9(barnetrygdSøknad = ctxt.readTreeAsValue(node, BarnetrygdSøknadV9::class.java))
+            10 -> VersjonertBarnetrygdSøknadV10(barnetrygdSøknad = ctxt.readTreeAsValue(node, BarnetrygdSøknadV10::class.java))
             else -> throw UnsupportedVersionException("Mangler implementasjon for versjon: $versjon av BarnetrygdSøknad.")
         }
     }

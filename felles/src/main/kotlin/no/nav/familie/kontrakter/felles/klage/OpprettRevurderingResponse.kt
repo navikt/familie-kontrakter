@@ -1,5 +1,7 @@
 package no.nav.familie.kontrakter.felles.klage
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect
+
 data class OpprettRevurderingResponse internal constructor(
     val opprettetBehandling: Boolean,
     val opprettet: Opprettet? = null,
@@ -23,6 +25,7 @@ data class Opprettet(
     val eksternBehandlingId: String,
 )
 
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 data class IkkeOpprettet(
     val årsak: IkkeOpprettetÅrsak,
     val detaljer: String? = null,
@@ -34,6 +37,7 @@ enum class IkkeOpprettetÅrsak {
     FEIL,
 }
 
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 data class KanOppretteRevurderingResponse(
     val kanOpprettes: Boolean,
     val årsak: KanIkkeOppretteRevurderingÅrsak?,

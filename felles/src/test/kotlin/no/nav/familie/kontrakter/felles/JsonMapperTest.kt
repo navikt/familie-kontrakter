@@ -166,4 +166,19 @@ class JsonMapperTest {
         val deserialized = jsonMapper.readValue(json, TestData::class.java)
         assertEquals(data, deserialized)
     }
+
+    @Test
+    fun `skal serialiser og deserialiser null`() {
+        data class TestData(
+            val field: String,
+            val field2: String? = null,
+        )
+
+        val data = TestData("fdsfd")
+        val json = jsonMapper.writeValueAsString(data)
+        assertEquals("""{"field":"fdsfd","field2":null}""", json)
+
+        val deserialized = jsonMapper.readValue(json, TestData::class.java)
+        assertEquals(data, deserialized)
+    }
 }

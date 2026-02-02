@@ -14,7 +14,6 @@ data class TestData(
     val field: String,
 )
 
-@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 data class TestDataMedKeySomBegynnerMedNorskeTegn(
     val år: String,
     val felt: String,

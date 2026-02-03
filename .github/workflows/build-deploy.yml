@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - spring-boot-4
+  workflow_dispatch:
 
 jobs:
   build-and-deploy-artifact:

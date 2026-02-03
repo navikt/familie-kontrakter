@@ -1,6 +1,5 @@
 package no.nav.familie.kontrakter.ba.infotrygd
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect
 import java.time.LocalDate
 
 data class InfotrygdSøkRequest(
@@ -34,7 +33,6 @@ data class Stønad(
     val mottakerNummer: Long? = null,
 )
 
-@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 data class Sak(
     val id: Long? = null,
     val saksnr: String? = null,

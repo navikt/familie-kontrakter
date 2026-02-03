@@ -1,6 +1,10 @@
 package no.nav.familie.kontrakter.felles
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect
+import no.nav.familie.kontrakter.felles.personopplysning.OppholdAnnetSted.MILITAER
+import no.nav.familie.kontrakter.felles.personopplysning.OppholdAnnetSted.PAA_SVALBARD
+import no.nav.familie.kontrakter.felles.personopplysning.OppholdAnnetSted.PENDLER
+import no.nav.familie.kontrakter.felles.personopplysning.OppholdAnnetSted.UTENRIKS
 import org.junit.jupiter.api.Assertions.assertDoesNotThrow
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
@@ -179,5 +183,23 @@ class JsonMapperTest {
 
         val deserialized = jsonMapper.readValue(json, TestData::class.java)
         assertEquals(data, deserialized)
+    }
+
+    @Test
+    fun `enum med toString skal serialiseres med name`() {
+        val firstJson = jsonMapper.writeValueAsString(TestEnum.ENUM)
+        assertEquals("\"ENUM\"", firstJson)
+
+        assertEquals(TestEnum.ENUM, jsonMapper.readValue("\"ENUM\"", TestEnum::class.java))
+    }
+
+    enum class TestEnum {
+        ENUM,
+        ;
+
+        override fun toString(): String =
+            when (this) {
+                ENUM -> "EnumString"
+            }
     }
 }

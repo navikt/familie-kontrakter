@@ -1,15 +1,15 @@
 package no.nav.familie.kontrakter.felles.kodeverk
 
-import com.fasterxml.jackson.module.kotlin.readValue
-import no.nav.familie.kontrakter.felles.objectMapper
+import no.nav.familie.kontrakter.felles.jsonMapper
 import org.junit.jupiter.api.Test
+import tools.jackson.module.kotlin.readValue
 import java.time.LocalDate
 import kotlin.test.assertEquals
 import kotlin.test.assertNull
 
 internal class KodeverkKtTest {
     val kodeverk =
-        objectMapper.readValue<KodeverkDto>(
+        jsonMapper.readValue<KodeverkDto>(
             """
             {"betydninger": {
               "5036": [

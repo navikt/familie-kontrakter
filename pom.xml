@@ -18,8 +18,8 @@
         <sha1/>
         <changelist>-SNAPSHOT</changelist>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <kotlin.version>2.2.21</kotlin.version>
-        <kotest.version>6.0.7</kotest.version>
+        <kotlin.version>2.3.0</kotlin.version>
+        <kotest.version>6.1.2</kotest.version>
         <maven-enforcer.version>3.6.2</maven-enforcer.version>
     </properties>
 
@@ -125,7 +125,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.14.1</version>
+                    <version>3.15.0</version>
                     <configuration>
                         <release>11</release>
                     </configuration>

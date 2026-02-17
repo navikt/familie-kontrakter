@@ -2,7 +2,8 @@ name: Build-Deploy
 on:
   push:
     branches:
-      - main
+      - spring-boot-4
+  workflow_dispatch:
 
 jobs:
   build-and-deploy-artifact:
@@ -36,7 +37,7 @@ jobs:
         run: |
           export GIT_COMMIT_HASH=$(git log -n 1 --pretty=format:'%h')
           export GIT_COMMIT_DATE=$(git log -1 --pretty='%ad' --date=format:'%Y%m%d%H%M%S')
-          export VERSION=3.0_${GIT_COMMIT_DATE}_${GIT_COMMIT_HASH}
+          export VERSION=4.0_${GIT_COMMIT_DATE}_${GIT_COMMIT_HASH}
           echo "Setting version $VERSION"
           mvn versions:set -DnewVersion="$VERSION"
           mvn versions:commit

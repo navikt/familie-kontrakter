@@ -1,8 +1,10 @@
 package no.nav.familie.kontrakter.felles.tilbakekreving
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect
 import java.time.LocalDateTime
 import java.util.UUID
 
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 data class Behandling(
     val behandlingId: UUID,
     val opprettetTidspunkt: LocalDateTime,

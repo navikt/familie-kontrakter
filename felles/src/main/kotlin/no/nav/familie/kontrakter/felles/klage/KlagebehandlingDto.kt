@@ -1,9 +1,11 @@
 package no.nav.familie.kontrakter.felles.klage
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.util.UUID
 
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 data class KlagebehandlingDto(
     val id: UUID,
     val fagsakId: UUID,
@@ -17,6 +19,7 @@ data class KlagebehandlingDto(
     val henlagtÅrsak: HenlagtÅrsak? = null,
 )
 
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 data class KlageinstansResultatDto(
     val type: BehandlingEventType,
     val utfall: KlageinstansUtfall?,

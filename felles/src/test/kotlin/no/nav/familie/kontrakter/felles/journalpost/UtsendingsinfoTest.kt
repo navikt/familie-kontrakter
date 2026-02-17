@@ -1,17 +1,17 @@
 package no.nav.familie.kontrakter.felles.journalpost
 
-import com.fasterxml.jackson.module.kotlin.readValue
 import no.nav.familie.kontrakter.felles.journalpost.Utsendingsmåte.DIGITAL_POST
 import no.nav.familie.kontrakter.felles.journalpost.Utsendingsmåte.FYSISK_POST
-import no.nav.familie.kontrakter.felles.objectMapper
+import no.nav.familie.kontrakter.felles.jsonMapper
 import org.junit.jupiter.api.Test
+import tools.jackson.module.kotlin.readValue
 import kotlin.test.assertEquals
 import kotlin.test.assertNull
 
 class UtsendingsinfoTest {
     @Test
     fun `skal mappe utsendingsinfo uten varslingstidspunkt`() {
-        val utsendingsinfo = objectMapper.readValue<Utsendingsinfo>("{\"varselSendt\":[{\"type\":\"SMS\"}]}")
+        val utsendingsinfo = jsonMapper.readValue<Utsendingsinfo>("{\"varselSendt\":[{\"type\":\"SMS\"}]}")
         assertEquals(1, utsendingsinfo.varselSendt.size)
         assertEquals(VarselType.SMS, utsendingsinfo.varselSendt.first().type)
         assertNull(utsendingsinfo.varselSendt.first().varslingstidspunkt)

@@ -1,6 +1,6 @@
 package no.nav.familie.kontrakter.felles.kodeverk
 
-import no.nav.familie.kontrakter.felles.objectMapper
+import no.nav.familie.kontrakter.felles.jsonMapper
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
@@ -14,7 +14,7 @@ class HierarkiGeografiInnlandTest {
                 .bufferedReader(Charsets.UTF_8)
                 .use { it.readText() }
 
-        val hierarki = objectMapper.readValue(geografiHierarkiJsonString, HierarkiGeografiInnlandDto::class.java)
+        val hierarki = jsonMapper.readValue(geografiHierarkiJsonString, HierarkiGeografiInnlandDto::class.java)
 
         // Fylker
         val fylker = hierarki.norgeNode.fylker

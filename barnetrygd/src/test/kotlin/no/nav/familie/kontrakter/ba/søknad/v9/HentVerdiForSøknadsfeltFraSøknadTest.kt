@@ -1,8 +1,8 @@
 package no.nav.familie.kontrakter.ba.søknad.v9
 
-import com.fasterxml.jackson.module.kotlin.readValue
-import no.nav.familie.kontrakter.felles.objectMapper
+import no.nav.familie.kontrakter.felles.jsonMapper
 import org.junit.jupiter.api.Assertions.assertEquals
+import tools.jackson.module.kotlin.readValue
 import kotlin.test.Test
 import kotlin.test.assertNotNull
 
@@ -109,7 +109,7 @@ class HentVerdiForSøknadsfeltFraSøknadTest {
         val søknadJson =
             this::class.java.getResource(søknadFilnavn)?.readText()
                 ?: throw IllegalArgumentException("Fant ingen søknad med navn $søknadFilnavn")
-        val søknad = objectMapper.readValue<BarnetrygdSøknad>(søknadJson)
+        val søknad = jsonMapper.readValue<BarnetrygdSøknad>(søknadJson)
         return søknad
     }
 }

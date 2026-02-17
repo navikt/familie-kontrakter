@@ -2,7 +2,7 @@ name: Build-Deploy
 on:
   push:
     branches:
-      - spring-boot-4
+      - main
   workflow_dispatch:
 
 jobs:

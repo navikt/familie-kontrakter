@@ -61,6 +61,7 @@ enum class OppgavePrioritet {
     HOY,
     NORM,
     LAV,
+    KRITISK,
 }
 
 @Deprecated("Misforstått bruk - ulike identer på tvers av miljøer")

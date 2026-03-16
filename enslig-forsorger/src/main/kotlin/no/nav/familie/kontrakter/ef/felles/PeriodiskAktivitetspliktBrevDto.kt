@@ -9,6 +9,6 @@ data class PeriodiskAktivitetspliktBrevDto(
     val personIdent: String,
     val eksternFagsakId: Long,
     val journalførendeEnhet: String,
-    val gjeldendeÅr: Year,
+    val år: Year,
     val stønadType: StønadType,
 )

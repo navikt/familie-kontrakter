@@ -12,7 +12,7 @@ data class Bostedsadresse(
     val matrikkeladresse: Matrikkeladresse? = null,
     val ukjentBosted: UkjentBosted? = null,
     val folkeregistermetadata: Folkeregistermetadata? = null,
-    )
+)
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 data class Oppholdsadresse(
@@ -33,7 +33,7 @@ data class DeltBosted(
     val matrikkeladresse: Matrikkeladresse? = null,
     val ukjentBosted: UkjentBosted? = null,
     val folkeregistermetadata: Folkeregistermetadata? = null,
-    )
+)
 
 data class Vegadresse(
     val matrikkelId: Long?,
@@ -74,7 +74,7 @@ data class Statsborgerskap(
     val gyldigTilOgMed: LocalDate?,
     val bekreftelsesdato: LocalDate?,
     val folkeregistermetadata: Folkeregistermetadata? = null,
-    )
+)
 
 data class Folkeregistermetadata(
     val opphoerstidspunkt: LocalDate?,

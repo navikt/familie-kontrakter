@@ -3,6 +3,7 @@ package no.nav.familie.kontrakter.felles.dokarkiv.v2
 import jakarta.validation.constraints.NotBlank
 import jakarta.validation.constraints.NotEmpty
 import no.nav.familie.kontrakter.felles.dokarkiv.AvsenderMottaker
+import no.nav.familie.kontrakter.felles.journalpost.OverstyrInnsynsregel
 
 data class ArkiverDokumentRequest(
     @field:NotBlank val fnr: String,
@@ -16,4 +17,5 @@ data class ArkiverDokumentRequest(
     val førsteside: Førsteside? = null,
     val eksternReferanseId: String? = null,
     val avsenderMottaker: AvsenderMottaker? = null,
+    val overstyrInnsynsregler: OverstyrInnsynsregel? = null,
 )

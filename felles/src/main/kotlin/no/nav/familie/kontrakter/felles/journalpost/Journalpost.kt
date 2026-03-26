@@ -18,6 +18,7 @@ data class Journalpost(
     val relevanteDatoer: List<RelevantDato>? = null,
     val eksternReferanseId: String? = null,
     val utsendingsinfo: Utsendingsinfo? = null,
+    val overstyrInnsynsregler: OverstyrInnsynsregel? = null,
 ) {
     val datoMottatt = relevanteDatoer?.firstOrNull { it.datotype == "DATO_REGISTRERT" }?.dato
 

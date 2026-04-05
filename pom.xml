@@ -20,7 +20,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jdk.version>21</jdk.version>
         <kotlin.version>2.3.20</kotlin.version>
-        <kotest.version>6.1.7</kotest.version>
+        <kotest.version>6.1.10</kotest.version>
         <maven-enforcer.version>3.6.2</maven-enforcer.version>
     </properties>
 
@@ -95,7 +95,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>4.0.4</version>
+                <version>4.0.5</version>
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>

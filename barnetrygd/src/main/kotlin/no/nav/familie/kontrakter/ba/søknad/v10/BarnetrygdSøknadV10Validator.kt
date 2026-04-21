@@ -5,6 +5,7 @@ import no.nav.familie.kontrakter.ba.søknad.UGYLDIGE_TEGN_REGEX
 import no.nav.familie.kontrakter.ba.søknad.Valideringsfeil
 import no.nav.familie.kontrakter.ba.søknad.v4.Locale
 import no.nav.familie.kontrakter.ba.søknad.v4.Søknadsfelt
+import no.nav.familie.kontrakter.ba.søknad.v7.Søknaddokumentasjon
 import no.nav.familie.kontrakter.ba.søknad.v8.AndreForelder
 import no.nav.familie.kontrakter.ba.søknad.v8.Omsorgsperson
 import no.nav.familie.kontrakter.felles.søknad.Søknadsfelt as FellesSøknadsfelt
@@ -32,6 +33,11 @@ class BarnetrygdSøknadV10Validator {
                 localeMap.forEach { (locale, tekst) ->
                     feil.addAll(validerString(tekst, "teksterUtenomSpørsmål.$spørsmålId", locale))
                 }
+            }
+
+            // Valider dokumentasjon
+            søknad.dokumentasjon.forEachIndexed { index, dok ->
+                feil.addAll(validerDokumentasjon(dok, index))
             }
 
             return feil
@@ -160,12 +166,20 @@ class BarnetrygdSøknadV10Validator {
             andreForelder.fødselsdato?.let { feil.addAll(validerFellesSøknadsfelt(it, "$baseSti.fødselsdato")) }
             andreForelder.arbeidUtlandet?.let { feil.addAll(validerFellesSøknadsfelt(it, "$baseSti.arbeidUtlandet")) }
             andreForelder.pensjonUtland?.let { feil.addAll(validerFellesSøknadsfelt(it, "$baseSti.pensjonUtland")) }
-            andreForelder.skriftligAvtaleOmDeltBosted?.let { feil.addAll(validerFellesSøknadsfelt(it, "$baseSti.skriftligAvtaleOmDeltBosted")) }
+            andreForelder.skriftligAvtaleOmDeltBosted?.let {
+                feil.addAll(
+                    validerFellesSøknadsfelt(it, "$baseSti.skriftligAvtaleOmDeltBosted"),
+                )
+            }
             andreForelder.pensjonNorge?.let { feil.addAll(validerFellesSøknadsfelt(it, "$baseSti.pensjonNorge")) }
             andreForelder.arbeidNorge?.let { feil.addAll(validerFellesSøknadsfelt(it, "$baseSti.arbeidNorge")) }
             andreForelder.andreUtbetalinger?.let { feil.addAll(validerFellesSøknadsfelt(it, "$baseSti.andreUtbetalinger")) }
             andreForelder.adresse?.let { feil.addAll(validerFellesSøknadsfelt(it, "$baseSti.adresse")) }
-            andreForelder.pågåendeSøknadFraAnnetEøsLand?.let { feil.addAll(validerFellesSøknadsfelt(it, "$baseSti.pågåendeSøknadFraAnnetEøsLand")) }
+            andreForelder.pågåendeSøknadFraAnnetEøsLand?.let {
+                feil.addAll(
+                    validerFellesSøknadsfelt(it, "$baseSti.pågåendeSøknadFraAnnetEøsLand"),
+                )
+            }
             andreForelder.pågåendeSøknadHvilketLand?.let { feil.addAll(validerFellesSøknadsfelt(it, "$baseSti.pågåendeSøknadHvilketLand")) }
             andreForelder.barnetrygdFraEøs?.let { feil.addAll(validerFellesSøknadsfelt(it, "$baseSti.barnetrygdFraEøs")) }
 
@@ -212,7 +226,11 @@ class BarnetrygdSøknadV10Validator {
             // Enkeltfelt
             feil.addAll(validerFellesSøknadsfelt(omsorgsperson.navn, "$baseSti.navn"))
             feil.addAll(validerFellesSøknadsfelt(omsorgsperson.slektsforhold, "$baseSti.slektsforhold"))
-            omsorgsperson.slektsforholdSpesifisering?.let { feil.addAll(validerFellesSøknadsfelt(it, "$baseSti.slektsforholdSpesifisering")) }
+            omsorgsperson.slektsforholdSpesifisering?.let {
+                feil.addAll(
+                    validerFellesSøknadsfelt(it, "$baseSti.slektsforholdSpesifisering"),
+                )
+            }
             feil.addAll(validerFellesSøknadsfelt(omsorgsperson.idNummer, "$baseSti.idNummer"))
             feil.addAll(validerFellesSøknadsfelt(omsorgsperson.adresse, "$baseSti.adresse"))
             feil.addAll(validerFellesSøknadsfelt(omsorgsperson.arbeidUtland, "$baseSti.arbeidUtland"))
@@ -242,6 +260,29 @@ class BarnetrygdSøknadV10Validator {
             }
             omsorgsperson.eøsBarnetrygdsperioder.forEachIndexed { index, felt ->
                 feil.addAll(validerFellesSøknadsfelt(felt, "$baseSti.eøsBarnetrygdsperioder[$index]"))
+            }
+
+            return feil
+        }
+
+        private fun validerDokumentasjon(
+            dok: Søknaddokumentasjon,
+            index: Int,
+        ): List<Valideringsfeil> {
+            val feil = mutableListOf<Valideringsfeil>()
+            val baseSti = "dokumentasjon[$index]"
+
+            // Valider dokumentasjonSpråkTittel
+            dok.dokumentasjonSpråkTittel.forEach { (locale, tittel) ->
+                feil.addAll(validerString(tittel, "$baseSti.dokumentasjonSpråkTittel", locale))
+            }
+
+            // Valider vedlegg
+            dok.opplastedeVedlegg.forEachIndexed { vedleggIndex, vedlegg ->
+                val vedleggSti = "$baseSti.opplastedeVedlegg[$vedleggIndex]"
+                // dokumentId har ingen locale, bruk tom string
+                feil.addAll(validerString(vedlegg.dokumentId, "$vedleggSti.dokumentId", ""))
+                feil.addAll(validerString(vedlegg.navn, "$vedleggSti.navn", ""))
             }
 
             return feil

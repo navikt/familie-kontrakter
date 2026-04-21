@@ -9,6 +9,7 @@ import no.nav.familie.kontrakter.ba.søknad.v7.Søknaddokumentasjon
 import no.nav.familie.kontrakter.ba.søknad.v8.AndreForelder
 import no.nav.familie.kontrakter.ba.søknad.v8.Omsorgsperson
 import no.nav.familie.kontrakter.felles.søknad.Søknadsfelt as FellesSøknadsfelt
+import kotlin.reflect.full.memberProperties
 
 class BarnetrygdSøknadV10Validator {
     companion object {
@@ -332,6 +333,14 @@ class BarnetrygdSøknadV10Validator {
                     feil.addAll(validerString(verdi, objectPath, locale))
                 }
 
+                is FellesSøknadsfelt<*> -> {
+                    feil.addAll(validerFellesSøknadsfelt(verdi, objectPath))
+                }
+
+                is Søknadsfelt<*> -> {
+                    feil.addAll(validerSøknadsfelt(verdi, objectPath))
+                }
+
                 is Map<*, *> -> {
                     verdi.forEach { (key, value) ->
                         feil.addAll(validerVerdiRekursivt(value, "$objectPath.$key", locale))
@@ -341,6 +350,20 @@ class BarnetrygdSøknadV10Validator {
                 is Collection<*> -> {
                     verdi.forEachIndexed { index, element ->
                         feil.addAll(validerVerdiRekursivt(element, "$objectPath[$index]", locale))
+                    }
+                }
+
+                else -> {
+                    // Refleksjon: traverser feltene i ukjente objekter (f.eks. Utbetalingsperiode, Arbeidsperiode, etc.)
+                    verdi::class.memberProperties.forEach { prop ->
+                        try {
+                            val feltVerdi = prop.getter.call(verdi)
+                            if (feltVerdi != null) {
+                                feil.addAll(validerVerdiRekursivt(feltVerdi, "$objectPath.${prop.name}", locale))
+                            }
+                        } catch (_: Exception) {
+                            // Ignorer felt som ikke kan leses
+                        }
                     }
                 }
             }

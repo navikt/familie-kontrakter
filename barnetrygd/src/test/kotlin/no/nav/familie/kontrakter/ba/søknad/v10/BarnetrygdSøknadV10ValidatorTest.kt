@@ -918,6 +918,154 @@ class BarnetrygdSøknadV10ValidatorTest {
         assertTrue(feil[0].feilmelding.contains("ugyldige tegn"))
     }
 
+    // --- Tester for refleksjonsbasert traversering av indre objekter ---
+
+    @Test
+    fun `valider skal finne ugyldig label inne i Utbetalingsperiode via refleksjon`() {
+        val søknad =
+            lagGyldigSøknad().copy(
+                søker =
+                    lagGyldigSøker().copy(
+                        andreUtbetalingsperioder =
+                            listOf(
+                                FellesSøknadsfelt(
+                                    label = gyldigLabel,
+                                    verdi =
+                                        mapOf(
+                                            "nb" to
+                                                Utbetalingsperiode(
+                                                    fårUtbetalingNå = FellesSøknadsfelt(label = mapOf("nb" to langStreng), verdi = mapOf("nb" to "JA")),
+                                                    utbetalingLand = FellesSøknadsfelt(label = gyldigLabel, verdi = mapOf("nb" to "Sverige")),
+                                                    utbetalingFraDato = FellesSøknadsfelt(label = gyldigLabel, verdi = mapOf("nb" to "2020-01-01")),
+                                                    utbetalingTilDato = FellesSøknadsfelt(label = gyldigLabel, verdi = mapOf("nb" to "2021-01-01")),
+                                                ),
+                                        ),
+                                ),
+                            ),
+                    ),
+            )
+
+        val feil = BarnetrygdSøknadV10Validator.valider(søknad)
+
+        assertTrue(feil.isNotEmpty(), "Forventet valideringsfeil for ugyldig label i Utbetalingsperiode")
+        assertTrue(feil.any { it.feilmelding.contains("Label overskrider maksimal lengde") })
+    }
+
+    @Test
+    fun `valider skal finne ugyldig verdi inne i Arbeidsperiode via refleksjon`() {
+        val søknad =
+            lagGyldigSøknad().copy(
+                søker =
+                    lagGyldigSøker().copy(
+                        arbeidsperioderUtland =
+                            listOf(
+                                FellesSøknadsfelt(
+                                    label = gyldigLabel,
+                                    verdi =
+                                        mapOf(
+                                            "nb" to
+                                                Arbeidsperiode(
+                                                    arbeidsgiver = FellesSøknadsfelt(label = gyldigLabel, verdi = mapOf("nb" to langStreng)),
+                                                ),
+                                        ),
+                                ),
+                            ),
+                    ),
+            )
+
+        val feil = BarnetrygdSøknadV10Validator.valider(søknad)
+
+        assertTrue(feil.isNotEmpty(), "Forventet valideringsfeil for ugyldig verdi i Arbeidsperiode")
+        assertTrue(feil.any { it.feilmelding.contains("Verdi overskrider maksimal lengde") })
+    }
+
+    @Test
+    fun `valider skal finne ugyldige tegn inne i Pensjonsperiode via refleksjon`() {
+        val søknad =
+            lagGyldigSøknad().copy(
+                søker =
+                    lagGyldigSøker().copy(
+                        pensjonsperioderUtland =
+                            listOf(
+                                FellesSøknadsfelt(
+                                    label = gyldigLabel,
+                                    verdi =
+                                        mapOf(
+                                            "nb" to
+                                                Pensjonsperiode(
+                                                    pensjonsland = FellesSøknadsfelt(label = gyldigLabel, verdi = mapOf("nb" to "Sverige<script>")),
+                                                ),
+                                        ),
+                                ),
+                            ),
+                    ),
+            )
+
+        val feil = BarnetrygdSøknadV10Validator.valider(søknad)
+
+        assertTrue(feil.isNotEmpty(), "Forventet valideringsfeil for ugyldige tegn i Pensjonsperiode")
+        assertTrue(feil.any { it.feilmelding.contains("ugyldige tegn") })
+    }
+
+    @Test
+    fun `valider skal finne ugyldig felt inne i EøsBarnetrygdsperiode via refleksjon`() {
+        val barn =
+            lagGyldigBarn().copy(
+                eøsBarnetrygdsperioder =
+                    listOf(
+                        FellesSøknadsfelt(
+                            label = gyldigLabel,
+                            verdi =
+                                mapOf(
+                                    "nb" to
+                                        EøsBarnetrygdsperiode(
+                                            barnetrygdsland = FellesSøknadsfelt(label = gyldigLabel, verdi = mapOf("nb" to "Danmark")),
+                                            fraDatoBarnetrygdperiode = FellesSøknadsfelt(label = gyldigLabel, verdi = mapOf("nb" to "2020-01-01")),
+                                            månedligBeløp = FellesSøknadsfelt(label = gyldigLabel, verdi = mapOf("nb" to langStreng)),
+                                        ),
+                        ),
+                    ),
+                ),
+            )
+        val søknad = lagGyldigSøknad().copy(barn = listOf(barn))
+
+        val feil = BarnetrygdSøknadV10Validator.valider(søknad)
+
+        assertTrue(feil.isNotEmpty(), "Forventet valideringsfeil for ugyldig felt i EøsBarnetrygdsperiode")
+        assertTrue(feil.any { it.feilmelding.contains("Verdi overskrider maksimal lengde") })
+    }
+
+    @Test
+    fun `valider skal ikke gi feil for gyldige verdier inne i periodeobjekter`() {
+        val søknad =
+            lagGyldigSøknad().copy(
+                søker =
+                    lagGyldigSøker().copy(
+                        arbeidsperioderUtland =
+                            listOf(
+                                FellesSøknadsfelt(
+                                    label = gyldigLabel,
+                                    verdi =
+                                        mapOf(
+                                            "nb" to
+                                                Arbeidsperiode(
+                                                    arbeidsperiodeAvsluttet = FellesSøknadsfelt(label = gyldigLabel, verdi = mapOf("nb" to "JA")),
+                                                    arbeidsperiodeland = FellesSøknadsfelt(label = gyldigLabel, verdi = mapOf("nb" to "Sverige")),
+                                                    arbeidsgiver = FellesSøknadsfelt(label = gyldigLabel, verdi = mapOf("nb" to "IKEA")),
+                                                    fraDatoArbeidsperiode = FellesSøknadsfelt(label = gyldigLabel, verdi = mapOf("nb" to "2020-01-01")),
+                                                    tilDatoArbeidsperiode = FellesSøknadsfelt(label = gyldigLabel, verdi = mapOf("nb" to "2021-01-01")),
+                                                ),
+                                        ),
+                                ),
+                            ),
+                    ),
+            )
+
+        val feil = BarnetrygdSøknadV10Validator.valider(søknad)
+
+        assertTrue(feil.isEmpty(), "Forventet ingen feil for gyldige verdier i Arbeidsperiode")
+    }
+
     private fun lagGyldigSøknad() =
         BarnetrygdSøknad(
             kontraktVersjon = 10,

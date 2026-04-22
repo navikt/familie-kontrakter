@@ -8,8 +8,8 @@ import no.nav.familie.kontrakter.ba.søknad.v4.Søknadsfelt
 import no.nav.familie.kontrakter.ba.søknad.v7.Søknaddokumentasjon
 import no.nav.familie.kontrakter.ba.søknad.v8.AndreForelder
 import no.nav.familie.kontrakter.ba.søknad.v8.Omsorgsperson
-import no.nav.familie.kontrakter.felles.søknad.Søknadsfelt as FellesSøknadsfelt
 import kotlin.reflect.full.memberProperties
+import no.nav.familie.kontrakter.felles.søknad.Søknadsfelt as FellesSøknadsfelt
 
 class BarnetrygdSøknadV10Validator {
     companion object {

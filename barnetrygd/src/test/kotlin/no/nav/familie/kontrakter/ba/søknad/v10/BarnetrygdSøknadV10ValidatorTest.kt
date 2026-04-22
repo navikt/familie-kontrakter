@@ -5,8 +5,8 @@ import no.nav.familie.kontrakter.ba.søknad.v1.SøknadAdresse
 import no.nav.familie.kontrakter.ba.søknad.v4.Søknadsfelt
 import no.nav.familie.kontrakter.ba.søknad.v4.Søknadstype
 import no.nav.familie.kontrakter.ba.søknad.v5.RegistrertBostedType
-import no.nav.familie.kontrakter.ba.søknad.v7.Søknaddokumentasjon
 import no.nav.familie.kontrakter.ba.søknad.v7.Dokumentasjonsbehov
+import no.nav.familie.kontrakter.ba.søknad.v7.Søknaddokumentasjon
 import no.nav.familie.kontrakter.ba.søknad.v7.Søknadsvedlegg
 import no.nav.familie.kontrakter.ba.søknad.v8.AndreForelder
 import no.nav.familie.kontrakter.ba.søknad.v8.AndreForelderUtvidet
@@ -934,10 +934,29 @@ class BarnetrygdSøknadV10ValidatorTest {
                                         mapOf(
                                             "nb" to
                                                 Utbetalingsperiode(
-                                                    fårUtbetalingNå = FellesSøknadsfelt(label = mapOf("nb" to langStreng), verdi = mapOf("nb" to "JA")),
-                                                    utbetalingLand = FellesSøknadsfelt(label = gyldigLabel, verdi = mapOf("nb" to "Sverige")),
-                                                    utbetalingFraDato = FellesSøknadsfelt(label = gyldigLabel, verdi = mapOf("nb" to "2020-01-01")),
-                                                    utbetalingTilDato = FellesSøknadsfelt(label = gyldigLabel, verdi = mapOf("nb" to "2021-01-01")),
+                                                    fårUtbetalingNå =
+                                                        FellesSøknadsfelt(
+                                                            label = mapOf("nb" to langStreng),
+                                                            verdi =
+                                                                mapOf("nb" to "JA"),
+                                                        ),
+                                                    utbetalingLand =
+                                                        FellesSøknadsfelt(
+                                                            label = gyldigLabel,
+                                                            verdi = mapOf("nb" to "Sverige"),
+                                                        ),
+                                                    utbetalingFraDato =
+                                                        FellesSøknadsfelt(
+                                                            label = gyldigLabel,
+                                                            verdi =
+                                                                mapOf("nb" to "2020-01-01"),
+                                                        ),
+                                                    utbetalingTilDato =
+                                                        FellesSøknadsfelt(
+                                                            label = gyldigLabel,
+                                                            verdi =
+                                                                mapOf("nb" to "2021-01-01"),
+                                                        ),
                                                 ),
                                         ),
                                 ),
@@ -965,7 +984,11 @@ class BarnetrygdSøknadV10ValidatorTest {
                                         mapOf(
                                             "nb" to
                                                 Arbeidsperiode(
-                                                    arbeidsgiver = FellesSøknadsfelt(label = gyldigLabel, verdi = mapOf("nb" to langStreng)),
+                                                    arbeidsgiver =
+                                                        FellesSøknadsfelt(
+                                                            label = gyldigLabel,
+                                                            verdi = mapOf("nb" to langStreng),
+                                                        ),
                                                 ),
                                         ),
                                 ),
@@ -993,7 +1016,12 @@ class BarnetrygdSøknadV10ValidatorTest {
                                         mapOf(
                                             "nb" to
                                                 Pensjonsperiode(
-                                                    pensjonsland = FellesSøknadsfelt(label = gyldigLabel, verdi = mapOf("nb" to "Sverige<script>")),
+                                                    pensjonsland =
+                                                        FellesSøknadsfelt(
+                                                            label = gyldigLabel,
+                                                            verdi =
+                                                                mapOf("nb" to "Sverige<script>"),
+                                                        ),
                                                 ),
                                         ),
                                 ),
@@ -1020,12 +1048,17 @@ class BarnetrygdSøknadV10ValidatorTest {
                                     "nb" to
                                         EøsBarnetrygdsperiode(
                                             barnetrygdsland = FellesSøknadsfelt(label = gyldigLabel, verdi = mapOf("nb" to "Danmark")),
-                                            fraDatoBarnetrygdperiode = FellesSøknadsfelt(label = gyldigLabel, verdi = mapOf("nb" to "2020-01-01")),
+                                            fraDatoBarnetrygdperiode =
+                                                FellesSøknadsfelt(
+                                                    label = gyldigLabel,
+                                                    verdi =
+                                                        mapOf("nb" to "2020-01-01"),
+                                                ),
                                             månedligBeløp = FellesSøknadsfelt(label = gyldigLabel, verdi = mapOf("nb" to langStreng)),
                                         ),
+                                ),
                         ),
                     ),
-                ),
             )
         val søknad = lagGyldigSøknad().copy(barn = listOf(barn))
 
@@ -1049,11 +1082,35 @@ class BarnetrygdSøknadV10ValidatorTest {
                                         mapOf(
                                             "nb" to
                                                 Arbeidsperiode(
-                                                    arbeidsperiodeAvsluttet = FellesSøknadsfelt(label = gyldigLabel, verdi = mapOf("nb" to "JA")),
-                                                    arbeidsperiodeland = FellesSøknadsfelt(label = gyldigLabel, verdi = mapOf("nb" to "Sverige")),
-                                                    arbeidsgiver = FellesSøknadsfelt(label = gyldigLabel, verdi = mapOf("nb" to "IKEA")),
-                                                    fraDatoArbeidsperiode = FellesSøknadsfelt(label = gyldigLabel, verdi = mapOf("nb" to "2020-01-01")),
-                                                    tilDatoArbeidsperiode = FellesSøknadsfelt(label = gyldigLabel, verdi = mapOf("nb" to "2021-01-01")),
+                                                    arbeidsperiodeAvsluttet =
+                                                        FellesSøknadsfelt(
+                                                            label = gyldigLabel,
+                                                            verdi =
+                                                                mapOf("nb" to "JA"),
+                                                        ),
+                                                    arbeidsperiodeland =
+                                                        FellesSøknadsfelt(
+                                                            label = gyldigLabel,
+                                                            verdi =
+                                                                mapOf("nb" to "Sverige"),
+                                                        ),
+                                                    arbeidsgiver =
+                                                        FellesSøknadsfelt(
+                                                            label = gyldigLabel,
+                                                            verdi = mapOf("nb" to "IKEA"),
+                                                        ),
+                                                    fraDatoArbeidsperiode =
+                                                        FellesSøknadsfelt(
+                                                            label = gyldigLabel,
+                                                            verdi =
+                                                                mapOf("nb" to "2020-01-01"),
+                                                        ),
+                                                    tilDatoArbeidsperiode =
+                                                        FellesSøknadsfelt(
+                                                            label = gyldigLabel,
+                                                            verdi =
+                                                                mapOf("nb" to "2021-01-01"),
+                                                        ),
                                                 ),
                                         ),
                                 ),

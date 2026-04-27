@@ -13,7 +13,7 @@ data class SøknadOvergangsstønadRegelendring2026(
     val sivilstandsplaner: Søknadsfelt<Sivilstandsplaner>? = null,
     val barn: Søknadsfelt<List<Barn>>,
     val hvaSituasjon: Søknadsfelt<List<String>>,
-    val harInntekt: Søknadsfelt<List<String>>,
+    val inntekter: Søknadsfelt<List<String>>,
     val firmaer: Søknadsfelt<List<Selvstendig>>? = null,
     val sagtOppEllerRedusertStilling: Søknadsfelt<String>? = null,
     val begrunnelseSagtOppEllerRedusertStilling: Søknadsfelt<String>? = null,

@@ -21,7 +21,7 @@
         <jdk.version>21</jdk.version>
         <kotlin.version>2.3.21</kotlin.version>
         <kotest.version>6.1.11</kotest.version>
-        <maven-enforcer.version>3.6.2</maven-enforcer.version>
+        <maven-enforcer.version>3.6.3</maven-enforcer.version>
     </properties>
 
     <modules>

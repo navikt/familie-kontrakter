@@ -1123,6 +1123,57 @@ class BarnetrygdSøknadV10ValidatorTest {
         assertTrue(feil.isEmpty(), "Forventet ingen feil for gyldige verdier i Arbeidsperiode")
     }
 
+    @Test
+    fun `valider skal tillate adresse opptil 500 tegn for omsorgsperson`() {
+        val adresse500Tegn = "a".repeat(500)
+        val barn =
+            lagGyldigBarn().copy(
+                omsorgsperson =
+                    lagGyldigOmsorgsperson().copy(
+                        adresse = FellesSøknadsfelt(label = gyldigLabel, verdi = mapOf("nb" to adresse500Tegn)),
+                    ),
+            )
+        val søknad = lagGyldigSøknad().copy(barn = listOf(barn))
+
+        val feil = BarnetrygdSøknadV10Validator.valider(søknad)
+
+        assertTrue(feil.isEmpty(), "Forventet ingen feil ved adresse opp mot 500 tegn")
+    }
+
+    @Test
+    fun `valider skal returnere feil når adresse overskrider 500 tegn`() {
+        val adresse501Tegn = "a".repeat(501)
+        val barn =
+            lagGyldigBarn().copy(
+                omsorgsperson =
+                    lagGyldigOmsorgsperson().copy(
+                        adresse = FellesSøknadsfelt(label = gyldigLabel, verdi = mapOf("nb" to adresse501Tegn)),
+                    ),
+            )
+        val søknad = lagGyldigSøknad().copy(barn = listOf(barn))
+
+        val feil = BarnetrygdSøknadV10Validator.valider(søknad)
+
+        assertTrue(feil.isNotEmpty(), "Adresse på 501 tegn skal gi valideringsfeil")
+        assertTrue(feil.any { it.objectPath.contains(".adresse.") && it.feilmelding.contains("Verdi overskrider maksimal lengde på 500") })
+    }
+
+    @Test
+    fun `valider skal fortsatt begrense ikke-adresse felter til 200 tegn`() {
+        val søknad =
+            lagGyldigSøknad().copy(
+                søker =
+                    lagGyldigSøker().copy(
+                        navn = FellesSøknadsfelt(label = gyldigLabel, verdi = mapOf("nb" to langStreng)),
+                    ),
+            )
+
+        val feil = BarnetrygdSøknadV10Validator.valider(søknad)
+
+        assertTrue(feil.isNotEmpty())
+        assertTrue(feil.any { it.feilmelding.contains("Verdi overskrider maksimal lengde på 200") })
+    }
+
     private fun lagGyldigSøknad() =
         BarnetrygdSøknad(
             kontraktVersjon = 10,

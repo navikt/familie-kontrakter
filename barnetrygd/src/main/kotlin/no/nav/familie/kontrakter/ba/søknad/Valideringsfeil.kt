@@ -16,4 +16,5 @@ data class Valideringsfeil(
 )
 
 const val MAKS_LENGDE = 200
+const val MAKS_LENGDE_ADRESSE = 500
 val UGYLDIGE_TEGN_REGEX = Regex("[<>\"]")

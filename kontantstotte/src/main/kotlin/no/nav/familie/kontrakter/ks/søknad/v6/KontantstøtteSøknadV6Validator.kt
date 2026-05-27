@@ -2,6 +2,7 @@ package no.nav.familie.kontrakter.ks.søknad.v6
 
 import no.nav.familie.kontrakter.felles.søknad.Søknadsfelt
 import no.nav.familie.kontrakter.ks.søknad.MAKS_LENGDE
+import no.nav.familie.kontrakter.ks.søknad.MAKS_LENGDE_ADRESSE
 import no.nav.familie.kontrakter.ks.søknad.UGYLDIGE_TEGN_REGEX
 import no.nav.familie.kontrakter.ks.søknad.Valideringsfeil
 import no.nav.familie.kontrakter.ks.søknad.v1.Locale
@@ -311,13 +312,15 @@ class KontantstøtteSøknadV6Validator {
             locale: Locale,
         ): List<Valideringsfeil> {
             val feil = mutableListOf<Valideringsfeil>()
+            val erAdresseFelt = objectPath.contains(".adresse.")
+            val maksLengde = if (erAdresseFelt) MAKS_LENGDE_ADRESSE else MAKS_LENGDE
 
-            if (verdi.length > MAKS_LENGDE) {
+            if (verdi.length > maksLengde) {
                 feil.add(
                     Valideringsfeil(
                         objectPath = objectPath,
                         locale = locale,
-                        feilmelding = "Verdi overskrider maksimal lengde på $MAKS_LENGDE tegn (faktisk: ${verdi.length})",
+                        feilmelding = "Verdi overskrider maksimal lengde på $maksLengde tegn (faktisk: ${verdi.length})",
                     ),
                 )
             }

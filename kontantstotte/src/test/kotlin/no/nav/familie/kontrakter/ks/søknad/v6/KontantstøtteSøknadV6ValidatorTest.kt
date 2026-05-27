@@ -743,6 +743,91 @@ class KontantstøtteSøknadV6ValidatorTest {
         assertTrue(feil[0].feilmelding.contains("Verdi overskrider maksimal lengde"))
     }
 
+    @Test
+    fun `valider skal tillate adresse opptil 500 tegn i utenlandsperioder`() {
+        val adresse500Tegn = "a".repeat(500)
+        val søknad =
+            lagGyldigSøknad().copy(
+                søker =
+                    lagGyldigSøker().copy(
+                        utenlandsperioder =
+                            listOf(
+                                Søknadsfelt(
+                                    label = gyldigLabel,
+                                    verdi =
+                                        mapOf(
+                                            "nb" to
+                                                Utenlandsperiode(
+                                                    utenlandsoppholdÅrsak = Søknadsfelt(label = gyldigLabel, verdi = gyldigVerdi),
+                                                    oppholdsland = Søknadsfelt(label = gyldigLabel, verdi = gyldigVerdi),
+                                                    oppholdslandFraDato = null,
+                                                    oppholdslandTilDato = null,
+                                                    adresse = Søknadsfelt(label = gyldigLabel, verdi = mapOf("nb" to adresse500Tegn)),
+                                                ),
+                                        ),
+                                ),
+                            ),
+                    ),
+            )
+
+        val feil = KontantstøtteSøknadV6Validator.valider(søknad)
+
+        assertTrue(feil.isEmpty(), "Forventet ingen feil ved adresse opp mot 500 tegn")
+    }
+
+    @Test
+    fun `valider skal returnere feil når adresse i utenlandsperioder overskrider 500 tegn`() {
+        val adresse501Tegn = "a".repeat(501)
+        val søknad =
+            lagGyldigSøknad().copy(
+                søker =
+                    lagGyldigSøker().copy(
+                        utenlandsperioder =
+                            listOf(
+                                Søknadsfelt(
+                                    label = gyldigLabel,
+                                    verdi =
+                                        mapOf(
+                                            "nb" to
+                                                Utenlandsperiode(
+                                                    utenlandsoppholdÅrsak = Søknadsfelt(label = gyldigLabel, verdi = gyldigVerdi),
+                                                    oppholdsland = Søknadsfelt(label = gyldigLabel, verdi = gyldigVerdi),
+                                                    oppholdslandFraDato = null,
+                                                    oppholdslandTilDato = null,
+                                                    adresse = Søknadsfelt(label = gyldigLabel, verdi = mapOf("nb" to adresse501Tegn)),
+                                                ),
+                                        ),
+                                ),
+                            ),
+                    ),
+            )
+
+        val feil = KontantstøtteSøknadV6Validator.valider(søknad)
+
+        assertTrue(feil.isNotEmpty(), "Adresse på 501 tegn skal gi valideringsfeil")
+        assertTrue(feil.any { it.objectPath.contains(".adresse.") && it.feilmelding.contains("Verdi overskrider maksimal lengde på 500") })
+    }
+
+    @Test
+    fun `valider skal fortsatt begrense ikke-adresse felter til 200 tegn`() {
+        val søknad =
+            lagGyldigSøknad().copy(
+                søker =
+                    lagGyldigSøker().copy(
+                        navn =
+                            Søknadsfelt(
+                                label = gyldigLabel,
+                                verdi = mapOf("nb" to langStreng),
+                            ),
+                    ),
+            )
+
+        val feil = KontantstøtteSøknadV6Validator.valider(søknad)
+
+        assertTrue(feil.isNotEmpty())
+        assertTrue(feil.any { it.feilmelding.contains("Verdi overskrider maksimal lengde på 200") })
+    }
+
     private fun lagGyldigSøknad() =
         KontantstøtteSøknad(
             kontraktVersjon = 6,

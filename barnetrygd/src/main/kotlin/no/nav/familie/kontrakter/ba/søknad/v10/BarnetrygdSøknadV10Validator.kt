@@ -1,6 +1,7 @@
 package no.nav.familie.kontrakter.ba.søknad.v10
 
 import no.nav.familie.kontrakter.ba.søknad.MAKS_LENGDE
+import no.nav.familie.kontrakter.ba.søknad.MAKS_LENGDE_ADRESSE
 import no.nav.familie.kontrakter.ba.søknad.UGYLDIGE_TEGN_REGEX
 import no.nav.familie.kontrakter.ba.søknad.Valideringsfeil
 import no.nav.familie.kontrakter.ba.søknad.v4.Locale
@@ -295,13 +296,15 @@ class BarnetrygdSøknadV10Validator {
             locale: Locale,
         ): List<Valideringsfeil> {
             val feil = mutableListOf<Valideringsfeil>()
+            val erAdresseFelt = objectPath.contains(".adresse.")
+            val maksLengde = if (erAdresseFelt) MAKS_LENGDE_ADRESSE else MAKS_LENGDE
 
-            if (verdi.length > MAKS_LENGDE) {
+            if (verdi.length > maksLengde) {
                 feil.add(
                     Valideringsfeil(
                         objectPath = objectPath,
                         locale = locale,
-                        feilmelding = "Verdi overskrider maksimal lengde på $MAKS_LENGDE tegn (faktisk: ${verdi.length})",
+                        feilmelding = "Verdi overskrider maksimal lengde på $maksLengde tegn (faktisk: ${verdi.length})",
                     ),
                 )
             }

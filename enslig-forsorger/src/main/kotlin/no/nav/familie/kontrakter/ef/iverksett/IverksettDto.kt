@@ -70,6 +70,7 @@ data class BehandlingsdetaljerDto(
     val kravMottatt: LocalDate? = null,
     val årsakRevurdering: ÅrsakRevurderingDto? = null,
     val kategori: BehandlingKategori? = null,
+    val erRegelendring2026: Boolean = false,
 )
 
 sealed class VedtaksdetaljerDto {

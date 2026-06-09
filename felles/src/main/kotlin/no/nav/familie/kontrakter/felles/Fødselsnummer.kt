@@ -13,33 +13,6 @@ data class Fødselsnummer(
     val erNAVSyntetisk get() = verdi.substring(2, 3).toInt() >= 4 && verdi.substring(2, 3).toInt() < 8
     val erSkattSyntetisk get() = verdi.substring(2, 3).toInt() >= 8
 
-    @Deprecated("Denne kalkulerer fødselsdato basert på ident. Dette kan bli feil.")
-    val fødselsdato get() = beregnFødselsdato()
-
-    private fun beregnFødselsdato(): LocalDate {
-        val dag = verdi.substring(0, 2).toInt() - (if (erDNummer) 40 else 0)
-        val måned =
-            verdi.substring(2, 4).toInt() - (
-                if (erNAVSyntetisk) {
-                    40
-                } else if (erSkattSyntetisk) {
-                    80
-                } else {
-                    0
-                }
-            )
-        val år = verdi.substring(4, 6).toInt()
-        val datoUtenÅrhundre = LocalDate.of(år, måned, dag)
-        val individnummer = verdi.substring(6, 9).toInt()
-        when {
-            individnummer in 0..499 -> return datoUtenÅrhundre.plusYears(1900)
-            individnummer in 500..749 && år >= 54 && år <= 99 -> return datoUtenÅrhundre.plusYears(1800)
-            individnummer in 900..999 && år >= 40 && år <= 99 -> return datoUtenÅrhundre.plusYears(1900)
-            individnummer in 500..999 && år >= 0 && år <= 39 -> return datoUtenÅrhundre.plusYears(2000)
-        }
-        throw IllegalArgumentException()
-    }
-
     private fun gyldig(): Boolean {
         if (verdi.length != 11 || verdi.toLongOrNull() == null) {
             return false

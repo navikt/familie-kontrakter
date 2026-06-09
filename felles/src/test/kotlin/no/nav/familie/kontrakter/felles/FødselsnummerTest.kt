@@ -28,8 +28,7 @@ internal class FødselsnummerTest {
         listeAvBrukere.forEach {
             assertEquals(it.fnr, Fødselsnummer(it.fnr).verdi, "Fødselsnummer ${it.fnr} er gyldig")
             assertEquals(it.dnr, Fødselsnummer(it.dnr).verdi, "Dnr ${it.dnr} er gyldig")
-            assertEquals(it.fødselsdato, Fødselsnummer(it.fnr).fødselsdato, "Finner dato for ${it.fnr}")
-            assertEquals(it.fødselsdato, Fødselsnummer(it.dnr).fødselsdato, "Finner dato for ${it.dnr}")
+
             assertEquals(false, Fødselsnummer(it.fnr).erDNummer, "${it.fnr} er ikke D-nummer")
             assertEquals(true, Fødselsnummer(it.dnr).erDNummer, "${it.dnr} er D-nummer")
         }

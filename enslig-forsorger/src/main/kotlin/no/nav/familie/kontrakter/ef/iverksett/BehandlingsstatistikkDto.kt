@@ -34,6 +34,7 @@ data class BehandlingsstatistikkDto(
     val årsakRevurdering: ÅrsakRevurderingDto? = null,
     val avslagÅrsak: AvslagÅrsak? = null,
     val kategori: BehandlingKategori? = null,
+    val erRegelEndring2026: Boolean = false,
 )
 
 enum class Hendelse {

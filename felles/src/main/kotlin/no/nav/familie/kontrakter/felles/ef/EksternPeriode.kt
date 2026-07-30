@@ -56,4 +56,5 @@ data class EksternPeriodeMedStønadstype(
     val fomDato: LocalDate,
     val tomDato: LocalDate,
     val stønadstype: StønadType,
+    val erNyttRegelverk2026: Boolean = false,
 )

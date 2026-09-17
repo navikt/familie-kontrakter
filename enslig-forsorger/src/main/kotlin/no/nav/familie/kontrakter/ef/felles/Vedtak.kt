@@ -84,6 +84,7 @@ enum class VilkårType(
 
 enum class AvslagÅrsak {
     VILKÅR_IKKE_OPPFYLT,
+    BARN_OVER_FJORTEN_MÅNEDER,
     BARN_OVER_ÅTTE_ÅR,
     STØNADSTID_OPPBRUKT,
     MANGLENDE_OPPLYSNINGER,

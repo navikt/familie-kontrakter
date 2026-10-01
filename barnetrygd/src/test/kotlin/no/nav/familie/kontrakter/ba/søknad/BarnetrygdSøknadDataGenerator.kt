@@ -8,6 +8,7 @@ import no.nav.familie.kontrakter.felles.søknad.Søknadsfelt
 import no.nav.familie.kontrakter.ba.søknad.v10.Barn as BarnV10
 import no.nav.familie.kontrakter.ba.søknad.v10.BarnetrygdSøknad as BarnetrygdSøknadV10
 import no.nav.familie.kontrakter.ba.søknad.v10.Søker as SøkerV10
+import no.nav.familie.kontrakter.ba.søknad.v11.BarnetrygdSøknad as BarnetrygdSøknadV11
 import no.nav.familie.kontrakter.ba.søknad.v7.Barn as BarnV7
 import no.nav.familie.kontrakter.ba.søknad.v7.Søker as SøkerV7
 import no.nav.familie.kontrakter.ba.søknad.v7.Søknad as BarnetrygdSøknadV7
@@ -15,6 +16,23 @@ import no.nav.familie.kontrakter.ba.søknad.v8.Barn as BarnV8
 import no.nav.familie.kontrakter.ba.søknad.v8.Søker as SøkerV8
 import no.nav.familie.kontrakter.ba.søknad.v8.Søknad as BarnetrygdSøknadV8
 import no.nav.familie.kontrakter.ba.søknad.v9.BarnetrygdSøknad as BarnetrygdSøknadV9
+
+fun lagBarnetrygdSøknadV11(
+    søkerFnr: String,
+    barnFnr: String,
+): BarnetrygdSøknadV11 =
+    BarnetrygdSøknadV11(
+        kontraktVersjon = 11,
+        søker = lagSøkerV10(søkerFnr),
+        barn = listOf(lagBarnV10(barnFnr)),
+        antallEøsSteg = 0,
+        dokumentasjon = emptyList(),
+        originalSpråk = "NB",
+        finnesPersonMedAdressebeskyttelse = false,
+        søknadstype = Søknadstype.ORDINÆR,
+        spørsmål = emptyMap(),
+        teksterUtenomSpørsmål = emptyMap(),
+    )
 
 fun lagBarnetrygdSøknadV10(
     søkerFnr: String,

@@ -13,6 +13,7 @@ import tools.jackson.databind.ValueSerializer
 import tools.jackson.databind.annotation.JsonDeserialize
 import tools.jackson.databind.annotation.JsonSerialize
 import no.nav.familie.kontrakter.ba.søknad.v10.BarnetrygdSøknad as BarnetrygdSøknadV10
+import no.nav.familie.kontrakter.ba.søknad.v11.BarnetrygdSøknad as BarnetrygdSøknadV11
 import no.nav.familie.kontrakter.ba.søknad.v7.Søknad as BarnetrygdSøknadV7
 import no.nav.familie.kontrakter.ba.søknad.v8.Søknad as BarnetrygdSøknadV8
 import no.nav.familie.kontrakter.ba.søknad.v9.BarnetrygdSøknad as BarnetrygdSøknadV9
@@ -46,6 +47,7 @@ class VersjonertBarnetrygdSøknadDeserializer : ValueDeserializer<VersjonertBarn
             8 -> VersjonertBarnetrygdSøknadV8(barnetrygdSøknad = ctxt.readTreeAsValue(node, BarnetrygdSøknadV8::class.java))
             9 -> VersjonertBarnetrygdSøknadV9(barnetrygdSøknad = ctxt.readTreeAsValue(node, BarnetrygdSøknadV9::class.java))
             10 -> VersjonertBarnetrygdSøknadV10(barnetrygdSøknad = ctxt.readTreeAsValue(node, BarnetrygdSøknadV10::class.java))
+            11 -> VersjonertBarnetrygdSøknadV11(barnetrygdSøknad = ctxt.readTreeAsValue(node, BarnetrygdSøknadV11::class.java))
             else -> throw UnsupportedVersionException("Mangler implementasjon for versjon: $versjon av BarnetrygdSøknad.")
         }
     }
@@ -76,4 +78,8 @@ data class VersjonertBarnetrygdSøknadV9(
 
 data class VersjonertBarnetrygdSøknadV10(
     override val barnetrygdSøknad: BarnetrygdSøknadV10,
+) : StøttetVersjonertBarnetrygdSøknad(barnetrygdSøknad = barnetrygdSøknad)
+
+data class VersjonertBarnetrygdSøknadV11(
+    override val barnetrygdSøknad: BarnetrygdSøknadV11,
 ) : StøttetVersjonertBarnetrygdSøknad(barnetrygdSøknad = barnetrygdSøknad)

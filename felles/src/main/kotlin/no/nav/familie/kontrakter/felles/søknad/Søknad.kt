@@ -64,6 +64,10 @@ sealed interface BaFellesDokumentasjonsbehov {
 
     object BekreftelseFraBarnevern : BaFellesDokumentasjonsbehov
 
+    object BekreftelseFraBarnevernFosterhjem : BaFellesDokumentasjonsbehov
+
+    object BekreftelseFraBarnevernBeredskapshjem : BaFellesDokumentasjonsbehov
+
     object BorFastMedSøker : BaFellesDokumentasjonsbehov
 
     object SeparertSkiltEnke : BaFellesDokumentasjonsbehov

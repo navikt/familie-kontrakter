@@ -1,6 +1,9 @@
 package no.nav.familie.kontrakter.ba.søknad
 
+import no.nav.familie.kontrakter.ba.søknad.v11.Dokumentasjonsbehov
+import no.nav.familie.kontrakter.ba.søknad.v11.Søknaddokumentasjon
 import no.nav.familie.kontrakter.felles.jsonMapper
+import no.nav.familie.kontrakter.felles.søknad.BaFellesDokumentasjonsbehov
 import no.nav.familie.kontrakter.felles.søknad.MissingVersionException
 import no.nav.familie.kontrakter.felles.søknad.UnsupportedVersionException
 import org.junit.jupiter.api.Assertions.assertEquals
@@ -11,6 +14,51 @@ import org.junit.jupiter.api.assertThrows
 import tools.jackson.module.kotlin.readValue
 
 class VersjonertBarnetrygdSøknadDeserializerTest {
+    @Test
+    fun `skal kunne deserialisere BarnetrygdSøknad V11 med de nye dokumentasjonsbehovene`() {
+        val søknad =
+            lagBarnetrygdSøknadV11("12345678910", "12345678911").copy(
+                dokumentasjon =
+                    listOf(
+                        Søknaddokumentasjon(
+                            dokumentasjonsbehov = Dokumentasjonsbehov.BEKREFTELSE_FRA_BARNEVERN_FOSTERHJEM,
+                            harSendtInn = false,
+                            opplastedeVedlegg = emptyList(),
+                            dokumentasjonSpråkTittel = emptyMap(),
+                        ),
+                        Søknaddokumentasjon(
+                            dokumentasjonsbehov = Dokumentasjonsbehov.BEKREFTELSE_FRA_BARNEVERN_BEREDSKAPSHJEM,
+                            harSendtInn = false,
+                            opplastedeVedlegg = emptyList(),
+                            dokumentasjonSpråkTittel = emptyMap(),
+                        ),
+                    ),
+            )
+        val søknadJson = jsonMapper.writeValueAsString(søknad)
+
+        val versjonertBarnetrygdSøknad = jsonMapper.readValue<VersjonertBarnetrygdSøknad>(søknadJson)
+
+        assertTrue(versjonertBarnetrygdSøknad is VersjonertBarnetrygdSøknadV11)
+        assertEquals(11, versjonertBarnetrygdSøknad.barnetrygdSøknad.kontraktVersjon)
+        assertEquals(
+            listOf(
+                Dokumentasjonsbehov.BEKREFTELSE_FRA_BARNEVERN_FOSTERHJEM,
+                Dokumentasjonsbehov.BEKREFTELSE_FRA_BARNEVERN_BEREDSKAPSHJEM,
+            ),
+            (versjonertBarnetrygdSøknad.barnetrygdSøknad as no.nav.familie.kontrakter.ba.søknad.v11.BarnetrygdSøknad)
+                .dokumentasjon
+                .map { it.dokumentasjonsbehov },
+        )
+        assertEquals(
+            BaFellesDokumentasjonsbehov.BekreftelseFraBarnevernFosterhjem,
+            Dokumentasjonsbehov.BEKREFTELSE_FRA_BARNEVERN_FOSTERHJEM.tilFellesDokumentasjonsbehov(),
+        )
+        assertEquals(
+            BaFellesDokumentasjonsbehov.BekreftelseFraBarnevernBeredskapshjem,
+            Dokumentasjonsbehov.BEKREFTELSE_FRA_BARNEVERN_BEREDSKAPSHJEM.tilFellesDokumentasjonsbehov(),
+        )
+    }
+
     @Test
     fun `skal kunne deserialisere BarnetrygdSøknad V10 når kontraktVersjon er 10`() {
         // Arrange

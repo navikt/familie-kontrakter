@@ -6,39 +6,62 @@ import no.nav.familie.kontrakter.ba.søknad.UGYLDIGE_TEGN_REGEX
 import no.nav.familie.kontrakter.ba.søknad.Valideringsfeil
 import no.nav.familie.kontrakter.ba.søknad.v4.Locale
 import no.nav.familie.kontrakter.ba.søknad.v4.Søknadsfelt
-import no.nav.familie.kontrakter.ba.søknad.v7.Søknaddokumentasjon
 import no.nav.familie.kontrakter.ba.søknad.v8.AndreForelder
 import no.nav.familie.kontrakter.ba.søknad.v8.Omsorgsperson
+import no.nav.familie.kontrakter.felles.søknad.BaSøknadsvedlegg
 import kotlin.reflect.full.memberProperties
 import no.nav.familie.kontrakter.felles.søknad.Søknadsfelt as FellesSøknadsfelt
 
+internal data class DokumentasjonForValidering(
+    val språkTittel: Map<Locale, String>,
+    val vedlegg: List<BaSøknadsvedlegg>,
+)
+
 class BarnetrygdSøknadV10Validator {
     companion object {
-        fun valider(søknad: BarnetrygdSøknad): List<Valideringsfeil> {
+        fun valider(søknad: BarnetrygdSøknad): List<Valideringsfeil> =
+            valider(
+                søker = søknad.søker,
+                barn = søknad.barn,
+                dokumentasjon =
+                    søknad.dokumentasjon.map {
+                        DokumentasjonForValidering(it.dokumentasjonSpråkTittel, it.opplastedeVedlegg)
+                    },
+                spørsmål = søknad.spørsmål,
+                teksterUtenomSpørsmål = søknad.teksterUtenomSpørsmål,
+            )
+
+        internal fun valider(
+            søker: Søker,
+            barn: List<Barn>,
+            dokumentasjon: List<DokumentasjonForValidering>,
+            spørsmål: Map<String, Søknadsfelt<Any>>,
+            teksterUtenomSpørsmål: Map<String, Map<Locale, String>>,
+        ): List<Valideringsfeil> {
             val feil = mutableListOf<Valideringsfeil>()
 
             // Valider søker
-            feil.addAll(validerSøker(søknad.søker))
+            feil.addAll(validerSøker(søker))
 
             // Valider barn
-            søknad.barn.forEachIndexed { index, barn ->
+            barn.forEachIndexed { index, barn ->
                 feil.addAll(validerBarn(barn, index))
             }
 
             // Valider spørsmål på toppnivå
-            søknad.spørsmål.forEach { (spørsmålId, søknadsfelt) ->
+            spørsmål.forEach { (spørsmålId, søknadsfelt) ->
                 feil.addAll(validerSøknadsfelt(søknadsfelt, "spørsmål.$spørsmålId"))
             }
 
             // Valider teksterUtenomSpørsmål
-            søknad.teksterUtenomSpørsmål.forEach { (spørsmålId, localeMap) ->
+            teksterUtenomSpørsmål.forEach { (spørsmålId, localeMap) ->
                 localeMap.forEach { (locale, tekst) ->
                     feil.addAll(validerString(tekst, "teksterUtenomSpørsmål.$spørsmålId", locale))
                 }
             }
 
             // Valider dokumentasjon
-            søknad.dokumentasjon.forEachIndexed { index, dok ->
+            dokumentasjon.forEachIndexed { index, dok ->
                 feil.addAll(validerDokumentasjon(dok, index))
             }
 
@@ -268,19 +291,19 @@ class BarnetrygdSøknadV10Validator {
         }
 
         private fun validerDokumentasjon(
-            dok: Søknaddokumentasjon,
+            dok: DokumentasjonForValidering,
             index: Int,
         ): List<Valideringsfeil> {
             val feil = mutableListOf<Valideringsfeil>()
             val baseSti = "dokumentasjon[$index]"
 
             // Valider dokumentasjonSpråkTittel
-            dok.dokumentasjonSpråkTittel.forEach { (locale, tittel) ->
+            dok.språkTittel.forEach { (locale, tittel) ->
                 feil.addAll(validerString(tittel, "$baseSti.dokumentasjonSpråkTittel", locale))
             }
 
             // Valider vedlegg
-            dok.opplastedeVedlegg.forEachIndexed { vedleggIndex, vedlegg ->
+            dok.vedlegg.forEachIndexed { vedleggIndex, vedlegg ->
                 val vedleggSti = "$baseSti.opplastedeVedlegg[$vedleggIndex]"
                 // dokumentId har ingen locale, bruk tom string
                 feil.addAll(validerString(vedlegg.dokumentId, "$vedleggSti.dokumentId", ""))

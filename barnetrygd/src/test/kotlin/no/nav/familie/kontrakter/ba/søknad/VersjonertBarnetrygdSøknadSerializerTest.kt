@@ -10,6 +10,18 @@ class VersjonertBarnetrygdSøknadSerializerTest {
     @Nested
     inner class VersjonertKontantstøtteSøknadTest {
         @Test
+        fun `skal kunne deserialisere og serialisere VersjonertBarnetrygdSøknad hvis kontraktversjon er 11`() {
+            val barnetrygdSøknadV11 = lagBarnetrygdSøknadV11("12345678910", "12345678911")
+            val søknadJson = jsonMapper.writeValueAsString(barnetrygdSøknadV11)
+
+            assertDoesNotThrow {
+                val versjonertBarnetrygdSøknad = jsonMapper.readValue<VersjonertBarnetrygdSøknad>(søknadJson)
+                val versjonertJson = jsonMapper.writeValueAsString(versjonertBarnetrygdSøknad)
+                jsonMapper.readValue<VersjonertBarnetrygdSøknad>(versjonertJson)
+            }
+        }
+
+        @Test
         fun `skal kunne deserialisere og serialisere VersjonertBarnetrygdSøknad hvis kontraktversjon er 10`() {
             // Arrange
             val barnetrygdSøknadV10 = lagBarnetrygdSøknadV10("12345678910", "12345678911")
@@ -68,6 +80,19 @@ class VersjonertBarnetrygdSøknadSerializerTest {
 
     @Nested
     inner class StøttetVersjonertBarnetrygdSøknadTest {
+        @Test
+        fun `skal kunne deserialisere og serialisere StøttetVersjonertBarnetrygdSøknad hvis kontraktversjon er 11`() {
+            val barnetrygdSøknadV11 = lagBarnetrygdSøknadV11("12345678910", "12345678911")
+            val søknadJson = jsonMapper.writeValueAsString(barnetrygdSøknadV11)
+
+            assertDoesNotThrow {
+                val støttetVersjonertBarnetrygdSøknad =
+                    jsonMapper.readValue<StøttetVersjonertBarnetrygdSøknad>(søknadJson)
+                val versjonertJson = jsonMapper.writeValueAsString(støttetVersjonertBarnetrygdSøknad)
+                jsonMapper.readValue<StøttetVersjonertBarnetrygdSøknad>(versjonertJson)
+            }
+        }
+
         @Test
         fun `skal kunne deserialisere og serialisere StøttetVersjonertBarnetrygdSøknad hvis kontraktversjon er 9`() {
             // Arrange

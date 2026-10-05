@@ -8,6 +8,7 @@ Kontrakten er uttrykt som et sett med klasser og deres avhengigheter til hverand
 ## Krav
 
 - JDK 21 eller nyere
+- Test
 
 # Komme i gang
 

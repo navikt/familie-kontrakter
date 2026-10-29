@@ -19,6 +19,7 @@ data class OpprettOppgaveRequest(
     val behandlingstype: String? = null,
     val behandlesAvApplikasjon: String? = null,
     val mappeId: Long? = null,
+    val nokkelord: Set<String>? = null,
 )
 
 enum class Oppgavetype(

@@ -21,6 +21,7 @@ enum class FagOmrådeKode(
     KONTANTSTØTTE_MANUELT("MKS"),
     KONTANTSTØTTE_INFOTRYGD("IT18"),
     KONTANTSTØTTE_INFOTRYGD_MANUELT("MIT18"),
+    GRUNNSTØNAD_INFOTRYGD("IT28"),
     ;
 
     companion object {

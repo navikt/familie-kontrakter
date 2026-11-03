@@ -21,7 +21,7 @@
         <jdk.version>21</jdk.version>
         <kotlin.version>2.4.21</kotlin.version>
         <kotest.version>6.2.6</kotest.version>
-        <maven-enforcer.version>3.6.3</maven-enforcer.version>
+        <maven-enforcer.version>3.7.0</maven-enforcer.version>
     </properties>
 
     <modules>
@@ -95,7 +95,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>4.1.1</version>
+                <version>4.1.2</version>
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
@@ -163,7 +163,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-failsafe-plugin</artifactId>
-                    <version>3.6.0</version>
+                    <version>3.6.1</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -306,7 +306,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-surefire-plugin</artifactId>
-                        <version>3.6.0</version>
+                        <version>3.6.1</version>
                     </plugin>
                 </plugins>
             </build>

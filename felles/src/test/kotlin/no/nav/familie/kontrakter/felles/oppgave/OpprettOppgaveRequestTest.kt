@@ -4,14 +4,13 @@ import no.nav.familie.kontrakter.felles.Tema
 import no.nav.familie.kontrakter.felles.jsonMapper
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertFalse
-import org.junit.jupiter.api.Assertions.assertNull
 import org.junit.jupiter.api.Test
 import tools.jackson.module.kotlin.readValue
 import java.time.LocalDate
 
 class OpprettOppgaveRequestTest {
     @Test
-    fun `skal lese eksisterende forespørsler uten nokkelord`() {
+    fun `skal lese eksisterende opprettelsesforespørsler`() {
         val request =
             jsonMapper.readValue<OpprettOppgaveRequest>(
                 """
@@ -28,7 +27,7 @@ class OpprettOppgaveRequestTest {
                 """.trimIndent(),
             )
 
-        assertNull(request.nokkelord)
+        assertEquals(OppgaveIdentV2("12345678901", IdentGruppe.FOLKEREGISTERIDENT), request.ident)
         assertEquals(OppgavePrioritet.NORM, request.prioritet)
     }
 
@@ -57,11 +56,10 @@ class OpprettOppgaveRequestTest {
         assertEquals("ae0118", request.behandlingstype)
         assertEquals("EF_SAK", request.behandlesAvApplikasjon)
         assertEquals(789L, request.mappeId)
-        assertNull(request.nokkelord)
     }
 
     @Test
-    fun `skal skrive og lese nokkelord med riktig feltnavn`() {
+    fun `skal opprette oppgaver uten nokkelord i forespørselen`() {
         val request =
             OpprettOppgaveRequest(
                 ident = OppgaveIdentV2("12345678901", IdentGruppe.FOLKEREGISTERIDENT),
@@ -72,13 +70,11 @@ class OpprettOppgaveRequestTest {
                 behandlingstema = null,
                 fristFerdigstillelse = LocalDate.of(2026, 11, 2),
                 beskrivelse = "Godkjenn vedtak",
-                nokkelord = setOf("Barnetilsyn"),
             )
         val json = jsonMapper.writeValueAsString(request)
         val tree = jsonMapper.readTree(json)
 
-        assertEquals(jsonMapper.readTree("""["Barnetilsyn"]"""), tree["nokkelord"])
-        assertFalse(tree.has("noekkelOrd"))
+        assertFalse(tree.has("nokkelord"))
         assertEquals(request, jsonMapper.readValue<OpprettOppgaveRequest>(json))
     }
 }

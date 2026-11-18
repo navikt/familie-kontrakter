@@ -44,7 +44,16 @@ data class Vegadresse(
     val kommunenummer: String?,
     val tilleggsnavn: String?,
     val postnummer: String?,
-)
+) {
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is Vegadresse) return false
+
+        return matrikkelId != null && matrikkelId == other.matrikkelId && bruksenhetsnummer == other.bruksenhetsnummer
+    }
+
+    override fun hashCode(): Int = 31 * (matrikkelId?.hashCode() ?: 0) + (bruksenhetsnummer?.hashCode() ?: 0)
+}
 
 data class UkjentBosted(
     val bostedskommune: String,
@@ -56,7 +65,16 @@ data class Matrikkeladresse(
     val tilleggsnavn: String?,
     val postnummer: String?,
     val kommunenummer: String?,
-)
+) {
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is Matrikkeladresse) return false
+
+        return matrikkelId != null && matrikkelId == other.matrikkelId && bruksenhetsnummer == other.bruksenhetsnummer
+    }
+
+    override fun hashCode(): Int = 31 * (matrikkelId?.hashCode() ?: 0) + (bruksenhetsnummer?.hashCode() ?: 0)
+}
 
 data class UtenlandskAdresse(
     val adressenavnNummer: String?,

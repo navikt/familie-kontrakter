@@ -31,7 +31,7 @@ data class Utbetalingsperiode(
     val datoForVedtak: LocalDate,
     val klassifisering: String,
     val vedtakdatoFom: LocalDate,
-    val vedtakdatoTom: LocalDate,
+    val vedtakdatoTom: LocalDate?,
     val sats: BigDecimal,
     val satsType: SatsType,
     val utbetalesTil: String,

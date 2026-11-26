@@ -1,36 +1,31 @@
 package no.nav.familie.kontrakter.ba.tss
 
-import java.time.LocalDate
-
-data class SøkSamhandlerInfoRequest(
-    val navn: String?,
-    val side: Int = 0,
-    val postNr: String? = null,
-    val område: String? = null,
+@Deprecated(
+    "Flyttet til felles",
+    ReplaceWith("SøkSamhandlerInfoRequest", "no.nav.familie.kontrakter.felles.tss.SøkSamhandlerInfoRequest"),
 )
+typealias SøkSamhandlerInfoRequest = no.nav.familie.kontrakter.felles.tss.SøkSamhandlerInfoRequest
 
-data class SøkSamhandlerInfo(
-    val finnesMerInfo: Boolean,
-    val samhandlere: List<SamhandlerInfo>,
+@Deprecated(
+    "Flyttet til felles",
+    ReplaceWith("SøkSamhandlerInfo", "no.nav.familie.kontrakter.felles.tss.SøkSamhandlerInfo"),
 )
+typealias SøkSamhandlerInfo = no.nav.familie.kontrakter.felles.tss.SøkSamhandlerInfo
 
-data class SamhandlerInfo(
-    val tssEksternId: String,
-    val navn: String,
-    val adresser: List<SamhandlerAdresse> = emptyList(),
-    val orgNummer: String? = null,
+@Deprecated(
+    "Flyttet til felles",
+    ReplaceWith("SamhandlerInfo", "no.nav.familie.kontrakter.felles.tss.SamhandlerInfo"),
 )
+typealias SamhandlerInfo = no.nav.familie.kontrakter.felles.tss.SamhandlerInfo
 
-data class SamhandlerAdresse(
-    val adresselinjer: List<String>,
-    val postNr: String,
-    val postSted: String,
-    val adresseType: String,
-    val kommunenummer: String? = null,
-    val gyldighetsperiode: Gyldighetsperiode? = null,
+@Deprecated(
+    "Flyttet til felles",
+    ReplaceWith("SamhandlerAdresse", "no.nav.familie.kontrakter.felles.tss.SamhandlerAdresse"),
 )
+typealias SamhandlerAdresse = no.nav.familie.kontrakter.felles.tss.SamhandlerAdresse
 
-data class Gyldighetsperiode(
-    val fom: LocalDate,
-    val tom: LocalDate?,
+@Deprecated(
+    "Flyttet til felles",
+    ReplaceWith("Gyldighetsperiode", "no.nav.familie.kontrakter.felles.tss.Gyldighetsperiode"),
 )
+typealias Gyldighetsperiode = no.nav.familie.kontrakter.felles.tss.Gyldighetsperiode

@@ -1,10 +1,6 @@
 package no.nav.familie.kontrakter.felles
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect
-import no.nav.familie.kontrakter.felles.personopplysning.OppholdAnnetSted.MILITAER
-import no.nav.familie.kontrakter.felles.personopplysning.OppholdAnnetSted.PAA_SVALBARD
-import no.nav.familie.kontrakter.felles.personopplysning.OppholdAnnetSted.PENDLER
-import no.nav.familie.kontrakter.felles.personopplysning.OppholdAnnetSted.UTENRIKS
+import no.nav.familie.kontrakter.felles.oppdrag.Utbetalingsperiode
 import org.junit.jupiter.api.Assertions.assertDoesNotThrow
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
@@ -30,6 +26,33 @@ data class TestDataMedNorskeTegnIKey(
 class EmptyBean
 
 class JsonMapperTest {
+    @Test
+    fun `utbetalingsperiode kan leses med null, utelatt og utfylt sluttdato`() {
+        val json =
+            """{
+                "erEndringPåEksisterendePeriode": false,
+                "periodeId": 1,
+                "datoForVedtak": "2026-01-01",
+                "klassifisering": "GHGSORMG",
+                "vedtakdatoFom": "2026-01-01",
+                "vedtakdatoTom": null,
+                "sats": 100,
+                "satsType": "MND",
+                "utbetalesTil": "mottaker",
+                "behandlingId": 1
+            }"""
+        val type = Utbetalingsperiode::class.java
+        val løpendePeriode = jsonMapper.readValue(json, type)
+
+        assertEquals(null, løpendePeriode.vedtakdatoTom)
+        assertEquals(løpendePeriode, jsonMapper.readValue(json.replace("\"vedtakdatoTom\": null,", ""), type))
+        assertEquals(løpendePeriode, jsonMapper.readValue(jsonMapper.writeValueAsString(løpendePeriode), type))
+        assertEquals(
+            LocalDate.of(2026, 12, 31),
+            jsonMapper.readValue(json.replace("\"vedtakdatoTom\": null", "\"vedtakdatoTom\": \"2026-12-31\""), type).vedtakdatoTom,
+        )
+    }
+
     @Test
     fun `skal serialisere og deserialisere felt med privat synlighet`() {
         data class PrivateField(
